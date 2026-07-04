@@ -21,3 +21,11 @@ test('nodeXPositions centers 3 nodes with middle at 0', () => {
   const xs = nodeXPositions(3);
   assert.equal(xs[1], 0);
 });
+
+test('nodeXPositions keeps 4 nodes on-canvas (box half-width 150)', () => {
+  const xs = nodeXPositions(4);
+  assert.equal(xs.length, 4);
+  for (const x of xs) {
+    assert.ok(Math.abs(x) + 150 <= 540, `x=${x} pushes box off the 1080-wide canvas`);
+  }
+});

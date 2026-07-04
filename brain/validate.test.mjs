@@ -21,3 +21,33 @@ test('scene with <2 nodes fails', () => {
   };
   assert.equal(validateSpec(spec).valid, false);
 });
+
+test('step referencing unknown node id fails', () => {
+  const spec = {
+    title: 'X title', caption: 'c', hashtags: ['#a'],
+    scenes: [
+      {layout: 'nodes-flow', nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}],
+        steps: [{from: 'a', to: 'b', packet: 'X', status: 's'}]},
+      {layout: 'nodes-flow', nodes: [{id: 'x', label: 'X'}, {id: 'y', label: 'Y'}],
+        steps: [{from: 'srv', to: 'y', packet: 'X', status: 's'}]},
+    ]
+  };
+  const res = validateSpec(spec);
+  assert.equal(res.valid, false);
+  assert.ok(res.errors.some(e => /\/scenes\/1\/steps\/0/.test(e) && /srv/.test(e)),
+    JSON.stringify(res.errors));
+});
+
+test('duplicate node ids within a scene fails', () => {
+  const spec = {
+    title: 'X title', caption: 'c', hashtags: ['#a'],
+    scenes: [
+      {layout: 'nodes-flow', nodes: [{id: 'a', label: 'A'}, {id: 'a', label: 'A2'}],
+        steps: [{from: 'a', to: 'a', packet: 'X', status: 's'}]},
+    ]
+  };
+  const res = validateSpec(spec);
+  assert.equal(res.valid, false);
+  assert.ok(res.errors.some(e => /\/scenes\/0/.test(e) && /duplicate/i.test(e)),
+    JSON.stringify(res.errors));
+});

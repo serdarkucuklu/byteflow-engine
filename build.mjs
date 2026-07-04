@@ -1,6 +1,7 @@
 import {execFileSync} from 'node:child_process';
 import {readFileSync, copyFileSync, mkdirSync, readdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {join} from 'node:path';
 import {validateSpec} from './brain/validate.mjs';
 import {postProcess} from './publish/post-process.mjs';
 
@@ -26,7 +27,7 @@ if (!mp3) { console.error('✗ assets/music içine bir .mp3 koy'); process.exit(
 mkdirSync(fileURLToPath(new URL('dist/', root)), {recursive: true});
 const out = postProcess({
   videoPath: fileURLToPath(new URL('render/output/project.mp4', root)),
-  musicPath: musicDir + '/' + mp3,
+  musicPath: join(musicDir, mp3),
   outPath: fileURLToPath(new URL('dist/final.mp4', root)),
 });
 console.log('✓ done:', out);

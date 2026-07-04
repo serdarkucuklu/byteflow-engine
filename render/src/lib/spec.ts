@@ -8,9 +8,11 @@ export function resolveColor(token: string): string {
   return (COLORS as Record<string, string>)[token] ?? COLORS.accent;
 }
 
-// count kadar yatay merkezlenmiş x koordinatı (360px aralık)
+// count kadar yatay merkezlenmiş x koordinatı; box'lar (300px genişlik) 1080px
+// canvas'ta (x ∈ [-540,540]) taşmasın diye gap adaptif küçültülür.
 export function nodeXPositions(count: number): number[] {
-  const gap = 360;
+  const halfWidth = 380; // ~box half-width (150) payı bırakılmış kullanılabilir yarı genişlik
+  const gap = count > 1 ? Math.min(360, (2 * halfWidth) / (count - 1)) : 360;
   const start = -((count - 1) * gap) / 2;
   return Array.from({length: count}, (_, i) => start + i * gap);
 }

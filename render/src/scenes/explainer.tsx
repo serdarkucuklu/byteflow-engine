@@ -1,4 +1,4 @@
-import {makeScene2D, Rect, Txt, Line, Layout} from '@motion-canvas/2d';
+import {makeScene2D, Rect, Txt, Layout} from '@motion-canvas/2d';
 import {all, createRef, waitFor, easeInOutCubic, easeOutBack} from '@motion-canvas/core';
 import {COLORS, resolveColor, nodeXPositions, type SceneSpec} from '../lib/spec';
 import specJson from '../../scene-spec.json';
