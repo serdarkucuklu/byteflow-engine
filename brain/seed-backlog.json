@@ -1,0 +1,268 @@
+[
+  {
+    "title": "How an HTTP Request Actually Works",
+    "topic_source": "seed",
+    "caption": "Every HTTP request starts with a DNS lookup, then a TCP handshake, then the actual GET request to the server. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#systemdesign", "#http", "#webdev", "#networking", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "DNS lookup then request",
+        "nodes": [
+          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
+          {"id": "dns", "icon": "🌐", "label": "DNS"},
+          {"id": "server", "icon": "🗄️", "label": "SERVER"}
+        ],
+        "steps": [
+          {"from": "client", "to": "dns", "packet": "QUERY", "color": "accent", "status": "resolve domain to ip"},
+          {"from": "dns", "to": "client", "packet": "IP", "color": "good", "status": "ip address returned"},
+          {"from": "client", "to": "server", "packet": "GET", "color": "accent", "status": "request sent over tcp"},
+          {"from": "server", "to": "client", "packet": "200", "color": "good", "status": "html response returned"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "How Load Balancers Split Traffic",
+    "topic_source": "seed",
+    "caption": "A load balancer spreads incoming traffic across multiple servers so no single one gets overwhelmed. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#systemdesign", "#loadbalancing", "#backend", "#devops", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Request distribution",
+        "nodes": [
+          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
+          {"id": "lb", "icon": "⚖️", "label": "BALANCER"},
+          {"id": "server", "icon": "🗄️", "label": "SERVER"}
+        ],
+        "steps": [
+          {"from": "client", "to": "lb", "packet": "REQ", "color": "accent", "status": "incoming request"},
+          {"from": "lb", "to": "server", "packet": "REQ", "color": "accent", "status": "route to healthy node"},
+          {"from": "server", "to": "client", "packet": "200", "color": "good", "status": "response returned"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "How Caching Speeds Up Apps",
+    "topic_source": "seed",
+    "caption": "A cache stores hot data in fast memory so repeat requests skip the slow database. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#systemdesign", "#caching", "#redis", "#backend", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Cache hit path",
+        "nodes": [
+          {"id": "app", "icon": "🖥️", "label": "APP"},
+          {"id": "cache", "icon": "⚡", "label": "CACHE"},
+          {"id": "db", "icon": "🗄️", "label": "DATABASE"}
+        ],
+        "steps": [
+          {"from": "app", "to": "cache", "packet": "GET", "color": "accent", "status": "check cache first"},
+          {"from": "cache", "to": "app", "packet": "HIT", "color": "good", "status": "fast in-memory hit"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Why Database Indexes Make Queries Fast",
+    "topic_source": "seed",
+    "caption": "A database index is a sorted lookup structure that lets queries jump straight to matching rows instead of scanning the whole table. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#database", "#systemdesign", "#backend", "#sql", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Indexed lookup",
+        "nodes": [
+          {"id": "app", "icon": "🖥️", "label": "APP"},
+          {"id": "index", "icon": "📇", "label": "INDEX"},
+          {"id": "table", "icon": "🗄️", "label": "TABLE"}
+        ],
+        "steps": [
+          {"from": "app", "to": "index", "packet": "QUERY", "color": "accent", "status": "lookup key in index"},
+          {"from": "index", "to": "table", "packet": "ROWID", "color": "accent", "status": "jump straight to row"},
+          {"from": "table", "to": "app", "packet": "ROW", "color": "good", "status": "row returned instantly"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "How Kafka Decouples Services",
+    "topic_source": "seed",
+    "caption": "A message queue like Kafka lets producers and consumers work independently, so a slow consumer never blocks the producer. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#kafka", "#systemdesign", "#messagequeue", "#backend", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Decoupled messaging",
+        "nodes": [
+          {"id": "producer", "icon": "📤", "label": "PRODUCER"},
+          {"id": "kafka", "icon": "📨", "label": "KAFKA"},
+          {"id": "consumer", "icon": "📥", "label": "CONSUMER"}
+        ],
+        "steps": [
+          {"from": "producer", "to": "kafka", "packet": "MSG", "color": "accent", "status": "publish event to topic"},
+          {"from": "kafka", "to": "consumer", "packet": "MSG", "color": "good", "status": "consumer reads at own pace"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "How a CDN Makes Websites Faster",
+    "topic_source": "seed",
+    "caption": "A CDN caches content on edge servers close to users, so most requests never have to reach the origin server. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#cdn", "#systemdesign", "#webdev", "#networking", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Edge caching",
+        "nodes": [
+          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
+          {"id": "edge", "icon": "🌍", "label": "EDGE"},
+          {"id": "origin", "icon": "🗄️", "label": "ORIGIN"}
+        ],
+        "steps": [
+          {"from": "client", "to": "edge", "packet": "REQ", "color": "accent", "status": "request nearest edge node"},
+          {"from": "edge", "to": "origin", "packet": "REQ", "color": "warn", "status": "cache miss, fetch origin"},
+          {"from": "origin", "to": "edge", "packet": "200", "color": "good", "status": "origin returns content"},
+          {"from": "edge", "to": "client", "packet": "200", "color": "good", "status": "cached and served locally"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "How DNS Resolves a Domain Name",
+    "topic_source": "seed",
+    "caption": "DNS resolution turns a human-readable domain into an IP address by asking a resolver, which asks the authoritative server. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#dns", "#networking", "#systemdesign", "#webdev", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Name resolution",
+        "nodes": [
+          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
+          {"id": "resolver", "icon": "🧭", "label": "RESOLVER"},
+          {"id": "auth", "icon": "🗄️", "label": "AUTH SERVER"}
+        ],
+        "steps": [
+          {"from": "client", "to": "resolver", "packet": "QUERY", "color": "accent", "status": "ask for ip address"},
+          {"from": "resolver", "to": "auth", "packet": "QUERY", "color": "accent", "status": "resolver asks authority"},
+          {"from": "auth", "to": "resolver", "packet": "IP", "color": "good", "status": "authority returns ip"},
+          {"from": "resolver", "to": "client", "packet": "IP", "color": "good", "status": "ip cached and returned"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "How JWT Authentication Works",
+    "topic_source": "seed",
+    "caption": "JWT authentication issues a signed token after login, so the API can verify a user's identity without a database lookup. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#jwt", "#auth", "#systemdesign", "#backend", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Token-based auth",
+        "nodes": [
+          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
+          {"id": "auth", "icon": "🔐", "label": "AUTH"},
+          {"id": "api", "icon": "🗄️", "label": "API"}
+        ],
+        "steps": [
+          {"from": "client", "to": "auth", "packet": "LOGIN", "color": "accent", "status": "send credentials"},
+          {"from": "auth", "to": "client", "packet": "JWT", "color": "good", "status": "signed token issued"},
+          {"from": "client", "to": "api", "packet": "JWT", "color": "accent", "status": "token sent with request"},
+          {"from": "api", "to": "client", "packet": "200", "color": "good", "status": "token verified, ok"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "How Rate Limiting Protects APIs",
+    "topic_source": "seed",
+    "caption": "Rate limiting caps how many requests a client can make in a window, protecting the API from overload and abuse. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#ratelimiting", "#systemdesign", "#api", "#backend", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Throttled requests",
+        "nodes": [
+          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
+          {"id": "limiter", "icon": "🚦", "label": "LIMITER"},
+          {"id": "api", "icon": "🗄️", "label": "API"}
+        ],
+        "steps": [
+          {"from": "client", "to": "limiter", "packet": "REQ", "color": "accent", "status": "request checked first"},
+          {"from": "limiter", "to": "api", "packet": "REQ", "color": "good", "status": "under limit, forwarded"},
+          {"from": "limiter", "to": "client", "packet": "429", "color": "warn", "status": "over limit, rejected"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Monolith vs Microservices Explained",
+    "topic_source": "seed",
+    "caption": "Microservices split a monolith into small independently deployable services, trading simplicity for scalability. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#microservices", "#systemdesign", "#backend", "#architecture", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Service ownership",
+        "nodes": [
+          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
+          {"id": "gateway", "icon": "🚪", "label": "GATEWAY"},
+          {"id": "service", "icon": "⚙️", "label": "SERVICE"}
+        ],
+        "steps": [
+          {"from": "client", "to": "gateway", "packet": "REQ", "color": "accent", "status": "single entry point"},
+          {"from": "gateway", "to": "service", "packet": "REQ", "color": "good", "status": "routed to owning service"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "What an API Gateway Actually Does",
+    "topic_source": "seed",
+    "caption": "An API gateway is the single entry point that handles auth, rate limiting, and routing before requests reach internal services. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#apigateway", "#systemdesign", "#backend", "#microservices", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Gateway routing",
+        "nodes": [
+          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
+          {"id": "gateway", "icon": "🚪", "label": "GATEWAY"},
+          {"id": "service", "icon": "⚙️", "label": "SERVICE"}
+        ],
+        "steps": [
+          {"from": "client", "to": "gateway", "packet": "REQ", "color": "accent", "status": "auth and rate limit"},
+          {"from": "gateway", "to": "service", "packet": "REQ", "color": "good", "status": "forwarded to service"},
+          {"from": "service", "to": "gateway", "packet": "200", "color": "good", "status": "response sent back"},
+          {"from": "gateway", "to": "client", "packet": "200", "color": "good", "status": "response returned"}
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Docker Container Lifecycle",
+    "topic_source": "seed",
+    "caption": "A Docker container is a running instance of an image; the engine builds, runs, stops, and removes it through a defined lifecycle. Follow @byteflow for daily systems & AI breakdowns.",
+    "hashtags": ["#docker", "#devops", "#systemdesign", "#containers", "#softwareengineering"],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Build, run, stop",
+        "nodes": [
+          {"id": "image", "icon": "📦", "label": "IMAGE"},
+          {"id": "engine", "icon": "🐳", "label": "ENGINE"},
+          {"id": "container", "icon": "⚙️", "label": "CONTAINER"}
+        ],
+        "steps": [
+          {"from": "image", "to": "engine", "packet": "BUILD", "color": "accent", "status": "image built from layers"},
+          {"from": "engine", "to": "container", "packet": "RUN", "color": "good", "status": "container started from image"},
+          {"from": "container", "to": "engine", "packet": "STOP", "color": "warn", "status": "container stopped and removed"}
+        ]
+      }
+    ]
+  }
+]
