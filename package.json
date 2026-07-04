@@ -1,0 +1,12 @@
+{
+  "name": "byteflow-engine",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "validate": "node brain/validate.mjs scene-spec.example.json"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  }
+}
