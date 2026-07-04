@@ -2,6 +2,7 @@ node_modules/
 render/node_modules/
 render/output/
 dist/
+candidates.json
 assets/music/_*.mp3
 *.log
 .env
