@@ -2,7 +2,7 @@
   "name": "byteflow-render",
   "private": true,
   "type": "module",
-  "scripts": {"serve": "vite"},
+  "scripts": {"serve": "vite", "render": "node render-runner.mjs"},
   "devDependencies": {
     "@motion-canvas/2d": "^3.17.2",
     "@motion-canvas/core": "^3.17.2",
