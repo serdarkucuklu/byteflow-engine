@@ -7,7 +7,8 @@
     "validate": "node brain/validate.mjs scene-spec.example.json",
     "postprocess": "node publish/post-process.mjs",
     "build": "node build.mjs",
-    "fetch": "node fetch/fetch-trends.mjs"
+    "fetch": "node fetch/fetch-trends.mjs",
+    "daily": "node --env-file=.env run-daily.mjs"
   },
   "dependencies": {
     "rss-parser": "^3.13.0"
