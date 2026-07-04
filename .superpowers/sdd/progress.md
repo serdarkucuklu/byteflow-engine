@@ -10,3 +10,4 @@ Task 4: complete (commit pending, verified via 2x clean `npm run render` + ffpro
 Task 4: complete (commit f796808, review clean; visual check OK — 3 real bugs fixed by impl)
   MINOR: outro BYTEFLOW/CTA metni intro'ya kıyasla soluk (düşük kontrast) — final review'da ele al
 Task 5: complete (commit pending, verified via `node --test publish/post-process.test.mjs` + ffprobe — see task-5-report.md)
+Task 5: complete (commit 460d511, review clean; fixed plan test path-join bug; full suite 10/10)

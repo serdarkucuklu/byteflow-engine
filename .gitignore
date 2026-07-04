@@ -6,3 +6,4 @@ assets/music/_*.mp3
 *.log
 .env
 .playwright-mcp/
+.superpowers/

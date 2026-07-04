@@ -5,7 +5,8 @@
   "scripts": {
     "test": "node --test",
     "validate": "node brain/validate.mjs scene-spec.example.json",
-    "postprocess": "node publish/post-process.mjs"
+    "postprocess": "node publish/post-process.mjs",
+    "build": "node build.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1"
