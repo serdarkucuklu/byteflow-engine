@@ -7,11 +7,12 @@ export const SEED_BACKLOG = JSON.parse(
 );
 
 function pickSeedDefault(seeds) {
-  // deterministik olmayan seçim; index'i title uzunluğuna göre kaydır (Math.random yasak değil ama gerekmez)
-  return seeds[(Date.now ? 0 : 0)] ?? seeds[0]; // controller CLI'de gerçek rastgeleyi verir
+  // Deterministic default: always pick the first seed. Callers that want real
+  // randomness (e.g. run-daily.mjs's CLI flow) inject their own pickSeed.
+  return seeds[0];
 }
 
-export async function produceSpec({candidates, apiKey, generate = generateSpec, retries = 2, pickSeed = pickSeedDefault}) {
+export async function produceSpec({candidates, apiKey, generate = generateSpec, retries = 2, pickSeed = pickSeedDefault, backoffMs = 400}) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       const spec = await generate({candidates, apiKey});
@@ -21,6 +22,7 @@ export async function produceSpec({candidates, apiKey, generate = generateSpec, 
     } catch (e) {
       console.error(`[produce] attempt ${attempt} error: ${e.message}`);
     }
+    if (attempt < retries) await new Promise(r => setTimeout(r, backoffMs * (attempt + 1)));
   }
   const seed = pickSeed(SEED_BACKLOG);
   return {spec: seed, source: 'seed'};
