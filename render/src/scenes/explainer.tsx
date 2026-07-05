@@ -14,7 +14,7 @@ export default makeScene2D(function* (view) {
   const brandSub = createRef<Txt>();
   view.add(<Txt ref={brand} text="BYTEFLOW" fill={COLORS.text} fontFamily={MONO}
     fontSize={96} fontWeight={800} letterSpacing={12} opacity={0} y={-40} />);
-  view.add(<Txt ref={brandSub} text="@byteflow" fill={COLORS.accent} fontFamily={MONO}
+  view.add(<Txt ref={brandSub} text="@byteflowlabs" fill={COLORS.accent} fontFamily={MONO}
     fontSize={40} letterSpacing={6} opacity={0} y={60} />);
   yield* brand().opacity(1, 0.5);
   yield* brandSub().opacity(1, 0.3);
@@ -96,7 +96,7 @@ export default makeScene2D(function* (view) {
   const cta = createRef<Txt>();
   view.add(<Txt ref={outro} text="BYTEFLOW" fill={COLORS.text} fontFamily={MONO}
     fontSize={88} fontWeight={800} letterSpacing={12} opacity={0} y={-30} />);
-  view.add(<Txt ref={cta} text="follow @byteflow for more" fill={COLORS.accent}
+  view.add(<Txt ref={cta} text="follow @byteflowlabs for more" fill={COLORS.accent}
     fontFamily={MONO} fontSize={38} opacity={0} y={60} />);
   yield* all(outro().opacity(1, 0.5), cta().opacity(1, 0.5));
   yield* waitFor(1.2);

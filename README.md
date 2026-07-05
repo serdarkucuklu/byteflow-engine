@@ -86,7 +86,7 @@ Tam şema: `scene-spec.schema.json`. Örnek: `scene-spec.example.json`.
 
 `color` alanı `accent` / `good` / `warn` paletinden birini seçer (sabit renk şeması:
 BG `#0d1117`, CARD `#161b22`, accent `#58a6ff`, good `#3fb950`, warn `#d29922`).
-Marka intro/outro (`BYTEFLOW` / `@byteflow`) şablonun içinde otomatik eklenir; spec'e
+Marka intro/outro (`BYTEFLOW` / `@byteflowlabs`) şablonun içinde otomatik eklenir; spec'e
 elle eklemeye gerek yok.
 
 ## Müzik

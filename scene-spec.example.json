@@ -1,7 +1,7 @@
 {
   "title": "How a Load Balancer Works",
   "topic_source": "hand-authored",
-  "caption": "A load balancer spreads incoming traffic across servers so no single one gets overwhelmed. Here's the flow. Follow @byteflow for daily systems & AI breakdowns.",
+  "caption": "A load balancer spreads incoming traffic across servers so no single one gets overwhelmed. Here's the flow. Follow @byteflowlabs for daily systems & AI breakdowns.",
   "hashtags": ["#systemdesign", "#backend", "#loadbalancer", "#softwareengineering", "#devops"],
   "scenes": [
     {

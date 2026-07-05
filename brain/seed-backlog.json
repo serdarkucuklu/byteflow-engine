@@ -2,7 +2,7 @@
   {
     "title": "How an HTTP Request Actually Works",
     "topic_source": "seed",
-    "caption": "Every HTTP request starts with a DNS lookup, then a TCP handshake, then the actual GET request to the server. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "Every HTTP request starts with a DNS lookup, then a TCP handshake, then the actual GET request to the server. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#systemdesign", "#http", "#webdev", "#networking", "#softwareengineering"],
     "scenes": [
       {
@@ -25,7 +25,7 @@
   {
     "title": "How Load Balancers Split Traffic",
     "topic_source": "seed",
-    "caption": "A load balancer spreads incoming traffic across multiple servers so no single one gets overwhelmed. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "A load balancer spreads incoming traffic across multiple servers so no single one gets overwhelmed. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#systemdesign", "#loadbalancing", "#backend", "#devops", "#softwareengineering"],
     "scenes": [
       {
@@ -47,7 +47,7 @@
   {
     "title": "How Caching Speeds Up Apps",
     "topic_source": "seed",
-    "caption": "A cache stores hot data in fast memory so repeat requests skip the slow database. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "A cache stores hot data in fast memory so repeat requests skip the slow database. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#systemdesign", "#caching", "#redis", "#backend", "#softwareengineering"],
     "scenes": [
       {
@@ -68,7 +68,7 @@
   {
     "title": "Why Database Indexes Make Queries Fast",
     "topic_source": "seed",
-    "caption": "A database index is a sorted lookup structure that lets queries jump straight to matching rows instead of scanning the whole table. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "A database index is a sorted lookup structure that lets queries jump straight to matching rows instead of scanning the whole table. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#database", "#systemdesign", "#backend", "#sql", "#softwareengineering"],
     "scenes": [
       {
@@ -90,7 +90,7 @@
   {
     "title": "How Kafka Decouples Services",
     "topic_source": "seed",
-    "caption": "A message queue like Kafka lets producers and consumers work independently, so a slow consumer never blocks the producer. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "A message queue like Kafka lets producers and consumers work independently, so a slow consumer never blocks the producer. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#kafka", "#systemdesign", "#messagequeue", "#backend", "#softwareengineering"],
     "scenes": [
       {
@@ -111,7 +111,7 @@
   {
     "title": "How a CDN Makes Websites Faster",
     "topic_source": "seed",
-    "caption": "A CDN caches content on edge servers close to users, so most requests never have to reach the origin server. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "A CDN caches content on edge servers close to users, so most requests never have to reach the origin server. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#cdn", "#systemdesign", "#webdev", "#networking", "#softwareengineering"],
     "scenes": [
       {
@@ -134,7 +134,7 @@
   {
     "title": "How DNS Resolves a Domain Name",
     "topic_source": "seed",
-    "caption": "DNS resolution turns a human-readable domain into an IP address by asking a resolver, which asks the authoritative server. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "DNS resolution turns a human-readable domain into an IP address by asking a resolver, which asks the authoritative server. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#dns", "#networking", "#systemdesign", "#webdev", "#softwareengineering"],
     "scenes": [
       {
@@ -157,7 +157,7 @@
   {
     "title": "How JWT Authentication Works",
     "topic_source": "seed",
-    "caption": "JWT authentication issues a signed token after login, so the API can verify a user's identity without a database lookup. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "JWT authentication issues a signed token after login, so the API can verify a user's identity without a database lookup. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#jwt", "#auth", "#systemdesign", "#backend", "#softwareengineering"],
     "scenes": [
       {
@@ -180,7 +180,7 @@
   {
     "title": "How Rate Limiting Protects APIs",
     "topic_source": "seed",
-    "caption": "Rate limiting caps how many requests a client can make in a window, protecting the API from overload and abuse. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "Rate limiting caps how many requests a client can make in a window, protecting the API from overload and abuse. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#ratelimiting", "#systemdesign", "#api", "#backend", "#softwareengineering"],
     "scenes": [
       {
@@ -202,7 +202,7 @@
   {
     "title": "Monolith vs Microservices Explained",
     "topic_source": "seed",
-    "caption": "Microservices split a monolith into small independently deployable services, trading simplicity for scalability. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "Microservices split a monolith into small independently deployable services, trading simplicity for scalability. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#microservices", "#systemdesign", "#backend", "#architecture", "#softwareengineering"],
     "scenes": [
       {
@@ -223,7 +223,7 @@
   {
     "title": "What an API Gateway Actually Does",
     "topic_source": "seed",
-    "caption": "An API gateway is the single entry point that handles auth, rate limiting, and routing before requests reach internal services. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "An API gateway is the single entry point that handles auth, rate limiting, and routing before requests reach internal services. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#apigateway", "#systemdesign", "#backend", "#microservices", "#softwareengineering"],
     "scenes": [
       {
@@ -246,7 +246,7 @@
   {
     "title": "The Docker Container Lifecycle",
     "topic_source": "seed",
-    "caption": "A Docker container is a running instance of an image; the engine builds, runs, stops, and removes it through a defined lifecycle. Follow @byteflow for daily systems & AI breakdowns.",
+    "caption": "A Docker container is a running instance of an image; the engine builds, runs, stops, and removes it through a defined lifecycle. Follow @byteflowlabs for daily systems & AI breakdowns.",
     "hashtags": ["#docker", "#devops", "#systemdesign", "#containers", "#softwareengineering"],
     "scenes": [
       {

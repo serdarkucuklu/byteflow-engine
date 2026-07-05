@@ -85,7 +85,7 @@
       "heading": "WITH SERVICE MESH"
     }
   ],
-  "caption": "A service mesh adds a network proxy (sidecar) to each microservice. This decouples reliability, security, and observability features from application code, managing them at the infrastructure layer. It centralizes control over traffic management, retries, and more, making distributed systems easier to build and operate. Follow @byteflow for daily systems & AI breakdowns.",
+  "caption": "A service mesh adds a network proxy (sidecar) to each microservice. This decouples reliability, security, and observability features from application code, managing them at the infrastructure layer. It centralizes control over traffic management, retries, and more, making distributed systems easier to build and operate. Follow @byteflowlabs for daily systems & AI breakdowns.",
   "hashtags": [
     "#servicemesh",
     "#microservices",
