@@ -1,97 +1,97 @@
 {
-  "title": "SERVICE MESH: SIDECAR PROXY PATTERN",
+  "title": "Bridging Legacy APIs: SOAP to JSON Wrapper",
   "scenes": [
     {
       "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "client_app",
-          "label": "CLIENT APP",
+          "id": "client",
+          "label": "MODERN APP",
           "icon": "📱"
         },
         {
-          "id": "microservice",
-          "label": "MICROSERVICE",
-          "icon": "⚙️"
+          "id": "soap_api",
+          "label": "LEGACY SOAP",
+          "icon": "🏛️"
         }
       ],
       "steps": [
         {
-          "from": "client_app",
-          "to": "microservice",
-          "packet": "REQ",
-          "status": "request sent",
-          "color": "accent"
+          "from": "client",
+          "to": "soap_api",
+          "packet": "XML",
+          "status": "complex xml request",
+          "color": "warn"
         },
         {
-          "from": "microservice",
-          "to": "client_app",
-          "packet": "200",
-          "status": "response received",
-          "color": "good"
+          "from": "soap_api",
+          "to": "client",
+          "packet": "XML",
+          "status": "verbose xml response",
+          "color": "warn"
         }
       ],
-      "heading": "DIRECT COMMUNICATION"
+      "heading": "Legacy API Challenge"
     },
     {
       "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "client_app_mesh",
-          "label": "CLIENT APP",
+          "id": "client",
+          "label": "MODERN APP",
           "icon": "📱"
         },
         {
-          "id": "sidecar_proxy",
-          "label": "SIDECAR",
-          "icon": "🛡️"
+          "id": "wrapper",
+          "label": "JSON WRAPPER",
+          "icon": "🔄"
         },
         {
-          "id": "microservice_mesh",
-          "label": "MICROSERVICE",
-          "icon": "⚙️"
+          "id": "soap_api",
+          "label": "LEGACY SOAP",
+          "icon": "🏛️"
         }
       ],
       "steps": [
         {
-          "from": "client_app_mesh",
-          "to": "sidecar_proxy",
-          "packet": "REQ",
-          "status": "request to mesh",
+          "from": "client",
+          "to": "wrapper",
+          "packet": "JSON",
+          "status": "simple json request",
           "color": "accent"
         },
         {
-          "from": "sidecar_proxy",
-          "to": "microservice_mesh",
-          "packet": "REQ",
-          "status": "proxy to service",
-          "color": "accent"
-        },
-        {
-          "from": "microservice_mesh",
-          "to": "sidecar_proxy",
-          "packet": "200",
-          "status": "service to proxy",
+          "from": "wrapper",
+          "to": "soap_api",
+          "packet": "XML",
+          "status": "wrapper converts json to xml",
           "color": "good"
         },
         {
-          "from": "sidecar_proxy",
-          "to": "client_app_mesh",
-          "packet": "200",
-          "status": "mesh to client (metrics)",
+          "from": "soap_api",
+          "to": "wrapper",
+          "packet": "XML",
+          "status": "legacy xml response",
+          "color": "good"
+        },
+        {
+          "from": "wrapper",
+          "to": "client",
+          "packet": "JSON",
+          "status": "wrapper converts xml to json",
           "color": "good"
         }
       ],
-      "heading": "WITH SERVICE MESH"
+      "heading": "Introducing the JSON Wrapper"
     }
   ],
-  "caption": "A service mesh adds a network proxy (sidecar) to each microservice. This decouples reliability, security, and observability features from application code, managing them at the infrastructure layer. It centralizes control over traffic management, retries, and more, making distributed systems easier to build and operate. Follow @byteflowlabs for daily systems & AI breakdowns.",
+  "caption": "Modern applications often need to interact with older, complex APIs. An API wrapper acts as a translator, simplifying communication by converting modern JSON requests into legacy formats like SOAP/XML, and vice versa. This makes integration smoother and faster. Follow @byteflowlabs for daily systems & AI breakdowns.",
   "hashtags": [
-    "#servicemesh",
-    "#microservices",
-    "#systemdesign",
-    "#distributedsystems",
-    "#cloudnative",
-    "#kubernetes"
+    "APIDesign",
+    "SystemDesign",
+    "LegacyCode",
+    "Microservices",
+    "TechExplained",
+    "SoftwareEngineering"
   ]
 }
