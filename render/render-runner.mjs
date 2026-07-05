@@ -1,7 +1,7 @@
 import {spawn} from 'node:child_process';
 import {chromium} from 'playwright';
 import {setTimeout as sleep} from 'node:timers/promises';
-import {existsSync, rmSync} from 'node:fs';
+import {existsSync, rmSync, statSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 
 const PORT = 9000;
@@ -55,7 +55,16 @@ async function main() {
 
   // Headless chromium'da Motion Canvas editör UI + canvas/ffmpeg render'ı takılıyor
   // (CI'da kanıtlandı). RENDER_HEADED=1 ise (xvfb sanal ekranı altında) headed başlat.
-  const browser = await chromium.launch({headless: process.env.RENDER_HEADED !== '1'});
+  // Anti-throttle flag'ler: arka plandaki pencerede requestAnimationFrame/timer
+  // throttle'ını kapat — yoksa hem MC render loop'u hem waitForFunction rAF polling'i durur.
+  const browser = await chromium.launch({
+    headless: process.env.RENDER_HEADED !== '1',
+    args: [
+      '--disable-background-timer-throttling',
+      '--disable-backgrounding-occluded-windows',
+      '--disable-renderer-backgrounding',
+    ],
+  });
   try {
     await waitForServer(`http://localhost:${PORT}/`);
     const page = await browser.newPage();
@@ -103,29 +112,39 @@ async function main() {
     const renderBtn = page.locator('#render');
     await renderBtn.click();
 
-    // The render button gains `data-rendering` while `RendererState.Working`
-    // and loses it again once the renderer returns to `Initial` (success,
-    // error, or abort) — see @motion-canvas/core Renderer.render(). This is
-    // a far more reliable completion signal than polling for the mp4 file:
-    // ffmpeg opens/creates the output file as soon as rendering starts and
-    // keeps writing to it for the whole render, so "file exists" fires
-    // seconds into a render that isn't done yet.
+    // Render'ın BAŞLADIĞINI doğrula (data-rendering ekleniyor). polling:'raf' yerine
+    // sabit aralıkla poll et — headed/xvfb'de rAF throttle olabilir.
     await page.waitForFunction(
       () => document.querySelector('#render')?.hasAttribute('data-rendering'),
-      {timeout: 15000},
+      {timeout: 30000, polling: 1000},
     ).catch(() => {
       throw new Error('render did not start (button never entered the rendering state)');
     });
 
-    await page.waitForFunction(
-      () => !document.querySelector('#render')?.hasAttribute('data-rendering'),
-      {timeout: 5 * 60 * 1000},
-    );
-
-    if (!existsSync(OUT_PATH)) {
-      throw new Error('renderer finished but produced no mp4 at ' + OUT_PATH);
+    // Tamamlanmayı DOM yerine DOSYA-STABİLİZASYONU ile bekle (editörden bağımsız,
+    // rAF'a bağımsız): ffmpeg render boyunca mp4'e yazar; boyut STABLE_MS boyunca
+    // değişmiyorsa render bitmiştir.
+    const STABLE_MS = 3000, MAX_MS = 6 * 60 * 1000, STEP = 1000;
+    let lastSize = -1, stableFor = 0, elapsed = 0;
+    while (elapsed < MAX_MS) {
+      await sleep(STEP);
+      elapsed += STEP;
+      const size = existsSync(OUT_PATH) ? statSync(OUT_PATH).size : -1;
+      const rendering = await page.evaluate(
+        () => document.querySelector('#render')?.hasAttribute('data-rendering'),
+      ).catch(() => true);
+      if (size > 0 && size === lastSize) {
+        stableFor += STEP;
+        if (stableFor >= STABLE_MS && !rendering) break;
+      } else {
+        stableFor = 0;
+      }
+      lastSize = size;
     }
-    console.log('✓ rendered', OUT_PATH);
+    if (!existsSync(OUT_PATH) || statSync(OUT_PATH).size === 0) {
+      throw new Error('render tamamlanmadı / mp4 üretilmedi: ' + OUT_PATH);
+    }
+    console.log('✓ rendered', OUT_PATH, `(${statSync(OUT_PATH).size} bytes)`);
   } finally {
     await browser.close();
     killServerTree(server);
