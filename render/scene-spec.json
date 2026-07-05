@@ -1,97 +1,92 @@
 {
-  "title": "Bridging Legacy APIs: SOAP to JSON Wrapper",
+  "title": "API Gateway: Modernizing Legacy Systems",
   "scenes": [
     {
       "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "client",
-          "label": "MODERN APP",
-          "icon": "📱"
+          "id": "CLIENT",
+          "label": "💻 CLIENT"
         },
         {
-          "id": "soap_api",
-          "label": "LEGACY SOAP",
-          "icon": "🏛️"
+          "id": "LEGACY_API",
+          "label": "🏛️ LEGACY API"
         }
       ],
       "steps": [
         {
-          "from": "client",
-          "to": "soap_api",
-          "packet": "XML",
-          "status": "complex xml request",
+          "from": "CLIENT",
+          "to": "LEGACY_API",
+          "packet": "SOAP",
+          "status": "complex, verbose request",
           "color": "warn"
         },
         {
-          "from": "soap_api",
-          "to": "client",
-          "packet": "XML",
-          "status": "verbose xml response",
+          "from": "LEGACY_API",
+          "to": "CLIENT",
+          "packet": "ERR",
+          "status": "incompatible format, slow response",
           "color": "warn"
         }
       ],
-      "heading": "Legacy API Challenge"
+      "heading": "The Legacy API Problem"
     },
     {
       "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "client",
-          "label": "MODERN APP",
-          "icon": "📱"
+          "id": "CLIENT",
+          "label": "💻 CLIENT"
         },
         {
-          "id": "wrapper",
-          "label": "JSON WRAPPER",
-          "icon": "🔄"
+          "id": "JSON_WRAPPER",
+          "label": "📦 JSON WRAPPER"
         },
         {
-          "id": "soap_api",
-          "label": "LEGACY SOAP",
-          "icon": "🏛️"
+          "id": "LEGACY_API",
+          "label": "🏛️ LEGACY API"
         }
       ],
       "steps": [
         {
-          "from": "client",
-          "to": "wrapper",
-          "packet": "JSON",
-          "status": "simple json request",
+          "from": "CLIENT",
+          "to": "JSON_WRAPPER",
+          "packet": "GET",
+          "status": "simple, modern JSON request",
           "color": "accent"
         },
         {
-          "from": "wrapper",
-          "to": "soap_api",
-          "packet": "XML",
-          "status": "wrapper converts json to xml",
-          "color": "good"
+          "from": "JSON_WRAPPER",
+          "to": "LEGACY_API",
+          "packet": "SOAP",
+          "status": "translating to legacy format",
+          "color": "accent"
         },
         {
-          "from": "soap_api",
-          "to": "wrapper",
-          "packet": "XML",
-          "status": "legacy xml response",
-          "color": "good"
+          "from": "LEGACY_API",
+          "to": "JSON_WRAPPER",
+          "packet": "DATA",
+          "status": "legacy data received",
+          "color": "accent"
         },
         {
-          "from": "wrapper",
-          "to": "client",
-          "packet": "JSON",
-          "status": "wrapper converts xml to json",
+          "from": "JSON_WRAPPER",
+          "to": "CLIENT",
+          "packet": "200",
+          "status": "sending clean JSON data",
           "color": "good"
         }
       ],
-      "heading": "Introducing the JSON Wrapper"
+      "heading": "The JSON Wrapper Solution"
     }
   ],
-  "caption": "Modern applications often need to interact with older, complex APIs. An API wrapper acts as a translator, simplifying communication by converting modern JSON requests into legacy formats like SOAP/XML, and vice versa. This makes integration smoother and faster. Follow @byteflowlabs for daily systems & AI breakdowns.",
+  "caption": "Legacy APIs can be a headache for modern applications. A JSON wrapper or API Gateway acts as a translator, simplifying interactions and modernizing your system without rewriting everything. Follow @byteflowlabs for daily systems & AI breakdowns.",
   "hashtags": [
-    "APIDesign",
-    "SystemDesign",
-    "LegacyCode",
-    "Microservices",
-    "TechExplained",
-    "SoftwareEngineering"
+    "#APIGateway",
+    "#SystemDesign",
+    "#LegacyCode",
+    "#Microservices",
+    "#TechExplained",
+    "#SoftwareArchitecture"
   ]
 }
