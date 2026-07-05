@@ -1,92 +1,52 @@
 {
-  "title": "API Gateway: Modernizing Legacy Systems",
+  "title": "How Kafka Decouples Services",
+  "topic_source": "seed",
+  "caption": "A message queue like Kafka lets producers and consumers work independently, so a slow consumer never blocks the producer. Follow @byteflowlabs for daily systems & AI breakdowns.",
+  "hashtags": [
+    "#kafka",
+    "#systemdesign",
+    "#messagequeue",
+    "#backend",
+    "#softwareengineering"
+  ],
   "scenes": [
     {
       "layout": "nodes-flow",
+      "heading": "Decoupled messaging",
       "nodes": [
         {
-          "id": "CLIENT",
-          "label": "💻 CLIENT"
+          "id": "producer",
+          "icon": "📤",
+          "label": "PRODUCER"
         },
         {
-          "id": "LEGACY_API",
-          "label": "🏛️ LEGACY API"
+          "id": "kafka",
+          "icon": "📨",
+          "label": "KAFKA"
+        },
+        {
+          "id": "consumer",
+          "icon": "📥",
+          "label": "CONSUMER"
         }
       ],
       "steps": [
         {
-          "from": "CLIENT",
-          "to": "LEGACY_API",
-          "packet": "SOAP",
-          "status": "complex, verbose request",
-          "color": "warn"
+          "from": "producer",
+          "to": "kafka",
+          "packet": "MSG",
+          "color": "accent",
+          "status": "publish event to topic"
         },
         {
-          "from": "LEGACY_API",
-          "to": "CLIENT",
-          "packet": "ERR",
-          "status": "incompatible format, slow response",
-          "color": "warn"
+          "from": "kafka",
+          "to": "consumer",
+          "packet": "MSG",
+          "color": "good",
+          "status": "consumer reads at own pace"
         }
-      ],
-      "heading": "The Legacy API Problem"
-    },
-    {
-      "layout": "nodes-flow",
-      "nodes": [
-        {
-          "id": "CLIENT",
-          "label": "💻 CLIENT"
-        },
-        {
-          "id": "JSON_WRAPPER",
-          "label": "📦 JSON WRAPPER"
-        },
-        {
-          "id": "LEGACY_API",
-          "label": "🏛️ LEGACY API"
-        }
-      ],
-      "steps": [
-        {
-          "from": "CLIENT",
-          "to": "JSON_WRAPPER",
-          "packet": "GET",
-          "status": "simple, modern JSON request",
-          "color": "accent"
-        },
-        {
-          "from": "JSON_WRAPPER",
-          "to": "LEGACY_API",
-          "packet": "SOAP",
-          "status": "translating to legacy format",
-          "color": "accent"
-        },
-        {
-          "from": "LEGACY_API",
-          "to": "JSON_WRAPPER",
-          "packet": "DATA",
-          "status": "legacy data received",
-          "color": "accent"
-        },
-        {
-          "from": "JSON_WRAPPER",
-          "to": "CLIENT",
-          "packet": "200",
-          "status": "sending clean JSON data",
-          "color": "good"
-        }
-      ],
-      "heading": "The JSON Wrapper Solution"
+      ]
     }
   ],
-  "caption": "Legacy APIs can be a headache for modern applications. A JSON wrapper or API Gateway acts as a translator, simplifying interactions and modernizing your system without rewriting everything. Follow @byteflowlabs for daily systems & AI breakdowns.",
-  "hashtags": [
-    "#APIGateway",
-    "#SystemDesign",
-    "#LegacyCode",
-    "#Microservices",
-    "#TechExplained",
-    "#SoftwareArchitecture"
-  ]
+  "theme": "#bc8cff"
 }
