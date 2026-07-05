@@ -6,6 +6,7 @@
   "properties": {
     "title": {"type": "string", "minLength": 3, "maxLength": 60},
     "topic_source": {"type": "string"},
+    "theme": {"type": "string"},
     "caption": {"type": "string", "minLength": 1, "maxLength": 2200},
     "hashtags": {"type": "array", "items": {"type": "string"}, "minItems": 1, "maxItems": 30},
     "scenes": {

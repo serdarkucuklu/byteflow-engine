@@ -12,10 +12,10 @@ function pickSeedDefault(seeds) {
   return seeds[0];
 }
 
-export async function produceSpec({candidates, apiKey, generate = generateSpec, retries = 2, pickSeed = pickSeedDefault, backoffMs = 400}) {
+export async function produceSpec({candidates, apiKey, recentTitles = [], generate = generateSpec, retries = 2, pickSeed = pickSeedDefault, backoffMs = 400}) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
-      const spec = await generate({candidates, apiKey});
+      const spec = await generate({candidates, apiKey, recentTitles});
       const {valid, errors} = validateSpec(spec);
       if (valid) return {spec, source: 'gemini'};
       console.error(`[produce] attempt ${attempt} invalid: ${errors.join('; ')}`);
@@ -24,6 +24,8 @@ export async function produceSpec({candidates, apiKey, generate = generateSpec, 
     }
     if (attempt < retries) await new Promise(r => setTimeout(r, backoffMs * (attempt + 1)));
   }
-  const seed = pickSeed(SEED_BACKLOG);
+  // Seed fallback: son yayınlanan konuları havuzdan çıkar (tekrar olmasın).
+  const pool = SEED_BACKLOG.filter(s => !recentTitles.includes(s.title));
+  const seed = pickSeed(pool.length ? pool : SEED_BACKLOG);
   return {spec: seed, source: 'seed'};
 }
