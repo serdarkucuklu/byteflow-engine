@@ -32,7 +32,7 @@ jobs:
       - name: Sistem bağımlılıkları (ffmpeg + fontlar)
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg fonts-noto-color-emoji fonts-jetbrains-mono || sudo apt-get install -y ffmpeg fonts-noto-color-emoji
+          sudo apt-get install -y ffmpeg xvfb fonts-noto-color-emoji fonts-jetbrains-mono || sudo apt-get install -y ffmpeg xvfb fonts-noto-color-emoji
 
       - name: Bağımlılıklar (root + render + chromium)
         run: |
@@ -44,7 +44,8 @@ jobs:
       - name: Video üret (trend → Gemini → render → müzik)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: node run-daily.mjs
+          RENDER_HEADED: '1'   # xvfb sanal ekranı altında headed chromium
+        run: xvfb-run -a node run-daily.mjs
 
       - name: Videoyu barındır (repo'ya push)
         run: |

@@ -53,13 +53,16 @@ async function main() {
   server.stdout.on('data', d => process.stdout.write(`[vite] ${d}`));
   server.stderr.on('data', d => process.stderr.write(`[vite] ${d}`));
 
-  const browser = await chromium.launch();
+  // Headless chromium'da Motion Canvas editör UI + canvas/ffmpeg render'ı takılıyor
+  // (CI'da kanıtlandı). RENDER_HEADED=1 ise (xvfb sanal ekranı altında) headed başlat.
+  const browser = await chromium.launch({headless: process.env.RENDER_HEADED !== '1'});
   try {
     await waitForServer(`http://localhost:${PORT}/`);
     const page = await browser.newPage();
     page.on('pageerror', err => console.error('[page error]', err.message));
-    await page.goto(`http://localhost:${PORT}/`);
-    await page.waitForSelector('text=Video Settings', {timeout: 30000});
+    await page.goto(`http://localhost:${PORT}/`, {waitUntil: 'domcontentloaded'});
+    // CI'da ilk vite derlemesi + editör mount yavaş olabilir → 90s.
+    await page.waitForSelector('text=Video Settings', {timeout: 90000});
     // Editor mounts its reactive settings a beat after the panel label appears.
     await sleep(1000);
 
