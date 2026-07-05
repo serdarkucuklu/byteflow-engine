@@ -151,7 +151,12 @@ async function main() {
   }
 }
 
-main().catch(e => {
-  console.error(e);
-  process.exit(1);
-});
+// main() sonrası process.exit(0) ŞART: Linux'ta killServerTree vite'ı grup olarak
+// öldüremediğinden (detached değil) event loop açık kalır ve node çıkmaz → execFileSync
+// sonsuz bekler (CI'da 20dk timeout'a kadar takıldı). Explicit exit bunu keser.
+main()
+  .then(() => process.exit(0))
+  .catch(e => {
+    console.error(e);
+    process.exit(1);
+  });
