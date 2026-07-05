@@ -56,11 +56,12 @@ jobs:
           git commit -m "chore: daily reel $(date -u +%F)" || echo "değişiklik yok"
           git push
 
-      - name: Instagram'a yayınla
+      - name: Instagram + Facebook'a yayınla
         if: ${{ github.event_name == 'schedule' || inputs.publish }}
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
         run: |
           SHA=$(git rev-parse HEAD)
           node publish/publish-latest.mjs "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${SHA}/public/latest.mp4"
