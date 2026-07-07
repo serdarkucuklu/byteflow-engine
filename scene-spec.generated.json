@@ -1,52 +1,66 @@
 {
-  "title": "How Kafka Decouples Services",
+  "title": "How JWT Authentication Works",
   "topic_source": "seed",
-  "caption": "A message queue like Kafka lets producers and consumers work independently, so a slow consumer never blocks the producer. Follow @byteflowlabs for daily systems & AI breakdowns.",
+  "caption": "JWT authentication issues a signed token after login, so the API can verify a user's identity without a database lookup. Follow @byteflowlabs for daily systems & AI breakdowns.",
   "hashtags": [
-    "#kafka",
+    "#jwt",
+    "#auth",
     "#systemdesign",
-    "#messagequeue",
     "#backend",
     "#softwareengineering"
   ],
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "heading": "Decoupled messaging",
+      "layout": "vertical-stack",
+      "heading": "Token-based auth",
       "nodes": [
         {
-          "id": "producer",
-          "icon": "📤",
-          "label": "PRODUCER"
+          "id": "client",
+          "icon": "🖥️",
+          "label": "CLIENT"
         },
         {
-          "id": "kafka",
-          "icon": "📨",
-          "label": "KAFKA"
+          "id": "auth",
+          "icon": "🔐",
+          "label": "AUTH"
         },
         {
-          "id": "consumer",
-          "icon": "📥",
-          "label": "CONSUMER"
+          "id": "api",
+          "icon": "🗄️",
+          "label": "API"
         }
       ],
       "steps": [
         {
-          "from": "producer",
-          "to": "kafka",
-          "packet": "MSG",
+          "from": "client",
+          "to": "auth",
+          "packet": "LOGIN",
           "color": "accent",
-          "status": "publish event to topic"
+          "status": "send credentials"
         },
         {
-          "from": "kafka",
-          "to": "consumer",
-          "packet": "MSG",
+          "from": "auth",
+          "to": "client",
+          "packet": "JWT",
           "color": "good",
-          "status": "consumer reads at own pace"
+          "status": "signed token issued"
+        },
+        {
+          "from": "client",
+          "to": "api",
+          "packet": "JWT",
+          "color": "accent",
+          "status": "token sent with request"
+        },
+        {
+          "from": "api",
+          "to": "client",
+          "packet": "200",
+          "color": "good",
+          "status": "token verified, ok"
         }
       ]
     }
   ],
-  "theme": "#bc8cff"
+  "theme": "#58a6ff"
 }

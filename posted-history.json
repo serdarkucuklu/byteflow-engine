@@ -5,5 +5,12 @@
     "theme": "#bc8cff",
     "source": "seed",
     "date": "2026-07-05"
+  },
+  {
+    "title": "How JWT Authentication Works",
+    "layout": "vertical-stack",
+    "theme": "#58a6ff",
+    "source": "seed",
+    "date": "2026-07-07"
   }
 ]
