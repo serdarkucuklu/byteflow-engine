@@ -12,5 +12,12 @@
     "theme": "#58a6ff",
     "source": "seed",
     "date": "2026-07-07"
+  },
+  {
+    "title": "How a Service Mesh Works",
+    "layout": "hub-spoke",
+    "theme": "#3fb950",
+    "source": "gemini",
+    "date": "2026-07-11"
   }
 ]

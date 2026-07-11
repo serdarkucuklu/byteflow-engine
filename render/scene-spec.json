@@ -1,66 +1,179 @@
 {
-  "title": "How JWT Authentication Works",
-  "topic_source": "seed",
-  "caption": "JWT authentication issues a signed token after login, so the API can verify a user's identity without a database lookup. Follow @byteflowlabs for daily systems & AI breakdowns.",
-  "hashtags": [
-    "#jwt",
-    "#auth",
-    "#systemdesign",
-    "#backend",
-    "#softwareengineering"
-  ],
+  "title": "How a Service Mesh Works",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "heading": "Token-based auth",
+      "layout": "hub-spoke",
       "nodes": [
         {
-          "id": "client",
-          "icon": "🖥️",
-          "label": "CLIENT"
+          "id": "app",
+          "label": "APP SVC",
+          "icon": "⚙️"
         },
         {
-          "id": "auth",
-          "icon": "🔐",
-          "label": "AUTH"
+          "id": "sidecar",
+          "label": "SIDECAR",
+          "icon": "↔️"
         },
         {
-          "id": "api",
-          "icon": "🗄️",
-          "label": "API"
+          "id": "target",
+          "label": "TARGET SVC",
+          "icon": "📦"
         }
       ],
       "steps": [
         {
-          "from": "client",
-          "to": "auth",
-          "packet": "LOGIN",
-          "color": "accent",
-          "status": "send credentials"
+          "from": "app",
+          "to": "sidecar",
+          "packet": "REQ",
+          "status": "app sends request"
         },
         {
-          "from": "auth",
-          "to": "client",
-          "packet": "JWT",
-          "color": "good",
-          "status": "signed token issued"
+          "from": "sidecar",
+          "to": "target",
+          "packet": "REQ",
+          "status": "sidecar forwards to target"
         },
         {
-          "from": "client",
-          "to": "api",
-          "packet": "JWT",
-          "color": "accent",
-          "status": "token sent with request"
+          "from": "target",
+          "to": "sidecar",
+          "packet": "RESP",
+          "status": "target responds"
         },
         {
-          "from": "api",
-          "to": "client",
-          "packet": "200",
-          "color": "good",
-          "status": "token verified, ok"
+          "from": "sidecar",
+          "to": "app",
+          "packet": "RESP",
+          "status": "sidecar returns to app"
         }
-      ]
+      ],
+      "heading": "Transparent Communication"
+    },
+    {
+      "layout": "hub-spoke",
+      "nodes": [
+        {
+          "id": "app",
+          "label": "APP SVC",
+          "icon": "⚙️"
+        },
+        {
+          "id": "sidecar",
+          "label": "SIDECAR",
+          "icon": "↔️"
+        },
+        {
+          "id": "target",
+          "label": "TARGET SVC",
+          "icon": "📦"
+        }
+      ],
+      "steps": [
+        {
+          "from": "app",
+          "to": "sidecar",
+          "packet": "REQ",
+          "status": "app requests target"
+        },
+        {
+          "from": "sidecar",
+          "to": "target",
+          "packet": "REQ",
+          "status": "sidecar forwards request"
+        },
+        {
+          "from": "target",
+          "to": "sidecar",
+          "packet": "500",
+          "status": "target fails",
+          "color": "warn"
+        },
+        {
+          "from": "sidecar",
+          "to": "target",
+          "packet": "RETRY",
+          "status": "sidecar retries request"
+        },
+        {
+          "from": "target",
+          "to": "sidecar",
+          "packet": "200",
+          "status": "target succeeds",
+          "color": "good"
+        },
+        {
+          "from": "sidecar",
+          "to": "app",
+          "packet": "200",
+          "status": "response delivered"
+        }
+      ],
+      "heading": "Resilient Communication"
+    },
+    {
+      "layout": "hub-spoke",
+      "nodes": [
+        {
+          "id": "app",
+          "label": "APP SVC",
+          "icon": "⚙️"
+        },
+        {
+          "id": "sidecar",
+          "label": "SIDECAR",
+          "icon": "↔️"
+        },
+        {
+          "id": "telemetry",
+          "label": "OBSERVABILITY",
+          "icon": "📊"
+        }
+      ],
+      "steps": [
+        {
+          "from": "app",
+          "to": "sidecar",
+          "packet": "REQ",
+          "status": "app sends request"
+        },
+        {
+          "from": "sidecar",
+          "to": "telemetry",
+          "packet": "METRIC",
+          "status": "sidecar collects metrics",
+          "color": "accent"
+        },
+        {
+          "from": "sidecar",
+          "to": "telemetry",
+          "packet": "TRACE",
+          "status": "sidecar generates trace spans",
+          "color": "accent"
+        },
+        {
+          "from": "sidecar",
+          "to": "app",
+          "packet": "RESP",
+          "status": "request processed"
+        },
+        {
+          "from": "telemetry",
+          "to": "telemetry",
+          "packet": "VIEW",
+          "status": "visualize system health",
+          "color": "good"
+        }
+      ],
+      "heading": "Collects Telemetry Data"
     }
   ],
-  "theme": "#58a6ff"
+  "caption": "Ever wonder how microservices talk to each other reliably and securely? A Service Mesh provides a transparent layer for traffic management, observability, and security policies without modifying your application code. It uses sidecar proxies to intercept and manage all network communication between services, making your distributed systems more resilient and easier to manage. Follow @byteflowlabs for daily systems & AI breakdowns.",
+  "hashtags": [
+    "ServiceMesh",
+    "Microservices",
+    "CloudNative",
+    "SystemDesign",
+    "DistributedSystems",
+    "SoftwareArchitecture"
+  ],
+  "theme": "#3fb950"
 }
