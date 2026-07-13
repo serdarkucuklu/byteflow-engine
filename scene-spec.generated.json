@@ -1,179 +1,109 @@
 {
-  "title": "How a Service Mesh Works",
+  "title": "HOW AI AGENTS PLAN THEIR ACTIONS",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "cycle",
       "nodes": [
         {
-          "id": "app",
-          "label": "APP SVC",
-          "icon": "⚙️"
+          "id": "GOAL",
+          "label": "GOAL",
+          "icon": "🎯"
         },
         {
-          "id": "sidecar",
-          "label": "SIDECAR",
-          "icon": "↔️"
+          "id": "ENV",
+          "label": "ENVIRONMENT",
+          "icon": "🌍"
         },
         {
-          "id": "target",
-          "label": "TARGET SVC",
-          "icon": "📦"
+          "id": "AGENT",
+          "label": "AI AGENT",
+          "icon": "🧠"
         }
       ],
       "steps": [
         {
-          "from": "app",
-          "to": "sidecar",
-          "packet": "REQ",
-          "status": "app sends request"
-        },
-        {
-          "from": "sidecar",
-          "to": "target",
-          "packet": "REQ",
-          "status": "sidecar forwards to target"
-        },
-        {
-          "from": "target",
-          "to": "sidecar",
-          "packet": "RESP",
-          "status": "target responds"
-        },
-        {
-          "from": "sidecar",
-          "to": "app",
-          "packet": "RESP",
-          "status": "sidecar returns to app"
-        }
-      ],
-      "heading": "Transparent Communication"
-    },
-    {
-      "layout": "hub-spoke",
-      "nodes": [
-        {
-          "id": "app",
-          "label": "APP SVC",
-          "icon": "⚙️"
-        },
-        {
-          "id": "sidecar",
-          "label": "SIDECAR",
-          "icon": "↔️"
-        },
-        {
-          "id": "target",
-          "label": "TARGET SVC",
-          "icon": "📦"
-        }
-      ],
-      "steps": [
-        {
-          "from": "app",
-          "to": "sidecar",
-          "packet": "REQ",
-          "status": "app requests target"
-        },
-        {
-          "from": "sidecar",
-          "to": "target",
-          "packet": "REQ",
-          "status": "sidecar forwards request"
-        },
-        {
-          "from": "target",
-          "to": "sidecar",
-          "packet": "500",
-          "status": "target fails",
-          "color": "warn"
-        },
-        {
-          "from": "sidecar",
-          "to": "target",
-          "packet": "RETRY",
-          "status": "sidecar retries request"
-        },
-        {
-          "from": "target",
-          "to": "sidecar",
-          "packet": "200",
-          "status": "target succeeds",
-          "color": "good"
-        },
-        {
-          "from": "sidecar",
-          "to": "app",
-          "packet": "200",
-          "status": "response delivered"
-        }
-      ],
-      "heading": "Resilient Communication"
-    },
-    {
-      "layout": "hub-spoke",
-      "nodes": [
-        {
-          "id": "app",
-          "label": "APP SVC",
-          "icon": "⚙️"
-        },
-        {
-          "id": "sidecar",
-          "label": "SIDECAR",
-          "icon": "↔️"
-        },
-        {
-          "id": "telemetry",
-          "label": "OBSERVABILITY",
-          "icon": "📊"
-        }
-      ],
-      "steps": [
-        {
-          "from": "app",
-          "to": "sidecar",
-          "packet": "REQ",
-          "status": "app sends request"
-        },
-        {
-          "from": "sidecar",
-          "to": "telemetry",
-          "packet": "METRIC",
-          "status": "sidecar collects metrics",
+          "from": "GOAL",
+          "to": "AGENT",
+          "packet": "TASK",
+          "status": "initial goal received",
           "color": "accent"
         },
         {
-          "from": "sidecar",
-          "to": "telemetry",
-          "packet": "TRACE",
-          "status": "sidecar generates trace spans",
+          "from": "ENV",
+          "to": "AGENT",
+          "packet": "OBS",
+          "status": "observes current state",
+          "color": "good"
+        },
+        {
+          "from": "AGENT",
+          "to": "AGENT",
+          "packet": "REASON",
+          "status": "interprets observation & goal",
+          "color": "accent"
+        }
+      ],
+      "heading": "Goal & Observation"
+    },
+    {
+      "layout": "cycle",
+      "nodes": [
+        {
+          "id": "AGENT",
+          "label": "AI AGENT",
+          "icon": "🧠"
+        },
+        {
+          "id": "PLANNER",
+          "label": "PLANNER",
+          "icon": "📝"
+        },
+        {
+          "id": "ENV",
+          "label": "ENVIRONMENT",
+          "icon": "🌍"
+        }
+      ],
+      "steps": [
+        {
+          "from": "AGENT",
+          "to": "PLANNER",
+          "packet": "CTX",
+          "status": "context to planner",
           "color": "accent"
         },
         {
-          "from": "sidecar",
-          "to": "app",
-          "packet": "RESP",
-          "status": "request processed"
+          "from": "PLANNER",
+          "to": "AGENT",
+          "packet": "PLAN",
+          "status": "generates action sequence",
+          "color": "good"
         },
         {
-          "from": "telemetry",
-          "to": "telemetry",
-          "packet": "VIEW",
-          "status": "visualize system health",
+          "from": "AGENT",
+          "to": "ENV",
+          "packet": "ACTION",
+          "status": "executes action in environment",
+          "color": "accent"
+        },
+        {
+          "from": "ENV",
+          "to": "AGENT",
+          "packet": "FEEDBK",
+          "status": "receives environmental feedback",
           "color": "good"
         }
       ],
-      "heading": "Collects Telemetry Data"
+      "heading": "Planning & Execution Loop"
     }
   ],
-  "caption": "Ever wonder how microservices talk to each other reliably and securely? A Service Mesh provides a transparent layer for traffic management, observability, and security policies without modifying your application code. It uses sidecar proxies to intercept and manage all network communication between services, making your distributed systems more resilient and easier to manage. Follow @byteflowlabs for daily systems & AI breakdowns.",
+  "caption": "AI agents observe, reason, plan, and act to achieve goals in complex environments. This loop allows them to make informed decisions. Follow @byteflowlabs for daily systems & AI breakdowns.",
   "hashtags": [
-    "ServiceMesh",
-    "Microservices",
-    "CloudNative",
+    "AIagent",
+    "LLMagent",
     "SystemDesign",
-    "DistributedSystems",
-    "SoftwareArchitecture"
+    "AIexplained",
+    "ByteFlowLabs"
   ],
-  "theme": "#3fb950"
+  "theme": "#e3b341"
 }
