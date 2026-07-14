@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {fetchTrends} from './fetch/fetch-trends.mjs';
 import {produceSpec} from './brain/produce-spec.mjs';
 import {postProcess} from './publish/post-process.mjs';
+import {pickMotion} from './render/src/lib/motion-registry.mjs';
 
 const root = fileURLToPath(new URL('./', import.meta.url));
 const apiKey = process.env.GEMINI_API_KEY;
@@ -26,20 +27,22 @@ const candidates = await fetchTrends({limit: 15});
 console.log(`✓ ${candidates.length} trends`);
 const {spec, source} = await produceSpec({candidates, apiKey, recentTitles, pickSeed: randomSeed});
 
-// Görsel çeşitlilik: ardışık videolar aynı layout/tema olmasın (deterministik rotasyon).
+// Görsel çeşitlilik: ardışık videolar aynı layout/tema/motion olmasın (deterministik rotasyon).
 const n = history.length;
 const layout = LAYOUTS[n % LAYOUTS.length];
 const theme = THEMES[(n * 5 + 1) % THEMES.length]; // *5: layout ile senkron olmasın
+const motion = pickMotion(n).name;                 // 3. bağımsız eksen: animasyon oynatış çeşidi
 spec.theme = theme;
+spec.motion = motion;
 for (const sc of spec.scenes) sc.layout = layout;
-console.log(`✓ spec (${source}): ${spec.title} [${layout} / ${theme}]`);
+console.log(`✓ spec (${source}): ${spec.title} [${layout} / ${motion} / ${theme}]`);
 
 const specPath = join(root, 'scene-spec.generated.json');
 writeFileSync(specPath, JSON.stringify(spec, null, 2));
 writeFileSync(join(root, 'render', 'scene-spec.json'), JSON.stringify(spec, null, 2));
 
 // Geçmişe ekle (workflow posted-history.json'ı commit eder).
-history.push({title: spec.title, layout, theme, source, date: new Date().toISOString().slice(0, 10)});
+history.push({title: spec.title, layout, motion, theme, source, date: new Date().toISOString().slice(0, 10)});
 writeFileSync(historyPath, JSON.stringify(history, null, 2));
 
 // Fail fast on a missing music asset BEFORE the expensive render step, not after.
