@@ -17,9 +17,14 @@ export function resolveColor(token: string, accent: string = COLORS.accent): str
 }
 
 // count kadar yatay merkezlenmiş x koordinatı; box'lar 1080px canvas'ta taşmasın.
-export function nodeXPositions(count: number): number[] {
-  const halfWidth = 380;
-  const gap = count > 1 ? Math.min(360, (2 * halfWidth) / (count - 1)) : 360;
+// Genişlik-farkında: kutu ne kadar büyükse aralık o kadar açılır (çakışma yok,
+// kenar 540px'i geçmez). w verilmezse nodes-flow varsayılan genişliği kullanılır.
+export function nodeXPositions(count: number, w: number = boxSize('nodes-flow', count).w): number[] {
+  if (count <= 1) return [0];
+  const spacing = 44;                     // kutular arası nefes payı
+  const maxCenter = 540 - w / 2 - 8;      // en dış kutu canvas'ta kalsın
+  const idealGap = w + spacing;
+  const gap = Math.min(idealGap, (2 * maxCenter) / (count - 1));
   const start = -((count - 1) * gap) / 2;
   return Array.from({length: count}, (_, i) => start + i * gap);
 }
@@ -27,11 +32,12 @@ export function nodeXPositions(count: number): number[] {
 export interface Pos {x: number; y: number}
 
 // Layout'a göre node merkez koordinatları (canvas merkezli, portre 1080x1920).
+// Diyagram kareyi domine etsin diye yarıçaplar/aralıklar büyük tutuldu.
 export function layoutPositions(layout: string, count: number): Pos[] {
-  const R = count <= 2 ? 300 : 360;
+  const R = count <= 2 ? 360 : 430;
   switch (layout) {
     case 'vertical-stack': {
-      const gap = Math.min(300, 720 / Math.max(count - 1, 1));
+      const gap = Math.min(380, 1000 / Math.max(count - 1, 1));
       const start = -((count - 1) * gap) / 2;
       return Array.from({length: count}, (_, i) => ({x: 0, y: start + i * gap}));
     }
@@ -51,16 +57,22 @@ export function layoutPositions(layout: string, count: number): Pos[] {
       });
     }
     case 'nodes-flow':
-    default:
-      return nodeXPositions(count).map(x => ({x, y: 0}));
+    default: {
+      const w = boxSize('nodes-flow', count).w;
+      return nodeXPositions(count, w).map(x => ({x, y: 0}));
+    }
   }
 }
 
-// Layout + node sayısına göre box boyutu (çakışmayı önlemek için).
+// Layout + node sayısına göre box boyutu — büyük, dokunulası "modül" kartları.
 export function boxSize(layout: string, count: number): {w: number; h: number} {
-  if (layout === 'nodes-flow') return {w: count >= 4 ? 240 : 300, h: 220};
-  if (layout === 'vertical-stack') return {w: 460, h: Math.min(180, 700 / count)};
-  return {w: 230, h: 170}; // hub-spoke, cycle
+  if (layout === 'nodes-flow') {
+    if (count <= 2) return {w: 430, h: 380};
+    if (count === 3) return {w: 320, h: 340};
+    return {w: 244, h: 280};
+  }
+  if (layout === 'vertical-stack') return {w: 620, h: Math.min(260, 1040 / count)};
+  return {w: count <= 3 ? 300 : 250, h: 250}; // hub-spoke, cycle
 }
 
 export interface SpecNode {id: string; label: string; icon?: string}

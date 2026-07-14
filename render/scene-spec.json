@@ -4,30 +4,74 @@
   "motion": "classic",
   "theme": "#58a6ff",
   "caption": "A load balancer spreads incoming traffic across servers so no single one gets overwhelmed. Here's the flow. Follow @byteflowlabs for daily systems & AI breakdowns.",
-  "hashtags": ["#systemdesign", "#backend", "#loadbalancer", "#softwareengineering", "#devops"],
+  "hashtags": [
+    "#systemdesign",
+    "#backend",
+    "#loadbalancer",
+    "#softwareengineering",
+    "#devops"
+  ],
   "scenes": [
     {
       "layout": "nodes-flow",
       "heading": "Request distribution",
       "nodes": [
-        {"id": "client", "icon": "🖥️", "label": "CLIENT"},
-        {"id": "lb", "icon": "⚖️", "label": "BALANCER"}
+        {
+          "id": "client",
+          "icon": "🖥️",
+          "label": "CLIENT"
+        },
+        {
+          "id": "lb",
+          "icon": "⚖️",
+          "label": "BALANCER"
+        }
       ],
       "steps": [
-        {"from": "client", "to": "lb", "packet": "REQ", "color": "accent", "status": "incoming request"}
+        {
+          "from": "client",
+          "to": "lb",
+          "packet": "REQ",
+          "color": "accent",
+          "status": "incoming request"
+        }
       ]
     },
     {
       "layout": "nodes-flow",
       "heading": "Fan-out to servers",
       "nodes": [
-        {"id": "lb", "icon": "⚖️", "label": "BALANCER"},
-        {"id": "s1", "icon": "🗄️", "label": "SERVER 1"},
-        {"id": "s2", "icon": "🗄️", "label": "SERVER 2"}
+        {
+          "id": "lb",
+          "icon": "⚖️",
+          "label": "BALANCER"
+        },
+        {
+          "id": "s1",
+          "icon": "🗄️",
+          "label": "SERVER 1"
+        },
+        {
+          "id": "s2",
+          "icon": "🗄️",
+          "label": "SERVER 2"
+        }
       ],
       "steps": [
-        {"from": "lb", "to": "s1", "packet": "REQ", "color": "accent", "status": "route to least-busy"},
-        {"from": "s2", "to": "lb", "packet": "200", "color": "good", "status": "healthy response"}
+        {
+          "from": "lb",
+          "to": "s1",
+          "packet": "REQ",
+          "color": "accent",
+          "status": "route to least-busy"
+        },
+        {
+          "from": "s2",
+          "to": "lb",
+          "packet": "200",
+          "color": "good",
+          "status": "healthy response"
+        }
       ]
     }
   ]
