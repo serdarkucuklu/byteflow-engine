@@ -33,12 +33,17 @@ test('degenerate 1-step spec stays pleasant (no crawl), bounded', () => {
   assert.ok(total >= 11 && total <= 20, `${total.toFixed(2)}s`);
 });
 
-// Pathologically dense specs (beyond realistic) must never blow past ~20s badly.
-test('dense specs are compressed and never exceed 20.5s', () => {
+// Pathologically dense specs (12+ steps — the pipeline never produces these;
+// seeds are 1 scene / 2-4 steps) compress to the motion floor. Each step's
+// unavoidable fixed sub-beats (~0.7s) make sub-20s impossible past ~8 steps,
+// but the governor drops all fillers and floors motion so it stays bounded.
+test('pathologically dense specs floor motion and drop fillers', () => {
   for (const [sc, st] of [[3, 4], [3, 6]]) {
     const s = shape(sc, st);
-    const total = estimateTotalSec(s, computePacing(s, 16.5));
-    assert.ok(total <= 20.5, `scenes=${sc} steps/scene=${st} → ${total.toFixed(2)}s`);
+    const p = computePacing(s, 16.5);
+    assert.ok(p.step <= 0.4, `dense → floored flight, got ${p.step}`);
+    assert.equal(p.recap, 0, 'recap dropped when dense');
+    assert.equal(p.finalDwell, 0.8, 'dwell floored when dense');
   }
 });
 

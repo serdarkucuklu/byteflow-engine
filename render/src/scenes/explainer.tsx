@@ -1,13 +1,19 @@
 import {makeScene2D, Rect, Txt, Layout, Line} from '@motion-canvas/2d';
-import {all, createRef, waitFor, easeInOutCubic, easeOutBack} from '@motion-canvas/core';
+import {all, createRef, waitFor, sequence, easeOutCubic} from '@motion-canvas/core';
 import {COLORS, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
+import {specShape, computePacing} from '../lib/pacing';
+import {resolvePreset} from '../lib/motion';
+import {motionTarget} from '../lib/motion-registry.mjs';
 import specJson from '../../scene-spec.json';
 
 const spec = specJson as unknown as SceneSpec;
 const MONO = 'JetBrains Mono, monospace';
-const ACCENT = spec.theme ?? COLORS.accent; // video başına dönen tema rengi
+const ACCENT = spec.theme ?? COLORS.accent; // per-video accent theme
 
-// Layout'a göre konnektör segmentleri (index çiftleri).
+const preset = resolvePreset((spec as {motion?: string}).motion);
+const pacing = computePacing(specShape(spec), motionTarget(preset.weight));
+
+// Connector segments (index pairs) per layout.
 function connectors(layout: string, count: number): [number, number][] {
   const segs: [number, number][] = [];
   if (layout === 'hub-spoke') {
@@ -23,7 +29,7 @@ function connectors(layout: string, count: number): [number, number][] {
 export default makeScene2D(function* (view) {
   view.fill(COLORS.bg);
 
-  // ---- Brand intro (sabit) ----
+  // ---- Brand intro (fixed) ----
   const brand = createRef<Txt>();
   const brandSub = createRef<Txt>();
   view.add(<Txt ref={brand} text="BYTEFLOW" fill={COLORS.text} fontFamily={MONO}
@@ -35,14 +41,17 @@ export default makeScene2D(function* (view) {
   yield* waitFor(0.6);
   yield* all(brand().opacity(0, 0.4), brandSub().opacity(0, 0.4));
 
-  // ---- Başlık (kalıcı) ----
+  // ---- Title (persistent) ----
   const title = createRef<Txt>();
   view.add(<Txt ref={title} text={spec.title.toUpperCase()} fill={COLORS.muted}
     fontFamily={MONO} fontSize={46} letterSpacing={4} y={-780} opacity={0}
     width={960} textAlign="center" textWrap />);
   yield* title().opacity(1, 0.4);
 
-  // ---- Her sahne ----
+  const ctx = {accent: ACCENT, colors: COLORS, pacing};
+  preset.ambient?.(view, ctx);
+
+  // ---- Each scene ----
   for (const scene of spec.scenes) {
     const container = createRef<Layout>();
     view.add(<Layout ref={container} opacity={0} />);
@@ -57,7 +66,7 @@ export default makeScene2D(function* (view) {
     const iconSize = Math.round(h * 0.34);
     const labelSize = Math.min(28, Math.round(w * 0.11));
 
-    // Konnektör çizgileri (node'ların arkasında, sonradan çizilir)
+    // Connectors (behind nodes, drawn after).
     const lines: Line[] = [];
     connectors(scene.layout, count).forEach(([a, b]) => {
       const ln = createRef<Line>();
@@ -68,7 +77,7 @@ export default makeScene2D(function* (view) {
       lines.push(ln());
     });
 
-    // Node'lar
+    // Nodes.
     const boxes: Record<string, Rect> = {};
     scene.nodes.forEach((n, i) => {
       const box = createRef<Rect>();
@@ -86,12 +95,14 @@ export default makeScene2D(function* (view) {
     container().add(<Txt ref={status} text="" fill={COLORS.muted}
       fontFamily={MONO} fontSize={38} y={560} />);
 
-    // Sahne belirir: node'lar → konnektörler
+    // Scene appears → node entrances (per preset, staggered) → connectors.
     yield* container().opacity(1, 0.4);
-    yield* all(...scene.nodes.map(n => boxes[n.id].scale(1, 0.5, easeOutBack)));
-    if (lines.length) yield* all(...lines.map(l => l.end(1, 0.4)));
+    const entrances = scene.nodes.map((n, i) => preset.enter(boxes[n.id], i, count, ctx));
+    if (preset.stagger > 0) yield* sequence(preset.stagger, ...entrances);
+    else yield* all(...entrances);
+    yield* preset.drawLines(lines, ctx);
 
-    // Adımlar: paket uçuşu (x+y'ye animate → her layout'ta çalışır)
+    // Steps: packet flight (per preset).
     for (const step of scene.steps) {
       const from = boxes[step.from], to = boxes[step.to];
       if (!from || !to) continue;
@@ -105,22 +116,36 @@ export default makeScene2D(function* (view) {
       );
       status().text(step.status);
       status().fill(col);
-      yield* packet().opacity(1, 0.2);
-      yield* all(
-        packet().x(to.x(), 1.0, easeInOutCubic),
-        packet().y(to.y(), 1.0, easeInOutCubic),
-      );
-      yield* all(packet().opacity(0, 0.2), to.stroke(col, 0.2));
-      yield* waitFor(0.2);
-      yield* to.stroke(COLORS.stroke, 0.3);
+      yield* preset.flight(from, to, packet(), container(), {...ctx, accent: col});
     }
 
-    yield* waitFor(0.4);
-    yield* container().opacity(0, 0.4);
+    // Recap burst: replay the whole flow at once (governed; fills time engagingly).
+    if (pacing.recap > 0 && scene.steps.length > 1) {
+      status().text('the full flow');
+      status().fill(ACCENT);
+      const dots = scene.steps.map(step => {
+        const from = boxes[step.from], to = boxes[step.to];
+        if (!from || !to) return null;
+        const dot = createRef<Rect>();
+        container().add(<Rect ref={dot} width={30} height={30} radius={15}
+          fill={resolveColor(step.color ?? 'accent', ACCENT)} x={from.x()} y={from.y()} opacity={0} />);
+        return {dot: dot(), to};
+      }).filter(Boolean) as {dot: Rect; to: Rect}[];
+      yield* all(...dots.map(d => d.dot.opacity(1, 0.15)));
+      yield* all(...dots.map(d => all(
+        d.dot.x(d.to.x(), pacing.recap, easeOutCubic),
+        d.dot.y(d.to.y(), pacing.recap, easeOutCubic),
+      )));
+      yield* all(...dots.map(d => d.dot.opacity(0, 0.2)));
+    }
+
+    // Final read-hold on the finished diagram, then preset-specific exit.
+    yield* waitFor(pacing.finalDwell);
+    yield* preset.exit(container(), view, ctx);
     container().remove();
   }
 
-  // ---- Brand outro (sabit) ----
+  // ---- Brand outro (fixed) ----
   yield* title().opacity(0, 0.3);
   const outro = createRef<Txt>();
   const cta = createRef<Txt>();
