@@ -26,5 +26,13 @@
     "theme": "#e3b341",
     "source": "gemini",
     "date": "2026-07-13"
+  },
+  {
+    "title": "How Prompt Injection Attacks AI",
+    "layout": "nodes-flow",
+    "motion": "pulse",
+    "theme": "#f778ba",
+    "source": "gemini",
+    "date": "2026-07-15"
   }
 ]

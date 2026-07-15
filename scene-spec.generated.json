@@ -1,109 +1,117 @@
 {
-  "title": "HOW AI AGENTS PLAN THEIR ACTIONS",
+  "title": "How Prompt Injection Attacks AI",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "GOAL",
-          "label": "GOAL",
-          "icon": "🎯"
+          "id": "A",
+          "label": "USER",
+          "icon": "👤"
         },
         {
-          "id": "ENV",
-          "label": "ENVIRONMENT",
-          "icon": "🌍"
-        },
-        {
-          "id": "AGENT",
-          "label": "AI AGENT",
+          "id": "B",
+          "label": "LLM",
           "icon": "🧠"
+        },
+        {
+          "id": "C",
+          "label": "DATABASE",
+          "icon": "💾"
         }
       ],
       "steps": [
         {
-          "from": "GOAL",
-          "to": "AGENT",
-          "packet": "TASK",
-          "status": "initial goal received",
+          "from": "A",
+          "to": "B",
+          "packet": "PROMPT",
+          "status": "request info",
           "color": "accent"
         },
         {
-          "from": "ENV",
-          "to": "AGENT",
-          "packet": "OBS",
-          "status": "observes current state",
+          "from": "B",
+          "to": "C",
+          "packet": "QUERY",
+          "status": "get relevant data",
+          "color": "accent"
+        },
+        {
+          "from": "C",
+          "to": "B",
+          "packet": "DATA",
+          "status": "send data",
           "color": "good"
         },
         {
-          "from": "AGENT",
-          "to": "AGENT",
-          "packet": "REASON",
-          "status": "interprets observation & goal",
-          "color": "accent"
+          "from": "B",
+          "to": "A",
+          "packet": "ANSWER",
+          "status": "respond to user",
+          "color": "good"
         }
       ],
-      "heading": "Goal & Observation"
+      "heading": "NORMAL INTERACTION"
     },
     {
-      "layout": "cycle",
+      "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "AGENT",
-          "label": "AI AGENT",
+          "id": "D",
+          "label": "ATTACKER",
+          "icon": "😈"
+        },
+        {
+          "id": "E",
+          "label": "LLM",
           "icon": "🧠"
         },
         {
-          "id": "PLANNER",
-          "label": "PLANNER",
-          "icon": "📝"
-        },
-        {
-          "id": "ENV",
-          "label": "ENVIRONMENT",
-          "icon": "🌍"
+          "id": "F",
+          "label": "DATABASE",
+          "icon": "💾"
         }
       ],
       "steps": [
         {
-          "from": "AGENT",
-          "to": "PLANNER",
-          "packet": "CTX",
-          "status": "context to planner",
-          "color": "accent"
+          "from": "D",
+          "to": "E",
+          "packet": "INJECT",
+          "status": "malicious prompt bypasses safeguards",
+          "color": "warn"
         },
         {
-          "from": "PLANNER",
-          "to": "AGENT",
-          "packet": "PLAN",
-          "status": "generates action sequence",
-          "color": "good"
+          "from": "E",
+          "to": "F",
+          "packet": "ATTACK",
+          "status": "LLM executes unintended command",
+          "color": "warn"
         },
         {
-          "from": "AGENT",
-          "to": "ENV",
-          "packet": "ACTION",
-          "status": "executes action in environment",
-          "color": "accent"
+          "from": "F",
+          "to": "E",
+          "packet": "SECRET",
+          "status": "database leaks sensitive data",
+          "color": "warn"
         },
         {
-          "from": "ENV",
-          "to": "AGENT",
-          "packet": "FEEDBK",
-          "status": "receives environmental feedback",
-          "color": "good"
+          "from": "E",
+          "to": "D",
+          "packet": "LEAK",
+          "status": "LLM sends secret data to attacker",
+          "color": "warn"
         }
       ],
-      "heading": "Planning & Execution Loop"
+      "heading": "PROMPT INJECTION"
     }
   ],
-  "caption": "AI agents observe, reason, plan, and act to achieve goals in complex environments. This loop allows them to make informed decisions. Follow @byteflowlabs for daily systems & AI breakdowns.",
+  "caption": "Prompt Injection manipulates AI models to bypass safety features or perform unintended actions by crafting malicious inputs. It's a critical security vulnerability in many LLM applications. Follow @byteflowlabs for daily systems & AI breakdowns.",
   "hashtags": [
-    "AIagent",
-    "LLMagent",
-    "SystemDesign",
-    "AIexplained",
+    "AIsecurity",
+    "LLMhacks",
+    "PromptInjection",
+    "CyberSecurity",
     "ByteFlowLabs"
   ],
-  "theme": "#e3b341"
+  "theme": "#f778ba",
+  "motion": "pulse"
 }
