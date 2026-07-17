@@ -34,5 +34,13 @@
     "theme": "#f778ba",
     "source": "gemini",
     "date": "2026-07-15"
+  },
+  {
+    "title": "HOW RETRIEVAL-AUGMENTED GENERATION (RAG) WORKS",
+    "layout": "vertical-stack",
+    "motion": "burst",
+    "theme": "#39d3c3",
+    "source": "gemini",
+    "date": "2026-07-17"
   }
 ]

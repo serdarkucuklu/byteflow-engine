@@ -1,117 +1,97 @@
 {
-  "title": "How Prompt Injection Attacks AI",
+  "title": "HOW RETRIEVAL-AUGMENTED GENERATION (RAG) WORKS",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "vertical-stack",
       "nodes": [
         {
-          "id": "A",
+          "id": "user",
           "label": "USER",
-          "icon": "👤"
+          "icon": "👋"
         },
         {
-          "id": "B",
-          "label": "LLM",
-          "icon": "🧠"
+          "id": "retriever",
+          "label": "RETRIEVER",
+          "icon": "🔍"
         },
         {
-          "id": "C",
-          "label": "DATABASE",
-          "icon": "💾"
+          "id": "vectordb",
+          "label": "VECTOR DB",
+          "icon": "📚"
         }
       ],
       "steps": [
         {
-          "from": "A",
-          "to": "B",
-          "packet": "PROMPT",
-          "status": "request info",
-          "color": "accent"
-        },
-        {
-          "from": "B",
-          "to": "C",
+          "from": "user",
+          "to": "retriever",
           "packet": "QUERY",
-          "status": "get relevant data",
+          "status": "user asks a question",
           "color": "accent"
         },
         {
-          "from": "C",
-          "to": "B",
-          "packet": "DATA",
-          "status": "send data",
-          "color": "good"
+          "from": "retriever",
+          "to": "vectordb",
+          "packet": "EMBED",
+          "status": "query embedded for similarity search",
+          "color": "accent"
         },
         {
-          "from": "B",
-          "to": "A",
-          "packet": "ANSWER",
-          "status": "respond to user",
+          "from": "vectordb",
+          "to": "retriever",
+          "packet": "DOCS",
+          "status": "relevant documents retrieved",
           "color": "good"
         }
       ],
-      "heading": "NORMAL INTERACTION"
+      "heading": "1. RETRIEVE RELEVANT CONTEXT"
     },
     {
-      "layout": "nodes-flow",
+      "layout": "vertical-stack",
       "nodes": [
         {
-          "id": "D",
-          "label": "ATTACKER",
-          "icon": "😈"
+          "id": "retriever",
+          "label": "RETRIEVER",
+          "icon": "🔍"
         },
         {
-          "id": "E",
+          "id": "llm",
           "label": "LLM",
           "icon": "🧠"
         },
         {
-          "id": "F",
-          "label": "DATABASE",
-          "icon": "💾"
+          "id": "user",
+          "label": "USER",
+          "icon": "👋"
         }
       ],
       "steps": [
         {
-          "from": "D",
-          "to": "E",
-          "packet": "INJECT",
-          "status": "malicious prompt bypasses safeguards",
-          "color": "warn"
+          "from": "retriever",
+          "to": "llm",
+          "packet": "PROMPT",
+          "status": "query + docs sent as augmented prompt",
+          "color": "accent"
         },
         {
-          "from": "E",
-          "to": "F",
-          "packet": "ATTACK",
-          "status": "LLM executes unintended command",
-          "color": "warn"
-        },
-        {
-          "from": "F",
-          "to": "E",
-          "packet": "SECRET",
-          "status": "database leaks sensitive data",
-          "color": "warn"
-        },
-        {
-          "from": "E",
-          "to": "D",
-          "packet": "LEAK",
-          "status": "LLM sends secret data to attacker",
-          "color": "warn"
+          "from": "llm",
+          "to": "user",
+          "packet": "ANSWER",
+          "status": "llm generates grounded answer",
+          "color": "good"
         }
       ],
-      "heading": "PROMPT INJECTION"
+      "heading": "2. AUGMENT PROMPT & GENERATE"
     }
   ],
-  "caption": "Prompt Injection manipulates AI models to bypass safety features or perform unintended actions by crafting malicious inputs. It's a critical security vulnerability in many LLM applications. Follow @byteflowlabs for daily systems & AI breakdowns.",
+  "caption": "Ever wonder how LLMs answer questions about specific, up-to-date data without hallucinations? That's RAG! It retrieves relevant info before generating. Follow @byteflowlabs for daily systems & AI breakdowns.",
   "hashtags": [
-    "AIsecurity",
-    "LLMhacks",
-    "PromptInjection",
-    "CyberSecurity",
-    "ByteFlowLabs"
+    "RAG",
+    "LLM",
+    "AIarchitecture",
+    "GenerativeAI",
+    "VectorDatabase",
+    "TechExplained"
   ],
-  "theme": "#f778ba",
-  "motion": "pulse"
+  "theme": "#39d3c3",
+  "motion": "burst"
 }
