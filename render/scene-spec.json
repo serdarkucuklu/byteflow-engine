@@ -1,92 +1,62 @@
 {
-  "hook": "Pure semantic search isn't enough.",
-  "title": "RAG: The Power of Reranking",
+  "title": "LLM-as-Judge Is Grading Its Own Homework",
+  "topic_source": "seed",
+  "pillar": "evaluation",
+  "hook": "Your eval LLM might be lying to you.",
+  "takeaway": "A biased judge model gives you a biased benchmark.",
+  "caption": "Your eval LLM might be lying to you.\nLLM-as-judge tends to favor its own family's writing style, not quality.\nSave this before you trust a single-model eval score.\nFollow @byteflowlabs for AI systems, no hype.",
+  "hashtags": [
+    "#llm",
+    "#evaluation",
+    "#aiengineering",
+    "#genai"
+  ],
   "scenes": [
     {
-      "layout": "cycle",
-      "kind": "diagram",
+      "layout": "nodes-flow",
+      "heading": "Judge model bias",
       "nodes": [
         {
-          "id": "query",
-          "label": "USER QUERY",
-          "icon": "🙋"
+          "id": "output",
+          "icon": "📄",
+          "label": "OUTPUT"
         },
         {
-          "id": "vector_db",
-          "label": "VECTOR DB",
-          "icon": "🗄️"
+          "id": "judge",
+          "icon": "⚖️",
+          "label": "JUDGE LLM"
         },
         {
-          "id": "raw_chunks",
-          "label": "RAW CHUNKS",
-          "icon": "📄"
+          "id": "score",
+          "icon": "🔢",
+          "label": "SCORE"
         }
       ],
       "steps": [
         {
-          "from": "query",
-          "to": "vector_db",
-          "packet": "queryV",
-          "status": "finds top K candidates",
-          "color": "accent"
+          "from": "output",
+          "to": "judge",
+          "packet": "GRADE",
+          "color": "accent",
+          "status": "judge model scores answer"
         },
         {
-          "from": "vector_db",
-          "to": "raw_chunks",
-          "packet": "Kchks",
-          "status": "some irrelevant, some good",
-          "color": "warn"
-        }
-      ]
-    },
-    {
-      "layout": "cycle",
-      "kind": "diagram",
-      "nodes": [
-        {
-          "id": "raw_chunks",
-          "label": "RAW CHUNKS",
-          "icon": "📄"
+          "from": "judge",
+          "to": "score",
+          "packet": "BIAS",
+          "color": "warn",
+          "status": "favors own writing style"
         },
         {
-          "id": "reranker",
-          "label": "RERANKER",
-          "icon": "🧠"
-        },
-        {
-          "id": "final_chunks",
-          "label": "FINAL CHUNKS",
-          "icon": "✅"
-        }
-      ],
-      "steps": [
-        {
-          "from": "raw_chunks",
-          "to": "reranker",
-          "packet": "Kchks",
-          "status": "candidates for re-evaluation",
-          "color": "accent"
-        },
-        {
-          "from": "reranker",
-          "to": "final_chunks",
-          "packet": "Nchks",
-          "status": "top N most relevant chunks",
-          "color": "good"
+          "from": "score",
+          "to": "output",
+          "packet": "SKEW",
+          "color": "warn",
+          "status": "benchmark quietly skewed"
         }
       ]
     }
   ],
-  "caption": "Pure semantic search often retrieves noise.Vector similarity alone can bring back chunks that are lexically similar but contextually irrelevant. This dilutes your LLM's context.Add a reranking step after initial retrieval. It re-scores candidates, prioritizing true relevance for better RAG quality.Save this for your next RAG optimization.Follow @byteflowlabs for AI systems, no hype.",
-  "hashtags": [
-    "#llm",
-    "#rag",
-    "#aiengineering",
-    "#retrieval",
-    "#llmsys",
-    "#contextualai"
-  ],
-  "takeaway": "Don't just retrieve broadly, rerank to focus on true contextual relevance.",
-  "theme": "#58a6ff",
-  "motion": "neon"
+  "theme": "#3fb950",
+  "motion": "blueprint"
 }

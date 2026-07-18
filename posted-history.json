@@ -60,5 +60,14 @@
     "theme": "#58a6ff",
     "source": "gemini",
     "date": "2026-07-18"
+  },
+  {
+    "title": "LLM-as-Judge Is Grading Its Own Homework",
+    "pillar": "evaluation",
+    "layout": "nodes-flow",
+    "motion": "blueprint",
+    "theme": "#3fb950",
+    "source": "seed",
+    "date": "2026-07-18"
   }
 ]
