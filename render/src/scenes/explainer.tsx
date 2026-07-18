@@ -194,7 +194,7 @@ function* renderCodeScene(view: any, scene: any, ctx: any) {
   const code = createRef<Code>();
   container().add(
     <Code ref={code} highlighter={byteflowHighlighter as unknown as LezerHighlighter}
-      fontFamily={MONO} fontSize={40} offsetX={-1} x={-440} y={-360} code={''} />,
+      fontFamily={MONO} fontSize={40} offsetX={-1} offsetY={-1} x={-430} y={-390} code={''} />,
   );
 
   if (scene.annotation) {
