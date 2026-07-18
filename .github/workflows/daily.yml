@@ -2,7 +2,7 @@ name: ByteFlow Daily Reel
 
 on:
   schedule:
-    - cron: '0 9 */2 * *'   # her 2 günde bir, 09:00 UTC (12:00 TR)
+    - cron: '0 9 * * *'   # her gün 09:00 UTC (12:00 TR)
   workflow_dispatch:
     inputs:
       publish:
@@ -41,6 +41,12 @@ jobs:
           npm ci
           npx playwright install --with-deps chromium
 
+      - name: Önceki postların insight'larını doldur (best-effort)
+        continue-on-error: true
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node publish/backfill-insights.mjs
+
       - name: Video üret (trend → Gemini → render → müzik)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -65,6 +71,16 @@ jobs:
         run: |
           SHA=$(git rev-parse HEAD)
           node publish/publish-latest.mjs "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${SHA}/public/latest.mp4"
+
+      - name: mediaId'yi geçmişe commit et
+        if: ${{ github.event_name == 'schedule' || inputs.publish }}
+        continue-on-error: true
+        run: |
+          git config user.name "byteflow-bot"
+          git config user.email "byteflow-bot@users.noreply.github.com"
+          git add posted-history.json
+          git commit -m "chore: reel mediaId $(date -u +%F)" || echo "değişiklik yok"
+          git push
 
       - name: Token expiry guard
         if: always()
