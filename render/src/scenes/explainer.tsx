@@ -165,16 +165,20 @@ export default makeScene2D(function* (view) {
     container().remove();
   }
 
-  // ---- Takeaway + follow (outro) ----
+  // ---- Takeaway + persona sign-off (outro) ----
   yield* title().opacity(0, 0.3);
   const take = createRef<Txt>();
-  const follow = createRef<Txt>();
+  const sign = createRef<Txt>();
+  const tag = createRef<Txt>();
   view.add(<Txt ref={take} text={TAKEAWAY} fill={COLORS.text} fontFamily={MONO}
     fontSize={60} fontWeight={800} letterSpacing={1} opacity={0} y={-40}
     width={960} textAlign="center" textWrap />);
-  view.add(<Txt ref={follow} text="follow @byteflowlabs · AI systems, no hype" fill={ACCENT}
-    fontFamily={MONO} fontSize={34} opacity={0} y={150} />);
-  yield* all(take().opacity(1, 0.5), follow().opacity(1, 0.5));
+  view.add(<Txt ref={sign} text="— Kai · @byteflowlabs" fill={ACCENT} fontFamily={MONO}
+    fontSize={38} fontWeight={600} letterSpacing={2} opacity={0} y={140} />);
+  view.add(<Txt ref={tag} text="AI systems, no hype" fill={COLORS.muted} fontFamily={MONO}
+    fontSize={30} letterSpacing={3} opacity={0} y={210} />);
+  yield* all(take().opacity(1, 0.5), sign().opacity(1, 0.5));
+  yield* tag().opacity(1, 0.4);
   yield* waitFor(1.4);
 });
 
