@@ -77,7 +77,19 @@ export function boxSize(layout: string, count: number): {w: number; h: number} {
 
 export interface SpecNode {id: string; label: string; icon?: string}
 export interface SpecStep {from: string; to: string; packet: string; color?: string; status: string}
-export interface SpecScene {layout: string; heading?: string; nodes: SpecNode[]; steps: SpecStep[]}
+export interface SpecScene {
+  kind?: 'diagram' | 'code';
+  layout: string;
+  heading?: string;
+  // diagram
+  nodes?: SpecNode[];
+  steps?: SpecStep[];
+  // code
+  language?: string;
+  code?: string;
+  reveal?: 'typing' | 'lines' | 'instant';
+  annotation?: string;
+}
 export interface SceneSpec {
   title: string; caption: string; hashtags: string[];
   topic_source?: string; theme?: string;
