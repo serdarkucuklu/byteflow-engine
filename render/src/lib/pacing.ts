@@ -45,12 +45,12 @@ const PERSTEP_MAX = 3.3;  // deliberate cap (sparse specs) — no crawl
 const MOTION_MIN = 0.15;  // absolute floor for pathological density
 const COMPRESS_TARGET = 19.5;
 
-export function specShape(spec: {scenes: {nodes: unknown[]; steps: unknown[]}[]}): SpecShape {
+export function specShape(spec: {scenes: {nodes?: unknown[]; steps?: unknown[]}[]}): SpecShape {
   const scenes = spec.scenes.length;
   let totalNodes = 0, totalSteps = 0;
   for (const s of spec.scenes) {
-    totalNodes += s.nodes.length;
-    totalSteps += s.steps.length;
+    totalNodes += s.nodes?.length ?? 0;
+    totalSteps += s.steps?.length ?? 0;
   }
   return {scenes, totalNodes, totalSteps};
 }

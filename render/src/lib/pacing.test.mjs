@@ -13,6 +13,16 @@ test('specShape counts scenes, nodes, steps', () => {
   assert.deepEqual(specShape(spec), {scenes: 2, totalNodes: 5, totalSteps: 3});
 });
 
+test('specShape treats a code scene (no nodes/steps) as zero nodes/steps but counts the scene', () => {
+  const shape = specShape({scenes: [
+    {nodes: [{}, {}], steps: [{}]},              // diagram scene
+    {kind: 'code', code: 'x = 1'},               // code scene: no nodes/steps
+  ]});
+  assert.equal(shape.scenes, 2);
+  assert.equal(shape.totalNodes, 2);
+  assert.equal(shape.totalSteps, 1);
+});
+
 // The real content envelope (see brain/seed-backlog.json): always 1 scene, 2-4 steps,
 // 3 nodes. Gemini may emit up to 3 scenes. These are the shapes that MUST land in band.
 test('realistic content shapes land total in [15,20]s', () => {
