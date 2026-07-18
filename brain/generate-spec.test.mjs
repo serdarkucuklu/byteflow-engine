@@ -92,3 +92,31 @@ test('generateSpec injects the pillar focus and anti-hype voice into the prompt'
   assert.ok(schema.required.includes('hook'));
   assert.ok(schema.required.includes('takeaway'));
 });
+
+test('response schema permits a code scene shape and the prompt describes it', async () => {
+  let sentBody;
+  const fakeFetch = async (_url, opts) => {
+    sentBody = JSON.parse(opts.body);
+    return {ok: true, json: async () => ({candidates: [{content: {parts: [{text: JSON.stringify({
+      hook: 'Your retries hammer the API.', title: 'Exponential Backoff',
+      caption: 'x\nFollow @byteflowlabs for AI systems, no hype.', hashtags: ['#llm'],
+      takeaway: 'Back off exponentially.',
+      scenes: [{kind: 'code', layout: 'nodes-flow', language: 'python',
+        code: 'for i in range(5): sleep(2**i)', reveal: 'typing', heading: 'backoff'}],
+    })}]}}]})};
+  };
+  const pillar = {key: 'guardrails', focus: 'safety and guardrails: retries, rate limits'};
+  const spec = await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar, fetchFn: fakeFetch});
+
+  const schema = sentBody.generationConfig.responseSchema;
+  const sceneProps = schema.properties.scenes.items.properties;
+  assert.ok(sceneProps.kind, 'schema has kind');
+  assert.ok(sceneProps.code, 'schema has code');
+  assert.ok(sceneProps.language, 'schema has language');
+  // Renderer highlighter is Python-only — Gemini must not be allowed to emit other languages.
+  assert.deepEqual(sceneProps.language.enum, ['python']);
+  const promptText = sentBody.contents[0].parts[0].text;
+  assert.match(promptText, /code scene/i);
+  assert.equal(spec.scenes[0].kind, 'code');
+  assert.equal(spec.scenes[0].code, 'for i in range(5): sleep(2**i)');
+});

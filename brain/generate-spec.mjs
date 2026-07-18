@@ -16,8 +16,9 @@ const RESPONSE_SCHEMA = {
       type: 'ARRAY',
       items: {
         type: 'OBJECT',
-        required: ['layout', 'nodes', 'steps'],
+        required: ['layout'],
         properties: {
+          kind: {type: 'STRING', enum: ['diagram', 'code']},
           layout: {type: 'STRING', enum: ['nodes-flow']},
           heading: {type: 'STRING'},
           nodes: {type: 'ARRAY', items: {type: 'OBJECT', required: ['id', 'label'],
@@ -25,6 +26,11 @@ const RESPONSE_SCHEMA = {
           steps: {type: 'ARRAY', items: {type: 'OBJECT', required: ['from', 'to', 'packet', 'status'],
             properties: {from: {type: 'STRING'}, to: {type: 'STRING'}, packet: {type: 'STRING'},
               color: {type: 'STRING', enum: ['accent', 'good', 'warn']}, status: {type: 'STRING'}}}},
+          // Renderer's LezerHighlighter is Python-only — constrain Gemini to python.
+          language: {type: 'STRING', enum: ['python']},
+          code: {type: 'STRING'},
+          reveal: {type: 'STRING', enum: ['typing', 'lines', 'instant']},
+          annotation: {type: 'STRING'},
         },
       },
     },
@@ -52,6 +58,14 @@ Produce a scene-spec with these fields:
 - 2 to 3 nodes per scene. node.label <= 16 chars, UPPERCASE. node.icon = ONE emoji.
 - 1 to 6 steps per scene. step.from and step.to MUST equal a node.id IN THAT SCENE.
   step.packet <= 6 chars. step.color in {accent, good, warn}. step.status <= 40 chars, lowercase.
+- Each scene has a "kind": "diagram" (default) or "code".
+  - A "diagram" scene MUST have nodes + steps (the rules above).
+  - A "code" scene MUST have: language MUST be "python" (all code scenes use Python, since that is
+    what the renderer highlights), code (2-6 short lines, <= 600 chars, conceptual/illustrative —
+    idiomatic-looking, does NOT need to run), optional heading and a one-line annotation. Use a code
+    scene when showing HOW you'd write it teaches more than a data-flow diagram.
+- Prefer a mix: e.g. one code scene showing the pattern, then one diagram scene showing the flow.
+  For pure-concept topics a single well-chosen kind is fine. 1 to 3 scenes total.
 - takeaway: ONE punchy closing line (<= 70 chars) — the point to remember, anti-hype voice.
 - caption: 3 to 5 short lines. Line 1 = the sharp claim (echo the hook). Then the insight, skimmable.
   Then a save/share CTA (e.g. "Save this before your next AI build" or "Tag someone shipping agents").
