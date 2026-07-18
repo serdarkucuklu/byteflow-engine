@@ -51,5 +51,14 @@
     "theme": "#bc8cff",
     "source": "gemini",
     "date": "2026-07-18"
+  },
+  {
+    "title": "RAG: The Power of Reranking",
+    "pillar": "rag",
+    "layout": "cycle",
+    "motion": "neon",
+    "theme": "#58a6ff",
+    "source": "gemini",
+    "date": "2026-07-18"
   }
 ]

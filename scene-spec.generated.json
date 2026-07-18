@@ -1,142 +1,92 @@
 {
-  "hook": "Agent tool use isn't magic. It FAILS.",
-  "title": "Agent Tool Invocation",
+  "hook": "Pure semantic search isn't enough.",
+  "title": "RAG: The Power of Reranking",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "cycle",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "agent",
-          "label": "AGENT",
-          "icon": "🧠"
+          "id": "query",
+          "label": "USER QUERY",
+          "icon": "🙋"
         },
         {
-          "id": "tool",
-          "label": "TOOL",
-          "icon": "🛠️"
+          "id": "vector_db",
+          "label": "VECTOR DB",
+          "icon": "🗄️"
         },
         {
-          "id": "error",
-          "label": "ERROR",
-          "icon": "🚨"
-        }
-      ],
-      "steps": [
-        {
-          "from": "agent",
-          "to": "tool",
-          "packet": "CALL",
-          "status": "malformed arguments",
-          "color": "warn"
-        },
-        {
-          "from": "tool",
-          "to": "error",
-          "packet": "FAIL",
-          "status": "runtime error: invalid input",
-          "color": "warn"
-        },
-        {
-          "from": "error",
-          "to": "agent",
-          "packet": "REPORT",
-          "status": "error reported back to agent",
-          "color": "accent"
-        }
-      ],
-      "heading": "Malformed Tool Call"
-    },
-    {
-      "layout": "hub-spoke",
-      "nodes": [
-        {
-          "id": "agent_retry",
-          "label": "AGENT",
-          "icon": "🧠"
-        },
-        {
-          "id": "tool_retry",
-          "label": "TOOL",
-          "icon": "🛠️"
-        },
-        {
-          "id": "final_error",
-          "label": "ERROR",
-          "icon": "🚨"
-        }
-      ],
-      "steps": [
-        {
-          "from": "agent_retry",
-          "to": "tool_retry",
-          "packet": "RETRY",
-          "status": "revises arguments, retries call",
-          "color": "accent"
-        },
-        {
-          "from": "tool_retry",
-          "to": "final_error",
-          "packet": "FAIL",
-          "status": "tool still fails: bad logic",
-          "color": "warn"
-        },
-        {
-          "from": "final_error",
-          "to": "agent_retry",
-          "packet": "REPORT",
-          "status": "error reported again",
-          "color": "accent"
-        }
-      ],
-      "heading": "Agent Self-Correction Fails"
-    },
-    {
-      "layout": "hub-spoke",
-      "nodes": [
-        {
-          "id": "agent_fallback",
-          "label": "AGENT",
-          "icon": "🧠"
-        },
-        {
-          "id": "user",
-          "label": "USER",
-          "icon": "👤"
-        },
-        {
-          "id": "log",
-          "label": "LOG",
+          "id": "raw_chunks",
+          "label": "RAW CHUNKS",
           "icon": "📄"
         }
       ],
       "steps": [
         {
-          "from": "agent_fallback",
-          "to": "log",
-          "packet": "LOG",
-          "status": "logs irrecoverable error",
+          "from": "query",
+          "to": "vector_db",
+          "packet": "queryV",
+          "status": "finds top K candidates",
           "color": "accent"
         },
         {
-          "from": "agent_fallback",
-          "to": "user",
-          "packet": "FALLBK",
-          "status": "informs user of failure / gives up",
+          "from": "vector_db",
+          "to": "raw_chunks",
+          "packet": "Kchks",
+          "status": "some irrelevant, some good",
           "color": "warn"
         }
+      ]
+    },
+    {
+      "layout": "cycle",
+      "kind": "diagram",
+      "nodes": [
+        {
+          "id": "raw_chunks",
+          "label": "RAW CHUNKS",
+          "icon": "📄"
+        },
+        {
+          "id": "reranker",
+          "label": "RERANKER",
+          "icon": "🧠"
+        },
+        {
+          "id": "final_chunks",
+          "label": "FINAL CHUNKS",
+          "icon": "✅"
+        }
       ],
-      "heading": "The Production Reality"
+      "steps": [
+        {
+          "from": "raw_chunks",
+          "to": "reranker",
+          "packet": "Kchks",
+          "status": "candidates for re-evaluation",
+          "color": "accent"
+        },
+        {
+          "from": "reranker",
+          "to": "final_chunks",
+          "packet": "Nchks",
+          "status": "top N most relevant chunks",
+          "color": "good"
+        }
+      ]
     }
   ],
-  "caption": "Agent tool use isn't magic. It fails.Agents struggle with malformed inputs or unexpected tool outputs. They'll often retry, but without solid error handling, they can get stuck in loops or hallucinate. Real-world agents need explicit fallbacks and monitoring.Save this before shipping your next agent.Follow @byteflowlabs for AI systems, no hype.",
+  "caption": "Pure semantic search often retrieves noise.Vector similarity alone can bring back chunks that are lexically similar but contextually irrelevant. This dilutes your LLM's context.Add a reranking step after initial retrieval. It re-scores candidates, prioritizing true relevance for better RAG quality.Save this for your next RAG optimization.Follow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#llmagents",
+    "#llm",
+    "#rag",
     "#aiengineering",
-    "#tooluse",
-    "#productionml",
-    "#errorhandling"
+    "#retrieval",
+    "#llmsys",
+    "#contextualai"
   ],
-  "takeaway": "Don't just give agents tools, build robust error handling.",
-  "theme": "#bc8cff",
-  "motion": "cinematic"
+  "takeaway": "Don't just retrieve broadly, rerank to focus on true contextual relevance.",
+  "theme": "#58a6ff",
+  "motion": "neon"
 }
