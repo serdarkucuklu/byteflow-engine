@@ -80,5 +80,7 @@ export interface SpecStep {from: string; to: string; packet: string; color?: str
 export interface SpecScene {layout: string; heading?: string; nodes: SpecNode[]; steps: SpecStep[]}
 export interface SceneSpec {
   title: string; caption: string; hashtags: string[];
-  topic_source?: string; theme?: string; scenes: SpecScene[];
+  topic_source?: string; theme?: string;
+  hook?: string; takeaway?: string;
+  scenes: SpecScene[];
 }

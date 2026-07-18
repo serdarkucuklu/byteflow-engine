@@ -5,6 +5,8 @@
   "additionalProperties": true,
   "properties": {
     "title": {"type": "string", "minLength": 3, "maxLength": 60},
+    "hook": {"type": "string", "minLength": 3, "maxLength": 70},
+    "takeaway": {"type": "string", "minLength": 3, "maxLength": 80},
     "topic_source": {"type": "string"},
     "theme": {"type": "string"},
     "caption": {"type": "string", "minLength": 1, "maxLength": 2200},
