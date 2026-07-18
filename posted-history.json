@@ -42,5 +42,14 @@
     "theme": "#39d3c3",
     "source": "gemini",
     "date": "2026-07-17"
+  },
+  {
+    "title": "Agent Tool Invocation",
+    "pillar": "agents",
+    "layout": "hub-spoke",
+    "motion": "cinematic",
+    "theme": "#bc8cff",
+    "source": "gemini",
+    "date": "2026-07-18"
   }
 ]

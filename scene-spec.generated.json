@@ -1,97 +1,142 @@
 {
-  "title": "HOW RETRIEVAL-AUGMENTED GENERATION (RAG) WORKS",
+  "hook": "Agent tool use isn't magic. It FAILS.",
+  "title": "Agent Tool Invocation",
   "scenes": [
     {
-      "layout": "vertical-stack",
+      "layout": "hub-spoke",
       "nodes": [
         {
-          "id": "user",
-          "label": "USER",
-          "icon": "👋"
+          "id": "agent",
+          "label": "AGENT",
+          "icon": "🧠"
         },
         {
-          "id": "retriever",
-          "label": "RETRIEVER",
-          "icon": "🔍"
+          "id": "tool",
+          "label": "TOOL",
+          "icon": "🛠️"
         },
         {
-          "id": "vectordb",
-          "label": "VECTOR DB",
-          "icon": "📚"
+          "id": "error",
+          "label": "ERROR",
+          "icon": "🚨"
         }
       ],
       "steps": [
         {
-          "from": "user",
-          "to": "retriever",
-          "packet": "QUERY",
-          "status": "user asks a question",
-          "color": "accent"
+          "from": "agent",
+          "to": "tool",
+          "packet": "CALL",
+          "status": "malformed arguments",
+          "color": "warn"
         },
         {
-          "from": "retriever",
-          "to": "vectordb",
-          "packet": "EMBED",
-          "status": "query embedded for similarity search",
-          "color": "accent"
+          "from": "tool",
+          "to": "error",
+          "packet": "FAIL",
+          "status": "runtime error: invalid input",
+          "color": "warn"
         },
         {
-          "from": "vectordb",
-          "to": "retriever",
-          "packet": "DOCS",
-          "status": "relevant documents retrieved",
-          "color": "good"
+          "from": "error",
+          "to": "agent",
+          "packet": "REPORT",
+          "status": "error reported back to agent",
+          "color": "accent"
         }
       ],
-      "heading": "1. RETRIEVE RELEVANT CONTEXT"
+      "heading": "Malformed Tool Call"
     },
     {
-      "layout": "vertical-stack",
+      "layout": "hub-spoke",
       "nodes": [
         {
-          "id": "retriever",
-          "label": "RETRIEVER",
-          "icon": "🔍"
+          "id": "agent_retry",
+          "label": "AGENT",
+          "icon": "🧠"
         },
         {
-          "id": "llm",
-          "label": "LLM",
+          "id": "tool_retry",
+          "label": "TOOL",
+          "icon": "🛠️"
+        },
+        {
+          "id": "final_error",
+          "label": "ERROR",
+          "icon": "🚨"
+        }
+      ],
+      "steps": [
+        {
+          "from": "agent_retry",
+          "to": "tool_retry",
+          "packet": "RETRY",
+          "status": "revises arguments, retries call",
+          "color": "accent"
+        },
+        {
+          "from": "tool_retry",
+          "to": "final_error",
+          "packet": "FAIL",
+          "status": "tool still fails: bad logic",
+          "color": "warn"
+        },
+        {
+          "from": "final_error",
+          "to": "agent_retry",
+          "packet": "REPORT",
+          "status": "error reported again",
+          "color": "accent"
+        }
+      ],
+      "heading": "Agent Self-Correction Fails"
+    },
+    {
+      "layout": "hub-spoke",
+      "nodes": [
+        {
+          "id": "agent_fallback",
+          "label": "AGENT",
           "icon": "🧠"
         },
         {
           "id": "user",
           "label": "USER",
-          "icon": "👋"
+          "icon": "👤"
+        },
+        {
+          "id": "log",
+          "label": "LOG",
+          "icon": "📄"
         }
       ],
       "steps": [
         {
-          "from": "retriever",
-          "to": "llm",
-          "packet": "PROMPT",
-          "status": "query + docs sent as augmented prompt",
+          "from": "agent_fallback",
+          "to": "log",
+          "packet": "LOG",
+          "status": "logs irrecoverable error",
           "color": "accent"
         },
         {
-          "from": "llm",
+          "from": "agent_fallback",
           "to": "user",
-          "packet": "ANSWER",
-          "status": "llm generates grounded answer",
-          "color": "good"
+          "packet": "FALLBK",
+          "status": "informs user of failure / gives up",
+          "color": "warn"
         }
       ],
-      "heading": "2. AUGMENT PROMPT & GENERATE"
+      "heading": "The Production Reality"
     }
   ],
-  "caption": "Ever wonder how LLMs answer questions about specific, up-to-date data without hallucinations? That's RAG! It retrieves relevant info before generating. Follow @byteflowlabs for daily systems & AI breakdowns.",
+  "caption": "Agent tool use isn't magic. It fails.Agents struggle with malformed inputs or unexpected tool outputs. They'll often retry, but without solid error handling, they can get stuck in loops or hallucinate. Real-world agents need explicit fallbacks and monitoring.Save this before shipping your next agent.Follow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "RAG",
-    "LLM",
-    "AIarchitecture",
-    "GenerativeAI",
-    "VectorDatabase",
-    "TechExplained"
+    "#llmagents",
+    "#aiengineering",
+    "#tooluse",
+    "#productionml",
+    "#errorhandling"
   ],
-  "theme": "#39d3c3",
-  "motion": "burst"
+  "takeaway": "Don't just give agents tools, build robust error handling.",
+  "theme": "#bc8cff",
+  "motion": "cinematic"
 }
