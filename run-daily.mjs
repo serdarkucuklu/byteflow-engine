@@ -49,7 +49,7 @@ writeFileSync(specPath, JSON.stringify(spec, null, 2));
 writeFileSync(join(root, 'render', 'scene-spec.json'), JSON.stringify(spec, null, 2));
 
 // Geçmişe ekle (workflow posted-history.json'ı commit eder).
-history.push({title: spec.title, pillar: pillar.key, layout, motion, theme, source, date: new Date().toISOString().slice(0, 10)});
+history.push({title: spec.title, pillar: spec.pillar ?? pillar.key, layout, motion, theme, source, date: new Date().toISOString().slice(0, 10)});
 writeFileSync(historyPath, JSON.stringify(history, null, 2));
 
 // Fail fast on a missing music asset BEFORE the expensive render step, not after.

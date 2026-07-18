@@ -7,7 +7,7 @@ const cands = [{title: 'X', summary: 's', link: 'l', source: 'hn'}];
 const fakePillar = {key: 'rag', focus: 'retrieval-augmented generation: chunking, embeddings, reranking'};
 
 test('every seed in backlog is a valid spec', () => {
-  assert.ok(SEED_BACKLOG.length >= 12);
+  assert.ok(SEED_BACKLOG.length >= 8);
   for (const s of SEED_BACKLOG) {
     const {valid, errors} = validateSpec(s);
     assert.equal(valid, true, `${s.title}: ${errors.join(';')}`);

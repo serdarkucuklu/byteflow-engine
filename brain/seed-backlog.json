@@ -1,266 +1,200 @@
 [
   {
-    "title": "How an HTTP Request Actually Works",
+    "title": "Why Your RAG Pipeline Retrieves Garbage",
     "topic_source": "seed",
-    "caption": "Every HTTP request starts with a DNS lookup, then a TCP handshake, then the actual GET request to the server. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#systemdesign", "#http", "#webdev", "#networking", "#softwareengineering"],
+    "pillar": "rag",
+    "hook": "Your RAG retrieves garbage. Here's why.",
+    "takeaway": "Chunk boundaries decide retrieval quality, not model size.",
+    "caption": "Your RAG retrieves garbage. Here's why.\nBad chunking breaks context before the embedding model ever sees it.\nSave this before your next RAG debug session.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": ["#rag", "#llm", "#embeddings", "#aiengineering"],
     "scenes": [
       {
         "layout": "nodes-flow",
-        "heading": "DNS lookup then request",
+        "heading": "Bad chunks, bad retrieval",
         "nodes": [
-          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
-          {"id": "dns", "icon": "🌐", "label": "DNS"},
-          {"id": "server", "icon": "🗄️", "label": "SERVER"}
+          {"id": "query", "icon": "🔍", "label": "QUERY"},
+          {"id": "vdb", "icon": "🗂️", "label": "VECTOR DB"},
+          {"id": "llm", "icon": "🤖", "label": "LLM"}
         ],
         "steps": [
-          {"from": "client", "to": "dns", "packet": "QUERY", "color": "accent", "status": "resolve domain to ip"},
-          {"from": "dns", "to": "client", "packet": "IP", "color": "good", "status": "ip address returned"},
-          {"from": "client", "to": "server", "packet": "GET", "color": "accent", "status": "request sent over tcp"},
-          {"from": "server", "to": "client", "packet": "200", "color": "good", "status": "html response returned"}
+          {"from": "query", "to": "vdb", "packet": "SEARCH", "color": "accent", "status": "embed query, search index"},
+          {"from": "vdb", "to": "llm", "packet": "CHUNKS", "color": "warn", "status": "wrong chunks retrieved"},
+          {"from": "llm", "to": "query", "packet": "BAD", "color": "warn", "status": "garbage in, garbage out"}
         ]
       }
     ]
   },
   {
-    "title": "How Load Balancers Split Traffic",
+    "title": "Why Longer Context Windows Don't Fix Bad Prompts",
     "topic_source": "seed",
-    "caption": "A load balancer spreads incoming traffic across multiple servers so no single one gets overwhelmed. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#systemdesign", "#loadbalancing", "#backend", "#devops", "#softwareengineering"],
+    "pillar": "context",
+    "hook": "More context tokens != better answers.",
+    "takeaway": "Context rot kills accuracy long before the token limit does.",
+    "caption": "More context tokens != better answers.\nContext rot buries your instructions in the middle of a 100k-token prompt.\nSave this before you dump your whole codebase into one prompt.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": ["#llm", "#contextwindow", "#promptengineering", "#aiengineering"],
     "scenes": [
       {
         "layout": "nodes-flow",
-        "heading": "Request distribution",
+        "heading": "Context rot in action",
         "nodes": [
-          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
-          {"id": "lb", "icon": "⚖️", "label": "BALANCER"},
-          {"id": "server", "icon": "🗄️", "label": "SERVER"}
+          {"id": "prompt", "icon": "📝", "label": "PROMPT"},
+          {"id": "window", "icon": "🪟", "label": "CONTEXT"},
+          {"id": "model", "icon": "🤖", "label": "MODEL"}
         ],
         "steps": [
-          {"from": "client", "to": "lb", "packet": "REQ", "color": "accent", "status": "incoming request"},
-          {"from": "lb", "to": "server", "packet": "REQ", "color": "accent", "status": "route to healthy node"},
-          {"from": "server", "to": "client", "packet": "200", "color": "good", "status": "response returned"}
+          {"from": "prompt", "to": "window", "packet": "STUFF", "color": "accent", "status": "cram everything into context"},
+          {"from": "window", "to": "model", "packet": "READ", "color": "warn", "status": "instructions lost in the middle"},
+          {"from": "model", "to": "prompt", "packet": "MISS", "color": "warn", "status": "key detail ignored"}
         ]
       }
     ]
   },
   {
-    "title": "How Caching Speeds Up Apps",
+    "title": "Cosine Similarity Isn't Semantic Understanding",
     "topic_source": "seed",
-    "caption": "A cache stores hot data in fast memory so repeat requests skip the slow database. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#systemdesign", "#caching", "#redis", "#backend", "#softwareengineering"],
+    "pillar": "embeddings",
+    "hook": "Embeddings don't understand your query.",
+    "takeaway": "Similarity scores measure geometry, not meaning.",
+    "caption": "Embeddings don't understand your query.\nCosine similarity just measures the angle between vectors, not intent.\nSave this before trusting a top-1 embedding match blindly.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": ["#embeddings", "#llm", "#vectorsearch", "#aiengineering"],
     "scenes": [
       {
         "layout": "nodes-flow",
-        "heading": "Cache hit path",
+        "heading": "Similarity is not meaning",
         "nodes": [
-          {"id": "app", "icon": "🖥️", "label": "APP"},
-          {"id": "cache", "icon": "⚡", "label": "CACHE"},
-          {"id": "db", "icon": "🗄️", "label": "DATABASE"}
+          {"id": "text", "icon": "📝", "label": "TEXT"},
+          {"id": "encoder", "icon": "🧮", "label": "ENCODER"},
+          {"id": "vector", "icon": "📍", "label": "VECTOR"}
         ],
         "steps": [
-          {"from": "app", "to": "cache", "packet": "GET", "color": "accent", "status": "check cache first"},
-          {"from": "cache", "to": "app", "packet": "HIT", "color": "good", "status": "fast in-memory hit"}
+          {"from": "text", "to": "encoder", "packet": "EMBED", "color": "accent", "status": "text mapped by encoder"},
+          {"from": "encoder", "to": "vector", "packet": "N-DIM", "color": "accent", "status": "output is just geometry"},
+          {"from": "vector", "to": "encoder", "packet": "CHECK", "color": "warn", "status": "high similarity, wrong meaning"}
         ]
       }
     ]
   },
   {
-    "title": "Why Database Indexes Make Queries Fast",
+    "title": "KV Cache Is Why Your LLM Slows Down Mid-Reply",
     "topic_source": "seed",
-    "caption": "A database index is a sorted lookup structure that lets queries jump straight to matching rows instead of scanning the whole table. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#database", "#systemdesign", "#backend", "#sql", "#softwareengineering"],
+    "pillar": "inference",
+    "hook": "Your LLM gets slower the longer it talks.",
+    "takeaway": "KV cache grows with every token, and so does latency.",
+    "caption": "Your LLM gets slower the longer it talks.\nEvery generated token grows the KV cache the model has to attend over.\nSave this before you blame the model for a serving problem.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": ["#llm", "#inference", "#genai", "#aiengineering"],
     "scenes": [
       {
         "layout": "nodes-flow",
-        "heading": "Indexed lookup",
+        "heading": "KV cache grows every token",
         "nodes": [
-          {"id": "app", "icon": "🖥️", "label": "APP"},
-          {"id": "index", "icon": "📇", "label": "INDEX"},
-          {"id": "table", "icon": "🗄️", "label": "TABLE"}
+          {"id": "token", "icon": "🔤", "label": "TOKEN"},
+          {"id": "kv", "icon": "🗃️", "label": "KV CACHE"},
+          {"id": "gpu", "icon": "⚡", "label": "GPU"}
         ],
         "steps": [
-          {"from": "app", "to": "index", "packet": "QUERY", "color": "accent", "status": "lookup key in index"},
-          {"from": "index", "to": "table", "packet": "ROWID", "color": "accent", "status": "jump straight to row"},
-          {"from": "table", "to": "app", "packet": "ROW", "color": "good", "status": "row returned instantly"}
+          {"from": "token", "to": "kv", "packet": "STORE", "color": "accent", "status": "cache grows every step"},
+          {"from": "kv", "to": "gpu", "packet": "READ", "color": "warn", "status": "more memory to scan"},
+          {"from": "gpu", "to": "token", "packet": "SLOW", "color": "warn", "status": "latency creeps up"}
         ]
       }
     ]
   },
   {
-    "title": "How Kafka Decouples Services",
+    "title": "LLM-as-Judge Is Grading Its Own Homework",
     "topic_source": "seed",
-    "caption": "A message queue like Kafka lets producers and consumers work independently, so a slow consumer never blocks the producer. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#kafka", "#systemdesign", "#messagequeue", "#backend", "#softwareengineering"],
+    "pillar": "evaluation",
+    "hook": "Your eval LLM might be lying to you.",
+    "takeaway": "A biased judge model gives you a biased benchmark.",
+    "caption": "Your eval LLM might be lying to you.\nLLM-as-judge tends to favor its own family's writing style, not quality.\nSave this before you trust a single-model eval score.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": ["#llm", "#evaluation", "#aiengineering", "#genai"],
     "scenes": [
       {
         "layout": "nodes-flow",
-        "heading": "Decoupled messaging",
+        "heading": "Judge model bias",
         "nodes": [
-          {"id": "producer", "icon": "📤", "label": "PRODUCER"},
-          {"id": "kafka", "icon": "📨", "label": "KAFKA"},
-          {"id": "consumer", "icon": "📥", "label": "CONSUMER"}
+          {"id": "output", "icon": "📄", "label": "OUTPUT"},
+          {"id": "judge", "icon": "⚖️", "label": "JUDGE LLM"},
+          {"id": "score", "icon": "🔢", "label": "SCORE"}
         ],
         "steps": [
-          {"from": "producer", "to": "kafka", "packet": "MSG", "color": "accent", "status": "publish event to topic"},
-          {"from": "kafka", "to": "consumer", "packet": "MSG", "color": "good", "status": "consumer reads at own pace"}
+          {"from": "output", "to": "judge", "packet": "GRADE", "color": "accent", "status": "judge model scores answer"},
+          {"from": "judge", "to": "score", "packet": "BIAS", "color": "warn", "status": "favors own writing style"},
+          {"from": "score", "to": "output", "packet": "SKEW", "color": "warn", "status": "benchmark quietly skewed"}
         ]
       }
     ]
   },
   {
-    "title": "How a CDN Makes Websites Faster",
+    "title": "Model Routing Beats Always Using Flagship Models",
     "topic_source": "seed",
-    "caption": "A CDN caches content on edge servers close to users, so most requests never have to reach the origin server. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#cdn", "#systemdesign", "#webdev", "#networking", "#softwareengineering"],
+    "pillar": "cost-latency",
+    "hook": "Stop paying flagship prices for easy questions.",
+    "takeaway": "Route by difficulty, not habit, and costs drop fast.",
+    "caption": "Stop paying flagship prices for easy questions.\nA router sends simple queries to a cheap model and hard ones to a strong one.\nSave this before your token bill embarrasses you.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": ["#llm", "#aiengineering", "#costoptimization", "#genai"],
     "scenes": [
       {
         "layout": "nodes-flow",
-        "heading": "Edge caching",
+        "heading": "Route by difficulty",
         "nodes": [
-          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
-          {"id": "edge", "icon": "🌍", "label": "EDGE"},
-          {"id": "origin", "icon": "🗄️", "label": "ORIGIN"}
+          {"id": "query", "icon": "❓", "label": "QUERY"},
+          {"id": "router", "icon": "🔀", "label": "ROUTER"},
+          {"id": "model", "icon": "🤖", "label": "MODEL"}
         ],
         "steps": [
-          {"from": "client", "to": "edge", "packet": "REQ", "color": "accent", "status": "request nearest edge node"},
-          {"from": "edge", "to": "origin", "packet": "REQ", "color": "warn", "status": "cache miss, fetch origin"},
-          {"from": "origin", "to": "edge", "packet": "200", "color": "good", "status": "origin returns content"},
-          {"from": "edge", "to": "client", "packet": "200", "color": "good", "status": "cached and served locally"}
+          {"from": "query", "to": "router", "packet": "CHECK", "color": "accent", "status": "classify difficulty first"},
+          {"from": "router", "to": "model", "packet": "EASY", "color": "good", "status": "cheap model handles it"},
+          {"from": "router", "to": "model", "packet": "HARD", "color": "warn", "status": "flagship model only if needed"}
         ]
       }
     ]
   },
   {
-    "title": "How DNS Resolves a Domain Name",
+    "title": "Prompt Injection Hides Inside 'Harmless' Text",
     "topic_source": "seed",
-    "caption": "DNS resolution turns a human-readable domain into an IP address by asking a resolver, which asks the authoritative server. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#dns", "#networking", "#systemdesign", "#webdev", "#softwareengineering"],
+    "pillar": "guardrails",
+    "hook": "That PDF you fed your agent might attack it.",
+    "takeaway": "Untrusted input is still input, even inside a tool result.",
+    "caption": "That PDF you fed your agent might attack it.\nPrompt injection hides instructions inside documents, emails, and tool output.\nSave this before you let an agent read untrusted content unchecked.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": ["#llm", "#promptinjection", "#aiagents", "#aiengineering"],
     "scenes": [
       {
         "layout": "nodes-flow",
-        "heading": "Name resolution",
+        "heading": "Injection hides in input",
         "nodes": [
-          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
-          {"id": "resolver", "icon": "🧭", "label": "RESOLVER"},
-          {"id": "auth", "icon": "🗄️", "label": "AUTH SERVER"}
+          {"id": "doc", "icon": "📄", "label": "DOCUMENT"},
+          {"id": "agent", "icon": "🤖", "label": "AGENT"},
+          {"id": "action", "icon": "⚙️", "label": "ACTION"}
         ],
         "steps": [
-          {"from": "client", "to": "resolver", "packet": "QUERY", "color": "accent", "status": "ask for ip address"},
-          {"from": "resolver", "to": "auth", "packet": "QUERY", "color": "accent", "status": "resolver asks authority"},
-          {"from": "auth", "to": "resolver", "packet": "IP", "color": "good", "status": "authority returns ip"},
-          {"from": "resolver", "to": "client", "packet": "IP", "color": "good", "status": "ip cached and returned"}
+          {"from": "doc", "to": "agent", "packet": "READ", "color": "accent", "status": "agent reads untrusted text"},
+          {"from": "agent", "to": "action", "packet": "EXEC", "color": "warn", "status": "hidden instruction executed"},
+          {"from": "action", "to": "agent", "packet": "LEAK", "color": "warn", "status": "data exfiltrated silently"}
         ]
       }
     ]
   },
   {
-    "title": "How JWT Authentication Works",
+    "title": "MCP Turns Every API Into a Tool an LLM Can Call",
     "topic_source": "seed",
-    "caption": "JWT authentication issues a signed token after login, so the API can verify a user's identity without a database lookup. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#jwt", "#auth", "#systemdesign", "#backend", "#softwareengineering"],
+    "pillar": "mcp-tools",
+    "hook": "Your LLM can't use tools it can't describe.",
+    "takeaway": "A clean schema matters more than a clever prompt.",
+    "caption": "Your LLM can't use tools it can't describe.\nMCP standardizes how a model discovers, calls, and gets results from external tools.\nSave this before you hardcode another one-off tool integration.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": ["#mcp", "#llm", "#aiagents", "#aiengineering"],
     "scenes": [
       {
         "layout": "nodes-flow",
-        "heading": "Token-based auth",
+        "heading": "Tool call via MCP",
         "nodes": [
-          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
-          {"id": "auth", "icon": "🔐", "label": "AUTH"},
-          {"id": "api", "icon": "🗄️", "label": "API"}
+          {"id": "llm", "icon": "🤖", "label": "LLM"},
+          {"id": "mcp", "icon": "🔌", "label": "MCP SERVER"},
+          {"id": "tool", "icon": "🛠️", "label": "TOOL"}
         ],
         "steps": [
-          {"from": "client", "to": "auth", "packet": "LOGIN", "color": "accent", "status": "send credentials"},
-          {"from": "auth", "to": "client", "packet": "JWT", "color": "good", "status": "signed token issued"},
-          {"from": "client", "to": "api", "packet": "JWT", "color": "accent", "status": "token sent with request"},
-          {"from": "api", "to": "client", "packet": "200", "color": "good", "status": "token verified, ok"}
-        ]
-      }
-    ]
-  },
-  {
-    "title": "How Rate Limiting Protects APIs",
-    "topic_source": "seed",
-    "caption": "Rate limiting caps how many requests a client can make in a window, protecting the API from overload and abuse. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#ratelimiting", "#systemdesign", "#api", "#backend", "#softwareengineering"],
-    "scenes": [
-      {
-        "layout": "nodes-flow",
-        "heading": "Throttled requests",
-        "nodes": [
-          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
-          {"id": "limiter", "icon": "🚦", "label": "LIMITER"},
-          {"id": "api", "icon": "🗄️", "label": "API"}
-        ],
-        "steps": [
-          {"from": "client", "to": "limiter", "packet": "REQ", "color": "accent", "status": "request checked first"},
-          {"from": "limiter", "to": "api", "packet": "REQ", "color": "good", "status": "under limit, forwarded"},
-          {"from": "limiter", "to": "client", "packet": "429", "color": "warn", "status": "over limit, rejected"}
-        ]
-      }
-    ]
-  },
-  {
-    "title": "Monolith vs Microservices Explained",
-    "topic_source": "seed",
-    "caption": "Microservices split a monolith into small independently deployable services, trading simplicity for scalability. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#microservices", "#systemdesign", "#backend", "#architecture", "#softwareengineering"],
-    "scenes": [
-      {
-        "layout": "nodes-flow",
-        "heading": "Service ownership",
-        "nodes": [
-          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
-          {"id": "gateway", "icon": "🚪", "label": "GATEWAY"},
-          {"id": "service", "icon": "⚙️", "label": "SERVICE"}
-        ],
-        "steps": [
-          {"from": "client", "to": "gateway", "packet": "REQ", "color": "accent", "status": "single entry point"},
-          {"from": "gateway", "to": "service", "packet": "REQ", "color": "good", "status": "routed to owning service"}
-        ]
-      }
-    ]
-  },
-  {
-    "title": "What an API Gateway Actually Does",
-    "topic_source": "seed",
-    "caption": "An API gateway is the single entry point that handles auth, rate limiting, and routing before requests reach internal services. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#apigateway", "#systemdesign", "#backend", "#microservices", "#softwareengineering"],
-    "scenes": [
-      {
-        "layout": "nodes-flow",
-        "heading": "Gateway routing",
-        "nodes": [
-          {"id": "client", "icon": "🖥️", "label": "CLIENT"},
-          {"id": "gateway", "icon": "🚪", "label": "GATEWAY"},
-          {"id": "service", "icon": "⚙️", "label": "SERVICE"}
-        ],
-        "steps": [
-          {"from": "client", "to": "gateway", "packet": "REQ", "color": "accent", "status": "auth and rate limit"},
-          {"from": "gateway", "to": "service", "packet": "REQ", "color": "good", "status": "forwarded to service"},
-          {"from": "service", "to": "gateway", "packet": "200", "color": "good", "status": "response sent back"},
-          {"from": "gateway", "to": "client", "packet": "200", "color": "good", "status": "response returned"}
-        ]
-      }
-    ]
-  },
-  {
-    "title": "The Docker Container Lifecycle",
-    "topic_source": "seed",
-    "caption": "A Docker container is a running instance of an image; the engine builds, runs, stops, and removes it through a defined lifecycle. Follow @byteflowlabs for daily systems & AI breakdowns.",
-    "hashtags": ["#docker", "#devops", "#systemdesign", "#containers", "#softwareengineering"],
-    "scenes": [
-      {
-        "layout": "nodes-flow",
-        "heading": "Build, run, stop",
-        "nodes": [
-          {"id": "image", "icon": "📦", "label": "IMAGE"},
-          {"id": "engine", "icon": "🐳", "label": "ENGINE"},
-          {"id": "container", "icon": "⚙️", "label": "CONTAINER"}
-        ],
-        "steps": [
-          {"from": "image", "to": "engine", "packet": "BUILD", "color": "accent", "status": "image built from layers"},
-          {"from": "engine", "to": "container", "packet": "RUN", "color": "good", "status": "container started from image"},
-          {"from": "container", "to": "engine", "packet": "STOP", "color": "warn", "status": "container stopped and removed"}
+          {"from": "llm", "to": "mcp", "packet": "CALL", "color": "accent", "status": "request tool by schema"},
+          {"from": "mcp", "to": "tool", "packet": "EXEC", "color": "accent", "status": "server invokes real tool"},
+          {"from": "tool", "to": "llm", "packet": "RESULT", "color": "good", "status": "structured result returned"}
         ]
       }
     ]
