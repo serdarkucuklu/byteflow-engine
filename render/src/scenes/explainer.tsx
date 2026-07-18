@@ -1,9 +1,10 @@
-import {makeScene2D, Rect, Txt, Layout, Line} from '@motion-canvas/2d';
+import {makeScene2D, Rect, Txt, Layout, Line, Code, LezerHighlighter} from '@motion-canvas/2d';
 import {all, createRef, waitFor, sequence, spawn, easeOutCubic} from '@motion-canvas/core';
 import {COLORS, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
 import {resolvePreset} from '../lib/motion';
 import {motionTarget} from '../lib/motion-registry.mjs';
+import {byteflowHighlighter} from '../lib/codeHighlighter';
 import specJson from '../../scene-spec.json';
 
 const spec = specJson as unknown as SceneSpec;
@@ -57,6 +58,11 @@ export default makeScene2D(function* (view) {
 
   // ---- Each scene ----
   for (const scene of spec.scenes) {
+    if (scene.kind === 'code' && scene.code) {
+      yield* renderCodeScene(view, scene, ctx);
+      continue;
+    }
+    // ---- (mevcut diagram gövdesi buradan itibaren değişmeden devam eder) ----
     const container = createRef<Layout>();
     view.add(<Layout ref={container} opacity={0} />);
 
@@ -64,7 +70,10 @@ export default makeScene2D(function* (view) {
     container().add(<Txt ref={heading} text={scene.heading ?? ''} fill={ACCENT}
       fontFamily={MONO} fontSize={50} fontWeight={600} letterSpacing={1} y={-470} opacity={0.95} />);
 
-    const count = scene.nodes.length;
+    // kind !== 'code' burada garanti nodes/steps taşır (şema oneOf); tsc için daraltma.
+    const nodes = scene.nodes!;
+    const steps = scene.steps!;
+    const count = nodes.length;
     const pos = layoutPositions(scene.layout, count);
     const {w, h} = boxSize(scene.layout, count);
     const iconSize = Math.round(h * 0.44);
@@ -87,7 +96,7 @@ export default makeScene2D(function* (view) {
 
     // Nodes — big, tactile "module" cards with soft depth.
     const boxes: Record<string, Rect> = {};
-    scene.nodes.forEach((n, i) => {
+    nodes.forEach((n, i) => {
       const box = createRef<Rect>();
       container().add(
         <Rect ref={box} width={w} height={h} radius={34} fill={COLORS.card}
@@ -107,13 +116,13 @@ export default makeScene2D(function* (view) {
 
     // Scene appears → node entrances (per preset, staggered) → connectors.
     yield* container().opacity(1, 0.4);
-    const entrances = scene.nodes.map((n, i) => preset.enter(boxes[n.id], i, count, ctx));
+    const entrances = nodes.map((n, i) => preset.enter(boxes[n.id], i, count, ctx));
     if (preset.stagger > 0) yield* sequence(preset.stagger, ...entrances);
     else yield* all(...entrances);
     yield* preset.drawLines(lines, ctx);
 
     // Steps: packet flight (per preset).
-    for (const step of scene.steps) {
+    for (const step of steps) {
       const from = boxes[step.from], to = boxes[step.to];
       if (!from || !to) continue;
       const col = resolveColor(step.color ?? 'accent', ACCENT);
@@ -131,10 +140,10 @@ export default makeScene2D(function* (view) {
     }
 
     // Recap burst: replay the whole flow at once (governed; fills time engagingly).
-    if (pacing.recap > 0 && scene.steps.length > 1) {
+    if (pacing.recap > 0 && steps.length > 1) {
       status().text('the full flow');
       status().fill(ACCENT);
-      const dots = scene.steps.map(step => {
+      const dots = steps.map(step => {
         const from = boxes[step.from], to = boxes[step.to];
         if (!from || !to) return null;
         const dot = createRef<Rect>();
@@ -168,3 +177,44 @@ export default makeScene2D(function* (view) {
   yield* all(take().opacity(1, 0.5), follow().opacity(1, 0.5));
   yield* waitFor(1.4);
 });
+
+function* renderCodeScene(view: any, scene: any, ctx: any) {
+  const container = createRef<Layout>();
+  view.add(<Layout ref={container} opacity={0} />);
+
+  if (scene.heading) {
+    container().add(<Txt text={scene.heading} fill={ctx.accent} fontFamily={MONO}
+      fontSize={48} fontWeight={600} letterSpacing={1} y={-620} opacity={0.95} />);
+  }
+
+  // Kod kartı (arka plan) + Code node.
+  container().add(<Rect width={980} height={880} radius={28} fill={COLORS.card}
+    stroke={COLORS.stroke} lineWidth={3} shadowColor={'#00000066'} shadowBlur={40} shadowOffsetY={14} y={-10} />);
+
+  const code = createRef<Code>();
+  container().add(
+    <Code ref={code} highlighter={byteflowHighlighter as unknown as LezerHighlighter}
+      fontFamily={MONO} fontSize={40} offsetX={-1} x={-440} y={-360} code={''} />,
+  );
+
+  if (scene.annotation) {
+    container().add(<Txt text={scene.annotation} fill={COLORS.muted} fontFamily={MONO}
+      fontSize={40} fontWeight={500} y={520} width={960} textAlign="center" textWrap opacity={0.9} />);
+  }
+
+  yield* container().opacity(1, 0.4);
+
+  // Reveal: typing (varsayılan) satır satır süreyle yazar; instant tek seferde.
+  const full = scene.code as string;
+  if (scene.reveal === 'instant') {
+    code().code(full);
+    yield* waitFor(ctx.pacing.finalDwell + 1.2);
+  } else {
+    // Kod tween — CodeSignal ile hedef koda "yazılır" (typing hissi).
+    yield* code().code(full, Math.min(2.4, Math.max(1.2, full.length / 90)));
+    yield* waitFor(ctx.pacing.finalDwell + 0.8);
+  }
+
+  yield* container().opacity(0, 0.4);
+  container().remove();
+}
