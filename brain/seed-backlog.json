@@ -5,7 +5,7 @@
     "pillar": "rag",
     "hook": "Your RAG retrieves garbage. Here's why.",
     "takeaway": "Chunk boundaries decide retrieval quality, not model size.",
-    "caption": "Your RAG retrieves garbage. Here's why.\nBad chunking breaks context before the embedding model ever sees it.\nSave this before your next RAG debug session.\nFollow @byteflowlabs for AI systems, no hype.",
+    "caption": "Your RAG retrieves garbage. Here's why.\nBad chunking breaks context before the embedding model ever sees it.\nSave this before your next RAG debug session.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
     "hashtags": ["#rag", "#llm", "#embeddings", "#aiengineering"],
     "scenes": [
       {
@@ -30,7 +30,7 @@
     "pillar": "context",
     "hook": "More context tokens != better answers.",
     "takeaway": "Context rot kills accuracy long before the token limit does.",
-    "caption": "More context tokens != better answers.\nContext rot buries your instructions in the middle of a 100k-token prompt.\nSave this before you dump your whole codebase into one prompt.\nFollow @byteflowlabs for AI systems, no hype.",
+    "caption": "More context tokens != better answers.\nContext rot buries your instructions in the middle of a 100k-token prompt.\nSave this before you dump your whole codebase into one prompt.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
     "hashtags": ["#llm", "#contextwindow", "#promptengineering", "#aiengineering"],
     "scenes": [
       {
@@ -55,7 +55,7 @@
     "pillar": "embeddings",
     "hook": "Embeddings don't understand your query.",
     "takeaway": "Similarity scores measure geometry, not meaning.",
-    "caption": "Embeddings don't understand your query.\nCosine similarity just measures the angle between vectors, not intent.\nSave this before trusting a top-1 embedding match blindly.\nFollow @byteflowlabs for AI systems, no hype.",
+    "caption": "Embeddings don't understand your query.\nCosine similarity just measures the angle between vectors, not intent.\nSave this before trusting a top-1 embedding match blindly.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
     "hashtags": ["#embeddings", "#llm", "#vectorsearch", "#aiengineering"],
     "scenes": [
       {
@@ -80,7 +80,7 @@
     "pillar": "inference",
     "hook": "Your LLM gets slower the longer it talks.",
     "takeaway": "KV cache grows with every token, and so does latency.",
-    "caption": "Your LLM gets slower the longer it talks.\nEvery generated token grows the KV cache the model has to attend over.\nSave this before you blame the model for a serving problem.\nFollow @byteflowlabs for AI systems, no hype.",
+    "caption": "Your LLM gets slower the longer it talks.\nEvery generated token grows the KV cache the model has to attend over.\nSave this before you blame the model for a serving problem.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
     "hashtags": ["#llm", "#inference", "#genai", "#aiengineering"],
     "scenes": [
       {
@@ -105,7 +105,7 @@
     "pillar": "evaluation",
     "hook": "Your eval LLM might be lying to you.",
     "takeaway": "A biased judge model gives you a biased benchmark.",
-    "caption": "Your eval LLM might be lying to you.\nLLM-as-judge tends to favor its own family's writing style, not quality.\nSave this before you trust a single-model eval score.\nFollow @byteflowlabs for AI systems, no hype.",
+    "caption": "Your eval LLM might be lying to you.\nLLM-as-judge tends to favor its own family's writing style, not quality.\nSave this before you trust a single-model eval score.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
     "hashtags": ["#llm", "#evaluation", "#aiengineering", "#genai"],
     "scenes": [
       {
@@ -130,7 +130,7 @@
     "pillar": "cost-latency",
     "hook": "Stop paying flagship prices for easy questions.",
     "takeaway": "Route by difficulty, not habit, and costs drop fast.",
-    "caption": "Stop paying flagship prices for easy questions.\nA router sends simple queries to a cheap model and hard ones to a strong one.\nSave this before your token bill embarrasses you.\nFollow @byteflowlabs for AI systems, no hype.",
+    "caption": "Stop paying flagship prices for easy questions.\nA router sends simple queries to a cheap model and hard ones to a strong one.\nSave this before your token bill embarrasses you.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
     "hashtags": ["#llm", "#aiengineering", "#costoptimization", "#genai"],
     "scenes": [
       {
@@ -155,7 +155,7 @@
     "pillar": "guardrails",
     "hook": "That PDF you fed your agent might attack it.",
     "takeaway": "Untrusted input is still input, even inside a tool result.",
-    "caption": "That PDF you fed your agent might attack it.\nPrompt injection hides instructions inside documents, emails, and tool output.\nSave this before you let an agent read untrusted content unchecked.\nFollow @byteflowlabs for AI systems, no hype.",
+    "caption": "That PDF you fed your agent might attack it.\nPrompt injection hides instructions inside documents, emails, and tool output.\nSave this before you let an agent read untrusted content unchecked.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
     "hashtags": ["#llm", "#promptinjection", "#aiagents", "#aiengineering"],
     "scenes": [
       {
@@ -180,7 +180,7 @@
     "pillar": "mcp-tools",
     "hook": "Your LLM can't use tools it can't describe.",
     "takeaway": "A clean schema matters more than a clever prompt.",
-    "caption": "Your LLM can't use tools it can't describe.\nMCP standardizes how a model discovers, calls, and gets results from external tools.\nSave this before you hardcode another one-off tool integration.\nFollow @byteflowlabs for AI systems, no hype.",
+    "caption": "Your LLM can't use tools it can't describe.\nMCP standardizes how a model discovers, calls, and gets results from external tools.\nSave this before you hardcode another one-off tool integration.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
     "hashtags": ["#mcp", "#llm", "#aiagents", "#aiengineering"],
     "scenes": [
       {

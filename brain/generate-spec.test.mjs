@@ -120,3 +120,20 @@ test('response schema permits a code scene shape and the prompt describes it', a
   assert.equal(spec.scenes[0].kind, 'code');
   assert.equal(spec.scenes[0].code, 'for i in range(5): sleep(2**i)');
 });
+
+test('the prompt instructs a "Written by Kai." persona line before the follow sign-off', async () => {
+  let sentBody;
+  const fakeFetch = async (_url, opts) => {
+    sentBody = JSON.parse(opts.body);
+    return {ok: true, json: async () => ({candidates: [{content: {parts: [{text: JSON.stringify({
+      hook: 'h', title: 't', takeaway: 'tk', hashtags: ['#llm'],
+      caption: 'claim\ninsight\nSave this\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.',
+      scenes: [{layout: 'nodes-flow', nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}],
+        steps: [{from: 'a', to: 'b', packet: 'P', color: 'accent', status: 'x'}]}],
+    })}]}}]})};
+  };
+  const pillar = {key: 'rag', focus: 'retrieval'};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar, fetchFn: fakeFetch});
+  const promptText = sentBody.contents[0].parts[0].text;
+  assert.match(promptText, /Written by Kai\./);
+});
