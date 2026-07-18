@@ -9,6 +9,8 @@ import specJson from '../../scene-spec.json';
 const spec = specJson as unknown as SceneSpec;
 const MONO = 'JetBrains Mono, monospace';
 const ACCENT = spec.theme ?? COLORS.accent; // per-video accent theme
+const HOOK = spec.hook ?? spec.title;
+const TAKEAWAY = spec.takeaway ?? 'follow @byteflowlabs for more';
 
 const preset = resolvePreset((spec as {motion?: string}).motion);
 const pacing = computePacing(specShape(spec), motionTarget(preset.weight));
@@ -29,17 +31,18 @@ function connectors(layout: string, count: number): [number, number][] {
 export default makeScene2D(function* (view) {
   view.fill(COLORS.bg);
 
-  // ---- Brand intro (fixed) ----
-  const brand = createRef<Txt>();
-  const brandSub = createRef<Txt>();
-  view.add(<Txt ref={brand} text="BYTEFLOW" fill={COLORS.text} fontFamily={MONO}
-    fontSize={96} fontWeight={800} letterSpacing={12} opacity={0} y={-40} />);
-  view.add(<Txt ref={brandSub} text="@byteflowlabs" fill={ACCENT} fontFamily={MONO}
-    fontSize={40} letterSpacing={6} opacity={0} y={60} />);
-  yield* brand().opacity(1, 0.5);
-  yield* brandSub().opacity(1, 0.3);
-  yield* waitFor(0.6);
-  yield* all(brand().opacity(0, 0.4), brandSub().opacity(0, 0.4));
+  // ---- Hook (first frame) ----
+  const hook = createRef<Txt>();
+  const hookTag = createRef<Txt>();
+  view.add(<Txt ref={hook} text={HOOK} fill={COLORS.text} fontFamily={MONO}
+    fontSize={72} fontWeight={800} letterSpacing={2} opacity={0} y={-30}
+    width={960} textAlign="center" textWrap />);
+  view.add(<Txt ref={hookTag} text="@byteflowlabs" fill={ACCENT} fontFamily={MONO}
+    fontSize={36} letterSpacing={6} opacity={0} y={160} />);
+  yield* hook().opacity(1, 0.35);
+  yield* hookTag().opacity(1, 0.25);
+  yield* waitFor(1.1);
+  yield* all(hook().opacity(0, 0.35), hookTag().opacity(0, 0.35));
 
   // ---- Title (persistent) ----
   const title = createRef<Txt>();
@@ -153,14 +156,15 @@ export default makeScene2D(function* (view) {
     container().remove();
   }
 
-  // ---- Brand outro (fixed) ----
+  // ---- Takeaway + follow (outro) ----
   yield* title().opacity(0, 0.3);
-  const outro = createRef<Txt>();
-  const cta = createRef<Txt>();
-  view.add(<Txt ref={outro} text="BYTEFLOW" fill={COLORS.text} fontFamily={MONO}
-    fontSize={88} fontWeight={800} letterSpacing={12} opacity={0} y={-30} />);
-  view.add(<Txt ref={cta} text="follow @byteflowlabs for more" fill={ACCENT}
-    fontFamily={MONO} fontSize={38} opacity={0} y={60} />);
-  yield* all(outro().opacity(1, 0.5), cta().opacity(1, 0.5));
-  yield* waitFor(1.2);
+  const take = createRef<Txt>();
+  const follow = createRef<Txt>();
+  view.add(<Txt ref={take} text={TAKEAWAY} fill={COLORS.text} fontFamily={MONO}
+    fontSize={60} fontWeight={800} letterSpacing={1} opacity={0} y={-40}
+    width={960} textAlign="center" textWrap />);
+  view.add(<Txt ref={follow} text="follow @byteflowlabs · AI systems, no hype" fill={ACCENT}
+    fontFamily={MONO} fontSize={34} opacity={0} y={150} />);
+  yield* all(take().opacity(1, 0.5), follow().opacity(1, 0.5));
+  yield* waitFor(1.4);
 });
