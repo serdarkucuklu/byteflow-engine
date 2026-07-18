@@ -12,10 +12,10 @@ function pickSeedDefault(seeds) {
   return seeds[0];
 }
 
-export async function produceSpec({candidates, apiKey, recentTitles = [], generate = generateSpec, retries = 2, pickSeed = pickSeedDefault, backoffMs = 400}) {
+export async function produceSpec({candidates, apiKey, recentTitles = [], pillar, generate = generateSpec, retries = 2, pickSeed = pickSeedDefault, backoffMs = 400}) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
-      const spec = await generate({candidates, apiKey, recentTitles});
+      const spec = await generate({candidates, apiKey, recentTitles, pillar});
       const {valid, errors} = validateSpec(spec);
       if (valid) return {spec, source: 'gemini'};
       console.error(`[produce] attempt ${attempt} invalid: ${errors.join('; ')}`);

@@ -4,6 +4,7 @@ import {produceSpec, SEED_BACKLOG} from './produce-spec.mjs';
 import {validateSpec} from './validate.mjs';
 
 const cands = [{title: 'X', summary: 's', link: 'l', source: 'hn'}];
+const fakePillar = {key: 'rag', focus: 'retrieval-augmented generation: chunking, embeddings, reranking'};
 
 test('every seed in backlog is a valid spec', () => {
   assert.ok(SEED_BACKLOG.length >= 12);
@@ -14,22 +15,32 @@ test('every seed in backlog is a valid spec', () => {
 });
 
 test('uses gemini result when valid', async () => {
-  const fakeGood = async () => SEED_BACKLOG[0];
-  const {spec, source} = await produceSpec({candidates: cands, apiKey: 'x', generate: fakeGood});
+  const fakeGood = async ({candidates, apiKey, recentTitles, pillar}) => SEED_BACKLOG[0];
+  const {spec, source} = await produceSpec({candidates: cands, apiKey: 'x', pillar: fakePillar, generate: fakeGood});
   assert.equal(source, 'gemini');
   assert.equal(spec.title, SEED_BACKLOG[0].title);
 });
 
+test('passes the pillar through to the generate function', async () => {
+  let receivedPillar;
+  const fakeGood = async ({candidates, apiKey, recentTitles, pillar}) => {
+    receivedPillar = pillar;
+    return SEED_BACKLOG[0];
+  };
+  await produceSpec({candidates: cands, apiKey: 'x', pillar: fakePillar, generate: fakeGood});
+  assert.deepEqual(receivedPillar, fakePillar);
+});
+
 test('falls back to seed when generator keeps failing', async () => {
-  const fakeBad = async () => { throw new Error('boom'); };
-  const {spec, source} = await produceSpec({candidates: cands, apiKey: 'x', generate: fakeBad, retries: 1, pickSeed: s => s[2], backoffMs: 0});
+  const fakeBad = async ({candidates, apiKey, recentTitles, pillar}) => { throw new Error('boom'); };
+  const {spec, source} = await produceSpec({candidates: cands, apiKey: 'x', pillar: fakePillar, generate: fakeBad, retries: 1, pickSeed: s => s[2], backoffMs: 0});
   assert.equal(source, 'seed');
   assert.equal(validateSpec(spec).valid, true);
 });
 
 test('falls back when gemini returns invalid spec', async () => {
-  const fakeInvalid = async () => ({title: 'x', scenes: [], caption: 'c', hashtags: []});
-  const {source} = await produceSpec({candidates: cands, apiKey: 'x', generate: fakeInvalid, retries: 0, pickSeed: s => s[0], backoffMs: 0});
+  const fakeInvalid = async ({candidates, apiKey, recentTitles, pillar}) => ({title: 'x', scenes: [], caption: 'c', hashtags: []});
+  const {source} = await produceSpec({candidates: cands, apiKey: 'x', pillar: fakePillar, generate: fakeInvalid, retries: 0, pickSeed: s => s[0], backoffMs: 0});
   assert.equal(source, 'seed');
 });
 
@@ -40,9 +51,9 @@ test('default pickSeed deterministically returns the first seed', () => {
 
 test('waits between retry attempts (backoff grows) but not after the last attempt', async () => {
   const attemptTimestamps = [];
-  const fakeBad = async () => { attemptTimestamps.push(Date.now()); throw new Error('boom'); };
+  const fakeBad = async ({candidates, apiKey, recentTitles, pillar}) => { attemptTimestamps.push(Date.now()); throw new Error('boom'); };
   const start = Date.now();
-  await produceSpec({candidates: cands, apiKey: 'x', generate: fakeBad, retries: 2, pickSeed: s => s[0], backoffMs: 20});
+  await produceSpec({candidates: cands, apiKey: 'x', pillar: fakePillar, generate: fakeBad, retries: 2, pickSeed: s => s[0], backoffMs: 20});
   const elapsed = Date.now() - start;
   assert.equal(attemptTimestamps.length, 3, 'attempt 0, 1, 2 all ran');
   // delay after attempt 0 (20ms) + after attempt 1 (40ms) = 60ms, none after attempt 2 (last)
@@ -50,9 +61,9 @@ test('waits between retry attempts (backoff grows) but not after the last attemp
 });
 
 test('produceSpec with backoffMs: 0 does not add measurable delay', async () => {
-  const fakeBad = async () => { throw new Error('boom'); };
+  const fakeBad = async ({candidates, apiKey, recentTitles, pillar}) => { throw new Error('boom'); };
   const start = Date.now();
-  await produceSpec({candidates: cands, apiKey: 'x', generate: fakeBad, retries: 3, pickSeed: s => s[0], backoffMs: 0});
+  await produceSpec({candidates: cands, apiKey: 'x', pillar: fakePillar, generate: fakeBad, retries: 3, pickSeed: s => s[0], backoffMs: 0});
   const elapsed = Date.now() - start;
   assert.ok(elapsed < 200, `expected near-instant with backoffMs 0, got ${elapsed}`);
 });
