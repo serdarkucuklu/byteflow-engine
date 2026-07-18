@@ -15,6 +15,7 @@ function semanticErrors(spec) {
   const errors = [];
   if (!spec || !Array.isArray(spec.scenes)) return errors;
   spec.scenes.forEach((scene, sceneIdx) => {
+    if (scene && scene.kind === 'code') return; // code sahnesinde node/step yok
     if (!scene || !Array.isArray(scene.nodes)) return;
     const seen = new Set();
     const ids = new Set();

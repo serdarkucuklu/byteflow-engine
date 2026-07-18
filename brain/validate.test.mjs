@@ -51,3 +51,24 @@ test('duplicate node ids within a scene fails', () => {
   assert.ok(res.errors.some(e => /\/scenes\/0/.test(e) && /duplicate/i.test(e)),
     JSON.stringify(res.errors));
 });
+
+test('a code scene without nodes/steps is semantically valid', () => {
+  const spec = {
+    title: 'Retry Loop', caption: 'x', hashtags: ['#llm'],
+    scenes: [{kind: 'code', layout: 'nodes-flow', language: 'python', code: 'x = 1'}],
+  };
+  const {valid, errors} = validateSpec(spec);
+  assert.equal(valid, true, JSON.stringify(errors));
+});
+
+test('a diagram scene still gets reference-integrity checks', () => {
+  const spec = {
+    title: 'Bad Ref', caption: 'x', hashtags: ['#llm'],
+    scenes: [{layout: 'nodes-flow',
+      nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}],
+      steps: [{from: 'a', to: 'ZZZ', packet: 'P', status: 'x'}]}],
+  };
+  const {valid, errors} = validateSpec(spec);
+  assert.equal(valid, false);
+  assert.ok(errors.some(e => e.includes('unknown node id "ZZZ"')));
+});
