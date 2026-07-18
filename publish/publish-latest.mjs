@@ -1,6 +1,6 @@
 // Çok-platform yayın: IG Reel + ilk yorum(hashtag) + Story, Facebook, (Threads varsa).
 // Kullanım: node --env-file=.env publish/publish-latest.mjs <videoUrl> [specPath]
-import {readFileSync} from 'node:fs';
+import {readFileSync, writeFileSync} from 'node:fs';
 import {publishReel, publishStory, postComment} from './instagram-publish.mjs';
 import {publishFacebookVideo} from './facebook-publish.mjs';
 import {publishThread} from './threads-publish.mjs';
@@ -19,6 +19,18 @@ console.log('▶ yayınlanıyor:', spec.title);
 // 1) Instagram Reel (zorunlu — hata verirse tüm akış başarısız)
 const reelId = await publishReel({...IG, videoUrl, caption, onStatus: s => console.log('  ·', s)});
 console.log('✓ INSTAGRAM REEL —', reelId);
+
+// mediaId'yi geçmişin son kaydına işaretle — insights backfill (bir sonraki koşu) bulsun.
+try {
+  const histPath = new URL('../posted-history.json', import.meta.url);
+  const hist = JSON.parse(readFileSync(histPath));
+  if (hist.length) {
+    hist[hist.length - 1].mediaId = reelId;
+    hist[hist.length - 1].postedAt = new Date().toISOString();
+    writeFileSync(histPath, JSON.stringify(hist, null, 2));
+    console.log('✓ mediaId geçmişe yazıldı');
+  }
+} catch (e) { console.error('⚠ history mediaId yazılamadı:', e.message); }
 
 // 2) Hashtag'ler ilk yorumda (temiz caption + daha iyi erişim) — best-effort
 try {
