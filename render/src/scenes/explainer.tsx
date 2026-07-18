@@ -206,13 +206,20 @@ function* renderCodeScene(view: any, scene: any, ctx: any) {
 
   // Reveal: typing (varsayılan) satır satır süreyle yazar; instant tek seferde.
   const full = scene.code as string;
+  // Code needs real reading time — scale the post-typing hold with line count
+  // (bounded) instead of the diagram-oriented finalDwell alone, so a single
+  // code-scene video lands in the 15-20s brand band without pushing mixed
+  // (code + diagram) specs past the ceiling.
+  const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+  const lineCount = (full.match(/\n/g)?.length ?? 0) + 1;
+  const readHold = clamp(lineCount * 2.6 - 4.0, ctx.pacing.finalDwell, 9);
   if (scene.reveal === 'instant') {
     code().code(full);
-    yield* waitFor(ctx.pacing.finalDwell + 1.2);
+    yield* waitFor(readHold);
   } else {
     // Kod tween — CodeSignal ile hedef koda "yazılır" (typing hissi).
     yield* code().code(full, Math.min(2.4, Math.max(1.2, full.length / 90)));
-    yield* waitFor(ctx.pacing.finalDwell + 0.8);
+    yield* waitFor(readHold);
   }
 
   yield* container().opacity(0, 0.4);
