@@ -58,8 +58,23 @@ export function layoutPositions(layout: string, count: number): Pos[] {
     }
     case 'nodes-flow':
     default: {
-      const w = boxSize('nodes-flow', count).w;
-      return nodeXPositions(count, w).map(x => ({x, y: 0}));
+      const XL = -235, XR = 235;               // two columns
+      const rows = Math.ceil(count / 2);
+      const yTop = -380, yBot = 440;
+      const yOf = (r: number) => rows <= 1 ? 30 : yTop + r * (yBot - yTop) / (rows - 1);
+      const out: Pos[] = [];
+      for (let i = 0; i < count; i++) {
+        const r = Math.floor(i / 2);
+        const inRow = i % 2;                    // 0 or 1
+        const leftFirst = r % 2 === 0;          // boustrophedon: even rows L→R, odd rows R→L
+        // last node alone on its row → center it
+        const aloneOnRow = (i === count - 1) && (count % 2 === 1);
+        let x: number;
+        if (aloneOnRow) x = 0;
+        else x = (inRow === 0) === leftFirst ? XL : XR;
+        out.push({x, y: yOf(r)});
+      }
+      return out;
     }
   }
 }
@@ -67,10 +82,12 @@ export function layoutPositions(layout: string, count: number): Pos[] {
 // Layout + node sayısına göre box boyutu — büyük, dokunulası "modül" kartları.
 export function boxSize(layout: string, count: number): {w: number; h: number} {
   if (layout === 'nodes-flow') {
-    if (count <= 2) return {w: 360, h: 320};
-    if (count === 3) return {w: 280, h: 300};
-    if (count === 4) return {w: 220, h: 250};
-    return {w: 176, h: 210};           // 5-6 node: küçük tuğlalar
+    // h, data-fazındaki paket rozetinin (62px, kutu merkezinde doğar) label'a değmemesi
+    // için yeterli boşluk bıraksın (label y-offset = h*0.27) — sadece w ile küçültme yapılırsa
+    // yatay adımlarda paket etiketin üstüne biner (doğrulamada görüldü, h=190'da oldu).
+    if (count <= 2) return {w: 300, h: 250};
+    if (count <= 4) return {w: 240, h: 230};
+    return {w: 210, h: 230};           // 5-6 node: dar ama yeterince uzun tuğlalar
   }
   if (layout === 'vertical-stack') return {w: 560, h: Math.min(220, 1020 / count)};
   return {w: count <= 3 ? 260 : 210, h: 210}; // hub-spoke, cycle

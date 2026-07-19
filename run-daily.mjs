@@ -11,8 +11,7 @@ import {PILLARS, selectPillar} from './brain/pillars.mjs';
 const root = fileURLToPath(new URL('./', import.meta.url));
 const apiKey = process.env.GEMINI_API_KEY;
 
-// render/src/lib/spec.ts ile SENKRON tutulmalı — her video farklı görünsün diye döner.
-const LAYOUTS = ['nodes-flow', 'vertical-stack', 'hub-spoke', 'cycle'];
+// render/src/lib/spec.ts ile SENKRON tutulmalı — tema rotasyonu için.
 const THEMES = ['#58a6ff', '#bc8cff', '#39d3c3', '#f778ba', '#e3b341', '#3fb950'];
 
 function randomSeed(seeds) {
@@ -34,11 +33,12 @@ console.log(`✓ pillar: ${pillar.key}`);
 
 const {spec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, pickSeed: randomSeed});
 
-// Görsel çeşitlilik: ardışık videolar aynı layout/tema/motion olmasın (deterministik rotasyon).
+// Görsel çeşitlilik: ardışık videolar aynı tema/motion olmasın (deterministik rotasyon).
+// Layout artık sabit: 'nodes-flow' (dikey kareyi dolduran serpentine dizilim) — tek layout.
 const n = history.length;
-const layout = LAYOUTS[n % LAYOUTS.length];
-const theme = THEMES[(n * 5 + 1) % THEMES.length]; // *5: layout ile senkron olmasın
-const motion = pickMotion(n).name;                 // 3. bağımsız eksen: animasyon oynatış çeşidi
+const layout = 'nodes-flow';
+const theme = THEMES[(n * 5 + 1) % THEMES.length]; // *5: eski layout rotasyonuyla senkron olmasın diye kalan ofset
+const motion = pickMotion(n).name;                 // bağımsız eksen: animasyon oynatış çeşidi
 spec.theme = theme;
 spec.motion = motion;
 for (const sc of spec.scenes) sc.layout = layout;
