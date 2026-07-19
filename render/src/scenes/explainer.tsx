@@ -1,8 +1,7 @@
 import {makeScene2D, Rect, Txt, Layout, Line, Code, LezerHighlighter} from '@motion-canvas/2d';
-import {all, createRef, waitFor, sequence, spawn, easeOutCubic} from '@motion-canvas/core';
+import {all, createRef, waitFor, easeOutCubic, easeOutBack, easeInOutCubic} from '@motion-canvas/core';
 import {COLORS, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
-import {resolvePreset} from '../lib/motion';
 import {motionTarget} from '../lib/motion-registry.mjs';
 import {byteflowHighlighter} from '../lib/codeHighlighter';
 import specJson from '../../scene-spec.json';
@@ -13,8 +12,8 @@ const ACCENT = spec.theme ?? COLORS.accent; // per-video accent theme
 const HOOK = spec.hook ?? spec.title;
 const TAKEAWAY = spec.takeaway ?? 'follow @byteflowlabs for more';
 
-const preset = resolvePreset((spec as {motion?: string}).motion);
-const pacing = computePacing(specShape(spec), motionTarget(preset.weight));
+const BUILDUP_WEIGHT = 1;                 // build-up sakin/okunur → ~17.5s hedef
+const pacing = computePacing(specShape(spec), motionTarget(BUILDUP_WEIGHT));
 
 // Connector segments (index pairs) per layout.
 function connectors(layout: string, count: number): [number, number][] {
@@ -53,8 +52,6 @@ export default makeScene2D(function* (view) {
   yield* title().opacity(1, 0.4);
 
   const ctx = {accent: ACCENT, colors: COLORS, pacing};
-  const amb = preset.ambient?.(view, ctx);
-  if (amb) yield spawn(amb); // background flourish (e.g. cinematic Ken Burns)
 
   // ---- Each scene ----
   for (const scene of spec.scenes) {
@@ -62,106 +59,113 @@ export default makeScene2D(function* (view) {
       yield* renderCodeScene(view, scene, ctx);
       continue;
     }
-    // ---- (mevcut diagram gövdesi buradan itibaren değişmeden devam eder) ----
+    // ---- Diagram scene: KADEMELİ KURULUM ----
     const container = createRef<Layout>();
-    view.add(<Layout ref={container} opacity={0} />);
+    view.add(<Layout ref={container} opacity={1} />);
 
     const heading = createRef<Txt>();
     container().add(<Txt ref={heading} text={scene.heading ?? ''} fill={ACCENT}
-      fontFamily={MONO} fontSize={50} fontWeight={600} letterSpacing={1} y={-470} opacity={0.95} />);
+      fontFamily={MONO} fontSize={46} fontWeight={600} letterSpacing={1} y={-540} opacity={0} />);
+    yield* heading().opacity(0.95, 0.4);
 
-    // kind !== 'code' burada garanti nodes/steps taşır (şema oneOf); tsc için daraltma.
     const nodes = scene.nodes!;
     const steps = scene.steps!;
     const count = nodes.length;
     const pos = layoutPositions(scene.layout, count);
     const {w, h} = boxSize(scene.layout, count);
-    const iconSize = Math.round(h * 0.44);
-    const labelSize = Math.min(44, Math.round(w * 0.14));
+    const iconSize = Math.round(h * 0.42);
+    const labelSize = Math.min(38, Math.round(w * 0.15));
 
-    // Ambient accent glow behind the cluster — adds depth + fills the frame.
-    container().add(<Rect width={760} height={760} radius={380} fill={ACCENT}
-      opacity={0.05} shadowColor={ACCENT} shadowBlur={160} y={-20} />);
+    // subtle glow behind everything (never over labels)
+    container().add(<Rect width={680} height={680} radius={340} fill={ACCENT}
+      opacity={0.045} shadowColor={ACCENT} shadowBlur={140} y={0} zIndex={-2} />);
 
-    // Connectors (behind nodes, drawn after).
-    const lines: Line[] = [];
-    connectors(scene.layout, count).forEach(([a, b]) => {
-      const ln = createRef<Line>();
-      container().add(
-        <Line ref={ln} points={[[pos[a].x, pos[a].y], [pos[b].x, pos[b].y]]}
-          stroke={COLORS.stroke} lineWidth={4} lineDash={[12, 12]} end={0} />,
-      );
-      lines.push(ln());
-    });
+    // connector segments (index pairs) — build toward each new node
+    const segs = connectors(scene.layout, count);
 
-    // Nodes — big, tactile "module" cards with soft depth.
+    // pre-create boxes (hidden, scale 0) + connector lines (end 0), z-ordered: line < box < label
     const boxes: Record<string, Rect> = {};
+    const boxByIndex: Rect[] = [];
     nodes.forEach((n, i) => {
       const box = createRef<Rect>();
       container().add(
-        <Rect ref={box} width={w} height={h} radius={34} fill={COLORS.card}
-          stroke={COLORS.stroke} lineWidth={3} x={pos[i].x} y={pos[i].y} scale={0}
-          shadowColor={'#00000066'} shadowBlur={32} shadowOffsetY={12}>
-          {n.icon ? <Txt text={n.icon} fontSize={iconSize} y={-h * 0.17} /> : null}
+        <Rect ref={box} width={w} height={h} radius={26} fill={COLORS.card}
+          stroke={COLORS.stroke} lineWidth={3} x={pos[i].x} y={pos[i].y} scale={0} zIndex={1}
+          shadowColor={'#00000055'} shadowBlur={24} shadowOffsetY={10}>
+          {n.icon ? <Txt text={n.icon} fontSize={iconSize} y={-h * 0.16} /> : null}
           <Txt text={n.label} fill={COLORS.text} fontFamily={MONO} fontSize={labelSize}
-            fontWeight={600} letterSpacing={2} y={h * 0.26} />
+            fontWeight={600} letterSpacing={1} y={h * 0.27} />
         </Rect>,
       );
       boxes[n.id] = box();
+      boxByIndex[i] = box();
+    });
+    const lineByTarget = new Map<number, Line[]>();
+    segs.forEach(([a, b]) => {
+      const ln = createRef<Line>();
+      container().add(
+        <Line ref={ln} points={[[pos[a].x, pos[a].y], [pos[b].x, pos[b].y]]}
+          stroke={COLORS.stroke} lineWidth={4} lineDash={[10, 10]} end={0} zIndex={0} />,
+      );
+      const tgt = Math.max(a, b);                       // node that "completes" this edge
+      (lineByTarget.get(tgt) ?? lineByTarget.set(tgt, []).get(tgt)!).push(ln());
     });
 
+    // status line (below the cluster, never overlapped)
     const status = createRef<Txt>();
     container().add(<Txt ref={status} text="" fill={COLORS.muted}
-      fontFamily={MONO} fontSize={46} fontWeight={500} letterSpacing={1} y={640} />);
+      fontFamily={MONO} fontSize={40} fontWeight={500} letterSpacing={1} y={600} opacity={0} zIndex={2} />);
 
-    // Scene appears → node entrances (per preset, staggered) → connectors.
-    yield* container().opacity(1, 0.4);
-    const entrances = nodes.map((n, i) => preset.enter(boxes[n.id], i, count, ctx));
-    if (preset.stagger > 0) yield* sequence(preset.stagger, ...entrances);
-    else yield* all(...entrances);
-    yield* preset.drawLines(lines, ctx);
+    // BUILD PHASE: node 0 in; then for each next node, grow its incoming edges then pop it in.
+    yield* boxByIndex[0].scale(1, pacing.enter, easeOutBack);
+    for (let i = 1; i < count; i++) {
+      const incoming = lineByTarget.get(i) ?? [];
+      if (incoming.length) yield* all(...incoming.map(l => l.end(1, pacing.lines, easeOutCubic)));
+      yield* boxByIndex[i].scale(1, pacing.enter, easeOutBack);
+    }
+    // (Her kenarın max(a,b) hedefi ≥1 → flow/hub-spoke/cycle/stack hepsinde her connector
+    //  yukarıdaki build döngüsünde hedef node belirince çizilir; ekstra guard'a gerek yok.)
 
-    // Steps: packet flight (per preset).
+    // DATA PHASE: each step sends one small packet from→to, with status + extra hold.
     for (const step of steps) {
       const from = boxes[step.from], to = boxes[step.to];
       if (!from || !to) continue;
       const col = resolveColor(step.color ?? 'accent', ACCENT);
       const packet = createRef<Rect>();
       container().add(
-        <Rect ref={packet} width={132} height={76} radius={20} fill={col}
-          x={from.x()} y={from.y()} opacity={0}
-          shadowColor={col} shadowBlur={28}>
-          <Txt text={step.packet} fill={COLORS.bg} fontFamily={MONO} fontSize={32} fontWeight={800} />
+        <Rect ref={packet} width={104} height={62} radius={16} fill={col}
+          x={from.x()} y={from.y()} opacity={0} zIndex={3} shadowColor={col} shadowBlur={22}>
+          <Txt text={step.packet} fill={COLORS.bg} fontFamily={MONO} fontSize={26} fontWeight={800} />
         </Rect>,
       );
-      status().text(step.status);
-      status().fill(col);
-      yield* preset.flight(from, to, packet(), container(), {...ctx, accent: col});
+      yield* all(status().text(step.status), status().fill(col), status().opacity(1, 0.25));
+      yield* packet().opacity(1, 0.18);
+      yield* all(packet().x(to.x(), pacing.step, easeInOutCubic), packet().y(to.y(), pacing.step, easeInOutCubic));
+      yield* all(packet().opacity(0, 0.18), to.stroke(col, 0.2));   // fade BEFORE covering label
+      yield* waitFor(pacing.hold + 0.5);                            // +0.5s readability hold
+      yield* to.stroke(COLORS.stroke, 0.3);
+      packet().remove();
     }
 
-    // Recap burst: replay the whole flow at once (governed; fills time engagingly).
+    // brief recap: run the whole flow once as small dots (governed)
     if (pacing.recap > 0 && steps.length > 1) {
-      status().text('the full flow');
-      status().fill(ACCENT);
+      yield* all(status().text('the full flow'), status().fill(ACCENT));
       const dots = steps.map(step => {
         const from = boxes[step.from], to = boxes[step.to];
         if (!from || !to) return null;
         const dot = createRef<Rect>();
-        container().add(<Rect ref={dot} width={30} height={30} radius={15}
+        container().add(<Rect ref={dot} width={22} height={22} radius={11} zIndex={3}
           fill={resolveColor(step.color ?? 'accent', ACCENT)} x={from.x()} y={from.y()} opacity={0} />);
         return {dot: dot(), to};
       }).filter(Boolean) as {dot: Rect; to: Rect}[];
       yield* all(...dots.map(d => d.dot.opacity(1, 0.15)));
-      yield* all(...dots.map(d => all(
-        d.dot.x(d.to.x(), pacing.recap, easeOutCubic),
-        d.dot.y(d.to.y(), pacing.recap, easeOutCubic),
-      )));
+      yield* all(...dots.map(d => all(d.dot.x(d.to.x(), pacing.recap, easeOutCubic), d.dot.y(d.to.y(), pacing.recap, easeOutCubic))));
       yield* all(...dots.map(d => d.dot.opacity(0, 0.2)));
     }
 
-    // Final read-hold on the finished diagram, then preset-specific exit.
-    yield* waitFor(pacing.finalDwell);
-    yield* preset.exit(container(), view, ctx);
+    // final read-hold (+0.5s) then fade out
+    yield* waitFor(pacing.finalDwell + 0.5);
+    yield* all(status().opacity(0, 0.3), container().opacity(0, 0.5));
     container().remove();
   }
 
