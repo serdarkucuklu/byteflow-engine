@@ -136,4 +136,42 @@ test('the prompt instructs a "Written by Kai." persona line before the follow si
   await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar, fetchFn: fakeFetch});
   const promptText = sentBody.contents[0].parts[0].text;
   assert.match(promptText, /Written by Kai\./);
+  // persona line must come BEFORE the final follow sign-off, matching the required caption order
+  const kaiIdx = promptText.indexOf('Written by Kai.');
+  const followIdx = promptText.indexOf('Follow @byteflowlabs for AI systems, no hype.');
+  assert.ok(kaiIdx !== -1 && followIdx !== -1 && kaiIdx < followIdx);
+});
+
+test('the prompt requires 4 to 6 nodes per scene for richer diagrams', async () => {
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar, fetchFn: fakeFetchCapturing(capture)});
+  const promptText = capture.body.contents[0].parts[0].text;
+  assert.match(promptText, /4 to 6 nodes per scene/);
+  assert.match(promptText, /richer diagrams fill the frame/i);
+});
+
+test('the prompt requires a detailed, numbered, educational caption structure', async () => {
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar, fetchFn: fakeFetchCapturing(capture)});
+  const promptText = capture.body.contents[0].parts[0].text;
+  assert.match(promptText, /DETAILED and educational/);
+  assert.match(promptText, /NUMBERED list/);
+  assert.match(promptText, /save CTA/i);
+  assert.match(promptText, /share CTA/i);
+  assert.match(promptText, /2200 characters/);
+  // required literal lines still present, in order, inside the caption structure
+  assert.match(promptText, /Written by Kai\./);
+  assert.match(promptText, /Follow @byteflowlabs for AI systems, no hype\./);
+});
+
+test('the prompt steers toward concrete name-brand product topics within the pillar', async () => {
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar, fetchFn: fakeFetchCapturing(capture)});
+  const promptText = capture.body.contents[0].parts[0].text;
+  assert.match(promptText, /ChatGPT/);
+  assert.match(promptText, /Claude/);
+  assert.match(promptText, /Gemini/);
+  assert.match(promptText, /trending headlines/i);
+  // anti-hype angle must still be required even when the topic is a product
+  assert.match(promptText, /anti-hype/i);
 });

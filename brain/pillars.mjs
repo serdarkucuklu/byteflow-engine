@@ -13,6 +13,11 @@ export const PILLARS = [
   {key: 'observability', focus: 'LLM observability: tracing, token accounting, debugging bad outputs'},
   {key: 'mcp-tools', focus: 'tool calling and MCP: function schemas, tool orchestration, Model Context Protocol'},
   {key: 'fine-tuning', focus: 'fine-tuning vs prompting vs RAG: when each wins, LoRA, data prep'},
+  {key: 'model-internals', focus: 'how ChatGPT / Claude / Gemini actually work under the hood: tokens, context window, attention, next-token prediction, streaming'},
+  {key: 'model-releases', focus: 'what changed in the latest model release (e.g. a new Sonnet/GPT/Gemini): the concrete differences that matter to users — use timely trending headlines'},
+  {key: 'model-comparison', focus: 'Claude vs ChatGPT vs Gemini: real differences in context, strengths, pricing, when to use which'},
+  {key: 'paid-tiers', focus: 'what Claude Max / ChatGPT Plus / Gemini Advanced actually buy you: bigger context, higher limits, smarter model, priority'},
+  {key: 'reasoning-models', focus: "how 'thinking'/reasoning models (GPT-5, Claude extended thinking) work: predicting a scratchpad before the answer"},
 ];
 
 // LRU: son kullanılan pillar'ları atla; hepsi yakın zamanda kullanıldıysa en eskiyi seç.
