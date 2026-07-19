@@ -17,7 +17,8 @@ const IG = {igUserId: process.env.IG_USER_ID, token: process.env.IG_ACCESS_TOKEN
 console.log('▶ yayınlanıyor:', spec.title);
 
 // 1) Instagram Reel (zorunlu — hata verirse tüm akış başarısız)
-const reelId = await publishReel({...IG, videoUrl, caption, onStatus: s => console.log('  ·', s)});
+// thumbOffset (ms): kapak karesi = tam-diyagram anı (run-daily hesaplar, spec'e yazar)
+const reelId = await publishReel({...IG, videoUrl, caption, thumbOffset: spec.thumbOffset, onStatus: s => console.log('  ·', s)});
 console.log('✓ INSTAGRAM REEL —', reelId);
 
 // mediaId'yi geçmişin son kaydına işaretle — insights backfill (bir sonraki koşu) bulsun.

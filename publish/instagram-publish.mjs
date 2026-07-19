@@ -51,11 +51,14 @@ async function waitContainer(creationId, token, {pollMs = 3000, maxPolls = 60, o
 }
 
 // Ortak video publish (REELS veya STORIES).
-async function publishVideo({igUserId, token, videoUrl, caption, mediaType, shareToFeed = true, onStatus}) {
+// thumbOffset (ms): reel kapak karesini bu ana ayarlar (ilk kare karanlık hook olmasın →
+// tam-kurulmuş renkli diyagram anı). Verilmezse IG varsayılanı (frame 0) kalır.
+async function publishVideo({igUserId, token, videoUrl, caption, mediaType, shareToFeed = true, thumbOffset, onStatus}) {
   if (!igUserId || !token) throw new Error('IG_USER_ID / IG_ACCESS_TOKEN missing');
   const params = {media_type: mediaType, video_url: videoUrl, access_token: token};
   if (caption != null) params.caption = caption;
   if (mediaType === 'REELS') params.share_to_feed = String(shareToFeed);
+  if (mediaType === 'REELS' && thumbOffset != null) params.thumb_offset = String(thumbOffset);
   const c = await fbPost(`${igUserId}/media`, params);
   onStatus?.(`${mediaType} container ${c.id} işleniyor…`);
   await waitContainer(c.id, token, {onStatus});
@@ -68,8 +71,8 @@ async function publishVideo({igUserId, token, videoUrl, caption, mediaType, shar
   return p.id;
 }
 
-export function publishReel({igUserId, token, videoUrl, caption, onStatus}) {
-  return publishVideo({igUserId, token, videoUrl, caption, mediaType: 'REELS', onStatus});
+export function publishReel({igUserId, token, videoUrl, caption, thumbOffset, onStatus}) {
+  return publishVideo({igUserId, token, videoUrl, caption, mediaType: 'REELS', thumbOffset, onStatus});
 }
 
 export function publishStory({igUserId, token, videoUrl, onStatus}) {

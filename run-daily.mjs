@@ -69,4 +69,18 @@ const out = postProcess({
   musicPath: join(musicDir, mp3),
   outPath: join(root, 'dist', 'final.mp4'),
 });
+
+// Reel kapak karesi: ilk kare karanlık hook — kapak olarak kötü. thumb_offset'i videonun
+// ~%58'ine ayarla (tam-kurulmuş renkli diyagram anı; outro'dan önce). Spec'e yaz →
+// publish-latest.mjs bunu publishReel'e geçirir.
+try {
+  const durSec = parseFloat(execFileSync('ffprobe', ['-v', 'error', '-show_entries',
+    'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', out]).toString().trim());
+  spec.thumbOffset = Math.round(durSec * 1000 * 0.58);
+  writeFileSync(specPath, JSON.stringify(spec, null, 2));
+  console.log(`✓ kapak thumb_offset: ${spec.thumbOffset}ms (${durSec.toFixed(1)}s videonun %58'i)`);
+} catch (e) {
+  console.error('⚠ thumb_offset hesaplanamadı (kapak varsayılan kalır):', e.message);
+}
+
 console.log(`✓ done (${source}): ${out}`);
