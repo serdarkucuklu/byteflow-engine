@@ -71,5 +71,14 @@
     "date": "2026-07-18",
     "mediaId": "18050327558623191",
     "postedAt": "2026-07-18T18:57:59.618Z"
+  },
+  {
+    "title": "LLM CONTEXT: LOST IN THE MIDDLE",
+    "pillar": "context",
+    "layout": "vertical-stack",
+    "motion": "matrix",
+    "theme": "#e3b341",
+    "source": "gemini",
+    "date": "2026-07-19"
   }
 ]

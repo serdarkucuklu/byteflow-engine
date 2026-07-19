@@ -1,62 +1,99 @@
 {
-  "title": "LLM-as-Judge Is Grading Its Own Homework",
-  "topic_source": "seed",
-  "pillar": "evaluation",
-  "hook": "Your eval LLM might be lying to you.",
-  "takeaway": "A biased judge model gives you a biased benchmark.",
-  "caption": "Your eval LLM might be lying to you.\nLLM-as-judge tends to favor its own family's writing style, not quality.\nSave this before you trust a single-model eval score.\nFollow @byteflowlabs for AI systems, no hype.",
-  "hashtags": [
-    "#llm",
-    "#evaluation",
-    "#aiengineering",
-    "#genai"
-  ],
+  "hook": "Long contexts aren't free. Your LLM forgets things in the middle.",
+  "title": "LLM CONTEXT: LOST IN THE MIDDLE",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "heading": "Judge model bias",
+      "layout": "vertical-stack",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "output",
-          "icon": "📄",
-          "label": "OUTPUT"
+          "id": "EDGES",
+          "label": "CONTEXT EDGES",
+          "icon": "📜"
         },
         {
-          "id": "judge",
-          "icon": "⚖️",
-          "label": "JUDGE LLM"
+          "id": "MIDDLE",
+          "label": "CONTEXT MIDDLE",
+          "icon": "❓"
         },
         {
-          "id": "score",
-          "icon": "🔢",
-          "label": "SCORE"
+          "id": "LLM",
+          "label": "LLM",
+          "icon": "🤖"
         }
       ],
       "steps": [
         {
-          "from": "output",
-          "to": "judge",
-          "packet": "GRADE",
-          "color": "accent",
-          "status": "judge model scores answer"
+          "from": "EDGES",
+          "to": "LLM",
+          "packet": "INFO",
+          "status": "high recall",
+          "color": "good"
         },
         {
-          "from": "judge",
-          "to": "score",
-          "packet": "BIAS",
-          "color": "warn",
-          "status": "favors own writing style"
+          "from": "MIDDLE",
+          "to": "LLM",
+          "packet": "INFO",
+          "status": "poor recall, \"lost in middle\"",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "layout": "vertical-stack",
+      "kind": "diagram",
+      "nodes": [
+        {
+          "id": "KEY_INFO",
+          "label": "KEY INFO",
+          "icon": "⭐"
         },
         {
-          "from": "score",
-          "to": "output",
-          "packet": "SKEW",
-          "color": "warn",
-          "status": "benchmark quietly skewed"
+          "id": "DETAIL",
+          "label": "DETAIL CONTEXT",
+          "icon": "📚"
+        },
+        {
+          "id": "LLM_PROCESS",
+          "label": "LLM",
+          "icon": "🤖"
+        }
+      ],
+      "steps": [
+        {
+          "from": "KEY_INFO",
+          "to": "LLM_PROCESS",
+          "packet": "KEY_A",
+          "status": "placed at start, high recall",
+          "color": "good"
+        },
+        {
+          "from": "DETAIL",
+          "to": "LLM_PROCESS",
+          "packet": "DETAIL",
+          "status": "provides context",
+          "color": "accent"
+        },
+        {
+          "from": "KEY_INFO",
+          "to": "LLM_PROCESS",
+          "packet": "KEY_B",
+          "status": "placed at end, high recall",
+          "color": "good"
         }
       ]
     }
   ],
-  "theme": "#3fb950",
-  "motion": "blueprint"
+  "caption": "Long contexts aren't free. Your LLM forgets things in the middle.The \"Lost in the Middle\" effect shows LLMs struggle to recall info from the middle of long contexts.Place critical instructions and data at the beginning or end of your prompt for better performance.Save this before your next AI build.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
+  "hashtags": [
+    "#llm",
+    "#aiengineering",
+    "#promptengineering",
+    "#contextwindow",
+    "#llmops",
+    "#productionai"
+  ],
+  "takeaway": "Don't just dump data. Strategically place key info at context edges.",
+  "theme": "#e3b341",
+  "motion": "matrix"
 }
