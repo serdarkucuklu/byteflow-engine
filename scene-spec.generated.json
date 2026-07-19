@@ -1,99 +1,62 @@
 {
-  "hook": "Long contexts aren't free. Your LLM forgets things in the middle.",
-  "title": "LLM CONTEXT: LOST IN THE MIDDLE",
+  "title": "Why Longer Context Windows Don't Fix Bad Prompts",
+  "topic_source": "seed",
+  "pillar": "context",
+  "hook": "More context tokens != better answers.",
+  "takeaway": "Context rot kills accuracy long before the token limit does.",
+  "caption": "More context tokens != better answers.\nContext rot buries your instructions in the middle of a 100k-token prompt.\nSave this before you dump your whole codebase into one prompt.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "hashtags": [
+    "#llm",
+    "#contextwindow",
+    "#promptengineering",
+    "#aiengineering"
+  ],
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "diagram",
+      "layout": "hub-spoke",
+      "heading": "Context rot in action",
       "nodes": [
         {
-          "id": "EDGES",
-          "label": "CONTEXT EDGES",
-          "icon": "📜"
+          "id": "prompt",
+          "icon": "📝",
+          "label": "PROMPT"
         },
         {
-          "id": "MIDDLE",
-          "label": "CONTEXT MIDDLE",
-          "icon": "❓"
+          "id": "window",
+          "icon": "🪟",
+          "label": "CONTEXT"
         },
         {
-          "id": "LLM",
-          "label": "LLM",
-          "icon": "🤖"
+          "id": "model",
+          "icon": "🤖",
+          "label": "MODEL"
         }
       ],
       "steps": [
         {
-          "from": "EDGES",
-          "to": "LLM",
-          "packet": "INFO",
-          "status": "high recall",
-          "color": "good"
+          "from": "prompt",
+          "to": "window",
+          "packet": "STUFF",
+          "color": "accent",
+          "status": "cram everything into context"
         },
         {
-          "from": "MIDDLE",
-          "to": "LLM",
-          "packet": "INFO",
-          "status": "poor recall, \"lost in middle\"",
-          "color": "warn"
-        }
-      ]
-    },
-    {
-      "layout": "vertical-stack",
-      "kind": "diagram",
-      "nodes": [
-        {
-          "id": "KEY_INFO",
-          "label": "KEY INFO",
-          "icon": "⭐"
+          "from": "window",
+          "to": "model",
+          "packet": "READ",
+          "color": "warn",
+          "status": "instructions lost in the middle"
         },
         {
-          "id": "DETAIL",
-          "label": "DETAIL CONTEXT",
-          "icon": "📚"
-        },
-        {
-          "id": "LLM_PROCESS",
-          "label": "LLM",
-          "icon": "🤖"
-        }
-      ],
-      "steps": [
-        {
-          "from": "KEY_INFO",
-          "to": "LLM_PROCESS",
-          "packet": "KEY_A",
-          "status": "placed at start, high recall",
-          "color": "good"
-        },
-        {
-          "from": "DETAIL",
-          "to": "LLM_PROCESS",
-          "packet": "DETAIL",
-          "status": "provides context",
-          "color": "accent"
-        },
-        {
-          "from": "KEY_INFO",
-          "to": "LLM_PROCESS",
-          "packet": "KEY_B",
-          "status": "placed at end, high recall",
-          "color": "good"
+          "from": "model",
+          "to": "prompt",
+          "packet": "MISS",
+          "color": "warn",
+          "status": "key detail ignored"
         }
       ]
     }
   ],
-  "caption": "Long contexts aren't free. Your LLM forgets things in the middle.The \"Lost in the Middle\" effect shows LLMs struggle to recall info from the middle of long contexts.Place critical instructions and data at the beginning or end of your prompt for better performance.Save this before your next AI build.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
-  "hashtags": [
-    "#llm",
-    "#aiengineering",
-    "#promptengineering",
-    "#contextwindow",
-    "#llmops",
-    "#productionai"
-  ],
-  "takeaway": "Don't just dump data. Strategically place key info at context edges.",
-  "theme": "#e3b341",
-  "motion": "matrix"
+  "theme": "#f778ba",
+  "motion": "punch"
 }

@@ -80,5 +80,14 @@
     "theme": "#e3b341",
     "source": "gemini",
     "date": "2026-07-19"
+  },
+  {
+    "title": "Why Longer Context Windows Don't Fix Bad Prompts",
+    "pillar": "context",
+    "layout": "hub-spoke",
+    "motion": "punch",
+    "theme": "#f778ba",
+    "source": "seed",
+    "date": "2026-07-19"
   }
 ]
