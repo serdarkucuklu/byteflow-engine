@@ -25,22 +25,23 @@ test('specShape treats a code scene (no nodes/steps) as zero nodes/steps but cou
 
 // The real content envelope (see brain/seed-backlog.json): always 1 scene, 2-4 steps,
 // 3 nodes. Gemini may emit up to 3 scenes. These are the shapes that MUST land in band.
-test('realistic content shapes land total in [15,20]s', () => {
+// Target 26.5 = motionTarget(0), the base of the 25-30s band real renders use.
+test('realistic content shapes land total in [25,30]s', () => {
   for (const [sc, st] of [[1, 2], [1, 3], [1, 4], [2, 2], [2, 3], [3, 2]]) {
     const s = shape(sc, st);
-    const p = computePacing(s, 16.5);
+    const p = computePacing(s, 26.5);
     const total = estimateTotalSec(s, p);
-    assert.ok(total >= 15 && total <= 20, `scenes=${sc} steps/scene=${st} → ${total.toFixed(2)}s out of band`);
+    assert.ok(total >= 25 && total <= 30, `scenes=${sc} steps/scene=${st} → ${total.toFixed(2)}s out of band`);
   }
 });
 
-// A degenerate 1-scene/1-step spec cannot pleasantly fill 15s (a single packet would
-// have to crawl). Seeds never produce it; we pad with a read-hold and accept ~12s.
+// A degenerate 1-scene/1-step spec cannot pleasantly fill 25s (a single packet would
+// have to crawl). Seeds never produce it; we pad with a read-hold and accept ~20s.
 test('degenerate 1-step spec stays pleasant (no crawl), bounded', () => {
-  const p = computePacing(shape(1, 1), 16.5);
+  const p = computePacing(shape(1, 1), 26.5);
   const total = estimateTotalSec(shape(1, 1), p);
-  assert.ok(p.step <= 2.0, `single-step flight must not crawl: ${p.step}`);
-  assert.ok(total >= 11 && total <= 20, `${total.toFixed(2)}s`);
+  assert.ok(p.step <= 3.2, `single-step flight must not crawl: ${p.step}`);
+  assert.ok(total >= 15 && total <= 27, `${total.toFixed(2)}s`);
 });
 
 // Pathologically dense specs (12+ steps — the pipeline never produces these;

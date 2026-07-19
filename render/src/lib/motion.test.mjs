@@ -33,9 +33,9 @@ test('pickMotion handles negative/zero indices safely', () => {
   assert.equal(typeof pickMotion(0).name, 'string');
 });
 
-test('motionTarget stays inside the 15-19.5s band', () => {
+test('motionTarget stays inside the 25-30s band', () => {
   for (const m of MOTION_META) {
     const t = motionTarget(m.weight);
-    assert.ok(t >= 15 && t <= 19.5, `${m.name} → ${t}`);
+    assert.ok(t >= 25 && t <= 30, `${m.name} → ${t}`);
   }
 });

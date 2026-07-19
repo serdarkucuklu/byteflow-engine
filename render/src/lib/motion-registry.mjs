@@ -2,7 +2,7 @@
 // is importable by run-daily.mjs (pipeline) and node --test. The runtime
 // choreography for each name lives in motion.ts (vite-only).
 // `weight` nudges the per-video duration target: calmer presets breathe longer,
-// punchy ones run shorter — all still inside the 15-20s band.
+// punchy ones run shorter — all still inside the 25-30s band.
 
 export const MOTION_META = [
   {name: 'classic',   stagger: 0,    weight: 0},
@@ -27,6 +27,6 @@ export function pickMotion(n) {
 }
 
 export function motionTarget(weight) {
-  const t = 16.5 + weight;
-  return Math.max(15, Math.min(19.5, t));
+  const t = 26.5 + weight;
+  return Math.max(25, Math.min(30, t));
 }

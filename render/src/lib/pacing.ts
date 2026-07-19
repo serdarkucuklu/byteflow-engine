@@ -1,11 +1,14 @@
 // Duration governor: turns a spec's shape into per-phase animation durations
-// so total runtime lands in the 15-20s band regardless of content density.
+// so total runtime lands in the 25-30s band regardless of content density.
 // PURE — no @motion-canvas import (must stay node-testable).
 //
 // Philosophy: never fill time by slowing a packet to a crawl. Solve per-step
 // motion to hit the target directly, clamped to a pleasant range. Sparse specs
 // that hit the slow cap get a longer "read the finished diagram" hold + a recap
-// burst; dense specs that hit the fast floor are accepted as-is.
+// burst; dense specs that hit the fast floor are accepted as-is. The wider
+// 25-30s band (vs. the earlier 15-20s) is spent mostly on bigger per-step
+// `hold` and `finalDwell` — deliberate reading time — not on stretching the
+// packet flight itself into a crawl.
 //
 // The fixed sub-beats below MUST mirror explainer.tsx's progressive build-up,
 // or the estimate drifts from real render time. Build-up choreography per
@@ -37,8 +40,8 @@ export interface Pacing {
 // per-tween sum of that (untouched) code is ~5.05s; this constant is kept at
 // 4.0 by convention (pre-existing, still asserted by pacing.test.mjs) — the
 // governor's internal target therefore runs ~1.05s "hot" versus the true
-// fixed overhead, which is exactly why BUILDUP_WEIGHT=1 (motionTarget≈17.5s,
-// see explainer.tsx) is picked well inside the 15-20s band rather than at its
+// fixed overhead, which is exactly why BUILDUP_WEIGHT=1 (motionTarget≈27.5s,
+// see explainer.tsx) is picked well inside the 25-30s band rather than at its
 // edge: the real measured render lands ~1s above whatever this model predicts.
 export const FIXED_SEC = 4.0;
 
@@ -54,27 +57,30 @@ const STEP_FIXED = 1.43;
 const RECAP_FIXED = 0.35; // recap dots opacity in (0.15) + out (0.2)
 
 const DWELL_MIN = 0.8;
-const DWELL_MAX = 3.0;
+const DWELL_MAX = 6.0;    // raised (was 3.0) so sparse specs can spend the extra
+                           // 25-30s band time on a longer, deliberate final read-hold.
 // Per-step total (incl. STEP_FIXED) is solved to the target, then clamped here.
 // Must clear STEP_FIXED (1.43) with room for a non-crawling flight+hold, or
 // motionPer goes negative — hence a higher floor than the old preset era.
 const PERSTEP_MIN = 2.1;  // snappy floor (dense specs)
-const PERSTEP_MAX = 3.6;  // deliberate cap (sparse specs) — no crawl
+const PERSTEP_MAX = 5.5;  // deliberate cap (sparse specs), raised (was 3.6) for the
+                           // 25-30s band — still resolves to a readable, non-crawling
+                           // flight+hold split (step:hold stays 0.68:0.32).
 const MOTION_MIN = 0.05;  // absolute floor for pathological density
-// Absolute build-phase floor for the >20s compression branch's pessimistic
+// Absolute build-phase floor for the >31s compression branch's pessimistic
 // motion solve (worst case: multi-scene specs with no headroom at all).
 const ENTER_ABS_MIN = 0.02;
 const LINES_ABS_MIN = 0.02;
 // Nicer build-phase target the compression branch grants WHEN there's spare
-// headroom under the 20s ceiling. 0.22/0.10s ≈ 13/6 frames @60fps — enough that
+// headroom under the 31s ceiling. 0.22/0.10s ≈ 13/6 frames @60fps — enough that
 // the gentle easeOutCubic pop is actually visible (0.02s is ~1 frame,
 // indistinguishable from a snap regardless of easing curve). Single-scene dense
 // specs (e.g. a maxed-out 6-node/5-step diagram) have slack and get the full
 // grant; multi-scene specs that are already at the ceiling get little/none —
-// see the headroom calc below, which never lets total cross 20s.
+// see the headroom calc below, which never lets total cross 31s.
 const ENTER_MIN = 0.22;
 const LINES_MIN = 0.10;
-const COMPRESS_TARGET = 18.6;
+const COMPRESS_TARGET = 29;  // raised (was 18.6) to track the 25-30s band
 
 export function specShape(spec: {scenes: {nodes?: unknown[]; steps?: unknown[]}[]}): SpecShape {
   const scenes = spec.scenes.length;
@@ -128,7 +134,7 @@ export function computePacing(shape: SpecShape, targetSec: number): Pacing {
   // STEP_FIXED) are literal explainer.tsx durations and cannot compress
   // further — pathologically dense specs the pipeline never produces may
   // still run a little long, but stay bounded.
-  if (total > 20) {
+  if (total > 31) {
     finalDwell = DWELL_MIN;
 
     // Solve motion against the ABSOLUTE build-phase floor first (pessimistic —
@@ -139,16 +145,16 @@ export function computePacing(shape: SpecShape, targetSec: number): Pacing {
     step = motionPer * 0.68;
     hold = motionPer * 0.32;
 
-    // Spend any leftover headroom under the 20s ceiling on a nicer, more visible
+    // Spend any leftover headroom under the 31s ceiling on a nicer, more visible
     // build phase — interpolate enter/lines from the absolute floor toward the
     // nicer target, capped so total never crosses the ceiling. Multi-scene specs
-    // that already sit at/near 20s with the minimal build phase get zero grant
-    // (identical to the old hard-floored behavior); sparse single-scene specs
-    // (the common case, and the only shape a 6-node diagram ever is) get the
-    // full grant.
+    // that already sit at/near the ceiling with the minimal build phase get zero
+    // grant (identical to the old hard-floored behavior); sparse single-scene
+    // specs (the common case, and the only shape a 6-node diagram ever is) get
+    // the full grant.
     const totalAtMinBuild = estimate(buildPhaseMin, scenes, steps, {step, hold, recap: 0, finalDwell});
     const SAFETY_MARGIN = 0.3;
-    const headroom = Math.max(0, 20 - SAFETY_MARGIN - totalAtMinBuild);
+    const headroom = Math.max(0, 31 - SAFETY_MARGIN - totalAtMinBuild);
     const desiredBuildPhase = totalNodes * ENTER_MIN + buildEdges * LINES_MIN;
     const extraNeeded = Math.max(0, desiredBuildPhase - buildPhaseMin);
     const grant = Math.min(extraNeeded, headroom);
