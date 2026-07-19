@@ -5,7 +5,6 @@ import {fileURLToPath} from 'node:url';
 import {fetchTrends} from './fetch/fetch-trends.mjs';
 import {produceSpec} from './brain/produce-spec.mjs';
 import {postProcess} from './publish/post-process.mjs';
-import {pickMotion} from './render/src/lib/motion-registry.mjs';
 import {PILLARS, selectPillar} from './brain/pillars.mjs';
 
 const root = fileURLToPath(new URL('./', import.meta.url));
@@ -33,12 +32,12 @@ console.log(`✓ pillar: ${pillar.key}`);
 
 const {spec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, pickSeed: randomSeed});
 
-// Görsel çeşitlilik: ardışık videolar aynı tema/motion olmasın (deterministik rotasyon).
-// Layout artık sabit: 'nodes-flow' (dikey kareyi dolduran serpentine dizilim) — tek layout.
+// Görsel çeşitlilik: ardışık videolar aynı tema olmasın (deterministik rotasyon).
+// Layout + koreografi tek/sabit: 'nodes-flow' serpentine (dikey kareyi doldurur) + 'buildup'.
 const n = history.length;
 const layout = 'nodes-flow';
 const theme = THEMES[(n * 5 + 1) % THEMES.length]; // *5: eski layout rotasyonuyla senkron olmasın diye kalan ofset
-const motion = pickMotion(n).name;                 // bağımsız eksen: animasyon oynatış çeşidi
+const motion = 'buildup';                           // tek koreografi (kademeli kurulum)
 spec.theme = theme;
 spec.motion = motion;
 for (const sc of spec.scenes) sc.layout = layout;

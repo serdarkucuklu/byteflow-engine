@@ -12,7 +12,7 @@ const ACCENT = spec.theme ?? COLORS.accent; // per-video accent theme
 const HOOK = spec.hook ?? spec.title;
 const TAKEAWAY = spec.takeaway ?? 'follow @byteflowlabs for more';
 
-const BUILDUP_WEIGHT = 1;                 // build-up sakin/okunur → ~17.5s hedef
+const BUILDUP_WEIGHT = 1;                 // build-up sakin/okunur → ~27s hedef (25-30s bandı)
 const pacing = computePacing(specShape(spec), motionTarget(BUILDUP_WEIGHT));
 
 // Connector segments (index pairs) per layout.

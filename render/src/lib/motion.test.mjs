@@ -2,14 +2,10 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {MOTION_META, MOTION_NAMES, pickMotion, motionTarget} from './motion-registry.mjs';
 
-test('exactly 12 presets, names unique', () => {
-  assert.equal(MOTION_META.length, 12);
-  assert.equal(MOTION_NAMES.length, 12);
-  assert.equal(new Set(MOTION_NAMES).size, 12);
-});
-
-test('classic exists (fallback preset)', () => {
-  assert.ok(MOTION_NAMES.includes('classic'));
+test('single build-up preset', () => {
+  assert.equal(MOTION_META.length, 1);
+  assert.equal(MOTION_NAMES.length, 1);
+  assert.equal(MOTION_NAMES[0], 'buildup');
 });
 
 test('every meta entry has name/stagger/weight of correct types', () => {
@@ -22,15 +18,11 @@ test('every meta entry has name/stagger/weight of correct types', () => {
   }
 });
 
-test('pickMotion rotates by index and wraps', () => {
-  assert.equal(pickMotion(0).name, MOTION_NAMES[0]);
-  assert.equal(pickMotion(12).name, MOTION_NAMES[0]);
-  assert.equal(pickMotion(13).name, MOTION_NAMES[1]);
-});
-
-test('pickMotion handles negative/zero indices safely', () => {
-  assert.equal(pickMotion(-1).name, MOTION_NAMES[11]);
-  assert.equal(typeof pickMotion(0).name, 'string');
+test('pickMotion always returns buildup (single preset), any index', () => {
+  assert.equal(pickMotion(0).name, 'buildup');
+  assert.equal(pickMotion(5).name, 'buildup');
+  assert.equal(pickMotion(12).name, 'buildup');
+  assert.equal(pickMotion(-1).name, 'buildup');
 });
 
 test('motionTarget stays inside the 25-30s band', () => {
@@ -38,4 +30,6 @@ test('motionTarget stays inside the 25-30s band', () => {
     const t = motionTarget(m.weight);
     assert.ok(t >= 25 && t <= 30, `${m.name} → ${t}`);
   }
+  assert.equal(motionTarget(-100), 25);
+  assert.equal(motionTarget(100), 30);
 });
