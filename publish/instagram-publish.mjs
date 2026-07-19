@@ -32,8 +32,8 @@ export async function graphCall(url, init, {retries = 3, baseMs = 2000, fetchFn 
   throw lastErr;
 }
 
-function fbPost(path, params) {
-  return graphCall(`${G}/${path}`, {method: 'POST', body: new URLSearchParams(params)});
+function fbPost(path, params, opts) {
+  return graphCall(`${G}/${path}`, {method: 'POST', body: new URLSearchParams(params)}, opts);
 }
 function fbGet(path, params) {
   return graphCall(`${G}/${path}?${new URLSearchParams(params)}`, {});
@@ -59,7 +59,11 @@ async function publishVideo({igUserId, token, videoUrl, caption, mediaType, shar
   const c = await fbPost(`${igUserId}/media`, params);
   onStatus?.(`${mediaType} container ${c.id} işleniyor…`);
   await waitContainer(c.id, token, {onStatus});
-  const p = await fbPost(`${igUserId}/media_publish`, {creation_id: c.id, access_token: token});
+  // media_publish NON-idempotent: postu herkese açık YAPAN çağrı. Container-create + poll'lar
+  // güvenle retry edilir (bugünkü transient hata da orada yakalanır), ama media_publish'i
+  // transient sonrası KÖR retry etmek çift-post riski taşır (Meta commit edip transient
+  // dönebilir). retries:0 → tek deneme; hata olursa gün atlanır ama asla çift Reel olmaz.
+  const p = await fbPost(`${igUserId}/media_publish`, {creation_id: c.id, access_token: token}, {retries: 0});
   onStatus?.(`${mediaType} yayınlandı: ${p.id}`);
   return p.id;
 }

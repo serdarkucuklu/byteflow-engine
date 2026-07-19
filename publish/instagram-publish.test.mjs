@@ -38,6 +38,13 @@ test('graphCall retries on a network-level failure then succeeds', async () => {
   assert.equal(calls, 2);
 });
 
+test('graphCall with retries:0 tries exactly once even on a transient error (media_publish safety)', async () => {
+  let calls = 0;
+  const fetchFn = async () => { calls++; return ok({error: {code: 2, message: 'retry later'}}); };
+  await assert.rejects(() => graphCall('http://x', {}, {retries: 0, baseMs: 0, fetchFn}), /2\/.*retry later/);
+  assert.equal(calls, 1); // no retry → no double-publish risk
+});
+
 test('TRANSIENT set includes Meta transient/throttle codes but not auth (190)', () => {
   assert.ok(TRANSIENT.has(1) && TRANSIENT.has(2) && TRANSIENT.has(4));
   assert.ok(!TRANSIENT.has(190));
