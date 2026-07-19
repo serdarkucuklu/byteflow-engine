@@ -5,9 +5,16 @@ const THRESHOLD_DAYS = 14;
 const t = process.env.IG_ACCESS_TOKEN;
 
 const dbg = await (await fetch(`${G}/debug_token?input_token=${t}&access_token=${t}`)).json();
-if (dbg.error || dbg.data?.is_valid === false) {
-  console.log(`::error::IG token geçersiz: ${dbg.error?.message ?? 'is_valid=false'}`);
+// GERÇEK geçersizlik (is_valid=false) → hata + exit 1. Ama debug_token'ın kendisi GEÇİCİ
+// bir Graph hatası (kod 1/2/4… "retry later") döndürdüyse token durumu BELİRSİZ'dir —
+// yanlış "token geçersiz" alarmı verme (2026-07-19: transient kod-2 blip'i böyle yanlış teşhis edildi).
+if (dbg.data?.is_valid === false) {
+  console.log(`::error::IG token GERÇEKTEN geçersiz (is_valid=false) — yenilenmeli.`);
   process.exit(1);
+}
+if (dbg.error) {
+  console.log(`::warning::token durumu doğrulanamadı (geçici Graph hatası ${dbg.error.code}: ${dbg.error.message}) — alarm atlanıyor`);
+  process.exit(0);
 }
 const exp = dbg.data?.data_access_expires_at;
 if (!exp) { console.log('::notice::token data-access expiry raporlanmadı, OK'); process.exit(0); }

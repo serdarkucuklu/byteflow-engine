@@ -3,17 +3,40 @@
 const V = 'v21.0';
 const G = `https://graph.facebook.com/${V}`;
 
-async function fbPost(path, params) {
-  const r = await fetch(`${G}/${path}`, {method: 'POST', body: new URLSearchParams(params)});
-  const d = await r.json();
-  if (d.error) throw new Error(`${d.error.code}/${d.error.error_subcode ?? ''}: ${d.error.message}`);
-  return d;
+// Meta'nın GEÇİCİ hata kodları (retry edilebilir): 1/2 = "unexpected error, retry later",
+// 4/17/32/341/613 = rate/throttle. Bunlar transient → backoff ile yeniden dene. Kalıcı
+// hatalar (190 token, izin, geçersiz param…) TRANSIENT'te DEĞİL → hemen fırlat.
+export const TRANSIENT = new Set([1, 2, 4, 17, 32, 341, 368, 613]);
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// Tek Graph çağrısı; transient hata / ağ hatasında exponential backoff ile yeniden dener.
+export async function graphCall(url, init, {retries = 3, baseMs = 2000, fetchFn = fetch} = {}) {
+  let lastErr;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    let d;
+    try {
+      const r = await fetchFn(url, init);
+      d = await r.json();
+    } catch (e) {                                    // ağ/parse hatası → transient say
+      lastErr = e;
+      if (attempt === retries) throw e;
+      await sleep(baseMs * 2 ** attempt);
+      continue;
+    }
+    if (!d.error) return d;
+    const code = d.error.code;
+    lastErr = new Error(`${code}/${d.error.error_subcode ?? ''}: ${d.error.message}`);
+    if (!TRANSIENT.has(code) || attempt === retries) throw lastErr;  // kalıcı → hemen fırlat
+    await sleep(baseMs * 2 ** attempt);              // 2s, 4s, 8s
+  }
+  throw lastErr;
 }
-async function fbGet(path, params) {
-  const r = await fetch(`${G}/${path}?${new URLSearchParams(params)}`);
-  const d = await r.json();
-  if (d.error) throw new Error(`${d.error.code}: ${d.error.message}`);
-  return d;
+
+function fbPost(path, params) {
+  return graphCall(`${G}/${path}`, {method: 'POST', body: new URLSearchParams(params)});
+}
+function fbGet(path, params) {
+  return graphCall(`${G}/${path}?${new URLSearchParams(params)}`, {});
 }
 
 async function waitContainer(creationId, token, {pollMs = 3000, maxPolls = 60, onStatus} = {}) {
