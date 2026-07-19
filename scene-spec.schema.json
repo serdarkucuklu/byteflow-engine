@@ -25,7 +25,7 @@
           "reveal": {"type": "string", "enum": ["typing", "lines", "instant"]},
           "annotation": {"type": "string", "maxLength": 80},
           "nodes": {
-            "type": "array", "minItems": 2, "maxItems": 4,
+            "type": "array", "minItems": 2, "maxItems": 6,
             "items": {
               "type": "object", "required": ["id", "label"],
               "properties": {

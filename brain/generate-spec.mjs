@@ -55,7 +55,8 @@ Produce a scene-spec with these fields:
   anti-hype voice. NOT the same as the title. e.g. "Your RAG retrieves garbage. Here's why."
 - title: <= 60 chars, the concept name.
 - 1 to 3 scenes. Each scene layout is exactly "nodes-flow".
-- 2 to 3 nodes per scene. node.label <= 16 chars, UPPERCASE. node.icon = ONE emoji.
+- 2 to 5 nodes per scene (smaller, more numerous is good — the animation builds them up one by one).
+  node.label <= 16 chars, UPPERCASE. node.icon = ONE emoji.
 - 1 to 6 steps per scene. step.from and step.to MUST equal a node.id IN THAT SCENE.
   step.packet <= 6 chars. step.color in {accent, good, warn}. step.status <= 40 chars, lowercase.
 - Each scene has a "kind": "diagram" (default) or "code".
