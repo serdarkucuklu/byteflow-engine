@@ -67,12 +67,13 @@ export function layoutPositions(layout: string, count: number): Pos[] {
 // Layout + node sayısına göre box boyutu — büyük, dokunulası "modül" kartları.
 export function boxSize(layout: string, count: number): {w: number; h: number} {
   if (layout === 'nodes-flow') {
-    if (count <= 2) return {w: 430, h: 380};
-    if (count === 3) return {w: 320, h: 340};
-    return {w: 244, h: 280};
+    if (count <= 2) return {w: 360, h: 320};
+    if (count === 3) return {w: 280, h: 300};
+    if (count === 4) return {w: 220, h: 250};
+    return {w: 176, h: 210};           // 5-6 node: küçük tuğlalar
   }
-  if (layout === 'vertical-stack') return {w: 620, h: Math.min(260, 1040 / count)};
-  return {w: count <= 3 ? 300 : 250, h: 250}; // hub-spoke, cycle
+  if (layout === 'vertical-stack') return {w: 560, h: Math.min(220, 1020 / count)};
+  return {w: count <= 3 ? 260 : 210, h: 210}; // hub-spoke, cycle
 }
 
 export interface SpecNode {id: string; label: string; icon?: string}
