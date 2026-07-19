@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt, Layout, Line, Code, LezerHighlighter} from '@motion-canvas/2d';
-import {all, createRef, waitFor, easeOutCubic, easeOutBack, easeInOutCubic} from '@motion-canvas/core';
+import {all, createRef, waitFor, easeOutCubic, easeInOutCubic} from '@motion-canvas/core';
 import {COLORS, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
 import {motionTarget} from '../lib/motion-registry.mjs';
@@ -83,14 +83,16 @@ export default makeScene2D(function* (view) {
     // connector segments (index pairs) — build toward each new node
     const segs = connectors(scene.layout, count);
 
-    // pre-create boxes (hidden, scale 0) + connector lines (end 0), z-ordered: line < box < label
+    // pre-create boxes (hidden, scale 0.7 + opacity 0 → gentle pop) + connector
+    // lines (end 0), z-ordered: line < box < label
     const boxes: Record<string, Rect> = {};
     const boxByIndex: Rect[] = [];
+    const nodeIndexById: Record<string, number> = {};
     nodes.forEach((n, i) => {
       const box = createRef<Rect>();
       container().add(
         <Rect ref={box} width={w} height={h} radius={26} fill={COLORS.card}
-          stroke={COLORS.stroke} lineWidth={3} x={pos[i].x} y={pos[i].y} scale={0} zIndex={1}
+          stroke={COLORS.stroke} lineWidth={3} x={pos[i].x} y={pos[i].y} scale={0.7} opacity={0} zIndex={1}
           shadowColor={'#00000055'} shadowBlur={24} shadowOffsetY={10}>
           {n.icon ? <Txt text={n.icon} fontSize={iconSize} y={-h * 0.16} /> : null}
           <Txt text={n.label} fill={COLORS.text} fontFamily={MONO} fontSize={labelSize}
@@ -99,8 +101,11 @@ export default makeScene2D(function* (view) {
       );
       boxes[n.id] = box();
       boxByIndex[i] = box();
+      nodeIndexById[n.id] = i;
     });
     const lineByTarget = new Map<number, Line[]>();
+    const lineByPair = new Map<string, Line>();     // undirected index-pair → connector, for step lookup
+    const allLines: Line[] = [];
     segs.forEach(([a, b]) => {
       const ln = createRef<Line>();
       container().add(
@@ -109,6 +114,8 @@ export default makeScene2D(function* (view) {
       );
       const tgt = Math.max(a, b);                       // node that "completes" this edge
       (lineByTarget.get(tgt) ?? lineByTarget.set(tgt, []).get(tgt)!).push(ln());
+      lineByPair.set(a < b ? `${a}-${b}` : `${b}-${a}`, ln());
+      allLines.push(ln());
     });
 
     // status line (below the cluster, never overlapped)
@@ -117,34 +124,74 @@ export default makeScene2D(function* (view) {
       fontFamily={MONO} fontSize={40} fontWeight={500} letterSpacing={1} y={600} opacity={0} zIndex={2} />);
 
     // BUILD PHASE: node 0 in; then for each next node, grow its incoming edges then pop it in.
-    yield* boxByIndex[0].scale(1, pacing.enter, easeOutBack);
+    // Gentle entrance: easeOutCubic scale 0.7→1 + opacity 0→1, no bounce/overshoot.
+    yield* all(boxByIndex[0].scale(1, pacing.enter, easeOutCubic), boxByIndex[0].opacity(1, pacing.enter, easeOutCubic));
     for (let i = 1; i < count; i++) {
       const incoming = lineByTarget.get(i) ?? [];
       if (incoming.length) yield* all(...incoming.map(l => l.end(1, pacing.lines, easeOutCubic)));
-      yield* boxByIndex[i].scale(1, pacing.enter, easeOutBack);
+      yield* all(boxByIndex[i].scale(1, pacing.enter, easeOutCubic), boxByIndex[i].opacity(1, pacing.enter, easeOutCubic));
     }
     // (Her kenarın max(a,b) hedefi ≥1 → flow/hub-spoke/cycle/stack hepsinde her connector
     //  yukarıdaki build döngüsünde hedef node belirince çizilir; ekstra guard'a gerek yok.)
 
-    // DATA PHASE: each step sends one small packet from→to, with status + extra hold.
+    // DATA PHASE: each step illuminates its connector (solid, brightened, endpoints
+    // accented) and glides a SMALL glow dot + small packet-label chip along it —
+    // one connection lit at a time, guiding the eye, instead of a box flying the
+    // whole zigzag. Other connectors dim a touch so the active one stands out.
+    const restShadow = '#00000055';
     for (const step of steps) {
       const from = boxes[step.from], to = boxes[step.to];
       if (!from || !to) continue;
       const col = resolveColor(step.color ?? 'accent', ACCENT);
-      const packet = createRef<Rect>();
+      const fi = nodeIndexById[step.from], ti = nodeIndexById[step.to];
+      const line = fi !== undefined && ti !== undefined
+        ? lineByPair.get(fi < ti ? `${fi}-${ti}` : `${ti}-${fi}`)
+        : undefined;
+      const others = allLines.filter(l => l !== line);
+
+      const dot = createRef<Rect>();
       container().add(
-        <Rect ref={packet} width={104} height={62} radius={16} fill={col}
-          x={from.x()} y={from.y()} opacity={0} zIndex={3} shadowColor={col} shadowBlur={22}>
-          <Txt text={step.packet} fill={COLORS.bg} fontFamily={MONO} fontSize={26} fontWeight={800} />
+        <Rect ref={dot} width={26} height={26} radius={13} fill={col}
+          x={from.x()} y={from.y()} opacity={0} zIndex={3} shadowColor={col} shadowBlur={18} />,
+      );
+      const chip = createRef<Rect>();
+      container().add(
+        <Rect ref={chip} width={64} height={36} radius={10} fill={col}
+          x={from.x()} y={from.y() - 44} opacity={0} zIndex={3} shadowColor={col} shadowBlur={10}>
+          <Txt text={step.packet} fill={COLORS.bg} fontFamily={MONO} fontSize={18} fontWeight={800} />
         </Rect>,
       );
+
       yield* all(status().text(step.status), status().fill(col), status().opacity(1, 0.25));
-      yield* packet().opacity(1, 0.18);
-      yield* all(packet().x(to.x(), pacing.step, easeInOutCubic), packet().y(to.y(), pacing.step, easeInOutCubic));
-      yield* all(packet().opacity(0, 0.18), to.stroke(col, 0.2));   // fade BEFORE covering label
+
+      // illuminate: active wire brightens + solidifies, endpoints glow, dot/chip fade in
+      yield* all(
+        ...(line ? [line.stroke(col, 0.2), line.lineWidth(7, 0.2), line.lineDash([], 0.2)] : []),
+        ...others.map(l => l.opacity(0.4, 0.2)),
+        from.stroke(col, 0.2), from.shadowColor(col, 0.2), from.shadowBlur(40, 0.2),
+        to.stroke(col, 0.2),
+        dot().opacity(1, 0.15), chip().opacity(1, 0.15),
+      );
+
+      // travel: small dot + small chip glide together along the connector
+      yield* all(
+        dot().position([to.x(), to.y()], pacing.step, easeInOutCubic),
+        chip().position([to.x(), to.y() - 44], pacing.step, easeInOutCubic),
+      );
+
+      // arrive: fade dot/chip BEFORE they rest on the label; target takes the glow
+      yield* all(dot().opacity(0, 0.18), chip().opacity(0, 0.18), to.shadowColor(col, 0.2), to.shadowBlur(40, 0.2));
       yield* waitFor(pacing.hold + 0.5);                            // +0.5s readability hold
-      yield* to.stroke(COLORS.stroke, 0.3);
-      packet().remove();
+
+      // revert: connector + both nodes back to resting look
+      yield* all(
+        ...(line ? [line.stroke(COLORS.stroke, 0.3), line.lineWidth(4, 0.3), line.lineDash([10, 10], 0.3)] : []),
+        ...others.map(l => l.opacity(1, 0.3)),
+        from.stroke(COLORS.stroke, 0.3), from.shadowColor(restShadow, 0.3), from.shadowBlur(24, 0.3),
+        to.stroke(COLORS.stroke, 0.3), to.shadowColor(restShadow, 0.3), to.shadowBlur(24, 0.3),
+      );
+      dot().remove();
+      chip().remove();
     }
 
     // brief recap: run the whole flow once as small dots (governed)

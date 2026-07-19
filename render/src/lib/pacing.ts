@@ -61,8 +61,19 @@ const DWELL_MAX = 3.0;
 const PERSTEP_MIN = 2.1;  // snappy floor (dense specs)
 const PERSTEP_MAX = 3.6;  // deliberate cap (sparse specs) — no crawl
 const MOTION_MIN = 0.05;  // absolute floor for pathological density
-const ENTER_MIN = 0.02;   // build phase floor when scenes×nodes get dense
-const LINES_MIN = 0.02;
+// Absolute build-phase floor for the >20s compression branch's pessimistic
+// motion solve (worst case: multi-scene specs with no headroom at all).
+const ENTER_ABS_MIN = 0.02;
+const LINES_ABS_MIN = 0.02;
+// Nicer build-phase target the compression branch grants WHEN there's spare
+// headroom under the 20s ceiling. 0.22/0.10s ≈ 13/6 frames @60fps — enough that
+// the gentle easeOutCubic pop is actually visible (0.02s is ~1 frame,
+// indistinguishable from a snap regardless of easing curve). Single-scene dense
+// specs (e.g. a maxed-out 6-node/5-step diagram) have slack and get the full
+// grant; multi-scene specs that are already at the ceiling get little/none —
+// see the headroom calc below, which never lets total cross 20s.
+const ENTER_MIN = 0.22;
+const LINES_MIN = 0.10;
 const COMPRESS_TARGET = 18.6;
 
 export function specShape(spec: {scenes: {nodes?: unknown[]; steps?: unknown[]}[]}): SpecShape {
@@ -119,13 +130,32 @@ export function computePacing(shape: SpecShape, targetSec: number): Pacing {
   // still run a little long, but stay bounded.
   if (total > 20) {
     finalDwell = DWELL_MIN;
-    enter = ENTER_MIN;
-    lines = LINES_MIN;
-    buildPhase = totalNodes * enter + buildEdges * lines;
-    const fixedNoRecap = FIXED_SEC + buildPhase + scenes * SCENE_FIXED + scenes * DWELL_MIN;
-    motionPer = clamp((COMPRESS_TARGET - fixedNoRecap) / steps - STEP_FIXED, MOTION_MIN, motionPer);
+
+    // Solve motion against the ABSOLUTE build-phase floor first (pessimistic —
+    // guarantees a safe, previously-verified total for the densest specs).
+    const buildPhaseMin = totalNodes * ENTER_ABS_MIN + buildEdges * LINES_ABS_MIN;
+    const fixedNoRecapMin = FIXED_SEC + buildPhaseMin + scenes * SCENE_FIXED + scenes * DWELL_MIN;
+    motionPer = clamp((COMPRESS_TARGET - fixedNoRecapMin) / steps - STEP_FIXED, MOTION_MIN, motionPer);
     step = motionPer * 0.68;
     hold = motionPer * 0.32;
+
+    // Spend any leftover headroom under the 20s ceiling on a nicer, more visible
+    // build phase — interpolate enter/lines from the absolute floor toward the
+    // nicer target, capped so total never crosses the ceiling. Multi-scene specs
+    // that already sit at/near 20s with the minimal build phase get zero grant
+    // (identical to the old hard-floored behavior); sparse single-scene specs
+    // (the common case, and the only shape a 6-node diagram ever is) get the
+    // full grant.
+    const totalAtMinBuild = estimate(buildPhaseMin, scenes, steps, {step, hold, recap: 0, finalDwell});
+    const SAFETY_MARGIN = 0.3;
+    const headroom = Math.max(0, 20 - SAFETY_MARGIN - totalAtMinBuild);
+    const desiredBuildPhase = totalNodes * ENTER_MIN + buildEdges * LINES_MIN;
+    const extraNeeded = Math.max(0, desiredBuildPhase - buildPhaseMin);
+    const grant = Math.min(extraNeeded, headroom);
+    const t = extraNeeded > 0 ? grant / extraNeeded : 0;
+    enter = ENTER_ABS_MIN + t * (ENTER_MIN - ENTER_ABS_MIN);
+    lines = LINES_ABS_MIN + t * (LINES_MIN - LINES_ABS_MIN);
+
     return finish(enter, lines, {step, hold, recap: 0, finalDwell});
   }
 
