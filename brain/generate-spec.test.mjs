@@ -142,12 +142,30 @@ test('the prompt instructs a "Written by Kai." persona line before the follow si
   assert.ok(kaiIdx !== -1 && followIdx !== -1 && kaiIdx < followIdx);
 });
 
-test('the prompt requires 4 to 6 nodes per scene for richer diagrams', async () => {
+test('the prompt requires 3 to 8 varied nodes, mixed icon/text, and varied layouts', async () => {
   const capture = {};
   await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar, fetchFn: fakeFetchCapturing(capture)});
   const promptText = capture.body.contents[0].parts[0].text;
-  assert.match(promptText, /4 to 6 nodes per scene/);
+  assert.match(promptText, /3 to 8 nodes per scene/);
   assert.match(promptText, /richer diagrams fill the frame/i);
+  // şekil çeşitliliği: ikon opsiyonel, text-only node'larla karışık
+  assert.match(promptText, /node\.icon is OPTIONAL/);
+  assert.match(promptText, /text-only/);
+  // layout çeşitliliği: 4 kompozisyon da anlatılmış, video-video değişmesi istenmiş
+  assert.match(promptText, /vertical-stack/);
+  assert.match(promptText, /hub-spoke/);
+  assert.match(promptText, /cycle/);
+  assert.match(promptText, /VARY the layout/);
+  // öngörülemezlik + öğreticilik sert kural
+  assert.match(promptText, /UNPREDICTABLE/);
+  assert.match(promptText, /TEACHING beats aesthetics/);
+});
+
+test('the response schema allows all four layouts', async () => {
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar, fetchFn: fakeFetchCapturing(capture)});
+  const sceneProps = capture.body.generationConfig.responseSchema.properties.scenes.items.properties;
+  assert.deepEqual(sceneProps.layout.enum, ['nodes-flow', 'vertical-stack', 'hub-spoke', 'cycle']);
 });
 
 test('the prompt requires a detailed, numbered, educational caption structure', async () => {
@@ -171,6 +189,10 @@ test('the prompt steers toward concrete name-brand product topics within the pil
   assert.match(promptText, /ChatGPT/);
   assert.match(promptText, /Claude/);
   assert.match(promptText, /Gemini/);
+  assert.match(promptText, /Grok/);
+  // ekosistem özellikleri (skills, plugins, GPTs...) de konu havuzunda
+  assert.match(promptText, /Claude Skills/);
+  assert.match(promptText, /plugins/);
   assert.match(promptText, /trending headlines/i);
   // anti-hype angle must still be required even when the topic is a product
   assert.match(promptText, /anti-hype/i);

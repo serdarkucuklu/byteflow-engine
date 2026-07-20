@@ -14,21 +14,38 @@ test('missing title fails', () => {
   assert.equal(res.valid, false);
 });
 
-test('scene with <2 nodes fails', () => {
-  const spec = {
+test('scene with <3 nodes fails', () => {
+  const one = {
     title: 'X title', caption: 'c', hashtags: ['#a'],
     scenes: [{layout: 'nodes-flow', nodes: [{id: 'a', label: 'A'}], steps: [{from: 'a', to: 'a', packet: 'X', status: 's'}]}]
   };
-  assert.equal(validateSpec(spec).valid, false);
+  assert.equal(validateSpec(one).valid, false);
+  const two = {
+    title: 'X title', caption: 'c', hashtags: ['#a'],
+    scenes: [{layout: 'nodes-flow', nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}],
+      steps: [{from: 'a', to: 'b', packet: 'X', status: 's'}]}]
+  };
+  assert.equal(validateSpec(two).valid, false);
+});
+
+test('scene with >8 nodes fails, 8 passes', () => {
+  const mk = (count) => ({
+    title: 'X title', caption: 'c', hashtags: ['#a'],
+    scenes: [{layout: 'cycle',
+      nodes: Array.from({length: count}, (_, i) => ({id: `n${i}`, label: `N${i}`})),
+      steps: [{from: 'n0', to: 'n1', packet: 'X', status: 's'}]}]
+  });
+  assert.equal(validateSpec(mk(8)).valid, true, JSON.stringify(validateSpec(mk(8)).errors));
+  assert.equal(validateSpec(mk(9)).valid, false);
 });
 
 test('step referencing unknown node id fails', () => {
   const spec = {
     title: 'X title', caption: 'c', hashtags: ['#a'],
     scenes: [
-      {layout: 'nodes-flow', nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}],
+      {layout: 'nodes-flow', nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}, {id: 'c', label: 'C'}],
         steps: [{from: 'a', to: 'b', packet: 'X', status: 's'}]},
-      {layout: 'nodes-flow', nodes: [{id: 'x', label: 'X'}, {id: 'y', label: 'Y'}],
+      {layout: 'nodes-flow', nodes: [{id: 'x', label: 'X'}, {id: 'y', label: 'Y'}, {id: 'z', label: 'Z'}],
         steps: [{from: 'srv', to: 'y', packet: 'X', status: 's'}]},
     ]
   };
@@ -42,8 +59,8 @@ test('duplicate node ids within a scene fails', () => {
   const spec = {
     title: 'X title', caption: 'c', hashtags: ['#a'],
     scenes: [
-      {layout: 'nodes-flow', nodes: [{id: 'a', label: 'A'}, {id: 'a', label: 'A2'}],
-        steps: [{from: 'a', to: 'a', packet: 'X', status: 's'}]},
+      {layout: 'nodes-flow', nodes: [{id: 'a', label: 'A'}, {id: 'a', label: 'A2'}, {id: 'b', label: 'B'}],
+        steps: [{from: 'a', to: 'b', packet: 'X', status: 's'}]},
     ]
   };
   const res = validateSpec(spec);
@@ -65,7 +82,7 @@ test('a diagram scene still gets reference-integrity checks', () => {
   const spec = {
     title: 'Bad Ref', caption: 'x', hashtags: ['#llm'],
     scenes: [{layout: 'nodes-flow',
-      nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}],
+      nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}, {id: 'c', label: 'C'}],
       steps: [{from: 'a', to: 'ZZZ', packet: 'P', status: 'x'}]}],
   };
   const {valid, errors} = validateSpec(spec);

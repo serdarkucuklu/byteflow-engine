@@ -18,6 +18,9 @@ export const PILLARS = [
   {key: 'model-comparison', focus: 'Claude vs ChatGPT vs Gemini: real differences in context, strengths, pricing, when to use which'},
   {key: 'paid-tiers', focus: 'what Claude Max / ChatGPT Plus / Gemini Advanced actually buy you: bigger context, higher limits, smarter model, priority'},
   {key: 'reasoning-models', focus: "how 'thinking'/reasoning models (GPT-5, Claude extended thinking) work: predicting a scratchpad before the answer"},
+  {key: 'assistant-features', focus: "what the AI assistants' platform features actually do under the hood: Claude Skills / Projects / Artifacts / MCP, ChatGPT custom GPTs / apps / plugins, Gemini Gems / extensions, Grok modes"},
+  {key: 'coding-environments', focus: 'agentic coding environments: Claude Code, Cursor, Copilot, Codex CLI — skills, plugins, MCP servers, how these tools actually drive the model, and where they fail'},
+  {key: 'assistant-updates', focus: 'newly shipped features across Claude / ChatGPT / Gemini / Grok (use timely trending headlines): what shipped, how it actually works, whether it matters'},
 ];
 
 // LRU: son kullanılan pillar'ları atla; hepsi yakın zamanda kullanıldıysa en eskiyi seç.

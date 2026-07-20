@@ -19,7 +19,7 @@ const RESPONSE_SCHEMA = {
         required: ['layout'],
         properties: {
           kind: {type: 'STRING', enum: ['diagram', 'code']},
-          layout: {type: 'STRING', enum: ['nodes-flow']},
+          layout: {type: 'STRING', enum: ['nodes-flow', 'vertical-stack', 'hub-spoke', 'cycle']},
           heading: {type: 'STRING'},
           nodes: {type: 'ARRAY', items: {type: 'OBJECT', required: ['id', 'label'],
             properties: {id: {type: 'STRING'}, label: {type: 'STRING'}, icon: {type: 'STRING'}}}},
@@ -45,8 +45,10 @@ TODAY'S PILLAR is "${pillar.key}": ${pillar.focus}
 Pick ONE sharp, specific idea INSIDE this pillar to explain as a 25-30s animated diagram.
 Prefer a contrarian / "most people get this wrong" / "here's what actually happens" angle.
 WITHIN the pillar, PREFER concrete, name-brand topics about the real products people are
-curious about and pay for — ChatGPT, Claude, Gemini, GPT-5, Claude Max, ChatGPT Plus, Sonnet —
-when they naturally fit the pillar, over generic/abstract framing. The trending headlines below
+curious about and pay for — ChatGPT, Claude, Gemini, Grok, GPT-5, Claude Max, ChatGPT Plus, Sonnet —
+and their ECOSYSTEM features: Claude Code, Claude Skills, Projects, Artifacts, MCP, custom GPTs,
+ChatGPT apps/plugins, Gemini Gems/extensions, Grok modes — when they naturally fit the pillar,
+over generic/abstract framing. The trending headlines below
 are fresh inspiration for WHICH idea inside the pillar is timely — use them to catch a real,
 recent release or feature ("X just shipped Y") when one fits the pillar. Keep the anti-hype
 angle even on product topics: explain what's actually new/different, not marketing language.
@@ -59,11 +61,20 @@ Produce a scene-spec with these fields:
 - hook: the FIRST on-screen line (<= 60 chars). A curiosity gap / stakes / contrarian claim in the
   anti-hype voice. NOT the same as the title. e.g. "Your RAG retrieves garbage. Here's why."
 - title: <= 60 chars, the concept name.
-- 1 to 3 scenes. Each scene layout is exactly "nodes-flow".
-- 4 to 6 nodes per scene (richer diagrams fill the frame; the animation builds them up one by one).
-  Use 2-3 only if the concept is genuinely that simple. node.label <= 16 chars, UPPERCASE.
-  node.icon = ONE emoji.
-- 1 to 6 steps per scene. step.from and step.to MUST equal a node.id IN THAT SCENE.
+- 1 to 3 scenes. Each DIAGRAM scene picks its OWN "layout" — choose whichever TEACHES the idea best:
+  - "nodes-flow": a pipeline / data flow (A feeds B feeds C).
+  - "vertical-stack": layers on top of each other (stacks, hierarchies, a request descending layers).
+  - "hub-spoke": one coordinator in the middle talking to satellites (orchestrator + tools/agents).
+  - "cycle": a loop / feedback cycle (agent loops, retries, training loops).
+  VARY the layout from video to video — never default to the same one every time.
+- 3 to 8 nodes per scene — VARY the count: some concepts are a tight 3-node story, others a
+  7-8 node system map (richer diagrams fill the frame; the animation builds them up one by one).
+  Never pad to a fixed number; let the concept decide. node.label <= 16 chars, UPPERCASE.
+- node.icon is OPTIONAL (ONE emoji when present). MIX icon nodes and text-only nodes in the
+  same diagram: emoji for concrete actors (a user, a server, a model), text-only (omit icon)
+  for abstract things (a metric, a rule, a phase). Do NOT give every node an emoji — uniform
+  icon grids look templated and predictable.
+- 1 to 8 steps per scene. step.from and step.to MUST equal a node.id IN THAT SCENE.
   step.packet <= 6 chars. step.color in {accent, good, warn}. step.status <= 40 chars, lowercase.
 - Each scene has a "kind": "diagram" (default) or "code".
   - A "diagram" scene MUST have nodes + steps (the rules above).
@@ -73,6 +84,14 @@ Produce a scene-spec with these fields:
     scene when showing HOW you'd write it teaches more than a data-flow diagram.
 - Prefer a mix: e.g. one code scene showing the pattern, then one diagram scene showing the flow.
   For pure-concept topics a single well-chosen kind is fine. 1 to 3 scenes total.
+
+VARIETY & TEACHING RULES (hard requirements):
+- UNPREDICTABLE: every video must FEEL different from the last — vary node count (3 vs 5 vs 8),
+  layout, icon/text-only mix, and scene composition (code vs diagram). A templated, same-shaped
+  video gets scrolled past.
+- TEACHING beats aesthetics: each node is a real concept, each step.status explains in plain
+  words what is actually happening at that moment. A viewer should finish the video genuinely
+  understanding the mechanism, not just having watched shapes move.
 - takeaway: ONE punchy closing line (<= 70 chars) — the point to remember, anti-hype voice.
 - caption: DETAILED and educational — someone who never watches the video should be able to
   read the caption alone and fully understand the concept. This is what makes people SAVE and

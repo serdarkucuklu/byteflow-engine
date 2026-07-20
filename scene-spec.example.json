@@ -9,19 +9,22 @@
       "heading": "Request distribution",
       "nodes": [
         {"id": "client", "icon": "🖥️", "label": "CLIENT"},
-        {"id": "lb", "icon": "⚖️", "label": "BALANCER"}
+        {"id": "lb", "icon": "⚖️", "label": "BALANCER"},
+        {"id": "health", "label": "HEALTH CHECK"}
       ],
       "steps": [
-        {"from": "client", "to": "lb", "packet": "REQ", "color": "accent", "status": "incoming request"}
+        {"from": "client", "to": "lb", "packet": "REQ", "color": "accent", "status": "incoming request"},
+        {"from": "lb", "to": "health", "packet": "PING", "color": "warn", "status": "who is alive right now?"}
       ]
     },
     {
-      "layout": "nodes-flow",
+      "layout": "hub-spoke",
       "heading": "Fan-out to servers",
       "nodes": [
         {"id": "lb", "icon": "⚖️", "label": "BALANCER"},
         {"id": "s1", "icon": "🗄️", "label": "SERVER 1"},
-        {"id": "s2", "icon": "🗄️", "label": "SERVER 2"}
+        {"id": "s2", "icon": "🗄️", "label": "SERVER 2"},
+        {"id": "s3", "label": "SERVER 3"}
       ],
       "steps": [
         {"from": "lb", "to": "s1", "packet": "REQ", "color": "accent", "status": "route to least-busy"},

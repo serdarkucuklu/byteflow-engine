@@ -96,7 +96,8 @@ export default makeScene2D(function* (view) {
           shadowColor={'#00000055'} shadowBlur={24} shadowOffsetY={10}>
           {n.icon ? <Txt text={n.icon} fontSize={iconSize} y={-h * 0.16} /> : null}
           <Txt text={n.label} fill={COLORS.text} fontFamily={MONO} fontSize={labelSize}
-            fontWeight={600} letterSpacing={1} y={h * 0.27} />
+            fontWeight={600} letterSpacing={1} y={n.icon ? h * 0.27 : 0}
+            width={w - 24} textAlign="center" textWrap />
         </Rect>,
       );
       boxes[n.id] = box();

@@ -31,6 +31,28 @@ npm run daily   # node --env-file=.env run-daily.mjs
 Konsol çıktısı: `✓ N trends` → `✓ spec (gemini|seed): <başlık>` → render logları →
 `✓ done (gemini|seed): .../dist/final.mp4`.
 
+## İçerik kuralları (2026-07-20)
+
+Beyin prompt'u (`brain/generate-spec.mjs`) + şema (`scene-spec.schema.json`) şunları zorlar:
+
+- **Şekil (node) sayısı değişken:** sahne başına **3-8 node** — sabit 6 yok; basit konu 3,
+  sistem haritası 7-8. Şema `minItems: 3, maxItems: 8` ile sert sınır koyar. Step 1-8.
+- **Şekiller karışık, tahmin edilemez:** `node.icon` OPSİYONEL — kimi node emoji+yazı, kimi
+  **sadece yazı** (soyut kavramlar: metrik, kural, faz). Aynı diyagramda ikisi karışık;
+  her node'a emoji vermek yasak ("uniform icon grid" şablonu). İkonsuz node'da label kutu
+  ortasında render edilir.
+- **Animasyon/layout çeşitliliği:** sahne başına beyin 4 kompozisyondan seçer —
+  `nodes-flow` (pipeline), `vertical-stack` (katmanlar), `hub-spoke` (orkestratör+uydular),
+  `cycle` (döngü/feedback). Konsepti en iyi ÖĞRETEN layout seçilir, videodan videoya değişir;
+  `run-daily.mjs` artık layout'u sabitlemez (geçersizse deterministik rotasyona düşer).
+- **Öğreticilik estetiği döver:** her node gerçek bir kavram, her `step.status` o anda ne
+  olduğunu düz dille açıklar; izleyen mekanizmayı gerçekten anlamalı.
+- **Konu havuzu genişledi** (`brain/pillars.mjs`): mevcut mühendislik pillar'larına ek —
+  `assistant-features` (Claude Skills/Projects/Artifacts/MCP, custom GPT'ler, ChatGPT
+  app/plugin'leri, Gemini Gems/extensions, Grok modları), `coding-environments` (Claude Code,
+  Cursor, Copilot, Codex CLI), `assistant-updates` (Claude/ChatGPT/Gemini/Grok'un yeni çıkan
+  özellikleri — trend başlıklarıyla güncel).
+
 ## Kurulum
 
 ```bash

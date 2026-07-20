@@ -33,14 +33,18 @@ console.log(`✓ pillar: ${pillar.key}`);
 const {spec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, pickSeed: randomSeed});
 
 // Görsel çeşitlilik: ardışık videolar aynı tema olmasın (deterministik rotasyon).
-// Layout + koreografi tek/sabit: 'nodes-flow' serpentine (dikey kareyi doldurur) + 'buildup'.
+// Layout'u BEYİN seçer (konsepti en iyi öğreten kompozisyon: flow/stack/hub/cycle) —
+// eksik/geçersizse deterministik rotasyona düş. Koreografi tek: 'buildup'.
+const LAYOUTS = ['nodes-flow', 'vertical-stack', 'hub-spoke', 'cycle']; // render/src/lib/spec.ts ile senkron
 const n = history.length;
-const layout = 'nodes-flow';
 const theme = THEMES[(n * 5 + 1) % THEMES.length]; // *5: eski layout rotasyonuyla senkron olmasın diye kalan ofset
 const motion = 'buildup';                           // tek koreografi (kademeli kurulum)
 spec.theme = theme;
 spec.motion = motion;
-for (const sc of spec.scenes) sc.layout = layout;
+spec.scenes.forEach((sc, i) => {
+  if (!LAYOUTS.includes(sc.layout)) sc.layout = LAYOUTS[(n + i) % LAYOUTS.length];
+});
+const layout = spec.scenes.map(sc => sc.kind === 'code' ? 'code' : sc.layout).join('+');
 console.log(`✓ spec (${source}): ${spec.title} [${layout} / ${motion} / ${theme}]`);
 
 const specPath = join(root, 'scene-spec.generated.json');

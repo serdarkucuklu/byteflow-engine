@@ -87,7 +87,8 @@ export function boxSize(layout: string, count: number): {w: number; h: number} {
     // yatay adımlarda paket etiketin üstüne biner (doğrulamada görüldü, h=190'da oldu).
     if (count <= 2) return {w: 300, h: 250};
     if (count <= 4) return {w: 240, h: 230};
-    return {w: 210, h: 230};           // 5-6 node: dar ama yeterince uzun tuğlalar
+    if (count <= 6) return {w: 210, h: 230};  // 5-6 node: dar ama yeterince uzun tuğlalar
+    return {w: 190, h: 230};           // 7-8 node: 4 satır serpentine, satır arası ~43px kalır
   }
   if (layout === 'vertical-stack') return {w: 560, h: Math.min(220, 1020 / count)};
   return {w: count <= 3 ? 260 : 210, h: 210}; // hub-spoke, cycle
