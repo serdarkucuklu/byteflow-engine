@@ -1,62 +1,99 @@
 {
-  "title": "Why Longer Context Windows Don't Fix Bad Prompts",
-  "topic_source": "seed",
-  "pillar": "context",
-  "hook": "More context tokens != better answers.",
-  "takeaway": "Context rot kills accuracy long before the token limit does.",
-  "caption": "More context tokens != better answers.\nContext rot buries your instructions in the middle of a 100k-token prompt.\nSave this before you dump your whole codebase into one prompt.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-  "hashtags": [
-    "#llm",
-    "#contextwindow",
-    "#promptengineering",
-    "#aiengineering"
-  ],
+  "hook": "More embedding dimensions? Not always better.",
+  "title": "The Curse of Embedding Dimensionality",
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "heading": "Context rot in action",
+      "layout": "nodes-flow",
+      "annotation": "High-dimensional embedding spaces make true similarity harder to find.",
+      "heading": "From Text to Scattered Vectors",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "prompt",
-          "icon": "📝",
-          "label": "PROMPT"
+          "id": "input_text",
+          "label": "INPUT TEXT",
+          "icon": "💬"
         },
         {
-          "id": "window",
-          "icon": "🪟",
-          "label": "CONTEXT"
+          "id": "embedder",
+          "label": "EMBEDDER",
+          "icon": "🧠"
         },
         {
-          "id": "model",
-          "icon": "🤖",
-          "label": "MODEL"
+          "id": "low_d_space",
+          "label": "2D SPACE",
+          "icon": "📈"
+        },
+        {
+          "id": "high_d_space",
+          "label": "1536D SPACE",
+          "icon": "🚀"
+        },
+        {
+          "id": "similarity_search",
+          "label": "SIMILARITY",
+          "icon": "🎯"
+        },
+        {
+          "id": "dimensionality_curse",
+          "label": "DIMENSIONALITY",
+          "icon": "📏"
         }
       ],
       "steps": [
         {
-          "from": "prompt",
-          "to": "window",
-          "packet": "STUFF",
-          "color": "accent",
-          "status": "cram everything into context"
+          "from": "input_text",
+          "to": "embedder",
+          "packet": "TEXT",
+          "status": "text becomes numbers"
         },
         {
-          "from": "window",
-          "to": "model",
-          "packet": "READ",
-          "color": "warn",
-          "status": "instructions lost in the middle"
+          "from": "embedder",
+          "to": "low_d_space",
+          "packet": "VEC_A",
+          "status": "easy to find neighbors in low-D",
+          "color": "good"
         },
         {
-          "from": "model",
-          "to": "prompt",
-          "packet": "MISS",
-          "color": "warn",
-          "status": "key detail ignored"
+          "from": "embedder",
+          "to": "high_d_space",
+          "packet": "VEC_B",
+          "status": "vectors spread out in high-D",
+          "color": "warn"
+        },
+        {
+          "from": "low_d_space",
+          "to": "similarity_search",
+          "packet": "MATCH",
+          "status": "clear matches found",
+          "color": "good"
+        },
+        {
+          "from": "high_d_space",
+          "to": "similarity_search",
+          "packet": "DIST",
+          "status": "all points equidistant from each other",
+          "color": "warn"
+        },
+        {
+          "from": "similarity_search",
+          "to": "dimensionality_curse",
+          "packet": "CURSE!",
+          "status": "harder to define 'similarity' in high-D",
+          "color": "warn"
         }
       ]
     }
   ],
-  "theme": "#f778ba",
-  "motion": "punch"
+  "caption": "More embedding dimensions don't always mean better vector search. Sometimes, they make it worse by making true similarity harder to find.Here's the often-overlooked problem of high-dimensional data, known as the 'curse of dimensionality':1. INPUT TEXT 💬: Your raw text (query or document) is fed into an embedding model.2. EMBEDDER 🧠: This model (like OpenAI's `text-embedding-ada-002`) converts text into a dense vector of numbers (the \"TEXT\" packet).3. 2D SPACE 📈: In a low-dimensional space (e.g., 2D or 3D for visualization), vectors representing similar concepts cluster closely together (\"VEC_A\" packet). Here, it's easy to find nearest neighbors, leading to \"MATCH\" – clear, relevant results from similarity search.4. 1536D SPACE 🚀: Modern embedding models produce vectors with hundreds or thousands of dimensions (e.g., 1536 for `ada-002`). When the embedder generates these high-dimensional vectors (\"VEC_B\" packet), a geometric challenge arises.5. SIMILARITY 🎯: Vector search relies on distance metrics (like cosine similarity) to find similar items. But in high-D, the \"DIST\" packet indicates that points appear nearly equidistant from each other, making the concept of 'closeness' ambiguous.6. DIMENSIONALITY 📏: This phenomenon is the \"curse of dimensionality.\" The \"CURSE!\" packet highlights that as dimensions increase, the relative difference between the closest and farthest neighbors diminishes. This makes it harder to distinguish truly similar items from irrelevant ones, as noise can dominate meaningful signal, degrading search quality.If you're working with advanced RAG systems, customizing embedding models, or optimizing vector databases, understanding this phenomenon is crucial for effective retrieval and filtering irrelevant results. It's why techniques like dimensionality reduction or careful indexing are often necessary.It's not just about bigger embeddings; it's about managing the inherent geometric challenges of high-dimensional data.📌 Save this so you don't forget how it works.🔁 Send it to someone who thinks bigger embedding models are always better.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
+  "hashtags": [
+    "#embeddings",
+    "#vectorsearch",
+    "#aiengineering",
+    "#llm",
+    "#rag",
+    "#dimensionality"
+  ],
+  "takeaway": "More dimensions can scatter your vectors, making similarity elusive.",
+  "theme": "#39d3c3",
+  "motion": "buildup"
 }

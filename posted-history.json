@@ -89,5 +89,14 @@
     "theme": "#f778ba",
     "source": "seed",
     "date": "2026-07-19"
+  },
+  {
+    "title": "The Curse of Embedding Dimensionality",
+    "pillar": "embeddings",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#39d3c3",
+    "source": "gemini",
+    "date": "2026-07-20"
   }
 ]
