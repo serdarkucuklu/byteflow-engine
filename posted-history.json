@@ -100,5 +100,14 @@
     "date": "2026-07-20",
     "mediaId": "18434902471122465",
     "postedAt": "2026-07-20T11:50:03.438Z"
+  },
+  {
+    "title": "LLM Inference: The Batching Trade-off",
+    "pillar": "inference",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#bc8cff",
+    "source": "gemini",
+    "date": "2026-07-21"
   }
 ]
