@@ -26,9 +26,10 @@ const candidates = await fetchTrends({limit: 15});
 console.log(`✓ ${candidates.length} trends`);
 
 // Pillar rotasyonu: son (PILLARS.length-1) postun pillar'ını atla (niş içi çeşitlilik).
+// %75 kuralı: history.length'e göre 4 postta 3'ü timely (güncel özellik/model haberi) pillar'dan seçilir.
 const recentPillars = history.slice(-(PILLARS.length - 1)).map(h => h.pillar).filter(Boolean);
-const pillar = selectPillar(recentPillars);
-console.log(`✓ pillar: ${pillar.key}`);
+const pillar = selectPillar(recentPillars, history.length);
+console.log(`✓ pillar: ${pillar.key}${pillar.timely ? ' (timely)' : ''}`);
 
 const {spec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, pickSeed: randomSeed});
 

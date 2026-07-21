@@ -52,6 +52,13 @@ Beyin prompt'u (`brain/generate-spec.mjs`) + şema (`scene-spec.schema.json`) ş
   app/plugin'leri, Gemini Gems/extensions, Grok modları), `coding-environments` (Claude Code,
   Cursor, Copilot, Codex CLI), `assistant-updates` (Claude/ChatGPT/Gemini/Grok'un yeni çıkan
   özellikleri — trend başlıklarıyla güncel).
+- **%75 güncel-içerik kuralı** (2026-07): `timely: true` işaretli haber pillar'ları
+  (`model-releases`, `assistant-updates`, `coding-environments`) 4 postluk deterministik
+  pencerede 3 kez seçilir (3 timely + 1 evergreen). Timely pillar'da prompt, videoyu trend
+  başlıklarındaki GERÇEK bir güncel duyuruya (yeni model sürümü, yeni çıkan özellik: desktop
+  app, design aracı, flow builder, voice/omni modu...) demirlemeye zorlar. Haber kaynağı
+  olarak feed listesine TechCrunch AI, The Verge AI ve Google AI blog eklendi; adaylar
+  round-robin karıştırılır ki ilk 15 tek feed'e boğulmasın.
 
 ## Kurulum
 

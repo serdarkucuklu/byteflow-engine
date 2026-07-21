@@ -42,7 +42,11 @@ with an anti-hype senior-engineer voice: what actually matters, what people get 
 Faceless, no fluff, globally understandable English.
 
 TODAY'S PILLAR is "${pillar.key}": ${pillar.focus}
-Pick ONE sharp, specific idea INSIDE this pillar to explain as a 25-30s animated diagram.
+${pillar.timely ? `This is a NEWS pillar: anchor the video on ONE real, RECENT release from the trending
+headlines below — a new model version bump or a newly shipped feature (a new desktop app, design
+tool, flow builder, voice/omni mode, agent capability). Lead with what JUST changed and what it
+actually means; skip evergreen theory unless it is needed to explain the news.
+` : ''}Pick ONE sharp, specific idea INSIDE this pillar to explain as a 25-30s animated diagram.
 Prefer a contrarian / "most people get this wrong" / "here's what actually happens" angle.
 WITHIN the pillar, PREFER concrete, name-brand topics about the real products people are
 curious about and pay for — ChatGPT, Claude, Gemini, Grok, GPT-5, Claude Max, ChatGPT Plus, Sonnet —
