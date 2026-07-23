@@ -1,62 +1,109 @@
 {
-  "title": "KV Cache Is Why Your LLM Slows Down Mid-Reply",
-  "topic_source": "seed",
-  "pillar": "inference",
-  "hook": "Your LLM gets slower the longer it talks.",
-  "takeaway": "KV cache grows with every token, and so does latency.",
-  "caption": "Your LLM gets slower the longer it talks.\nEvery generated token grows the KV cache the model has to attend over.\nSave this before you blame the model for a serving problem.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-  "hashtags": [
-    "#llm",
-    "#inference",
-    "#genai",
-    "#aiengineering"
-  ],
+  "hook": "Prompt guardrails are a good start. But they're not enough.",
+  "title": "LLM GUARDRAILS: BEYOND THE PROMPT",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "heading": "KV cache grows every token",
+      "layout": "vertical-stack",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "token",
-          "icon": "🔤",
-          "label": "TOKEN"
+          "id": "user",
+          "label": "USER",
+          "icon": "🧑‍💻"
         },
         {
-          "id": "kv",
-          "icon": "🗃️",
-          "label": "KV CACHE"
+          "id": "app",
+          "label": "APP LAYER"
         },
         {
-          "id": "gpu",
-          "icon": "⚡",
-          "label": "GPU"
+          "id": "input_filter",
+          "label": "INPUT FILTER"
+        },
+        {
+          "id": "prompt_gr",
+          "label": "PROMPT GR"
+        },
+        {
+          "id": "llm",
+          "label": "LLM",
+          "icon": "🤖"
+        },
+        {
+          "id": "output_gr",
+          "label": "OUTPUT GR"
+        },
+        {
+          "id": "tool_layer",
+          "label": "TOOL LAYER",
+          "icon": "🛠️"
         }
       ],
       "steps": [
         {
-          "from": "token",
-          "to": "kv",
-          "packet": "STORE",
-          "color": "accent",
-          "status": "cache grows every step"
+          "from": "user",
+          "to": "app",
+          "packet": "INPUT",
+          "status": "user sends prompt"
         },
         {
-          "from": "kv",
-          "to": "gpu",
-          "packet": "READ",
-          "color": "warn",
-          "status": "more memory to scan"
+          "from": "app",
+          "to": "input_filter",
+          "packet": "TEXT",
+          "status": "sanitize raw text",
+          "color": "good"
         },
         {
-          "from": "gpu",
-          "to": "token",
-          "packet": "SLOW",
-          "color": "warn",
-          "status": "latency creeps up"
+          "from": "input_filter",
+          "to": "prompt_gr",
+          "packet": "CLEAN",
+          "status": "check for injection",
+          "color": "good"
+        },
+        {
+          "from": "prompt_gr",
+          "to": "llm",
+          "packet": "PROMPT",
+          "status": "model processes input",
+          "color": "good"
+        },
+        {
+          "from": "llm",
+          "to": "output_gr",
+          "packet": "RESP",
+          "status": "model generates output"
+        },
+        {
+          "from": "output_gr",
+          "to": "tool_layer",
+          "packet": "CLEAN",
+          "status": "sanitize model response",
+          "color": "good"
+        },
+        {
+          "from": "tool_layer",
+          "to": "app",
+          "packet": "ACTION",
+          "status": "tools execute actions",
+          "color": "accent"
+        },
+        {
+          "from": "app",
+          "to": "user",
+          "packet": "OUTPUT",
+          "status": "final response to user"
         }
       ]
     }
   ],
-  "theme": "#58a6ff",
+  "caption": "Relying only on prompt-level guardrails for LLM security is a critical mistake.Here's why a multi-layered approach is essential for production LLM systems:1. USER 🧑‍💻: The user initiates an interaction, sending a prompt to the application.2. APP LAYER: The application acts as the interface, receiving user input and orchestrating the LLM interaction.3. INPUT FILTER: Before reaching the LLM, raw user input is sanitized. This layer might detect harmful content, PII, or attempts to bypass system instructions.4. PROMPT GR: These are the dedicated LLM guardrails, often implemented via system prompts or dedicated models, designed to catch prompt injections, jailbreaks, or policy violations. They ensure the prompt fed to the core LLM is safe.5. LLM 🤖: The large language model processes the sanitized prompt and generates a raw response.6. OUTPUT GR: After the LLM generates its response, this layer filters the output for harmful content, PII leaks, or responses that violate safety policies before they reach the user or trigger tools.7. TOOL LAYER 🛠️: If the LLM interacts with external tools (e.g., APIs, databases), this layer ensures tool calls are valid, authorized, and don't lead to unintended actions or data breaches.8. The application finally delivers the safe and filtered output back to the user.Why it matters: Most new model releases and platforms include enhanced guardrail features, but integrating them effectively requires understanding their place in a full security stack. Don't assume the model's internal guardrails cover all your bases.Security isn't a single switch; it's a reinforced system.📌 Save this so you don't forget how it works.🔁 Send it to someone who thinks it's magic.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
+  "hashtags": [
+    "#llmsecurity",
+    "#aiengineering",
+    "#guardrails",
+    "#promptengineering",
+    "#llm"
+  ],
+  "takeaway": "True LLM security needs layers: guardrails, filters, and tool control.",
+  "theme": "#3fb950",
   "motion": "buildup"
 }
