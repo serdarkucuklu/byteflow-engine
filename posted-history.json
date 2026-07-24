@@ -133,5 +133,14 @@
     "date": "2026-07-23",
     "mediaId": "18108988384821181",
     "postedAt": "2026-07-23T11:14:58.212Z"
+  },
+  {
+    "title": "SYSTEM PROMPT PRIORITIZATION",
+    "pillar": "prompting",
+    "layout": "nodes-flow+code",
+    "motion": "buildup",
+    "theme": "#e3b341",
+    "source": "gemini",
+    "date": "2026-07-24"
   }
 ]

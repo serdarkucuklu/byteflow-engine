@@ -1,110 +1,84 @@
 {
-  "hook": "Prompt guardrails are a good start. But they're not enough.",
-  "title": "LLM GUARDRAILS: BEYOND THE PROMPT",
+  "hook": "Your 'unhackable' system prompt... isn't.",
+  "title": "SYSTEM PROMPT PRIORITIZATION",
   "scenes": [
     {
-      "layout": "vertical-stack",
+      "layout": "nodes-flow",
+      "annotation": "What happens when instructions collide",
+      "heading": "LLM INSTRUCTION CONFLICT",
       "kind": "diagram",
       "nodes": [
         {
           "id": "user",
-          "label": "USER",
-          "icon": "🧑‍💻"
+          "label": "USER PROMPT",
+          "icon": "👤"
         },
         {
-          "id": "app",
-          "label": "APP LAYER"
-        },
-        {
-          "id": "input_filter",
-          "label": "INPUT FILTER"
-        },
-        {
-          "id": "prompt_gr",
-          "label": "PROMPT GR"
+          "id": "system",
+          "label": "SYSTEM PROMPT",
+          "icon": "⚙️"
         },
         {
           "id": "llm",
           "label": "LLM",
-          "icon": "🤖"
+          "icon": "🧠"
         },
         {
-          "id": "output_gr",
-          "label": "OUTPUT GR"
-        },
-        {
-          "id": "tool_layer",
-          "label": "TOOL LAYER",
-          "icon": "🛠️"
+          "id": "output",
+          "label": "LLM OUTPUT",
+          "icon": "💬"
         }
       ],
       "steps": [
         {
           "from": "user",
-          "to": "app",
-          "packet": "INPUT",
-          "status": "user sends prompt"
-        },
-        {
-          "from": "app",
-          "to": "input_filter",
-          "packet": "TEXT",
-          "status": "sanitize raw text",
-          "color": "good"
-        },
-        {
-          "from": "input_filter",
-          "to": "prompt_gr",
-          "packet": "CLEAN",
-          "status": "check for injection",
-          "color": "good"
-        },
-        {
-          "from": "prompt_gr",
           "to": "llm",
-          "packet": "PROMPT",
-          "status": "model processes input",
+          "packet": "TASK",
+          "status": "provides instructions & context"
+        },
+        {
+          "from": "system",
+          "to": "llm",
+          "packet": "RULES",
+          "status": "provides guardrails & persona"
+        },
+        {
+          "from": "llm",
+          "to": "output",
+          "packet": "OK",
+          "status": "follows unambiguous instructions",
           "color": "good"
         },
         {
           "from": "llm",
-          "to": "output_gr",
-          "packet": "RESP",
-          "status": "model generates output"
-        },
-        {
-          "from": "output_gr",
-          "to": "tool_layer",
-          "packet": "CLEAN",
-          "status": "sanitize model response",
-          "color": "good"
-        },
-        {
-          "from": "tool_layer",
-          "to": "app",
-          "packet": "ACTION",
-          "status": "tools execute actions",
-          "color": "accent"
-        },
-        {
-          "from": "app",
-          "to": "user",
-          "packet": "OUTPUT",
-          "status": "final response to user"
+          "to": "output",
+          "packet": "FAIL",
+          "status": "user prompt often overrides system",
+          "color": "warn"
         }
       ]
+    },
+    {
+      "layout": "vertical-stack",
+      "annotation": "User prompt directly contradicts system instruction.",
+      "code": "system_prompt = \"Always speak like a pirate.\"\nuser_prompt = \"What is the capital of France? Answer directly.\"\n# LLM will often answer \"Paris.\" directly, ignoring pirate persona.\n# Direct user instructions can override subtle system constraints.",
+      "heading": "CODE EXAMPLE: OVERRIDE",
+      "kind": "code",
+      "language": "python",
+      "reveal": "typing"
     }
   ],
-  "caption": "Relying only on prompt-level guardrails for LLM security is a critical mistake.Here's why a multi-layered approach is essential for production LLM systems:1. USER 🧑‍💻: The user initiates an interaction, sending a prompt to the application.2. APP LAYER: The application acts as the interface, receiving user input and orchestrating the LLM interaction.3. INPUT FILTER: Before reaching the LLM, raw user input is sanitized. This layer might detect harmful content, PII, or attempts to bypass system instructions.4. PROMPT GR: These are the dedicated LLM guardrails, often implemented via system prompts or dedicated models, designed to catch prompt injections, jailbreaks, or policy violations. They ensure the prompt fed to the core LLM is safe.5. LLM 🤖: The large language model processes the sanitized prompt and generates a raw response.6. OUTPUT GR: After the LLM generates its response, this layer filters the output for harmful content, PII leaks, or responses that violate safety policies before they reach the user or trigger tools.7. TOOL LAYER 🛠️: If the LLM interacts with external tools (e.g., APIs, databases), this layer ensures tool calls are valid, authorized, and don't lead to unintended actions or data breaches.8. The application finally delivers the safe and filtered output back to the user.Why it matters: Most new model releases and platforms include enhanced guardrail features, but integrating them effectively requires understanding their place in a full security stack. Don't assume the model's internal guardrails cover all your bases.Security isn't a single switch; it's a reinforced system.📌 Save this so you don't forget how it works.🔁 Send it to someone who thinks it's magic.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
+  "caption": "Your \"unhackable\" system prompt... isn't.\n\nHere's what actually happens when system and user instructions collide:\n1. 👤 USER PROMPT — You provide the LLM with direct instructions or a specific task, often with an expected format or persona.\n2. ⚙️ SYSTEM PROMPT — The model is also given high-level directives, guardrails, or a persona to maintain across interactions.\n3. 🧠 LLM — The Large Language Model attempts to reconcile both sets of instructions. When they are aligned, it's straightforward.\n4. 💬 LLM OUTPUT (good path) — If instructions are unambiguous, the LLM generates a response adhering to all constraints.\n5. 💬 LLM OUTPUT (warn path) — Crucially, if the user prompt directly contradicts or strongly implies deviation from the system prompt, the user's intent often takes precedence. The LLM might prioritize the immediate task from the user over a general system rule.\n6. CODE EXAMPLE: OVERRIDE — A simple example shows how \"Answer directly\" from a user can bypass a \"speak like a pirate\" system persona.\nThis matters because relying solely on system prompts for critical guardrails or consistent behavior is a common failure point. Always validate how your chosen LLM (e.g., in ChatGPT, Claude, Gemini) handles instruction conflicts, especially with new models or custom GPTs/extensions.\nNo prompt is truly \"unhackable\" when a determined user is at the keyboard.\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#llmsecurity",
-    "#aiengineering",
-    "#guardrails",
+    "#llm",
     "#promptengineering",
-    "#llm"
+    "#aiengineering",
+    "#chatgpt",
+    "#claudeai",
+    "#failuremodes"
   ],
-  "takeaway": "True LLM security needs layers: guardrails, filters, and tool control.",
-  "theme": "#3fb950",
+  "takeaway": "User intent often trumps system roles. Design for clarity, not rigidity.",
+  "theme": "#e3b341",
   "motion": "buildup",
-  "thumbOffset": 17187
+  "thumbOffset": 21102
 }
