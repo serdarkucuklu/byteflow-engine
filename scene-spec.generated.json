@@ -1,84 +1,107 @@
 {
-  "hook": "Your 'unhackable' system prompt... isn't.",
-  "title": "SYSTEM PROMPT PRIORITIZATION",
+  "hook": "OpenAI's new AI keypad isn't magic.",
+  "title": "AI Keypad: Prompt Abstraction",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "annotation": "What happens when instructions collide",
-      "heading": "LLM INSTRUCTION CONFLICT",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "user",
-          "label": "USER PROMPT",
-          "icon": "👤"
+          "id": "developer",
+          "label": "DEVELOPER",
+          "icon": "🧑‍💻"
         },
         {
-          "id": "system",
-          "label": "SYSTEM PROMPT",
-          "icon": "⚙️"
+          "id": "keypad",
+          "label": "AI KEYPAD",
+          "icon": "⌨️"
         },
         {
-          "id": "llm",
-          "label": "LLM",
-          "icon": "🧠"
+          "id": "prompt_gen",
+          "label": "PROMPT GEN."
         },
         {
-          "id": "output",
-          "label": "LLM OUTPUT",
-          "icon": "💬"
+          "id": "llm_api",
+          "label": "LLM API",
+          "icon": "☁️"
+        },
+        {
+          "id": "code_editor",
+          "label": "CODE EDITOR",
+          "icon": "📝"
         }
       ],
       "steps": [
         {
-          "from": "user",
-          "to": "llm",
+          "from": "developer",
+          "to": "keypad",
+          "packet": "CODE",
+          "status": "requests code generation",
+          "color": "accent"
+        },
+        {
+          "from": "keypad",
+          "to": "prompt_gen",
           "packet": "TASK",
-          "status": "provides instructions & context"
+          "status": "translates input to task",
+          "color": "accent"
         },
         {
-          "from": "system",
-          "to": "llm",
-          "packet": "RULES",
-          "status": "provides guardrails & persona"
+          "from": "prompt_gen",
+          "to": "llm_api",
+          "packet": "PROMPT",
+          "status": "sends a detailed prompt",
+          "color": "accent"
         },
         {
-          "from": "llm",
-          "to": "output",
-          "packet": "OK",
-          "status": "follows unambiguous instructions",
+          "from": "llm_api",
+          "to": "code_editor",
+          "packet": "CODE",
+          "status": "returns generated code",
           "color": "good"
         },
         {
-          "from": "llm",
-          "to": "output",
-          "packet": "FAIL",
-          "status": "user prompt often overrides system",
+          "from": "code_editor",
+          "to": "developer",
+          "packet": "CODE",
+          "status": "presents code for review",
+          "color": "accent"
+        },
+        {
+          "from": "developer",
+          "to": "keypad",
+          "packet": "EDIT",
+          "status": "requests code refinement",
           "color": "warn"
+        },
+        {
+          "from": "keypad",
+          "to": "prompt_gen",
+          "packet": "REFIN",
+          "status": "translates edit request",
+          "color": "accent"
+        },
+        {
+          "from": "prompt_gen",
+          "to": "llm_api",
+          "packet": "PROMPT",
+          "status": "sends refined prompt",
+          "color": "accent"
         }
       ]
-    },
-    {
-      "layout": "vertical-stack",
-      "annotation": "User prompt directly contradicts system instruction.",
-      "code": "system_prompt = \"Always speak like a pirate.\"\nuser_prompt = \"What is the capital of France? Answer directly.\"\n# LLM will often answer \"Paris.\" directly, ignoring pirate persona.\n# Direct user instructions can override subtle system constraints.",
-      "heading": "CODE EXAMPLE: OVERRIDE",
-      "kind": "code",
-      "language": "python",
-      "reveal": "typing"
     }
   ],
-  "caption": "Your \"unhackable\" system prompt... isn't.\n\nHere's what actually happens when system and user instructions collide:\n1. 👤 USER PROMPT — You provide the LLM with direct instructions or a specific task, often with an expected format or persona.\n2. ⚙️ SYSTEM PROMPT — The model is also given high-level directives, guardrails, or a persona to maintain across interactions.\n3. 🧠 LLM — The Large Language Model attempts to reconcile both sets of instructions. When they are aligned, it's straightforward.\n4. 💬 LLM OUTPUT (good path) — If instructions are unambiguous, the LLM generates a response adhering to all constraints.\n5. 💬 LLM OUTPUT (warn path) — Crucially, if the user prompt directly contradicts or strongly implies deviation from the system prompt, the user's intent often takes precedence. The LLM might prioritize the immediate task from the user over a general system rule.\n6. CODE EXAMPLE: OVERRIDE — A simple example shows how \"Answer directly\" from a user can bypass a \"speak like a pirate\" system persona.\nThis matters because relying solely on system prompts for critical guardrails or consistent behavior is a common failure point. Always validate how your chosen LLM (e.g., in ChatGPT, Claude, Gemini) handles instruction conflicts, especially with new models or custom GPTs/extensions.\nNo prompt is truly \"unhackable\" when a determined user is at the keyboard.\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "OpenAI's new AI keypad isn't magic. It's a prompt abstraction layer. Here's what actually happens when you use it to generate code:\n\n1. **DEVELOPER** (🧑‍💻) — You initiate a request (e.g., \"generate unit tests\") using the keypad's specialized interface.\n2. **AI KEYPAD** (⌨️) — This physical or virtual input device captures your high-level intent. It's designed to streamline common coding tasks.\n3. **PROMPT GENERATOR** — Crucially, the keypad doesn't write code itself. Instead, it translates your keypad input into a comprehensive, well-structured prompt for the underlying LLM. This is where most of the \"intelligence\" of the keypad lies: in crafting effective prompts.\n4. **LLM API** (☁️) — The detailed prompt is sent to a large language model (like GPT-4), which then processes it and generates the code based on its training data and the prompt's instructions.\n5. **CODE EDITOR** (📝) — The generated code is inserted into your development environment for review.\n6. When the code isn't perfect, you provide **feedback** (e.g., \"this test is missing an edge case\").\n7. The **AI KEYPAD** interprets this feedback, often by enriching it with context from your code editor (e.g., current file, selected function).\n8. The **PROMPT GENERATOR** then constructs a *refined* prompt, incorporating your feedback and additional context, which is sent back to the LLM for iteration.\n\nWhat you're paying for with tools like this is often a sophisticated prompt engineering layer that simplifies interaction, not a fundamentally different AI capability.\nThe keypad abstracts the prompt, but the LLM still needs good input and human oversight.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#llm",
-    "#promptengineering",
-    "#aiengineering",
-    "#chatgpt",
-    "#claudeai",
-    "#failuremodes"
+    "#AIengineering",
+    "#LLM",
+    "#CodingTools",
+    "#OpenAI",
+    "#DeveloperProductivity",
+    "#NoHype"
   ],
-  "takeaway": "User intent often trumps system roles. Design for clarity, not rigidity.",
-  "theme": "#e3b341",
+  "takeaway": "The keypad abstracts the prompt, but the LLM still needs human oversight.",
+  "theme": "#f778ba",
   "motion": "buildup",
-  "thumbOffset": 21102
+  "thumbOffset": 16656
 }
