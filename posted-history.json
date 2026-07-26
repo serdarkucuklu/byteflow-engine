@@ -155,5 +155,14 @@
     "date": "2026-07-25",
     "mediaId": "18090696305536202",
     "postedAt": "2026-07-25T10:30:24.553Z"
+  },
+  {
+    "title": "OPUS 5: UNEVEN CAPABILITIES",
+    "pillar": "assistant-updates",
+    "layout": "hub-spoke",
+    "motion": "buildup",
+    "theme": "#39d3c3",
+    "source": "gemini",
+    "date": "2026-07-26"
   }
 ]
