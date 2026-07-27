@@ -1,104 +1,106 @@
 {
-  "hook": "DeepSeek R1 isn't fast by magic. Here's how it distills.",
-  "title": "DeepSeek R1 Distillation",
+  "hook": "Microsoft Security AI does not just chat. It acts.",
+  "title": "Microsoft Security Agent Loop",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "hub-spoke",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "teacher",
-          "label": "DEEPSEEK R1",
-          "brand": "deepseek"
+          "id": "agent",
+          "label": "SECURITY AGENT",
+          "brand": "copilot"
         },
         {
-          "id": "filter",
-          "label": "QUALITY FILTER"
+          "id": "logs",
+          "label": "RUNTIME LOGS",
+          "icon": "📊"
         },
         {
-          "id": "dataset",
-          "label": "SYNTHETIC DATA"
+          "id": "model",
+          "label": "SECURITY MODEL"
         },
         {
-          "id": "student",
-          "label": "OLLAMA MODEL",
-          "brand": "ollama"
+          "id": "patch",
+          "label": "PATCH PIPELINE",
+          "icon": "⚙️"
         }
       ],
       "steps": [
         {
-          "from": "teacher",
-          "to": "filter",
-          "packet": "TRACES",
-          "status": "deepseek r1 generates dense reasoning tr",
+          "from": "logs",
+          "to": "agent",
+          "packet": "LOGS",
+          "status": "agent receives live system anomaly telem",
           "color": "accent"
         },
         {
-          "from": "filter",
-          "to": "dataset",
-          "packet": "CLEAN",
-          "status": "flushes incorrect logic and raw noise",
+          "from": "agent",
+          "to": "model",
+          "packet": "PROMPT",
+          "status": "domain model evaluates vulnerability con",
           "color": "warn"
         },
         {
-          "from": "dataset",
-          "to": "student",
-          "packet": "TUNE",
-          "status": "fine-tunes small model via supervised le",
+          "from": "agent",
+          "to": "patch",
+          "packet": "ACTION",
+          "status": "orchestrator executes isolated mitigatio",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "DeepSeek R1 isn't fast by magic—it's distilled.\n\nHere's what actually happens during model distillation:\n1. DeepSeek R1 — A massive flagship reasoning model generates complete step-by-step chain-of-thought traces.\n2. Quality Filter — Raw outputs are evaluated to discard incorrect answers or broken reasoning steps.\n3. Synthetic Data — High-quality verified trajectories are compiled into a supervised fine-tuning dataset.\n4. Ollama Model — A compact dense model trains on the filtered dataset to mimic teacher reasoning patterns.\n\nWhat you're actually getting is near-frontier reasoning performance at a fraction of the RAM requirements.\n\nNo giant compute cluster required at runtime—just efficient pattern transfer.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Microsoft Security AI isn't just an LLM wrapper—it is an autonomous agent loop.\n\nHere's how an agentic security architecture actually operates:\n\n1. Runtime Logs — Live system telemetry and anomaly streams are ingested continuously by the central orchestrator.\n2. Security Agent — Evaluates incoming incidents, coordinates execution flow, and enforces strict security policies.\n3. Security Model — A specialized domain model evaluates context, classifies CVE vulnerabilities, and recommends precise remediation.\n4. Patch Pipeline — The agent executes deterministic mitigation scripts inside an isolated sandbox before production rollout.\n\nWhy this matters: Enterprise security cannot rely on passive text generators—it demands autonomous detection with safe execution bounds.\n\nNo silver bullet—just disciplined agent orchestration with strict sandboxing.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#deepseek"
+    "#microsoft"
   ],
-  "takeaway": "Distillation copies reasoning paths without the massive inference cost.",
+  "takeaway": "Security agents must run in sandboxes, not production directly.",
   "footage_queries": [
-    "microchip macro closeup",
-    "server led lights macro"
+    "server led lights macro",
+    "circuit board macro"
   ],
   "narration": [
-    "DeepSeek R1 achieves flagship reasoning on small models using distillation.",
-    "Four simple steps transfer intelligence from giant to small model.",
-    "First DeepSeek R1 generates detailed step by step reasoning traces.",
-    "Next strict filtering removes flawed logic and incorrect steps.",
-    "Then clean synthetic data trains a lightweight student model directly.",
-    "Distillation brings giant reasoning performance to your local machine."
+    "Microsoft launched a new agentic cybersecurity AI system.",
+    "Four core components automate autonomous threat defense.",
+    "First runtime logs send anomaly data to the agent.",
+    "Next the security model evaluates threat vulnerability patterns.",
+    "Finally the agent executes an isolated system patch.",
+    "Autonomous security requires strict execution sandboxes to succeed."
   ],
-  "theme": "#58a6ff",
+  "theme": "#3fb950",
   "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "DeepSeek R1 achieves flagship reasoning on small models using distillation.",
+      "text": "Microsoft launched a new agentic cybersecurity AI system.",
       "start": 0.35,
-      "dur": 6.206
+      "dur": 3.692
     },
     {
-      "text": "Four simple steps transfer intelligence from giant to small model.",
-      "start": 6.556,
-      "dur": 5.462
+      "text": "Four core components automate autonomous threat defense.",
+      "start": 4.042,
+      "dur": 3.627
     },
     {
-      "text": "First DeepSeek R1 generates detailed step by step reasoning traces.",
-      "start": 12.018,
-      "dur": 5.544
+      "text": "First runtime logs send anomaly data to the agent.",
+      "start": 7.669,
+      "dur": 3.239
     },
     {
-      "text": "Next strict filtering removes flawed logic and incorrect steps.",
-      "start": 17.562,
-      "dur": 5.213
+      "text": "Next the security model evaluates threat vulnerability patterns.",
+      "start": 10.908,
+      "dur": 4.145
     },
     {
-      "text": "Then clean synthetic data trains a lightweight student model directly.",
-      "start": 22.776,
-      "dur": 5.793
+      "text": "Finally the agent executes an isolated system patch.",
+      "start": 15.053,
+      "dur": 3.368
     },
     {
-      "text": "Distillation brings giant reasoning performance to your local machine.",
-      "start": 28.568,
-      "dur": 6.893
+      "text": "Autonomous security requires strict execution sandboxes to succeed.",
+      "start": 18.421,
+      "dur": 5.44
     }
   ]
 }

@@ -279,5 +279,19 @@
     ],
     "voice": 6,
     "date": "2026-07-27"
+  },
+  {
+    "title": "Microsoft Security Agent Loop",
+    "pillar": "model-releases",
+    "layout": "hub-spoke",
+    "motion": "buildup",
+    "theme": "#3fb950",
+    "source": "gemini",
+    "footage": [
+      "pexels:server led lights macro",
+      "pexels:circuit board macro"
+    ],
+    "voice": 6,
+    "date": "2026-07-27"
   }
 ]
