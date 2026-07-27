@@ -17,16 +17,43 @@ const TOP_POOL = 8;             // kalite sıralamasında ilk N aday arasından 
 // estetiğinde, dikey stok videoda bolca karşılığı olan terimler.
 // İnsansız: sayfa faceless — arkada yüz/insan görünmesi markayı bozuyor (2026-07-27 outro'da
 // bir portre çıktı). Sadece makine, mekân, yüzey ve soyut hareket.
-export const FALLBACK_QUERIES = [
-  'server room data center',
-  'terminal screen scrolling',
+// BEYAZ LİSTE — beyin b-roll konusunu yalnızca buradan seçebilir (responseSchema enum'u).
+// Neden liste: serbest metin sorgusu yetmiyor. "server racks blinking blue lights" gibi
+// tamamen makine odaklı bir sorgu bile Pexels'te teknisyenli klip döndürdü (2026-07-27,
+// 4. koşu hook karesi) — sayfa faceless olduğu için bu kabul edilemez. Buradaki konular
+// insanın PRATİKTE kadraja girmediği çekimler: makro, soyut, doku, boş mekân, hava çekimi.
+export const SAFE_FOOTAGE_QUERIES = [
   'abstract digital particles',
+  'ink drop in water macro',
   'circuit board macro',
+  'microchip macro closeup',
   'fiber optic strands',
   'network connection lines abstract',
-  'city night timelapse neon',
+  'light streaks long exposure',
+  'smoke swirling dark background',
   'rain on glass at night',
+  'water surface ripples dark',
+  'city night timelapse neon',
+  'aerial highway at night',
+  'clouds timelapse dark sky',
+  'northern lights time lapse',
+  'sand dunes aerial',
+  'ocean waves aerial dark',
+  'empty data center aisle',
+  'server led lights macro',
+  'glass building reflection abstract',
+  'geometric neon grid motion',
 ];
+
+// Yedek havuz = beyaz listenin bir dilimi (aynı güvence).
+export const FALLBACK_QUERIES = SAFE_FOOTAGE_QUERIES.slice(0, 8);
+
+/** Beyaz listede olmayan sorguyu güvenli bir konuyla değiştir (indeksle deterministik). */
+export function toSafeQuery(q, i = 0) {
+  const norm = String(q ?? '').trim().toLowerCase();
+  const hit = SAFE_FOOTAGE_QUERIES.find(s => s.toLowerCase() === norm);
+  return hit ?? SAFE_FOOTAGE_QUERIES[i % SAFE_FOOTAGE_QUERIES.length];
+}
 
 // Sorguda insan geçiyorsa kullanma (beyin kuralı çiğnerse ikinci savunma hattı).
 const PEOPLE = /\b(people|person|man|men|woman|women|girl|boy|guy|human|face|portrait|hands?|team|developer|programmer|engineer|coder|worker|student|crowd|meeting|typing|working|sitting|thinking|smiling)\b/i;
@@ -148,13 +175,18 @@ export async function fetchFootage({
   queries = [], count = 3, outDir, keys = process.env, fetchFn = fetch,
   pick = arr => arr[Math.floor(Math.random() * arr.length)],
 } = {}) {
-  const requested = (queries.length ? queries : FALLBACK_QUERIES).filter(q => {
-    if (!isPeopleQuery(q)) return true;
-    console.error(`[footage] "${q}" atlandı (insan içeren sorgu — sayfa faceless)`);
-    return false;
+  // Her sorgu beyaz listeye eşlenir: liste dışı/insanlı sorgu güvenli bir konuyla değişir.
+  const requested = (queries.length ? queries : FALLBACK_QUERIES).map((q, i) => {
+    const safe = toSafeQuery(q, i);
+    if (safe !== q) console.error(`[footage] "${q}" → "${safe}" (beyaz liste dışı)`);
+    return safe;
   });
-  const qs = requested.slice(0, Math.max(count, 1));
-  while (qs.length < count) qs.push(FALLBACK_QUERIES[qs.length % FALLBACK_QUERIES.length]);
+  const qs = [];
+  for (const q of requested) if (!qs.includes(q) && qs.length < count) qs.push(q);
+  for (let i = 0; qs.length < count; i++) {
+    const q = SAFE_FOOTAGE_QUERIES[(qs.length + i) % SAFE_FOOTAGE_QUERIES.length];
+    if (!qs.includes(q)) qs.push(q);
+  }
 
   if (!existsSync(outDir)) mkdirSync(outDir, {recursive: true});
   const seen = new Set();

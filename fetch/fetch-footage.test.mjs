@@ -67,7 +67,7 @@ test('searchClips returns [] when no provider key is configured', async () => {
 test('fetchFootage downloads one clip per query and never repeats a video', async () => {
   const outDir = mkdtempSync(join(tmpdir(), 'bf-footage-'));
   const clips = await fetchFootage({
-    queries: ['server room', 'circuit board'], count: 2, outDir,
+    queries: ['empty data center aisle', 'circuit board macro'], count: 2, outDir,
     keys: {PEXELS_API_KEY: 'k'}, pick: arr => arr[0],
     fetchFn: async url => {
       if (url.startsWith('https://api.pexels.com')) {
@@ -80,7 +80,7 @@ test('fetchFootage downloads one clip per query and never repeats a video', asyn
   });
   assert.equal(clips.length, 2);
   assert.notEqual(clips[0].path, clips[1].path);
-  assert.deepEqual(clips.map(c => c.query), ['server room', 'circuit board']);
+  assert.deepEqual(clips.map(c => c.query), ['empty data center aisle', 'circuit board macro']);
   assert.equal(readdirSync(outDir).length, 2);
   for (const c of clips) assert.ok(existsSync(c.path));
 });
@@ -88,7 +88,7 @@ test('fetchFootage downloads one clip per query and never repeats a video', asyn
 test('fetchFootage skips a truncated download instead of writing a broken clip', async () => {
   const outDir = mkdtempSync(join(tmpdir(), 'bf-footage-'));
   const clips = await fetchFootage({
-    queries: ['server room'], count: 1, outDir, keys: {PEXELS_API_KEY: 'k'},
+    queries: ['circuit board macro'], count: 1, outDir, keys: {PEXELS_API_KEY: 'k'},
     fetchFn: async url => url.startsWith('https://api.pexels.com')
       ? pexelsResponse([VERTICAL_VIDEO])
       : {ok: true, status: 200, arrayBuffer: async () => bytes(1000)},
@@ -106,11 +106,11 @@ test('fetchFootage survives a provider outage (returns [], caller falls back)', 
   assert.deepEqual(clips, []);
 });
 
-test('fetchFootage pads a short query list from the fallback pool', async () => {
+test('fetchFootage pads a short query list from the whitelist', async () => {
   const seen = [];
   const outDir = mkdtempSync(join(tmpdir(), 'bf-footage-'));
   await fetchFootage({
-    queries: ['only one'], count: 3, outDir, keys: {PEXELS_API_KEY: 'k'},
+    queries: ['abstract digital particles'], count: 3, outDir, keys: {PEXELS_API_KEY: 'k'},
     fetchFn: async url => {
       if (url.startsWith('https://api.pexels.com')) {
         seen.push(decodeURIComponent(new URL(url).searchParams.get('query')));
@@ -120,7 +120,7 @@ test('fetchFootage pads a short query list from the fallback pool', async () => 
     },
   });
   assert.equal(seen.length, 3);
-  assert.equal(seen[0], 'only one');
+  assert.equal(seen[0], 'abstract digital particles');
   assert.ok(FALLBACK_QUERIES.includes(seen[1]));
 });
 
@@ -141,20 +141,49 @@ test('people queries are rejected — the page is faceless', async () => {
   assert.ok(FALLBACK_QUERIES.every(q => !isPeopleQuery(q)), 'yedek havuzda insan olmamalı');
 });
 
-test('fetchFootage drops a people query and pads from the fallback pool', async () => {
+test('fetchFootage swaps a people query for a safe whitelist topic', async () => {
   const {mkdtempSync} = await import('node:fs');
   const {tmpdir} = await import('node:os');
   const {join} = await import('node:path');
   const seen = [];
   await fetchFootage({
-    queries: ['server rack aisle', 'developer typing at desk'], count: 2,
+    queries: ['empty data center aisle', 'developer typing at desk'], count: 2,
     outDir: mkdtempSync(join(tmpdir(), 'bf-footage-')), keys: {PEXELS_API_KEY: 'k'},
     fetchFn: async url => {
       seen.push(decodeURIComponent(new URL(url).searchParams.get('query')));
       return {ok: true, status: 200, json: async () => ({videos: []})};
     },
   });
-  assert.equal(seen[0], 'server rack aisle');
+  assert.equal(seen[0], 'empty data center aisle');
   assert.ok(!seen.some(q => /developer/.test(q)), 'insanlı sorgu kullanılmamalı');
   assert.equal(seen.length, 2);
+});
+
+test('footage queries are locked to the people-free whitelist', async () => {
+  const {toSafeQuery, SAFE_FOOTAGE_QUERIES, isPeopleQuery} = await import('./fetch-footage.mjs');
+  assert.equal(toSafeQuery('circuit board macro'), 'circuit board macro');
+  assert.ok(SAFE_FOOTAGE_QUERIES.includes(toSafeQuery('server racks blinking blue lights', 0)));
+  assert.ok(SAFE_FOOTAGE_QUERIES.includes(toSafeQuery('developer typing at desk', 3)));
+  assert.ok(SAFE_FOOTAGE_QUERIES.every(q => !isPeopleQuery(q)));
+  assert.equal(new Set(SAFE_FOOTAGE_QUERIES).size, SAFE_FOOTAGE_QUERIES.length, 'tekrar olmasın');
+});
+
+test('fetchFootage maps off-list queries onto distinct whitelist topics', async () => {
+  const {mkdtempSync} = await import('node:fs');
+  const {tmpdir} = await import('node:os');
+  const {join} = await import('node:path');
+  const {SAFE_FOOTAGE_QUERIES} = await import('./fetch-footage.mjs');
+  const seen = [];
+  await fetchFootage({
+    queries: ['server racks blinking blue lights', 'developer typing', 'circuit board macro'],
+    count: 4, outDir: mkdtempSync(join(tmpdir(), 'bf-footage-')), keys: {PEXELS_API_KEY: 'k'},
+    fetchFn: async url => {
+      seen.push(decodeURIComponent(new URL(url).searchParams.get('query')));
+      return {ok: true, status: 200, json: async () => ({videos: []})};
+    },
+  });
+  assert.equal(seen.length, 4);
+  assert.equal(new Set(seen).size, 4, 'aynı konu iki kez kullanılmamalı');
+  assert.ok(seen.every(q => SAFE_FOOTAGE_QUERIES.includes(q)), seen.join(', '));
+  assert.ok(seen.includes('circuit board macro'), 'listedeki sorgu korunmalı');
 });
