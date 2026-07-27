@@ -6,6 +6,7 @@ import {fetchTrends, feedsFor} from './fetch/fetch-trends.mjs';
 import {fetchFootage, queryFromTitle, footageSetFor} from './fetch/fetch-footage.mjs';
 import {produceSpec} from './brain/produce-spec.mjs';
 import {stripMarkdown} from './brain/sanitize.mjs';
+import {localizeSpec} from './brain/localize.mjs';
 import {postProcess} from './publish/post-process.mjs';
 import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose-footage.mjs';
 import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './publish/voiceover.mjs';
@@ -59,7 +60,10 @@ const seeds = JSON.parse(readFileSync(brand.paths.seeds, 'utf8'));
 const brandForBrain = {...brand, footageQueries: footageSetFor(brand.footageSet)};
 const {spec: rawSpec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, brand: brandForBrain, seeds, pickSeed: randomSeed});
 // Ekrandaki metinlerde markdown vurgusu kalmasın ("your *real* safety net" yıldızlarıyla basılıyordu).
-const spec = stripMarkdown(rawSpec);
+// YERELLEŞTİRME: prompt'a "Türkçe yaz" demek yetmedi (model üç koşuda da İngilizce yazdı).
+// Ayrı, dar kapsamlı bir çeviri adımı yapıyı bozmadan metinleri hedef dile çeviriyor.
+const localized = await localizeSpec({spec: rawSpec, language: brand.language, apiKey});
+const spec = stripMarkdown(localized);
 
 // Görsel çeşitlilik: ardışık videolar aynı tema olmasın (deterministik rotasyon).
 // Layout'u BEYİN seçer (konsepti en iyi öğreten kompozisyon: flow/stack/hub/cycle) —
