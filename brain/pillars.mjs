@@ -28,11 +28,21 @@ export const PILLARS = [
 // %75 güncel-içerik kuralı: 4 postluk deterministik pencerede 3 timely + 1 evergreen.
 // postCount = bugüne kadarki toplam post sayısı (history.length).
 // Seçilen grup içinde LRU: yakın zamanda kullanılmayanı, hepsi kullanıldıysa en eskisini seç.
-export function selectPillar(recentKeys = [], postCount = 0) {
+// stats verilirse (bkz. brain/scoreboard.mjs) grup içinde PERFORMANSA göre ağırlıklı seçilir:
+// tutan pillar'lar daha sık, hiç denenmemişler ortalama sayılır, hiçbiri tamamen ölmez.
+// Veri yoksa (ilk haftalar) eski deterministik LRU davranışı aynen sürer.
+export function selectPillar(recentKeys = [], postCount = 0, stats = null, pick = null) {
   const wantTimely = postCount % 4 !== 3;
   const group = PILLARS.filter(p => Boolean(p.timely) === wantTimely);
   const recent = new Set(recentKeys);
   const fresh = group.filter(p => !recent.has(p.key));
+  const pool = fresh.length ? fresh : group;
+
+  if (stats && pick && stats.sampleSize >= 3) {
+    const key = pick(pool.map(p => p.key), stats);
+    const hit = pool.find(p => p.key === key);
+    if (hit) return hit;
+  }
   if (fresh.length) return fresh[0];
   const oldestKey = recentKeys.find(k => group.some(p => p.key === k));
   return group.find(p => p.key === oldestKey) ?? group[0];

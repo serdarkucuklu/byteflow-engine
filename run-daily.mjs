@@ -10,6 +10,7 @@ import {postProcess} from './publish/post-process.mjs';
 import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose-footage.mjs';
 import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './publish/voiceover.mjs';
 import {PILLARS, selectPillar} from './brain/pillars.mjs';
+import {aggregate, pickWeighted, leaderboard} from './brain/scoreboard.mjs';
 
 const root = fileURLToPath(new URL('./', import.meta.url));
 const apiKey = process.env.GEMINI_API_KEY;
@@ -32,8 +33,13 @@ console.log(`✓ ${candidates.length} trends`);
 // Pillar rotasyonu: son (PILLARS.length-1) postun pillar'ını atla (niş içi çeşitlilik).
 // %75 kuralı: history.length'e göre 4 postta 3'ü timely (güncel özellik/model haberi) pillar'dan seçilir.
 const recentPillars = history.slice(-(PILLARS.length - 1)).map(h => h.pillar).filter(Boolean);
-const pillar = selectPillar(recentPillars, history.length);
-console.log(`✓ pillar: ${pillar.key}${pillar.timely ? ' (timely)' : ''}`);
+// GERİ BESLEME: yayınlanmış postların gerçek performansı konu seçimini etkiliyor.
+const pillarStats = aggregate(history, 'pillar');
+console.log('★ skor tablosu:');
+console.log(leaderboard(history));
+const pillar = selectPillar(recentPillars, history.length, pillarStats, (cands, st) => pickWeighted(cands, st));
+console.log(`✓ pillar: ${pillar.key}${pillar.timely ? ' (timely)' : ''}` +
+  (pillarStats.groups.get(pillar.key) ? ` [skor ${pillarStats.groups.get(pillar.key).score}]` : ' [veri yok]'));
 
 const {spec: rawSpec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, pickSeed: randomSeed});
 // Ekrandaki metinlerde markdown vurgusu kalmasın ("your *real* safety net" yıldızlarıyla basılıyordu).
@@ -88,17 +94,21 @@ console.log(spec.footage
 const voDir = join(root, 'dist', '_vo');
 if (existsSync(voDir)) rmSync(voDir, {recursive: true, force: true});
 
-let voice = null;
+let voice = null, voiceName = null;
 if (process.env.BYTEFLOW_VOICE === '0') {
   console.log('• seslendirme kapalı (BYTEFLOW_VOICE=0)');
 } else {
   try {
-    // Ses tonu da videodan videoya dönsün (hep aynı anlatıcı = şablon hissi).
-    const picked = VOICES[history.length % VOICES.length];
+    // Ses tonu: ölçüm varsa tutan sesi daha sık kullan, yoksa sırayla dön.
+    const voiceStats = aggregate(history, 'voice');
+    const picked = voiceStats.sampleSize >= 3
+      ? pickWeighted(VOICES, voiceStats)
+      : VOICES[history.length % VOICES.length];
     const narration = await synthesizeScript({phrases: spec.narration, outDir: voDir, apiKey, voice: picked});
     if (narration) {
       voice = buildVoiceTrack({narration, outPath: join(voDir, 'voice.wav')});
       spec.beats = voice.beats;
+      voiceName = picked;
       console.log(`✓ seslendirme (${picked}): ${voice.beats.length} cümle, ${voice.total.toFixed(1)}s`);
     } else {
       console.log('• seslendirme üretilemedi → sessiz/müzikli akış');
@@ -116,6 +126,7 @@ writeFileSync(join(root, 'render', 'scene-spec.json'), JSON.stringify(spec, null
 history.push({title: spec.title, pillar: spec.pillar ?? pillar.key, layout, motion, theme, source,
   footage: spec.footage ? clips.map(c => `${c.provider}:${c.query}`) : null,
   voice: voice ? voice.beats.length : null,
+  voiceName,
   date: new Date().toISOString().slice(0, 10)});
 writeFileSync(historyPath, JSON.stringify(history, null, 2));
 
@@ -178,6 +189,9 @@ try {
     'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', out]).toString().trim());
   spec.thumbOffset = Math.round(durSec * 1000 * 0.58);
   writeFileSync(specPath, JSON.stringify(spec, null, 2));
+  // durSec skor tablosunun PAYDASI (retention = izlenen süre / video süresi) — geçmişe yaz.
+  history[history.length - 1].durSec = Math.round(durSec * 10) / 10;
+  writeFileSync(historyPath, JSON.stringify(history, null, 2));
   console.log(`✓ kapak thumb_offset: ${spec.thumbOffset}ms (${durSec.toFixed(1)}s videonun %58'i)`);
 } catch (e) {
   console.error('⚠ thumb_offset hesaplanamadı (kapak varsayılan kalır):', e.message);

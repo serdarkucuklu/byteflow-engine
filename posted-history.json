@@ -70,7 +70,17 @@
     "source": "seed",
     "date": "2026-07-18",
     "mediaId": "18050327558623191",
-    "postedAt": "2026-07-18T18:57:59.618Z"
+    "postedAt": "2026-07-18T18:57:59.618Z",
+    "insights": {
+      "views": 133,
+      "reach": 116,
+      "saved": 3,
+      "shares": 2,
+      "total_interactions": 8,
+      "ig_reels_avg_watch_time": 4118,
+      "ig_reels_video_view_total_time": 490053
+    },
+    "insightsAt": "2026-07-27T19:29:53.265Z"
   },
   {
     "title": "LLM CONTEXT: LOST IN THE MIDDLE",
@@ -99,7 +109,17 @@
     "source": "gemini",
     "date": "2026-07-20",
     "mediaId": "18434902471122465",
-    "postedAt": "2026-07-20T11:50:03.438Z"
+    "postedAt": "2026-07-20T11:50:03.438Z",
+    "insights": {
+      "views": 147,
+      "reach": 124,
+      "saved": 1,
+      "shares": 0,
+      "total_interactions": 4,
+      "ig_reels_avg_watch_time": 4235,
+      "ig_reels_video_view_total_time": 559104
+    },
+    "insightsAt": "2026-07-27T19:29:54.245Z"
   },
   {
     "title": "LLM Inference: The Batching Trade-off",
@@ -110,7 +130,17 @@
     "source": "gemini",
     "date": "2026-07-21",
     "mediaId": "18185497501399556",
-    "postedAt": "2026-07-21T11:12:24.468Z"
+    "postedAt": "2026-07-21T11:12:24.468Z",
+    "insights": {
+      "views": 117,
+      "reach": 118,
+      "saved": 2,
+      "shares": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 2655,
+      "ig_reels_video_view_total_time": 302702
+    },
+    "insightsAt": "2026-07-27T19:29:54.965Z"
   },
   {
     "title": "KV Cache Is Why Your LLM Slows Down Mid-Reply",
@@ -121,7 +151,17 @@
     "source": "seed",
     "date": "2026-07-22",
     "mediaId": "17977491444067463",
-    "postedAt": "2026-07-22T11:13:27.338Z"
+    "postedAt": "2026-07-22T11:13:27.338Z",
+    "insights": {
+      "views": 112,
+      "reach": 100,
+      "saved": 0,
+      "shares": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 4054,
+      "ig_reels_video_view_total_time": 421622
+    },
+    "insightsAt": "2026-07-27T19:29:55.558Z"
   },
   {
     "title": "LLM GUARDRAILS: BEYOND THE PROMPT",
@@ -132,7 +172,17 @@
     "source": "gemini",
     "date": "2026-07-23",
     "mediaId": "18108988384821181",
-    "postedAt": "2026-07-23T11:14:58.212Z"
+    "postedAt": "2026-07-23T11:14:58.212Z",
+    "insights": {
+      "views": 118,
+      "reach": 110,
+      "saved": 1,
+      "shares": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 3951,
+      "ig_reels_video_view_total_time": 442519
+    },
+    "insightsAt": "2026-07-27T19:29:56.410Z"
   },
   {
     "title": "SYSTEM PROMPT PRIORITIZATION",
@@ -143,7 +193,17 @@
     "source": "gemini",
     "date": "2026-07-24",
     "mediaId": "18086664695367570",
-    "postedAt": "2026-07-24T11:09:43.827Z"
+    "postedAt": "2026-07-24T11:09:43.827Z",
+    "insights": {
+      "views": 110,
+      "reach": 100,
+      "saved": 1,
+      "shares": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 3787,
+      "ig_reels_video_view_total_time": 401493
+    },
+    "insightsAt": "2026-07-27T19:29:57.353Z"
   },
   {
     "title": "AI Keypad: Prompt Abstraction",
@@ -154,7 +214,17 @@
     "source": "gemini",
     "date": "2026-07-25",
     "mediaId": "18090696305536202",
-    "postedAt": "2026-07-25T10:30:24.553Z"
+    "postedAt": "2026-07-25T10:30:24.553Z",
+    "insights": {
+      "views": 122,
+      "reach": 111,
+      "saved": 0,
+      "shares": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 2597,
+      "ig_reels_video_view_total_time": 298657
+    },
+    "insightsAt": "2026-07-27T19:29:58.007Z"
   },
   {
     "title": "OPUS 5: UNEVEN CAPABILITIES",
@@ -165,7 +235,17 @@
     "source": "gemini",
     "date": "2026-07-26",
     "mediaId": "18119431343498319",
-    "postedAt": "2026-07-26T10:48:38.234Z"
+    "postedAt": "2026-07-26T10:48:38.234Z",
+    "insights": {
+      "views": 561,
+      "reach": 481,
+      "saved": 2,
+      "shares": 0,
+      "total_interactions": 6,
+      "ig_reels_avg_watch_time": 5932,
+      "ig_reels_video_view_total_time": 2948660
+    },
+    "insightsAt": "2026-07-27T19:29:58.913Z"
   },
   {
     "title": "Model Routing Beats Always Using Flagship Models",
