@@ -12,8 +12,14 @@ export const FONTS = {
   mono: 'JetBrains Mono, DejaVu Sans Mono, monospace',
 } as const;
 
-// Güvenli alan — hiçbir kart köşeye savrulmaz (Serdar geri bildirimi).
-export const SAFE = {x: 430, top: -430, bottom: 480} as const;
+// INSTAGRAM GÜVENLİ ALANI (1080x1920 kare, MC koordinatı = pikselden 960 çıkarılmış):
+//   üstte ~210px  → beğeni/menü ikonları ve üst gradyan
+//   altta ~385px  → caption, kullanıcı adı, ses şeridi, ilerleme çubuğu
+// Ölçüm (2026-07-27): altyazı hapı y=616 (1576px) TAM alt arayüzün altında kalıyordu —
+// yani en kritik retention öğesi feed'de yarı görünmezdi. Her metin bu banda sığmalı.
+export const SAFE = {x: 430, top: -740, bottom: 545} as const;
+export const CAPTION_Y = 452;      // 1412px — alt arayüzün güvenli üstünde
+export const CLUSTER_Y = -60;      // diyagram kümesinin dikey merkezi
 
 // Video başına dönen accent temaları — ardışık videolar aynı görünmesin diye.
 export const THEMES = ['#58a6ff', '#bc8cff', '#39d3c3', '#f778ba', '#e3b341', '#3fb950'];
@@ -49,20 +55,20 @@ export function layoutPositions(layout: string, count: number): Pos[] {
   switch (layout) {
     case 'hub-spoke': {
       // Koordinatör MERKEZDE, uydular onun etrafında bir halkada — köşe yok.
-      const R = count <= 3 ? 300 : count <= 4 ? 340 : count <= 6 ? 360 : 375;
-      const pts: Pos[] = [{x: 0, y: 25}];
+      const R = count <= 3 ? 292 : count <= 4 ? 320 : count <= 6 ? 342 : 356;
+      const pts: Pos[] = [{x: 0, y: CLUSTER_Y}];
       const n = Math.max(count - 1, 1);
       for (let i = 0; i < count - 1; i++) {
         const a = -Math.PI / 2 + (i / n) * 2 * Math.PI;
-        pts.push({x: Math.cos(a) * R, y: 25 + Math.sin(a) * R * 0.98});
+        pts.push({x: Math.cos(a) * R, y: CLUSTER_Y + Math.sin(a) * R * 0.96});
       }
       return pts.slice(0, count);
     }
     case 'cycle': {
-      const R = count <= 3 ? 292 : count <= 4 ? 330 : count <= 6 ? 355 : 372;
+      const R = count <= 3 ? 286 : count <= 4 ? 312 : count <= 6 ? 338 : 352;
       return Array.from({length: count}, (_, i) => {
         const a = -Math.PI / 2 + (i / count) * 2 * Math.PI;
-        return {x: Math.cos(a) * R, y: 25 + Math.sin(a) * R * 0.98};
+        return {x: Math.cos(a) * R, y: CLUSTER_Y + Math.sin(a) * R * 0.96};
       });
     }
     case 'vertical-stack':
@@ -73,7 +79,7 @@ export function layoutPositions(layout: string, count: number): Pos[] {
       const {h} = boxSize(layout, count);
       const gap = layout === 'vertical-stack' ? 18 : 30;
       const total = count * h + (count - 1) * gap;
-      const top = 25 - total / 2 + h / 2;
+      const top = CLUSTER_Y - total / 2 + h / 2;
       return Array.from({length: count}, (_, i) => ({x: 0, y: top + i * (h + gap)}));
     }
   }
@@ -82,13 +88,13 @@ export function layoutPositions(layout: string, count: number): Pos[] {
 // Kart ölçüleri — kolonda geniş ve okunaklı, halkada derli toplu.
 export function boxSize(layout: string, count: number): {w: number; h: number} {
   if (layout === 'vertical-stack') {
-    const h = Math.max(96, Math.min(180, (880 - (count - 1) * 18) / count));
+    const h = Math.max(92, Math.min(172, (820 - (count - 1) * 18) / count));
     return {w: 780, h: Math.round(h)};
   }
   if (layout === 'hub-spoke' || layout === 'cycle') {
     return count <= 3 ? {w: 340, h: 232} : count <= 4 ? {w: 300, h: 210} : count <= 6 ? {w: 250, h: 190} : {w: 220, h: 174};
   }
-  const h = Math.max(94, Math.min(186, (880 - (count - 1) * 30) / count));
+  const h = Math.max(90, Math.min(178, (820 - (count - 1) * 30) / count));
   return {w: count <= 5 ? 620 : 560, h: Math.round(h)};
 }
 

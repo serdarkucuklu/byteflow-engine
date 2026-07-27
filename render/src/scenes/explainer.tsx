@@ -1,6 +1,6 @@
 import {makeScene2D, Rect, Txt, Layout, Line, Path, Code, LezerHighlighter} from '@motion-canvas/2d';
 import {all, delay, createRef, waitFor, useThread, easeOutCubic, easeInOutCubic, easeOutQuad} from '@motion-canvas/core';
-import {COLORS, FONTS, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
+import {COLORS, FONTS, CAPTION_Y, CLUSTER_Y, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
 import {motionTarget} from '../lib/motion-registry.mjs';
 import {byteflowHighlighter} from '../lib/codeHighlighter';
@@ -144,8 +144,8 @@ export default makeScene2D(function* (view) {
     const heading = createRef<Txt>();
     container().add(<Txt ref={heading} text={scene.heading ?? ''} fill={ACCENT}
       fontFamily={FONTS.display} fontSize={40} fontWeight={600} letterSpacing={-0.2}
-      y={-548} opacity={0} {...SHADOW} />);
-    yield* all(heading().opacity(0.95, 0.4, easeOutCubic), heading().y(-540, 0.4, easeOutCubic));
+      y={-598} opacity={0} {...SHADOW} />);
+    yield* all(heading().opacity(0.95, 0.4, easeOutCubic), heading().y(-590, 0.4, easeOutCubic));
 
     const nodes = scene.nodes!;
     const steps = scene.steps!;
@@ -160,7 +160,7 @@ export default makeScene2D(function* (view) {
 
     // Zeminde tek bir yumuşak aksan halesi — dekor değil, odak.
     container().add(<Rect width={760} height={760} radius={380} fill={ACCENT}
-      opacity={0.05} shadowColor={ACCENT} shadowBlur={180} y={25} zIndex={-2} />);
+      opacity={0.05} shadowColor={ACCENT} shadowBlur={180} y={CLUSTER_Y} zIndex={-2} />);
 
     const segs = connectors(scene.layout, count);
 
@@ -213,7 +213,7 @@ export default makeScene2D(function* (view) {
     const capTxt = createRef<Txt>();
     container().add(
       <Rect ref={capPill} layout padding={[16, 30]} radius={20} fill="#0a0e13e6"
-        stroke="#ffffff14" lineWidth={1.5} y={616} opacity={0} zIndex={3}
+        stroke="#ffffff14" lineWidth={1.5} y={CAPTION_Y} opacity={0} zIndex={3}
         shadowColor="#000000aa" shadowBlur={28} shadowOffsetY={8}>
         <Txt ref={capTxt} text="" fill={COLORS.text} fontFamily={FONTS.display} fontSize={40}
           fontWeight={700} letterSpacing={-0.3} lineHeight={50} width={860}
