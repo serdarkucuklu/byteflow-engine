@@ -1,63 +1,85 @@
 {
-  "title": "MCP Turns Every API Into a Tool an LLM Can Call",
-  "topic_source": "seed",
-  "pillar": "mcp-tools",
-  "hook": "Your LLM can't use tools it can't describe.",
-  "takeaway": "A clean schema matters more than a clever prompt.",
-  "caption": "Your LLM can't use tools it can't describe.\nMCP standardizes how a model discovers, calls, and gets results from external tools.\nSave this before you hardcode another one-off tool integration.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-  "hashtags": [
-    "#mcp",
-    "#llm",
-    "#aiagents",
-    "#aiengineering"
-  ],
+  "hook": "Claude Code isn't magic. It's an expensive loop.",
+  "title": "Inside Claude Code's Agent Loop",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "heading": "Tool call via MCP",
+      "layout": "cycle",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "llm",
-          "icon": "🤖",
-          "label": "LLM"
+          "id": "CLI",
+          "label": "USER CLI",
+          "icon": "💻"
         },
         {
-          "id": "mcp",
-          "icon": "🔌",
-          "label": "MCP SERVER"
+          "id": "LLM",
+          "label": "CLAUDE 3.7",
+          "icon": "🧠"
         },
         {
-          "id": "tool",
-          "icon": "🛠️",
-          "label": "TOOL"
+          "id": "BASH",
+          "label": "LOCAL BASH",
+          "icon": "💻"
+        },
+        {
+          "id": "PARSER",
+          "label": "OUTPUT PARSER"
+        },
+        {
+          "id": "CONTEXT",
+          "label": "CONTEXT WINDOW"
         }
       ],
       "steps": [
         {
-          "from": "llm",
-          "to": "mcp",
-          "packet": "CALL",
-          "color": "accent",
-          "status": "request tool by schema"
+          "from": "CLI",
+          "to": "LLM",
+          "packet": "task",
+          "status": "user inputs terminal task"
         },
         {
-          "from": "mcp",
-          "to": "tool",
-          "packet": "EXEC",
-          "color": "accent",
-          "status": "server invokes real tool"
+          "from": "LLM",
+          "to": "BASH",
+          "packet": "cmd",
+          "status": "claude requests shell command execution"
         },
         {
-          "from": "tool",
-          "to": "llm",
-          "packet": "RESULT",
-          "color": "good",
-          "status": "structured result returned"
+          "from": "BASH",
+          "to": "PARSER",
+          "packet": "stdout",
+          "status": "captures command terminal output"
+        },
+        {
+          "from": "PARSER",
+          "to": "CONTEXT",
+          "packet": "tokens",
+          "status": "formats and appends to context history"
+        },
+        {
+          "from": "CONTEXT",
+          "to": "LLM",
+          "packet": "state",
+          "status": "sends updated prompt for next loop itera"
         }
       ]
     }
   ],
-  "theme": "#3fb950",
+  "caption": "Claude Code isn't magic. It's an expensive loop.\n\nHere's what actually happens when you run a command in Anthropic's new CLI:\n\n1. USER CLI — You pass a natural language instruction like 'refactor this test suite' directly from your terminal.\n2. CLAUDE 3.7 — The model processes the prompt and decides which tool to call instead of returning raw text.\n3. LOCAL BASH — The CLI executes the requested shell command locally on your machine.\n4. OUTPUT PARSER — The terminal's stdout and stderr are captured, including any compilation errors or stack traces.\n5. CONTEXT WINDOW — The raw output is formatted and appended directly back into the prompt history.\n6. THE LOOP — The cycle repeats autonomously until the model decides the goal is fully achieved.\n\nWhat you're actually paying for here is massive token consumption as the history context grows quadratically with each iteration.\n\nNo magic autonomous engineer—just local terminal loops burning input tokens.\n\n📌 Save this so you don't forget how it works.\n\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\n\nFollow @byteflowlabs for AI systems, no hype.",
+  "hashtags": [
+    "#claudecode",
+    "#claude37",
+    "#aiengineering",
+    "#llmops",
+    "#softwareengineering"
+  ],
+  "takeaway": "Agentic CLI tools are token-hungry loops. Watch your wallet.",
+  "footage_queries": [
+    "server rack lights flashing in dark room",
+    "terminal screen with green code scrolling",
+    "macro close up of microchip traces",
+    "abstract digital network motion background"
+  ],
+  "theme": "#e3b341",
   "motion": "buildup",
   "footage": true,
   "thumbOffset": 16607

@@ -207,5 +207,20 @@
       "pexels:circuit board macro"
     ],
     "date": "2026-07-27"
+  },
+  {
+    "title": "Inside Claude Code's Agent Loop",
+    "pillar": "model-releases",
+    "layout": "cycle",
+    "motion": "buildup",
+    "theme": "#e3b341",
+    "source": "gemini",
+    "footage": [
+      "pexels:server rack lights flashing in dark room",
+      "pexels:terminal screen with green code scrolling",
+      "pexels:macro close up of microchip traces",
+      "pexels:abstract digital network motion background"
+    ],
+    "date": "2026-07-27"
   }
 ]
