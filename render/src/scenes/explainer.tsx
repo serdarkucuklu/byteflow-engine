@@ -80,10 +80,10 @@ function nodeGlyph(node: {icon?: string; brand?: string}, size: number, index: n
   }
   if (brand) {
     return (
-      <Rect width={size * 1.5} height={size * 0.72} radius={9} fill={`${brand.color}22`}
-        stroke={`${brand.color}66`} lineWidth={1.5} justifyContent="center" alignItems="center">
+      <Rect width={size * 1.75} height={size * 0.82} radius={10} fill={`${brand.color}26`}
+        stroke={`${brand.color}70`} lineWidth={1.5} justifyContent="center" alignItems="center">
         <Txt text={brand.label} fill={brand.color} fontFamily={FONTS.display}
-          fontSize={Math.round(size * 0.38)} fontWeight={800} letterSpacing={-0.2} />
+          fontSize={Math.round(size * 0.44)} fontWeight={800} letterSpacing={-0.2} />
       </Rect>
     );
   }
@@ -106,12 +106,13 @@ export default makeScene2D(function* (view) {
   const hookRule = createRef<Rect>();
   const hookTag = createRef<Txt>();
   view.add(<Txt ref={hook} text={HOOK} fill={COLORS.text} fontFamily={FONTS.display}
-    fontSize={76} fontWeight={800} letterSpacing={-1.4} lineHeight={88} opacity={0} y={-10}
+    fontSize={78} fontWeight={800} letterSpacing={-1.4} lineHeight={90} opacity={0.55} y={-16}
     width={900} textAlign="center" textWrap {...SHADOW} />);
   view.add(<Rect ref={hookRule} width={0} height={4} radius={2} fill={ACCENT} y={150} opacity={0.9} />);
   view.add(<Txt ref={hookTag} text="@byteflowlabs" fill={COLORS.muted} fontFamily={FONTS.mono}
     fontSize={30} letterSpacing={4} opacity={0} y={210} {...SHADOW} />);
-  yield* all(hook().opacity(1, 0.5, easeOutCubic), hook().y(-30, 0.7, easeOutCubic));
+  // 0.22sn'de tam görünür: ilk kare zaten okunuyor, sadece "oturuyor".
+  yield* all(hook().opacity(1, 0.22, easeOutCubic), hook().y(-30, 0.5, easeOutCubic));
   yield* all(hookRule().width(180, 0.45, easeOutCubic), hookTag().opacity(0.85, 0.35));
   // Hook, anlatımın ilk cümlesi bitene kadar ekranda kalır (konuşma neyse o kadar).
   const hookOut = beatStart(1);
