@@ -1,64 +1,80 @@
 {
-  "hook": "Your sunscreen stick gives zero protection. Here is why.",
-  "title": "Sunscreen Stick Coverage",
+  "hook": "MCP, aracınız çalışmadan binlerce token sızdırır.",
+  "title": "MCP Araç Şeması Yükü",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "hub-spoke",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "swipe",
-          "label": "SINGLE SWIPE"
+          "id": "mcp_server",
+          "label": "MCP SUNUCUSU",
+          "brand": "mcp"
         },
         {
-          "id": "film",
-          "label": "THIN UV FILM"
+          "id": "llm_client",
+          "label": "LLM İSTEMCİSİ",
+          "brand": "claude"
         },
         {
-          "id": "protection",
-          "label": "20 PERCENT SPF"
+          "id": "json_schema",
+          "label": "JSON ŞEMASI"
+        },
+        {
+          "id": "tool_exec",
+          "label": "ARAÇ YÜRÜTME"
         }
       ],
       "steps": [
         {
-          "from": "swipe",
-          "to": "film",
-          "packet": "WAX",
-          "status": "leaves uneven micro gaps on skin",
+          "from": "mcp_server",
+          "to": "llm_client",
+          "packet": "SCHEMA",
+          "status": "mcp ham araç json tanımlarını ifşa eder",
           "color": "warn"
         },
         {
-          "from": "film",
-          "to": "protection",
-          "packet": "UV",
-          "status": "delivers less than quarter labeled spf",
-          "color": "warn"
+          "from": "llm_client",
+          "to": "json_schema",
+          "packet": "TOKENS",
+          "status": "her mevcut araç bağlam penceresini doldurur",
+          "color": "accent"
+        },
+        {
+          "from": "llm_client",
+          "to": "tool_exec",
+          "packet": "CALL",
+          "status": "model filtrelenmiş aracı seçer ve yürütür",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "One quick swipe of a sunscreen stick gives less than 20% of its labeled SPF protection.\n\nHere's what actually happens when you apply a sunscreen stick:\n\n1. Single Swipe — A quick pass deposits a patchy wax layer full of microscopic gaps.\n2. Thin UV Film — Without built-up thickness, UV rays pass directly through low-density areas.\n3. 20 Percent SPF — Lab tests measure SPF at 2mg per square cm, requiring 4 full passes to reach rated barrier power.\n\nWhen choosing sun protection, application density matters far more than brand claims.\n\nNo magic shortcut — real protection requires sufficient film thickness.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks one swipe is enough.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "MCP, aracınız çalışmadan binlerce token sızdırır.Model Bağlam Protokolü aracılığıyla araçları bağladığınızda aslında olanlar şunlardır:1. MCP SUNUCUSU — Mevcut araç uç noktalarını ve tam JSON tanımlarını ifşa eder.2. LLM İSTEMCİSİ — Her araç şemasını doğrudan istem bağlam penceresine enjekte eder, kullanımdan bağımsız olarak token tüketir.3. JSON ŞEMASI — Ayrıntılı parametre açıklamaları, yürütmeden önce bağlam yükünü artırır.4. ARAÇ YÜRÜTME — Model seçimleri ayrıştırır ve eşleşen fonksiyon çağrısını yürütür.Asıl önemli olan: Dinamik araç filtreleme, şişmiş bağlam pencerelerini önler ve API gecikmesini azaltır.Sihir yok — sadece her turda statik şema enjeksiyonu.📌 Nasıl çalıştığını unutmamak için bunu kaydedin.🔁 Sihir olduğunu düşünen birine gönderin.Yazan: Kai.Yapay zeka sistemleri için @byteflowlabs'ı takip edin, abartı yok.",
   "hashtags": [
-    "#sunscreen",
-    "#skincare",
-    "#spf",
-    "#uvprotection",
-    "#skincaretips",
-    "#sunprotection"
+    "#ai",
+    "#teknoloji",
+    "#mcp",
+    "#yapayzeka",
+    "#promptmühendisliği",
+    "#llmops",
+    "#claudeai",
+    "#yazılım"
   ],
-  "takeaway": "Sunscreen sticks require four passes to reach labeled SPF levels.",
+  "takeaway": "Araç şemaları, yürütme başlamadan bağlam tüketir.",
   "footage_queries": [
-    "water surface ripples dark",
-    "light streaks long exposure"
+    "server led lights macro",
+    "network connection lines abstract"
   ],
   "narration": [
-    "Your sunscreen stick is not giving full protection.",
-    "Here is how wax coverage actually works.",
-    "Single swipes leave uneven micro gaps on skin.",
-    "Thin films yield less than labelled protection.",
-    "Apply four passes to get real sunscreen shield."
+    "MCP, aracınız çalışmadan binlerce token sızdırır.",
+    "Bu akışta üç bileşen araç çağrısını yönetir.",
+    "İlk olarak, MCP istemciye tam JSON şemaları sunar.",
+    "Kullanılmayan araç tanımları istem bağlamını şişirir.",
+    "Son olarak, LLM sadece hedef aracı yürütür.",
+    "İstem token'ları için kullanılmayan araçları erken filtreleyin."
   ],
-  "theme": "#c9a227",
+  "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "cilt bakımı, pazarlama değil"
@@ -72,5 +88,37 @@
   },
   "language": "tr",
   "motion": "buildup",
-  "footage": true
+  "footage": true,
+  "beats": [
+    {
+      "text": "MCP, aracınız çalışmadan binlerce token sızdırır.",
+      "start": 0.35,
+      "dur": 3.61
+    },
+    {
+      "text": "Bu akışta üç bileşen araç çağrısını yönetir.",
+      "start": 3.96,
+      "dur": 3.242
+    },
+    {
+      "text": "İlk olarak, MCP istemciye tam JSON şemaları sunar.",
+      "start": 7.202,
+      "dur": 3.684
+    },
+    {
+      "text": "Kullanılmayan araç tanımları istem bağlamını şişirir.",
+      "start": 10.886,
+      "dur": 3.905
+    },
+    {
+      "text": "Son olarak, LLM sadece hedef aracı yürütür.",
+      "start": 14.791,
+      "dur": 3.168
+    },
+    {
+      "text": "İstem token'ları için kullanılmayan araçları erken filtreleyin.",
+      "start": 17.959,
+      "dur": 5.742
+    }
+  ]
 }
