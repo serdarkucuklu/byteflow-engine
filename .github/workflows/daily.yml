@@ -84,7 +84,15 @@ jobs:
           done
           [ -d brands/state ] && git add -f brands/state || true
           git commit -m "chore: daily reel $(date -u +%F)" || echo "değişiklik yok"
-          git push
+          # Push YARIŞI: koşu ~8 dakika sürüyor; bu sırada başka bir push olursa fast-forward
+          # reddediliyor ve adım komple düşüyordu → video hiç yüklenmiyor, yayın da yapılmıyor.
+          # (2026-07-27'de canlı yaşandı.) Rebase ederek 3 kez dene.
+          for i in 1 2 3; do
+            git push && break
+            echo "· push reddedildi, rebase ile tekrar (deneme $i)"
+            git pull --rebase --autostash origin master || exit 1
+            sleep 3
+          done
 
       - name: Instagram + Facebook'a yayınla
         if: ${{ github.event_name == 'schedule' || inputs.publish }}
@@ -104,7 +112,11 @@ jobs:
           git config user.email "byteflow-bot@users.noreply.github.com"
           git add posted-history.json
           git commit -m "chore: reel mediaId $(date -u +%F)" || echo "değişiklik yok"
-          git push
+          for i in 1 2 3; do
+            git push && break
+            git pull --rebase --autostash origin master || exit 1
+            sleep 3
+          done
 
       - name: Token expiry guard
         if: always()
