@@ -7,7 +7,7 @@
 // Okunabilirlik sözleşmesi: diyagram katmanı ASLA footage'a yenilmez — gövde segmentleri
 // güçlü blur + %60 siyah scrim ile "doku" seviyesine indirilir; sadece hook ve outro
 // anlarında footage öne çıkar (sinematik giriş/çıkış hissi).
-import {execFileSync} from 'node:child_process';
+import {execFileSync, spawnSync} from 'node:child_process';
 import {readdirSync, existsSync} from 'node:fs';
 
 export const W = 1080;
@@ -16,6 +16,38 @@ export const XF = 0.8;            // xfade süresi (sn)
 const PAN_HEADROOM = 1.16;        // pan/zoom için fazladan çerçeve payı
 
 const defaultRun = (bin, args) => execFileSync(bin, args, {stdio: 'inherit'});
+
+// ffmpeg'in metadata=print çıktısı stderr'e INFO seviyesinde yazılır → ayrıca yakalıyoruz.
+const defaultProbe = (bin, args) => {
+  const r = spawnSync(bin, args, {encoding: 'utf8'});
+  return `${r.stdout ?? ''}${r.stderr ?? ''}`;
+};
+
+/** Klibin ortalama parlaklığı (0-255) — ölçülemezse null. */
+export function measureLuma(src, probe = defaultProbe) {
+  try {
+    const out = probe('ffmpeg', ['-v', 'info', '-i', src,
+      '-vf', 'select=not(mod(n\\,90)),signalstats,metadata=print:key=lavfi.signalstats.YAVG',
+      '-fps_mode', 'vfr', '-frames:v', '6', '-f', 'null', '-']);
+    const vals = [...String(out).matchAll(/YAVG=([\d.]+)/g)].map(m => Number(m[1]));
+    return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Karanlık klipte scrim'i hafiflet. Çok koyu bir b-roll üstüne %52 siyah bindirince kadraj
+ * neredeyse düz siyah oluyor ve footage'ın varlığı hissedilmiyor (2026-07-27 3. koşuda
+ * "server rack dark room" klibinde görüldü). Parlak klipte karartma aynen kalır.
+ */
+export function adaptDim(dim, luma) {
+  if (luma == null) return dim;
+  if (luma < 30) return Math.round(dim * 0.35 * 100) / 100;
+  if (luma < 60) return Math.round(dim * 0.6 * 100) / 100;
+  if (luma < 90) return Math.round(dim * 0.85 * 100) / 100;
+  return dim;
+}
 
 /**
  * Segment süreleri + karartma seviyeleri.
@@ -144,18 +176,25 @@ export function findFramesDir(root) {
  * clips boşsa hareketli gradient arka plana düşer.
  */
 export function composeFootageVideo({
-  clips, framesDir, frames, tmpDir, outPath, fps = 60, accent = '#58a6ff', run = defaultRun,
+  clips, framesDir, frames, tmpDir, outPath, fps = 60, accent = '#58a6ff',
+  run = defaultRun, probe = defaultProbe,
 }) {
   const total = frames / fps;
   const usable = clips.length ? clips : [];
   const {durations, dims} = planSegments({total, clipCount: Math.max(usable.length, 1)});
+  // Klip başına parlaklık: koyu klipte scrim hafifler, yoksa footage kaybolur.
+  const lumas = usable.map(c => measureLuma(c.path, probe));
 
   const segs = durations.map((seconds, i) => {
     const seg = `${tmpDir}/seg${i}.mp4`;
     if (usable.length) {
+      const idx = i % usable.length;
+      const dim = adaptDim(dims[i], lumas[idx]);
+      if (dim !== dims[i]) {
+        console.log(`  segment ${i}: koyu klip (luma ${lumas[idx].toFixed(0)}) → scrim ${dims[i]} → ${dim}`);
+      }
       // Klip sayısı segmentten azsa sırayla yeniden kullan (yön/karartma farklı → tekrar hissi yok).
-      normalizeClip({src: usable[i % usable.length].path, outPath: seg, seconds,
-        panDir: i % 4, dim: dims[i], fps, run});
+      normalizeClip({src: usable[idx].path, outPath: seg, seconds, panDir: i % 4, dim, fps, run});
     } else {
       motionBgClip({outPath: seg, seconds, accent, fps, run});
     }

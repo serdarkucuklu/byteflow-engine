@@ -39,9 +39,14 @@ function repairScene(scene) {
   return s;
 }
 
+// Hashtag'siz spec de şemadan düşüyor (model ara sıra boş dizi veriyor) — yayını
+// bunun için harcamaya değmez, markanın sabit etiketleriyle doldur.
+const DEFAULT_HASHTAGS = ['#llm', '#aiengineering', '#aiagents'];
+
 /** Onarılmış spec'i döndürür (girdi mutasyona uğramaz). Onarılamayan sahne düşürülür. */
 export function repairSpec(spec) {
   const out = {...spec};
+  if (!Array.isArray(out.hashtags) || out.hashtags.length === 0) out.hashtags = [...DEFAULT_HASHTAGS];
   for (const key of ['title', 'hook', 'takeaway']) if (key in out) out[key] = cut(out[key], LIMITS[key]);
 
   const scenes = (spec.scenes ?? []).map(repairScene).filter(s =>

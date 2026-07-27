@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {planSegments, xfadeChain, normalizeClip, composeFootageVideo, XF} from './compose-footage.mjs';
+import {planSegments, xfadeChain, normalizeClip, composeFootageVideo, adaptDim, measureLuma, XF} from './compose-footage.mjs';
 
 const recorder = () => {
   const calls = [];
@@ -106,4 +106,30 @@ test('findFramesDir locates the PNG directory even when MC nests it', async () =
   writeFileSync(join(nested, '000000.png'), 'x');
   assert.equal(findFramesDir(root), nested);
   assert.equal(findFramesDir(join(root, 'nope')), null);
+});
+
+test('adaptDim lifts the scrim on dark clips and leaves bright ones alone', () => {
+  assert.equal(adaptDim(0.52, null), 0.52, 'ölçüm yoksa dokunma');
+  assert.equal(adaptDim(0.52, 200), 0.52, 'parlak klip aynen kalır');
+  assert.ok(adaptDim(0.52, 20) < 0.25, 'çok koyu klipte scrim belirgin hafifler');
+  assert.ok(adaptDim(0.52, 50) < 0.52 && adaptDim(0.52, 50) > adaptDim(0.52, 20));
+  assert.ok(adaptDim(0.30, 80) < 0.30);
+});
+
+test('measureLuma averages the sampled YAVG values and survives a probe failure', () => {
+  const out = 'lavfi.signalstats.YAVG=10.0\nlavfi.signalstats.YAVG=30.0\n';
+  assert.equal(measureLuma('x.mp4', () => out), 20);
+  assert.equal(measureLuma('x.mp4', () => 'no metadata here'), null);
+  assert.equal(measureLuma('x.mp4', () => { throw new Error('ffmpeg yok'); }), null);
+});
+
+test('composeFootageVideo applies the adapted scrim to a dark clip', () => {
+  const {calls, run} = recorder();
+  composeFootageVideo({
+    clips: [{path: 'dark.mp4'}], framesDir: '/f', frames: 600, tmpDir: '/tmp/x',
+    outPath: 'out.mp4', run, probe: () => 'lavfi.signalstats.YAVG=15.0\n',
+  });
+  const vf = argOf(calls.find(c => c.args.includes('-stream_loop')), '-vf');
+  const dim = Number(vf.match(/black@([\d.]+)/)[1]);
+  assert.ok(dim < 0.3, `koyu klipte scrim düşmeliydi, ${dim} kaldı`);
 });

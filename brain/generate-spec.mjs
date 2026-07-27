@@ -102,6 +102,10 @@ VARIETY & TEACHING RULES (hard requirements):
 - UNPREDICTABLE: every video must FEEL different from the last — vary node count (3 vs 5 vs 8),
   layout, icon/text-only mix, and scene composition (code vs diagram). A templated, same-shaped
   video gets scrolled past.
+- NEVER INVENT A VERSION NUMBER. Only write a version string (e.g. "3.7", "GPT-5.2") if that
+  exact version appears in the headlines below. Otherwise name the product WITHOUT a version
+  ("CLAUDE CODE", not "CLAUDE 3.7"). Your training data is older than today; a stale version
+  number on screen makes the whole video look wrong to the people who actually follow this.
 - TEACHING beats aesthetics: each node is a real concept, each step.status explains in plain
   words what is actually happening at that moment. A viewer should finish the video genuinely
   understanding the mechanism, not just having watched shapes move.
