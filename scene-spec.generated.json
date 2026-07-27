@@ -1,79 +1,105 @@
 {
-  "hook": "Gemini Extensions don't search your app directly.",
-  "title": "How Gemini Extensions Work",
+  "hook": "DeepSeek R1 isn't fast by magic. Here's how it distills.",
+  "title": "DeepSeek R1 Distillation",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "kind": "diagram",
       "nodes": [
         {
-          "id": "user",
-          "label": "USER PROMPT",
-          "icon": "💬"
+          "id": "teacher",
+          "label": "DEEPSEEK R1",
+          "brand": "deepseek"
         },
         {
-          "id": "gemini",
-          "label": "GEMINI CORE",
-          "brand": "gemini"
+          "id": "filter",
+          "label": "QUALITY FILTER"
         },
         {
-          "id": "oauth",
-          "label": "OAUTH BROKER",
-          "icon": "🔑"
+          "id": "dataset",
+          "label": "SYNTHETIC DATA"
         },
         {
-          "id": "api",
-          "label": "GOOGLE API",
-          "brand": "google"
+          "id": "student",
+          "label": "OLLAMA MODEL",
+          "brand": "ollama"
         }
       ],
       "steps": [
         {
-          "from": "user",
-          "to": "gemini",
-          "packet": "QUERY",
-          "status": "user prompts gemini to query app data",
+          "from": "teacher",
+          "to": "filter",
+          "packet": "TRACES",
+          "status": "deepseek r1 generates dense reasoning tr",
           "color": "accent"
         },
         {
-          "from": "gemini",
-          "to": "oauth",
-          "packet": "SCOPE",
-          "status": "gemini checks user authorization scope",
-          "color": "good"
+          "from": "filter",
+          "to": "dataset",
+          "packet": "CLEAN",
+          "status": "flushes incorrect logic and raw noise",
+          "color": "warn"
         },
         {
-          "from": "oauth",
-          "to": "api",
-          "packet": "FETCH",
-          "status": "broker executes structured api call",
-          "color": "accent"
-        },
-        {
-          "from": "api",
-          "to": "gemini",
-          "packet": "JSON",
-          "status": "raw api response enters model context",
+          "from": "dataset",
+          "to": "student",
+          "packet": "TUNE",
+          "status": "fine-tunes small model via supervised le",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Gemini Extensions don't search your app directly.\n\nHere's what actually happens when you run a Gemini Extension:\n\n1. User Prompt — You request an action involving external app data (e.g., Google Drive or Gmail).\n2. Gemini Core — The LLM parses intent and outputs a structured tool call schema instead of plain text.\n3. OAuth Broker — Validates user permissions and token scope without exposing raw credentials to the model.\n4. Google API — Executes the HTTP request and injects raw JSON back into Gemini's context window.\n\nWhen you use Gemini Extensions, the model isn't reading your account directly — it is generating standard tool calls that an API gateway executes on your behalf.\n\nNo magic direct database read — just function calling and OAuth.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "DeepSeek R1 isn't fast by magic—it's distilled.\n\nHere's what actually happens during model distillation:\n1. DeepSeek R1 — A massive flagship reasoning model generates complete step-by-step chain-of-thought traces.\n2. Quality Filter — Raw outputs are evaluated to discard incorrect answers or broken reasoning steps.\n3. Synthetic Data — High-quality verified trajectories are compiled into a supervised fine-tuning dataset.\n4. Ollama Model — A compact dense model trains on the filtered dataset to mimic teacher reasoning patterns.\n\nWhat you're actually getting is near-frontier reasoning performance at a fraction of the RAM requirements.\n\nNo giant compute cluster required at runtime—just efficient pattern transfer.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#gemini",
-    "#googleai",
-    "#aiengineering",
-    "#llm",
-    "#systemarchitecture"
+    "#deepseek"
   ],
-  "takeaway": "Gemini Extensions are just structured API calls wrapped in OAuth.",
+  "takeaway": "Distillation copies reasoning paths without the massive inference cost.",
   "footage_queries": [
-    "network connection lines abstract",
+    "microchip macro closeup",
     "server led lights macro"
   ],
-  "theme": "#bc8cff",
+  "narration": [
+    "DeepSeek R1 achieves flagship reasoning on small models using distillation.",
+    "Four simple steps transfer intelligence from giant to small model.",
+    "First DeepSeek R1 generates detailed step by step reasoning traces.",
+    "Next strict filtering removes flawed logic and incorrect steps.",
+    "Then clean synthetic data trains a lightweight student model directly.",
+    "Distillation brings giant reasoning performance to your local machine."
+  ],
+  "theme": "#58a6ff",
   "motion": "buildup",
   "footage": true,
-  "thumbOffset": 16346
+  "beats": [
+    {
+      "text": "DeepSeek R1 achieves flagship reasoning on small models using distillation.",
+      "start": 0.35,
+      "dur": 6.206
+    },
+    {
+      "text": "Four simple steps transfer intelligence from giant to small model.",
+      "start": 6.556,
+      "dur": 5.462
+    },
+    {
+      "text": "First DeepSeek R1 generates detailed step by step reasoning traces.",
+      "start": 12.018,
+      "dur": 5.544
+    },
+    {
+      "text": "Next strict filtering removes flawed logic and incorrect steps.",
+      "start": 17.562,
+      "dur": 5.213
+    },
+    {
+      "text": "Then clean synthetic data trains a lightweight student model directly.",
+      "start": 22.776,
+      "dur": 5.793
+    },
+    {
+      "text": "Distillation brings giant reasoning performance to your local machine.",
+      "start": 28.568,
+      "dur": 6.893
+    }
+  ],
+  "thumbOffset": 20545
 }

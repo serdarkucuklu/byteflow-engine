@@ -265,5 +265,19 @@
       "pexels:server led lights macro"
     ],
     "date": "2026-07-27"
+  },
+  {
+    "title": "DeepSeek R1 Distillation",
+    "pillar": "model-releases",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#58a6ff",
+    "source": "gemini",
+    "footage": [
+      "pexels:microchip macro closeup",
+      "pexels:server led lights macro"
+    ],
+    "voice": 6,
+    "date": "2026-07-27"
   }
 ]
