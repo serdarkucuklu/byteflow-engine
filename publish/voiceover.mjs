@@ -46,7 +46,7 @@ export async function synthesizeScript({
   style = 'Narrate this like a sharp, energetic tech explainer for a 20-second social video. '
     + 'Brisk pace, crisp diction, no dramatic pauses, keep it moving',
   targetSec = 23, maxTempo = 1.3,
-  fetchFn = fetch, run = defaultRun, retries = 2,
+  fetchFn = fetch, run = defaultRun, retries = 3,
 } = {}) {
   const lines = (phrases ?? []).map(p => String(p).trim()).filter(Boolean);
   if (!apiKey || !lines.length) return null;
@@ -90,7 +90,9 @@ export async function synthesizeScript({
       return {file, total, phrases: alignPhrases({file, lines, total, run})};
     } catch (e) {
       console.error(`[vo] deneme ${attempt}: ${e.message}`);
-      if (attempt < retries) await sleep(4000 * (attempt + 1));   // 429 dalgasını bekle
+      // 429 ücretsiz TTS kotasının dakikalık penceresi — kısa beklemek işe yaramıyor,
+      // pencerenin kapanmasını beklemek gerekiyor (canlı: 4sn ve 8sn beklemede de 429).
+      if (attempt < retries) await sleep(20000 * (attempt + 1));
     }
   }
   return null;

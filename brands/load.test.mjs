@@ -34,3 +34,17 @@ test('credentials map secret NAMES to values — the repo never holds a token', 
 test('listBrands sees every brand file', () => {
   assert.ok(listBrands().includes('byteflow'));
 });
+
+test('each brand really uses its own pillar pool (not the engine default)', async () => {
+  const {selectPillar, pillarsFor} = await import('../brain/pillars.mjs');
+  const skin = pillarsFor('skincare-science');
+  const ai = pillarsFor('ai-engineering');
+  assert.ok(skin.length >= 8 && ai.length >= 8);
+  assert.equal(skin.some(p => ai.some(a => a.key === p.key)), false, 'havuzlar karışmamalı');
+
+  // Canlı hata: 5. argüman geçilmeyince cilt bakımı markası 'model-releases' üretmişti.
+  for (let n = 0; n < 8; n++) {
+    const picked = selectPillar([], n, null, null, skin);
+    assert.ok(skin.some(p => p.key === picked.key), `${n}. postta yanlış havuz: ${picked.key}`);
+  }
+});

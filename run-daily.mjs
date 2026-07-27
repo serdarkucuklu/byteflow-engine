@@ -44,7 +44,10 @@ const recentPillars = history.slice(-(PILLARS.length - 1)).map(h => h.pillar).fi
 const pillarStats = aggregate(history, 'pillar');
 console.log('★ skor tablosu:');
 console.log(leaderboard(history));
-const pillar = selectPillar(recentPillars, history.length, pillarStats, (cands, st) => pickWeighted(cands, st));
+// DİKKAT: pillar havuzu MARKADAN gelir. 5. argüman geçilmezse modülün varsayılan AI havuzu
+// kullanılıyordu ve cilt bakımı markası 'model-releases' konusu üretmişti (canlı görüldü).
+const pillar = selectPillar(recentPillars, history.length, pillarStats,
+  (cands, st) => pickWeighted(cands, st), PILLARS);
 console.log(`✓ pillar: ${pillar.key}${pillar.timely ? ' (timely)' : ''}` +
   (pillarStats.groups.get(pillar.key) ? ` [skor ${pillarStats.groups.get(pillar.key).score}]` : ' [veri yok]'));
 
