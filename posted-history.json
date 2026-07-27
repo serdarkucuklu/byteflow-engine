@@ -237,5 +237,20 @@
       "pexels:rain on glass window city lights background"
     ],
     "date": "2026-07-27"
+  },
+  {
+    "title": "RAG's Hidden Flaw: No Metadata",
+    "pillar": "vector-db",
+    "layout": "nodes-flow+nodes-flow",
+    "motion": "buildup",
+    "theme": "#39d3c3",
+    "source": "gemini",
+    "footage": [
+      "pexels:abstract digital particles",
+      "pexels:circuit board macro",
+      "pexels:network connection lines abstract",
+      "pexels:empty data center aisle"
+    ],
+    "date": "2026-07-27"
   }
 ]

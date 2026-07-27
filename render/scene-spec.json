@@ -1,90 +1,164 @@
 {
-  "hook": "Meta AI is now in your Threads DMs. Here is how it routes.",
-  "title": "Meta AI Threads DM Architecture",
+  "hook": "Your RAG retrieves garbage. Here's why.",
+  "title": "RAG's Hidden Flaw: No Metadata",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "nodes-flow",
+      "heading": "The Problem: Raw Vector Search",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "usr",
-          "label": "USER DM",
-          "icon": "💬"
+          "id": "user",
+          "label": "USER",
+          "icon": "👤"
         },
         {
-          "id": "rtr",
-          "label": "META AI ROUTER"
+          "id": "rag_app",
+          "label": "RAG APP"
         },
         {
-          "id": "web",
-          "label": "WEB SEARCH",
-          "icon": "🌐"
-        },
-        {
-          "id": "graph",
-          "label": "SOCIAL GRAPH",
-          "icon": "📊"
+          "id": "vector_db",
+          "label": "VECTOR DB"
         },
         {
           "id": "llm",
-          "label": "LLM ENGINE"
+          "label": "LLM",
+          "icon": "🧠"
         }
       ],
+      "reveal": "lines",
       "steps": [
         {
-          "from": "usr",
-          "to": "rtr",
+          "from": "user",
+          "to": "rag_app",
           "packet": "QUERY",
-          "status": "dm sent to meta ai router",
-          "color": "accent"
+          "status": "user asks about specific document"
         },
         {
-          "from": "rtr",
-          "to": "web",
-          "packet": "SEARCH",
-          "status": "fetching real-time news if needed",
+          "from": "rag_app",
+          "to": "vector_db",
+          "packet": "VEC",
+          "status": "app sends query vector to DB"
+        },
+        {
+          "from": "vector_db",
+          "to": "rag_app",
+          "packet": "TOP K",
+          "status": "db returns top-k similar vectors",
           "color": "warn"
         },
         {
-          "from": "rtr",
-          "to": "graph",
-          "packet": "SOCIAL",
-          "status": "checking user threads context",
-          "color": "warn"
-        },
-        {
-          "from": "rtr",
+          "from": "rag_app",
           "to": "llm",
-          "packet": "PROMPT",
-          "status": "feeding context to llama 3 engine",
+          "packet": "CONTEX",
+          "status": "app sends potentially irrelevant context",
+          "color": "warn"
+        },
+        {
+          "from": "llm",
+          "to": "rag_app",
+          "packet": "REPLY",
+          "status": "llm generates bad answer from bad contex",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "layout": "nodes-flow",
+      "heading": "The Solution: Metadata Filter",
+      "kind": "diagram",
+      "nodes": [
+        {
+          "id": "user",
+          "label": "USER",
+          "icon": "👤"
+        },
+        {
+          "id": "rag_app",
+          "label": "RAG APP"
+        },
+        {
+          "id": "metadata_filter",
+          "label": "METADATA FILTER"
+        },
+        {
+          "id": "vector_db",
+          "label": "VECTOR DB"
+        },
+        {
+          "id": "llm",
+          "label": "LLM",
+          "icon": "🧠"
+        }
+      ],
+      "reveal": "lines",
+      "steps": [
+        {
+          "from": "user",
+          "to": "rag_app",
+          "packet": "QUERY",
+          "status": "user asks about specific document"
+        },
+        {
+          "from": "rag_app",
+          "to": "metadata_filter",
+          "packet": "QUERY+",
+          "status": "app extracts metadata filters from query"
+        },
+        {
+          "from": "metadata_filter",
+          "to": "vector_db",
+          "packet": "META+V",
+          "status": "filter passes query & metadata to DB"
+        },
+        {
+          "from": "vector_db",
+          "to": "metadata_filter",
+          "packet": "TOP K",
+          "status": "db returns top-k filtered vectors",
+          "color": "good"
+        },
+        {
+          "from": "metadata_filter",
+          "to": "rag_app",
+          "packet": "RELEVA",
+          "status": "filter ensures context is relevant",
+          "color": "good"
+        },
+        {
+          "from": "rag_app",
+          "to": "llm",
+          "packet": "CONTEX",
+          "status": "app sends precise context to llm",
           "color": "good"
         },
         {
           "from": "llm",
-          "to": "usr",
+          "to": "rag_app",
           "packet": "REPLY",
-          "status": "streaming response back to chat",
+          "status": "llm generates accurate response",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Meta AI is officially inside your Threads DMs, but it isn't reading your mind.\n\nHere's what actually happens when you ping the assistant in a DM:\n\n1. DM Entry — Your direct message is captured and sanitized by the edge gateway before passing to Meta's internal systems.\n2. Intent Routing — A lightweight classifier determines if your query requires real-time web search, personal social data, or static LLM knowledge.\n3. Web Search — If you ask about current events, the router triggers a concurrent search engine call to grab fresh web snippets.\n4. Social Graph Retrieval — For personalized context, the pipeline queries internal graph databases to fetch relevant public profile data or chat history.\n5. Llama 3 Synthesis — Finally, the aggregated context and your original query are packaged into a system prompt and sent to the LLM engine to generate the response.\n\nThis hybrid architecture is how Meta scales Meta AI to millions of users without collapsing their inference budget.\n\nNo telepathy — just highly optimized semantic routing and API stitching.\n\n📌 Save this to understand how modern scale-level LLM products are built.\n🔁 Send it to a developer building high-traffic AI features.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Your RAG retrieves garbage. Here's why.When building RAG, simply relying on vector similarity can lead to irrelevant context. Here's what actually happens:1. USER: You ask a question, perhaps specifying details like a date or project name.2. RAG APP: Your application converts your query into a vector for similarity search.3. VECTOR DB: The vector database returns documents that are semantically similar but might ignore crucial filtering criteria like date ranges or specific categories.4. LLM: The LLM receives this potentially irrelevant context.5. RAG APP: The application presents a poor or hallucinated answer, because the context was not precise.6. RAG APP (with filter): Your application *also* extracts specific metadata filters (e.g., `date > '2023-01-01'`, `project_id = 'XYZ'`) from your query.7. METADATA FILTER: Before vector search, a metadata filter component (often built into the vector DB itself) narrows down the search space to only documents matching these criteria.8. VECTOR DB (filtered): The vector database now performs similarity search *only* on the pre-filtered set of documents, ensuring relevance.9. RAG APP (relevant): The application receives a highly relevant and precise set of documents.10. LLM (accurate): The LLM generates a much more accurate and grounded response.Effective metadata filtering is a critical, often overlooked, component of a robust RAG system, ensuring your LLM gets the *right* context, not just *any* context.Precision in retrieval isn't magic; it's about smart filtering.📌 Save this so you don't build bad RAG.🔁 Send it to someone struggling with RAG quality.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#metaai",
-    "#llama3",
+    "#llm",
+    "#rag",
+    "#vectordb",
     "#aiengineering",
-    "#systemdesign",
-    "#llm"
+    "#retrieval",
+    "#promptengineering"
   ],
-  "takeaway": "Meta AI isn't magic—it's a massive routing layer hiding your data.",
+  "takeaway": "Precision in retrieval isn't magic; it's about smart filtering.",
   "footage_queries": [
-    "server racks blinking blue lights",
-    "digital network abstract connection lines",
-    "terminal screen code scrolling fast",
-    "rain on glass window city lights background"
+    "abstract digital particles",
+    "circuit board macro",
+    "network connection lines abstract",
+    "empty data center aisle"
   ],
-  "theme": "#f778ba",
+  "theme": "#39d3c3",
   "motion": "buildup",
   "footage": true
 }
