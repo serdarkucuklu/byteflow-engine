@@ -116,3 +116,17 @@ test('narration keeps a well-formed script untouched', () => {
   }]});
   assert.deepEqual(fixed.narration, script);
 });
+
+test('hashtags are normalised and topped up — a lone tag costs reach', () => {
+  const one = repairSpec({...base, hashtags: ['#Microsoft'], scenes: [diagram]});
+  assert.ok(one.hashtags.length >= 6, `az etiket: ${one.hashtags.join(' ')}`);
+  assert.equal(one.hashtags[0], '#microsoft', 'modelin verdiği etiket başta kalır');
+  assert.ok(one.hashtags.every(t => /^#[a-z0-9_]+$/.test(t)), one.hashtags.join(' '));
+
+  const messy = repairSpec({...base, hashtags: ['AI Agents', '#RAG', '#rag', 'llm!'], scenes: [diagram]});
+  assert.ok(messy.hashtags.includes('#aiagents'));
+  assert.equal(new Set(messy.hashtags).size, messy.hashtags.length, 'tekrar olmamalı');
+
+  const many = repairSpec({...base, hashtags: Array.from({length: 20}, (_, i) => `#tag${i}`), scenes: [diagram]});
+  assert.ok(many.hashtags.length <= 9, 'etiket çorbası olmasın');
+});

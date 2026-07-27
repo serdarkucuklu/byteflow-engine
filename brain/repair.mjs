@@ -44,9 +44,24 @@ function repairScene(scene) {
   return s;
 }
 
-// Hashtag'siz spec de şemadan düşüyor (model ara sıra boş dizi veriyor) — yayını
-// bunun için harcamaya değmez, markanın sabit etiketleriyle doldur.
-const DEFAULT_HASHTAGS = ['#llm', '#aiengineering', '#aiagents'];
+// Etiketler artık AÇIKLAMANIN İÇİNDE (2026-07-27) → sayısı ve biçimi doğrudan erişimi
+// etkiliyor. Model bazen tek etiket veriyordu (canlı örnek: sadece "#microsoft"); az etiket
+// keşifte kayıp demek. Burada normalize edip tabana tamamlıyoruz.
+const DEFAULT_HASHTAGS = ['#ai', '#llm', '#aiengineering', '#aiagents', '#tech', '#developers'];
+const MIN_TAGS = 6, MAX_TAGS = 9;
+
+function normalizeHashtags(list) {
+  const clean = (Array.isArray(list) ? list : [])
+    .map(t => String(t).toLowerCase().replace(/[^a-z0-9#_]/g, ''))
+    .map(t => (t.startsWith('#') ? t : `#${t}`))
+    .filter(t => t.length > 2);
+  const out = [...new Set(clean)];
+  for (const d of DEFAULT_HASHTAGS) {
+    if (out.length >= MIN_TAGS) break;
+    if (!out.includes(d)) out.push(d);
+  }
+  return out.slice(0, MAX_TAGS);
+}
 
 /** Onarılmış spec'i döndürür (girdi mutasyona uğramaz). Onarılamayan sahne düşürülür. */
 /**
@@ -77,7 +92,7 @@ const cap = t => String(t).charAt(0).toUpperCase() + String(t).slice(1);
 
 export function repairSpec(spec) {
   const out = {...spec};
-  if (!Array.isArray(out.hashtags) || out.hashtags.length === 0) out.hashtags = [...DEFAULT_HASHTAGS];
+  out.hashtags = normalizeHashtags(out.hashtags);
   for (const key of ['title', 'hook', 'takeaway']) if (key in out) out[key] = cut(out[key], LIMITS[key]);
 
   const scenes = (spec.scenes ?? []).map(repairScene).filter(s =>

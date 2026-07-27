@@ -162,8 +162,14 @@ VARIETY & TEACHING RULES (hard requirements):
   8. A persona line EXACTLY: "Written by ${persona.name}."
   9. The final line EXACTLY: "${persona.tagline}"
   Keep the whole caption under 2200 characters (Instagram's limit).
-- hashtags: 3 to 6, AI/LLM-engineering and/or product focused (e.g. "#llm", "#rag", "#aiengineering",
-  "#chatgpt", "#claudeai", "#gemini").
+- hashtags: 6 to 9 tags, ALL lowercase, no spaces, and they now appear INSIDE the post
+  description — so they must read as a deliberate, tidy line, not keyword soup. Mix three tiers:
+  * 2 broad reach tags (e.g. "#ai", "#llm", "#tech"),
+  * 3-4 niche tags that match the actual topic (e.g. "#rag", "#aiagents", "#aiengineering",
+    "#promptengineering", "#mcp"),
+  * 1-2 product tags ONLY if that product is genuinely in the video (e.g. "#claudeai",
+    "#chatgpt", "#gemini", "#claudecode").
+  Never invent a brand tag for a product the video does not cover.
 - footage_queries: EXACTLY 2 entries, each copied VERBATIM from this list (no other value is
   accepted, no rewording): ${SAFE_FOOTAGE_QUERIES.map(q => `"${q}"`).join(', ')}.
   These play ONLY behind the opening line and the closing line — the teaching part of the video

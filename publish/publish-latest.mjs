@@ -13,9 +13,11 @@ const specPath = process.argv.slice(3).find(a => !a.startsWith('--')) ?? brand.p
 if (!videoUrl) throw new Error('videoUrl arg gerekli');
 
 const spec = JSON.parse(readFileSync(specPath));
-const caption = spec.caption;                       // temiz caption (hashtag YOK)
 const hashtags = spec.hashtags.join(' ');
-const fullCaption = `${caption}\n\n${hashtags}`;    // FB/Threads için tam metin
+// Etiketler ARTIK açıklamanın içinde (Serdar, 2026-07-27). Önceden yalnızca ilk yorumdaydı;
+// açıklamadaki etiketler hem keşif/arama tarafında hem de ekran görüntüsü paylaşımında görünür.
+const caption = `${spec.caption}\n\n${hashtags}`;
+const fullCaption = caption;                        // FB/Threads ile aynı metin
 const IG = {igUserId: cred.igUserId, token: cred.igToken};
 if (!IG.igUserId || !IG.token) throw new Error(`${brand.slug}: Instagram secret'ları eksik`);
 console.log(`▶ yayınlanıyor [${brand.slug} ${brand.handle}]:`, spec.title);
@@ -37,10 +39,12 @@ try {
   }
 } catch (e) { console.error('⚠ history mediaId yazılamadı:', e.message); }
 
-// 2) Hashtag'ler ilk yorumda (temiz caption + daha iyi erişim) — best-effort
+// 2) İlk yorum: etiketler açıklamaya taşındığı için burada TEKRAR edilmiyor (spam görünür).
+//    Bunun yerine kaydetmeye/paylaşmaya çağıran kısa bir not — etkileşim sinyali için.
 try {
-  await postComment({mediaId: reelId, token: IG.token, message: hashtags});
-  console.log('✓ hashtag ilk yorum');
+  await postComment({mediaId: reelId, token: IG.token,
+    message: `Kaydet, lazım olacak. ${spec.hashtags.slice(0, 3).join(' ')}`});
+  console.log('✓ ilk yorum (CTA)');
 } catch (e) { console.error('⚠ ilk yorum atlandı:', e.message); }
 
 // 3) Story'e de at (24s erişim) — best-effort
