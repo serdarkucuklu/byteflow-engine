@@ -23,8 +23,21 @@ const AI_NEWS = [
   {url: 'https://medium.com/feed/tag/ai-agents', source: 'medium-agents'},
 ];
 
+// Cilt bakımı bilimi kaynakları: kozmetik kimyası blogları + topluluk nabzı. Amaç ürün
+// reklamı değil, hangi ETKEN MADDE/iddia gündemde onu yakalamak.
+const SKINCARE_NEWS = [
+  {url: 'https://labmuffin.com/feed/', source: 'labmuffin'},
+  {url: 'https://theskincareedit.com/feed', source: 'skincare-edit'},
+  {url: 'https://www.byrdie.com/rss', source: 'byrdie'},
+  {url: 'https://www.allure.com/feed/rss', source: 'allure'},
+  {url: 'https://www.reddit.com/r/SkincareAddiction/top/.rss?t=week', source: 'reddit-sca'},
+  {url: 'https://www.reddit.com/r/AsianBeauty/top/.rss?t=week', source: 'reddit-ab'},
+  {url: 'https://www.reddit.com/r/30PlusSkinCare/top/.rss?t=week', source: 'reddit-30plus'},
+  {url: 'https://medium.com/feed/tag/skincare', source: 'medium-skincare'},
+];
+
 // Kaynak kümeleri — marka dosyası hangisini kullanacağını söyler.
-export const FEED_SETS = {'ai-news': AI_NEWS};
+export const FEED_SETS = {'ai-news': AI_NEWS, 'skincare-news': SKINCARE_NEWS};
 export const FEEDS = AI_NEWS;                      // geriye uyum
 
 export function feedsFor(setName = 'ai-news') {

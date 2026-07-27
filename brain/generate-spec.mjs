@@ -60,13 +60,23 @@ const DEFAULT_PERSONA = {
   tagline: 'Follow @byteflowlabs for AI systems, no hype.',
 };
 
+const LANG_NAMES = {tr: 'Turkish', en: 'English', de: 'German', es: 'Spanish'};
+
 const PROMPT = (candidates, recentTitles = [], pillar, brand = {}) => {
 const persona = {...DEFAULT_PERSONA, ...(brand.persona ?? {})};
 const handle = brand.handle ?? '@byteflowlabs';
+const lang = brand.language && brand.language !== 'en' ? LANG_NAMES[brand.language] ?? brand.language : null;
+const langBlock = lang ? `
+LANGUAGE — HARD RULE: every viewer-facing string MUST be written in ${lang}, not English:
+hook, title, scene headings, node labels, step statuses, narration sentences, takeaway and the
+whole caption. Write like a native speaker talking to a friend, not like a translation.
+EXCEPTIONS that stay in English: footage_queries (they are stock-video search terms) and
+node.brand values (they are fixed keys). Hashtags: mix ${lang} and English tags.
+` : '';
 return `You are the content brain for ${handle}, ${persona.audience}
 with ${persona.voice}.
-Faceless, no fluff, globally understandable English.
-
+Faceless, no fluff.
+${langBlock}
 TODAY'S PILLAR is "${pillar.key}": ${pillar.focus}
 ${pillar.timely ? `This is a NEWS pillar: anchor the video on ONE real, RECENT release from the trending
 headlines below — a new model version bump or a newly shipped feature (a new desktop app, design

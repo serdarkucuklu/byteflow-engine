@@ -1,0 +1,35 @@
+{
+  "slug": "ciltkodu",
+  "handle": "@cilt.kodu",
+  "displayName": "Cilt Kodu",
+  "language": "tr",
+  "persona": {
+    "name": "Derin",
+    "audience": "cilt bakımını ETKEN MADDE düzeyinde anlatan bir Instagram sayfası (hedef: 18-35 yaş, Türkiye)",
+    "voice": "sakin, kanıta bakan bir ton: pazarlama iddiasını değil MEKANİZMAYI anlatır, abartmaz, korkutmaz",
+    "signoff": "cilt bakımı, pazarlama değil",
+    "tagline": "Takip et: @cilt.kodu — cilt bakımı, pazarlama değil."
+  },
+  "themes": ["#e8a0a8", "#c9a227", "#7fb3a5", "#b08bbb", "#d98c5f", "#8fa8c8"],
+  "palette": {
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
+  },
+  "narrationVoices": ["Aoede", "Kore", "Puck"],
+  "pillarSet": "skincare-science",
+  "feedSet": "skincare-news",
+  "footageSet": "soft",
+  "seedBacklog": "brands/seeds/ciltkodu.json",
+  "musicDir": "assets/music",
+  "publish": {
+    "instagram": {"userId": "NOBLE_IG_USER_ID", "token": "NOBLE_IG_TOKEN"},
+    "facebook": {"pageId": "NOBLE_FB_PAGE_ID"}
+  },
+  "state": {
+    "history": "brands/state/ciltkodu-history.json",
+    "spec": "brands/state/ciltkodu-spec.json"
+  }
+}

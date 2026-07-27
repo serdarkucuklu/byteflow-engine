@@ -74,12 +74,16 @@ jobs:
 
       - name: Videoyu barındır (repo'ya push)
         run: |
-          mkdir -p public && cp dist/final.mp4 public/latest.mp4
+          # Marka başına ayrı dosya: iki marka aynı public/latest.mp4'ü ezerse yayınlar karışır.
+          OUT=public/latest.mp4
+          [ "$BYTEFLOW_BRAND" != "byteflow" ] && OUT="public/${BYTEFLOW_BRAND}-latest.mp4"
+          echo "VIDEO_PATH=$OUT" >> "$GITHUB_ENV"
+          mkdir -p public && cp dist/final.mp4 "$OUT"
           git config user.name "byteflow-bot"
           git config user.email "byteflow-bot@users.noreply.github.com"
           # Her yolu AYRI ekle: tek bir eksik yol (ör. brands/state) tüm add'i düşürüyordu ve
           # posted-history.json commit'lenmeden kalıyordu → skor tablosu verisi kayboluyordu.
-          for f in public/latest.mp4 scene-spec.generated.json render/scene-spec.json posted-history.json; do
+          for f in "$OUT" scene-spec.generated.json render/scene-spec.json posted-history.json; do
             [ -e "$f" ] && git add -f "$f" || echo "· yok, atlandı: $f"
           done
           [ -d brands/state ] && git add -f brands/state || true
@@ -97,12 +101,16 @@ jobs:
       - name: Instagram + Facebook'a yayınla
         if: ${{ github.event_name == 'schedule' || inputs.publish }}
         env:
+          # Marka dosyası hangi env adını istiyorsa onu okuyor (brands/<slug>.json → publish).
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
+          NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
+          NOBLE_FB_PAGE_ID: ${{ secrets.NOBLE_FB_PAGE_ID }}
         run: |
           SHA=$(git rev-parse HEAD)
-          node publish/publish-latest.mjs "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${SHA}/public/latest.mp4"
+          node publish/publish-latest.mjs "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${SHA}/${VIDEO_PATH}"
 
       - name: mediaId'yi geçmişe commit et
         if: ${{ github.event_name == 'schedule' || inputs.publish }}

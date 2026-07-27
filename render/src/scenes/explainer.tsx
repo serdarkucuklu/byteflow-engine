@@ -1,6 +1,6 @@
 import {makeScene2D, Rect, Txt, Layout, Line, Path, Code, LezerHighlighter} from '@motion-canvas/2d';
 import {all, delay, createRef, waitFor, useThread, easeOutCubic, easeInOutCubic, easeOutQuad} from '@motion-canvas/core';
-import {COLORS, FONTS, CAPTION_Y, CLUSTER_Y, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
+import {FONTS, CAPTION_Y, CLUSTER_Y, resolvePalette, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
 import {motionTarget} from '../lib/motion-registry.mjs';
 import {byteflowHighlighter} from '../lib/codeHighlighter';
@@ -21,6 +21,8 @@ import specJson from '../../scene-spec.json';
 // ─────────────────────────────────────────────────────────────────────────────
 
 const spec = specJson as unknown as SceneSpec;
+// Palet markadan gelir (spec.palette); yoksa varsayılan koyu tema.
+const COLORS = resolvePalette(spec);
 const ACCENT = spec.theme ?? COLORS.accent;
 const HOOK = spec.hook ?? spec.title;
 const TAKEAWAY = spec.takeaway ?? 'follow for more';
@@ -53,8 +55,8 @@ const nowSec = () => useThread().time();
 
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
-const CARD_FILL = '#0f151dfa';        // koyu ve neredeyse opak: footage üstünde de okunur
-const CARD_STROKE = '#28323f';
+const CARD_FILL = spec.palette?.card ? `${spec.palette.card}fa` : '#0f151dfa';        // koyu ve neredeyse opak: footage üstünde de okunur
+const CARD_STROKE = spec.palette?.stroke ?? '#28323f';
 const RISE = 34;                      // kartların süzülerek geldiği mesafe
 
 function connectors(layout: string, count: number): [number, number][] {

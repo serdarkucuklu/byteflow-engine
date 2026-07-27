@@ -22,7 +22,7 @@ const TOP_POOL = 8;             // kalite sıralamasında ilk N aday arasından 
 // tamamen makine odaklı bir sorgu bile Pexels'te teknisyenli klip döndürdü (2026-07-27,
 // 4. koşu hook karesi) — sayfa faceless olduğu için bu kabul edilemez. Buradaki konular
 // insanın PRATİKTE kadraja girmediği çekimler: makro, soyut, doku, boş mekân, hava çekimi.
-export const SAFE_FOOTAGE_QUERIES = [
+const TECH_FOOTAGE = [
   'abstract digital particles',
   'ink drop in water macro',
   'circuit board macro',
@@ -45,14 +45,43 @@ export const SAFE_FOOTAGE_QUERIES = [
   'geometric neon grid motion',
 ];
 
-// Yedek havuz = beyaz listenin bir dilimi (aynı güvence).
-export const FALLBACK_QUERIES = SAFE_FOOTAGE_QUERIES.slice(0, 8);
+// Cilt bakımı sayfası için: aynı insansız kural, farklı estetik — yumuşak doku, su, ışık.
+// (Teknoloji b-roll'u kozmetik içeriğin altında yanlış duruyor.)
+const SOFT_FOOTAGE = [
+  'cream texture macro',
+  'serum drop close up',
+  'water droplets on glass',
+  'silk fabric flowing',
+  'sunlight through curtain',
+  'marble surface texture',
+  'ink in water slow motion',
+  'soap bubbles macro',
+  'green leaves morning light',
+  'oil and water macro',
+  'white sand ripples',
+  'linen fabric texture',
+  'clean bathroom tiles light',
+  'flower petals close up',
+  'steam rising slow motion',
+  'gold glitter particles dark',
+];
+
+export const FOOTAGE_SETS = {tech: TECH_FOOTAGE, soft: SOFT_FOOTAGE};
+
+/** Marka dosyasındaki footageSet adına göre beyaz liste (varsayılan: tech). */
+export function footageSetFor(name = 'tech') {
+  return FOOTAGE_SETS[name] ?? TECH_FOOTAGE;
+}
+
+// Geriye uyum + varsayılan.
+export const SAFE_FOOTAGE_QUERIES = TECH_FOOTAGE;
+export const FALLBACK_QUERIES = TECH_FOOTAGE.slice(0, 8);
 
 /** Beyaz listede olmayan sorguyu güvenli bir konuyla değiştir (indeksle deterministik). */
-export function toSafeQuery(q, i = 0) {
+export function toSafeQuery(q, i = 0, list = SAFE_FOOTAGE_QUERIES) {
   const norm = String(q ?? '').trim().toLowerCase();
-  const hit = SAFE_FOOTAGE_QUERIES.find(s => s.toLowerCase() === norm);
-  return hit ?? SAFE_FOOTAGE_QUERIES[i % SAFE_FOOTAGE_QUERIES.length];
+  const hit = list.find(s => s.toLowerCase() === norm);
+  return hit ?? list[i % list.length];
 }
 
 // Sorguda insan geçiyorsa kullanma (beyin kuralı çiğnerse ikinci savunma hattı).
@@ -173,18 +202,19 @@ export async function searchClips({query, keys = {}, fetchFn = fetch}) {
  */
 export async function fetchFootage({
   queries = [], count = 3, outDir, keys = process.env, fetchFn = fetch,
+  allowed = SAFE_FOOTAGE_QUERIES,
   pick = arr => arr[Math.floor(Math.random() * arr.length)],
 } = {}) {
   // Her sorgu beyaz listeye eşlenir: liste dışı/insanlı sorgu güvenli bir konuyla değişir.
-  const requested = (queries.length ? queries : FALLBACK_QUERIES).map((q, i) => {
-    const safe = toSafeQuery(q, i);
+  const requested = (queries.length ? queries : allowed.slice(0, 8)).map((q, i) => {
+    const safe = toSafeQuery(q, i, allowed);
     if (safe !== q) console.error(`[footage] "${q}" → "${safe}" (beyaz liste dışı)`);
     return safe;
   });
   const qs = [];
   for (const q of requested) if (!qs.includes(q) && qs.length < count) qs.push(q);
   for (let i = 0; qs.length < count; i++) {
-    const q = SAFE_FOOTAGE_QUERIES[(qs.length + i) % SAFE_FOOTAGE_QUERIES.length];
+    const q = allowed[(qs.length + i) % allowed.length];
     if (!qs.includes(q)) qs.push(q);
   }
 

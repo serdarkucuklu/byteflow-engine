@@ -1,0 +1,452 @@
+[
+  {
+    "title": "Retinol cildi yenilemez, hızlandırır",
+    "topic_source": "seed",
+    "pillar": "aktifler",
+    "hook": "Retinol cildini yenilemiyor. Sırayı hızlandırıyor.",
+    "takeaway": "Sonuç haftalarla ölçülür, gecelerle değil.",
+    "narration": [
+      "Retinol cildini yenilemiyor, sırayı hızlandırıyor.",
+      "Üç aşamada çalışıyor.",
+      "Önce hücre yenilenme hızını artırıyor.",
+      "Sonra kolajen üretimini tetikliyor.",
+      "Bu yüzden ilk haftalar cilt soyuluyor.",
+      "Sonuç haftalarla ölçülür, gecelerle değil."
+    ],
+    "footage_queries": [
+      "serum drop close up",
+      "silk fabric flowing"
+    ],
+    "caption": "Retinol cildini yenilemiyor. Sırayı hızlandırıyor.\n\nGerçekte olan şu:\n1. Hücre döngüsü — üst tabakadaki ölü hücrelerin atılma hızı artar; cilt \"yenilenmiş\" görünmesinin sebebi budur.\n2. Kolajen sinyali — retinoik asit fibroblastlara kolajen üretme sinyali verir; bu aylar süren yavaş bir süreçtir.\n3. Uyum dönemi — hız arttığı için ilk 2-6 hafta kuruluk, pullanma ve hassasiyet normaldir.\nDüşük yoğunlukla, haftada 2 geceyle başla; gündüz güneş koruması olmadan retinol kullanma.\n\n📌 Kaydet, uyum döneminde lazım olacak.\n🔁 Retinole yeni başlayan birine gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+    "hashtags": [
+      "#ciltbakımı",
+      "#retinol",
+      "#ciltbakimrutini",
+      "#skincare",
+      "#dermatoloji",
+      "#etkenmadde"
+    ],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Retinol yolu",
+        "nodes": [
+          {
+            "id": "retinol",
+            "label": "RETİNOL"
+          },
+          {
+            "id": "hucre",
+            "label": "HÜCRE DÖNGÜSÜ"
+          },
+          {
+            "id": "kolajen",
+            "label": "KOLAJEN"
+          },
+          {
+            "id": "uyum",
+            "label": "UYUM DÖNEMİ"
+          }
+        ],
+        "steps": [
+          {
+            "from": "retinol",
+            "to": "hucre",
+            "packet": "SİNYAL",
+            "color": "accent",
+            "status": "yenilenme hızı artar"
+          },
+          {
+            "from": "hucre",
+            "to": "kolajen",
+            "packet": "ÜRETİM",
+            "color": "good",
+            "status": "kolajen sinyali tetiklenir"
+          },
+          {
+            "from": "kolajen",
+            "to": "uyum",
+            "packet": "BEDEL",
+            "color": "warn",
+            "status": "ilk haftalar kuruluk ve pullanma"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Hyalüronik asit kuru havada kurutur",
+    "topic_source": "seed",
+    "pillar": "nemlendirme",
+    "hook": "Nemlendiricin cildini kurutuyor olabilir.",
+    "takeaway": "Nem çekiciyi tek başına bırakma, üstünü kapat.",
+    "narration": [
+      "Nemlendiricin cildini kurutuyor olabilir.",
+      "Üç adımda anlatalım.",
+      "Hyalüronik asit ortamdaki suyu kendine çeker.",
+      "Hava kuruysa suyu cildin derininden alır.",
+      "Üstüne örtücü sürmezsen o su buharlaşır.",
+      "Nem çekiciyi tek başına bırakma, üstünü kapat."
+    ],
+    "footage_queries": [
+      "water droplets on glass",
+      "cream texture macro"
+    ],
+    "caption": "Nemlendiricin cildini kurutuyor olabilir.\n\nHyalüronik asit bir nem ÇEKİCİdir, nem VERİCİ değildir:\n1. Su çeker — kendi ağırlığının katlarca suyunu bağlar; bu suyu önce ortamdan almaya çalışır.\n2. Kuru hava sorunu — ortam nemi düşükse (kış, klima) ihtiyacı olan suyu cildin alt katmanından çeker.\n3. Kaçış — üstüne örtücü bir katman gelmezse bağlanan su buharlaşıp gider ve cilt daha kuru kalır.\nNemli cilde sür, hemen üstüne krem uygula. Kışın tek başına serum yeterli değildir.\n\n📌 Kaydet, kışın lazım olacak.\n🔁 \"Serum sürüyorum ama kuruyorum\" diyene gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+    "hashtags": [
+      "#hyaluronikasit",
+      "#ciltbakımı",
+      "#nemlendirici",
+      "#skincare",
+      "#kurucilt",
+      "#ciltbakimrutini"
+    ],
+    "scenes": [
+      {
+        "layout": "cycle",
+        "heading": "Nem nereye gidiyor",
+        "nodes": [
+          {
+            "id": "ha",
+            "label": "HYALÜRONİK ASİT"
+          },
+          {
+            "id": "ortam",
+            "label": "KURU HAVA"
+          },
+          {
+            "id": "cilt",
+            "label": "ALT KATMAN"
+          },
+          {
+            "id": "ortucu",
+            "label": "ÖRTÜCÜ KREM"
+          }
+        ],
+        "steps": [
+          {
+            "from": "ha",
+            "to": "ortam",
+            "packet": "ÇEKER",
+            "color": "accent",
+            "status": "önce ortamdaki suyu arar"
+          },
+          {
+            "from": "ortam",
+            "to": "cilt",
+            "packet": "YETMEZ",
+            "color": "warn",
+            "status": "kuru havada derinden çeker"
+          },
+          {
+            "from": "cilt",
+            "to": "ortucu",
+            "packet": "KAPAT",
+            "color": "good",
+            "status": "örtücü katman suyu hapseder"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "C vitamini ve niasinamid çatışmaz",
+    "topic_source": "seed",
+    "pillar": "sira-ve-catisma",
+    "hook": "O efsane 60 yıllık bir laboratuvar deneyinden kalma.",
+    "takeaway": "Cildinde 70 derece yok; ikisini birlikte kullanabilirsin.",
+    "narration": [
+      "C vitamini ve niasinamid çatışır efsanesi yanlış.",
+      "Üç adımda görelim.",
+      "Efsane yüksek sıcaklıktaki bir laboratuvar deneyinden geliyor.",
+      "Orada niasinamid niasine dönüşüp kızarıklık yapmış.",
+      "Cilt sıcaklığında bu dönüşüm anlamlı düzeyde olmuyor.",
+      "Cildinde yetmiş derece yok, ikisini birlikte kullanabilirsin."
+    ],
+    "footage_queries": [
+      "ink in water slow motion",
+      "marble surface texture"
+    ],
+    "caption": "C vitamini ve niasinamid \"çatışır\" efsanesi nereden çıktı?\n\n1. Kaynak — 1960'lardaki bir stabilite çalışmasında yüksek sıcaklıkta niasinamid, niasine dönüştü.\n2. Sonuç — niasin geçici kızarıklık ve karıncalanma yapabilir; \"birlikte kullanmayın\" tavsiyesi buradan doğdu.\n3. Gerçek koşul — bu dönüşüm ciltteki sıcaklık ve pH aralığında anlamlı düzeyde gerçekleşmiyor; modern formüller de stabil.\nİkisini aynı rutinde kullanabilirsin. Tahriş olursan sebebi çatışma değil, yoğunluk ya da bariyer hasarıdır.\n\n📌 Kaydet, rutin kurarken lazım olacak.\n🔁 Bu efsaneye inanan birine gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+    "hashtags": [
+      "#cvitamini",
+      "#niasinamid",
+      "#ciltbakımı",
+      "#skincare",
+      "#ciltbakimrutini",
+      "#efsane"
+    ],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Efsanenin kaynağı",
+        "nodes": [
+          {
+            "id": "lab",
+            "label": "LABORATUVAR"
+          },
+          {
+            "id": "isi",
+            "label": "YÜKSEK ISI"
+          },
+          {
+            "id": "niasin",
+            "label": "NİASİN"
+          },
+          {
+            "id": "cilt",
+            "label": "SENİN CİLDİN"
+          }
+        ],
+        "steps": [
+          {
+            "from": "lab",
+            "to": "isi",
+            "packet": "1960",
+            "color": "accent",
+            "status": "deney yüksek sıcaklıkta yapıldı"
+          },
+          {
+            "from": "isi",
+            "to": "niasin",
+            "packet": "DÖNÜŞ",
+            "color": "warn",
+            "status": "niasinamid niasine dönüştü"
+          },
+          {
+            "from": "niasin",
+            "to": "cilt",
+            "packet": "YOK",
+            "color": "good",
+            "status": "cilt sıcaklığında olmuyor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "SPF 50 iki kat koruma demek değil",
+    "topic_source": "seed",
+    "pillar": "gunes",
+    "hook": "SPF 50, SPF 25'in iki katı korumuyor.",
+    "takeaway": "Fark rakamda değil, sürdüğün miktarda ve tekrarda.",
+    "narration": [
+      "SPF elli, SPF yirmi beşin iki katı korumuyor.",
+      "Üç adımda bakalım.",
+      "SPF otuz UVB nin yüzde doksan yedisini süzer.",
+      "SPF elli yüzde doksan sekize çıkar, fark küçüktür.",
+      "Asıl kayıp az sürmek ve tazelememektir.",
+      "Fark rakamda değil, miktarda ve tekrarda."
+    ],
+    "footage_queries": [
+      "sunlight through curtain",
+      "clean bathroom tiles light"
+    ],
+    "caption": "SPF 50, SPF 25'in iki katı korumuyor. Rakam doğrusal değil.\n\n1. Ölçek — SPF 30 UVB'nin yaklaşık %97'sini, SPF 50 ise %98'ini süzer. Aradaki fark yüzde birdir.\n2. Miktar — laboratuvar değeri 2 mg/cm² ile ölçülür; çoğu kişi bunun yarısını sürer, koruma karekök oranında düşer.\n3. Tazeleme — filtre bozunur, terle ve temasla gider; 2-3 saatte bir tazelenmeyen SPF 50, tazelenen SPF 30'dan kötüdür.\nYüz için yaklaşık iki parmak boyu ürün ve gün içinde tekrar.\n\n📌 Kaydet, yaz boyunca lazım.\n🔁 \"SPF 50 aldım, günde bir sürüyorum\" diyene gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+    "hashtags": [
+      "#güneşkremi",
+      "#spf",
+      "#ciltbakımı",
+      "#skincare",
+      "#güneşkoruma",
+      "#dermatoloji"
+    ],
+    "scenes": [
+      {
+        "layout": "vertical-stack",
+        "heading": "SPF gerçekte ne ölçer",
+        "nodes": [
+          {
+            "id": "spf30",
+            "label": "SPF 30 · %97"
+          },
+          {
+            "id": "spf50",
+            "label": "SPF 50 · %98"
+          },
+          {
+            "id": "miktar",
+            "label": "SÜRÜLEN MİKTAR"
+          },
+          {
+            "id": "tazele",
+            "label": "TAZELEME"
+          }
+        ],
+        "steps": [
+          {
+            "from": "spf30",
+            "to": "spf50",
+            "packet": "%1",
+            "color": "accent",
+            "status": "rakam doğrusal artmıyor"
+          },
+          {
+            "from": "spf50",
+            "to": "miktar",
+            "packet": "YARIM",
+            "color": "warn",
+            "status": "çoğu kişi yarısını sürüyor"
+          },
+          {
+            "from": "miktar",
+            "to": "tazele",
+            "packet": "2-3s",
+            "color": "good",
+            "status": "asıl koruma tekrarda"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Gözenekler açılıp kapanmaz",
+    "topic_source": "seed",
+    "pillar": "efsaneler",
+    "hook": "Gözeneklerin kas değil. Açılıp kapanmıyor.",
+    "takeaway": "Gözenek küçülmez; içi boşalır ve gölge azalır.",
+    "narration": [
+      "Gözeneklerin kas değil, açılıp kapanmıyor.",
+      "Üç adımda anlatalım.",
+      "Gözenek dediğimiz şey kıl folikülünün ağzı.",
+      "İçi sebum ve ölü hücreyle dolunca daha geniş görünüyor.",
+      "Temizlenince gölge azalıyor, boyut aynı kalıyor.",
+      "Gözenek küçülmez, içi boşalır ve görüntü değişir."
+    ],
+    "footage_queries": [
+      "soap bubbles macro",
+      "steam rising slow motion"
+    ],
+    "caption": "Sıcak su gözenek açmaz, soğuk su kapatmaz. Gözenek kas değildir.\n\n1. Ne olduğu — gözenek, kıl folikülünün cilt yüzeyindeki ağzıdır; kasılıp gevşeyen bir yapısı yoktur.\n2. Neden büyük görünür — folikülün içi sebum ve ölü hücreyle dolduğunda ağız gerilir ve oksitlenen tıkaç koyu bir gölge yapar.\n3. Ne işe yarar — düzenli temizlik, BHA gibi yağda çözünen asitler ve retinoidler içeriği azaltır; görüntü düzelir ama anatomik boyut genetiktir.\n\"Gözenek sıkılaştıran\" iddiası geçici sıkılık hissinden ibarettir.\n\n📌 Kaydet, bir daha buhar yapmadan önce oku.\n🔁 Buz küpü sürene gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+    "hashtags": [
+      "#gözenek",
+      "#ciltbakımı",
+      "#skincare",
+      "#efsane",
+      "#bha",
+      "#ciltbakimrutini"
+    ],
+    "scenes": [
+      {
+        "layout": "hub-spoke",
+        "heading": "Gözenek neden büyük görünür",
+        "nodes": [
+          {
+            "id": "folikul",
+            "label": "FOLİKÜL AĞZI"
+          },
+          {
+            "id": "sebum",
+            "label": "SEBUM"
+          },
+          {
+            "id": "olu",
+            "label": "ÖLÜ HÜCRE"
+          },
+          {
+            "id": "golge",
+            "label": "GÖLGE"
+          }
+        ],
+        "steps": [
+          {
+            "from": "folikul",
+            "to": "sebum",
+            "packet": "DOLAR",
+            "color": "warn",
+            "status": "içerik birikir"
+          },
+          {
+            "from": "sebum",
+            "to": "olu",
+            "packet": "TIKAÇ",
+            "color": "warn",
+            "status": "tıkaç oluşur ve gerer"
+          },
+          {
+            "from": "olu",
+            "to": "golge",
+            "packet": "KOYU",
+            "color": "accent",
+            "status": "oksitlenince gölge büyür"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Bariyer bozulunca her ürün yakar",
+    "topic_source": "seed",
+    "pillar": "bariyer",
+    "hook": "Ürün değiştirdikçe kötüleşiyorsa sorun üründe değil.",
+    "takeaway": "Bariyer onarılmadan hiçbir aktif işe yaramaz.",
+    "narration": [
+      "Ürün değiştirdikçe kötüleşiyorsa sorun üründe değil.",
+      "Üç adımda görelim.",
+      "Bariyer seramid, kolesterol ve yağ asidinden oluşur.",
+      "Aşırı temizlik ve asit bu harcı inceltir.",
+      "Su kaçar, sinir uçları açığa çıkar ve her ürün yakar.",
+      "Bariyer onarılmadan hiçbir aktif işe yaramaz."
+    ],
+    "footage_queries": [
+      "linen fabric texture",
+      "oil and water macro"
+    ],
+    "caption": "Her ürün yakıyorsa sorun ürünlerde değil, bariyerde.\n\n1. Yapı — cildin üst tabakası tuğla-harç gibidir: hücreler tuğla, seramid + kolesterol + yağ asidi karışımı harçtır.\n2. Hasar — sert temizleyici, sık peeling, yüksek yoğunluklu aktifler ve sıcak su bu harcı inceltir.\n3. Sonuç — su kaybı artar, sinir uçları uyaranlara açık kalır; \"her şey yakıyor\" hissi budur.\nYapılacak: 2-4 hafta aktifleri durdur, yumuşak temizleyici + seramitli nemlendirici + güneş koruması. Sonra tek tek geri ekle.\n\n📌 Kaydet, cildin küstüğünde buradan başla.\n🔁 \"Her ürün bana dokunuyor\" diyene gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+    "hashtags": [
+      "#ciltbariyeri",
+      "#seramid",
+      "#ciltbakımı",
+      "#hassascilt",
+      "#skincare",
+      "#ciltbakimrutini"
+    ],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Bariyer nasıl bozulur",
+        "nodes": [
+          {
+            "id": "harc",
+            "label": "SERAMİD HARCI"
+          },
+          {
+            "id": "asiri",
+            "label": "AŞIRI TEMİZLİK"
+          },
+          {
+            "id": "kacak",
+            "label": "SU KAYBI"
+          },
+          {
+            "id": "tahris",
+            "label": "TAHRİŞ"
+          }
+        ],
+        "steps": [
+          {
+            "from": "harc",
+            "to": "asiri",
+            "packet": "İNCEL",
+            "color": "warn",
+            "status": "harç incelir"
+          },
+          {
+            "from": "asiri",
+            "to": "kacak",
+            "packet": "SU",
+            "color": "warn",
+            "status": "su kaybı artar"
+          },
+          {
+            "from": "kacak",
+            "to": "tahris",
+            "packet": "YANMA",
+            "color": "accent",
+            "status": "her ürün yakmaya başlar"
+          }
+        ]
+      }
+    ]
+  }
+]

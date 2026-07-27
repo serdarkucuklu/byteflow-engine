@@ -1,8 +1,16 @@
-export const COLORS = {
+export const DEFAULT_COLORS = {
   bg: '#0d1117', card: '#141a22', stroke: '#263040',
   accent: '#58a6ff', good: '#3fb950', warn: '#d29922',
   text: '#eef3f8', muted: '#93a1b1',
 } as const;
+
+// Marka paleti: her sayfanın kendi rengi olsun (cilt bakımı sayfası GitHub-koyusu olamaz).
+// spec.palette varsa varsayılanların üstüne biner.
+export type Palette = typeof DEFAULT_COLORS;
+export function resolvePalette(spec?: {palette?: Partial<Palette>}): Palette {
+  return {...DEFAULT_COLORS, ...(spec?.palette ?? {})} as Palette;
+}
+export const COLORS = DEFAULT_COLORS;   // geriye uyum
 
 // Tipografi: kelimeler INSANİ bir sans'ta (Inter), mono SADECE kod ve sistem satırında.
 // Her yerin mono olması "tatlı/okunur" değil terminal hissi veriyordu (Serdar, 2026-07-27).
@@ -128,5 +136,7 @@ export interface SceneSpec {
   beats?: {text: string; start: number; dur: number}[];
   narration?: string[];
   brand?: {handle?: string; signoff?: string};
+  palette?: Partial<Palette>;
+  language?: string;
   scenes: SpecScene[];
 }

@@ -25,9 +25,27 @@ const AI_ENGINEERING = [
   {key: 'assistant-updates', timely: true, focus: 'newly shipped features across Claude / ChatGPT / Gemini / Grok — e.g. a new desktop app, design tool, flow builder, voice/omni mode (use timely trending headlines): what shipped, how it actually works, whether it matters'},
 ];
 
+// Cilt bakımı ETKEN MADDE BİLİMİ havuzu (TR kitle, kadın 18-35). Ürün tanıtımı DEĞİL:
+// her konu bir MEKANİZMA — motorun 3 adımlı diyagram anlatımı buna birebir oturuyor.
+// Veri: etken madde açıklayıcıları, ürün tanıtımlarını izlenme süresi ve kaydetmede geçiyor.
+const SKINCARE_SCIENCE = [
+  {key: 'aktifler', focus: 'aktif maddelerin cilt içinde NE YAPTIĞI: retinol/retinal, C vitamini, niasinamid, AHA/BHA, azelaik asit — hücre yenilenmesi, kolajen, pigment yolu'},
+  {key: 'bariyer', focus: 'cilt bariyeri: seramid, kolesterol, yağ asidi dengesi, transepidermal su kaybı, bariyer bozulunca ne oluyor ve nasıl onarılıyor'},
+  {key: 'nemlendirme', focus: 'nem tutucu/çekici/örtücü ayrımı: hyalüronik asit ne zaman kurutuyor, gliserin, üre, oklüzif katman mantığı'},
+  {key: 'gunes', timely: true, focus: 'güneş koruması: UVA/UVB farkı, SPF ve PA ne ölçer, filtre tipleri (mineral/kimyasal), yeniden sürme, yeni çıkan filtre teknolojileri'},
+  {key: 'sira-ve-catisma', focus: 'ürün sırası ve etken madde çatışmaları: retinol + asit, C vitamini + niasinamid efsanesi, pH ve nüfuz sırası'},
+  {key: 'akne', focus: 'akne mekanizması: gözenek tıkanması, C. acnes, sebum, hormonal akne döngüsü; komedojenik iddiasının ne kadar geçerli olduğu'},
+  {key: 'pigment', focus: 'leke ve renk eşitsizliği: melanin üretim yolu, PIH ve melazma farkı, tirozinaz inhibitörleri, güneşin rolü'},
+  {key: 'yaslanma', focus: 'yaşlanma biyolojisi: kolajen kaybı hızı, elastin, glikasyon, foto-yaşlanma; hangi iddia kanıtlı hangisi pazarlama'},
+  {key: 'hassasiyet', timely: true, focus: 'hassas cilt ve tahriş: parfüm/esans, alkol türleri, alerjen listeleri, "doğal" iddiasının anlamı; gündemdeki içerik tartışmaları'},
+  {key: 'efsaneler', focus: 'yaygın efsanelerin mekanizmayla çürütülmesi: gözenek açılıp kapanmaz, pahalı formül daha etkili değildir, doğal her zaman güvenli değildir'},
+  {key: 'rutin-tasarimi', focus: 'minimum etkili rutin: kaç adım gerçekten gerekli, hangi sırayla, ne kadar sürede sonuç beklenir (haftalar cinsinden gerçekçi takvim)'},
+  {key: 'cihaz-ve-islem', timely: true, focus: 'ev tipi cihazlar ve klinik işlemler: LED maske, mikroakım, dermaroller riskleri, peeling dereceleri — ne işe yarıyor, ne yaramıyor'},
+];
+
 // Konu havuzları — marka dosyası hangi kümeyi kullanacağını söyler (brands/<slug>.json).
 // Yeni niş = yeni küme; motor aynı kalır.
-export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING};
+export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING, 'skincare-science': SKINCARE_SCIENCE};
 
 /** Marka dosyasındaki pillarSet adına karşılık gelen havuz. */
 export function pillarsFor(setName = 'ai-engineering') {

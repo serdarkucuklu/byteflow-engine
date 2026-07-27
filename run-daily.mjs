@@ -3,7 +3,7 @@ import {execFileSync} from 'node:child_process';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {fetchTrends, feedsFor} from './fetch/fetch-trends.mjs';
-import {fetchFootage, queryFromTitle} from './fetch/fetch-footage.mjs';
+import {fetchFootage, queryFromTitle, footageSetFor} from './fetch/fetch-footage.mjs';
 import {produceSpec} from './brain/produce-spec.mjs';
 import {stripMarkdown} from './brain/sanitize.mjs';
 import {postProcess} from './publish/post-process.mjs';
@@ -62,6 +62,8 @@ const theme = THEMES[(n * 5 + 1) % THEMES.length]; // *5: eski layout rotasyonuy
 const motion = 'buildup';                           // tek koreografi (kademeli kurulum)
 spec.theme = theme;
 spec.brand = {handle: brand.handle, signoff: brand.persona?.signoff ?? ''};
+if (brand.palette) spec.palette = brand.palette;
+if (brand.language) spec.language = brand.language;
 spec.motion = motion;
 spec.scenes.forEach((sc, i) => {
   if (!LAYOUTS.includes(sc.layout)) sc.layout = LAYOUTS[(n + i) % LAYOUTS.length];
@@ -87,7 +89,8 @@ if (process.env.BYTEFLOW_FOOTAGE === '0') {
   console.log('• footage kapalı (BYTEFLOW_FOOTAGE=0) → düz arka plan');
 } else {
   try {
-    clips = await fetchFootage({queries, count: FOOTAGE_CLIPS, outDir: footageDir});
+    clips = await fetchFootage({queries, count: FOOTAGE_CLIPS, outDir: footageDir,
+      allowed: footageSetFor(brand.footageSet)});
   } catch (e) {
     console.error(`⚠ footage indirilemedi: ${e.message}`);
   }
@@ -114,7 +117,11 @@ if (process.env.BYTEFLOW_VOICE === '0') {
     const picked = voiceStats.sampleSize >= 3
       ? pickWeighted(voices, voiceStats)
       : voices[history.length % voices.length];
-    const narration = await synthesizeScript({phrases: spec.narration, outDir: voDir, apiKey, voice: picked});
+    const style = brand.language === 'tr'
+      ? 'Türkçe, sıcak ve net bir anlatıcı tonuyla oku. Akıcı tempo, abartısız, doğal vurgu'
+      : undefined;
+    const narration = await synthesizeScript({phrases: spec.narration, outDir: voDir, apiKey,
+      voice: picked, ...(style ? {style} : {})});
     if (narration) {
       voice = buildVoiceTrack({narration, outPath: join(voDir, 'voice.wav')});
       spec.beats = voice.beats;
