@@ -1,92 +1,81 @@
 {
-  "hook": "Mikroakım cihazınız kasları şekillendirmiyor.",
-  "title": "Mikroakım Cihazları: Gerçek Mekanizma",
+  "hook": "Retinolünüz hiçbir işe yaramıyor. İşte nedeni.",
+  "title": "Retinoid Dönüşüm Darboğazı",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "diagram",
+      "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "DEVICE",
-          "label": "MİKROAKIM CİHAZI"
+          "id": "retinol",
+          "label": "RETİNOL"
         },
         {
-          "id": "SKIN",
-          "label": "CİLT BARİYERİ"
+          "id": "retinal",
+          "label": "RETİNAL"
         },
         {
-          "id": "CELL",
-          "label": "HÜCRESEL DÜZEY"
+          "id": "acid",
+          "label": "RETİNOİK ASİT"
         },
         {
-          "id": "ATP",
-          "label": "ATP SENTEZİ"
-        },
-        {
-          "id": "LIFT",
-          "label": "GEÇİCİ KALDIRMA"
+          "id": "receptor",
+          "label": "HÜCRE RESEPTÖRÜ"
         }
       ],
       "steps": [
         {
-          "from": "DEVICE",
-          "to": "SKIN",
-          "packet": "SIGNAL",
-          "status": "cilde düşük akım uygulanır",
-          "color": "accent"
-        },
-        {
-          "from": "SKIN",
-          "to": "CELL",
-          "packet": "CURREN",
-          "status": "akım cilt katmanlarından geçer",
-          "color": "accent"
-        },
-        {
-          "from": "CELL",
-          "to": "ATP",
-          "packet": "STIMUS",
-          "status": "elektrik uyarısı ATP artışı iddiası",
-          "color": "good"
-        },
-        {
-          "from": "ATP",
-          "to": "LIFT",
-          "packet": "EFFECT",
-          "status": "anlık kaldırma geçici, yapısal değil",
+          "from": "retinol",
+          "to": "retinal",
+          "packet": "ENZYME",
+          "status": "retinol önce retinole oksitlenmeli",
           "color": "warn"
+        },
+        {
+          "from": "retinal",
+          "to": "acid",
+          "packet": "ENZYME",
+          "status": "retinal doğrudan aktif aside dönüşür",
+          "color": "accent"
+        },
+        {
+          "from": "acid",
+          "to": "receptor",
+          "packet": "BIND",
+          "status": "sadece retinoik asit reseptöre bağlanır",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Mikroakım cihazınız kasları şekillendirmiyor.İşte sıkça yanlış anlaşılan mekanizma:1. MİKROAKIM CİHAZI: Cihaz, vücudun doğal biyo-elektrik akımlarına benzer, genellikle mikroamper aralığında düşük seviyeli elektrik akımları üretir.2. CİLT BARİYERİ: Bu nazik akımlar cilde uygulanır, önemli bir rahatsızlığa neden olmadan dış koruyucu katmanlarından geçer.3. HÜCRESEL DÜZEY: Bariyeri geçtikten sonra, elektrik sinyalleri kas hücreleri ve fibroblastlar dahil olmak üzere cildin altındaki hücrelerle etkileşime girer.4. ATP SENTEZİ: Bilimsel olarak önerilen birincil fayda, hücreler içinde ATP (Adenozin Trifosfat) üretiminin uyarılmasıdır. ATP, hücresel enerji ve onarım için çok önemlidir, zamanla hücresel fonksiyonun iyileşmesine yol açabilir.5. GEÇİCİ KALDIRMA: Gözlemlediğiniz herhangi bir anlık \"kaldırma\" veya \"sıkılaştırma\" etkisi, kalıcı yapısal değişiklikler veya kas hipertrofisi (büyüme) değil, büyük ölçüde geçici kas kasılması veya sıvı kaymalarından kaynaklanır. Gerçek, kalıcı kas şekillendirme daha önemli kas çalışması gerektirir.Mikroakım cihazlarını düşünürken, dramatik, anlık kaldırma vaatleri yerine hücresel sağlık iddialarına odaklanın.Bu, anlık yüz jimnastiği sonuçları değil, ince hücresel destekle ilgilidir.📌 Bilimi anlamak için bunu kaydedin.🔁 Mikroakım cihazı düşünen biriyle paylaşın.Yazan: Kai.Follow @byteflowlabs for AI systems, no hype.",
+  "caption": "1% retinolünüz çoğunlukla inaktif atığa dönüşüyor.İşte cilt hücrelerinizin içinde gerçekten olanlar:1. Retinol — En yaygın reçetesiz form. Kendi başına tamamen inaktif olup, iki aşamalı enzimatik oksidasyon süreci gerektirir.2. Retinal (Retinaldehit) — Ara durum. Aktif hale gelmek için yalnızca tek bir dönüşüm adımı gerektirir, bu da onu retinolden 11 kata kadar daha hızlı yapar.3. Retinoik Asit — Tek biyolojik olarak aktif form (Tretinoin gibi). Tüm dönüşümleri atlar ve doğrudan hücresel reseptörlere bağlanır.4. Hücre Reseptörleri — Ciltteki RAR ve RXR nükleer reseptörleri. Bağlandıklarında, hücreye kolajen sentezini artırması ve hücresel yenilenmeyi hızlandırması için sinyal verirler.Bir retinoid seçerken, şişedeki yüzdeye değil, dönüşüm verimliliğine para ödersiniz.Sihir yok — sadece moleküler biyoloji ve hücresel reseptör yolları.📌 Bunu kaydet ki inaktif formülasyonlara para harcamayasın.🔁 Bunu hala zayıf retinol kullanan birine gönder.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
     "#skincare",
-    "#teknoloji",
-    "#mikroakım",
-    "#ciltbakımcihazları",
-    "#antiaging",
-    "#estetisyen",
-    "#ciltbakımıefsaneleri"
+    "#retinol",
+    "#retinal",
+    "#tretinoin",
+    "#ciltbakımı",
+    "#bilim",
+    "#ciltbilimi",
+    "#biotech"
   ],
-  "takeaway": "Gerçek, kalıcı etkiler genellikle abartılır.",
+  "takeaway": "Zayıf türevleri atlayın. Retinal veya reçeteli tretinoin alın.",
   "footage_queries": [
-    "smoke swirling dark background",
-    "fiber optic strands"
+    "ink drop in water macro",
+    "water surface ripples dark"
   ],
   "narration": [
-    "Mikroakım cihazınız kasları şekillendirmez.",
-    "İşte içeride olanlar.",
-    "Cihaz düşük elektrik sinyalleri gönderir.",
-    "Sinyaller cilt bariyerini geçer.",
-    "Hücrelere ulaşır, ATP'yi artırdığını iddia eder.",
-    "Anlık kaldırma geçici kas kasılmasıdır.",
-    "Gerçek, kalıcı etkiler abartılır."
+    "Retinolünüz cildinizde hiçbir işe yaramıyor.",
+    "Üç kritik adım aktif yolu kontrol eder.",
+    "Enzimler retinolu retinaldehite oksitlemeli.",
+    "Retinal, saf retinoik aside dönüşür.",
+    "Sadece retinoik asit hücre reseptörlerine bağlanır.",
+    "Dönüşümleri atlayın, retinal veya tretinoin alın."
   ],
-  "theme": "#8fa8c8",
+  "theme": "#d98c5f",
   "brand": {
     "handle": "@cilt.kodu",
-    "signoff": "cilt bakımı, pazarlama değil"
+    "signoff": "cilt bakımı, pazarlama değil",
+    "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "palette": {
     "bg": "#17110f",
