@@ -1,0 +1,79 @@
+name: Onaylı Reel Yayını (kuyruk)
+
+# "Onayla → sonra yayınla" kuyruğu.
+#
+# Neden: onaylanan video ile yayın anı aynı olmak zorunda değil. Gece onaylanan bir reel'i
+# gece atmak erişimi yakar; günlük otomatik yayınla arka arkaya atmak da iki postu birbirine
+# kırdırır. Kuyruk, onaylı sürümü SABİT bir commit'e (immutable raw URL) bağlar ve bir sonraki
+# uygun pencerede yayınlar.
+#
+# Kullanım: publish/pinned.json içine {sha, title} yaz + commit'le. İş bittiğinde workflow
+# dosyayı siler → aynı video ikinci kez yayınlanmaz.
+
+on:
+  schedule:
+    - cron: '0 15 * * *'   # 15:00 UTC = 18:00 TR — otomatik 12:00 TR yayınından 6 saat sonra,
+                            # ABD sabahı + Avrupa akşamı penceresi
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: byteflow-pinned
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Kuyrukta iş var mı?
+        id: check
+        run: |
+          if [ -f publish/pinned.json ]; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            node -e "const p=require('./publish/pinned.json');console.log('kuyrukta:',p.title,p.sha)"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "· kuyruk boş, yapılacak iş yok"
+          fi
+
+      - name: Bağımlılıklar
+        if: steps.check.outputs.found == 'true'
+        run: npm ci
+
+      - name: Onaylı sürümü yayınla
+        if: steps.check.outputs.found == 'true'
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+        run: |
+          SHA=$(node -p "require('./publish/pinned.json').sha")
+          # Caption/etiket/kapak, videonun üretildiği commit'ten okunur — sonradan değişen
+          # spec dosyası yanlış açıklamayla yayınlamasın.
+          git show "$SHA:scene-spec.generated.json" > /tmp/pinned-spec.json
+          node publish/publish-latest.mjs \
+            "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${SHA}/public/latest.mp4" \
+            /tmp/pinned-spec.json
+
+      - name: Kuyruğu temizle (tekrar yayın olmasın)
+        if: steps.check.outputs.found == 'true'
+        run: |
+          rm -f publish/pinned.json
+          git config user.name "byteflow-bot"
+          git config user.email "byteflow-bot@users.noreply.github.com"
+          git add -A publish/pinned.json posted-history.json 2>/dev/null || git add -A publish
+          git commit -m "chore: kuyruktaki reel yayınlandı" || echo "değişiklik yok"
+          for i in 1 2 3; do
+            git push && break
+            git pull --rebase --autostash origin master || exit 1
+            sleep 3
+          done
