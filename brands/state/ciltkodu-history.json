@@ -80,5 +80,21 @@
     "voiceName": null,
     "date": "2026-07-27",
     "durSec": 30.9
+  },
+  {
+    "title": "Pahalı Serum vs Muadili",
+    "pillar": "muadil",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#7fb3a5",
+    "source": "fixture",
+    "footage": [
+      "pexels:cream texture macro",
+      "pexels:marble surface texture"
+    ],
+    "voice": null,
+    "voiceName": null,
+    "date": "2026-07-27",
+    "durSec": 22.6
   }
 ]

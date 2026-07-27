@@ -1,79 +1,61 @@
 {
-  "hook": "The Ordinary Niasinamid çoğunlukla su ve kıvamlaştırıcılardan oluşur.",
-  "title": "The Ordinary Niasinamid INCI Analizi",
+  "title": "Pahalı Serum vs Muadili",
+  "hook": "Aynı aktif, üç kat fiyat farkı.",
+  "takeaway": "Aktif aynıysa fark formülasyonda, fiyatta değil.",
+  "topic_source": "fixture",
+  "pillar": "muadil",
+  "language": "tr",
+  "narration": [
+    "Aynı aktif madde, üç kat fiyat farkı.",
+    "Üç boyutta karşılaştıralım.",
+    "Aktif madde oranı ikisinde de aynı.",
+    "Fiyat farkı üç kata çıkıyor.",
+    "Bariyer desteğinde muadil öne geçiyor.",
+    "Aktif aynıysa fark formülasyonda, fiyatta değil."
+  ],
+  "caption": "Aynı aktif, üç kat fiyat farkı.\n\n1. Aktif madde — iki üründe de %10 niasinamid.\n2. Fiyat — 420 TL'ye karşı 139 TL.\n3. Bariyer — muadilde üç seramid var, pahalı olanda yok.\n\n📌 Kaydet, alışverişten önce bak.\n🔁 Serum arayan birine gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+  "hashtags": [
+    "#ciltbakımı",
+    "#niasinamid",
+    "#muadil",
+    "#skincare",
+    "#serum",
+    "#ciltbakimrutini"
+  ],
+  "footage_queries": [
+    "cream texture macro",
+    "marble surface texture"
+  ],
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "diagram",
-      "nodes": [
+      "kind": "versus",
+      "layout": "nodes-flow",
+      "heading": "Aynı aktif, farklı fiyat",
+      "left": "PAHALI SERUM",
+      "right": "MUADİL",
+      "rows": [
         {
-          "id": "water",
-          "label": "AQUA BAZ"
+          "label": "AKTİF MADDE",
+          "left": "%10 niasinamid",
+          "right": "%10 niasinamid",
+          "winner": "tie"
         },
         {
-          "id": "niacinamide",
-          "label": "NIASINAMID %10"
+          "label": "FİYAT",
+          "left": "420 TL",
+          "right": "139 TL",
+          "winner": "right"
         },
         {
-          "id": "zinc",
-          "label": "ÇİNKO PCA %1"
-        },
-        {
-          "id": "gellers",
-          "label": "JEL MATRİSİ"
-        }
-      ],
-      "steps": [
-        {
-          "from": "water",
-          "to": "niacinamide",
-          "packet": "AQUA",
-          "status": "su çözünmüş aktifleri taşır",
-          "color": "accent"
-        },
-        {
-          "from": "niacinamide",
-          "to": "zinc",
-          "packet": "10%",
-          "status": "niasinamid bariyer desteği sağlar",
-          "color": "good"
-        },
-        {
-          "from": "zinc",
-          "to": "gellers",
-          "packet": "1%",
-          "status": "çinko pca sebum üretimini düzenler",
-          "color": "warn"
+          "label": "BARİYER DESTEĞİ",
+          "left": "seramid yok",
+          "right": "3 seramid",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "The Ordinary Niasinamid formülü çoğunlukla sudan oluşur, ancak bu bilinçli bir tasarımdır.Bu popüler INCI listesinde aslında neler oluyor:1. Aqua Baz — Su, niasinamid gibi suda çözünen aktifleri çözmek için gerekli olan birincil çözücü (~%80) görevi görür.2. Niasinamid %10 — Cilt bariyerini destekleyen ve cilt tonunu eşitleyen, listenin üst sıralarında yer alan aktif bileşen.3. Çinko PCA %1 — Nemi soymadan sebum üretimini düzenleyen bir pirolidon karboksilik asit çinko tuzu.4. Jel Matrisi — Ksantan sakızı ve kıvamlaştırıcılar, serumun ciltte pürüzsüzce kaymasını sağlayan viskozitesini verir.Aslında ödediğiniz şey, pahalı bitkisel dolgu maddeleri değil, aktif konsantrasyonun stabilitesidir.Ciltte sihir yok — sadece hassas kimyasal konsantrasyon ve taşıyıcıda çözünürlük.📌 Nasıl çalıştığını unutmamak için bunu kaydedin.🔁 Daha yüksek yüzdenin daha iyi olduğunu düşünen birine gönderin.Yazan Kai.Follow @byteflowlabs for AI systems, no hype.",
-  "hashtags": [
-    "#skincare",
-    "#içerik",
-    "#incilist",
-    "#kozmetikbilimi",
-    "#ciltbakımbilimi",
-    "#niasinamid",
-    "#theordinary",
-    "#ciltbakımı",
-    "#serum"
-  ],
-  "takeaway": "Yüksek yüzdeli aktifler uygun çözücü taşıyıcıya bağlıdır.",
-  "footage_queries": [
-    "water surface ripples dark",
-    "abstract digital particles"
-  ],
-  "narration": [
-    "The Ordinary Niasinamid çoğunlukla su ve kıvamlaştırıcıdır.",
-    "Bu formül dört ana katmandan oluşur.",
-    "Su, her şey için ana taşıyıcıdır.",
-    "Yüzde on Niasinamid bariyer ve tonu hedefler.",
-    "Yüzde bir Çinko PCA sebumu azaltır.",
-    "Yüksek aktifler çözücü taşıyıcıya hala ihtiyaç duyar."
-  ],
-  "theme": "#b08bbb",
+  "theme": "#7fb3a5",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "cilt bakımı, pazarlama değil",
@@ -86,7 +68,6 @@
     "text": "#f6ece7",
     "muted": "#b9a49c"
   },
-  "language": "tr",
   "motion": "buildup",
   "footage": true
 }
