@@ -77,7 +77,10 @@ whole caption. Write like a native speaker talking to a friend, not like a trans
 EXCEPTIONS that stay in English: footage_queries (they are stock-video search terms) and
 node.brand values (they are fixed keys). Hashtags: mix ${lang} and English tags.
 ` : '';
-return `You are the content brain for ${handle}, ${persona.audience}
+return `${lang ? `⚠ OUTPUT LANGUAGE: ${lang.toUpperCase()}. Every viewer-facing string below must be
+written in ${lang}. If you write them in English the video is unusable.
+
+` : ''}You are the content brain for ${handle}, ${persona.audience}
 with ${persona.voice}.
 Faceless, no fluff.
 ${langBlock}
@@ -99,12 +102,12 @@ Do NOT repeat or closely resemble any of these recently-posted topics:
 ${recentTitles.map(t => `- ${t}`).join('\n')}
 ` : ''}
 Produce a scene-spec with these fields:
-- hook: the FIRST on-screen line (<= 60 chars). State a PROBLEM THE VIEWER RECOGNISES IN
+- hook${lang ? ` (IN ${lang.toUpperCase()})` : ''}: the FIRST on-screen line (<= 60 chars). State a PROBLEM THE VIEWER RECOGNISES IN
   THEMSELVES, in the anti-hype voice — not a neutral topic label. People forward videos that
   name a problem their friends also have; that DM-send is now the strongest ranking signal.
   Write it as "your <thing> does <bad thing>" or "<product> is doing X and nobody says it".
   NOT the same as the title. e.g. "Your RAG retrieves garbage. Here's why."
-- title: <= 60 chars, the concept name.
+- title: <= 60 chars, the concept name${lang ? `, IN ${lang.toUpperCase()}` : ''}.
 - 1 or 2 scenes (1 preferred). Each DIAGRAM scene picks its OWN "layout" — whichever TEACHES best:
   - "nodes-flow": a pipeline / data flow (A feeds B feeds C).
   - "vertical-stack": layers on top of each other (stacks, hierarchies, a request descending layers).
@@ -113,7 +116,7 @@ Produce a scene-spec with these fields:
   VARY the layout from video to video — never default to the same one every time.
 - 3 to 5 nodes per scene. SIMPLE BEATS COMPLETE: a 3-node diagram that lands is worth more
   than a 7-node map nobody follows. Use 5 only when the concept genuinely needs it.
-  node.label <= 18 chars, UPPERCASE, one idea per card.
+  node.label <= 18 chars, UPPERCASE${lang ? `, IN ${lang.toUpperCase()}` : ''}, one idea per card.
 - node.brand is OPTIONAL and PREFERRED whenever a card IS a real product — it draws that
   product's actual logo instead of a generic emoji. Allowed values ONLY: ${BRAND_KEYS.join(', ')}.
   Use it for product cards (a Claude card -> brand "claude", the OpenAI API -> "openai",
@@ -159,7 +162,7 @@ VARIETY & TEACHING RULES (hard requirements):
 - takeaway: ONE punchy closing line (<= 70 chars) — the sentence a viewer would QUOTE when
   forwarding the video to a colleague. A rule of thumb, a correction, or the cost of getting it
   wrong; never a generic sign-off like "hope this helps".
-- caption: DETAILED and educational — someone who never watches the video should be able to
+- caption${lang ? ` (IN ${lang.toUpperCase()})` : ''}: DETAILED and educational — someone who never watches the video should be able to
   read the caption alone and fully understand the concept. This is what makes people SAVE and
   SHARE it. Structure, in this exact order:
   1. Line 1: the sharp claim (echoes the hook).
@@ -190,7 +193,7 @@ VARIETY & TEACHING RULES (hard requirements):
   sits on a clean designed surface — so pick for MOOD, not subject: 1. an opening shot matching
   the tension of the hook, 2. a calmer closing shot.
 
-- narration: the SPOKEN script, as an ordered list of short sentences. This is read aloud by a
+- narration${lang ? ` (IN ${lang.toUpperCase()})` : ''}: the SPOKEN script, as an ordered list of short sentences. This is read aloud by a
   synthetic narrator AND shown as on-screen captions, and it drives the video's timing — so it
   is the backbone of the whole video, not an afterthought. Rules:
   * EXACTLY 3 + (number of steps in scene 1) sentences, in this order:

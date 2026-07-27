@@ -1,6 +1,6 @@
 import {writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync, rmSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
-import {join} from 'node:path';
+import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {fetchTrends, feedsFor} from './fetch/fetch-trends.mjs';
 import {fetchFootage, queryFromTitle, footageSetFor} from './fetch/fetch-footage.mjs';
@@ -19,6 +19,9 @@ const apiKey = process.env.GEMINI_API_KEY;
 // MARKA: kimlik, konu havuzu, kaynaklar, seed'ler, ses ve durum dosyaları buradan gelir.
 // Yeni sayfa açmak = brands/<slug>.json + kendi secret'ları (kod çatallamak YOK).
 const brand = loadBrand();
+// Marka durum dosyalarının dizini repoda olmayabilir (git boş dizin tutmuyor) — canlı
+// koşuda ENOENT ile düştü. Yazmadan önce garanti et.
+for (const p of [brand.paths.spec, brand.paths.history]) mkdirSync(dirname(p), {recursive: true});
 const PILLARS = pillarsFor(brand.pillarSet);
 console.log(`▣ marka: ${brand.slug} (${brand.handle})`);
 
