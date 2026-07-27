@@ -1,27 +1,41 @@
-import {makeScene2D, Rect, Txt, Layout, Line, Code, LezerHighlighter} from '@motion-canvas/2d';
-import {all, createRef, waitFor, easeOutCubic, easeInOutCubic} from '@motion-canvas/core';
-import {COLORS, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
+import {makeScene2D, Rect, Txt, Layout, Line, Path, Code, LezerHighlighter} from '@motion-canvas/2d';
+import {all, delay, createRef, waitFor, easeOutCubic, easeInOutCubic, easeOutQuad} from '@motion-canvas/core';
+import {COLORS, FONTS, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
 import {motionTarget} from '../lib/motion-registry.mjs';
 import {byteflowHighlighter} from '../lib/codeHighlighter';
+import {brandOf} from '../lib/brands';
 import specJson from '../../scene-spec.json';
 
+// ─────────────────────────────────────────────────────────────────────────────
+// GÖRSEL DİL (2026-07-27 yeniden tasarım — Serdar geri bildirimi)
+//   "yazısı daha tatlı olmalı, okunabilir · şekiller köşelere savruluyor ·
+//    aralarında tren gibi git-gel var · en premium hâli bu değil · video karmaşık"
+//
+//   1. TİPOGRAFİ  — kelimeler Inter'de (mono sadece kod + sistem satırı).
+//   2. KOMPOZİSYON— tek kolon / ortalanmış halka, güvenli alan, köşe yok.
+//   3. HAREKET    — kartlar aşağıdan süzülerek gelir (stagger); aktif bağlantıda
+//                   TEK YÖNLÜ bir ışık darbesi geçer; git-gel ve "tam akış" tekrarı yok.
+//   4. ODAK       — her an tek şey vurgulanır, gerisi söner. Sadelik = anlaşılırlık.
+//   5. MARKA      — gerçek ürün sembolleri (Claude, Gemini, DeepSeek…) emoji yerine.
+// ─────────────────────────────────────────────────────────────────────────────
+
 const spec = specJson as unknown as SceneSpec;
-const MONO = 'JetBrains Mono, monospace';
-const ACCENT = spec.theme ?? COLORS.accent; // per-video accent theme
+const ACCENT = spec.theme ?? COLORS.accent;
 const HOOK = spec.hook ?? spec.title;
 const TAKEAWAY = spec.takeaway ?? 'follow @byteflowlabs for more';
 
-// Footage modu: arka planı ffmpeg'deki b-roll dolduruyor → sahne ŞEFFAF render edilir.
-// Kartlar zaten opak; doğrudan görüntünün üstünde duran YAZILARA gölge veriyoruz ki
-// karartılmış footage üzerinde bile kontrast düşmesin.
+// Footage modunda sahne şeffaf render edilir (arka planı ffmpeg dolduruyor).
 const FOOTAGE = spec.footage === true;
-const SHADOW = FOOTAGE ? {shadowColor: '#000000d9', shadowBlur: 28} : {};
+const SHADOW = FOOTAGE ? {shadowColor: '#000000e6', shadowBlur: 30} : {};
 
-const BUILDUP_WEIGHT = 1;                 // build-up sakin/okunur → ~27s hedef (25-30s bandı)
+const BUILDUP_WEIGHT = 1;
 const pacing = computePacing(specShape(spec), motionTarget(BUILDUP_WEIGHT));
 
-// Connector segments (index pairs) per layout.
+const CARD_FILL = '#141a22f2';        // koyu ve neredeyse opak: footage üstünde de okunur
+const CARD_STROKE = '#28323f';
+const RISE = 34;                      // kartların süzülerek geldiği mesafe
+
 function connectors(layout: string, count: number): [number, number][] {
   const segs: [number, number][] = [];
   if (layout === 'hub-spoke') {
@@ -29,249 +43,264 @@ function connectors(layout: string, count: number): [number, number][] {
   } else if (layout === 'cycle') {
     for (let i = 0; i < count; i++) segs.push([i, (i + 1) % count]);
   } else {
-    for (let i = 0; i < count - 1; i++) segs.push([i, i + 1]); // flow / vertical-stack
+    for (let i = 0; i < count - 1; i++) segs.push([i, i + 1]);
   }
   return segs;
+}
+
+// Kart içi görsel: marka sembolü (varsa) → emoji → yok.
+function nodeGlyph(node: {icon?: string; brand?: string}, size: number) {
+  const brand = brandOf(node.brand);
+  if (brand?.path) {
+    // simple-icons 24x24 → istenen boyuta ölçekle, kendi kutusunda ortala.
+    return <Path data={brand.path} fill={brand.color} scale={size / 24} />;
+  }
+  if (brand) {
+    return <Txt text={brand.label} fill={brand.color} fontFamily={FONTS.display}
+      fontSize={Math.round(size * 0.52)} fontWeight={800} letterSpacing={-0.3} />;
+  }
+  if (node.icon) return <Txt text={node.icon} fontSize={size} />;
+  return null;
 }
 
 export default makeScene2D(function* (view) {
   if (!FOOTAGE) view.fill(COLORS.bg);
 
-  // ---- Hook (first frame) ----
+  // ── HOOK ──────────────────────────────────────────────────────────────────
   const hook = createRef<Txt>();
+  const hookRule = createRef<Rect>();
   const hookTag = createRef<Txt>();
-  view.add(<Txt ref={hook} text={HOOK} fill={COLORS.text} fontFamily={MONO}
-    fontSize={72} fontWeight={800} letterSpacing={2} opacity={0} y={-30}
-    width={960} textAlign="center" textWrap {...SHADOW} />);
-  view.add(<Txt ref={hookTag} text="@byteflowlabs" fill={ACCENT} fontFamily={MONO}
-    fontSize={36} letterSpacing={6} opacity={0} y={160} {...SHADOW} />);
-  yield* hook().opacity(1, 0.35);
-  yield* hookTag().opacity(1, 0.25);
-  yield* waitFor(1.1);
-  yield* all(hook().opacity(0, 0.35), hookTag().opacity(0, 0.35));
+  view.add(<Txt ref={hook} text={HOOK} fill={COLORS.text} fontFamily={FONTS.display}
+    fontSize={76} fontWeight={800} letterSpacing={-1.4} lineHeight={88} opacity={0} y={-10}
+    width={900} textAlign="center" textWrap {...SHADOW} />);
+  view.add(<Rect ref={hookRule} width={0} height={4} radius={2} fill={ACCENT} y={150} opacity={0.9} />);
+  view.add(<Txt ref={hookTag} text="@byteflowlabs" fill={COLORS.muted} fontFamily={FONTS.mono}
+    fontSize={30} letterSpacing={4} opacity={0} y={210} {...SHADOW} />);
+  yield* all(hook().opacity(1, 0.5, easeOutCubic), hook().y(-30, 0.7, easeOutCubic));
+  yield* all(hookRule().width(180, 0.45, easeOutCubic), hookTag().opacity(0.85, 0.35));
+  yield* waitFor(0.9);
+  yield* all(hook().opacity(0, 0.35), hookRule().opacity(0, 0.3), hookTag().opacity(0, 0.3));
+  hookRule().remove();
 
-  // ---- Title (persistent) ----
+  // ── BAŞLIK (kalıcı) ───────────────────────────────────────────────────────
   const title = createRef<Txt>();
-  view.add(<Txt ref={title} text={spec.title.toUpperCase()} fill={COLORS.text}
-    fontFamily={MONO} fontSize={54} fontWeight={700} letterSpacing={3} y={-760} opacity={0}
-    width={980} textAlign="center" textWrap {...SHADOW} />);
-  yield* title().opacity(1, 0.4);
+  const titleRule = createRef<Rect>();
+  view.add(<Txt ref={title} text={spec.title} fill={COLORS.text} fontFamily={FONTS.display}
+    fontSize={50} fontWeight={700} letterSpacing={-0.6} lineHeight={60} y={-712} opacity={0}
+    width={940} textAlign="center" textWrap {...SHADOW} />);
+  view.add(<Rect ref={titleRule} width={0} height={3} radius={2} fill={ACCENT} y={-628} opacity={0.75} />);
+  yield* all(title().opacity(0.97, 0.45, easeOutCubic), titleRule().width(120, 0.5, easeOutCubic));
 
   const ctx = {accent: ACCENT, colors: COLORS, pacing};
 
-  // ---- Each scene ----
   for (const scene of spec.scenes) {
     if (scene.kind === 'code' && scene.code) {
       yield* renderCodeScene(view, scene, ctx);
       continue;
     }
-    // ---- Diagram scene: KADEMELİ KURULUM ----
+
     const container = createRef<Layout>();
     view.add(<Layout ref={container} opacity={1} />);
 
     const heading = createRef<Txt>();
     container().add(<Txt ref={heading} text={scene.heading ?? ''} fill={ACCENT}
-      fontFamily={MONO} fontSize={46} fontWeight={600} letterSpacing={1} y={-540} opacity={0} {...SHADOW} />);
-    yield* heading().opacity(0.95, 0.4);
+      fontFamily={FONTS.display} fontSize={40} fontWeight={600} letterSpacing={-0.2}
+      y={-548} opacity={0} {...SHADOW} />);
+    yield* all(heading().opacity(0.95, 0.4, easeOutCubic), heading().y(-540, 0.4, easeOutCubic));
 
     const nodes = scene.nodes!;
     const steps = scene.steps!;
     const count = nodes.length;
     const pos = layoutPositions(scene.layout, count);
     const {w, h} = boxSize(scene.layout, count);
-    const iconSize = Math.round(h * 0.42);
-    const labelSize = Math.min(38, Math.round(w * 0.15));
+    const column = scene.layout === 'nodes-flow' || scene.layout === 'vertical-stack';
+    const glyphSize = Math.round(Math.min(h * 0.46, 62));
+    const labelSize = column
+      ? Math.round(Math.min(40, h * 0.34))
+      : Math.round(Math.min(32, w * 0.145));
 
-    // subtle glow behind everything (never over labels)
-    container().add(<Rect width={680} height={680} radius={340} fill={ACCENT}
-      opacity={0.045} shadowColor={ACCENT} shadowBlur={140} y={0} zIndex={-2} />);
+    // Zeminde tek bir yumuşak aksan halesi — dekor değil, odak.
+    container().add(<Rect width={760} height={760} radius={380} fill={ACCENT}
+      opacity={0.05} shadowColor={ACCENT} shadowBlur={180} y={25} zIndex={-2} />);
 
-    // connector segments (index pairs) — build toward each new node
     const segs = connectors(scene.layout, count);
 
-    // pre-create boxes (hidden, scale 0.7 + opacity 0 → gentle pop) + connector
-    // lines (end 0), z-ordered: line < box < label
+    // ── Kartlar ──────────────────────────────────────────────────────────────
     const boxes: Record<string, Rect> = {};
     const boxByIndex: Rect[] = [];
     const nodeIndexById: Record<string, number> = {};
     nodes.forEach((n, i) => {
       const box = createRef<Rect>();
+      const glyph = nodeGlyph(n, glyphSize);
       container().add(
-        <Rect ref={box} width={w} height={h} radius={26} fill={COLORS.card}
-          stroke={COLORS.stroke} lineWidth={3} x={pos[i].x} y={pos[i].y} scale={0.7} opacity={0} zIndex={1}
-          shadowColor={'#00000055'} shadowBlur={24} shadowOffsetY={10}>
-          {n.icon ? <Txt text={n.icon} fontSize={iconSize} y={-h * 0.16} /> : null}
-          <Txt text={n.label} fill={COLORS.text} fontFamily={MONO} fontSize={labelSize}
-            fontWeight={600} letterSpacing={1} y={n.icon ? h * 0.27 : 0}
-            width={w - 24} textAlign="center" textWrap />
+        <Rect ref={box} width={w} height={h} radius={column ? 24 : 26} fill={CARD_FILL}
+          stroke={CARD_STROKE} lineWidth={1.5} x={pos[i].x} y={pos[i].y + RISE} opacity={0} zIndex={1}
+          shadowColor={'#00000070'} shadowBlur={36} shadowOffsetY={14}
+          layout direction={column ? 'row' : 'column'} alignItems="center"
+          justifyContent={column ? 'start' : 'center'} gap={column ? 24 : 12}
+          padding={column ? [0, 30] : [14, 10]}>
+          {glyph}
+          <Txt text={n.label} fill={COLORS.text} fontFamily={FONTS.display} fontSize={labelSize}
+            fontWeight={600} letterSpacing={-0.2} lineHeight={labelSize * 1.15}
+            width={column ? w - (glyph ? glyphSize + 84 : 60) : w - 26}
+            textAlign={column ? 'left' : 'center'} textWrap />
         </Rect>,
       );
       boxes[n.id] = box();
       boxByIndex[i] = box();
       nodeIndexById[n.id] = i;
     });
+
+    // ── Bağlantılar ─────────────────────────────────────────────────────────
     const lineByTarget = new Map<number, Line[]>();
-    const lineByPair = new Map<string, Line>();     // undirected index-pair → connector, for step lookup
+    const lineByPair = new Map<string, Line>();
     const allLines: Line[] = [];
     segs.forEach(([a, b]) => {
       const ln = createRef<Line>();
       container().add(
         <Line ref={ln} points={[[pos[a].x, pos[a].y], [pos[b].x, pos[b].y]]}
-          stroke={COLORS.stroke} lineWidth={4} lineDash={[10, 10]} end={0} zIndex={0} />,
+          stroke={CARD_STROKE} lineWidth={2} end={0} zIndex={0} />,
       );
-      const tgt = Math.max(a, b);                       // node that "completes" this edge
+      const tgt = Math.max(a, b);
       (lineByTarget.get(tgt) ?? lineByTarget.set(tgt, []).get(tgt)!).push(ln());
       lineByPair.set(a < b ? `${a}-${b}` : `${b}-${a}`, ln());
       allLines.push(ln());
     });
 
-    // status line (below the cluster, never overlapped)
+    // Sistem satırı: mono, küçük, kartların altında — "şu an ne oluyor".
     const status = createRef<Txt>();
-    container().add(<Txt ref={status} text="" fill={COLORS.muted}
-      fontFamily={MONO} fontSize={40} fontWeight={500} letterSpacing={1} y={600} opacity={0} zIndex={2} {...SHADOW} />);
+    container().add(<Txt ref={status} text="" fill={COLORS.muted} fontFamily={FONTS.mono}
+      fontSize={32} fontWeight={500} letterSpacing={0.2} y={610} opacity={0} zIndex={2}
+      width={940} textAlign="center" textWrap {...SHADOW} />);
 
-    // BUILD PHASE: node 0 in; then for each next node, grow its incoming edges then pop it in.
-    // Gentle entrance: easeOutCubic scale 0.7→1 + opacity 0→1, no bounce/overshoot.
-    yield* all(boxByIndex[0].scale(1, pacing.enter, easeOutCubic), boxByIndex[0].opacity(1, pacing.enter, easeOutCubic));
+    // ── KURULUM: kartlar sırayla aşağıdan süzülür, bağlantı önce çizilir ────
+    yield* all(
+      boxByIndex[0].opacity(1, pacing.enter, easeOutCubic),
+      boxByIndex[0].y(pos[0].y, pacing.enter, easeOutCubic),
+    );
     for (let i = 1; i < count; i++) {
       const incoming = lineByTarget.get(i) ?? [];
-      if (incoming.length) yield* all(...incoming.map(l => l.end(1, pacing.lines, easeOutCubic)));
-      yield* all(boxByIndex[i].scale(1, pacing.enter, easeOutCubic), boxByIndex[i].opacity(1, pacing.enter, easeOutCubic));
+      if (incoming.length) yield* all(...incoming.map(l => l.end(1, pacing.lines, easeOutQuad)));
+      yield* all(
+        boxByIndex[i].opacity(1, pacing.enter, easeOutCubic),
+        boxByIndex[i].y(pos[i].y, pacing.enter, easeOutCubic),
+      );
     }
-    // (Her kenarın max(a,b) hedefi ≥1 → flow/hub-spoke/cycle/stack hepsinde her connector
-    //  yukarıdaki build döngüsünde hedef node belirince çizilir; ekstra guard'a gerek yok.)
 
-    // DATA PHASE: each step illuminates its connector (solid, brightened, endpoints
-    // accented) and glides a SMALL glow dot + small packet-label chip along it —
-    // one connection lit at a time, guiding the eye, instead of a box flying the
-    // whole zigzag. Other connectors dim a touch so the active one stands out.
-    const restShadow = '#00000055';
+    // ── AKIŞ: adım başına TEK YÖNLÜ ışık darbesi + odak ─────────────────────
     for (const step of steps) {
       const from = boxes[step.from], to = boxes[step.to];
       if (!from || !to) continue;
       const col = resolveColor(step.color ?? 'accent', ACCENT);
       const fi = nodeIndexById[step.from], ti = nodeIndexById[step.to];
-      const line = fi !== undefined && ti !== undefined
+      const base = fi !== undefined && ti !== undefined
         ? lineByPair.get(fi < ti ? `${fi}-${ti}` : `${ti}-${fi}`)
         : undefined;
-      const others = allLines.filter(l => l !== line);
+      const others = boxByIndex.filter(b => b !== from && b !== to);
 
-      const dot = createRef<Rect>();
-      container().add(
-        <Rect ref={dot} width={26} height={26} radius={13} fill={col}
-          x={from.x()} y={from.y()} opacity={0} zIndex={3} shadowColor={col} shadowBlur={18} />,
-      );
-      const chip = createRef<Rect>();
-      container().add(
-        <Rect ref={chip} width={64} height={36} radius={10} fill={col}
-          x={from.x()} y={from.y() - 44} opacity={0} zIndex={3} shadowColor={col} shadowBlur={10}>
-          <Txt text={step.packet} fill={COLORS.bg} fontFamily={MONO} fontSize={18} fontWeight={800} />
-        </Rect>,
-      );
+      // Işık darbesi: bağlantının üstünde ilerleyen kısa parlak segment (tek geçiş).
+      const pulse = createRef<Line>();
+      if (base) {
+        container().add(
+          <Line ref={pulse} points={[[pos[fi].x, pos[fi].y], [pos[ti].x, pos[ti].y]]}
+            stroke={col} lineWidth={4} lineCap="round" start={0} end={0} zIndex={2}
+            shadowColor={col} shadowBlur={22} opacity={0.95} />,
+        );
+      }
 
-      yield* all(status().text(step.status), status().fill(col), status().opacity(1, 0.25));
-
-      // illuminate: active wire brightens + solidifies, endpoints glow, dot/chip fade in
+      status().text(step.status);
+      status().fill(col);
       yield* all(
-        ...(line ? [line.stroke(col, 0.2), line.lineWidth(7, 0.2), line.lineDash([], 0.2)] : []),
-        ...others.map(l => l.opacity(0.4, 0.2)),
-        from.stroke(col, 0.2), from.shadowColor(col, 0.2), from.shadowBlur(40, 0.2),
-        to.stroke(col, 0.2),
-        dot().opacity(1, 0.15), chip().opacity(1, 0.15),
+        status().opacity(0.95, 0.22),
+        // odak: hedef ve kaynak öne çıkar, gerisi geri çekilir
+        from.stroke(col, 0.22), from.shadowColor(`${col}55`, 0.22),
+        ...others.map(b => b.opacity(0.45, 0.22)),
       );
 
-      // travel: small dot + small chip glide together along the connector
+      if (pulse()) {
+        const t = pacing.step;
+        yield* all(
+          pulse().end(1, t, easeInOutCubic),
+          // kuyruk, başın 0.3t gerisinden gelir → kısa ışık izi (dot+chip git-gel yerine)
+          delay(t * 0.3, pulse().start(1, t * 0.7, easeInOutCubic)),
+          to.stroke(col, t * 0.9),
+          to.shadowColor(`${col}66`, t * 0.9),
+        );
+        pulse().remove();
+      } else {
+        yield* all(to.stroke(col, pacing.step), to.shadowColor(`${col}66`, pacing.step));
+      }
+
+      // Varış: hedef bir tık yükselir (kart "kabul etti" hissi), sonra okuma molası.
+      yield* all(to.y(to.y() - 6, 0.18, easeOutCubic), to.lineWidth(2.5, 0.18));
+      yield* waitFor(pacing.hold + 0.5);
       yield* all(
-        dot().position([to.x(), to.y()], pacing.step, easeInOutCubic),
-        chip().position([to.x(), to.y() - 44], pacing.step, easeInOutCubic),
+        to.y(to.y() + 6, 0.3, easeOutCubic), to.lineWidth(1.5, 0.3),
+        from.stroke(CARD_STROKE, 0.3), from.shadowColor('#00000070', 0.3),
+        to.stroke(CARD_STROKE, 0.3), to.shadowColor('#00000070', 0.3),
+        ...others.map(b => b.opacity(1, 0.3)),
       );
-
-      // arrive: fade dot/chip BEFORE they rest on the label; target takes the glow
-      yield* all(dot().opacity(0, 0.18), chip().opacity(0, 0.18), to.shadowColor(col, 0.2), to.shadowBlur(40, 0.2));
-      yield* waitFor(pacing.hold + 0.5);                            // +0.5s readability hold
-
-      // revert: connector + both nodes back to resting look
-      yield* all(
-        ...(line ? [line.stroke(COLORS.stroke, 0.3), line.lineWidth(4, 0.3), line.lineDash([10, 10], 0.3)] : []),
-        ...others.map(l => l.opacity(1, 0.3)),
-        from.stroke(COLORS.stroke, 0.3), from.shadowColor(restShadow, 0.3), from.shadowBlur(24, 0.3),
-        to.stroke(COLORS.stroke, 0.3), to.shadowColor(restShadow, 0.3), to.shadowBlur(24, 0.3),
-      );
-      dot().remove();
-      chip().remove();
     }
 
-    // brief recap: run the whole flow once as small dots (governed)
-    if (pacing.recap > 0 && steps.length > 1) {
-      yield* all(status().text('the full flow'), status().fill(ACCENT));
-      const dots = steps.map(step => {
-        const from = boxes[step.from], to = boxes[step.to];
-        if (!from || !to) return null;
-        const dot = createRef<Rect>();
-        container().add(<Rect ref={dot} width={22} height={22} radius={11} zIndex={3}
-          fill={resolveColor(step.color ?? 'accent', ACCENT)} x={from.x()} y={from.y()} opacity={0} />);
-        return {dot: dot(), to};
-      }).filter(Boolean) as {dot: Rect; to: Rect}[];
-      yield* all(...dots.map(d => d.dot.opacity(1, 0.15)));
-      yield* all(...dots.map(d => all(d.dot.x(d.to.x(), pacing.recap, easeOutCubic), d.dot.y(d.to.y(), pacing.recap, easeOutCubic))));
-      yield* all(...dots.map(d => d.dot.opacity(0, 0.2)));
-    }
-
-    // final read-hold (+0.5s) then fade out
+    // Bitmiş diyagramı okuma molası, sonra topluca çıkış.
     yield* waitFor(pacing.finalDwell + 0.5);
-    yield* all(status().opacity(0, 0.3), container().opacity(0, 0.5));
+    yield* all(
+      status().opacity(0, 0.3),
+      ...boxByIndex.map((b, i) => all(b.opacity(0, 0.4), b.y(b.y() - 18, 0.45, easeOutCubic))),
+      ...allLines.map(l => l.opacity(0, 0.3)),
+      heading().opacity(0, 0.3),
+    );
     container().remove();
   }
 
-  // ---- Takeaway + persona sign-off (outro) ----
-  yield* title().opacity(0, 0.3);
+  // ── ÇIKIŞ ─────────────────────────────────────────────────────────────────
+  yield* all(title().opacity(0, 0.3), titleRule().opacity(0, 0.3));
   const take = createRef<Txt>();
+  const rule = createRef<Rect>();
   const sign = createRef<Txt>();
-  const tag = createRef<Txt>();
-  view.add(<Txt ref={take} text={TAKEAWAY} fill={COLORS.text} fontFamily={MONO}
-    fontSize={60} fontWeight={800} letterSpacing={1} opacity={0} y={-40}
-    width={960} textAlign="center" textWrap {...SHADOW} />);
-  view.add(<Txt ref={sign} text="— Kai · @byteflowlabs" fill={ACCENT} fontFamily={MONO}
-    fontSize={38} fontWeight={600} letterSpacing={2} opacity={0} y={140} {...SHADOW} />);
-  view.add(<Txt ref={tag} text="AI systems, no hype" fill={COLORS.muted} fontFamily={MONO}
-    fontSize={30} letterSpacing={3} opacity={0} y={210} {...SHADOW} />);
-  yield* all(take().opacity(1, 0.5), sign().opacity(1, 0.5));
-  yield* tag().opacity(1, 0.4);
+  view.add(<Txt ref={take} text={TAKEAWAY} fill={COLORS.text} fontFamily={FONTS.display}
+    fontSize={62} fontWeight={800} letterSpacing={-1.1} lineHeight={74} opacity={0} y={-20}
+    width={900} textAlign="center" textWrap {...SHADOW} />);
+  view.add(<Rect ref={rule} width={0} height={4} radius={2} fill={ACCENT} y={120} />);
+  view.add(<Txt ref={sign} text="@byteflowlabs · AI systems, no hype" fill={COLORS.muted}
+    fontFamily={FONTS.mono} fontSize={30} letterSpacing={2} opacity={0} y={180} {...SHADOW} />);
+  yield* all(take().opacity(1, 0.5, easeOutCubic), take().y(-40, 0.6, easeOutCubic));
+  yield* all(rule().width(200, 0.4, easeOutCubic), sign().opacity(0.85, 0.4));
   yield* waitFor(1.4);
 });
 
 function* renderCodeScene(view: any, scene: any, ctx: any) {
   const container = createRef<Layout>();
-  view.add(<Layout ref={container} opacity={0} />);
+  view.add(<Layout ref={container} opacity={0} y={20} />);
 
   if (scene.heading) {
-    container().add(<Txt text={scene.heading} fill={ctx.accent} fontFamily={MONO}
-      fontSize={48} fontWeight={600} letterSpacing={1} y={-620} opacity={0.95} />);
+    container().add(<Txt text={scene.heading} fill={ctx.accent} fontFamily={FONTS.display}
+      fontSize={40} fontWeight={600} letterSpacing={-0.2} y={-600} opacity={0.95} />);
   }
 
-  // Kod kartı (arka plan) + Code node.
-  container().add(<Rect width={980} height={880} radius={28} fill={COLORS.card}
-    stroke={COLORS.stroke} lineWidth={3} shadowColor={'#00000066'} shadowBlur={40} shadowOffsetY={14} y={-10} />);
+  container().add(<Rect width={960} height={840} radius={28} fill={CARD_FILL}
+    stroke={CARD_STROKE} lineWidth={1.5} shadowColor={'#00000080'} shadowBlur={46}
+    shadowOffsetY={18} y={-10} />);
+  // Editör hissi: kart başında üç nokta.
+  [-1, 0, 1].forEach(k => {
+    container().add(<Rect width={14} height={14} radius={7} fill={CARD_STROKE}
+      x={-420 + (k + 1) * 26} y={-378} />);
+  });
 
   const code = createRef<Code>();
   container().add(
     <Code ref={code} highlighter={byteflowHighlighter as unknown as LezerHighlighter}
-      fontFamily={MONO} fontSize={40} offsetX={-1} offsetY={-1} x={-430} y={-390} code={''} />,
+      fontFamily={FONTS.mono} fontSize={38} offsetX={-1} offsetY={-1} x={-420} y={-330} code={''} />,
   );
 
   if (scene.annotation) {
-    container().add(<Txt text={scene.annotation} fill={COLORS.muted} fontFamily={MONO}
-      fontSize={40} fontWeight={500} y={520} width={960} textAlign="center" textWrap opacity={0.9} />);
+    container().add(<Txt text={scene.annotation} fill={COLORS.muted} fontFamily={FONTS.display}
+      fontSize={36} fontWeight={500} y={520} width={940} textAlign="center" textWrap opacity={0.9} />);
   }
 
-  yield* container().opacity(1, 0.4);
+  yield* all(container().opacity(1, 0.4, easeOutCubic), container().y(0, 0.5, easeOutCubic));
 
-  // Reveal: typing (varsayılan) satır satır süreyle yazar; instant tek seferde.
   const full = scene.code as string;
-  // Code needs real reading time — scale the post-typing hold with line count
-  // (bounded) instead of the diagram-oriented finalDwell alone, so a single
-  // code-scene video lands in the 15-20s brand band without pushing mixed
-  // (code + diagram) specs past the ceiling.
   const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
   const lineCount = (full.match(/\n/g)?.length ?? 0) + 1;
   const readHold = clamp(lineCount * 2.6 - 4.0, ctx.pacing.finalDwell, 9);
@@ -279,11 +308,10 @@ function* renderCodeScene(view: any, scene: any, ctx: any) {
     code().code(full);
     yield* waitFor(readHold);
   } else {
-    // Kod tween — CodeSignal ile hedef koda "yazılır" (typing hissi).
     yield* code().code(full, Math.min(2.4, Math.max(1.2, full.length / 90)));
     yield* waitFor(readHold);
   }
 
-  yield* container().opacity(0, 0.4);
+  yield* all(container().opacity(0, 0.4), container().y(-18, 0.45, easeOutCubic));
   container().remove();
 }

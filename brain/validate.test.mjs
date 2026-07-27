@@ -28,15 +28,15 @@ test('scene with <3 nodes fails', () => {
   assert.equal(validateSpec(two).valid, false);
 });
 
-test('scene with >8 nodes fails, 8 passes', () => {
+test('scene with >5 nodes fails, 5 passes', () => {
   const mk = (count) => ({
     title: 'X title', caption: 'c', hashtags: ['#a'],
     scenes: [{layout: 'cycle',
       nodes: Array.from({length: count}, (_, i) => ({id: `n${i}`, label: `N${i}`})),
       steps: [{from: 'n0', to: 'n1', packet: 'X', status: 's'}]}]
   });
-  assert.equal(validateSpec(mk(8)).valid, true, JSON.stringify(validateSpec(mk(8)).errors));
-  assert.equal(validateSpec(mk(9)).valid, false);
+  assert.equal(validateSpec(mk(5)).valid, true, JSON.stringify(validateSpec(mk(5)).errors));
+  assert.equal(validateSpec(mk(6)).valid, false, '6 node artık fazla — sadelik kuralı');
 });
 
 test('step referencing unknown node id fails', () => {

@@ -142,15 +142,16 @@ test('the prompt instructs a "Written by Kai." persona line before the follow si
   assert.ok(kaiIdx !== -1 && followIdx !== -1 && kaiIdx < followIdx);
 });
 
-test('the prompt requires 3 to 8 varied nodes, mixed icon/text, and varied layouts', async () => {
+test('the prompt caps density at 3-5 nodes and prefers real brand marks', async () => {
   const capture = {};
   await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar, fetchFn: fakeFetchCapturing(capture)});
   const promptText = capture.body.contents[0].parts[0].text;
-  assert.match(promptText, /3 to 8 nodes per scene/);
-  assert.match(promptText, /richer diagrams fill the frame/i);
-  // şekil çeşitliliği: ikon opsiyonel, text-only node'larla karışık
+  assert.match(promptText, /3 to 5 nodes per scene/);
+  assert.match(promptText, /SIMPLE BEATS COMPLETE/);
+  // marka sembolleri emoji yerine tercih edilir, emoji sadece somut aktörlerde
+  assert.match(promptText, /node\.brand is OPTIONAL and PREFERRED/);
+  assert.match(promptText, /claude, anthropic, openai/);
   assert.match(promptText, /node\.icon is OPTIONAL/);
-  assert.match(promptText, /text-only/);
   // layout çeşitliliği: 4 kompozisyon da anlatılmış, video-video değişmesi istenmiş
   assert.match(promptText, /vertical-stack/);
   assert.match(promptText, /hub-spoke/);

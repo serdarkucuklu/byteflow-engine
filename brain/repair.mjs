@@ -6,7 +6,7 @@
 // yeterince denemede seed fallback'e — yani markasız/jenerik bir videoya — yol açıyor
 // (2026-07-27'de iki koşuda da tam olarak bu oldu). Yeniden denemek yerine düzeltilebileni
 // düzelt: yayın kalitesi denemenin şansına bağlı kalmasın.
-const LIMITS = {label: 16, packet: 6, status: 40, heading: 48, annotation: 80, title: 60, hook: 70, takeaway: 80};
+const LIMITS = {nodes: 5, steps: 4, label: 18, packet: 6, status: 40, heading: 48, annotation: 80, title: 60, hook: 70, takeaway: 80};
 
 const cut = (s, n) => (typeof s === 'string' && s.length > n ? s.slice(0, n).trim() : s);
 
@@ -29,11 +29,16 @@ function repairScene(scene) {
   }
 
   s.heading = cut(s.heading, LIMITS.heading);
-  if (Array.isArray(s.nodes)) s.nodes = s.nodes.map(n => ({...n, label: cut(n.label, LIMITS.label)}));
+  if (Array.isArray(s.nodes)) {
+    // Sadelik tavanı: 5 karttan fazlası 9:16'da okunmuyor. Fazlasını ATMA yerine
+    // KIRP — model 6-7 kart verdiğinde videoyu seed'e düşürmek yerine sadeleştir.
+    s.nodes = s.nodes.slice(0, LIMITS.nodes).map(n => ({...n, label: cut(n.label, LIMITS.label)}));
+  }
   if (Array.isArray(s.steps)) {
     const ids = new Set((s.nodes ?? []).map(n => n.id));
     s.steps = s.steps
       .filter(st => ids.has(st.from) && ids.has(st.to))   // var olmayan node'a giden adım = ölü adım
+      .slice(0, LIMITS.steps)                              // 4 beat'ten fazlası izleyiciyi kaybettiriyor
       .map(st => ({...st, packet: cut(st.packet, LIMITS.packet), status: cut(st.status, LIMITS.status)}));
   }
   return s;
@@ -52,6 +57,6 @@ export function repairSpec(spec) {
   const scenes = (spec.scenes ?? []).map(repairScene).filter(s =>
     s.kind === 'code' ? Boolean(s.code) : (s.nodes?.length >= 3 && s.steps?.length >= 1));
   // Hepsi düşerse orijinali bırak: validateSpec kararı versin, sessizce boş spec üretme.
-  out.scenes = scenes.length ? scenes.slice(0, 3) : (spec.scenes ?? []);
+  out.scenes = scenes.length ? scenes.slice(0, 2) : (spec.scenes ?? []);
   return out;
 }

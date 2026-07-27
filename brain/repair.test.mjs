@@ -39,7 +39,7 @@ test('over-long labels, packets and statuses are trimmed to the schema limits', 
   }]};
   const fixed = repairSpec(spec);
   assert.equal(validateSpec(fixed).valid, true, validateSpec(fixed).errors?.join('; '));
-  assert.equal(fixed.scenes[0].nodes[0].label.length, 16);
+  assert.equal(fixed.scenes[0].nodes[0].label.length, 18);
   assert.equal(fixed.scenes[0].steps[0].packet, 'TOOLON');
   assert.equal(fixed.scenes[0].steps[0].status.length, 40);
 });
@@ -65,4 +65,28 @@ test('repairSpec does not mutate its input', () => {
   const spec = {...base, scenes: [{layout: 'nodes-flow', kind: 'code', language: 'python'}]};
   repairSpec(spec);
   assert.equal(spec.scenes[0].kind, 'code');
+});
+
+test('over-dense scenes are simplified, not thrown away', () => {
+  const many = (n) => Array.from({length: n}, (_, i) => ({id: `n${i}`, label: `NODE ${i}`}));
+  const spec = {...base, scenes: [{
+    layout: 'nodes-flow', nodes: many(8),
+    steps: Array.from({length: 7}, (_, i) => ({from: `n${i}`, to: `n${i + 1}`, packet: 'P', status: 'moves on'})),
+  }]};
+  assert.equal(validateSpec(spec).valid, false, 'ham hâli 8 node ile geçersiz');
+  const fixed = repairSpec(spec);
+  assert.equal(validateSpec(fixed).valid, true, validateSpec(fixed).errors?.join('; '));
+  assert.equal(fixed.scenes[0].nodes.length, 5);
+  assert.ok(fixed.scenes[0].steps.length <= 4);
+  // kırpılan node'lara giden adımlar da düşmeli
+  const ids = new Set(fixed.scenes[0].nodes.map(n => n.id));
+  assert.ok(fixed.scenes[0].steps.every(st => ids.has(st.from) && ids.has(st.to)));
+});
+
+test('a third scene is dropped — 30s cannot teach three diagrams', () => {
+  const sc = (h) => ({layout: 'cycle', heading: h, nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}, {id: 'c', label: 'C'}],
+    steps: [{from: 'a', to: 'b', packet: 'P', status: 's'}]});
+  const fixed = repairSpec({...base, scenes: [sc('one'), sc('two'), sc('three')]});
+  assert.equal(fixed.scenes.length, 2);
+  assert.equal(validateSpec(fixed).valid, true);
 });

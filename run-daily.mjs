@@ -56,7 +56,9 @@ console.log(`✓ spec (${source}): ${spec.title} [${layout} / ${motion} / ${them
 // ---- B-roll: gerçek hareketli görüntü indir (Pexels/Pixabay/Coverr) ----
 // Klip inebildiyse spec.footage=true → sahne ŞEFFAF (alpha PNG) render edilir ve
 // ffmpeg diyagramı footage'ın üstüne bindirir. İnemezse eski düz arka planlı akış aynen sürer.
-const FOOTAGE_CLIPS = 4;
+// Artık 2 klip yetiyor: b-roll sadece AÇILIŞ ve KAPANIŞ'ta; öğretici gövde
+// tasarlanmış sade zeminde (bkz. publish/compose-footage.mjs planSegments).
+const FOOTAGE_CLIPS = 2;
 const footageDir = join(root, 'render', 'footage');
 if (existsSync(footageDir)) rmSync(footageDir, {recursive: true, force: true});
 

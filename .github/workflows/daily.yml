@@ -32,7 +32,9 @@ jobs:
       - name: Sistem bağımlılıkları (ffmpeg + fontlar)
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg xvfb fonts-noto-color-emoji fonts-jetbrains-mono || sudo apt-get install -y ffmpeg xvfb fonts-noto-color-emoji
+          sudo apt-get install -y ffmpeg xvfb fonts-noto-color-emoji fonts-jetbrains-mono fonts-inter \
+            || sudo apt-get install -y ffmpeg xvfb fonts-noto-color-emoji
+          fc-list | grep -ci inter || echo "uyarı: Inter kurulamadı, sistem sans'ına düşülecek"
 
       - name: Bağımlılıklar (root + render + chromium)
         run: |

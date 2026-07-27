@@ -57,7 +57,7 @@ const STEP_FIXED = 1.43;
 const RECAP_FIXED = 0.35; // recap dots opacity in (0.15) + out (0.2)
 
 const DWELL_MIN = 0.8;
-const DWELL_MAX = 6.0;    // raised (was 3.0) so sparse specs can spend the extra
+const DWELL_MAX = 8.5;    // raised (was 3.0) so sparse specs can spend the extra
                            // 25-30s band time on a longer, deliberate final read-hold.
 // Per-step total (incl. STEP_FIXED) is solved to the target, then clamped here.
 // Must clear STEP_FIXED (1.43) with room for a non-crawling flight+hold, or
@@ -100,7 +100,9 @@ export function computePacing(shape: SpecShape, targetSec: number): Pacing {
   // then pops — totalNodes ENTERs, (totalNodes - scenes) LINES beats.
   const totalNodes = Math.max(shape.totalNodes, scenes);
   const buildEdges = Math.max(totalNodes - scenes, 0);
-  const recap = scenes === 1 && steps <= 4 ? 0.9 : 0;
+  // recap (tüm akışın tekrar oynatılması) 2026-07-27'de KALDIRILDI: izleyende
+  // "git-gel eden tren" hissi veriyordu ve videoyu karmaşıklaştırıyordu.
+  const recap = 0;
 
   let enter = ENTER, lines = LINES;
   let buildPhase = totalNodes * enter + buildEdges * lines;

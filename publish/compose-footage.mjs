@@ -54,21 +54,29 @@ export function adaptDim(dim, luma) {
  * Hook (ilk ~2.4s) ve outro (son ~3.2s) az karartılır → footage görünür; ortadaki
  * öğretici segmentler ağır karartılır → diyagram okunur.
  */
-export function planSegments({total, clipCount, hook = 2.4, outro = 3.2, xf = XF}) {
+export function planSegments({total, clipCount, hook = 3.4, outro = 4.2, xf = XF}) {
   const n = Math.max(1, clipCount);
-  // xfade her geçişte xf saniye "yer"; toplam görünen süre = sum(durs) - (n-1)*xf.
-  const span = total + (n - 1) * xf;
-  if (n === 1) return {durations: [span], dims: [0.5]};
-  if (n === 2) return {durations: [span * 0.45, span * 0.55], dims: [0.34, 0.58]};
+  // xfade her geçişte xf saniye "yer" → görünen süre = sum(durs) - (segment-1)*xf.
+  // DİKKAT: span, klip sayısına değil ÜRETİLEN SEGMENT sayısına göre hesaplanır.
+  if (n === 1) return {durations: [total], dims: [0.5], kinds: ['clip']};
+  if (n === 2) {
+    const span2 = total + xf;
+    return {durations: [span2 * 0.45, span2 * 0.55], dims: [0.26, 0.42], kinds: ['clip', 'clip']};
+  }
+  const span = total + 2 * xf;   // üç segment → iki geçiş
 
-  const head = Math.min(hook + xf, span * 0.2);
-  const tail = Math.min(outro + xf, span * 0.25);
-  const mid = (span - head - tail) / (n - 2);
-  const durations = [head, ...Array(n - 2).fill(mid), tail];
-  // Gövde karartması: diyagram okunacak kadar koyu, ama footage'ın hareketi HÂLÂ görünsün
-  // (0.62'de görüntü çamura dönüyordu — kadraj testinde doğrulandı).
-  const dims = [0.30, ...Array(n - 2).fill(0.52), 0.48];
-  return {durations: durations.map(d => Math.max(1.2, d)), dims};
+  // ÜÇ BÖLÜM: sinematik giriş (klip) → ÖĞRETİCİ GÖVDE (tasarlanmış sade zemin) → çıkış (klip).
+  // Serdar (2026-07-27): "arka plan süper olsa ne, görseller iyi olmadıkça" + "video karmaşık".
+  // Gövdede gerçek görüntü diyagramla yarışıyordu; artık orada sakin bir aksan zemini var,
+  // b-roll yalnızca açılış ve kapanışta — noktalama işareti gibi.
+  const head = Math.min(hook + xf, span * 0.22);
+  const tail = Math.min(outro + xf, span * 0.26);
+  const body = span - head - tail;
+  return {
+    durations: [head, body, tail].map(d => Math.max(1.2, d)),
+    dims: [0.26, 0.86, 0.40],
+    kinds: ['clip', 'surface', 'clip'],
+  };
 }
 
 /** Tek klibi 1080x1920'ye getirir + yavaş kamera hareketi + grade/blur/scrim uygular. */
@@ -101,15 +109,26 @@ export function normalizeClip({src, outPath, seconds, panDir = 0, dim = 0.6, fps
   return outPath;
 }
 
-/** Hiç klip yoksa son çare: hareketli koyu gradient (donuk kare asla olmasın). */
-export function motionBgClip({outPath, seconds, accent = '#58a6ff', fps = 60, run = defaultRun}) {
+/**
+ * Öğretici gövdenin zemini: çok yavaş sürüklenen koyu aksan gradyanı + hafif grain.
+ * Amaç DİKKAT ÇEKMEK DEĞİL, diyagramı taşımak — donuk düz siyahtan canlı, ama
+ * hiçbir detayıyla metinle yarışmayan bir yüzey. (dim yüksekse neredeyse siyaha yakın.)
+ */
+export function surfaceClip({outPath, seconds, accent = '#58a6ff', dim = 0.86, fps = 60, run = defaultRun}) {
   const hex = accent.replace('#', '');
-  const src = `gradients=s=${W}x${H}:c0=0x0d1117:c1=0x${hex}:d=${seconds}:speed=0.12:rate=${fps}`;
+  const src = `gradients=s=${W}x${H}:c0=0x0d1117:c1=0x${hex}:d=${seconds}:speed=0.06:rate=${fps}`;
   run('ffmpeg', ['-y', '-f', 'lavfi', '-i', src,
-    '-vf', `noise=alls=6:allf=t,drawbox=x=0:y=0:w=${W}:h=${H}:color=black@0.55:t=fill,vignette,fps=${fps},setsar=1`,
+    '-vf', [`fps=${fps}`, 'setsar=1', 'gblur=sigma=26',
+      `drawbox=x=0:y=0:w=${W}:h=${H}:color=black@${dim.toFixed(2)}:t=fill`,
+      'noise=alls=3:allf=t', 'vignette'].join(','),
     '-t', String(seconds), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '20',
     '-r', String(fps), outPath]);
   return outPath;
+}
+
+/** Hiç klip yoksa son çare: hareketli koyu gradient (donuk kare asla olmasın). */
+export function motionBgClip({outPath, seconds, accent = '#58a6ff', fps = 60, run = defaultRun}) {
+  return surfaceClip({outPath, seconds, accent, dim: 0.55, fps, run});
 }
 
 const TRANSITIONS = ['fade', 'fadeblack', 'smoothleft', 'smoothup', 'circleopen', 'dissolve'];
@@ -181,23 +200,24 @@ export function composeFootageVideo({
 }) {
   const total = frames / fps;
   const usable = clips.length ? clips : [];
-  const {durations, dims} = planSegments({total, clipCount: Math.max(usable.length, 1)});
+  const {durations, dims, kinds} = planSegments({total, clipCount: Math.max(usable.length, 1)});
   // Klip başına parlaklık: koyu klipte scrim hafifler, yoksa footage kaybolur.
   const lumas = usable.map(c => measureLuma(c.path, probe));
 
   const segs = durations.map((seconds, i) => {
     const seg = `${tmpDir}/seg${i}.mp4`;
-    if (usable.length) {
-      const idx = i % usable.length;
-      const dim = adaptDim(dims[i], lumas[idx]);
-      if (dim !== dims[i]) {
-        console.log(`  segment ${i}: koyu klip (luma ${lumas[idx].toFixed(0)}) → scrim ${dims[i]} → ${dim}`);
-      }
-      // Klip sayısı segmentten azsa sırayla yeniden kullan (yön/karartma farklı → tekrar hissi yok).
-      normalizeClip({src: usable[idx].path, outPath: seg, seconds, panDir: i % 4, dim, fps, run});
-    } else {
-      motionBgClip({outPath: seg, seconds, accent, fps, run});
+    // 'surface' = öğretici gövde: gerçek görüntü YOK, tasarlanmış sakin zemin var.
+    if (kinds?.[i] === 'surface' || !usable.length) {
+      surfaceClip({outPath: seg, seconds, accent, dim: kinds?.[i] === 'surface' ? dims[i] : 0.55, fps, run});
+      return seg;
     }
+    // Klipler yalnızca açılış/kapanışta: ilki hook, sonuncusu outro.
+    const idx = (i === 0 ? 0 : usable.length - 1) % usable.length;
+    const dim = adaptDim(dims[i], lumas[idx]);
+    if (dim !== dims[i]) {
+      console.log(`  segment ${i}: koyu klip (luma ${lumas[idx].toFixed(0)}) → scrim ${dims[i]} → ${dim}`);
+    }
+    normalizeClip({src: usable[idx].path, outPath: seg, seconds, panDir: i % 4, dim, fps, run});
     return seg;
   });
 

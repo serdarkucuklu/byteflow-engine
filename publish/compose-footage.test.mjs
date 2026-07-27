@@ -11,22 +11,28 @@ const argOf = (call, flag) => call.args[call.args.indexOf(flag) + 1];
 test('planSegments preserves total duration through the xfade overlaps', () => {
   for (const [total, n] of [[27, 4], [18.5, 3], [31, 2], [22, 1]]) {
     const {durations} = planSegments({total, clipCount: n});
-    const visible = durations.reduce((a, b) => a + b, 0) - (n - 1) * XF;
+    const visible = durations.reduce((a, b) => a + b, 0) - (durations.length - 1) * XF;
     assert.ok(Math.abs(visible - total) < 0.001, `${total}s / ${n} klip → ${visible}`);
   }
 });
 
-test('planSegments keeps the hook and outro bright and the teaching body dark', () => {
+test('b-roll only bookends the video — the teaching body gets a designed surface', () => {
+  const {durations, dims, kinds} = planSegments({total: 28, clipCount: 4});
+  assert.deepEqual(kinds, ['clip', 'surface', 'clip'], 'gövdede gerçek görüntü olmamalı');
+  assert.ok(durations[1] > durations[0] + durations[2], 'gövde videonun ağırlığı olmalı');
+  assert.ok(dims[1] > 0.8, 'gövde zemini metinle yarışmayacak kadar sakin');
+  assert.ok(dims[0] < 0.35 && dims[2] < 0.5, 'açılış/kapanış görüntüsü görünür kalmalı');
+});
+
+test('planSegments keeps the hook and outro readable footage moments', () => {
   const {dims} = planSegments({total: 27, clipCount: 4});
-  assert.equal(dims.length, 4);
+  assert.equal(dims.length, 3);
   assert.ok(dims[0] < 0.4, 'hook footage görünür kalmalı');
-  assert.ok(dims[1] >= dims[0] + 0.15 && dims[1] < 0.6, 'gövde okunacak kadar koyu, çamur değil');
-  assert.equal(dims[1], dims[2]);
-  assert.ok(dims[3] < dims[1], 'outro yeniden açılmalı');
+  assert.ok(dims[2] > dims[0] && dims[2] < 0.5, 'kapanış biraz daha sakin ama görünür');
 });
 
 test('planSegments never emits a segment shorter than the transition', () => {
-  const {durations} = planSegments({total: 12, clipCount: 4});
+  const {durations} = planSegments({total: 14, clipCount: 4});
   for (const d of durations) assert.ok(d > XF, `segment ${d}s < xfade ${XF}s`);
 });
 

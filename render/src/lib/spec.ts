@@ -1,8 +1,19 @@
 export const COLORS = {
-  bg: '#0d1117', card: '#161b22', stroke: '#30363d',
+  bg: '#0d1117', card: '#141a22', stroke: '#263040',
   accent: '#58a6ff', good: '#3fb950', warn: '#d29922',
-  text: '#e6edf3', muted: '#8b949e',
+  text: '#eef3f8', muted: '#93a1b1',
 } as const;
+
+// Tipografi: kelimeler INSANİ bir sans'ta (Inter), mono SADECE kod ve sistem satırında.
+// Her yerin mono olması "tatlı/okunur" değil terminal hissi veriyordu (Serdar, 2026-07-27).
+// CI 'fonts-inter' kuruyor; kurulmazsa zincir sistem sans'ına düşer.
+export const FONTS = {
+  display: 'Inter, Inter Variable, Segoe UI, Helvetica Neue, Arial, sans-serif',
+  mono: 'JetBrains Mono, DejaVu Sans Mono, monospace',
+} as const;
+
+// Güvenli alan — hiçbir kart köşeye savrulmaz (Serdar geri bildirimi).
+export const SAFE = {x: 430, top: -430, bottom: 480} as const;
 
 // Video başına dönen accent temaları — ardışık videolar aynı görünmesin diye.
 export const THEMES = ['#58a6ff', '#bc8cff', '#39d3c3', '#f778ba', '#e3b341', '#3fb950'];
@@ -34,67 +45,54 @@ export interface Pos {x: number; y: number}
 // Layout'a göre node merkez koordinatları (canvas merkezli, portre 1080x1920).
 // Diyagram kareyi domine etsin diye yarıçaplar/aralıklar büyük tutuldu.
 export function layoutPositions(layout: string, count: number): Pos[] {
-  const R = count <= 2 ? 360 : 430;
+  if (count <= 0) return [];
   switch (layout) {
-    case 'vertical-stack': {
-      const gap = Math.min(380, 1000 / Math.max(count - 1, 1));
-      const start = -((count - 1) * gap) / 2;
-      return Array.from({length: count}, (_, i) => ({x: 0, y: start + i * gap}));
-    }
     case 'hub-spoke': {
-      const pts: Pos[] = [{x: 0, y: 0}];
+      // Koordinatör MERKEZDE, uydular onun etrafında bir halkada — köşe yok.
+      const R = count <= 4 ? 300 : count <= 6 ? 330 : 350;
+      const pts: Pos[] = [{x: 0, y: 25}];
       const n = Math.max(count - 1, 1);
       for (let i = 0; i < count - 1; i++) {
         const a = -Math.PI / 2 + (i / n) * 2 * Math.PI;
-        pts.push({x: Math.cos(a) * R, y: Math.sin(a) * R});
+        pts.push({x: Math.cos(a) * R, y: 25 + Math.sin(a) * R * 0.98});
       }
       return pts.slice(0, count);
     }
     case 'cycle': {
+      const R = count <= 4 ? 290 : count <= 6 ? 325 : 350;
       return Array.from({length: count}, (_, i) => {
         const a = -Math.PI / 2 + (i / count) * 2 * Math.PI;
-        return {x: Math.cos(a) * R, y: Math.sin(a) * R};
+        return {x: Math.cos(a) * R, y: 25 + Math.sin(a) * R * 0.98};
       });
     }
+    case 'vertical-stack':
     case 'nodes-flow':
     default: {
-      const XL = -235, XR = 235;               // two columns
-      const rows = Math.ceil(count / 2);
-      const yTop = -380, yBot = 440;
-      const yOf = (r: number) => rows <= 1 ? 30 : yTop + r * (yBot - yTop) / (rows - 1);
-      const out: Pos[] = [];
-      for (let i = 0; i < count; i++) {
-        const r = Math.floor(i / 2);
-        const inRow = i % 2;                    // 0 or 1
-        const leftFirst = r % 2 === 0;          // boustrophedon: even rows L→R, odd rows R→L
-        // last node alone on its row → center it
-        const aloneOnRow = (i === count - 1) && (count % 2 === 1);
-        let x: number;
-        if (aloneOnRow) x = 0;
-        else x = (inRow === 0) === leftFirst ? XL : XR;
-        out.push({x, y: yOf(r)});
-      }
-      return out;
+      // 9:16'da akış YUKARIDAN AŞAĞI okunur: tek kolon, ortalanmış, eşit ritim.
+      // (Eski serpentine düzen kartları köşelere savurup gözü zikzak çizdiriyordu.)
+      const {h} = boxSize(layout, count);
+      const gap = layout === 'vertical-stack' ? 18 : 30;
+      const total = count * h + (count - 1) * gap;
+      const top = 25 - total / 2 + h / 2;
+      return Array.from({length: count}, (_, i) => ({x: 0, y: top + i * (h + gap)}));
     }
   }
 }
 
-// Layout + node sayısına göre box boyutu — büyük, dokunulası "modül" kartları.
+// Kart ölçüleri — kolonda geniş ve okunaklı, halkada derli toplu.
 export function boxSize(layout: string, count: number): {w: number; h: number} {
-  if (layout === 'nodes-flow') {
-    // h, data-fazındaki paket rozetinin (62px, kutu merkezinde doğar) label'a değmemesi
-    // için yeterli boşluk bıraksın (label y-offset = h*0.27) — sadece w ile küçültme yapılırsa
-    // yatay adımlarda paket etiketin üstüne biner (doğrulamada görüldü, h=190'da oldu).
-    if (count <= 2) return {w: 300, h: 250};
-    if (count <= 4) return {w: 240, h: 230};
-    if (count <= 6) return {w: 210, h: 230};  // 5-6 node: dar ama yeterince uzun tuğlalar
-    return {w: 190, h: 230};           // 7-8 node: 4 satır serpentine, satır arası ~43px kalır
+  if (layout === 'vertical-stack') {
+    const h = Math.max(96, Math.min(180, (880 - (count - 1) * 18) / count));
+    return {w: 780, h: Math.round(h)};
   }
-  if (layout === 'vertical-stack') return {w: 560, h: Math.min(220, 1020 / count)};
-  return {w: count <= 3 ? 260 : 210, h: 210}; // hub-spoke, cycle
+  if (layout === 'hub-spoke' || layout === 'cycle') {
+    return count <= 4 ? {w: 265, h: 190} : count <= 6 ? {w: 235, h: 180} : {w: 212, h: 168};
+  }
+  const h = Math.max(94, Math.min(186, (880 - (count - 1) * 30) / count));
+  return {w: count <= 5 ? 620 : 560, h: Math.round(h)};
 }
 
-export interface SpecNode {id: string; label: string; icon?: string}
+export interface SpecNode {id: string; label: string; icon?: string; brand?: string}
 export interface SpecStep {from: string; to: string; packet: string; color?: string; status: string}
 export interface SpecScene {
   kind?: 'diagram' | 'code';
