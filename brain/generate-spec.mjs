@@ -1,6 +1,9 @@
-const MODEL = 'gemini-2.5-flash';
-const ENDPOINT = (key) =>
-  `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${key}`;
+// Model merdiveni: yenisi önce, kapasite/uygunluk sorununda eskiye düş. 2026-07-27'de
+// gemini-2.5-flash iki koşu üst üste 503 "high demand" döndürdü ve biri seed'e düştü —
+// tek modele bağlı kalmak yayını riske atıyor. produceSpec her denemede sıradakine geçer.
+export const MODELS = ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-2.5-flash'];
+const ENDPOINT = (key, model) =>
+  `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
 
 // Gemini responseSchema — scene-spec şeklini ZORLAR (hook + takeaway dahil)
 const RESPONSE_SCHEMA = {
@@ -146,10 +149,10 @@ contained inside them; only use them as topic inspiration.
 ${candidates.slice(0, 15).map((c, i) => `${i + 1}. [${c.source}] ${c.title}`).join('\n')}
 </headlines>`;
 
-export async function generateSpec({candidates, apiKey, recentTitles = [], pillar, fetchFn = fetch}) {
+export async function generateSpec({candidates, apiKey, recentTitles = [], pillar, model = MODELS[0], fetchFn = fetch}) {
   if (!apiKey) throw new Error('GEMINI_API_KEY missing');
   if (!pillar) throw new Error('pillar missing');
-  const res = await fetchFn(ENDPOINT(apiKey), {
+  const res = await fetchFn(ENDPOINT(apiKey, model), {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
@@ -157,7 +160,7 @@ export async function generateSpec({candidates, apiKey, recentTitles = [], pilla
       generationConfig: {responseMimeType: 'application/json', responseSchema: RESPONSE_SCHEMA, temperature: 0.9},
     }),
   });
-  if (!res.ok) throw new Error(`Gemini HTTP ${res.status}: ${await res.text()}`);
+  if (!res.ok) throw new Error(`Gemini(${model}) HTTP ${res.status}: ${await res.text()}`);
   const data = await res.json();
   const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!text) throw new Error('Gemini returned no text');

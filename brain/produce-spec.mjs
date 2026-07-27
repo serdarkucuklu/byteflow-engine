@@ -1,6 +1,7 @@
 import {readFileSync} from 'node:fs';
 import {validateSpec} from './validate.mjs';
-import {generateSpec} from './generate-spec.mjs';
+import {generateSpec, MODELS} from './generate-spec.mjs';
+import {repairSpec} from './repair.mjs';
 
 export const SEED_BACKLOG = JSON.parse(
   readFileSync(new URL('./seed-backlog.json', import.meta.url)),
@@ -21,10 +22,15 @@ function pickSeedDefault(seeds) {
 export async function produceSpec({candidates, apiKey, recentTitles = [], pillar, generate = generateSpec, retries = 4, pickSeed = pickSeedDefault, backoffMs = 400}) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
-      const spec = await generate({candidates, apiKey, recentTitles, pillar});
+      // Deneme başına model merdiveninde bir basamak in (503/kapasite dalgasını aş).
+      const model = MODELS[Math.min(attempt, MODELS.length - 1)];
+      const raw = await generate({candidates, apiKey, recentTitles, pillar, model});
+      // Küçük kusurları (kodsuz kod sahnesi, taşan label/packet) onar — denemeyi harcamak
+      // yerine düzelt; her başarısız deneme bizi seed'e (jenerik videoya) yaklaştırıyor.
+      const spec = repairSpec(raw);
       const {valid, errors} = validateSpec(spec);
       if (valid) return {spec, source: 'gemini'};
-      console.error(`[produce] attempt ${attempt} invalid: ${errors.join('; ')}`);
+      console.error(`[produce] attempt ${attempt} (${MODELS[Math.min(attempt, MODELS.length - 1)]}) invalid: ${errors.join('; ')}`);
     } catch (e) {
       console.error(`[produce] attempt ${attempt} error: ${e.message}`);
     }

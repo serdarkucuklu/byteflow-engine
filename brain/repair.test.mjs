@@ -1,0 +1,68 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {repairSpec} from './repair.mjs';
+import {validateSpec} from './validate.mjs';
+
+const base = {
+  title: 'Claude Code Ships Background Agents',
+  caption: 'x', hashtags: ['#claudecode'],
+  hook: 'It runs while you sleep.', takeaway: 'Agents are loops with tools.',
+};
+const diagram = {
+  layout: 'nodes-flow', kind: 'diagram',
+  nodes: [{id: 'a', label: 'USER'}, {id: 'b', label: 'AGENT'}, {id: 'c', label: 'REPO'}],
+  steps: [{from: 'a', to: 'b', packet: 'TASK', status: 'you describe the change'}],
+};
+
+test('a code scene with no code body becomes a valid spec instead of a seed fallback', () => {
+  const broken = {...base, scenes: [diagram, {layout: 'vertical-stack', kind: 'code', language: 'python', steps: []}]};
+  assert.equal(validateSpec(broken).valid, false, 'ham hâli geçersiz olmalı');
+  const fixed = repairSpec(broken);
+  assert.equal(validateSpec(fixed).valid, true, validateSpec(fixed).errors?.join('; '));
+  assert.equal(fixed.scenes.length, 1, 'onarılamayan kod sahnesi düşürülür');
+});
+
+test('a code scene WITH code survives untouched', () => {
+  const spec = {...base, scenes: [{layout: 'nodes-flow', kind: 'code', language: 'python',
+    code: 'agent.run(task)\nagent.verify()', reveal: 'typing'}]};
+  const fixed = repairSpec(spec);
+  assert.equal(validateSpec(fixed).valid, true);
+  assert.equal(fixed.scenes[0].code, 'agent.run(task)\nagent.verify()');
+});
+
+test('over-long labels, packets and statuses are trimmed to the schema limits', () => {
+  const spec = {...base, scenes: [{
+    layout: 'cycle',
+    heading: 'x'.repeat(60),
+    nodes: [{id: 'a', label: 'A VERY LONG NODE LABEL HERE'}, {id: 'b', label: 'B'}, {id: 'c', label: 'C'}],
+    steps: [{from: 'a', to: 'b', packet: 'TOOLONGPACKET', status: 'y'.repeat(80)}],
+  }]};
+  const fixed = repairSpec(spec);
+  assert.equal(validateSpec(fixed).valid, true, validateSpec(fixed).errors?.join('; '));
+  assert.equal(fixed.scenes[0].nodes[0].label.length, 16);
+  assert.equal(fixed.scenes[0].steps[0].packet, 'TOOLON');
+  assert.equal(fixed.scenes[0].steps[0].status.length, 40);
+});
+
+test('steps pointing at a non-existent node are dropped', () => {
+  const spec = {...base, scenes: [{...diagram, steps: [
+    {from: 'a', to: 'b', packet: 'OK', status: 'real edge'},
+    {from: 'a', to: 'ghost', packet: 'BAD', status: 'node does not exist'},
+  ]}]};
+  const fixed = repairSpec(spec);
+  assert.equal(fixed.scenes[0].steps.length, 1);
+  assert.equal(validateSpec(fixed).valid, true);
+});
+
+test('an already-valid spec is returned unchanged in substance', () => {
+  const spec = {...base, scenes: [diagram]};
+  const fixed = repairSpec(spec);
+  assert.equal(validateSpec(fixed).valid, true);
+  assert.deepEqual(fixed.scenes[0].nodes, diagram.nodes);
+});
+
+test('repairSpec does not mutate its input', () => {
+  const spec = {...base, scenes: [{layout: 'nodes-flow', kind: 'code', language: 'python'}]};
+  repairSpec(spec);
+  assert.equal(spec.scenes[0].kind, 'code');
+});
