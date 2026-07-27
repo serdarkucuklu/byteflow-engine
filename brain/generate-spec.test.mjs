@@ -183,18 +183,30 @@ test('the prompt requires a detailed, numbered, educational caption structure', 
   assert.match(promptText, /Follow @byteflowlabs for AI systems, no hype\./);
 });
 
-test('the prompt steers toward concrete name-brand product topics within the pillar', async () => {
-  const capture = {};
-  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar, fetchFn: fakeFetchCapturing(capture)});
-  const promptText = capture.body.contents[0].parts[0].text;
-  assert.match(promptText, /ChatGPT/);
-  assert.match(promptText, /Claude/);
-  assert.match(promptText, /Gemini/);
-  assert.match(promptText, /Grok/);
-  // ekosistem özellikleri (skills, plugins, GPTs...) de konu havuzunda
-  assert.match(promptText, /Claude Skills/);
-  assert.match(promptText, /plugins/);
-  assert.match(promptText, /trending headlines/i);
-  // anti-hype angle must still be required even when the topic is a product
-  assert.match(promptText, /anti-hype/i);
+test('the prompt steers toward the BRAND\'s named examples, not hardcoded AI products', async () => {
+  // Varsayılan (marka verilmezse) AI örnekleri.
+  const ai = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar, fetchFn: fakeFetchCapturing(ai)});
+  const aiPrompt = ai.body.contents[0].parts[0].text;
+  assert.match(aiPrompt, /Claude Code/);
+  assert.match(aiPrompt, /trending headlines/i);
+  assert.match(aiPrompt, /anti-hype/i);
+
+  // Başka nişteki bir marka: AI ürün adları prompt'a SIZMAMALI (canlı hata: cilt bakımı
+  // sayfası 'Claude Code: SPF vs PA' başlığı üretti).
+  const skin = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: {...fakePillar, timely: true},
+    brand: {handle: '@cilt.kodu', language: 'tr',
+      namedExamples: '"retinol", "niasinamid", "SPF 50"',
+      footageQueries: ['cream texture macro', 'silk fabric flowing'],
+      persona: {name: 'Derin', audience: 'bir cilt bakımı sayfası', voice: 'sakin bir ton', tagline: 'Takip et'}},
+    fetchFn: fakeFetchCapturing(skin),
+  });
+  const skinPrompt = skin.body.contents[0].parts[0].text;
+  assert.match(skinPrompt, /retinol/);
+  assert.doesNotMatch(skinPrompt, /Claude Code|GPT-5|Gemini 3 Flash/, 'AI ürünleri sızmamalı');
+  assert.match(skinPrompt, /cream texture macro/, 'b-roll listesi markadan gelmeli');
+  assert.doesNotMatch(skinPrompt, /circuit board macro/, 'teknoloji b-roll listesi sızmamalı');
+  assert.match(skinPrompt, /written in Turkish/i);
 });

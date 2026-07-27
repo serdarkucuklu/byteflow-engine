@@ -52,7 +52,9 @@ console.log(`✓ pillar: ${pillar.key}${pillar.timely ? ' (timely)' : ''}` +
   (pillarStats.groups.get(pillar.key) ? ` [skor ${pillarStats.groups.get(pillar.key).score}]` : ' [veri yok]'));
 
 const seeds = JSON.parse(readFileSync(brand.paths.seeds, 'utf8'));
-const {spec: rawSpec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, brand, seeds, pickSeed: randomSeed});
+// Beyin, markanın b-roll beyaz listesini de görsün (yoksa teknoloji sorguları öneriyordu).
+const brandForBrain = {...brand, footageQueries: footageSetFor(brand.footageSet)};
+const {spec: rawSpec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, brand: brandForBrain, seeds, pickSeed: randomSeed});
 // Ekrandaki metinlerde markdown vurgusu kalmasın ("your *real* safety net" yıldızlarıyla basılıyordu).
 const spec = stripMarkdown(rawSpec);
 

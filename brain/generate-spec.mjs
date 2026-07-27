@@ -17,7 +17,7 @@ const RESPONSE_SCHEMA = {
     // Arka plandaki b-roll için stok-video arama sorguları (fetch/fetch-footage.mjs).
     // enum: b-roll konusu beyaz listeden seçilmek ZORUNDA — serbest metin sorgusu
     // insanlı klip getiriyordu ve sayfa faceless (bkz. fetch/fetch-footage.mjs).
-    footage_queries: {type: 'ARRAY', items: {type: 'STRING', enum: SAFE_FOOTAGE_QUERIES}},
+    footage_queries: {type: 'ARRAY', items: {type: 'STRING'}},   // beyaz liste prompt'ta + fetch tarafında zorlanıyor
     // narration: seslendirilecek cümleler — videonun ZAMANLAMASINI bunlar belirliyor
     // (publish/voiceover.mjs → spec.beats). Aynı metin ekranda altyazı olarak da akıyor.
     narration: {type: 'ARRAY', items: {type: 'STRING'}},
@@ -66,6 +66,10 @@ const PROMPT = (candidates, recentTitles = [], pillar, brand = {}) => {
 const persona = {...DEFAULT_PERSONA, ...(brand.persona ?? {})};
 const handle = brand.handle ?? '@byteflowlabs';
 const lang = brand.language && brand.language !== 'en' ? LANG_NAMES[brand.language] ?? brand.language : null;
+// Konu evreni markadan gelir: AI sayfasında ürün adı, cilt bakımı sayfasında etken madde.
+const namedExamples = brand.namedExamples
+  ?? '"Claude Code", "GPT-5.2", "Gemini 3 Flash", "MCP"';
+const footageList = (brand.footageQueries?.length ? brand.footageQueries : SAFE_FOOTAGE_QUERIES);
 const langBlock = lang ? `
 LANGUAGE — HARD RULE: every viewer-facing string MUST be written in ${lang}, not English:
 hook, title, scene headings, node labels, step statuses, narration sentences, takeaway and the
@@ -78,24 +82,17 @@ with ${persona.voice}.
 Faceless, no fluff.
 ${langBlock}
 TODAY'S PILLAR is "${pillar.key}": ${pillar.focus}
-${pillar.timely ? `This is a NEWS pillar: anchor the video on ONE real, RECENT release from the trending
-headlines below — a new model version bump or a newly shipped feature (a new desktop app, design
-tool, flow builder, voice/omni mode, agent capability). Lead with what JUST changed and what it
-actually means; skip evergreen theory unless it is needed to explain the news.
-HARD RULE for this pillar: the title AND the hook must each NAME the product or model version
-concretely (e.g. "Claude Code", "GPT-5.2", "Gemini 3 Flash", "Grok 5") — not a generic phrase
-like "the new model" or "AI agents". Named, specific videos measurably outperform abstract ones
-on this account, so the name has to be on screen in the first frame.
+${pillar.timely ? `This is a TIMELY pillar: anchor the video on ONE real, recent development from the
+trending headlines below. Lead with what JUST changed and what it actually means.
+HARD RULE for this pillar: the title AND the hook must each NAME the thing concretely
+(${namedExamples}) — not a generic phrase. Named, specific videos measurably outperform abstract
+ones, so the name has to be on screen in the first frame.
 ` : ''}Pick ONE sharp, specific idea INSIDE this pillar to explain as a 25-30s animated diagram.
 Prefer a contrarian / "most people get this wrong" / "here's what actually happens" angle.
-WITHIN the pillar, PREFER concrete, name-brand topics about the real products people are
-curious about and pay for — ChatGPT, Claude, Gemini, Grok, GPT-5, Claude Max, ChatGPT Plus, Sonnet —
-and their ECOSYSTEM features: Claude Code, Claude Skills, Projects, Artifacts, MCP, custom GPTs,
-ChatGPT apps/plugins, Gemini Gems/extensions, Grok modes — when they naturally fit the pillar,
-over generic/abstract framing. The trending headlines below
-are fresh inspiration for WHICH idea inside the pillar is timely — use them to catch a real,
-recent release or feature ("X just shipped Y") when one fits the pillar. Keep the anti-hype
-angle even on product topics: explain what's actually new/different, not marketing language.
+WITHIN the pillar, PREFER concrete, named topics people actually search for and spend money on
+(${namedExamples}) over generic/abstract framing. The trending headlines below are fresh
+inspiration for WHICH idea inside the pillar is timely. Keep the anti-hype angle even on product
+topics: explain the mechanism, not the marketing language.
 Do NOT drift to a topic outside the pillar.
 ${recentTitles.length ? `
 Do NOT repeat or closely resemble any of these recently-posted topics:
@@ -120,7 +117,9 @@ Produce a scene-spec with these fields:
 - node.brand is OPTIONAL and PREFERRED whenever a card IS a real product — it draws that
   product's actual logo instead of a generic emoji. Allowed values ONLY: ${BRAND_KEYS.join(', ')}.
   Use it for product cards (a Claude card -> brand "claude", the OpenAI API -> "openai",
-  a Gemini card -> "gemini"). Do NOT brand a concept card ("CONTEXT WINDOW" is not a brand).
+  a Gemini card -> "gemini"). Do NOT brand a concept card (a mechanism or a phase is not a brand).
+  If this page's topic has no matching brand key, simply omit node.brand — the card gets a
+  numbered badge instead, which is the norm for non-product pages.
 - Do NOT use emoji anywhere (no node.icon). Cards that are not a product get a numbered badge
   automatically, which reads cleaner than emoji on a dark UI.
 - 2 or 3 steps per scene (3 is the norm, 4 only if the mechanism truly needs it — every step
@@ -150,10 +149,10 @@ VARIETY & TEACHING RULES (hard requirements):
   cynical — a wrong claim on screen costs this account more than a boring one.
 - In "hub-spoke", the FIRST node in the array is drawn in the CENTER, so it must be the
   coordinator/orchestrator — never a leaf like the user or a database.
-- NEVER INVENT A VERSION NUMBER. Only write a version string (e.g. "3.7", "GPT-5.2") if that
-  exact version appears in the headlines below. Otherwise name the product WITHOUT a version
-  ("CLAUDE CODE", not "CLAUDE 3.7"). Your training data is older than today; a stale version
-  number on screen makes the whole video look wrong to the people who actually follow this.
+- NEVER INVENT A NUMBER YOU CANNOT SOURCE. Version numbers, percentages, concentrations and
+  study years may only appear if they are in the headlines below or are textbook-stable facts.
+  Your training data is older than today; a stale or invented number on screen destroys trust
+  with exactly the audience that knows the subject.
 - TEACHING beats aesthetics: each node is a real concept, each step.status explains in plain
   words what is actually happening at that moment. A viewer should finish the video genuinely
   understanding the mechanism, not just having watched shapes move.
@@ -169,8 +168,8 @@ VARIETY & TEACHING RULES (hard requirements):
      in plain language and defining any jargon inline (e.g. "1. Tokenization — your text is
      split into tokens (chunks of ~4 characters), not words."). This numbered list is the core
      of the caption — it must actually teach the mechanism, not just tease it.
-  4. When the topic is product-related (ChatGPT, Claude, Gemini, paid tiers, etc.), one short
-     line on why it matters / what you're actually paying for.
+  4. When the topic involves a product or a purchase decision, one short line on what actually
+     matters when choosing / what you are really paying for.
   5. An anti-hype closing line, e.g. "No magic — just next-token prediction at scale."
   6. A save CTA on its own line, e.g. "📌 Save this so you don't forget how it works."
   7. A share CTA on its own line, e.g. "🔁 Send it to someone who thinks it's magic."
@@ -186,7 +185,7 @@ VARIETY & TEACHING RULES (hard requirements):
     "#chatgpt", "#gemini", "#claudecode").
   Never invent a brand tag for a product the video does not cover.
 - footage_queries: EXACTLY 2 entries, each copied VERBATIM from this list (no other value is
-  accepted, no rewording): ${SAFE_FOOTAGE_QUERIES.map(q => `"${q}"`).join(', ')}.
+  accepted, no rewording): ${footageList.map(q => `"${q}"`).join(', ')}.
   These play ONLY behind the opening line and the closing line — the teaching part of the video
   sits on a clean designed surface — so pick for MOOD, not subject: 1. an opening shot matching
   the tension of the hook, 2. a calmer closing shot.

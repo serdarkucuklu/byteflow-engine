@@ -13,7 +13,8 @@ import {execFileSync} from 'node:child_process';
 import {writeFileSync, mkdirSync, existsSync} from 'node:fs';
 import {join} from 'node:path';
 
-const MODEL = 'gemini-2.5-flash-preview-tts';
+// Ücretsiz kota flash-tts'te dolduğunda (429) pro-tts açık kalabiliyor → sırayla dene.
+const MODELS = ['gemini-2.5-flash-preview-tts', 'gemini-2.5-pro-preview-tts'];
 const RATE = 24000;                 // Gemini TTS çıktısı: 24kHz, 16-bit, mono PCM
 export const VOICES = ['Kore', 'Puck', 'Charon', 'Fenrir', 'Aoede'];
 const GAP = 0.16;                   // cümleler arası nefes payı (sn)
@@ -56,7 +57,7 @@ export async function synthesizeScript({
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       const res = await fetchFn(
-        `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/${MODELS[Math.min(attempt, MODELS.length - 1)]}:generateContent?key=${apiKey}`,
         {
           method: 'POST', headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -89,7 +90,7 @@ export async function synthesizeScript({
       }
       return {file, total, phrases: alignPhrases({file, lines, total, run})};
     } catch (e) {
-      console.error(`[vo] deneme ${attempt}: ${e.message}`);
+      console.error(`[vo] deneme ${attempt} (${MODELS[Math.min(attempt, MODELS.length - 1)]}): ${e.message}`);
       // 429 ücretsiz TTS kotasının dakikalık penceresi — kısa beklemek işe yaramıyor,
       // pencerenin kapanmasını beklemek gerekiyor (canlı: 4sn ve 8sn beklemede de 429).
       if (attempt < retries) await sleep(20000 * (attempt + 1));
