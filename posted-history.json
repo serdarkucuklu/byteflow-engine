@@ -419,5 +419,21 @@
     "voiceName": "Aoede",
     "date": "2026-07-27",
     "durSec": 18.5
+  },
+  {
+    "title": "Claude Code Context Rot",
+    "pillar": "coding-environments",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#bc8cff",
+    "source": "gemini",
+    "footage": [
+      "pexels:server led lights macro",
+      "pexels:empty data center aisle"
+    ],
+    "voice": 6,
+    "voiceName": "Kore",
+    "date": "2026-07-27",
+    "durSec": 18
   }
 ]

@@ -1,79 +1,79 @@
 {
-  "hook": "Your ChatGPT Search fails when it rewrites prompts.",
-  "title": "ChatGPT Search Query Expansion",
+  "hook": "Your Claude Code session degrades during long runs.",
+  "title": "Claude Code Context Rot",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "user",
-          "label": "USER PROMPT"
+          "id": "claude",
+          "label": "CLAUDE CODE",
+          "brand": "claude"
         },
         {
-          "id": "qgen",
-          "label": "QUERY GENERATOR"
+          "id": "bash",
+          "label": "TERMINAL EXEC"
         },
         {
-          "id": "web",
-          "label": "WEB SEARCH"
+          "id": "stdout",
+          "label": "RAW OUTPUT"
         },
         {
-          "id": "chatgpt",
-          "label": "CHATGPT SYNTHESIS",
-          "brand": "chatgpt"
+          "id": "context",
+          "label": "CONTEXT WINDOW"
         }
       ],
       "steps": [
         {
-          "from": "user",
-          "to": "qgen",
-          "packet": "PROMPT",
-          "status": "user submits prompt with strict rules",
+          "from": "claude",
+          "to": "bash",
+          "packet": "EXEC",
+          "status": "agent issues a shell command",
           "color": "accent"
         },
         {
-          "from": "qgen",
-          "to": "web",
-          "packet": "SEARCH",
-          "status": "generator converts prompt into keywords",
+          "from": "bash",
+          "to": "stdout",
+          "packet": "LOGS",
+          "status": "command outputs verbose terminal logs",
           "color": "warn"
         },
         {
-          "from": "web",
-          "to": "chatgpt",
-          "packet": "RESULT",
-          "status": "web snippets injected into context",
-          "color": "good"
+          "from": "stdout",
+          "to": "context",
+          "packet": "FLOOD",
+          "status": "unfiltered text degrades model focus",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Your ChatGPT Search prompt isn't directly searching the web.\n\nHere's what actually happens when you search in ChatGPT:\n\n1. User Prompt — You submit a prompt containing specific constraints, date limits, or negative rules.\n2. Query Generator — An intermediate LLM pass translates your prompt into standalone keyword queries, often dropping nuanced conditions.\n3. Web Search — The backend executes these simplified queries against web search APIs.\n4. ChatGPT Synthesis — Returned web snippets are stuffed into context alongside your prompt to synthesize the final answer.\n\nWhen ChatGPT Search hallucinates or misses strict rules, query expansion usually stripped those constraints before hitting the web.\n\nNo magic — just keyword transformation before context injection.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Your Claude Code session gets dumber the longer you work in a single terminal session.\n\nHere's what actually happens when an agent runs shell tools:\n\n1. Claude Code — the CLI agent formats a user request into a tool invocation call.\n2. Terminal Exec — the underlying shell runner executes commands like build tools or test suites.\n3. Raw Output — standard output returns thousands of verbose log lines back to the agent.\n4. Context Window — unfiltered terminal logs fill context space, diluting instructions and causing context rot.\n\nWhen terminal outputs fill the context window, prompt space for reasoning drops and error rates spike.\n\nNo magic — just finite context buffers handling uncontrolled stdout streams.\n\n📌 Save this so you don't forget how it works.\n\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\n\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
     "#ai",
-    "#llm",
-    "#chatgpt",
-    "#openai",
-    "#chatgptsearch",
-    "#rag",
+    "#softwareengineering",
+    "#claudecode",
+    "#aiagents",
     "#aiengineering",
-    "#promptengineering"
+    "#promptengineering",
+    "#claudeai",
+    "#anthropic"
   ],
-  "takeaway": "Query expansion trades your exact constraints for context.",
+  "takeaway": "Filter terminal output before it poisons your agent context.",
   "footage_queries": [
-    "network connection lines abstract",
-    "server led lights macro"
+    "server led lights macro",
+    "empty data center aisle"
   ],
   "narration": [
-    "Your ChatGPT Search fails when it rewrites prompts.",
-    "Four stages process every web augmented response.",
-    "First, your prompt reaches the query generator.",
-    "Next, it converts your input into keywords.",
-    "Then, web snippets flow to the synthesizer.",
-    "Query expansion trades your exact constraints for context."
+    "Your Claude Code session degrades during long runs.",
+    "Terminal tools feed directly into the context window.",
+    "First, Claude Code executes a shell command.",
+    "Next, terminal commands return verbose output streams.",
+    "Finally, noisy logs flood the context window.",
+    "Filter tool outputs to prevent agent context rot."
   ],
-  "theme": "#39d3c3",
+  "theme": "#bc8cff",
   "brand": {
     "handle": "@byteflowlabs",
     "signoff": "AI systems, no hype"
@@ -82,34 +82,34 @@
   "footage": true,
   "beats": [
     {
-      "text": "Your ChatGPT Search fails when it rewrites prompts.",
+      "text": "Your Claude Code session degrades during long runs.",
       "start": 0.35,
-      "dur": 3.009
+      "dur": 2.848
     },
     {
-      "text": "Four stages process every web augmented response.",
-      "start": 3.359,
-      "dur": 2.891
+      "text": "Terminal tools feed directly into the context window.",
+      "start": 3.198,
+      "dur": 2.96
     },
     {
-      "text": "First, your prompt reaches the query generator.",
-      "start": 6.251,
-      "dur": 2.773
+      "text": "First, Claude Code executes a shell command.",
+      "start": 6.158,
+      "dur": 2.457
     },
     {
-      "text": "Next, it converts your input into keywords.",
-      "start": 9.024,
-      "dur": 2.537
+      "text": "Next, terminal commands return verbose output streams.",
+      "start": 8.615,
+      "dur": 3.016
     },
     {
-      "text": "Then, web snippets flow to the synthesizer.",
-      "start": 11.561,
-      "dur": 2.537
+      "text": "Finally, noisy logs flood the context window.",
+      "start": 11.631,
+      "dur": 2.513
     },
     {
-      "text": "Query expansion trades your exact constraints for context.",
-      "start": 14.099,
-      "dur": 4.522
+      "text": "Filter tool outputs to prevent agent context rot.",
+      "start": 14.144,
+      "dur": 3.837
     }
   ],
   "thumbOffset": 1450
