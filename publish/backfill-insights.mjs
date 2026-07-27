@@ -1,11 +1,23 @@
 // publish/backfill-insights.mjs
 // Geçmişteki, mediaId'si olan ama insights'ı henüz olmayan ve >20s (saat) yaşındaki
 // postların insight'larını doldurur. Yayını bloklamaz — best-effort.
-import {readFileSync, writeFileSync} from 'node:fs';
+import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {fetchInsights} from './fetch-insights.mjs';
+import {loadBrand, credentials} from '../brands/load.mjs';
 
-const token = process.env.IG_ACCESS_TOKEN;
-const histPath = new URL('../posted-history.json', import.meta.url);
+// MARKAYA DUYARLI: her sayfanın kendi geçmişi ve kendi token'ı var. Sabit yol kullanılırsa
+// ikinci sayfanın skor tablosu hiç dolmaz (ve birinci sayfanınki yanlış token'la denenir).
+const brand = loadBrand();
+const token = credentials(brand).igToken;
+const histPath = brand.paths.history;
+if (!existsSync(histPath)) {
+  console.log(`· ${brand.slug}: geçmiş dosyası yok, doldurulacak insight yok`);
+  process.exit(0);
+}
+if (!token) {
+  console.log(`· ${brand.slug}: IG token yok, insight atlandı`);
+  process.exit(0);
+}
 const hist = JSON.parse(readFileSync(histPath));
 const MIN_AGE_MS = 20 * 3600 * 1000;
 const REFRESH_WINDOW_MS = 14 * 24 * 3600 * 1000;   // 2 hafta boyunca sayılar büyümeye devam eder

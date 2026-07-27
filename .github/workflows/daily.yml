@@ -2,7 +2,9 @@ name: ByteFlow Daily Reel
 
 on:
   schedule:
-    - cron: '0 9 * * *'   # her gün 09:00 UTC (12:00 TR)
+    # Her sayfa KENDİ kitlesinin en iyi saatinde çıkar (cron → marka eşlemesi aşağıda):
+    - cron: '0 15 * * *'    # byteflow — 15:00 UTC: ABD sabahı (11:00 ET) + Avrupa akşamı
+    - cron: '20 16 * * *'   # ciltkodu — 16:20 UTC: koşu ~8dk, yayın ~19:30 TR (TR akşam zirvesi)
   workflow_dispatch:
     inputs:
       publish:
@@ -28,8 +30,12 @@ jobs:
       fail-fast: false
       max-parallel: 1
       matrix:
-        # YENİ MARKA EKLERKEN: slug'ı bu listeye ekle + aşağıdaki yayın adımına secret'larını.
-        brand: ${{ fromJSON(inputs.brand != '' && format('["{0}"]', inputs.brand) || '["byteflow"]') }}
+        # Marka seçimi: elle tetiklemede girdi, zamanlanmışta HANGİ CRON tetiklediyse o marka.
+        # YENİ MARKA EKLERKEN: cron ekle + buraya eşle + yayın adımına secret'larını koy.
+        brand: ${{ fromJSON(
+          inputs.brand != '' && format('["{0}"]', inputs.brand)
+          || (github.event.schedule == '20 16 * * *' && '["ciltkodu"]')
+          || '["byteflow"]') }}
     concurrency:
       group: byteflow-daily-${{ matrix.brand }}
       cancel-in-progress: false

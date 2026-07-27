@@ -12,8 +12,8 @@ name: Onaylı Reel Yayını (kuyruk)
 
 on:
   schedule:
-    - cron: '0 15 * * *'   # 15:00 UTC = 18:00 TR — otomatik 12:00 TR yayınından 6 saat sonra,
-                            # ABD sabahı + Avrupa akşamı penceresi
+    - cron: '0 12 * * *'   # 12:00 UTC = 15:00 TR — byteflow'un günlük yayınından (15:00 UTC)
+                            # 3 saat önce; iki post birbirini kırmasın
   workflow_dispatch:
 
 permissions:
