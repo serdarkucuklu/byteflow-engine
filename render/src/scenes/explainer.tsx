@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt, Layout, Line, Path, Code, LezerHighlighter} from '@motion-canvas/2d';
-import {all, delay, createRef, waitFor, easeOutCubic, easeInOutCubic, easeOutQuad} from '@motion-canvas/core';
+import {all, delay, createRef, waitFor, useThread, easeOutCubic, easeInOutCubic, easeOutQuad} from '@motion-canvas/core';
 import {COLORS, FONTS, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
 import {motionTarget} from '../lib/motion-registry.mjs';
@@ -36,6 +36,17 @@ const pacing = computePacing(specShape(spec), motionTarget(BUILDUP_WEIGHT));
 // beats[0]=hook, beats[1..n]=adımlar, beats[son]=kapanış. Yoksa eski governor devrede.
 const BEATS = Array.isArray(spec.beats) && spec.beats.length >= 3 ? spec.beats : null;
 const beatDur = (i: number, fallback: number) => (BEATS?.[i]?.dur ?? fallback);
+const beatStart = (i: number) => BEATS?.[i]?.start ?? null;
+
+// MUTLAK ZAMAN SENKRONU: göreli sürelerin toplamı sapıyor (ilk sesli koşuda ses 23.9s iken
+// video 27.3s oldu → altyazı konuşmanın gerisine düştü). Her beat'in BAŞINDA sahne saatini
+// sesin zamanına çekiyoruz; sapma birikmiyor, fazlalık sonraki beat'in molasından kesiliyor.
+function* syncTo(t: number | null) {
+  if (t == null) return;
+  const delta = t - useThread().time();
+  if (delta > 0.02) yield* waitFor(delta);
+}
+const nowSec = () => useThread().time();
 
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
@@ -56,7 +67,7 @@ function connectors(layout: string, count: number): [number, number][] {
 }
 
 // Kart içi görsel: marka sembolü (varsa) → emoji → yok.
-function nodeGlyph(node: {icon?: string; brand?: string}, size: number) {
+function nodeGlyph(node: {icon?: string; brand?: string}, size: number, index: number, accent: string) {
   const brand = brandOf(node.brand);
   // Sembol SABİT boyutlu bir kutuya konur: Path'in kendi sınır kutusu flex düzende yer
   // ayırmıyordu ve logo etiketin ALTINDA kalıyordu (2026-07-27 CI karesinde görüldü).
@@ -76,14 +87,15 @@ function nodeGlyph(node: {icon?: string; brand?: string}, size: number) {
       </Rect>
     );
   }
-  if (node.icon) {
-    return (
-      <Rect width={size} height={size} justifyContent="center" alignItems="center">
-        <Txt text={node.icon} fontSize={Math.round(size * 0.86)} />
-      </Rect>
-    );
-  }
-  return null;
+  // Marka yoksa emoji DEĞİL, numaralı rozet: koyu arayüzde emoji ucuz duruyor; numara hem
+  // premium hem de adım sırasını görsel olarak öğretiyor (Serdar: "en premium hâli bu değil").
+  return (
+    <Rect width={size} height={size} radius={size / 2} fill={`${accent}1f`}
+      stroke={`${accent}59`} lineWidth={1.5} justifyContent="center" alignItems="center">
+      <Txt text={String(index + 1).padStart(2, '0')} fill={accent} fontFamily={FONTS.display}
+        fontSize={Math.round(size * 0.42)} fontWeight={800} letterSpacing={-0.5} />
+    </Rect>
+  );
 }
 
 export default makeScene2D(function* (view) {
@@ -102,7 +114,9 @@ export default makeScene2D(function* (view) {
   yield* all(hook().opacity(1, 0.5, easeOutCubic), hook().y(-30, 0.7, easeOutCubic));
   yield* all(hookRule().width(180, 0.45, easeOutCubic), hookTag().opacity(0.85, 0.35));
   // Hook, anlatımın ilk cümlesi bitene kadar ekranda kalır (konuşma neyse o kadar).
-  yield* waitFor(Math.max(0.5, beatDur(0, 1.85) - 1.35));
+  const hookOut = beatStart(1);
+  if (hookOut != null) yield* waitFor(Math.max(0.25, hookOut - nowSec() - 0.35));
+  else yield* waitFor(Math.max(0.5, beatDur(0, 1.85) - 1.35));
   yield* all(hook().opacity(0, 0.35), hookRule().opacity(0, 0.3), hookTag().opacity(0, 0.3));
   hookRule().remove();
 
@@ -155,7 +169,7 @@ export default makeScene2D(function* (view) {
     const nodeIndexById: Record<string, number> = {};
     nodes.forEach((n, i) => {
       const box = createRef<Rect>();
-      const glyph = nodeGlyph(n, glyphSize);
+      const glyph = nodeGlyph(n, glyphSize, i, ACCENT);
       container().add(
         <Rect ref={box} width={w} height={h} radius={column ? 24 : 26} fill={CARD_FILL}
           stroke={CARD_STROKE} lineWidth={1.5} x={pos[i].x} y={pos[i].y + RISE} opacity={0} zIndex={1}
@@ -166,7 +180,7 @@ export default makeScene2D(function* (view) {
           {glyph}
           <Txt text={n.label} fill={COLORS.text} fontFamily={FONTS.display} fontSize={labelSize}
             fontWeight={600} letterSpacing={-0.2} lineHeight={labelSize * 1.15}
-            width={column ? w - (glyph ? glyphSize + 96 : 60) : w - 26}
+            width={column ? w - glyphSize - 96 : w - 26}
             textAlign={column ? 'left' : 'center'} textWrap />
         </Rect>,
       );
@@ -210,7 +224,8 @@ export default makeScene2D(function* (view) {
     // ── KURULUM: kartlar sırayla aşağıdan süzülür (beat 1 = "kurulum" cümlesi) ──
     // Ses varsa kurulum TAM O CÜMLE kadar sürer; yoksa governor değerleri kullanılır.
     const edges = Math.max(count - 1, 1);
-    const setupBudget = BEATS ? Math.max(0.9, beatDur(1, 2.2) - 0.45) : 0;
+    // Kurulum, "kurulum cümlesi" konuşulurken bitmeli: kalan gerçek süreye göre hesapla.
+    const setupBudget = BEATS ? Math.max(0.7, (beatStart(2) ?? nowSec() + 2.2) - nowSec()) : 0;
     const enterT = BEATS ? clamp(setupBudget / (count + edges * 0.6), 0.14, 0.5) : pacing.enter;
     const lineT = BEATS ? enterT * 0.6 : pacing.lines;
 
@@ -229,10 +244,10 @@ export default makeScene2D(function* (view) {
 
     // ── AKIŞ: adım başına TEK YÖNLÜ ışık darbesi + odak ─────────────────────
     for (const [si, step] of steps.entries()) {
-      // Adımın TOPLAM süresi = o cümlenin konuşma süresi (ses otorite).
+      // Adım, kendi cümlesi başlarken başlar (ses otorite, sapma birikmez).
+      yield* syncTo(beatStart(si + 2));
       const beatTotal = beatDur(si + 2, pacing.step + pacing.hold + 1.2);
-      const pulseT = BEATS ? clamp(beatTotal * 0.34, 0.55, 1.7) : pacing.step;
-      const holdT = BEATS ? Math.max(0.35, beatTotal - pulseT - 0.72) : pacing.hold + 0.5;
+      const pulseT = BEATS ? clamp(beatTotal * 0.30, 0.5, 1.5) : pacing.step;
       const from = boxes[step.from], to = boxes[step.to];
       if (!from || !to) continue;
       const col = resolveColor(step.color ?? 'accent', ACCENT);
@@ -276,6 +291,11 @@ export default makeScene2D(function* (view) {
 
       // Varış: hedef bir tık yükselir (kart "kabul etti" hissi), sonra okuma molası.
       yield* all(to.y(to.y() - 6, 0.18, easeOutCubic), to.lineWidth(2.5, 0.18));
+      // Mola: bir sonraki cümle başlayana kadar (geri dönüş animasyonuna 0.3s pay bırakarak).
+      const nextAt = beatStart(si + 3) ?? (BEATS ? null : null);
+      const holdT = nextAt != null
+        ? Math.max(0.2, nextAt - nowSec() - 0.3)
+        : (BEATS ? Math.max(0.3, beatTotal * 0.3) : pacing.hold + 0.5);
       yield* waitFor(holdT);
       yield* all(
         to.y(to.y() + 6, 0.3, easeOutCubic), to.lineWidth(1.5, 0.3),
@@ -297,6 +317,8 @@ export default makeScene2D(function* (view) {
   }
 
   // ── ÇIKIŞ ─────────────────────────────────────────────────────────────────
+  // Kapanış cümlesi başlamadan ~0.5s önce sahneyi boşalt (cümle ekrandaki yazıyla başlasın).
+  if (BEATS) yield* syncTo(Math.max(0, (beatStart(BEATS.length - 1) ?? 0) - 0.55));
   yield* all(title().opacity(0, 0.3), titleRule().opacity(0, 0.3));
   const take = createRef<Txt>();
   const rule = createRef<Rect>();
@@ -311,7 +333,8 @@ export default makeScene2D(function* (view) {
   yield* all(rule().width(200, 0.4, easeOutCubic), sign().opacity(0.85, 0.4));
   // Kapanış cümlesi bitene kadar dur; sonra LOOP için kararma (rewatch sinyali algoritmada
   // en güçlü ödüllerden biri — son kare ile ilk kare birbirine bağlansın).
-  const closeT = BEATS ? Math.max(0.6, beatDur(BEATS.length - 1, 1.4) - 1.0) : 1.4;
+  const audioEnd = BEATS ? (beatStart(BEATS.length - 1) ?? 0) + beatDur(BEATS.length - 1, 1.4) : null;
+  const closeT = audioEnd != null ? Math.max(0.5, audioEnd - nowSec() - 0.55) : 1.4;
   yield* waitFor(closeT);
   yield* all(take().opacity(0, 0.45), rule().opacity(0, 0.4), sign().opacity(0, 0.4));
   yield* waitFor(0.12);

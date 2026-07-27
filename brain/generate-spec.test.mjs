@@ -151,7 +151,7 @@ test('the prompt caps density at 3-5 nodes and prefers real brand marks', async 
   // marka sembolleri emoji yerine tercih edilir, emoji sadece somut aktörlerde
   assert.match(promptText, /node\.brand is OPTIONAL and PREFERRED/);
   assert.match(promptText, /claude, anthropic, openai/);
-  assert.match(promptText, /node\.icon is OPTIONAL/);
+  assert.match(promptText, /Do NOT use emoji anywhere/);
   // layout çeşitliliği: 4 kompozisyon da anlatılmış, video-video değişmesi istenmiş
   assert.match(promptText, /vertical-stack/);
   assert.match(promptText, /hub-spoke/);

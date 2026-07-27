@@ -49,7 +49,7 @@ export function layoutPositions(layout: string, count: number): Pos[] {
   switch (layout) {
     case 'hub-spoke': {
       // Koordinatör MERKEZDE, uydular onun etrafında bir halkada — köşe yok.
-      const R = count <= 4 ? 300 : count <= 6 ? 330 : 350;
+      const R = count <= 4 ? 340 : count <= 6 ? 360 : 375;
       const pts: Pos[] = [{x: 0, y: 25}];
       const n = Math.max(count - 1, 1);
       for (let i = 0; i < count - 1; i++) {
@@ -59,7 +59,7 @@ export function layoutPositions(layout: string, count: number): Pos[] {
       return pts.slice(0, count);
     }
     case 'cycle': {
-      const R = count <= 4 ? 290 : count <= 6 ? 325 : 350;
+      const R = count <= 4 ? 330 : count <= 6 ? 355 : 372;
       return Array.from({length: count}, (_, i) => {
         const a = -Math.PI / 2 + (i / count) * 2 * Math.PI;
         return {x: Math.cos(a) * R, y: 25 + Math.sin(a) * R * 0.98};
@@ -86,7 +86,7 @@ export function boxSize(layout: string, count: number): {w: number; h: number} {
     return {w: 780, h: Math.round(h)};
   }
   if (layout === 'hub-spoke' || layout === 'cycle') {
-    return count <= 4 ? {w: 265, h: 190} : count <= 6 ? {w: 235, h: 180} : {w: 212, h: 168};
+    return count <= 4 ? {w: 300, h: 210} : count <= 6 ? {w: 250, h: 190} : {w: 220, h: 174};
   }
   const h = Math.max(94, Math.min(186, (880 - (count - 1) * 30) / count));
   return {w: count <= 5 ? 620 : 560, h: Math.round(h)};

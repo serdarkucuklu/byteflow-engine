@@ -97,9 +97,8 @@ Produce a scene-spec with these fields:
   product's actual logo instead of a generic emoji. Allowed values ONLY: ${BRAND_KEYS.join(', ')}.
   Use it for product cards (a Claude card -> brand "claude", the OpenAI API -> "openai",
   a Gemini card -> "gemini"). Do NOT brand a concept card ("CONTEXT WINDOW" is not a brand).
-- node.icon is OPTIONAL (ONE emoji) and only for cards that are NOT a brand and ARE a concrete
-  actor (a user, a file, a server). Leave abstract cards (a metric, a rule, a phase) with no
-  glyph at all — a uniform emoji grid looks templated.
+- Do NOT use emoji anywhere (no node.icon). Cards that are not a product get a numbered badge
+  automatically, which reads cleaner than emoji on a dark UI.
 - 2 or 3 steps per scene (3 is the norm, 4 only if the mechanism truly needs it — every step
   adds a spoken sentence and therefore seconds). step.from and step.to MUST equal a node.id IN THAT SCENE.
   Each step is ONE beat of the story, in order; never zig-zag back and forth between the same
