@@ -13,6 +13,20 @@ const cut = (s, n) => (typeof s === 'string' && s.length > n ? s.slice(0, n).tri
 function repairScene(scene) {
   const s = {...scene};
 
+  // versus: nodes/steps aranmaz; satır sayısı 4'te tavanlanır.
+  if (s.kind === 'versus') {
+    if (Array.isArray(s.rows)) {
+      s.rows = s.rows.slice(0, 4).map(r => ({
+        ...r,
+        label: cut(r.label, 22), left: cut(r.left, 26), right: cut(r.right, 26),
+      }));
+    }
+    s.left = cut(s.left, 22);
+    s.right = cut(s.right, 22);
+    delete s.nodes; delete s.steps;
+    return s;
+  }
+
   // Kod sahnesi ilan edip kod vermemiş → elde diyagram verisi varsa diyagrama çevir.
   if (s.kind === 'code' && !s.code) {
     delete s.kind;
@@ -70,9 +84,10 @@ function normalizeHashtags(list) {
  * altyazı sessizce desenkron olmaktansa biraz düz bir cümle söylesin.
  */
 function repairNarration(out) {
-  const first = (out.scenes ?? []).find(s => Array.isArray(s.steps) && s.steps.length);
-  const steps = first?.steps ?? [];
-  const want = steps.length + 3;   // hook + kurulum + adımlar + kapanış
+  // Beat sayısı sahne tipine göre: diyagramda adım başına, versus'ta SATIR başına bir cümle.
+  const first = (out.scenes ?? []).find(s => (s.steps?.length ?? 0) || (s.rows?.length ?? 0));
+  const steps = first?.kind === 'versus' ? (first.rows ?? []) : (first?.steps ?? []);
+  const want = steps.length + 3;   // hook + kurulum + adımlar/satırlar + kapanış
   let given = (Array.isArray(out.narration) ? out.narration : [])
     .map(t => String(t).replace(/[*`]/g, '').trim()).filter(Boolean);
   // Fazla cümle: baştakileri koru ama KAPANIŞI kaybetme (son cümle kapanıştır).
@@ -84,7 +99,8 @@ function repairNarration(out) {
     if (i === 0) return sentence(out.hook ?? out.title ?? 'Here is how it actually works');
     if (i === 1) return `Here is what actually happens, in ${steps.length} steps.`;
     if (i === want - 1) return sentence(out.takeaway ?? 'That is the whole mechanism');
-    return sentence(cap(steps[i - 2]?.status ?? 'the next step runs'));
+    const b = steps[i - 2];
+    return sentence(cap(b?.status ?? b?.label ?? 'the next step runs'));
   });
 }
 
@@ -96,7 +112,9 @@ export function repairSpec(spec) {
   for (const key of ['title', 'hook', 'takeaway']) if (key in out) out[key] = cut(out[key], LIMITS[key]);
 
   const scenes = (spec.scenes ?? []).map(repairScene).filter(s =>
-    s.kind === 'code' ? Boolean(s.code) : (s.nodes?.length >= 3 && s.steps?.length >= 1));
+    s.kind === 'code' ? Boolean(s.code)
+      : s.kind === 'versus' ? (s.rows?.length >= 2 && s.left && s.right)
+      : (s.nodes?.length >= 3 && s.steps?.length >= 1));
   // Hepsi düşerse orijinali bırak: validateSpec kararı versin, sessizce boş spec üretme.
   out.scenes = scenes.length ? scenes.slice(0, 2) : (spec.scenes ?? []);
   out.narration = repairNarration(out);

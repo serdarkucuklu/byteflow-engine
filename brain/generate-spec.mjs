@@ -31,7 +31,7 @@ const responseSchemaFor = (brandKeys = BRAND_KEYS) => ({
         type: 'OBJECT',
         required: ['layout'],
         properties: {
-          kind: {type: 'STRING', enum: ['diagram', 'code']},
+          kind: {type: 'STRING', enum: ['diagram', 'code', 'versus']},
           layout: {type: 'STRING', enum: ['nodes-flow', 'vertical-stack', 'hub-spoke', 'cycle']},
           heading: {type: 'STRING'},
           nodes: {type: 'ARRAY', items: {type: 'OBJECT', required: ['id', 'label'],
@@ -49,6 +49,11 @@ const responseSchemaFor = (brandKeys = BRAND_KEYS) => ({
           code: {type: 'STRING'},
           reveal: {type: 'STRING', enum: ['typing', 'lines', 'instant']},
           annotation: {type: 'STRING'},
+          // versus: iki seçenek kafa kafaya (en çok izlenen format)
+          left: {type: 'STRING'}, right: {type: 'STRING'},
+          rows: {type: 'ARRAY', items: {type: 'OBJECT', required: ['label', 'left', 'right'],
+            properties: {label: {type: 'STRING'}, left: {type: 'STRING'}, right: {type: 'STRING'},
+              winner: {type: 'STRING', enum: ['left', 'right', 'tie']}}}},
         },
       },
     },
@@ -131,7 +136,13 @@ ${brandKeys.length ? `- node.brand is OPTIONAL and PREFERRED whenever a card IS 
   Each step is ONE beat of the story, in order; never zig-zag back and forth between the same
   two cards. step.packet <= 6 chars. step.color in {accent, good, warn}.
   step.status <= 40 chars, lowercase — the sentence the viewer reads at that moment.
-- Each scene has a "kind": "diagram" (default) or "code".
+- Each scene has a "kind": "diagram" (default), "code" or "versus".
+  - A "versus" scene compares TWO named options head to head and is the strongest format on
+    this platform. It MUST have: left + right (the two names, <= 22 chars each) and 2-4 rows.
+    Each row = {label (the dimension, <= 22 chars, e.g. "AKTİF", "FİYAT"), left, right
+    (<= 26 chars each, concrete values not adjectives), winner: "left" | "right" | "tie"}.
+    Use it whenever the pillar is a comparison, a dupe/alternative, or "which one should I buy".
+    A versus scene needs NO nodes and NO steps; narration gets one sentence per row.
   - A "diagram" scene MUST have nodes + steps (the rules above).
   - A "code" scene MUST have: language MUST be "python" (all code scenes use Python, since that is
     what the renderer highlights), code (2-6 short lines, <= 600 chars, conceptual/illustrative —

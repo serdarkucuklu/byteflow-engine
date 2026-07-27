@@ -137,11 +137,18 @@ export default makeScene2D(function* (view) {
   view.add(<Rect ref={titleRule} width={0} height={3} radius={2} fill={ACCENT} y={-628} opacity={0.75} />);
   yield* all(title().opacity(0.97, 0.45, easeOutCubic), titleRule().width(120, 0.5, easeOutCubic));
 
-  const ctx = {accent: ACCENT, colors: COLORS, pacing};
+  const ctx = {accent: ACCENT, colors: COLORS, pacing, shadow: SHADOW};
+  // Kaçıncı beat'teyiz: sahneler beat'leri sırayla tüketiyor (hook + kurulum = 2 beat).
+  let beatOffset = 0;
 
   for (const scene of spec.scenes) {
     if (scene.kind === 'code' && scene.code) {
       yield* renderCodeScene(view, scene, ctx);
+      continue;
+    }
+    if (scene.kind === 'versus' && scene.rows?.length) {
+      yield* renderVersusScene(view, scene, ctx, beatOffset);
+      beatOffset += scene.rows.length;
       continue;
     }
 
@@ -480,5 +487,73 @@ function* renderCodeScene(view: any, scene: any, ctx: any) {
   }
 
   yield* all(container().opacity(0, 0.4), container().y(-18, 0.45, easeOutCubic));
+  container().remove();
+}
+
+/**
+ * VERSUS sahnesi — iki seçenek tek boyutta kafa kafaya.
+ * 2026 kısa-video verisi: iki aracın/ürünün çıktısını yan yana koyan videolar erişim ve
+ * kaydetmede sürekli önde. Satır satır açılır; kazanan taraf o satırda vurgulanır.
+ */
+function* renderVersusScene(view: any, scene: any, ctx: any, beatOffset: number) {
+  const {accent, pacing} = ctx;
+  const container = createRef<Layout>();
+  view.add(<Layout ref={container} opacity={1} />);
+
+  const COL = 232, GAP = 26, ROW_H = 118;
+  const rows = (scene.rows ?? []).slice(0, 4);
+  const topY = CLUSTER_Y - (rows.length * ROW_H) / 2 - 60;
+
+  // Başlık satırı: iki taraf
+  const head = (text: string, x: number) => {
+    const t = createRef<Txt>();
+    container().add(<Txt ref={t} text={text} fill={COLORS.text} fontFamily={FONTS.display}
+      fontSize={34} fontWeight={800} letterSpacing={-0.4} x={x} y={topY - 78} opacity={0}
+      width={COL + 60} textAlign="center" textWrap {...ctx.shadow} />);
+    return t();
+  };
+  const leftHead = head(scene.left ?? 'A', -(COL / 2 + GAP / 2 + 40));
+  const rightHead = head(scene.right ?? 'B', COL / 2 + GAP / 2 + 40);
+  const vs = createRef<Txt>();
+  container().add(<Txt ref={vs} text="VS" fill={accent} fontFamily={FONTS.mono} fontSize={26}
+    fontWeight={700} letterSpacing={2} y={topY - 78} opacity={0} />);
+
+  yield* all(leftHead.opacity(1, 0.3, easeOutCubic), rightHead.opacity(1, 0.3, easeOutCubic),
+    vs().opacity(0.9, 0.3));
+
+  // Satırlar: etiket ortada, iki taraf sağda/solda
+  for (const [i, row] of rows.entries()) {
+    const y = topY + i * ROW_H;
+    const label = createRef<Txt>();
+    const cells: Rect[] = [];
+    container().add(<Txt ref={label} text={String(row.label ?? '').toUpperCase()} fill={COLORS.muted}
+      fontFamily={FONTS.mono} fontSize={22} letterSpacing={1.5} y={y - 44} opacity={0} {...ctx.shadow} />);
+
+    for (const side of ['left', 'right'] as const) {
+      const isWinner = row.winner === side;
+      const x = (side === 'left' ? -1 : 1) * (COL / 2 + GAP / 2 + 40);
+      const cell = createRef<Rect>();
+      container().add(
+        <Rect ref={cell} width={COL + 80} height={78} radius={18}
+          fill={isWinner ? `${accent}1c` : CARD_FILL} stroke={isWinner ? `${accent}80` : CARD_STROKE}
+          lineWidth={isWinner ? 2 : 1.5} x={x} y={y} opacity={0}
+          justifyContent="center" alignItems="center" padding={[8, 14]}>
+          <Txt text={String(row[side] ?? '')} fill={isWinner ? COLORS.text : COLORS.muted}
+            fontFamily={FONTS.display} fontSize={27} fontWeight={isWinner ? 700 : 500}
+            width={COL + 52} textAlign="center" textWrap />
+        </Rect>,
+      );
+      cells.push(cell());
+    }
+
+    // Bu satırın kendi beat'i var (ses varsa o cümle konuşulurken açılır).
+    yield* syncTo(beatStart(beatOffset + i + 2));
+    yield* all(label().opacity(0.9, 0.22), ...cells.map(c => c.opacity(1, 0.28, easeOutCubic)));
+    const nextAt = beatStart(beatOffset + i + 3);
+    yield* waitFor(nextAt != null ? Math.max(0.3, nextAt - nowSec() - 0.15) : pacing.hold + 0.9);
+  }
+
+  yield* waitFor(BEATS ? 0.2 : pacing.finalDwell);
+  yield* all(container().opacity(0, 0.4));
   container().remove();
 }

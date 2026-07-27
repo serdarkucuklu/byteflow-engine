@@ -108,8 +108,9 @@ export function boxSize(layout: string, count: number): {w: number; h: number} {
 
 export interface SpecNode {id: string; label: string; icon?: string; brand?: string}
 export interface SpecStep {from: string; to: string; packet: string; color?: string; status: string}
+export interface VersusRow {label: string; left: string; right: string; winner?: 'left' | 'right' | 'tie'}
 export interface SpecScene {
-  kind?: 'diagram' | 'code';
+  kind?: 'diagram' | 'code' | 'versus';
   layout: string;
   heading?: string;
   // diagram
@@ -120,6 +121,10 @@ export interface SpecScene {
   code?: string;
   reveal?: 'typing' | 'lines' | 'instant';
   annotation?: string;
+  // versus: iki ürün/seçenek tek boyutta kafa kafaya (2026 verisi: en çok izlenen format)
+  left?: string;
+  right?: string;
+  rows?: VersusRow[];
 }
 export interface SceneSpec {
   title: string; caption: string; hashtags: string[];

@@ -1,67 +1,281 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "required": ["title", "scenes", "caption", "hashtags"],
+  "required": [
+    "title",
+    "scenes",
+    "caption",
+    "hashtags"
+  ],
   "additionalProperties": true,
   "properties": {
-    "title": {"type": "string", "minLength": 3, "maxLength": 60},
-    "hook": {"type": "string", "minLength": 3, "maxLength": 70},
-    "takeaway": {"type": "string", "minLength": 3, "maxLength": 80},
-    "topic_source": {"type": "string"},
-    "theme": {"type": "string"},
-    "footage": {"type": "boolean"},
-    "narration": {"type": "array", "items": {"type": "string", "minLength": 2, "maxLength": 140}, "maxItems": 8},
-    "beats": {"type": "array", "items": {"type": "object"}},
-    "footage_queries": {"type": "array", "items": {"type": "string", "minLength": 2, "maxLength": 60}, "maxItems": 6},
-    "caption": {"type": "string", "minLength": 1, "maxLength": 2200},
-    "hashtags": {"type": "array", "items": {"type": "string"}, "minItems": 1, "maxItems": 30},
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 60
+    },
+    "hook": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 70
+    },
+    "takeaway": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "topic_source": {
+      "type": "string"
+    },
+    "theme": {
+      "type": "string"
+    },
+    "footage": {
+      "type": "boolean"
+    },
+    "narration": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 140
+      },
+      "maxItems": 8
+    },
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "footage_queries": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 60
+      },
+      "maxItems": 6
+    },
+    "caption": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2200
+    },
+    "hashtags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "maxItems": 30
+    },
     "scenes": {
-      "type": "array", "minItems": 1, "maxItems": 2,
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
       "items": {
         "type": "object",
-        "required": ["layout"],
+        "required": [
+          "layout"
+        ],
         "properties": {
-          "kind": {"type": "string", "enum": ["diagram", "code"]},
-          "layout": {"type": "string", "enum": ["nodes-flow", "vertical-stack", "hub-spoke", "cycle"]},
-          "heading": {"type": "string", "maxLength": 48},
-          "language": {"type": "string", "enum": ["python"]},
-          "code": {"type": "string", "minLength": 1, "maxLength": 600},
-          "reveal": {"type": "string", "enum": ["typing", "lines", "instant"]},
-          "annotation": {"type": "string", "maxLength": 80},
-          "nodes": {
-            "type": "array", "minItems": 3, "maxItems": 5,
+          "kind": {
+            "type": "string",
+            "enum": [
+              "diagram",
+              "code",
+              "versus"
+            ]
+          },
+          "layout": {
+            "type": "string",
+            "enum": [
+              "nodes-flow",
+              "vertical-stack",
+              "hub-spoke",
+              "cycle"
+            ]
+          },
+          "heading": {
+            "type": "string",
+            "maxLength": 48
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "python"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          },
+          "reveal": {
+            "type": "string",
+            "enum": [
+              "typing",
+              "lines",
+              "instant"
+            ]
+          },
+          "annotation": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "left": {
+            "type": "string",
+            "maxLength": 22
+          },
+          "right": {
+            "type": "string",
+            "maxLength": 22
+          },
+          "rows": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 4,
             "items": {
-              "type": "object", "required": ["id", "label"],
+              "type": "object",
+              "required": [
+                "label",
+                "left",
+                "right"
+              ],
               "properties": {
-                "id": {"type": "string"},
-                "label": {"type": "string", "maxLength": 18},
-                "icon": {"type": "string", "maxLength": 4},
-                "brand": {"type": "string", "maxLength": 20}
+                "label": {
+                  "type": "string",
+                  "maxLength": 22
+                },
+                "left": {
+                  "type": "string",
+                  "maxLength": 26
+                },
+                "right": {
+                  "type": "string",
+                  "maxLength": 26
+                },
+                "winner": {
+                  "type": "string",
+                  "enum": [
+                    "left",
+                    "right",
+                    "tie"
+                  ]
+                }
+              }
+            }
+          },
+          "nodes": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "label"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string",
+                  "maxLength": 18
+                },
+                "icon": {
+                  "type": "string",
+                  "maxLength": 4
+                },
+                "brand": {
+                  "type": "string",
+                  "maxLength": 20
+                }
               }
             }
           },
           "steps": {
-            "type": "array", "minItems": 1, "maxItems": 8,
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 8,
             "items": {
-              "type": "object", "required": ["from", "to", "packet", "status"],
+              "type": "object",
+              "required": [
+                "from",
+                "to",
+                "packet",
+                "status"
+              ],
               "properties": {
-                "from": {"type": "string"},
-                "to": {"type": "string"},
-                "packet": {"type": "string", "maxLength": 6},
-                "color": {"type": "string", "enum": ["accent", "good", "warn"]},
-                "status": {"type": "string", "maxLength": 40}
+                "from": {
+                  "type": "string"
+                },
+                "to": {
+                  "type": "string"
+                },
+                "packet": {
+                  "type": "string",
+                  "maxLength": 6
+                },
+                "color": {
+                  "type": "string",
+                  "enum": [
+                    "accent",
+                    "good",
+                    "warn"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "maxLength": 40
+                }
               }
             }
           }
         },
         "oneOf": [
           {
-            "properties": {"kind": {"const": "code"}},
-            "required": ["kind", "code", "language"]
+            "properties": {
+              "kind": {
+                "const": "code"
+              }
+            },
+            "required": [
+              "kind",
+              "code",
+              "language"
+            ]
           },
           {
-            "properties": {"kind": {"not": {"const": "code"}}},
-            "required": ["nodes", "steps"]
+            "properties": {
+              "kind": {
+                "const": "versus"
+              }
+            },
+            "required": [
+              "kind",
+              "left",
+              "right",
+              "rows"
+            ]
+          },
+          {
+            "properties": {
+              "kind": {
+                "not": {
+                  "enum": [
+                    "code",
+                    "versus"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "nodes",
+              "steps"
+            ]
           }
         ]
       }

@@ -130,3 +130,28 @@ test('hashtags are normalised and topped up — a lone tag costs reach', () => {
   const many = repairSpec({...base, hashtags: Array.from({length: 20}, (_, i) => `#tag${i}`), scenes: [diagram]});
   assert.ok(many.hashtags.length <= 9, 'etiket çorbası olmasın');
 });
+
+test('a versus scene keeps its rows and gets one narration line per row', () => {
+  const spec = {...base, narration: ['Kanca.'], scenes: [{
+    kind: 'versus', layout: 'nodes-flow', left: 'PAHALI SERUM', right: 'MUADİL',
+    rows: [
+      {label: 'AKTİF MADDE', left: '%10 niasinamid', right: '%10 niasinamid', winner: 'tie'},
+      {label: 'FİYAT', left: '420 TL', right: '139 TL', winner: 'right'},
+      {label: 'BARİYER DESTEĞİ', left: 'seramid yok', right: '3 seramid', winner: 'right'},
+    ],
+  }]};
+  const fixed = repairSpec(spec);
+  assert.equal(validateSpec(fixed).valid, true, validateSpec(fixed).errors?.join('; '));
+  assert.equal(fixed.scenes[0].rows.length, 3, 'satırlar korunmalı');
+  assert.equal(fixed.narration.length, 6, 'hook + kurulum + 3 satır + kapanış');
+  assert.match(fixed.narration[2], /AKTİF MADDE\./i, 'eksik cümle satır etiketinden üretilir');
+  assert.equal(fixed.scenes[0].nodes, undefined, 'versus sahnesinde node aranmaz');
+});
+
+test('an incomplete versus scene is dropped rather than rendered broken', () => {
+  const good = {layout: 'cycle', nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}, {id: 'c', label: 'C'}],
+    steps: [{from: 'a', to: 'b', packet: 'P', status: 's'}]};
+  const fixed = repairSpec({...base, scenes: [good, {kind: 'versus', layout: 'cycle', left: 'A', rows: []}]});
+  assert.equal(fixed.scenes.length, 1);
+  assert.equal(validateSpec(fixed).valid, true);
+});
