@@ -197,12 +197,16 @@ const out = postProcess({
 try {
   const durSec = parseFloat(execFileSync('ffprobe', ['-v', 'error', '-show_entries',
     'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', out]).toString().trim());
-  spec.thumbOffset = Math.round(durSec * 1000 * 0.58);
+  // KAPAK: profil ızgarasında ve Keşfet'te görünen kare. Videonun %58'i diyagramın yarısı
+  // kurulmuş hâliydi — merak uyandırmıyor. Artık HOOK ANI: büyük, okunur problem cümlesi +
+  // sinematik b-roll. İzleyici daha tıklamadan ne vaat ettiğimizi okuyor.
+  const hookPeak = spec.beats?.[0] ? spec.beats[0].start + Math.min(1.1, spec.beats[0].dur * 0.5) : 1.3;
+  spec.thumbOffset = Math.round(Math.min(hookPeak, durSec * 0.25) * 1000);
   writeFileSync(specPath, JSON.stringify(spec, null, 2));
   // durSec skor tablosunun PAYDASI (retention = izlenen süre / video süresi) — geçmişe yaz.
   history[history.length - 1].durSec = Math.round(durSec * 10) / 10;
   writeFileSync(historyPath, JSON.stringify(history, null, 2));
-  console.log(`✓ kapak thumb_offset: ${spec.thumbOffset}ms (${durSec.toFixed(1)}s videonun %58'i)`);
+  console.log(`✓ kapak: ${spec.thumbOffset}ms (hook anı — ${durSec.toFixed(1)}s videoda)`);
 } catch (e) {
   console.error('⚠ thumb_offset hesaplanamadı (kapak varsayılan kalır):', e.message);
 }
