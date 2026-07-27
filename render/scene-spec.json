@@ -1,99 +1,108 @@
 {
-  "hook": "Microsoft Security Model is not a standard fine-tune.",
-  "title": "Microsoft Security Model",
+  "hook": "ChatGPT Search isn't live browsing. Here's why.",
+  "title": "ChatGPT Search Architecture",
   "scenes": [
     {
       "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "telemetry",
-          "label": "SECURITY LOGS"
+          "id": "user",
+          "label": "CHATGPT PROMPT",
+          "brand": "chatgpt"
         },
         {
-          "id": "sec_model",
-          "label": "COPILOT MODEL",
-          "brand": "copilot"
+          "id": "rewriter",
+          "label": "QUERY EXPANDER"
         },
         {
-          "id": "remediation",
-          "label": "AUTO DEFENSE"
+          "id": "web",
+          "label": "WEB SEARCH INDEX"
+        },
+        {
+          "id": "llm",
+          "label": "SYNTHESIS LLM",
+          "brand": "openai"
         }
       ],
       "steps": [
         {
-          "from": "telemetry",
-          "to": "sec_model",
-          "packet": "LOGS",
-          "status": "raw security logs stream into copilot",
+          "from": "user",
+          "to": "rewriter",
+          "packet": "PROMPT",
+          "status": "rewrites prompt into optimized search qu",
           "color": "accent"
         },
         {
-          "from": "sec_model",
-          "to": "remediation",
-          "packet": "PLAN",
-          "status": "copilot maps threats to defense actions",
-          "color": "warn"
+          "from": "rewriter",
+          "to": "web",
+          "packet": "QUERY",
+          "status": "fetches top web snippets in parallel",
+          "color": "good"
         },
         {
-          "from": "remediation",
-          "to": "sec_model",
-          "packet": "STATUS",
-          "status": "remediation status feeds back to model",
-          "color": "good"
+          "from": "web",
+          "to": "llm",
+          "packet": "DOCS",
+          "status": "synthesizes answer with inline citations",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Microsoft Security Model isn't just another fine-tuned LLM.\n\nHere's what actually happens in automated security orchestration:\n\n1. Security Logs — Raw telemetry from endpoints, cloud infrastructure, and networks stream directly into the system.\n2. Copilot Model — The domain-specific model analyzes signal correlations and generates targeted remediation plans.\n3. Auto Defense — Automated scripts execute threat containment actions and return execution feedback.\n\nWhy it matters: General-purpose LLMs struggle with security context and precise tool execution, while dedicated domain models minimize false positives.\n\nNo magic — just specialized training on domain telemetry.\n\n📌 Save this so you don't forget how domain-specific models work.\n🔁 Send it to someone who thinks standard LLMs can handle SOC ops.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "ChatGPT Search does not just scrape live websites.\n\nHere's what actually happens when you search in ChatGPT:\n\n1. CHATGPT PROMPT — You enter a query that requires live or current real-world information.\n2. QUERY EXPANDER — A fast LLM transforms your natural language request into multiple targeted search queries.\n3. WEB SEARCH INDEX — Search APIs fetch matching document chunks and metadata concurrently.\n4. SYNTHESIS LLM — GPT processes the raw context chunks and generates a formatted reply with exact source links.\n\nYou pay for unified query expansion and reranking, not a web browser.\n\nNo magic web browsing — just automated query generation and dynamic prompt context.\n\n📌 Save this so you don't forget how it works.\n\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\n\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#microsoft"
+    "#chatgpt"
   ],
-  "takeaway": "Domain security models outperform general LLMs in production.",
+  "takeaway": "ChatGPT Search is context injection, not raw browsing.",
   "footage_queries": [
-    "server led lights macro",
-    "circuit board macro"
+    "network connection lines abstract",
+    "server led lights macro"
   ],
   "narration": [
-    "Microsoft Security Model is not a standard fine-tune.",
-    "Three components handle automated threat response here.",
-    "Raw security logs stream into Copilot Security.",
-    "Copilot maps threat patterns to precise defense actions.",
-    "Remediation status feeds directly back into model context.",
-    "Domain security models outperform general LLMs in production."
+    "ChatGPT Search does not just scrape live websites.",
+    "Four simple components handle your search request.",
+    "First GPT rewrites your prompt into search queries.",
+    "Next parallel workers retrieve matching web snippets.",
+    "Finally the model synthesizes answers with inline citations.",
+    "It is smart context injection not raw browsing."
   ],
-  "theme": "#f778ba",
+  "theme": "#39d3c3",
+  "brand": {
+    "handle": "@byteflowlabs",
+    "signoff": "AI systems, no hype"
+  },
   "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "Microsoft Security Model is not a standard fine-tune.",
+      "text": "ChatGPT Search does not just scrape live websites.",
       "start": 0.35,
-      "dur": 3.169
+      "dur": 2.992
     },
     {
-      "text": "Three components handle automated threat response here.",
-      "start": 3.519,
-      "dur": 3.288
+      "text": "Four simple components handle your search request.",
+      "start": 3.342,
+      "dur": 2.992
     },
     {
-      "text": "Raw security logs stream into Copilot Security.",
-      "start": 6.807,
-      "dur": 2.81
+      "text": "First GPT rewrites your prompt into search queries.",
+      "start": 6.334,
+      "dur": 3.052
     },
     {
-      "text": "Copilot maps threat patterns to precise defense actions.",
-      "start": 9.618,
-      "dur": 3.348
+      "text": "Next parallel workers retrieve matching web snippets.",
+      "start": 9.386,
+      "dur": 3.172
     },
     {
-      "text": "Remediation status feeds directly back into model context.",
-      "start": 12.966,
-      "dur": 3.468
+      "text": "Finally the model synthesizes answers with inline citations.",
+      "start": 12.558,
+      "dur": 3.591
     },
     {
-      "text": "Domain security models outperform general LLMs in production.",
-      "start": 16.434,
-      "dur": 4.747
+      "text": "It is smart context injection not raw browsing.",
+      "start": 16.148,
+      "dur": 3.913
     }
   ]
 }
