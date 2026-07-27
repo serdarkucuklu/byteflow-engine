@@ -1,77 +1,79 @@
 {
-  "hook": "Retinolünüz hiçbir işe yaramıyor. İşte nedeni.",
-  "title": "Retinoid Dönüşüm Darboğazı",
+  "hook": "The Ordinary Niasinamid çoğunlukla su ve kıvamlaştırıcılardan oluşur.",
+  "title": "The Ordinary Niasinamid INCI Analizi",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "vertical-stack",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "retinol",
-          "label": "RETİNOL"
+          "id": "water",
+          "label": "AQUA BAZ"
         },
         {
-          "id": "retinal",
-          "label": "RETİNAL"
+          "id": "niacinamide",
+          "label": "NIASINAMID %10"
         },
         {
-          "id": "acid",
-          "label": "RETİNOİK ASİT"
+          "id": "zinc",
+          "label": "ÇİNKO PCA %1"
         },
         {
-          "id": "receptor",
-          "label": "HÜCRE RESEPTÖRÜ"
+          "id": "gellers",
+          "label": "JEL MATRİSİ"
         }
       ],
       "steps": [
         {
-          "from": "retinol",
-          "to": "retinal",
-          "packet": "ENZYME",
-          "status": "retinol önce retinole oksitlenmeli",
-          "color": "warn"
-        },
-        {
-          "from": "retinal",
-          "to": "acid",
-          "packet": "ENZYME",
-          "status": "retinal doğrudan aktif aside dönüşür",
+          "from": "water",
+          "to": "niacinamide",
+          "packet": "AQUA",
+          "status": "su çözünmüş aktifleri taşır",
           "color": "accent"
         },
         {
-          "from": "acid",
-          "to": "receptor",
-          "packet": "BIND",
-          "status": "sadece retinoik asit reseptöre bağlanır",
+          "from": "niacinamide",
+          "to": "zinc",
+          "packet": "10%",
+          "status": "niasinamid bariyer desteği sağlar",
           "color": "good"
+        },
+        {
+          "from": "zinc",
+          "to": "gellers",
+          "packet": "1%",
+          "status": "çinko pca sebum üretimini düzenler",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "1% retinolünüz çoğunlukla inaktif atığa dönüşüyor.İşte cilt hücrelerinizin içinde gerçekten olanlar:1. Retinol — En yaygın reçetesiz form. Kendi başına tamamen inaktif olup, iki aşamalı enzimatik oksidasyon süreci gerektirir.2. Retinal (Retinaldehit) — Ara durum. Aktif hale gelmek için yalnızca tek bir dönüşüm adımı gerektirir, bu da onu retinolden 11 kata kadar daha hızlı yapar.3. Retinoik Asit — Tek biyolojik olarak aktif form (Tretinoin gibi). Tüm dönüşümleri atlar ve doğrudan hücresel reseptörlere bağlanır.4. Hücre Reseptörleri — Ciltteki RAR ve RXR nükleer reseptörleri. Bağlandıklarında, hücreye kolajen sentezini artırması ve hücresel yenilenmeyi hızlandırması için sinyal verirler.Bir retinoid seçerken, şişedeki yüzdeye değil, dönüşüm verimliliğine para ödersiniz.Sihir yok — sadece moleküler biyoloji ve hücresel reseptör yolları.📌 Bunu kaydet ki inaktif formülasyonlara para harcamayasın.🔁 Bunu hala zayıf retinol kullanan birine gönder.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
+  "caption": "The Ordinary Niasinamid formülü çoğunlukla sudan oluşur, ancak bu bilinçli bir tasarımdır.Bu popüler INCI listesinde aslında neler oluyor:1. Aqua Baz — Su, niasinamid gibi suda çözünen aktifleri çözmek için gerekli olan birincil çözücü (~%80) görevi görür.2. Niasinamid %10 — Cilt bariyerini destekleyen ve cilt tonunu eşitleyen, listenin üst sıralarında yer alan aktif bileşen.3. Çinko PCA %1 — Nemi soymadan sebum üretimini düzenleyen bir pirolidon karboksilik asit çinko tuzu.4. Jel Matrisi — Ksantan sakızı ve kıvamlaştırıcılar, serumun ciltte pürüzsüzce kaymasını sağlayan viskozitesini verir.Aslında ödediğiniz şey, pahalı bitkisel dolgu maddeleri değil, aktif konsantrasyonun stabilitesidir.Ciltte sihir yok — sadece hassas kimyasal konsantrasyon ve taşıyıcıda çözünürlük.📌 Nasıl çalıştığını unutmamak için bunu kaydedin.🔁 Daha yüksek yüzdenin daha iyi olduğunu düşünen birine gönderin.Yazan Kai.Follow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
     "#skincare",
-    "#retinol",
-    "#retinal",
-    "#tretinoin",
+    "#içerik",
+    "#incilist",
+    "#kozmetikbilimi",
+    "#ciltbakımbilimi",
+    "#niasinamid",
+    "#theordinary",
     "#ciltbakımı",
-    "#bilim",
-    "#ciltbilimi",
-    "#biotech"
+    "#serum"
   ],
-  "takeaway": "Zayıf türevleri atlayın. Retinal veya reçeteli tretinoin alın.",
+  "takeaway": "Yüksek yüzdeli aktifler uygun çözücü taşıyıcıya bağlıdır.",
   "footage_queries": [
-    "ink drop in water macro",
-    "water surface ripples dark"
+    "water surface ripples dark",
+    "abstract digital particles"
   ],
   "narration": [
-    "Retinolünüz cildinizde hiçbir işe yaramıyor.",
-    "Üç kritik adım aktif yolu kontrol eder.",
-    "Enzimler retinolu retinaldehite oksitlemeli.",
-    "Retinal, saf retinoik aside dönüşür.",
-    "Sadece retinoik asit hücre reseptörlerine bağlanır.",
-    "Dönüşümleri atlayın, retinal veya tretinoin alın."
+    "The Ordinary Niasinamid çoğunlukla su ve kıvamlaştırıcıdır.",
+    "Bu formül dört ana katmandan oluşur.",
+    "Su, her şey için ana taşıyıcıdır.",
+    "Yüzde on Niasinamid bariyer ve tonu hedefler.",
+    "Yüzde bir Çinko PCA sebumu azaltır.",
+    "Yüksek aktifler çözücü taşıyıcıya hala ihtiyaç duyar."
   ],
-  "theme": "#d98c5f",
+  "theme": "#b08bbb",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "cilt bakımı, pazarlama değil",

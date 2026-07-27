@@ -64,5 +64,21 @@
     "durSec": 31,
     "mediaId": "18141193588489372",
     "postedAt": "2026-07-27T22:35:51.358Z"
+  },
+  {
+    "title": "The Ordinary Niasinamid INCI Analizi",
+    "pillar": "icindekiler",
+    "layout": "vertical-stack",
+    "motion": "buildup",
+    "theme": "#b08bbb",
+    "source": "gemini",
+    "footage": [
+      "pexels:cream texture macro",
+      "pexels:serum drop close up"
+    ],
+    "voice": null,
+    "voiceName": null,
+    "date": "2026-07-27",
+    "durSec": 30.9
   }
 ]
