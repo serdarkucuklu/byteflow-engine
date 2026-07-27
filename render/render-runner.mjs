@@ -161,7 +161,8 @@ async function main() {
     // rAF'a bağımsız): ffmpeg render boyunca mp4'e yazar; boyut STABLE_MS boyunca
     // değişmiyorsa render bitmiştir.
     // Alpha modunda mp4 yerine PNG SAYISI stabilizasyonuna bakılır (aynı mantık, farklı sinyal).
-    const STABLE_MS = ALPHA ? 4000 : 3000, MAX_MS = 8 * 60 * 1000, STEP = 1000;
+    // Alpha modu 60fps'te ~1600 PNG yazıyor (mp4 exporter'ından belirgin yavaş) → tavanı yükselt.
+    const STABLE_MS = ALPHA ? 4000 : 3000, MAX_MS = (ALPHA ? 22 : 6) * 60 * 1000, STEP = 1000;
     const progress = () => (ALPHA ? countPngs(FRAMES_DIR) : (existsSync(OUT_PATH) ? statSync(OUT_PATH).size : -1));
     let last = -1, stableFor = 0, elapsed = 0;
     while (elapsed < MAX_MS) {
@@ -171,6 +172,7 @@ async function main() {
       const rendering = await page.evaluate(
         () => document.querySelector('#render')?.hasAttribute('data-rendering'),
       ).catch(() => true);
+      if (ALPHA && elapsed % 30000 === 0) console.log(`  … ${cur} kare (${elapsed / 1000}s)`);
       if (cur > 0 && cur === last) {
         stableFor += STEP;
         if (stableFor >= STABLE_MS && !rendering) break;
