@@ -15,6 +15,10 @@ on:
         description: "Hangi marka (brands/<slug>.json). Boş = tüm markalar."
         type: string
         default: ""
+      spec:
+        description: "Test: hazır bir spec dosyasını render et (ör. render/fixtures/versus-tr.json)"
+        type: string
+        default: ""
 
 
 permissions:
@@ -80,6 +84,7 @@ jobs:
           # kotası günlük; 8-10 test koşusu günün kotasını bitirip GERÇEK yayını sessiz
           # bıraktı (2026-07-27, @cilt.kodu ilk gönderisi). Test = sessiz, yayın = sesli.
           BYTEFLOW_VOICE: ${{ (github.event_name == 'schedule' || inputs.publish) && '1' || '0' }}
+          BYTEFLOW_SPEC: ${{ inputs.spec }}
         run: xvfb-run -a node run-daily.mjs
 
       - name: Videoyu barındır (repo'ya push)

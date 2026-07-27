@@ -1,0 +1,31 @@
+{
+  "title": "Pahalı Serum vs Muadili",
+  "hook": "Aynı aktif, üç kat fiyat farkı.",
+  "takeaway": "Aktif aynıysa fark formülasyonda, fiyatta değil.",
+  "topic_source": "fixture",
+  "pillar": "muadil",
+  "language": "tr",
+  "narration": [
+    "Aynı aktif madde, üç kat fiyat farkı.",
+    "Üç boyutta karşılaştıralım.",
+    "Aktif madde oranı ikisinde de aynı.",
+    "Fiyat farkı üç kata çıkıyor.",
+    "Bariyer desteğinde muadil öne geçiyor.",
+    "Aktif aynıysa fark formülasyonda, fiyatta değil."
+  ],
+  "caption": "Aynı aktif, üç kat fiyat farkı.\n\n1. Aktif madde — iki üründe de %10 niasinamid.\n2. Fiyat — 420 TL'ye karşı 139 TL.\n3. Bariyer — muadilde üç seramid var, pahalı olanda yok.\n\n📌 Kaydet, alışverişten önce bak.\n🔁 Serum arayan birine gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+  "hashtags": ["#ciltbakımı", "#niasinamid", "#muadil", "#skincare", "#serum", "#ciltbakimrutini"],
+  "footage_queries": ["cream texture macro", "marble surface texture"],
+  "scenes": [{
+    "kind": "versus",
+    "layout": "nodes-flow",
+    "heading": "Aynı aktif, farklı fiyat",
+    "left": "PAHALI SERUM",
+    "right": "MUADİL",
+    "rows": [
+      {"label": "AKTİF MADDE", "left": "%10 niasinamid", "right": "%10 niasinamid", "winner": "tie"},
+      {"label": "FİYAT", "left": "420 TL", "right": "139 TL", "winner": "right"},
+      {"label": "BARİYER DESTEĞİ", "left": "seramid yok", "right": "3 seramid", "winner": "right"}
+    ]
+  }]
+}

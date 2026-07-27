@@ -55,14 +55,21 @@ const pillar = selectPillar(recentPillars, history.length, pillarStats,
 console.log(`✓ pillar: ${pillar.key}${pillar.timely ? ' (timely)' : ''}` +
   (pillarStats.groups.get(pillar.key) ? ` [skor ${pillarStats.groups.get(pillar.key).score}]` : ' [veri yok]'));
 
+// TEST KANCASI: BYTEFLOW_SPEC verilirse beyin/çeviri atlanır ve o spec render edilir.
+// Yeni sahne şablonlarını (ör. versus) gerçek render'da doğrulamak için — şablonun bozuk
+// olduğunu YAYIN GÜNÜ öğrenmek kabul edilemez.
+const fixturePath = process.env.BYTEFLOW_SPEC;
+
 const seeds = JSON.parse(readFileSync(brand.paths.seeds, 'utf8'));
 // Beyin, markanın b-roll beyaz listesini de görsün (yoksa teknoloji sorguları öneriyordu).
 const brandForBrain = {...brand, footageQueries: footageSetFor(brand.footageSet)};
-const {spec: rawSpec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, brand: brandForBrain, seeds, pickSeed: randomSeed});
+const {spec: rawSpec, source} = fixturePath
+  ? {spec: JSON.parse(readFileSync(join(root, fixturePath), 'utf8')), source: 'fixture'}
+  : await produceSpec({candidates, apiKey, recentTitles, pillar, brand: brandForBrain, seeds, pickSeed: randomSeed});
 // Ekrandaki metinlerde markdown vurgusu kalmasın ("your *real* safety net" yıldızlarıyla basılıyordu).
 // YERELLEŞTİRME: prompt'a "Türkçe yaz" demek yetmedi (model üç koşuda da İngilizce yazdı).
 // Ayrı, dar kapsamlı bir çeviri adımı yapıyı bozmadan metinleri hedef dile çeviriyor.
-const localized = await localizeSpec({spec: rawSpec, language: brand.language, apiKey});
+const localized = fixturePath ? rawSpec : await localizeSpec({spec: rawSpec, language: brand.language, apiKey});
 const spec = stripMarkdown(localized);
 
 // Görsel çeşitlilik: ardışık videolar aynı tema olmasın (deterministik rotasyon).
