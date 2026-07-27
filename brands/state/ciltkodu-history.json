@@ -30,5 +30,21 @@
     "voiceName": "Kore",
     "date": "2026-07-27",
     "durSec": 23.6
+  },
+  {
+    "title": "Mikroakım Cihazları: Gerçek Mekanizma",
+    "pillar": "cihaz-ve-islem",
+    "layout": "vertical-stack",
+    "motion": "buildup",
+    "theme": "#8fa8c8",
+    "source": "gemini",
+    "footage": [
+      "pexels:cream texture macro",
+      "pexels:serum drop close up"
+    ],
+    "voice": null,
+    "voiceName": null,
+    "date": "2026-07-27",
+    "durSec": 31.5
   }
 ]

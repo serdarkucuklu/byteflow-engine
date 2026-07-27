@@ -1,80 +1,89 @@
 {
-  "hook": "MCP, aracınız çalışmadan binlerce token sızdırır.",
-  "title": "MCP Araç Şeması Yükü",
+  "hook": "Mikroakım cihazınız kasları şekillendirmiyor.",
+  "title": "Mikroakım Cihazları: Gerçek Mekanizma",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "mcp_server",
-          "label": "MCP SUNUCUSU",
-          "brand": "mcp"
+          "id": "DEVICE",
+          "label": "MİKROAKIM CİHAZI"
         },
         {
-          "id": "llm_client",
-          "label": "LLM İSTEMCİSİ",
-          "brand": "claude"
+          "id": "SKIN",
+          "label": "CİLT BARİYERİ"
         },
         {
-          "id": "json_schema",
-          "label": "JSON ŞEMASI"
+          "id": "CELL",
+          "label": "HÜCRESEL DÜZEY"
         },
         {
-          "id": "tool_exec",
-          "label": "ARAÇ YÜRÜTME"
+          "id": "ATP",
+          "label": "ATP SENTEZİ"
+        },
+        {
+          "id": "LIFT",
+          "label": "GEÇİCİ KALDIRMA"
         }
       ],
       "steps": [
         {
-          "from": "mcp_server",
-          "to": "llm_client",
-          "packet": "SCHEMA",
-          "status": "mcp ham araç json tanımlarını ifşa eder",
-          "color": "warn"
-        },
-        {
-          "from": "llm_client",
-          "to": "json_schema",
-          "packet": "TOKENS",
-          "status": "her mevcut araç bağlam penceresini doldurur",
+          "from": "DEVICE",
+          "to": "SKIN",
+          "packet": "SIGNAL",
+          "status": "cilde düşük akım uygulanır",
           "color": "accent"
         },
         {
-          "from": "llm_client",
-          "to": "tool_exec",
-          "packet": "CALL",
-          "status": "model filtrelenmiş aracı seçer ve yürütür",
+          "from": "SKIN",
+          "to": "CELL",
+          "packet": "CURREN",
+          "status": "akım cilt katmanlarından geçer",
+          "color": "accent"
+        },
+        {
+          "from": "CELL",
+          "to": "ATP",
+          "packet": "STIMUS",
+          "status": "elektrik uyarısı ATP artışı iddiası",
           "color": "good"
+        },
+        {
+          "from": "ATP",
+          "to": "LIFT",
+          "packet": "EFFECT",
+          "status": "anlık kaldırma geçici, yapısal değil",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "MCP, aracınız çalışmadan binlerce token sızdırır.Model Bağlam Protokolü aracılığıyla araçları bağladığınızda aslında olanlar şunlardır:1. MCP SUNUCUSU — Mevcut araç uç noktalarını ve tam JSON tanımlarını ifşa eder.2. LLM İSTEMCİSİ — Her araç şemasını doğrudan istem bağlam penceresine enjekte eder, kullanımdan bağımsız olarak token tüketir.3. JSON ŞEMASI — Ayrıntılı parametre açıklamaları, yürütmeden önce bağlam yükünü artırır.4. ARAÇ YÜRÜTME — Model seçimleri ayrıştırır ve eşleşen fonksiyon çağrısını yürütür.Asıl önemli olan: Dinamik araç filtreleme, şişmiş bağlam pencerelerini önler ve API gecikmesini azaltır.Sihir yok — sadece her turda statik şema enjeksiyonu.📌 Nasıl çalıştığını unutmamak için bunu kaydedin.🔁 Sihir olduğunu düşünen birine gönderin.Yazan: Kai.Yapay zeka sistemleri için @byteflowlabs'ı takip edin, abartı yok.",
+  "caption": "Mikroakım cihazınız kasları şekillendirmiyor.İşte sıkça yanlış anlaşılan mekanizma:1. MİKROAKIM CİHAZI: Cihaz, vücudun doğal biyo-elektrik akımlarına benzer, genellikle mikroamper aralığında düşük seviyeli elektrik akımları üretir.2. CİLT BARİYERİ: Bu nazik akımlar cilde uygulanır, önemli bir rahatsızlığa neden olmadan dış koruyucu katmanlarından geçer.3. HÜCRESEL DÜZEY: Bariyeri geçtikten sonra, elektrik sinyalleri kas hücreleri ve fibroblastlar dahil olmak üzere cildin altındaki hücrelerle etkileşime girer.4. ATP SENTEZİ: Bilimsel olarak önerilen birincil fayda, hücreler içinde ATP (Adenozin Trifosfat) üretiminin uyarılmasıdır. ATP, hücresel enerji ve onarım için çok önemlidir, zamanla hücresel fonksiyonun iyileşmesine yol açabilir.5. GEÇİCİ KALDIRMA: Gözlemlediğiniz herhangi bir anlık \"kaldırma\" veya \"sıkılaştırma\" etkisi, kalıcı yapısal değişiklikler veya kas hipertrofisi (büyüme) değil, büyük ölçüde geçici kas kasılması veya sıvı kaymalarından kaynaklanır. Gerçek, kalıcı kas şekillendirme daha önemli kas çalışması gerektirir.Mikroakım cihazlarını düşünürken, dramatik, anlık kaldırma vaatleri yerine hücresel sağlık iddialarına odaklanın.Bu, anlık yüz jimnastiği sonuçları değil, ince hücresel destekle ilgilidir.📌 Bilimi anlamak için bunu kaydedin.🔁 Mikroakım cihazı düşünen biriyle paylaşın.Yazan: Kai.Follow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#ai",
+    "#skincare",
     "#teknoloji",
-    "#mcp",
-    "#yapayzeka",
-    "#promptmühendisliği",
-    "#llmops",
-    "#claudeai",
-    "#yazılım"
+    "#mikroakım",
+    "#ciltbakımcihazları",
+    "#antiaging",
+    "#estetisyen",
+    "#ciltbakımıefsaneleri"
   ],
-  "takeaway": "Araç şemaları, yürütme başlamadan bağlam tüketir.",
+  "takeaway": "Gerçek, kalıcı etkiler genellikle abartılır.",
   "footage_queries": [
-    "server led lights macro",
-    "network connection lines abstract"
+    "smoke swirling dark background",
+    "fiber optic strands"
   ],
   "narration": [
-    "MCP, aracınız çalışmadan binlerce token sızdırır.",
-    "Bu akışta üç bileşen araç çağrısını yönetir.",
-    "İlk olarak, MCP istemciye tam JSON şemaları sunar.",
-    "Kullanılmayan araç tanımları istem bağlamını şişirir.",
-    "Son olarak, LLM sadece hedef aracı yürütür.",
-    "İstem token'ları için kullanılmayan araçları erken filtreleyin."
+    "Mikroakım cihazınız kasları şekillendirmez.",
+    "İşte içeride olanlar.",
+    "Cihaz düşük elektrik sinyalleri gönderir.",
+    "Sinyaller cilt bariyerini geçer.",
+    "Hücrelere ulaşır, ATP'yi artırdığını iddia eder.",
+    "Anlık kaldırma geçici kas kasılmasıdır.",
+    "Gerçek, kalıcı etkiler abartılır."
   ],
-  "theme": "#e8a0a8",
+  "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "cilt bakımı, pazarlama değil"
@@ -89,37 +98,5 @@
   "language": "tr",
   "motion": "buildup",
   "footage": true,
-  "beats": [
-    {
-      "text": "MCP, aracınız çalışmadan binlerce token sızdırır.",
-      "start": 0.35,
-      "dur": 3.61
-    },
-    {
-      "text": "Bu akışta üç bileşen araç çağrısını yönetir.",
-      "start": 3.96,
-      "dur": 3.242
-    },
-    {
-      "text": "İlk olarak, MCP istemciye tam JSON şemaları sunar.",
-      "start": 7.202,
-      "dur": 3.684
-    },
-    {
-      "text": "Kullanılmayan araç tanımları istem bağlamını şişirir.",
-      "start": 10.886,
-      "dur": 3.905
-    },
-    {
-      "text": "Son olarak, LLM sadece hedef aracı yürütür.",
-      "start": 14.791,
-      "dur": 3.168
-    },
-    {
-      "text": "İstem token'ları için kullanılmayan araçları erken filtreleyin.",
-      "start": 17.959,
-      "dur": 5.742
-    }
-  ],
-  "thumbOffset": 1450
+  "thumbOffset": 1300
 }
