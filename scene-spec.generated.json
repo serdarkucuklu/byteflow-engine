@@ -1,100 +1,116 @@
 {
-  "hook": "Microsoft Security Model is not a standard fine-tune.",
-  "title": "Microsoft Security Model",
+  "hook": "Your ChatGPT Search fails when it rewrites prompts.",
+  "title": "ChatGPT Search Query Expansion",
   "scenes": [
     {
       "layout": "nodes-flow",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "telemetry",
-          "label": "SECURITY LOGS"
+          "id": "user",
+          "label": "USER PROMPT"
         },
         {
-          "id": "sec_model",
-          "label": "COPILOT MODEL",
-          "brand": "copilot"
+          "id": "qgen",
+          "label": "QUERY GENERATOR"
         },
         {
-          "id": "remediation",
-          "label": "AUTO DEFENSE"
+          "id": "web",
+          "label": "WEB SEARCH"
+        },
+        {
+          "id": "chatgpt",
+          "label": "CHATGPT SYNTHESIS",
+          "brand": "chatgpt"
         }
       ],
       "steps": [
         {
-          "from": "telemetry",
-          "to": "sec_model",
-          "packet": "LOGS",
-          "status": "raw security logs stream into copilot",
+          "from": "user",
+          "to": "qgen",
+          "packet": "PROMPT",
+          "status": "user submits prompt with strict rules",
           "color": "accent"
         },
         {
-          "from": "sec_model",
-          "to": "remediation",
-          "packet": "PLAN",
-          "status": "copilot maps threats to defense actions",
+          "from": "qgen",
+          "to": "web",
+          "packet": "SEARCH",
+          "status": "generator converts prompt into keywords",
           "color": "warn"
         },
         {
-          "from": "remediation",
-          "to": "sec_model",
-          "packet": "STATUS",
-          "status": "remediation status feeds back to model",
+          "from": "web",
+          "to": "chatgpt",
+          "packet": "RESULT",
+          "status": "web snippets injected into context",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Microsoft Security Model isn't just another fine-tuned LLM.\n\nHere's what actually happens in automated security orchestration:\n\n1. Security Logs — Raw telemetry from endpoints, cloud infrastructure, and networks stream directly into the system.\n2. Copilot Model — The domain-specific model analyzes signal correlations and generates targeted remediation plans.\n3. Auto Defense — Automated scripts execute threat containment actions and return execution feedback.\n\nWhy it matters: General-purpose LLMs struggle with security context and precise tool execution, while dedicated domain models minimize false positives.\n\nNo magic — just specialized training on domain telemetry.\n\n📌 Save this so you don't forget how domain-specific models work.\n🔁 Send it to someone who thinks standard LLMs can handle SOC ops.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Your ChatGPT Search prompt isn't directly searching the web.\n\nHere's what actually happens when you search in ChatGPT:\n\n1. User Prompt — You submit a prompt containing specific constraints, date limits, or negative rules.\n2. Query Generator — An intermediate LLM pass translates your prompt into standalone keyword queries, often dropping nuanced conditions.\n3. Web Search — The backend executes these simplified queries against web search APIs.\n4. ChatGPT Synthesis — Returned web snippets are stuffed into context alongside your prompt to synthesize the final answer.\n\nWhen ChatGPT Search hallucinates or misses strict rules, query expansion usually stripped those constraints before hitting the web.\n\nNo magic — just keyword transformation before context injection.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#microsoft"
+    "#ai",
+    "#llm",
+    "#chatgpt",
+    "#openai",
+    "#chatgptsearch",
+    "#rag",
+    "#aiengineering",
+    "#promptengineering"
   ],
-  "takeaway": "Domain security models outperform general LLMs in production.",
+  "takeaway": "Query expansion trades your exact constraints for context.",
   "footage_queries": [
-    "server led lights macro",
-    "circuit board macro"
+    "network connection lines abstract",
+    "server led lights macro"
   ],
   "narration": [
-    "Microsoft Security Model is not a standard fine-tune.",
-    "Three components handle automated threat response here.",
-    "Raw security logs stream into Copilot Security.",
-    "Copilot maps threat patterns to precise defense actions.",
-    "Remediation status feeds directly back into model context.",
-    "Domain security models outperform general LLMs in production."
+    "Your ChatGPT Search fails when it rewrites prompts.",
+    "Four stages process every web augmented response.",
+    "First, your prompt reaches the query generator.",
+    "Next, it converts your input into keywords.",
+    "Then, web snippets flow to the synthesizer.",
+    "Query expansion trades your exact constraints for context."
   ],
-  "theme": "#f778ba",
+  "theme": "#39d3c3",
+  "brand": {
+    "handle": "@byteflowlabs",
+    "signoff": "AI systems, no hype"
+  },
   "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "Microsoft Security Model is not a standard fine-tune.",
+      "text": "Your ChatGPT Search fails when it rewrites prompts.",
       "start": 0.35,
-      "dur": 3.169
+      "dur": 3.009
     },
     {
-      "text": "Three components handle automated threat response here.",
-      "start": 3.519,
-      "dur": 3.288
+      "text": "Four stages process every web augmented response.",
+      "start": 3.359,
+      "dur": 2.891
     },
     {
-      "text": "Raw security logs stream into Copilot Security.",
-      "start": 6.807,
-      "dur": 2.81
+      "text": "First, your prompt reaches the query generator.",
+      "start": 6.251,
+      "dur": 2.773
     },
     {
-      "text": "Copilot maps threat patterns to precise defense actions.",
-      "start": 9.618,
-      "dur": 3.348
+      "text": "Next, it converts your input into keywords.",
+      "start": 9.024,
+      "dur": 2.537
     },
     {
-      "text": "Remediation status feeds directly back into model context.",
-      "start": 12.966,
-      "dur": 3.468
+      "text": "Then, web snippets flow to the synthesizer.",
+      "start": 11.561,
+      "dur": 2.537
     },
     {
-      "text": "Domain security models outperform general LLMs in production.",
-      "start": 16.434,
-      "dur": 4.747
+      "text": "Query expansion trades your exact constraints for context.",
+      "start": 14.099,
+      "dur": 4.522
     }
   ],
-  "thumbOffset": 12274
+  "thumbOffset": 1450
 }

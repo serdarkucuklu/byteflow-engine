@@ -403,5 +403,21 @@
     ],
     "voice": 6,
     "date": "2026-07-27"
+  },
+  {
+    "title": "ChatGPT Search Query Expansion",
+    "pillar": "assistant-updates",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#39d3c3",
+    "source": "gemini",
+    "footage": [
+      "pexels:network connection lines abstract",
+      "pexels:server led lights macro"
+    ],
+    "voice": 6,
+    "voiceName": "Aoede",
+    "date": "2026-07-27",
+    "durSec": 18.5
   }
 ]

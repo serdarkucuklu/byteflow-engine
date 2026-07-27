@@ -1,70 +1,77 @@
 {
-  "hook": "ChatGPT Search isn't live browsing. Here's why.",
-  "title": "ChatGPT Search Architecture",
+  "hook": "Your ChatGPT Search fails when it rewrites prompts.",
+  "title": "ChatGPT Search Query Expansion",
   "scenes": [
     {
       "layout": "nodes-flow",
+      "kind": "diagram",
       "nodes": [
         {
           "id": "user",
-          "label": "CHATGPT PROMPT",
-          "brand": "chatgpt"
+          "label": "USER PROMPT"
         },
         {
-          "id": "rewriter",
-          "label": "QUERY EXPANDER"
+          "id": "qgen",
+          "label": "QUERY GENERATOR"
         },
         {
           "id": "web",
-          "label": "WEB SEARCH INDEX"
+          "label": "WEB SEARCH"
         },
         {
-          "id": "llm",
-          "label": "SYNTHESIS LLM",
-          "brand": "openai"
+          "id": "chatgpt",
+          "label": "CHATGPT SYNTHESIS",
+          "brand": "chatgpt"
         }
       ],
       "steps": [
         {
           "from": "user",
-          "to": "rewriter",
+          "to": "qgen",
           "packet": "PROMPT",
-          "status": "rewrites prompt into optimized search qu",
+          "status": "user submits prompt with strict rules",
           "color": "accent"
         },
         {
-          "from": "rewriter",
+          "from": "qgen",
           "to": "web",
-          "packet": "QUERY",
-          "status": "fetches top web snippets in parallel",
-          "color": "good"
+          "packet": "SEARCH",
+          "status": "generator converts prompt into keywords",
+          "color": "warn"
         },
         {
           "from": "web",
-          "to": "llm",
-          "packet": "DOCS",
-          "status": "synthesizes answer with inline citations",
-          "color": "warn"
+          "to": "chatgpt",
+          "packet": "RESULT",
+          "status": "web snippets injected into context",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "ChatGPT Search does not just scrape live websites.\n\nHere's what actually happens when you search in ChatGPT:\n\n1. CHATGPT PROMPT — You enter a query that requires live or current real-world information.\n2. QUERY EXPANDER — A fast LLM transforms your natural language request into multiple targeted search queries.\n3. WEB SEARCH INDEX — Search APIs fetch matching document chunks and metadata concurrently.\n4. SYNTHESIS LLM — GPT processes the raw context chunks and generates a formatted reply with exact source links.\n\nYou pay for unified query expansion and reranking, not a web browser.\n\nNo magic web browsing — just automated query generation and dynamic prompt context.\n\n📌 Save this so you don't forget how it works.\n\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\n\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Your ChatGPT Search prompt isn't directly searching the web.\n\nHere's what actually happens when you search in ChatGPT:\n\n1. User Prompt — You submit a prompt containing specific constraints, date limits, or negative rules.\n2. Query Generator — An intermediate LLM pass translates your prompt into standalone keyword queries, often dropping nuanced conditions.\n3. Web Search — The backend executes these simplified queries against web search APIs.\n4. ChatGPT Synthesis — Returned web snippets are stuffed into context alongside your prompt to synthesize the final answer.\n\nWhen ChatGPT Search hallucinates or misses strict rules, query expansion usually stripped those constraints before hitting the web.\n\nNo magic — just keyword transformation before context injection.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#chatgpt"
+    "#ai",
+    "#llm",
+    "#chatgpt",
+    "#openai",
+    "#chatgptsearch",
+    "#rag",
+    "#aiengineering",
+    "#promptengineering"
   ],
-  "takeaway": "ChatGPT Search is context injection, not raw browsing.",
+  "takeaway": "Query expansion trades your exact constraints for context.",
   "footage_queries": [
     "network connection lines abstract",
     "server led lights macro"
   ],
   "narration": [
-    "ChatGPT Search does not just scrape live websites.",
-    "Four simple components handle your search request.",
-    "First GPT rewrites your prompt into search queries.",
-    "Next parallel workers retrieve matching web snippets.",
-    "Finally the model synthesizes answers with inline citations.",
-    "It is smart context injection not raw browsing."
+    "Your ChatGPT Search fails when it rewrites prompts.",
+    "Four stages process every web augmented response.",
+    "First, your prompt reaches the query generator.",
+    "Next, it converts your input into keywords.",
+    "Then, web snippets flow to the synthesizer.",
+    "Query expansion trades your exact constraints for context."
   ],
   "theme": "#39d3c3",
   "brand": {
@@ -75,34 +82,34 @@
   "footage": true,
   "beats": [
     {
-      "text": "ChatGPT Search does not just scrape live websites.",
+      "text": "Your ChatGPT Search fails when it rewrites prompts.",
       "start": 0.35,
-      "dur": 2.992
+      "dur": 3.009
     },
     {
-      "text": "Four simple components handle your search request.",
-      "start": 3.342,
-      "dur": 2.992
+      "text": "Four stages process every web augmented response.",
+      "start": 3.359,
+      "dur": 2.891
     },
     {
-      "text": "First GPT rewrites your prompt into search queries.",
-      "start": 6.334,
-      "dur": 3.052
+      "text": "First, your prompt reaches the query generator.",
+      "start": 6.251,
+      "dur": 2.773
     },
     {
-      "text": "Next parallel workers retrieve matching web snippets.",
-      "start": 9.386,
-      "dur": 3.172
+      "text": "Next, it converts your input into keywords.",
+      "start": 9.024,
+      "dur": 2.537
     },
     {
-      "text": "Finally the model synthesizes answers with inline citations.",
-      "start": 12.558,
-      "dur": 3.591
+      "text": "Then, web snippets flow to the synthesizer.",
+      "start": 11.561,
+      "dur": 2.537
     },
     {
-      "text": "It is smart context injection not raw browsing.",
-      "start": 16.148,
-      "dur": 3.913
+      "text": "Query expansion trades your exact constraints for context.",
+      "start": 14.099,
+      "dur": 4.522
     }
   ]
 }
