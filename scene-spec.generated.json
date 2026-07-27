@@ -1,94 +1,63 @@
 {
-  "hook": "New LLMs aren't better at everything.",
-  "title": "OPUS 5: UNEVEN CAPABILITIES",
+  "title": "Model Routing Beats Always Using Flagship Models",
+  "topic_source": "seed",
+  "pillar": "cost-latency",
+  "hook": "Stop paying flagship prices for easy questions.",
+  "takeaway": "Route by difficulty, not habit, and costs drop fast.",
+  "caption": "Stop paying flagship prices for easy questions.\nA router sends simple queries to a cheap model and hard ones to a strong one.\nSave this before your token bill embarrasses you.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "hashtags": [
+    "#llm",
+    "#aiengineering",
+    "#costoptimization",
+    "#genai"
+  ],
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "kind": "diagram",
+      "layout": "nodes-flow",
+      "heading": "Route by difficulty",
       "nodes": [
         {
-          "id": "user",
-          "label": "USER",
-          "icon": "🧑‍💻"
+          "id": "query",
+          "icon": "❓",
+          "label": "QUERY"
+        },
+        {
+          "id": "router",
+          "icon": "🔀",
+          "label": "ROUTER"
         },
         {
           "id": "model",
-          "label": "OPUS 5 MODEL",
-          "icon": "🧠"
-        },
-        {
-          "id": "code_gen",
-          "label": "CODE GEN"
-        },
-        {
-          "id": "reasoning",
-          "label": "REASONING"
-        },
-        {
-          "id": "fact_retrieval",
-          "label": "FACT RETRIEVAL"
+          "icon": "🤖",
+          "label": "MODEL"
         }
       ],
       "steps": [
         {
-          "from": "user",
+          "from": "query",
+          "to": "router",
+          "packet": "CHECK",
+          "color": "accent",
+          "status": "classify difficulty first"
+        },
+        {
+          "from": "router",
           "to": "model",
-          "packet": "QUERY",
-          "status": "sends diverse prompt"
+          "packet": "EASY",
+          "color": "good",
+          "status": "cheap model handles it"
         },
         {
-          "from": "model",
-          "to": "code_gen",
-          "packet": "TASK",
-          "status": "handles code generation"
-        },
-        {
-          "from": "code_gen",
+          "from": "router",
           "to": "model",
-          "packet": "✅OK",
-          "status": "generates accurate code",
-          "color": "good"
-        },
-        {
-          "from": "model",
-          "to": "reasoning",
-          "packet": "TASK",
-          "status": "handles complex logic"
-        },
-        {
-          "from": "reasoning",
-          "to": "model",
-          "packet": "❌FAIL",
-          "status": "struggles with critical steps",
-          "color": "warn"
-        },
-        {
-          "from": "model",
-          "to": "fact_retrieval",
-          "packet": "TASK",
-          "status": "handles factual query"
-        },
-        {
-          "from": "fact_retrieval",
-          "to": "model",
-          "packet": "❌FAIL",
-          "status": "hallucinates or misremembers",
-          "color": "warn"
+          "packet": "HARD",
+          "color": "warn",
+          "status": "flagship model only if needed"
         }
       ]
     }
   ],
-  "caption": "New LLM releases, like Anthropic's Opus 5, aren't uniformly better across all tasks. While new models bring significant advancements, here's what actually happens when you rely on them for diverse workloads:1. USER: Your prompt initiates the interaction with the model.2. OPUS 5 MODEL: The latest model, marketed for broad capabilities, receives your request.3. CODE GEN: For some tasks, like generating code, Opus 5 might perform exceptionally well, delivering accurate and functional results.4. REASONING: However, when faced with complex multi-step reasoning problems, the model might exhibit \"elevated errors\" — struggling with logical consistency or chaining steps correctly.5. FACT RETRIEVAL: Similarly, for precise factual recall, it might still hallucinate or misinterpret information, leading to unreliable outputs.This illustrates that even state-of-the-art models have an uneven capability landscape. Improvements are often concentrated in specific areas, and regressions or persistent weaknesses can appear in others, especially for edge cases or complex tasks.When integrating new models, engineers must rigorously test against their specific use cases, rather than assuming general improvements translate to all applications. This selective capability means production systems need robust evaluation and guardrails.No single model is a silver bullet; specific failures persist.📌 Save this to remember the nuances of new LLM capabilities.🔁 Send it to someone who thinks new models fix everything.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
-  "hashtags": [
-    "#llm",
-    "#aiengineering",
-    "#anthropic",
-    "#opus5",
-    "#modeldevelopment",
-    "#productionai"
-  ],
-  "takeaway": "No single model is a silver bullet; specific failures persist.",
-  "theme": "#39d3c3",
+  "theme": "#bc8cff",
   "motion": "buildup",
-  "thumbOffset": 16636
+  "thumbOffset": 16598
 }
