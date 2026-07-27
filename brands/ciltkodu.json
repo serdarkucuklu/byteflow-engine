@@ -48,5 +48,6 @@
     "history": "brands/state/ciltkodu-history.json",
     "spec": "brands/state/ciltkodu-spec.json"
   },
-  "namedExamples": "\"retinol\", \"niasinamid\", \"SPF 50\", \"seramid\", \"AHA/BHA\", \"hyalüronik asit\""
+  "namedExamples": "\"retinol\", \"niasinamid\", \"SPF 50\", \"seramid\", \"AHA/BHA\", \"hyalüronik asit\"",
+  "brandKeys": []
 }

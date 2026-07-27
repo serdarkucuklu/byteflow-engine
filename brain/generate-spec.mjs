@@ -9,7 +9,7 @@ import {SAFE_FOOTAGE_QUERIES} from '../fetch/fetch-footage.mjs';
 import {BRAND_KEYS} from '../render/src/lib/brand-keys.mjs';
 
 // Gemini responseSchema — scene-spec şeklini ZORLAR (hook + takeaway dahil)
-const RESPONSE_SCHEMA = {
+const responseSchemaFor = (brandKeys = BRAND_KEYS) => ({
   type: 'OBJECT',
   required: ['hook', 'title', 'scenes', 'caption', 'hashtags', 'takeaway', 'footage_queries', 'narration'],
   properties: {
@@ -36,8 +36,11 @@ const RESPONSE_SCHEMA = {
           heading: {type: 'STRING'},
           nodes: {type: 'ARRAY', items: {type: 'OBJECT', required: ['id', 'label'],
             properties: {id: {type: 'STRING'}, label: {type: 'STRING'}, icon: {type: 'STRING'},
-              // brand: gerçek ürün sembolü (emoji yerine) — yalnızca bu anahtarlar çizilebilir.
-              brand: {type: 'STRING', enum: BRAND_KEYS}}}},
+              // brand: gerçek ürün sembolü — yalnızca MARKANIN izin verdiği anahtarlar.
+              // ⚠ Bu enum AI ürünleriyle doluyken cilt bakımı sayfası 'MCP Araç Şeması'
+              // konusu üretti: model, enum'daki isimlerden sayfanın AI sayfası olduğunu
+              // çıkarıyor. Konu evrenini şema düzeyinde de markaya bağlamak şart.
+              ...(brandKeys.length ? {brand: {type: 'STRING', enum: brandKeys}} : {})}}},
           steps: {type: 'ARRAY', items: {type: 'OBJECT', required: ['from', 'to', 'packet', 'status'],
             properties: {from: {type: 'STRING'}, to: {type: 'STRING'}, packet: {type: 'STRING'},
               color: {type: 'STRING', enum: ['accent', 'good', 'warn']}, status: {type: 'STRING'}}}},
@@ -50,7 +53,7 @@ const RESPONSE_SCHEMA = {
       },
     },
   },
-};
+});
 
 const DEFAULT_PERSONA = {
   name: 'Kai',
@@ -70,6 +73,7 @@ const lang = brand.language && brand.language !== 'en' ? LANG_NAMES[brand.langua
 const namedExamples = brand.namedExamples
   ?? '"Claude Code", "GPT-5.2", "Gemini 3 Flash", "MCP"';
 const footageList = (brand.footageQueries?.length ? brand.footageQueries : SAFE_FOOTAGE_QUERIES);
+const brandKeys = brand.brandKeys ?? BRAND_KEYS;
 const langBlock = lang ? `
 LANGUAGE — HARD RULE: every viewer-facing string MUST be written in ${lang}, not English:
 hook, title, scene headings, node labels, step statuses, narration sentences, takeaway and the
@@ -117,12 +121,9 @@ Produce a scene-spec with these fields:
 - 3 to 5 nodes per scene. SIMPLE BEATS COMPLETE: a 3-node diagram that lands is worth more
   than a 7-node map nobody follows. Use 5 only when the concept genuinely needs it.
   node.label <= 18 chars, UPPERCASE${lang ? `, IN ${lang.toUpperCase()}` : ''}, one idea per card.
-- node.brand is OPTIONAL and PREFERRED whenever a card IS a real product — it draws that
-  product's actual logo instead of a generic emoji. Allowed values ONLY: ${BRAND_KEYS.join(', ')}.
-  Use it for product cards (a Claude card -> brand "claude", the OpenAI API -> "openai",
-  a Gemini card -> "gemini"). Do NOT brand a concept card (a mechanism or a phase is not a brand).
-  If this page's topic has no matching brand key, simply omit node.brand — the card gets a
-  numbered badge instead, which is the norm for non-product pages.
+${brandKeys.length ? `- node.brand is OPTIONAL and PREFERRED whenever a card IS a real product — it draws that
+  product's actual logo instead of a generic glyph. Allowed values ONLY: ${brandKeys.join(', ')}.
+  Do NOT brand a concept card (a mechanism or a phase is not a brand).` : `- Do NOT use node.brand on this page; every card gets a numbered badge automatically.`}
 - Do NOT use emoji anywhere (no node.icon). Cards that are not a product get a numbered badge
   automatically, which reads cleaner than emoji on a dark UI.
 - 2 or 3 steps per scene (3 is the norm, 4 only if the mechanism truly needs it — every step
@@ -184,8 +185,8 @@ VARIETY & TEACHING RULES (hard requirements):
   * 2 broad reach tags (e.g. "#ai", "#llm", "#tech"),
   * 3-4 niche tags that match the actual topic (e.g. "#rag", "#aiagents", "#aiengineering",
     "#promptengineering", "#mcp"),
-  * 1-2 product tags ONLY if that product is genuinely in the video (e.g. "#claudeai",
-    "#chatgpt", "#gemini", "#claudecode").
+  * 1-2 product/ingredient tags ONLY if that thing is genuinely in the video (take them from
+    this page's own vocabulary: ${namedExamples}).
   Never invent a brand tag for a product the video does not cover.
 - footage_queries: EXACTLY 2 entries, each copied VERBATIM from this list (no other value is
   accepted, no rewording): ${footageList.map(q => `"${q}"`).join(', ')}.
@@ -226,7 +227,8 @@ export async function generateSpec({candidates, apiKey, recentTitles = [], pilla
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
       contents: [{parts: [{text: PROMPT(candidates, recentTitles, pillar, brand)}]}],
-      generationConfig: {responseMimeType: 'application/json', responseSchema: RESPONSE_SCHEMA, temperature: 0.9},
+      generationConfig: {responseMimeType: 'application/json',
+        responseSchema: responseSchemaFor(brand.brandKeys ?? BRAND_KEYS), temperature: 0.9},
     }),
   });
   if (!res.ok) throw new Error(`Gemini(${model}) HTTP ${res.status}: ${await res.text()}`);
