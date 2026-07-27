@@ -350,43 +350,47 @@ export default makeScene2D(function* (view) {
   const recapNodes = spec.scenes.find(sc => sc.nodes?.length)?.nodes ?? [];
   const labelOf = (id: string) => recapNodes.find(n => n.id === id)?.label ?? id.toUpperCase();
 
-  // Kart FLEX düzenle kurulur: elle x/y konumlandırmada satırlar kartın solundan taşıyordu
-  // (satır kendi merkezine hizalanıyor, kadrajın dışına çıkıyordu — canlı karede görüldü).
+  // Kart FLEX düzenle kurulur ama çocuklar TEK TEK eklenir: JSX'e dizi çocuk vermek ve
+  // ref'i düğüm yerine fonksiyon olarak saklamak sahneyi düşürüyordu (render hiç başlamadı,
+  // canlı koşuda görüldü). Bu depoda kanıtlanmış desen: önce düğüm, sonra .add().
   const card = createRef<Rect>();
-  const rowRefs: Layout[] = [];
-  const takeRef = createRef<Txt>();
-
   view.add(
-    <Rect ref={card} layout direction="column" alignItems="center" gap={20}
+    <Rect ref={card} layout direction="column" alignItems="center" gap={18}
       padding={[44, 46]} width={950} radius={34} fill="#0b1118f7"
       stroke={`${ACCENT}45`} lineWidth={2} y={-70} opacity={0}
-      shadowColor="#000000b3" shadowBlur={54} shadowOffsetY={20}>
-      <Txt text={spec.title} fill={COLORS.text} fontFamily={FONTS.display} fontSize={44}
-        fontWeight={800} letterSpacing={-0.8} lineHeight={54} width={840}
-        textAlign="center" textWrap />
-      <Rect width={90} height={3} radius={2} fill={ACCENT} margin={[2, 0, 10, 0]} />
-      {recapSteps.map((st, i) => {
-        const row = createRef<Layout>();
-        const node = (
-          <Layout ref={row} width={830} direction="row" alignItems="center" gap={20} opacity={0}>
-            <Rect width={54} height={54} radius={27} fill={`${ACCENT}22`} stroke={`${ACCENT}75`}
-              lineWidth={2} justifyContent="center" alignItems="center">
-              <Txt text={String(i + 1).padStart(2, '0')} fill={ACCENT} fontFamily={FONTS.display}
-                fontSize={25} fontWeight={800} />
-            </Rect>
-            <Txt text={`${labelOf(st.from)} → ${labelOf(st.to)}`} fill={COLORS.text}
-              fontFamily={FONTS.display} fontSize={31} fontWeight={600} letterSpacing={-0.2}
-              width={740} textWrap />
-          </Layout>
-        );
-        rowRefs.push(row as unknown as Layout);
-        return node;
-      })}
-      <Rect width={830} height={1} fill="#ffffff1a" margin={[14, 0, 6, 0]} />
-      <Txt ref={takeRef} text={TAKEAWAY} fill={ACCENT} fontFamily={FONTS.display} fontSize={38}
-        fontWeight={700} letterSpacing={-0.4} lineHeight={48} width={830}
-        textAlign="center" textWrap opacity={0} />
-    </Rect>,
+      shadowColor="#000000b3" shadowBlur={54} shadowOffsetY={20} />,
+  );
+  card().add(
+    <Txt text={spec.title} fill={COLORS.text} fontFamily={FONTS.display} fontSize={44}
+      fontWeight={800} letterSpacing={-0.8} lineHeight={54} width={840}
+      textAlign="center" textWrap />,
+  );
+  card().add(<Rect width={90} height={3} radius={2} fill={ACCENT} margin={[4, 0, 12, 0]} />);
+
+  const rows: Layout[] = [];
+  for (const [i, st] of recapSteps.entries()) {
+    const row = createRef<Layout>();
+    card().add(
+      <Layout ref={row} width={830} direction="row" alignItems="center" gap={20} opacity={0}>
+        <Rect width={54} height={54} radius={27} fill={`${ACCENT}22`} stroke={`${ACCENT}75`}
+          lineWidth={2} justifyContent="center" alignItems="center">
+          <Txt text={String(i + 1).padStart(2, '0')} fill={ACCENT} fontFamily={FONTS.display}
+            fontSize={25} fontWeight={800} />
+        </Rect>
+        <Txt text={`${labelOf(st.from)} → ${labelOf(st.to)}`} fill={COLORS.text}
+          fontFamily={FONTS.display} fontSize={31} fontWeight={600} letterSpacing={-0.2}
+          width={730} textWrap />
+      </Layout>,
+    );
+    rows.push(row());
+  }
+
+  card().add(<Rect width={830} height={1} fill="#ffffff1a" margin={[16, 0, 8, 0]} />);
+  const takeRef = createRef<Txt>();
+  card().add(
+    <Txt ref={takeRef} text={TAKEAWAY} fill={ACCENT} fontFamily={FONTS.display} fontSize={38}
+      fontWeight={700} letterSpacing={-0.4} lineHeight={48} width={830}
+      textAlign="center" textWrap opacity={0} />,
   );
 
   // Gönderme çağrısı kartın DIŞINDA, altta — okunur boyutta ve parlak (sönük kalıyordu).
@@ -399,11 +403,11 @@ export default makeScene2D(function* (view) {
     fontSize={26} letterSpacing={1.5} opacity={0} y={512} {...SHADOW} />);
 
   yield* card().opacity(1, 0.4, easeOutCubic);
-  for (const row of rowRefs) {
-    yield* (row as any).opacity(1, 0.2, easeOutCubic);
+  for (const row of rows) {
+    yield* row.opacity(1, 0.2, easeOutCubic);
     yield* waitFor(0.05);
   }
-  yield* (takeRef() as any).opacity(1, 0.32, easeOutCubic);
+  yield* takeRef().opacity(1, 0.32, easeOutCubic);
   yield* all(share().opacity(1, 0.3), handleTag().opacity(0.9, 0.3));
 
   // Kapanış cümlesi bitene kadar özet ekranda kalsın (ekran görüntüsü için zaman), sonra
