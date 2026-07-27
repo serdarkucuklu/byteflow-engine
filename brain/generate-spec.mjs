@@ -92,8 +92,11 @@ Do NOT repeat or closely resemble any of these recently-posted topics:
 ${recentTitles.map(t => `- ${t}`).join('\n')}
 ` : ''}
 Produce a scene-spec with these fields:
-- hook: the FIRST on-screen line (<= 60 chars). A curiosity gap / stakes / contrarian claim in the
-  anti-hype voice. NOT the same as the title. e.g. "Your RAG retrieves garbage. Here's why."
+- hook: the FIRST on-screen line (<= 60 chars). State a PROBLEM THE VIEWER RECOGNISES IN
+  THEMSELVES, in the anti-hype voice — not a neutral topic label. People forward videos that
+  name a problem their friends also have; that DM-send is now the strongest ranking signal.
+  Write it as "your <thing> does <bad thing>" or "<product> is doing X and nobody says it".
+  NOT the same as the title. e.g. "Your RAG retrieves garbage. Here's why."
 - title: <= 60 chars, the concept name.
 - 1 or 2 scenes (1 preferred). Each DIAGRAM scene picks its OWN "layout" — whichever TEACHES best:
   - "nodes-flow": a pipeline / data flow (A feeds B feeds C).
@@ -144,7 +147,9 @@ VARIETY & TEACHING RULES (hard requirements):
 - TEACHING beats aesthetics: each node is a real concept, each step.status explains in plain
   words what is actually happening at that moment. A viewer should finish the video genuinely
   understanding the mechanism, not just having watched shapes move.
-- takeaway: ONE punchy closing line (<= 70 chars) — the point to remember, anti-hype voice.
+- takeaway: ONE punchy closing line (<= 70 chars) — the sentence a viewer would QUOTE when
+  forwarding the video to a colleague. A rule of thumb, a correction, or the cost of getting it
+  wrong; never a generic sign-off like "hope this helps".
 - caption: DETAILED and educational — someone who never watches the video should be able to
   read the caption alone and fully understand the concept. This is what makes people SAVE and
   SHARE it. Structure, in this exact order:

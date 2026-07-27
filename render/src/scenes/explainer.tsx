@@ -165,6 +165,19 @@ export default makeScene2D(function* (view) {
     container().add(<Rect width={760} height={760} radius={380} fill={ACCENT}
       opacity={0.05} shadowColor={ACCENT} shadowBlur={180} y={CLUSTER_Y} zIndex={-2} />);
 
+    // İLERLEME RAYI: izleyici kaçıncı adımda olduğunu görüyor. 2026 verisi: görünür
+    // "adım 1/2/3" yapısı EN ÇOK KAYDEDİLEN format — insanlar sonra dönmek için kaydediyor.
+    const rail: Rect[] = [];
+    if (steps.length > 1) {
+      const bw = 46, gap = 10, totalW = steps.length * bw + (steps.length - 1) * gap;
+      steps.forEach((_, i) => {
+        const bar = createRef<Rect>();
+        container().add(<Rect ref={bar} width={bw} height={6} radius={3} fill={COLORS.stroke}
+          x={-totalW / 2 + bw / 2 + i * (bw + gap)} y={-524} opacity={0.55} zIndex={2} />);
+        rail.push(bar());
+      });
+    }
+
     const segs = connectors(scene.layout, count);
 
     // ── Kartlar ──────────────────────────────────────────────────────────────
@@ -271,6 +284,12 @@ export default makeScene2D(function* (view) {
         );
       }
 
+      // rayda bulunduğumuz adımı yak
+      rail.forEach((bar, i) => {
+        bar.fill(i < si ? `${col}66` : i === si ? col : COLORS.stroke);
+        bar.opacity(i <= si ? 1 : 0.55);
+      });
+
       // ALTYAZI: o an konuşulan cümle (ses yoksa adımın status metni).
       yield* showCaption(caption, BEATS?.[si + 2]?.text ?? step.status, col);
       yield* all(
@@ -320,28 +339,69 @@ export default makeScene2D(function* (view) {
     container().remove();
   }
 
-  // ── ÇIKIŞ ─────────────────────────────────────────────────────────────────
-  // Kapanış cümlesi başlamadan ~0.5s önce sahneyi boşalt (cümle ekrandaki yazıyla başlasın).
+  // ── ÇIKIŞ: ÖZET KARTI ────────────────────────────────────────────────────
+  // 2026 sıralama verisi: DM ile GÖNDERİM en güçlü sinyal, "adım adım özet" ise en çok
+  // KAYDEDİLEN format. Kapanış artık tek cümlelik bir slogan değil; ekran görüntüsü alınabilir
+  // bir özet + net bir gönderme çağrısı.
   if (BEATS) yield* syncTo(Math.max(0, (beatStart(BEATS.length - 1) ?? 0) - 0.55));
   yield* all(title().opacity(0, 0.3), titleRule().opacity(0, 0.3));
+
+  const recapSteps = (spec.scenes.find(sc => sc.steps?.length)?.steps ?? []).slice(0, 4);
+  const recapNodes = spec.scenes.find(sc => sc.nodes?.length)?.nodes ?? [];
+  const labelOf = (id: string) => recapNodes.find(n => n.id === id)?.label ?? id.toUpperCase();
+
+  const card = createRef<Rect>();
+  view.add(<Rect ref={card} width={940} height={Math.min(760, 250 + recapSteps.length * 118)}
+    radius={34} fill="#0c1219f2" stroke={`${ACCENT}40`} lineWidth={2} y={-150} opacity={0}
+    shadowColor="#000000aa" shadowBlur={50} shadowOffsetY={18} />);
+
+  const cardTitle = createRef<Txt>();
+  view.add(<Txt ref={cardTitle} text={spec.title} fill={COLORS.text} fontFamily={FONTS.display}
+    fontSize={44} fontWeight={800} letterSpacing={-0.8} lineHeight={54} y={-430} opacity={0}
+    width={840} textAlign="center" textWrap {...SHADOW} />);
+
+  const rows = recapSteps.map((st, i) => {
+    const row = createRef<Layout>();
+    const y = -300 + i * 112;
+    view.add(
+      <Layout ref={row} y={y} x={-360} opacity={0} layout direction="row" alignItems="center" gap={22}>
+        <Rect width={56} height={56} radius={28} fill={`${ACCENT}20`} stroke={`${ACCENT}70`}
+          lineWidth={2} justifyContent="center" alignItems="center">
+          <Txt text={String(i + 1).padStart(2, '0')} fill={ACCENT} fontFamily={FONTS.display}
+            fontSize={26} fontWeight={800} />
+        </Rect>
+        <Txt text={`${labelOf(st.from)} → ${labelOf(st.to)}`} fill={COLORS.text}
+          fontFamily={FONTS.display} fontSize={34} fontWeight={600} letterSpacing={-0.2} />
+      </Layout>,
+    );
+    return row();
+  });
+
   const take = createRef<Txt>();
-  const rule = createRef<Rect>();
-  const sign = createRef<Txt>();
+  const share = createRef<Txt>();
   view.add(<Txt ref={take} text={TAKEAWAY} fill={COLORS.text} fontFamily={FONTS.display}
-    fontSize={62} fontWeight={800} letterSpacing={-1.1} lineHeight={74} opacity={0} y={-20}
+    fontSize={44} fontWeight={700} letterSpacing={-0.6} lineHeight={54} opacity={0} y={300}
+    width={880} textAlign="center" textWrap {...SHADOW} />);
+  view.add(<Txt ref={share} text={`↗  Send this to someone who needs it  ·  ${HANDLE}`}
+    fill={ACCENT} fontFamily={FONTS.mono} fontSize={27} letterSpacing={1} opacity={0} y={430}
     width={900} textAlign="center" textWrap {...SHADOW} />);
-  view.add(<Rect ref={rule} width={0} height={4} radius={2} fill={ACCENT} y={120} />);
-  view.add(<Txt ref={sign} text={`${HANDLE} · ${SIGNOFF}`} fill={COLORS.muted}
-    fontFamily={FONTS.mono} fontSize={30} letterSpacing={2} opacity={0} y={180} {...SHADOW} />);
-  yield* all(take().opacity(1, 0.5, easeOutCubic), take().y(-40, 0.6, easeOutCubic));
-  yield* all(rule().width(200, 0.4, easeOutCubic), sign().opacity(0.85, 0.4));
-  // Kapanış cümlesi bitene kadar dur; sonra LOOP için kararma (rewatch sinyali algoritmada
-  // en güçlü ödüllerden biri — son kare ile ilk kare birbirine bağlansın).
+
+  yield* all(card().opacity(1, 0.4, easeOutCubic), cardTitle().opacity(0.98, 0.4, easeOutCubic));
+  for (const [i, row] of rows.entries()) {
+    yield* all(row.opacity(1, 0.22, easeOutCubic), row.x(-330, 0.28, easeOutCubic));
+    if (i < rows.length - 1) yield* waitFor(0.06);
+  }
+  yield* all(take().opacity(1, 0.35, easeOutCubic), take().y(292, 0.4, easeOutCubic));
+  yield* share().opacity(0.95, 0.3);
+
+  // Kapanış cümlesi bitene kadar özet ekranda kalsın (ekran görüntüsü için zaman), sonra
+  // LOOP için kararma — tekrar izleme algoritmanın ödüllendirdiği sinyallerden biri.
   const audioEnd = BEATS ? (beatStart(BEATS.length - 1) ?? 0) + beatDur(BEATS.length - 1, 1.4) : null;
-  const closeT = audioEnd != null ? Math.max(0.5, audioEnd - nowSec() - 0.55) : 1.4;
+  const closeT = audioEnd != null ? Math.max(0.6, audioEnd - nowSec() - 0.5) : 1.8;
   yield* waitFor(closeT);
-  yield* all(take().opacity(0, 0.45), rule().opacity(0, 0.4), sign().opacity(0, 0.4));
-  yield* waitFor(0.12);
+  yield* all(card().opacity(0, 0.4), cardTitle().opacity(0, 0.35), take().opacity(0, 0.35),
+    share().opacity(0, 0.35), ...rows.map(r => r.opacity(0, 0.3)));
+  yield* waitFor(0.1);
 });
 
 /** Altyazıyı kelime kelime açar (hızlı okunur ritim, tek satır tek fikir). */
