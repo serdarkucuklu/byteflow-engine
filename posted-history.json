@@ -222,5 +222,20 @@
       "pexels:abstract digital network motion background"
     ],
     "date": "2026-07-27"
+  },
+  {
+    "title": "Meta AI Threads DM Architecture",
+    "pillar": "model-releases",
+    "layout": "hub-spoke",
+    "motion": "buildup",
+    "theme": "#f778ba",
+    "source": "gemini",
+    "footage": [
+      "pexels:server racks blinking blue lights",
+      "pexels:digital network abstract connection lines",
+      "pexels:terminal screen code scrolling fast",
+      "pexels:rain on glass window city lights background"
+    ],
+    "date": "2026-07-27"
   }
 ]

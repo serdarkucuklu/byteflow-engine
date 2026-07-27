@@ -1,85 +1,90 @@
 {
-  "hook": "Claude Code isn't magic. It's an expensive loop.",
-  "title": "Inside Claude Code's Agent Loop",
+  "hook": "Meta AI is now in your Threads DMs. Here is how it routes.",
+  "title": "Meta AI Threads DM Architecture",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "hub-spoke",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "CLI",
-          "label": "USER CLI",
-          "icon": "💻"
+          "id": "usr",
+          "label": "USER DM",
+          "icon": "💬"
         },
         {
-          "id": "LLM",
-          "label": "CLAUDE 3.7",
-          "icon": "🧠"
+          "id": "rtr",
+          "label": "META AI ROUTER"
         },
         {
-          "id": "BASH",
-          "label": "LOCAL BASH",
-          "icon": "💻"
+          "id": "web",
+          "label": "WEB SEARCH",
+          "icon": "🌐"
         },
         {
-          "id": "PARSER",
-          "label": "OUTPUT PARSER"
+          "id": "graph",
+          "label": "SOCIAL GRAPH",
+          "icon": "📊"
         },
         {
-          "id": "CONTEXT",
-          "label": "CONTEXT WINDOW"
+          "id": "llm",
+          "label": "LLM ENGINE"
         }
       ],
       "steps": [
         {
-          "from": "CLI",
-          "to": "LLM",
-          "packet": "task",
-          "status": "user inputs terminal task"
+          "from": "usr",
+          "to": "rtr",
+          "packet": "QUERY",
+          "status": "dm sent to meta ai router",
+          "color": "accent"
         },
         {
-          "from": "LLM",
-          "to": "BASH",
-          "packet": "cmd",
-          "status": "claude requests shell command execution"
+          "from": "rtr",
+          "to": "web",
+          "packet": "SEARCH",
+          "status": "fetching real-time news if needed",
+          "color": "warn"
         },
         {
-          "from": "BASH",
-          "to": "PARSER",
-          "packet": "stdout",
-          "status": "captures command terminal output"
+          "from": "rtr",
+          "to": "graph",
+          "packet": "SOCIAL",
+          "status": "checking user threads context",
+          "color": "warn"
         },
         {
-          "from": "PARSER",
-          "to": "CONTEXT",
-          "packet": "tokens",
-          "status": "formats and appends to context history"
+          "from": "rtr",
+          "to": "llm",
+          "packet": "PROMPT",
+          "status": "feeding context to llama 3 engine",
+          "color": "good"
         },
         {
-          "from": "CONTEXT",
-          "to": "LLM",
-          "packet": "state",
-          "status": "sends updated prompt for next loop itera"
+          "from": "llm",
+          "to": "usr",
+          "packet": "REPLY",
+          "status": "streaming response back to chat",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Claude Code isn't magic. It's an expensive loop.\n\nHere's what actually happens when you run a command in Anthropic's new CLI:\n\n1. USER CLI — You pass a natural language instruction like 'refactor this test suite' directly from your terminal.\n2. CLAUDE 3.7 — The model processes the prompt and decides which tool to call instead of returning raw text.\n3. LOCAL BASH — The CLI executes the requested shell command locally on your machine.\n4. OUTPUT PARSER — The terminal's stdout and stderr are captured, including any compilation errors or stack traces.\n5. CONTEXT WINDOW — The raw output is formatted and appended directly back into the prompt history.\n6. THE LOOP — The cycle repeats autonomously until the model decides the goal is fully achieved.\n\nWhat you're actually paying for here is massive token consumption as the history context grows quadratically with each iteration.\n\nNo magic autonomous engineer—just local terminal loops burning input tokens.\n\n📌 Save this so you don't forget how it works.\n\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\n\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Meta AI is officially inside your Threads DMs, but it isn't reading your mind.\n\nHere's what actually happens when you ping the assistant in a DM:\n\n1. DM Entry — Your direct message is captured and sanitized by the edge gateway before passing to Meta's internal systems.\n2. Intent Routing — A lightweight classifier determines if your query requires real-time web search, personal social data, or static LLM knowledge.\n3. Web Search — If you ask about current events, the router triggers a concurrent search engine call to grab fresh web snippets.\n4. Social Graph Retrieval — For personalized context, the pipeline queries internal graph databases to fetch relevant public profile data or chat history.\n5. Llama 3 Synthesis — Finally, the aggregated context and your original query are packaged into a system prompt and sent to the LLM engine to generate the response.\n\nThis hybrid architecture is how Meta scales Meta AI to millions of users without collapsing their inference budget.\n\nNo telepathy — just highly optimized semantic routing and API stitching.\n\n📌 Save this to understand how modern scale-level LLM products are built.\n🔁 Send it to a developer building high-traffic AI features.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#claudecode",
-    "#claude37",
+    "#metaai",
+    "#llama3",
     "#aiengineering",
-    "#llmops",
-    "#softwareengineering"
+    "#systemdesign",
+    "#llm"
   ],
-  "takeaway": "Agentic CLI tools are token-hungry loops. Watch your wallet.",
+  "takeaway": "Meta AI isn't magic—it's a massive routing layer hiding your data.",
   "footage_queries": [
-    "server rack lights flashing in dark room",
-    "terminal screen with green code scrolling",
-    "macro close up of microchip traces",
-    "abstract digital network motion background"
+    "server racks blinking blue lights",
+    "digital network abstract connection lines",
+    "terminal screen code scrolling fast",
+    "rain on glass window city lights background"
   ],
-  "theme": "#e3b341",
+  "theme": "#f778ba",
   "motion": "buildup",
   "footage": true,
   "thumbOffset": 16607
