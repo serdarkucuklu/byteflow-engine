@@ -90,3 +90,29 @@ test('a third scene is dropped — 30s cannot teach three diagrams', () => {
   assert.equal(fixed.scenes.length, 2);
   assert.equal(validateSpec(fixed).valid, true);
 });
+
+test('narration is forced to match the beat structure (hook + steps + close)', () => {
+  const spec = {...base, narration: ['Only one line'], scenes: [{
+    layout: 'nodes-flow',
+    nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}, {id: 'c', label: 'C'}],
+    steps: [
+      {from: 'a', to: 'b', packet: 'P', status: 'the prompt is sent'},
+      {from: 'b', to: 'c', packet: 'Q', status: 'the tool answers'},
+    ],
+  }]};
+  const fixed = repairSpec(spec);
+  assert.equal(fixed.narration.length, 5, 'hook + kurulum + 2 adım + kapanış');
+  assert.equal(fixed.narration[0], 'Only one line.', 'nokta eklenir');
+  assert.match(fixed.narration[1], /2 steps/, 'kurulum cümlesi üretilir');
+  assert.match(fixed.narration[2], /prompt is sent\./);
+  assert.match(fixed.narration[4], /\.$/);
+});
+
+test('narration keeps a well-formed script untouched', () => {
+  const script = ['Hook line.', 'Setup line.', 'Step one.', 'Close it.'];
+  const fixed = repairSpec({...base, narration: script, scenes: [{
+    layout: 'cycle', nodes: [{id: 'a', label: 'A'}, {id: 'b', label: 'B'}, {id: 'c', label: 'C'}],
+    steps: [{from: 'a', to: 'b', packet: 'P', status: 's'}],
+  }]});
+  assert.deepEqual(fixed.narration, script);
+});

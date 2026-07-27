@@ -116,5 +116,10 @@ export interface SceneSpec {
   // run-daily.mjs klip indirebildiyse bunu true yazar; indiremezse eski düz arka plan.
   footage?: boolean;
   footage_queries?: string[];
+  // beats: seslendirmeden ÖLÇÜLEN zamanlama (publish/voiceover.mjs). Varsa sahne ritmini
+  // pacing governor değil BU belirler — ses otorite, görsel ona uyar.
+  // Sıra: [hook, ...ilk sahnenin her adımı, kapanış].
+  beats?: {text: string; start: number; dur: number}[];
+  narration?: string[];
   scenes: SpecScene[];
 }

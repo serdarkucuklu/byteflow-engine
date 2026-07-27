@@ -8,6 +8,7 @@ import {produceSpec} from './brain/produce-spec.mjs';
 import {stripMarkdown} from './brain/sanitize.mjs';
 import {postProcess} from './publish/post-process.mjs';
 import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose-footage.mjs';
+import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './publish/voiceover.mjs';
 import {PILLARS, selectPillar} from './brain/pillars.mjs';
 
 const root = fileURLToPath(new URL('./', import.meta.url));
@@ -81,6 +82,32 @@ console.log(spec.footage
   ? `✓ footage: ${clips.length} klip [${clips.map(c => c.provider).join(', ')}]`
   : '• footage yok → düz arka plan (klasik render)');
 
+// ---- Seslendirme: anlatım cümleleri → ses + ÖLÇÜLEN zamanlama ----
+// Kısa-video verisi net: kazanan formatta ses + altyazı birlikte çalışıyor, TikTok sesi de
+// indeksliyor. Ses BAŞARISIZ olursa video sessiz-müzikli eski hâline düşer (akış kırılmaz).
+const voDir = join(root, 'dist', '_vo');
+if (existsSync(voDir)) rmSync(voDir, {recursive: true, force: true});
+
+let voice = null;
+if (process.env.BYTEFLOW_VOICE === '0') {
+  console.log('• seslendirme kapalı (BYTEFLOW_VOICE=0)');
+} else {
+  try {
+    // Ses tonu da videodan videoya dönsün (hep aynı anlatıcı = şablon hissi).
+    const picked = VOICES[history.length % VOICES.length];
+    const narration = await synthesizeScript({phrases: spec.narration, outDir: voDir, apiKey, voice: picked});
+    if (narration) {
+      voice = buildVoiceTrack({narration, outPath: join(voDir, 'voice.wav')});
+      spec.beats = voice.beats;
+      console.log(`✓ seslendirme (${picked}): ${voice.beats.length} cümle, ${voice.total.toFixed(1)}s`);
+    } else {
+      console.log('• seslendirme üretilemedi → sessiz/müzikli akış');
+    }
+  } catch (e) {
+    console.error(`⚠ seslendirme hatası: ${e.message}`);
+  }
+}
+
 const specPath = join(root, 'scene-spec.generated.json');
 writeFileSync(specPath, JSON.stringify(spec, null, 2));
 writeFileSync(join(root, 'render', 'scene-spec.json'), JSON.stringify(spec, null, 2));
@@ -88,6 +115,7 @@ writeFileSync(join(root, 'render', 'scene-spec.json'), JSON.stringify(spec, null
 // Geçmişe ekle (workflow posted-history.json'ı commit eder).
 history.push({title: spec.title, pillar: spec.pillar ?? pillar.key, layout, motion, theme, source,
   footage: spec.footage ? clips.map(c => `${c.provider}:${c.query}`) : null,
+  voice: voice ? voice.beats.length : null,
   date: new Date().toISOString().slice(0, 10)});
 writeFileSync(historyPath, JSON.stringify(history, null, 2));
 
@@ -122,9 +150,23 @@ if (spec.footage) {
   console.log(`✓ footage kompoziti: ${frames} kare → ${(frames / 60).toFixed(1)}s`);
 }
 
+// Ses yatağı: seslendirme önde, müzik ALTINDA (0.16) — konuşma anlaşılmalı.
+let audioPath;
+if (voice) {
+  try {
+    audioPath = mixVoiceAndMusic({
+      voicePath: voice.path, musicPath: join(musicDir, mp3),
+      outPath: join(voDir, 'mix.wav'), total: voice.total,
+    });
+  } catch (e) {
+    console.error(`⚠ ses karışımı başarısız, müziğe düşülüyor: ${e.message}`);
+  }
+}
+
 const out = postProcess({
   videoPath: renderedVideo,
   musicPath: join(musicDir, mp3),
+  audioPath,
   outPath: join(root, 'dist', 'final.mp4'),
 });
 

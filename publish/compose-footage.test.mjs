@@ -21,14 +21,15 @@ test('b-roll only bookends the video — the teaching body gets a designed surfa
   assert.deepEqual(kinds, ['clip', 'surface', 'clip'], 'gövdede gerçek görüntü olmamalı');
   assert.ok(durations[1] > durations[0] + durations[2], 'gövde videonun ağırlığı olmalı');
   assert.ok(dims[1] > 0.8, 'gövde zemini metinle yarışmayacak kadar sakin');
-  assert.ok(dims[0] < 0.35 && dims[2] < 0.5, 'açılış/kapanış görüntüsü görünür kalmalı');
+  assert.ok(dims[0] < dims[1] && dims[2] < dims[1], 'açılış/kapanış görüntüsü gövdeden açık');
+  assert.ok(dims[0] >= 0.4, 'hook yazısı parlak klipte kaybolmasın');
 });
 
 test('planSegments keeps the hook and outro readable footage moments', () => {
   const {dims} = planSegments({total: 27, clipCount: 4});
   assert.equal(dims.length, 3);
-  assert.ok(dims[0] < 0.4, 'hook footage görünür kalmalı');
-  assert.ok(dims[2] > dims[0] && dims[2] < 0.5, 'kapanış biraz daha sakin ama görünür');
+  assert.ok(dims[0] < 0.6, 'hook footage hâlâ görünür');
+  assert.ok(dims[2] > dims[0] && dims[2] < 0.6, 'kapanış biraz daha sakin ama görünür');
 });
 
 test('planSegments never emits a segment shorter than the transition', () => {
@@ -117,9 +118,9 @@ test('findFramesDir locates the PNG directory even when MC nests it', async () =
 test('adaptDim lifts the scrim on dark clips and leaves bright ones alone', () => {
   assert.equal(adaptDim(0.52, null), 0.52, 'ölçüm yoksa dokunma');
   assert.equal(adaptDim(0.52, 200), 0.52, 'parlak klip aynen kalır');
-  assert.ok(adaptDim(0.52, 20) < 0.25, 'çok koyu klipte scrim belirgin hafifler');
-  assert.ok(adaptDim(0.52, 50) < 0.52 && adaptDim(0.52, 50) > adaptDim(0.52, 20));
-  assert.ok(adaptDim(0.30, 80) < 0.30);
+  assert.ok(adaptDim(0.52, 20) < 0.35, 'çok koyu klipte scrim hafifler');
+  assert.ok(adaptDim(0.52, 40) < 0.52 && adaptDim(0.52, 40) > adaptDim(0.52, 20));
+  assert.equal(adaptDim(0.44, 80), 0.44, 'orta-parlak klipte karartma DÜŞMEZ (yazı kaybolmasın)');
 });
 
 test('measureLuma averages the sampled YAVG values and survives a probe failure', () => {
@@ -137,5 +138,5 @@ test('composeFootageVideo applies the adapted scrim to a dark clip', () => {
   });
   const vf = argOf(calls.find(c => c.args.includes('-stream_loop')), '-vf');
   const dim = Number(vf.match(/black@([\d.]+)/)[1]);
-  assert.ok(dim < 0.3, `koyu klipte scrim düşmeliydi, ${dim} kaldı`);
+  assert.ok(dim < 0.44, `koyu klipte scrim düşmeliydi, ${dim} kaldı`);
 });

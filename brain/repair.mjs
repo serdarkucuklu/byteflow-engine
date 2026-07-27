@@ -49,6 +49,32 @@ function repairScene(scene) {
 const DEFAULT_HASHTAGS = ['#llm', '#aiengineering', '#aiagents'];
 
 /** Onarılmış spec'i döndürür (girdi mutasyona uğramaz). Onarılamayan sahne düşürülür. */
+/**
+ * Anlatım cümlelerini beat yapısına oturtur: [hook, ...her adım için bir cümle, kapanış].
+ * Model sayıyı tutturamazsa eksikleri adımların status metninden üretir — seslendirme ve
+ * altyazı sessizce desenkron olmaktansa biraz düz bir cümle söylesin.
+ */
+function repairNarration(out) {
+  const first = (out.scenes ?? []).find(s => Array.isArray(s.steps) && s.steps.length);
+  const steps = first?.steps ?? [];
+  const want = steps.length + 3;   // hook + kurulum + adımlar + kapanış
+  let given = (Array.isArray(out.narration) ? out.narration : [])
+    .map(t => String(t).replace(/[*`]/g, '').trim()).filter(Boolean);
+  // Fazla cümle: baştakileri koru ama KAPANIŞI kaybetme (son cümle kapanıştır).
+  if (given.length > want) given = [...given.slice(0, want - 1), given[given.length - 1]];
+
+  const sentence = t => (/[.!?]$/.test(t) ? t : `${t}.`);
+  return Array.from({length: want}, (_, i) => {
+    if (given[i]) return sentence(given[i]);
+    if (i === 0) return sentence(out.hook ?? out.title ?? 'Here is how it actually works');
+    if (i === 1) return `Here is what actually happens, in ${steps.length} steps.`;
+    if (i === want - 1) return sentence(out.takeaway ?? 'That is the whole mechanism');
+    return sentence(cap(steps[i - 2]?.status ?? 'the next step runs'));
+  });
+}
+
+const cap = t => String(t).charAt(0).toUpperCase() + String(t).slice(1);
+
 export function repairSpec(spec) {
   const out = {...spec};
   if (!Array.isArray(out.hashtags) || out.hashtags.length === 0) out.hashtags = [...DEFAULT_HASHTAGS];
@@ -58,5 +84,6 @@ export function repairSpec(spec) {
     s.kind === 'code' ? Boolean(s.code) : (s.nodes?.length >= 3 && s.steps?.length >= 1));
   // Hepsi düşerse orijinali bırak: validateSpec kararı versin, sessizce boş spec üretme.
   out.scenes = scenes.length ? scenes.slice(0, 2) : (spec.scenes ?? []);
+  out.narration = repairNarration(out);
   return out;
 }

@@ -43,10 +43,9 @@ export function measureLuma(src, probe = defaultProbe) {
  */
 export function adaptDim(dim, luma) {
   if (luma == null) return dim;
-  if (luma < 30) return Math.round(dim * 0.35 * 100) / 100;
-  if (luma < 60) return Math.round(dim * 0.6 * 100) / 100;
-  if (luma < 90) return Math.round(dim * 0.85 * 100) / 100;
-  return dim;
+  if (luma < 25) return Math.round(dim * 0.55 * 100) / 100;
+  if (luma < 45) return Math.round(dim * 0.8 * 100) / 100;
+  return dim;      // 45 üstü: karartmayı DÜŞÜRME — parlak klipte yazı kayboluyor
 }
 
 /**
@@ -58,12 +57,7 @@ export function planSegments({total, clipCount, hook = 3.4, outro = 4.2, xf = XF
   const n = Math.max(1, clipCount);
   // xfade her geçişte xf saniye "yer" → görünen süre = sum(durs) - (segment-1)*xf.
   // DİKKAT: span, klip sayısına değil ÜRETİLEN SEGMENT sayısına göre hesaplanır.
-  if (n === 1) return {durations: [total], dims: [0.5], kinds: ['clip']};
-  if (n === 2) {
-    const span2 = total + xf;
-    return {durations: [span2 * 0.45, span2 * 0.55], dims: [0.26, 0.42], kinds: ['clip', 'clip']};
-  }
-  const span = total + 2 * xf;   // üç segment → iki geçiş
+  const span = total + 2 * xf;   // her koşulda üç segment → iki geçiş
 
   // ÜÇ BÖLÜM: sinematik giriş (klip) → ÖĞRETİCİ GÖVDE (tasarlanmış sade zemin) → çıkış (klip).
   // Serdar (2026-07-27): "arka plan süper olsa ne, görseller iyi olmadıkça" + "video karmaşık".
@@ -74,7 +68,7 @@ export function planSegments({total, clipCount, hook = 3.4, outro = 4.2, xf = XF
   const body = span - head - tail;
   return {
     durations: [head, body, tail].map(d => Math.max(1.2, d)),
-    dims: [0.26, 0.86, 0.40],
+    dims: [0.44, 0.88, 0.52],
     kinds: ['clip', 'surface', 'clip'],
   };
 }

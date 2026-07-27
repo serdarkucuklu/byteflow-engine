@@ -10,6 +10,8 @@
     "topic_source": {"type": "string"},
     "theme": {"type": "string"},
     "footage": {"type": "boolean"},
+    "narration": {"type": "array", "items": {"type": "string", "minLength": 2, "maxLength": 140}, "maxItems": 8},
+    "beats": {"type": "array", "items": {"type": "object"}},
     "footage_queries": {"type": "array", "items": {"type": "string", "minLength": 2, "maxLength": 60}, "maxItems": 6},
     "caption": {"type": "string", "minLength": 1, "maxLength": 2200},
     "hashtags": {"type": "array", "items": {"type": "string"}, "minItems": 1, "maxItems": 30},

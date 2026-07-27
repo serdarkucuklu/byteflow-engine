@@ -32,7 +32,14 @@ const SHADOW = FOOTAGE ? {shadowColor: '#000000e6', shadowBlur: 30} : {};
 const BUILDUP_WEIGHT = 1;
 const pacing = computePacing(specShape(spec), motionTarget(BUILDUP_WEIGHT));
 
-const CARD_FILL = '#141a22f2';        // koyu ve neredeyse opak: footage üstünde de okunur
+// SES OTORİTE: seslendirme varsa her beat'in süresi ölçülmüştür; görsel ona uyar.
+// beats[0]=hook, beats[1..n]=adımlar, beats[son]=kapanış. Yoksa eski governor devrede.
+const BEATS = Array.isArray(spec.beats) && spec.beats.length >= 3 ? spec.beats : null;
+const beatDur = (i: number, fallback: number) => (BEATS?.[i]?.dur ?? fallback);
+
+const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+
+const CARD_FILL = '#0f151dfa';        // koyu ve neredeyse opak: footage üstünde de okunur
 const CARD_STROKE = '#28323f';
 const RISE = 34;                      // kartların süzülerek geldiği mesafe
 
@@ -78,7 +85,8 @@ export default makeScene2D(function* (view) {
     fontSize={30} letterSpacing={4} opacity={0} y={210} {...SHADOW} />);
   yield* all(hook().opacity(1, 0.5, easeOutCubic), hook().y(-30, 0.7, easeOutCubic));
   yield* all(hookRule().width(180, 0.45, easeOutCubic), hookTag().opacity(0.85, 0.35));
-  yield* waitFor(0.9);
+  // Hook, anlatımın ilk cümlesi bitene kadar ekranda kalır (konuşma neyse o kadar).
+  yield* waitFor(Math.max(0.5, beatDur(0, 1.85) - 1.35));
   yield* all(hook().opacity(0, 0.35), hookRule().opacity(0, 0.3), hookTag().opacity(0, 0.3));
   hookRule().remove();
 
@@ -167,28 +175,48 @@ export default makeScene2D(function* (view) {
       allLines.push(ln());
     });
 
-    // Sistem satırı: mono, küçük, kartların altında — "şu an ne oluyor".
-    const status = createRef<Txt>();
-    container().add(<Txt ref={status} text="" fill={COLORS.muted} fontFamily={FONTS.mono}
-      fontSize={32} fontWeight={500} letterSpacing={0.2} y={610} opacity={0} zIndex={2}
-      width={940} textAlign="center" textWrap {...SHADOW} />);
+    // ALTYAZI: kazanan kısa-video formatının 1 numaralı öğesi (2026 verisi: klip'lerin
+    // %80'inde altyazı, %78'i animasyonlu). Sessiz izleyen de anlatımı OKUYOR.
+    // Kelime kelime açılır, koyu bir hap üstünde, yüksek kontrast.
+    const capPill = createRef<Rect>();
+    const capTxt = createRef<Txt>();
+    container().add(
+      <Rect ref={capPill} layout padding={[16, 30]} radius={20} fill="#0a0e13e6"
+        stroke="#ffffff14" lineWidth={1.5} y={616} opacity={0} zIndex={3}
+        shadowColor="#000000aa" shadowBlur={28} shadowOffsetY={8}>
+        <Txt ref={capTxt} text="" fill={COLORS.text} fontFamily={FONTS.display} fontSize={40}
+          fontWeight={700} letterSpacing={-0.3} lineHeight={50} width={860}
+          textAlign="center" textWrap />
+      </Rect>,
+    );
+    const caption = {pill: capPill, txt: capTxt};
 
-    // ── KURULUM: kartlar sırayla aşağıdan süzülür, bağlantı önce çizilir ────
+    // ── KURULUM: kartlar sırayla aşağıdan süzülür (beat 1 = "kurulum" cümlesi) ──
+    // Ses varsa kurulum TAM O CÜMLE kadar sürer; yoksa governor değerleri kullanılır.
+    const edges = Math.max(count - 1, 1);
+    const setupBudget = BEATS ? Math.max(0.9, beatDur(1, 2.2) - 0.45) : 0;
+    const enterT = BEATS ? clamp(setupBudget / (count + edges * 0.6), 0.14, 0.5) : pacing.enter;
+    const lineT = BEATS ? enterT * 0.6 : pacing.lines;
+
     yield* all(
-      boxByIndex[0].opacity(1, pacing.enter, easeOutCubic),
-      boxByIndex[0].y(pos[0].y, pacing.enter, easeOutCubic),
+      boxByIndex[0].opacity(1, enterT, easeOutCubic),
+      boxByIndex[0].y(pos[0].y, enterT, easeOutCubic),
     );
     for (let i = 1; i < count; i++) {
       const incoming = lineByTarget.get(i) ?? [];
-      if (incoming.length) yield* all(...incoming.map(l => l.end(1, pacing.lines, easeOutQuad)));
+      if (incoming.length) yield* all(...incoming.map(l => l.end(1, lineT, easeOutQuad)));
       yield* all(
-        boxByIndex[i].opacity(1, pacing.enter, easeOutCubic),
-        boxByIndex[i].y(pos[i].y, pacing.enter, easeOutCubic),
+        boxByIndex[i].opacity(1, enterT, easeOutCubic),
+        boxByIndex[i].y(pos[i].y, enterT, easeOutCubic),
       );
     }
 
     // ── AKIŞ: adım başına TEK YÖNLÜ ışık darbesi + odak ─────────────────────
-    for (const step of steps) {
+    for (const [si, step] of steps.entries()) {
+      // Adımın TOPLAM süresi = o cümlenin konuşma süresi (ses otorite).
+      const beatTotal = beatDur(si + 2, pacing.step + pacing.hold + 1.2);
+      const pulseT = BEATS ? clamp(beatTotal * 0.34, 0.55, 1.7) : pacing.step;
+      const holdT = BEATS ? Math.max(0.35, beatTotal - pulseT - 0.72) : pacing.hold + 0.5;
       const from = boxes[step.from], to = boxes[step.to];
       if (!from || !to) continue;
       const col = resolveColor(step.color ?? 'accent', ACCENT);
@@ -208,17 +236,16 @@ export default makeScene2D(function* (view) {
         );
       }
 
-      status().text(step.status);
-      status().fill(col);
+      // ALTYAZI: o an konuşulan cümle (ses yoksa adımın status metni).
+      yield* showCaption(caption, BEATS?.[si + 2]?.text ?? step.status, col);
       yield* all(
-        status().opacity(0.95, 0.22),
         // odak: hedef ve kaynak öne çıkar, gerisi geri çekilir
         from.stroke(col, 0.22), from.shadowColor(`${col}55`, 0.22),
         ...others.map(b => b.opacity(0.45, 0.22)),
       );
 
       if (pulse()) {
-        const t = pacing.step;
+        const t = pulseT;
         yield* all(
           pulse().end(1, t, easeInOutCubic),
           // kuyruk, başın 0.3t gerisinden gelir → kısa ışık izi (dot+chip git-gel yerine)
@@ -228,12 +255,12 @@ export default makeScene2D(function* (view) {
         );
         pulse().remove();
       } else {
-        yield* all(to.stroke(col, pacing.step), to.shadowColor(`${col}66`, pacing.step));
+        yield* all(to.stroke(col, pulseT), to.shadowColor(`${col}66`, pulseT));
       }
 
       // Varış: hedef bir tık yükselir (kart "kabul etti" hissi), sonra okuma molası.
       yield* all(to.y(to.y() - 6, 0.18, easeOutCubic), to.lineWidth(2.5, 0.18));
-      yield* waitFor(pacing.hold + 0.5);
+      yield* waitFor(holdT);
       yield* all(
         to.y(to.y() + 6, 0.3, easeOutCubic), to.lineWidth(1.5, 0.3),
         from.stroke(CARD_STROKE, 0.3), from.shadowColor('#00000070', 0.3),
@@ -242,10 +269,10 @@ export default makeScene2D(function* (view) {
       );
     }
 
-    // Bitmiş diyagramı okuma molası, sonra topluca çıkış.
-    yield* waitFor(pacing.finalDwell + 0.5);
+    // Ses varsa akış bitince beklemeden kapanışa geçilir (boş bekleme = izleyici kaybı).
+    yield* waitFor(BEATS ? 0.25 : pacing.finalDwell + 0.5);
     yield* all(
-      status().opacity(0, 0.3),
+      caption.pill().opacity(0, 0.3),
       ...boxByIndex.map((b, i) => all(b.opacity(0, 0.4), b.y(b.y() - 18, 0.45, easeOutCubic))),
       ...allLines.map(l => l.opacity(0, 0.3)),
       heading().opacity(0, 0.3),
@@ -266,8 +293,26 @@ export default makeScene2D(function* (view) {
     fontFamily={FONTS.mono} fontSize={30} letterSpacing={2} opacity={0} y={180} {...SHADOW} />);
   yield* all(take().opacity(1, 0.5, easeOutCubic), take().y(-40, 0.6, easeOutCubic));
   yield* all(rule().width(200, 0.4, easeOutCubic), sign().opacity(0.85, 0.4));
-  yield* waitFor(1.4);
+  // Kapanış cümlesi bitene kadar dur; sonra LOOP için kararma (rewatch sinyali algoritmada
+  // en güçlü ödüllerden biri — son kare ile ilk kare birbirine bağlansın).
+  const closeT = BEATS ? Math.max(0.6, beatDur(BEATS.length - 1, 1.4) - 1.0) : 1.4;
+  yield* waitFor(closeT);
+  yield* all(take().opacity(0, 0.45), rule().opacity(0, 0.4), sign().opacity(0, 0.4));
+  yield* waitFor(0.12);
 });
+
+/** Altyazıyı kelime kelime açar (hızlı okunur ritim, tek satır tek fikir). */
+function* showCaption(cap: {pill: any; txt: any}, text: string, color: string) {
+  const words = String(text ?? '').split(/\s+/).filter(Boolean);
+  cap.txt().text('');
+  cap.txt().fill(color === undefined ? COLORS.text : COLORS.text);
+  yield* cap.pill().opacity(1, 0.16);
+  const per = clamp(0.5 / Math.max(words.length, 1), 0.035, 0.075);
+  for (let i = 0; i < words.length; i++) {
+    cap.txt().text(words.slice(0, i + 1).join(' '));
+    yield* waitFor(per);
+  }
+}
 
 function* renderCodeScene(view: any, scene: any, ctx: any) {
   const container = createRef<Layout>();
