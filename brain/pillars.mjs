@@ -32,14 +32,22 @@ const SKINCARE_SCIENCE = [
   {key: 'aktifler', focus: 'aktif maddelerin cilt içinde NE YAPTIĞI: retinol/retinal, C vitamini, niasinamid, AHA/BHA, azelaik asit — hücre yenilenmesi, kolajen, pigment yolu'},
   {key: 'bariyer', focus: 'cilt bariyeri: seramid, kolesterol, yağ asidi dengesi, transepidermal su kaybı, bariyer bozulunca ne oluyor ve nasıl onarılıyor'},
   {key: 'nemlendirme', focus: 'nem tutucu/çekici/örtücü ayrımı: hyalüronik asit ne zaman kurutuyor, gliserin, üre, oklüzif katman mantığı'},
-  {key: 'gunes', timely: true, focus: 'güneş koruması: UVA/UVB farkı, SPF ve PA ne ölçer, filtre tipleri (mineral/kimyasal), yeniden sürme, yeni çıkan filtre teknolojileri'},
+  {key: 'gunes', focus: 'güneş koruması: UVA/UVB farkı, SPF ve PA ne ölçer, filtre tipleri (mineral/kimyasal), yeniden sürme, yeni çıkan filtre teknolojileri'},
   {key: 'sira-ve-catisma', focus: 'ürün sırası ve etken madde çatışmaları: retinol + asit, C vitamini + niasinamid efsanesi, pH ve nüfuz sırası'},
   {key: 'akne', focus: 'akne mekanizması: gözenek tıkanması, C. acnes, sebum, hormonal akne döngüsü; komedojenik iddiasının ne kadar geçerli olduğu'},
   {key: 'pigment', focus: 'leke ve renk eşitsizliği: melanin üretim yolu, PIH ve melazma farkı, tirozinaz inhibitörleri, güneşin rolü'},
   {key: 'yaslanma', focus: 'yaşlanma biyolojisi: kolajen kaybı hızı, elastin, glikasyon, foto-yaşlanma; hangi iddia kanıtlı hangisi pazarlama'},
-  {key: 'hassasiyet', timely: true, focus: 'hassas cilt ve tahriş: parfüm/esans, alkol türleri, alerjen listeleri, "doğal" iddiasının anlamı; gündemdeki içerik tartışmaları'},
+  {key: 'hassasiyet', focus: 'hassas cilt ve tahriş: parfüm/esans, alkol türleri, alerjen listeleri, "doğal" iddiasının anlamı; gündemdeki içerik tartışmaları'},
   {key: 'efsaneler', focus: 'yaygın efsanelerin mekanizmayla çürütülmesi: gözenek açılıp kapanmaz, pahalı formül daha etkili değildir, doğal her zaman güvenli değildir'},
   {key: 'rutin-tasarimi', focus: 'minimum etkili rutin: kaç adım gerçekten gerekli, hangi sırayla, ne kadar sürede sonuç beklenir (haftalar cinsinden gerçekçi takvim)'},
+  // ÜRÜN-MERKEZLİ HAT (Serdar, 2026-07-28): hacim ürünün kendisinde — insanlar "şu serumu
+  // alayım mı" diye düşünüyor. Ürünü DENEYEMEYİZ (faceless + otomatik), ama içerik listesi
+  // herkese açık: üründen konuşup iddia satmadan analiz yapabiliriz.
+  {key: 'icindekiler', timely: true, focus: 'Türkiye\'de çok satan bir cilt bakım ürününün YAYINLANMIŞ içerik listesini (INCI) okumak: hangi etken madde listenin neresinde, ne işe yarıyor, paranın çoğu neye gidiyor. Ürün adını açıkça söyle; "kötü/işe yaramaz" deme, "şu madde şu konumda, beklentin şu olmalı" de'},
+  {key: 'muadil', timely: true, focus: 'aynı etken maddeyi çok daha ucuza veren muadil karşılaştırması: pahalı üründeki aktif ile uygun fiyatlı üründeki aktif aynı mı, formülasyon farkı gerçekten fark yaratıyor mu, fiyat farkı neye gidiyor'},
+  {key: 'karsilastirma', timely: true, focus: 'iki popüler ürünü TEK bir boyutta kafa kafaya karşılaştırmak (aktif yoğunluğu, bariyer desteği, tahriş riski, kullanım sırası): hangisi hangi cilt için mantıklı'},
+  {key: 'iddia-kontrol', timely: true, focus: 'bir markanın reklam cümlesini yayınlanmış mekanizmayla karşılaştırmak: "gözenek sıkılaştırır", "kolajeni geri getirir" gibi iddialar ne kadar destekleniyor, hangi kısmı doğru hangi kısmı abartı'},
+  {key: 'cok-satanlar', timely: true, focus: 'şu an gündemde/çok satan bir ürün ya da trend (viral TikTok ürünü, yeni çıkan seri, sosyal medyada konuşulan içerik) — neden konuşuluyor ve mekanizması ne söylüyor'},
   {key: 'cihaz-ve-islem', timely: true, focus: 'ev tipi cihazlar ve klinik işlemler: LED maske, mikroakım, dermaroller riskleri, peeling dereceleri — ne işe yarıyor, ne yaramıyor'},
 ];
 
