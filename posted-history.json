@@ -307,5 +307,19 @@
     ],
     "voice": 6,
     "date": "2026-07-27"
+  },
+  {
+    "title": "Microsoft Security Model",
+    "pillar": "model-releases",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#f778ba",
+    "source": "gemini",
+    "footage": [
+      "pexels:server led lights macro",
+      "pexels:circuit board macro"
+    ],
+    "voice": 6,
+    "date": "2026-07-27"
   }
 ]

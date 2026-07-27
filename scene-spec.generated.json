@@ -1,107 +1,100 @@
 {
-  "hook": "Your agent trace was green, but the task failed.",
-  "title": "Why Agent Traces Pass When Output Fails",
+  "hook": "Microsoft Security Model is not a standard fine-tune.",
+  "title": "Microsoft Security Model",
   "scenes": [
     {
-      "layout": "cycle",
-      "kind": "diagram",
+      "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "agent",
-          "label": "AGENT MODEL",
-          "brand": "openai"
+          "id": "telemetry",
+          "label": "SECURITY LOGS"
         },
         {
-          "id": "tool",
-          "label": "TOOL RUNNER",
-          "brand": "python"
+          "id": "sec_model",
+          "label": "COPILOT MODEL",
+          "brand": "copilot"
         },
         {
-          "id": "memory",
-          "label": "AGENT MEMORY"
+          "id": "remediation",
+          "label": "AUTO DEFENSE"
         }
       ],
       "steps": [
         {
-          "from": "agent",
-          "to": "tool",
-          "packet": "CALL",
-          "status": "model generates valid tool call json",
+          "from": "telemetry",
+          "to": "sec_model",
+          "packet": "LOGS",
+          "status": "raw security logs stream into copilot",
+          "color": "accent"
+        },
+        {
+          "from": "sec_model",
+          "to": "remediation",
+          "packet": "PLAN",
+          "status": "copilot maps threats to defense actions",
+          "color": "warn"
+        },
+        {
+          "from": "remediation",
+          "to": "sec_model",
+          "packet": "STATUS",
+          "status": "remediation status feeds back to model",
           "color": "good"
-        },
-        {
-          "from": "tool",
-          "to": "memory",
-          "packet": "200 OK",
-          "status": "tool returns empty success payload",
-          "color": "warn"
-        },
-        {
-          "from": "memory",
-          "to": "agent",
-          "packet": "HALT",
-          "status": "agent assumes success and stops early",
-          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Your agent observability trace can be 100% green while your agent completely fails the task.\n\nHere's what actually happens in an agent tool loop:\n\n1. Valid Schema Request — The LLM generates a syntactically perfect tool call matching the JSON schema. The tracing tool logs a green checkmark for LLM generation.\n2. Silent API Failure — The tool runner executes the API call. The server responds with HTTP 200 OK, but returns an empty list or missing data payload. Tracing tools log another green status because no exception was thrown.\n3. False Completion — The agent receives the empty payload in its context window, hallucinates that the task is finished, and returns a successful response to the user.\n\nWhen building agentic workflows with OpenAI or Claude, 200 OK status codes mean nothing if payload validation fails.\n\nNo magic — just unhandled semantic return values.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Microsoft Security Model isn't just another fine-tuned LLM.\n\nHere's what actually happens in automated security orchestration:\n\n1. Security Logs — Raw telemetry from endpoints, cloud infrastructure, and networks stream directly into the system.\n2. Copilot Model — The domain-specific model analyzes signal correlations and generates targeted remediation plans.\n3. Auto Defense — Automated scripts execute threat containment actions and return execution feedback.\n\nWhy it matters: General-purpose LLMs struggle with security context and precise tool execution, while dedicated domain models minimize false positives.\n\nNo magic — just specialized training on domain telemetry.\n\n📌 Save this so you don't forget how domain-specific models work.\n🔁 Send it to someone who thinks standard LLMs can handle SOC ops.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#aiagents",
-    "#aiengineering",
-    "#llm",
-    "#openai",
-    "#python",
-    "#agenticai"
+    "#microsoft"
   ],
-  "takeaway": "Traces log HTTP status, not semantic task success.",
+  "takeaway": "Domain security models outperform general LLMs in production.",
   "footage_queries": [
     "server led lights macro",
-    "network connection lines abstract"
+    "circuit board macro"
   ],
   "narration": [
-    "Your OpenAI agent trace passed, but the task failed.",
-    "Three components make up this tool loop.",
-    "First, the model outputs a valid tool call.",
-    "Next, the tool returns a blank success response.",
-    "Finally, the agent assumes completion and halts early.",
-    "Traces log HTTP status, not semantic task success."
+    "Microsoft Security Model is not a standard fine-tune.",
+    "Three components handle automated threat response here.",
+    "Raw security logs stream into Copilot Security.",
+    "Copilot maps threat patterns to precise defense actions.",
+    "Remediation status feeds directly back into model context.",
+    "Domain security models outperform general LLMs in production."
   ],
-  "theme": "#e3b341",
+  "theme": "#f778ba",
   "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "Your OpenAI agent trace passed, but the task failed.",
+      "text": "Microsoft Security Model is not a standard fine-tune.",
       "start": 0.35,
-      "dur": 2.741
+      "dur": 3.169
     },
     {
-      "text": "Three components make up this tool loop.",
-      "start": 3.091,
-      "dur": 2.109
+      "text": "Three components handle automated threat response here.",
+      "start": 3.519,
+      "dur": 3.288
     },
     {
-      "text": "First, the model outputs a valid tool call.",
-      "start": 5.2,
-      "dur": 2.267
+      "text": "Raw security logs stream into Copilot Security.",
+      "start": 6.807,
+      "dur": 2.81
     },
     {
-      "text": "Next, the tool returns a blank success response.",
-      "start": 7.467,
-      "dur": 2.531
+      "text": "Copilot maps threat patterns to precise defense actions.",
+      "start": 9.618,
+      "dur": 3.348
     },
     {
-      "text": "Finally, the agent assumes completion and halts early.",
-      "start": 9.998,
-      "dur": 2.847
+      "text": "Remediation status feeds directly back into model context.",
+      "start": 12.966,
+      "dur": 3.468
     },
     {
-      "text": "Traces log HTTP status, not semantic task success.",
-      "start": 12.845,
-      "dur": 3.736
+      "text": "Domain security models outperform general LLMs in production.",
+      "start": 16.434,
+      "dur": 4.747
     }
   ],
-  "thumbOffset": 9606
+  "thumbOffset": 12274
 }
