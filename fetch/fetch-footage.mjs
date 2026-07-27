@@ -15,16 +15,25 @@ const TOP_POOL = 8;             // kalite sıralamasında ilk N aday arasından 
 
 // Konu → b-roll sorgusu için yedek havuz (beyin sorgu üretmezse). Hepsi "AI/sistem/kod"
 // estetiğinde, dikey stok videoda bolca karşılığı olan terimler.
+// İnsansız: sayfa faceless — arkada yüz/insan görünmesi markayı bozuyor (2026-07-27 outro'da
+// bir portre çıktı). Sadece makine, mekân, yüzey ve soyut hareket.
 export const FALLBACK_QUERIES = [
   'server room data center',
-  'programming code screen',
+  'terminal screen scrolling',
   'abstract digital particles',
   'circuit board macro',
-  'developer typing laptop night',
+  'fiber optic strands',
   'network connection lines abstract',
   'city night timelapse neon',
-  'blue technology background motion',
+  'rain on glass at night',
 ];
+
+// Sorguda insan geçiyorsa kullanma (beyin kuralı çiğnerse ikinci savunma hattı).
+const PEOPLE = /\b(people|person|man|men|woman|women|girl|boy|guy|human|face|portrait|hands?|team|developer|programmer|engineer|coder|worker|student|crowd|meeting|typing|working|sitting|thinking|smiling)\b/i;
+
+export function isPeopleQuery(q) {
+  return PEOPLE.test(String(q ?? ''));
+}
 
 const STOP = new Set(['the', 'and', 'with', 'from', 'that', 'this', 'your', 'how', 'why', 'what',
   'does', 'work', 'works', 'using', 'into', 'when', 'için', 'nedir', 'nasıl']);
@@ -139,7 +148,12 @@ export async function fetchFootage({
   queries = [], count = 3, outDir, keys = process.env, fetchFn = fetch,
   pick = arr => arr[Math.floor(Math.random() * arr.length)],
 } = {}) {
-  const qs = (queries.length ? queries : FALLBACK_QUERIES).slice(0, Math.max(count, 1));
+  const requested = (queries.length ? queries : FALLBACK_QUERIES).filter(q => {
+    if (!isPeopleQuery(q)) return true;
+    console.error(`[footage] "${q}" atlandı (insan içeren sorgu — sayfa faceless)`);
+    return false;
+  });
+  const qs = requested.slice(0, Math.max(count, 1));
   while (qs.length < count) qs.push(FALLBACK_QUERIES[qs.length % FALLBACK_QUERIES.length]);
 
   if (!existsSync(outDir)) mkdirSync(outDir, {recursive: true});

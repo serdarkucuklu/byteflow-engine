@@ -35,7 +35,7 @@ export function planSegments({total, clipCount, hook = 2.4, outro = 3.2, xf = XF
   const durations = [head, ...Array(n - 2).fill(mid), tail];
   // Gövde karartması: diyagram okunacak kadar koyu, ama footage'ın hareketi HÂLÂ görünsün
   // (0.62'de görüntü çamura dönüyordu — kadraj testinde doğrulandı).
-  const dims = [0.30, ...Array(n - 2).fill(0.52), 0.42];
+  const dims = [0.30, ...Array(n - 2).fill(0.52), 0.48];
   return {durations: durations.map(d => Math.max(1.2, d)), dims};
 }
 

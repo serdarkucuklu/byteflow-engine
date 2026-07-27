@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {fetchTrends} from './fetch/fetch-trends.mjs';
 import {fetchFootage, queryFromTitle} from './fetch/fetch-footage.mjs';
 import {produceSpec} from './brain/produce-spec.mjs';
+import {stripMarkdown} from './brain/sanitize.mjs';
 import {postProcess} from './publish/post-process.mjs';
 import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose-footage.mjs';
 import {PILLARS, selectPillar} from './brain/pillars.mjs';
@@ -33,7 +34,9 @@ const recentPillars = history.slice(-(PILLARS.length - 1)).map(h => h.pillar).fi
 const pillar = selectPillar(recentPillars, history.length);
 console.log(`✓ pillar: ${pillar.key}${pillar.timely ? ' (timely)' : ''}`);
 
-const {spec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, pickSeed: randomSeed});
+const {spec: rawSpec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, pickSeed: randomSeed});
+// Ekrandaki metinlerde markdown vurgusu kalmasın ("your *real* safety net" yıldızlarıyla basılıyordu).
+const spec = stripMarkdown(rawSpec);
 
 // Görsel çeşitlilik: ardışık videolar aynı tema olmasın (deterministik rotasyon).
 // Layout'u BEYİN seçer (konsepti en iyi öğreten kompozisyon: flow/stack/hub/cycle) —

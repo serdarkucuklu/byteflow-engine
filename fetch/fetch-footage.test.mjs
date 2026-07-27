@@ -129,3 +129,32 @@ test('queryFromTitle strips filler and yields a searchable phrase', () => {
   assert.match(q, /rag/);
   assert.doesNotMatch(q, /\bhow\b|\bdoes\b/);
 });
+
+test('people queries are rejected — the page is faceless', async () => {
+  const {isPeopleQuery} = await import('./fetch-footage.mjs');
+  for (const q of ['developer typing laptop', 'woman using phone', 'team meeting office', 'close up hands keyboard']) {
+    assert.ok(isPeopleQuery(q), q);
+  }
+  for (const q of ['server room data center', 'circuit board macro', 'rain on glass at night']) {
+    assert.ok(!isPeopleQuery(q), q);
+  }
+  assert.ok(FALLBACK_QUERIES.every(q => !isPeopleQuery(q)), 'yedek havuzda insan olmamalı');
+});
+
+test('fetchFootage drops a people query and pads from the fallback pool', async () => {
+  const {mkdtempSync} = await import('node:fs');
+  const {tmpdir} = await import('node:os');
+  const {join} = await import('node:path');
+  const seen = [];
+  await fetchFootage({
+    queries: ['server rack aisle', 'developer typing at desk'], count: 2,
+    outDir: mkdtempSync(join(tmpdir(), 'bf-footage-')), keys: {PEXELS_API_KEY: 'k'},
+    fetchFn: async url => {
+      seen.push(decodeURIComponent(new URL(url).searchParams.get('query')));
+      return {ok: true, status: 200, json: async () => ({videos: []})};
+    },
+  });
+  assert.equal(seen[0], 'server rack aisle');
+  assert.ok(!seen.some(q => /developer/.test(q)), 'insanlı sorgu kullanılmamalı');
+  assert.equal(seen.length, 2);
+});
