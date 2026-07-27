@@ -29,6 +29,8 @@ const TAKEAWAY = spec.takeaway ?? 'follow for more';
 // Kimlik marka dosyasından gelir (motor tek sayfaya bağlı değil).
 const HANDLE = spec.brand?.handle ?? '@byteflowlabs';
 const SIGNOFF = spec.brand?.signoff ?? 'AI systems, no hype';
+// Paylaşım çağrısı da markanın DİLİNDE olmalı — Türkçe videoda İngilizce satır kalıyordu.
+const SHARE_CTA = spec.brand?.shareCta || '↗  Send this to someone who needs it';
 
 // Footage modunda sahne şeffaf render edilir (arka planı ffmpeg dolduruyor).
 const FOOTAGE = spec.footage === true;
@@ -397,7 +399,7 @@ export default makeScene2D(function* (view) {
 
   // Gönderme çağrısı kartın DIŞINDA, altta — okunur boyutta ve parlak (sönük kalıyordu).
   const share = createRef<Txt>();
-  view.add(<Txt ref={share} text={`↗  Send this to someone who needs it`} fill={COLORS.text}
+  view.add(<Txt ref={share} text={SHARE_CTA} fill={COLORS.text}
     fontFamily={FONTS.display} fontSize={32} fontWeight={700} letterSpacing={-0.2} opacity={0}
     y={452} width={900} textAlign="center" {...SHADOW} />);
   const handleTag = createRef<Txt>();

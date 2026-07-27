@@ -73,7 +73,8 @@ const n = history.length;
 const theme = THEMES[(n * 5 + 1) % THEMES.length]; // *5: eski layout rotasyonuyla senkron olmasın diye kalan ofset
 const motion = 'buildup';                           // tek koreografi (kademeli kurulum)
 spec.theme = theme;
-spec.brand = {handle: brand.handle, signoff: brand.persona?.signoff ?? ''};
+spec.brand = {handle: brand.handle, signoff: brand.persona?.signoff ?? '',
+  shareCta: brand.persona?.shareCta ?? ''};
 if (brand.palette) spec.palette = brand.palette;
 if (brand.language) spec.language = brand.language;
 spec.motion = motion;

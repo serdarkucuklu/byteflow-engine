@@ -135,7 +135,7 @@ export interface SceneSpec {
   // Sıra: [hook, ...ilk sahnenin her adımı, kapanış].
   beats?: {text: string; start: number; dur: number}[];
   narration?: string[];
-  brand?: {handle?: string; signoff?: string};
+  brand?: {handle?: string; signoff?: string; shareCta?: string};
   palette?: Partial<Palette>;
   language?: string;
   scenes: SpecScene[];
