@@ -48,6 +48,10 @@ ${pillar.timely ? `This is a NEWS pillar: anchor the video on ONE real, RECENT r
 headlines below — a new model version bump or a newly shipped feature (a new desktop app, design
 tool, flow builder, voice/omni mode, agent capability). Lead with what JUST changed and what it
 actually means; skip evergreen theory unless it is needed to explain the news.
+HARD RULE for this pillar: the title AND the hook must each NAME the product or model version
+concretely (e.g. "Claude Code", "GPT-5.2", "Gemini 3 Flash", "Grok 5") — not a generic phrase
+like "the new model" or "AI agents". Named, specific videos measurably outperform abstract ones
+on this account, so the name has to be on screen in the first frame.
 ` : ''}Pick ONE sharp, specific idea INSIDE this pillar to explain as a 25-30s animated diagram.
 Prefer a contrarian / "most people get this wrong" / "here's what actually happens" angle.
 WITHIN the pillar, PREFER concrete, name-brand topics about the real products people are
