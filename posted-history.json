@@ -252,5 +252,18 @@
       "pexels:empty data center aisle"
     ],
     "date": "2026-07-27"
+  },
+  {
+    "title": "How Gemini Extensions Work",
+    "pillar": "model-releases",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#bc8cff",
+    "source": "gemini",
+    "footage": [
+      "pexels:network connection lines abstract",
+      "pexels:server led lights macro"
+    ],
+    "date": "2026-07-27"
   }
 ]

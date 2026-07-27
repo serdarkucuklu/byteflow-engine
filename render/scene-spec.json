@@ -1,164 +1,78 @@
 {
-  "hook": "Your RAG retrieves garbage. Here's why.",
-  "title": "RAG's Hidden Flaw: No Metadata",
+  "hook": "Gemini Extensions don't search your app directly.",
+  "title": "How Gemini Extensions Work",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "heading": "The Problem: Raw Vector Search",
       "kind": "diagram",
       "nodes": [
         {
           "id": "user",
-          "label": "USER",
-          "icon": "👤"
+          "label": "USER PROMPT",
+          "icon": "💬"
         },
         {
-          "id": "rag_app",
-          "label": "RAG APP"
+          "id": "gemini",
+          "label": "GEMINI CORE",
+          "brand": "gemini"
         },
         {
-          "id": "vector_db",
-          "label": "VECTOR DB"
+          "id": "oauth",
+          "label": "OAUTH BROKER",
+          "icon": "🔑"
         },
         {
-          "id": "llm",
-          "label": "LLM",
-          "icon": "🧠"
+          "id": "api",
+          "label": "GOOGLE API",
+          "brand": "google"
         }
       ],
-      "reveal": "lines",
       "steps": [
         {
           "from": "user",
-          "to": "rag_app",
+          "to": "gemini",
           "packet": "QUERY",
-          "status": "user asks about specific document"
+          "status": "user prompts gemini to query app data",
+          "color": "accent"
         },
         {
-          "from": "rag_app",
-          "to": "vector_db",
-          "packet": "VEC",
-          "status": "app sends query vector to DB"
-        },
-        {
-          "from": "vector_db",
-          "to": "rag_app",
-          "packet": "TOP K",
-          "status": "db returns top-k similar vectors",
-          "color": "warn"
-        },
-        {
-          "from": "rag_app",
-          "to": "llm",
-          "packet": "CONTEX",
-          "status": "app sends potentially irrelevant context",
-          "color": "warn"
-        },
-        {
-          "from": "llm",
-          "to": "rag_app",
-          "packet": "REPLY",
-          "status": "llm generates bad answer from bad contex",
-          "color": "warn"
-        }
-      ]
-    },
-    {
-      "layout": "nodes-flow",
-      "heading": "The Solution: Metadata Filter",
-      "kind": "diagram",
-      "nodes": [
-        {
-          "id": "user",
-          "label": "USER",
-          "icon": "👤"
-        },
-        {
-          "id": "rag_app",
-          "label": "RAG APP"
-        },
-        {
-          "id": "metadata_filter",
-          "label": "METADATA FILTER"
-        },
-        {
-          "id": "vector_db",
-          "label": "VECTOR DB"
-        },
-        {
-          "id": "llm",
-          "label": "LLM",
-          "icon": "🧠"
-        }
-      ],
-      "reveal": "lines",
-      "steps": [
-        {
-          "from": "user",
-          "to": "rag_app",
-          "packet": "QUERY",
-          "status": "user asks about specific document"
-        },
-        {
-          "from": "rag_app",
-          "to": "metadata_filter",
-          "packet": "QUERY+",
-          "status": "app extracts metadata filters from query"
-        },
-        {
-          "from": "metadata_filter",
-          "to": "vector_db",
-          "packet": "META+V",
-          "status": "filter passes query & metadata to DB"
-        },
-        {
-          "from": "vector_db",
-          "to": "metadata_filter",
-          "packet": "TOP K",
-          "status": "db returns top-k filtered vectors",
+          "from": "gemini",
+          "to": "oauth",
+          "packet": "SCOPE",
+          "status": "gemini checks user authorization scope",
           "color": "good"
         },
         {
-          "from": "metadata_filter",
-          "to": "rag_app",
-          "packet": "RELEVA",
-          "status": "filter ensures context is relevant",
-          "color": "good"
+          "from": "oauth",
+          "to": "api",
+          "packet": "FETCH",
+          "status": "broker executes structured api call",
+          "color": "accent"
         },
         {
-          "from": "rag_app",
-          "to": "llm",
-          "packet": "CONTEX",
-          "status": "app sends precise context to llm",
-          "color": "good"
-        },
-        {
-          "from": "llm",
-          "to": "rag_app",
-          "packet": "REPLY",
-          "status": "llm generates accurate response",
+          "from": "api",
+          "to": "gemini",
+          "packet": "JSON",
+          "status": "raw api response enters model context",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Your RAG retrieves garbage. Here's why.When building RAG, simply relying on vector similarity can lead to irrelevant context. Here's what actually happens:1. USER: You ask a question, perhaps specifying details like a date or project name.2. RAG APP: Your application converts your query into a vector for similarity search.3. VECTOR DB: The vector database returns documents that are semantically similar but might ignore crucial filtering criteria like date ranges or specific categories.4. LLM: The LLM receives this potentially irrelevant context.5. RAG APP: The application presents a poor or hallucinated answer, because the context was not precise.6. RAG APP (with filter): Your application *also* extracts specific metadata filters (e.g., `date > '2023-01-01'`, `project_id = 'XYZ'`) from your query.7. METADATA FILTER: Before vector search, a metadata filter component (often built into the vector DB itself) narrows down the search space to only documents matching these criteria.8. VECTOR DB (filtered): The vector database now performs similarity search *only* on the pre-filtered set of documents, ensuring relevance.9. RAG APP (relevant): The application receives a highly relevant and precise set of documents.10. LLM (accurate): The LLM generates a much more accurate and grounded response.Effective metadata filtering is a critical, often overlooked, component of a robust RAG system, ensuring your LLM gets the *right* context, not just *any* context.Precision in retrieval isn't magic; it's about smart filtering.📌 Save this so you don't build bad RAG.🔁 Send it to someone struggling with RAG quality.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
+  "caption": "Gemini Extensions don't search your app directly.\n\nHere's what actually happens when you run a Gemini Extension:\n\n1. User Prompt — You request an action involving external app data (e.g., Google Drive or Gmail).\n2. Gemini Core — The LLM parses intent and outputs a structured tool call schema instead of plain text.\n3. OAuth Broker — Validates user permissions and token scope without exposing raw credentials to the model.\n4. Google API — Executes the HTTP request and injects raw JSON back into Gemini's context window.\n\nWhen you use Gemini Extensions, the model isn't reading your account directly — it is generating standard tool calls that an API gateway executes on your behalf.\n\nNo magic direct database read — just function calling and OAuth.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#llm",
-    "#rag",
-    "#vectordb",
+    "#gemini",
+    "#googleai",
     "#aiengineering",
-    "#retrieval",
-    "#promptengineering"
+    "#llm",
+    "#systemarchitecture"
   ],
-  "takeaway": "Precision in retrieval isn't magic; it's about smart filtering.",
+  "takeaway": "Gemini Extensions are just structured API calls wrapped in OAuth.",
   "footage_queries": [
-    "abstract digital particles",
-    "circuit board macro",
     "network connection lines abstract",
-    "empty data center aisle"
+    "server led lights macro"
   ],
-  "theme": "#39d3c3",
+  "theme": "#bc8cff",
   "motion": "buildup",
   "footage": true
 }
