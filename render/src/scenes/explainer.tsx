@@ -58,15 +58,31 @@ function connectors(layout: string, count: number): [number, number][] {
 // Kart içi görsel: marka sembolü (varsa) → emoji → yok.
 function nodeGlyph(node: {icon?: string; brand?: string}, size: number) {
   const brand = brandOf(node.brand);
+  // Sembol SABİT boyutlu bir kutuya konur: Path'in kendi sınır kutusu flex düzende yer
+  // ayırmıyordu ve logo etiketin ALTINDA kalıyordu (2026-07-27 CI karesinde görüldü).
   if (brand?.path) {
-    // simple-icons 24x24 → istenen boyuta ölçekle, kendi kutusunda ortala.
-    return <Path data={brand.path} fill={brand.color} scale={size / 24} />;
+    return (
+      <Rect width={size} height={size} justifyContent="center" alignItems="center">
+        <Path data={brand.path} fill={brand.color} scale={size / 24} />
+      </Rect>
+    );
   }
   if (brand) {
-    return <Txt text={brand.label} fill={brand.color} fontFamily={FONTS.display}
-      fontSize={Math.round(size * 0.52)} fontWeight={800} letterSpacing={-0.3} />;
+    return (
+      <Rect width={size * 1.5} height={size * 0.72} radius={9} fill={`${brand.color}22`}
+        stroke={`${brand.color}66`} lineWidth={1.5} justifyContent="center" alignItems="center">
+        <Txt text={brand.label} fill={brand.color} fontFamily={FONTS.display}
+          fontSize={Math.round(size * 0.38)} fontWeight={800} letterSpacing={-0.2} />
+      </Rect>
+    );
   }
-  if (node.icon) return <Txt text={node.icon} fontSize={size} />;
+  if (node.icon) {
+    return (
+      <Rect width={size} height={size} justifyContent="center" alignItems="center">
+        <Txt text={node.icon} fontSize={Math.round(size * 0.86)} />
+      </Rect>
+    );
+  }
   return null;
 }
 
@@ -150,7 +166,7 @@ export default makeScene2D(function* (view) {
           {glyph}
           <Txt text={n.label} fill={COLORS.text} fontFamily={FONTS.display} fontSize={labelSize}
             fontWeight={600} letterSpacing={-0.2} lineHeight={labelSize * 1.15}
-            width={column ? w - (glyph ? glyphSize + 84 : 60) : w - 26}
+            width={column ? w - (glyph ? glyphSize + 96 : 60) : w - 26}
             textAlign={column ? 'left' : 'center'} textWrap />
         </Rect>,
       );

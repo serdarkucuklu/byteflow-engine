@@ -43,14 +43,16 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
  */
 export async function synthesizeScript({
   phrases, outDir, apiKey, voice = VOICES[0],
-  style = 'Read this as a calm, confident tech narrator. Natural pace, clear diction. Pause briefly at each line break',
+  style = 'Narrate this like a sharp, energetic tech explainer for a 20-second social video. '
+    + 'Brisk pace, crisp diction, no dramatic pauses, keep it moving',
+  targetSec = 23, maxTempo = 1.3,
   fetchFn = fetch, run = defaultRun, retries = 2,
 } = {}) {
   const lines = (phrases ?? []).map(p => String(p).trim()).filter(Boolean);
   if (!apiKey || !lines.length) return null;
   if (!existsSync(outDir)) mkdirSync(outDir, {recursive: true});
 
-  const script = lines.join('\n\n');
+  const script = lines.join('\n');
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       const res = await fetchFn(
@@ -69,9 +71,22 @@ export async function synthesizeScript({
       const data = await res.json();
       const inline = data?.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData;
       if (!inline?.data) throw new Error('TTS ses döndürmedi');
-      const file = join(outDir, 'narration.wav');
+      let file = join(outDir, 'narration.wav');
       pcmToWav({pcm: Buffer.from(inline.data, 'base64'), outPath: file, run});
-      const total = durationOf(file, run);
+      let total = durationOf(file, run);
+
+      // SÜRE TAVANI: TTS bazen çok ağır okuyor (ilk canlı koşuda 6 cümle = 35.5s → video 37s,
+      // hedef bandın çok üstü). Metni kısaltmak tek başına yetmiyor; burada deterministik
+      // olarak tempoyu yükseltiyoruz. 1.3x'e kadar doğal duruyor, üstü cıvıyor.
+      if (total > targetSec) {
+        const tempo = Math.min(maxTempo, total / targetSec);
+        const fast = join(outDir, 'narration-fast.wav');
+        run('ffmpeg', ['-y', '-i', file, '-filter:a', `atempo=${tempo.toFixed(3)}`,
+          '-c:a', 'pcm_s16le', fast]);
+        file = fast;
+        total = durationOf(file, run);
+        console.log(`[vo] tempo ${tempo.toFixed(2)}x → ${total.toFixed(1)}s`);
+      }
       return {file, total, phrases: alignPhrases({file, lines, total, run})};
     } catch (e) {
       console.error(`[vo] deneme ${attempt}: ${e.message}`);

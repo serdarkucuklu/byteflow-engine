@@ -100,7 +100,8 @@ Produce a scene-spec with these fields:
 - node.icon is OPTIONAL (ONE emoji) and only for cards that are NOT a brand and ARE a concrete
   actor (a user, a file, a server). Leave abstract cards (a metric, a rule, a phase) with no
   glyph at all — a uniform emoji grid looks templated.
-- 2 to 4 steps per scene. step.from and step.to MUST equal a node.id IN THAT SCENE.
+- 2 or 3 steps per scene (3 is the norm, 4 only if the mechanism truly needs it — every step
+  adds a spoken sentence and therefore seconds). step.from and step.to MUST equal a node.id IN THAT SCENE.
   Each step is ONE beat of the story, in order; never zig-zag back and forth between the same
   two cards. step.packet <= 6 chars. step.color in {accent, good, warn}.
   step.status <= 40 chars, lowercase — the sentence the viewer reads at that moment.
@@ -168,7 +169,9 @@ VARIETY & TEACHING RULES (hard requirements):
        ("Three things do the work here." / "Your prompt passes through four stages."),
     3..N-1. one sentence per step, in step order, saying what happens at that moment,
     N. the closing sentence (the takeaway, spoken).
-  * Each sentence <= 12 words, plain spoken English, no lists, no markdown, no emoji,
+  * Each sentence <= 9 words. This is a hard limit: the whole script is read aloud and the
+    video is only as long as the speech, so every extra word costs watch-through.
+    Plain spoken English, no lists, no markdown, no emoji,
     no "in this video". Say the product name out loud in the first sentence — audio is
     indexed and searched now, so the name has to be SPOKEN, not just drawn.
   * Write for the ear: short subject-verb-object sentences a person would actually say.
