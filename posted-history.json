@@ -293,5 +293,19 @@
     ],
     "voice": 6,
     "date": "2026-07-27"
+  },
+  {
+    "title": "Why Agent Traces Pass When Output Fails",
+    "pillar": "agents",
+    "layout": "cycle",
+    "motion": "buildup",
+    "theme": "#e3b341",
+    "source": "gemini",
+    "footage": [
+      "pexels:server led lights macro",
+      "pexels:network connection lines abstract"
+    ],
+    "voice": 6,
+    "date": "2026-07-27"
   }
 ]
