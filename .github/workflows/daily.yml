@@ -76,6 +76,10 @@ jobs:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
           RENDER_HEADED: '1'   # xvfb sanal ekranı altında headed chromium
+          # KOTA KORUMASI: yayınlanmayacak test koşuları seslendirme üretmesin. Ücretsiz TTS
+          # kotası günlük; 8-10 test koşusu günün kotasını bitirip GERÇEK yayını sessiz
+          # bıraktı (2026-07-27, @cilt.kodu ilk gönderisi). Test = sessiz, yayın = sesli.
+          BYTEFLOW_VOICE: ${{ (github.event_name == 'schedule' || inputs.publish) && '1' || '0' }}
         run: xvfb-run -a node run-daily.mjs
 
       - name: Videoyu barındır (repo'ya push)
