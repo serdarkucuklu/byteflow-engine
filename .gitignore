@@ -8,3 +8,4 @@ assets/music/_*.mp3
 .env
 .playwright-mcp/
 .superpowers/
+render/footage/

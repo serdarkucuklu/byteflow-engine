@@ -1,10 +1,12 @@
-import {writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync} from 'node:fs';
+import {writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync, rmSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {fetchTrends} from './fetch/fetch-trends.mjs';
+import {fetchFootage, queryFromTitle} from './fetch/fetch-footage.mjs';
 import {produceSpec} from './brain/produce-spec.mjs';
 import {postProcess} from './publish/post-process.mjs';
+import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose-footage.mjs';
 import {PILLARS, selectPillar} from './brain/pillars.mjs';
 
 const root = fileURLToPath(new URL('./', import.meta.url));
@@ -48,12 +50,40 @@ spec.scenes.forEach((sc, i) => {
 const layout = spec.scenes.map(sc => sc.kind === 'code' ? 'code' : sc.layout).join('+');
 console.log(`✓ spec (${source}): ${spec.title} [${layout} / ${motion} / ${theme}]`);
 
+// ---- B-roll: gerçek hareketli görüntü indir (Pexels/Pixabay/Coverr) ----
+// Klip inebildiyse spec.footage=true → sahne ŞEFFAF (alpha PNG) render edilir ve
+// ffmpeg diyagramı footage'ın üstüne bindirir. İnemezse eski düz arka planlı akış aynen sürer.
+const FOOTAGE_CLIPS = 4;
+const footageDir = join(root, 'render', 'footage');
+if (existsSync(footageDir)) rmSync(footageDir, {recursive: true, force: true});
+
+const queries = (Array.isArray(spec.footage_queries) ? spec.footage_queries : [])
+  .map(q => String(q).trim()).filter(Boolean).slice(0, FOOTAGE_CLIPS);
+if (!queries.length) queries.push(queryFromTitle(spec.title));
+
+let clips = [];
+if (process.env.BYTEFLOW_FOOTAGE === '0') {
+  console.log('• footage kapalı (BYTEFLOW_FOOTAGE=0) → düz arka plan');
+} else {
+  try {
+    clips = await fetchFootage({queries, count: FOOTAGE_CLIPS, outDir: footageDir});
+  } catch (e) {
+    console.error(`⚠ footage indirilemedi: ${e.message}`);
+  }
+}
+spec.footage = clips.length > 0;
+console.log(spec.footage
+  ? `✓ footage: ${clips.length} klip [${clips.map(c => c.provider).join(', ')}]`
+  : '• footage yok → düz arka plan (klasik render)');
+
 const specPath = join(root, 'scene-spec.generated.json');
 writeFileSync(specPath, JSON.stringify(spec, null, 2));
 writeFileSync(join(root, 'render', 'scene-spec.json'), JSON.stringify(spec, null, 2));
 
 // Geçmişe ekle (workflow posted-history.json'ı commit eder).
-history.push({title: spec.title, pillar: spec.pillar ?? pillar.key, layout, motion, theme, source, date: new Date().toISOString().slice(0, 10)});
+history.push({title: spec.title, pillar: spec.pillar ?? pillar.key, layout, motion, theme, source,
+  footage: spec.footage ? clips.map(c => `${c.provider}:${c.query}`) : null,
+  date: new Date().toISOString().slice(0, 10)});
 writeFileSync(historyPath, JSON.stringify(history, null, 2));
 
 // Fail fast on a missing music asset BEFORE the expensive render step, not after.
@@ -69,8 +99,26 @@ if (!mp3) {
 execFileSync('npm', ['run', 'render'], {cwd: join(root, 'render'), stdio: 'inherit', shell: true});
 
 mkdirSync(join(root, 'dist'), {recursive: true});
+
+// Footage modunda render mp4 DEĞİL alpha PNG dizisi üretti → önce b-roll'la kompozit et.
+// Kare sayısı süreyi belirler (overlay otorite): T = frames / 60.
+let renderedVideo = join(root, 'render', 'output', 'project.mp4');
+if (spec.footage) {
+  const framesDir = findFramesDir(join(root, 'render', 'output'));
+  const frames = framesDir ? countFrames(framesDir) : 0;
+  if (frames < 60) throw new Error(`alpha PNG dizisi eksik (${frames} kare): ${framesDir}`);
+  const tmpDir = join(root, 'dist', '_tmp');
+  if (existsSync(tmpDir)) rmSync(tmpDir, {recursive: true, force: true});
+  mkdirSync(tmpDir, {recursive: true});
+  renderedVideo = composeFootageVideo({
+    clips, framesDir, frames, tmpDir, accent: theme,
+    outPath: join(tmpDir, 'composited.mp4'),
+  });
+  console.log(`✓ footage kompoziti: ${frames} kare → ${(frames / 60).toFixed(1)}s`);
+}
+
 const out = postProcess({
-  videoPath: join(root, 'render', 'output', 'project.mp4'),
+  videoPath: renderedVideo,
   musicPath: join(musicDir, mp3),
   outPath: join(root, 'dist', 'final.mp4'),
 });

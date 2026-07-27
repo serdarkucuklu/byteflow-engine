@@ -60,6 +60,43 @@ Beyin prompt'u (`brain/generate-spec.mjs`) + şema (`scene-spec.schema.json`) ş
   olarak feed listesine TechCrunch AI, The Verge AI ve Google AI blog eklendi; adaylar
   round-robin karıştırılır ki ilk 15 tek feed'e boğulmasın.
 
+## Sinematik b-roll katmanı (2026-07-27)
+
+Videolar artık düz `#0d1117` arka plan üzerinde değil, **gerçek hareketli stok görüntünün
+üstünde** oynuyor (Noble Vision'daki kanıtlanmış footage zincirinin ByteFlow karşılığı):
+
+```
+trend → Gemini (spec + footage_queries) → stok b-roll indir → MC ŞEFFAF render (alpha PNG)
+      → ffmpeg: footage grade/pan/xfade + diyagram overlay → müzik → dist/final.mp4
+```
+
+- `fetch/fetch-footage.mjs` — **Pexels → Pixabay → Coverr** sırasıyla dikey klip arar/indirir
+  (`PEXELS_API_KEY`, `PIXABAY_API_KEY`, `COVERR_API_KEY`; hangisi varsa o kullanılır).
+  Her sorguda kalite sıralamasının ilk 8'inden RASTGELE seçer → aynı konu her seferinde farklı
+  klip. 4sn'den kısa klipler elenir (loop görünmesin), aynı video iki segmentte kullanılmaz.
+- Beyin her spec'te **4 adet `footage_queries`** üretir: hook shot → 2 doku shot → sakin kapanış.
+- `publish/compose-footage.mjs` — her segmenti 1080×1920'ye kırpar, **yavaş kamera hareketi**
+  (pan/push, segment başına farklı yön) ekler, blur + desatürasyon + siyah scrim + grain +
+  vignette uygular, `xfade` ile zincirler; sonra alpha PNG dizisini `overlay=0:0` ile bindirir.
+  Video süresi = **kare sayısı / 60** (overlay otorite, footage ona uyar).
+- **Okunabilirlik sözleşmesi:** hook (%30 scrim) ve outro (%42) footage'ı gösterir; öğretici
+  gövde %52 scrim + blur ile "doku" seviyesine iner. Footage modunda sahnedeki tüm serbest
+  yazılar gölge alır (`explainer.tsx` → `SHADOW`), kartlar zaten opak.
+- **Hiçbir anahtar yoksa / indirme başarısızsa:** `spec.footage=false` → eski düz arka planlı
+  mp4 akışı aynen çalışır. Kompozit aşamasına gelinip klip yoksa son çare hareketli gradient
+  (`motionBgClip`) devrede — günlük akış hiçbir koşulda kırılmaz.
+- Kapatmak için: `BYTEFLOW_FOOTAGE=0 npm run daily`.
+
+Render tarafı: `render/scene-spec.json` içinde `footage: true` ise `explainer.tsx` arka planı
+BOŞ bırakır ve `render-runner.mjs` "Image sequence" exporter'ını seçip
+`render/output/project/%06d.png` alpha karelerini üretir (aksi halde eski FFmpeg mp4 yolu).
+
+## Konu kaynakları
+
+RSS havuzuna ürün/haber feed'lerinin yanında **topluluk nabzı** eklendi (2026-07-27):
+r/LocalLLaMA, r/ClaudeAI, r/OpenAI (haftalık top) + Medium `large-language-models` ve
+`ai-agents` etiketleri. Reddit datacenter IP'lerinden 403 dönerse o kaynak sessizce atlanır.
+
 ## Kurulum
 
 ```bash

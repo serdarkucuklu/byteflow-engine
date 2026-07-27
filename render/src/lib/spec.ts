@@ -113,5 +113,10 @@ export interface SceneSpec {
   title: string; caption: string; hashtags: string[];
   topic_source?: string; theme?: string;
   hook?: string; takeaway?: string;
+  // footage: true → sahne ŞEFFAF arka planla render edilir (alpha PNG dizisi) ve
+  // ffmpeg gerçek b-roll görüntüsünün üstüne bindirir (publish/compose-footage.mjs).
+  // run-daily.mjs klip indirebildiyse bunu true yazar; indiremezse eski düz arka plan.
+  footage?: boolean;
+  footage_queries?: string[];
   scenes: SpecScene[];
 }

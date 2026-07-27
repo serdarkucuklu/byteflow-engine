@@ -9,6 +9,8 @@
     "takeaway": {"type": "string", "minLength": 3, "maxLength": 80},
     "topic_source": {"type": "string"},
     "theme": {"type": "string"},
+    "footage": {"type": "boolean"},
+    "footage_queries": {"type": "array", "items": {"type": "string", "minLength": 2, "maxLength": 60}, "maxItems": 6},
     "caption": {"type": "string", "minLength": 1, "maxLength": 2200},
     "hashtags": {"type": "array", "items": {"type": "string"}, "minItems": 1, "maxItems": 30},
     "scenes": {

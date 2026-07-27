@@ -1,0 +1,168 @@
+// Footage compositor — stok b-roll klipleri sinematik bir arka plan şeridine çevirir ve
+// Motion Canvas'ın şeffaf (alpha PNG) diyagram katmanını üstüne bindirir.
+//
+// Zincir:  klipler → normalize (dikey kırp + yavaş kamera hareketi + blur + karartma)
+//          → xfade zinciri → bg.mp4 → alpha PNG overlay → sessiz mp4 → (müzik: post-process)
+//
+// Okunabilirlik sözleşmesi: diyagram katmanı ASLA footage'a yenilmez — gövde segmentleri
+// güçlü blur + %60 siyah scrim ile "doku" seviyesine indirilir; sadece hook ve outro
+// anlarında footage öne çıkar (sinematik giriş/çıkış hissi).
+import {execFileSync} from 'node:child_process';
+import {readdirSync, existsSync} from 'node:fs';
+
+export const W = 1080;
+export const H = 1920;
+export const XF = 0.8;            // xfade süresi (sn)
+const PAN_HEADROOM = 1.16;        // pan/zoom için fazladan çerçeve payı
+
+const defaultRun = (bin, args) => execFileSync(bin, args, {stdio: 'inherit'});
+
+/**
+ * Segment süreleri + karartma seviyeleri.
+ * Hook (ilk ~2.4s) ve outro (son ~3.2s) az karartılır → footage görünür; ortadaki
+ * öğretici segmentler ağır karartılır → diyagram okunur.
+ */
+export function planSegments({total, clipCount, hook = 2.4, outro = 3.2, xf = XF}) {
+  const n = Math.max(1, clipCount);
+  // xfade her geçişte xf saniye "yer"; toplam görünen süre = sum(durs) - (n-1)*xf.
+  const span = total + (n - 1) * xf;
+  if (n === 1) return {durations: [span], dims: [0.5]};
+  if (n === 2) return {durations: [span * 0.45, span * 0.55], dims: [0.34, 0.58]};
+
+  const head = Math.min(hook + xf, span * 0.2);
+  const tail = Math.min(outro + xf, span * 0.25);
+  const mid = (span - head - tail) / (n - 2);
+  const durations = [head, ...Array(n - 2).fill(mid), tail];
+  // Gövde karartması: diyagram okunacak kadar koyu, ama footage'ın hareketi HÂLÂ görünsün
+  // (0.62'de görüntü çamura dönüyordu — kadraj testinde doğrulandı).
+  const dims = [0.30, ...Array(n - 2).fill(0.52), 0.42];
+  return {durations: durations.map(d => Math.max(1.2, d)), dims};
+}
+
+/** Tek klibi 1080x1920'ye getirir + yavaş kamera hareketi + grade/blur/scrim uygular. */
+export function normalizeClip({src, outPath, seconds, panDir = 0, dim = 0.6, fps = 60, run = defaultRun}) {
+  const sw = Math.round(W * PAN_HEADROOM), sh = Math.round(H * PAN_HEADROOM);
+  const dx = sw - W, dy = sh - H;
+  const t = seconds.toFixed(3);
+  // 0=sol→sağ, 1=sağ→sol, 2=yukarı→aşağı, 3=çapraz push — klip başına farklı yön (çeşitlilik).
+  const [xe, ye] = panDir === 0 ? [`(${dx})*t/${t}`, `${Math.round(dy / 2)}`]
+    : panDir === 1 ? [`${dx}-(${dx})*t/${t}`, `${Math.round(dy / 2)}`]
+    : panDir === 2 ? [`${Math.round(dx / 2)}`, `(${dy})*t/${t}`]
+    : [`(${dx})*t/${t}`, `(${dy})*t/${t}`];
+  // Karartma ne kadar yüksekse blur o kadar güçlü (metin altındaki detay silinsin).
+  const sigma = (3 + dim * 14).toFixed(1);
+  const vf = [
+    `scale=${sw}:${sh}:force_original_aspect_ratio=increase`,
+    `crop=${sw}:${sh}`,
+    `crop=${W}:${H}:x='${xe}':y='${ye}'`,
+    `fps=${fps}`,
+    'setsar=1',
+    `gblur=sigma=${sigma}`,
+    'eq=saturation=0.72:contrast=1.06',
+    `drawbox=x=0:y=0:w=${W}:h=${H}:color=black@${dim.toFixed(2)}:t=fill`,
+    'noise=alls=4:allf=t',
+    'vignette',
+  ].join(',');
+  run('ffmpeg', ['-y', '-stream_loop', '-1', '-i', src, '-t', String(seconds),
+    '-vf', vf, '-an', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '20',
+    '-r', String(fps), outPath]);
+  return outPath;
+}
+
+/** Hiç klip yoksa son çare: hareketli koyu gradient (donuk kare asla olmasın). */
+export function motionBgClip({outPath, seconds, accent = '#58a6ff', fps = 60, run = defaultRun}) {
+  const hex = accent.replace('#', '');
+  const src = `gradients=s=${W}x${H}:c0=0x0d1117:c1=0x${hex}:d=${seconds}:speed=0.12:rate=${fps}`;
+  run('ffmpeg', ['-y', '-f', 'lavfi', '-i', src,
+    '-vf', `noise=alls=6:allf=t,drawbox=x=0:y=0:w=${W}:h=${H}:color=black@0.55:t=fill,vignette,fps=${fps},setsar=1`,
+    '-t', String(seconds), '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '20',
+    '-r', String(fps), outPath]);
+  return outPath;
+}
+
+const TRANSITIONS = ['fade', 'fadeblack', 'smoothleft', 'smoothup', 'circleopen', 'dissolve'];
+
+/** Normalize edilmiş segmentleri xfade ile zincirler. */
+export function xfadeChain({clips, durations, outPath, fps = 60, xf = XF, transitions = TRANSITIONS, run = defaultRun}) {
+  if (clips.length === 1) {
+    run('ffmpeg', ['-y', '-i', clips[0], '-c', 'copy', outPath]);
+    return outPath;
+  }
+  const inputs = clips.flatMap(c => ['-i', c]);
+  let fc = '', cur = '[0:v]', cum = durations[0];
+  for (let k = 1; k < clips.length; k++) {
+    const off = cum - xf;
+    const trans = transitions[(k - 1) % transitions.length];
+    fc += `${cur}[${k}:v]xfade=transition=${trans}:duration=${xf}:offset=${off.toFixed(3)}[x${k}];`;
+    cur = `[x${k}]`;
+    cum += durations[k] - xf;
+  }
+  fc += `${cur}format=yuv420p[v]`;
+  run('ffmpeg', ['-y', ...inputs, '-filter_complex', fc, '-map', '[v]',
+    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '20', '-r', String(fps), outPath]);
+  return outPath;
+}
+
+/** Arka plan şeridi + alpha PNG dizisi → sessiz mp4 (süre = kare sayısı/fps, overlay otorite). */
+export function compositeOverlay({bgPath, framesDir, frames, fps = 60, outPath, run = defaultRun}) {
+  const total = (frames / fps).toFixed(2);
+  run('ffmpeg', ['-y', '-i', bgPath, '-framerate', String(fps), '-start_number', '0',
+    '-i', `${framesDir}/%06d.png`,
+    '-filter_complex', '[0:v][1:v]overlay=0:0:format=auto,format=yuv420p[v]',
+    '-map', '[v]', '-t', total,
+    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '20',
+    '-maxrate', '9M', '-bufsize', '12M', '-r', String(fps),
+    '-movflags', '+faststart', outPath]);
+  return outPath;
+}
+
+/** MC image-sequence çıktısındaki PNG karelerini say. */
+export function countFrames(dir) {
+  if (!existsSync(dir)) return 0;
+  return readdirSync(dir).filter(f => f.endsWith('.png')).length;
+}
+
+/**
+ * PNG karelerinin GERÇEKTE durduğu dizini bul (BFS). MC sürümüne göre çıktı
+ * output/project/ altında düz ya da bir alt klasörde olabiliyor; ffmpeg'e %06d yolunu
+ * verirken yanlış dizin = "hiç kare yok" hatası → burada bir kez çözüyoruz.
+ */
+export function findFramesDir(root) {
+  const queue = [root];
+  while (queue.length) {
+    const dir = queue.shift();
+    if (!existsSync(dir)) continue;
+    const entries = readdirSync(dir, {withFileTypes: true});
+    if (entries.some(e => e.isFile() && e.name.endsWith('.png'))) return dir;
+    for (const e of entries) if (e.isDirectory()) queue.push(`${dir}/${e.name}`);
+  }
+  return null;
+}
+
+/**
+ * Uçtan uca: klipler + alpha kareler → sessiz kompozit mp4.
+ * clips boşsa hareketli gradient arka plana düşer.
+ */
+export function composeFootageVideo({
+  clips, framesDir, frames, tmpDir, outPath, fps = 60, accent = '#58a6ff', run = defaultRun,
+}) {
+  const total = frames / fps;
+  const usable = clips.length ? clips : [];
+  const {durations, dims} = planSegments({total, clipCount: Math.max(usable.length, 1)});
+
+  const segs = durations.map((seconds, i) => {
+    const seg = `${tmpDir}/seg${i}.mp4`;
+    if (usable.length) {
+      // Klip sayısı segmentten azsa sırayla yeniden kullan (yön/karartma farklı → tekrar hissi yok).
+      normalizeClip({src: usable[i % usable.length].path, outPath: seg, seconds,
+        panDir: i % 4, dim: dims[i], fps, run});
+    } else {
+      motionBgClip({outPath: seg, seconds, accent, fps, run});
+    }
+    return seg;
+  });
+
+  const bg = `${tmpDir}/bg.mp4`;
+  xfadeChain({clips: segs, durations, outPath: bg, fps, run});
+  return compositeOverlay({bgPath: bg, framesDir, frames, fps, outPath, run});
+}

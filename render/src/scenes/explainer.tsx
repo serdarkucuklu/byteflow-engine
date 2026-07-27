@@ -12,6 +12,12 @@ const ACCENT = spec.theme ?? COLORS.accent; // per-video accent theme
 const HOOK = spec.hook ?? spec.title;
 const TAKEAWAY = spec.takeaway ?? 'follow @byteflowlabs for more';
 
+// Footage modu: arka planı ffmpeg'deki b-roll dolduruyor → sahne ŞEFFAF render edilir.
+// Kartlar zaten opak; doğrudan görüntünün üstünde duran YAZILARA gölge veriyoruz ki
+// karartılmış footage üzerinde bile kontrast düşmesin.
+const FOOTAGE = spec.footage === true;
+const SHADOW = FOOTAGE ? {shadowColor: '#000000d9', shadowBlur: 28} : {};
+
 const BUILDUP_WEIGHT = 1;                 // build-up sakin/okunur → ~27s hedef (25-30s bandı)
 const pacing = computePacing(specShape(spec), motionTarget(BUILDUP_WEIGHT));
 
@@ -29,16 +35,16 @@ function connectors(layout: string, count: number): [number, number][] {
 }
 
 export default makeScene2D(function* (view) {
-  view.fill(COLORS.bg);
+  if (!FOOTAGE) view.fill(COLORS.bg);
 
   // ---- Hook (first frame) ----
   const hook = createRef<Txt>();
   const hookTag = createRef<Txt>();
   view.add(<Txt ref={hook} text={HOOK} fill={COLORS.text} fontFamily={MONO}
     fontSize={72} fontWeight={800} letterSpacing={2} opacity={0} y={-30}
-    width={960} textAlign="center" textWrap />);
+    width={960} textAlign="center" textWrap {...SHADOW} />);
   view.add(<Txt ref={hookTag} text="@byteflowlabs" fill={ACCENT} fontFamily={MONO}
-    fontSize={36} letterSpacing={6} opacity={0} y={160} />);
+    fontSize={36} letterSpacing={6} opacity={0} y={160} {...SHADOW} />);
   yield* hook().opacity(1, 0.35);
   yield* hookTag().opacity(1, 0.25);
   yield* waitFor(1.1);
@@ -48,7 +54,7 @@ export default makeScene2D(function* (view) {
   const title = createRef<Txt>();
   view.add(<Txt ref={title} text={spec.title.toUpperCase()} fill={COLORS.text}
     fontFamily={MONO} fontSize={54} fontWeight={700} letterSpacing={3} y={-760} opacity={0}
-    width={980} textAlign="center" textWrap />);
+    width={980} textAlign="center" textWrap {...SHADOW} />);
   yield* title().opacity(1, 0.4);
 
   const ctx = {accent: ACCENT, colors: COLORS, pacing};
@@ -65,7 +71,7 @@ export default makeScene2D(function* (view) {
 
     const heading = createRef<Txt>();
     container().add(<Txt ref={heading} text={scene.heading ?? ''} fill={ACCENT}
-      fontFamily={MONO} fontSize={46} fontWeight={600} letterSpacing={1} y={-540} opacity={0} />);
+      fontFamily={MONO} fontSize={46} fontWeight={600} letterSpacing={1} y={-540} opacity={0} {...SHADOW} />);
     yield* heading().opacity(0.95, 0.4);
 
     const nodes = scene.nodes!;
@@ -122,7 +128,7 @@ export default makeScene2D(function* (view) {
     // status line (below the cluster, never overlapped)
     const status = createRef<Txt>();
     container().add(<Txt ref={status} text="" fill={COLORS.muted}
-      fontFamily={MONO} fontSize={40} fontWeight={500} letterSpacing={1} y={600} opacity={0} zIndex={2} />);
+      fontFamily={MONO} fontSize={40} fontWeight={500} letterSpacing={1} y={600} opacity={0} zIndex={2} {...SHADOW} />);
 
     // BUILD PHASE: node 0 in; then for each next node, grow its incoming edges then pop it in.
     // Gentle entrance: easeOutCubic scale 0.7→1 + opacity 0→1, no bounce/overshoot.
@@ -224,11 +230,11 @@ export default makeScene2D(function* (view) {
   const tag = createRef<Txt>();
   view.add(<Txt ref={take} text={TAKEAWAY} fill={COLORS.text} fontFamily={MONO}
     fontSize={60} fontWeight={800} letterSpacing={1} opacity={0} y={-40}
-    width={960} textAlign="center" textWrap />);
+    width={960} textAlign="center" textWrap {...SHADOW} />);
   view.add(<Txt ref={sign} text="— Kai · @byteflowlabs" fill={ACCENT} fontFamily={MONO}
-    fontSize={38} fontWeight={600} letterSpacing={2} opacity={0} y={140} />);
+    fontSize={38} fontWeight={600} letterSpacing={2} opacity={0} y={140} {...SHADOW} />);
   view.add(<Txt ref={tag} text="AI systems, no hype" fill={COLORS.muted} fontFamily={MONO}
-    fontSize={30} letterSpacing={3} opacity={0} y={210} />);
+    fontSize={30} letterSpacing={3} opacity={0} y={210} {...SHADOW} />);
   yield* all(take().opacity(1, 0.5), sign().opacity(1, 0.5));
   yield* tag().opacity(1, 0.4);
   yield* waitFor(1.4);

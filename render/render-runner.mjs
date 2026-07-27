@@ -1,12 +1,36 @@
 import {spawn} from 'node:child_process';
 import {chromium} from 'playwright';
 import {setTimeout as sleep} from 'node:timers/promises';
-import {existsSync, rmSync, statSync} from 'node:fs';
+import {existsSync, rmSync, statSync, readFileSync, readdirSync, mkdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 
 const PORT = 9000;
 const OUT = new URL('./output/project.mp4', import.meta.url);
 const OUT_PATH = fileURLToPath(OUT);
+// Footage modu: spec.footage true ise sahne şeffaf arka planla render edilir ve
+// "Image sequence" exporter'ı ile alpha PNG kareleri üretilir → ffmpeg b-roll'un üstüne
+// bindirir (publish/compose-footage.mjs). Aksi halde klasik mp4 exporter'ı.
+const SPEC_PATH = fileURLToPath(new URL('./scene-spec.json', import.meta.url));
+const FRAMES_DIR = fileURLToPath(new URL('./output/project/', import.meta.url));
+const ALPHA = (() => {
+  try {
+    return JSON.parse(readFileSync(SPEC_PATH, 'utf8')).footage === true;
+  } catch {
+    return false;
+  }
+})();
+
+function countPngs(dir) {
+  let n = 0;
+  const walk = d => {
+    for (const e of readdirSync(d, {withFileTypes: true})) {
+      if (e.isDirectory()) walk(`${d}/${e.name}`);
+      else if (e.name.endsWith('.png')) n++;
+    }
+  };
+  if (existsSync(dir)) walk(dir);
+  return n;
+}
 
 async function waitForServer(url, tries = 60) {
   for (let i = 0; i < tries; i++) {
@@ -38,7 +62,12 @@ function killServerTree(child) {
 }
 
 async function main() {
-  if (existsSync(OUT_PATH)) {
+  if (ALPHA) {
+    // Eski kareler kalırsa frame sayısı (= video süresi) yanlış hesaplanır → önce temizle.
+    if (existsSync(FRAMES_DIR)) rmSync(FRAMES_DIR, {recursive: true, force: true});
+    mkdirSync(FRAMES_DIR, {recursive: true});
+    console.log('→ footage modu: alpha PNG dizisi render edilecek');
+  } else if (existsSync(OUT_PATH)) {
     try {
       rmSync(OUT_PATH);
     } catch (e) {
@@ -97,16 +126,23 @@ async function main() {
       throw new Error(`resolution did not apply: got width=${width} height=${height}`);
     }
 
-    // ---- Exporter: Video (FFmpeg) ----
-    const exporterHandle = await page.evaluateHandle(() =>
-      [...document.querySelectorAll('select')].find(s =>
-        [...s.options].some(o => /ffmpeg/i.test(o.textContent)),
-      ),
+    // ---- Exporter: Video (FFmpeg) | Image sequence (alpha PNG, footage modu) ----
+    const wanted = ALPHA ? /image/i : /ffmpeg/i;
+    const exporterHandle = await page.evaluateHandle(
+      pattern => [...document.querySelectorAll('select')].find(s =>
+        [...s.options].some(o => new RegExp(pattern, 'i').test(o.textContent))),
+      wanted.source,
     );
     const exporterSelect = exporterHandle.asElement();
-    if (!exporterSelect) throw new Error('could not find the FFmpeg exporter <select>');
-    await exporterSelect.selectOption({label: 'Video (FFmpeg)'});
-    await sleep(300);
+    if (!exporterSelect) throw new Error(`could not find the ${ALPHA ? 'Image sequence' : 'FFmpeg'} exporter <select>`);
+    // Playwright'ta evaluate tek argüman alır → handle + pattern'i dizi olarak geçir.
+    const label = await page.evaluate(
+      ([el, pattern]) => [...el.options].find(o => new RegExp(pattern, 'i').test(o.textContent))?.textContent,
+      [exporterSelect, wanted.source],
+    );
+    await exporterSelect.selectOption({label});
+    console.log('exporter:', label);
+    await sleep(400);
 
     // ---- Render ----
     const renderBtn = page.locator('#render');
@@ -124,27 +160,37 @@ async function main() {
     // Tamamlanmayı DOM yerine DOSYA-STABİLİZASYONU ile bekle (editörden bağımsız,
     // rAF'a bağımsız): ffmpeg render boyunca mp4'e yazar; boyut STABLE_MS boyunca
     // değişmiyorsa render bitmiştir.
-    const STABLE_MS = 3000, MAX_MS = 6 * 60 * 1000, STEP = 1000;
-    let lastSize = -1, stableFor = 0, elapsed = 0;
+    // Alpha modunda mp4 yerine PNG SAYISI stabilizasyonuna bakılır (aynı mantık, farklı sinyal).
+    const STABLE_MS = ALPHA ? 4000 : 3000, MAX_MS = 8 * 60 * 1000, STEP = 1000;
+    const progress = () => (ALPHA ? countPngs(FRAMES_DIR) : (existsSync(OUT_PATH) ? statSync(OUT_PATH).size : -1));
+    let last = -1, stableFor = 0, elapsed = 0;
     while (elapsed < MAX_MS) {
       await sleep(STEP);
       elapsed += STEP;
-      const size = existsSync(OUT_PATH) ? statSync(OUT_PATH).size : -1;
+      const cur = progress();
       const rendering = await page.evaluate(
         () => document.querySelector('#render')?.hasAttribute('data-rendering'),
       ).catch(() => true);
-      if (size > 0 && size === lastSize) {
+      if (cur > 0 && cur === last) {
         stableFor += STEP;
         if (stableFor >= STABLE_MS && !rendering) break;
       } else {
         stableFor = 0;
       }
-      lastSize = size;
+      last = cur;
     }
-    if (!existsSync(OUT_PATH) || statSync(OUT_PATH).size === 0) {
-      throw new Error('render tamamlanmadı / mp4 üretilmedi: ' + OUT_PATH);
+    if (ALPHA) {
+      const frames = countPngs(FRAMES_DIR);
+      if (frames === 0) throw new Error('render tamamlanmadı / hiç PNG üretilmedi: ' + FRAMES_DIR);
+      // run-daily.mjs bu satırı okuyup süreyi (frames/fps) hesaplıyor.
+      console.log(`FRAMES=${frames}`);
+      console.log('✓ rendered', FRAMES_DIR, `(${frames} alpha PNG)`);
+    } else {
+      if (!existsSync(OUT_PATH) || statSync(OUT_PATH).size === 0) {
+        throw new Error('render tamamlanmadı / mp4 üretilmedi: ' + OUT_PATH);
+      }
+      console.log('✓ rendered', OUT_PATH, `(${statSync(OUT_PATH).size} bytes)`);
     }
-    console.log('✓ rendered', OUT_PATH, `(${statSync(OUT_PATH).size} bytes)`);
   } finally {
     await browser.close();
     killServerTree(server);

@@ -13,10 +13,24 @@ export const FEEDS = [
   {url: 'http://export.arxiv.org/rss/cs.LG', source: 'arxiv-ml'},
   {url: 'https://www.redhat.com/en/rss/blog', source: 'redhat'},
   {url: 'https://medium.com/feed/tag/software-engineering', source: 'medium-se'},
+  // Topluluk nabzı: asistan/model tartışmalarının GERÇEKTEN popüler olduğu yerler.
+  // (Reddit datacenter IP'lerinden 403 dönebilir — fetchTrends zaten feed başına
+  //  hata yutuyor, o gün sadece bu kaynak eksik kalır.)
+  {url: 'https://www.reddit.com/r/LocalLLaMA/top/.rss?t=week', source: 'reddit-localllama'},
+  {url: 'https://www.reddit.com/r/ClaudeAI/top/.rss?t=week', source: 'reddit-claude'},
+  {url: 'https://www.reddit.com/r/OpenAI/top/.rss?t=week', source: 'reddit-openai'},
+  {url: 'https://medium.com/feed/tag/large-language-models', source: 'medium-llm'},
+  {url: 'https://medium.com/feed/tag/ai-agents', source: 'medium-agents'},
 ];
 
+// Reddit varsayılan UA'lı isteklere 429/403 dönüyor → tarayıcıya benzer UA + Accept.
+const HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (compatible; byteflow-bot/1.0; +https://instagram.com/byteflowlabs)',
+  Accept: 'application/rss+xml, application/xml;q=0.9, */*;q=0.8',
+};
+
 // agent:false → keep-alive soketi kalmasın (yoksa event loop kapanmıyor, CI adımı asılı kalır).
-export async function fetchTrends({limit = 20, parser = new Parser({timeout: 20000, requestOptions: {agent: false}})} = {}) {
+export async function fetchTrends({limit = 20, parser = new Parser({timeout: 20000, headers: HEADERS, requestOptions: {agent: false}})} = {}) {
   const perFeed = [];
   for (const feed of FEEDS) {
     try {
