@@ -1,62 +1,168 @@
 {
-  "title": "Model Routing Beats Always Using Flagship Models",
-  "topic_source": "seed",
-  "pillar": "cost-latency",
-  "hook": "Stop paying flagship prices for easy questions.",
-  "takeaway": "Route by difficulty, not habit, and costs drop fast.",
-  "caption": "Stop paying flagship prices for easy questions.\nA router sends simple queries to a cheap model and hard ones to a strong one.\nSave this before your token bill embarrasses you.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-  "hashtags": [
-    "#llm",
-    "#aiengineering",
-    "#costoptimization",
-    "#genai"
-  ],
+  "hook": "Your LLM isn't safe by default. You are the first line.",
+  "title": "EXTERNAL LLM GUARDRAILS",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "heading": "Route by difficulty",
+      "heading": "INPUT GUARDRAILS",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "query",
-          "icon": "❓",
-          "label": "QUERY"
+          "id": "user",
+          "label": "USER APP",
+          "icon": "📱"
         },
         {
-          "id": "router",
-          "icon": "🔀",
-          "label": "ROUTER"
+          "id": "input_validation",
+          "label": "INPUT VALIDATION"
         },
         {
-          "id": "model",
-          "icon": "🤖",
-          "label": "MODEL"
+          "id": "pii_filter",
+          "label": "PII FILTER",
+          "icon": "🚫"
+        },
+        {
+          "id": "prompt_builder",
+          "label": "PROMPT BUILDER",
+          "icon": "🛠️"
+        },
+        {
+          "id": "llm_api",
+          "label": "LLM API",
+          "icon": "🤖"
         }
       ],
       "steps": [
         {
-          "from": "query",
-          "to": "router",
-          "packet": "CHECK",
-          "color": "accent",
-          "status": "classify difficulty first"
+          "from": "user",
+          "to": "input_validation",
+          "packet": "prompt",
+          "status": "user submits raw prompt",
+          "color": "accent"
         },
         {
-          "from": "router",
-          "to": "model",
-          "packet": "EASY",
-          "color": "good",
-          "status": "cheap model handles it"
+          "from": "input_validation",
+          "to": "pii_filter",
+          "packet": "input",
+          "status": "sanitize, detect injection attacks",
+          "color": "warn"
         },
         {
-          "from": "router",
-          "to": "model",
-          "packet": "HARD",
-          "color": "warn",
-          "status": "flagship model only if needed"
+          "from": "pii_filter",
+          "to": "prompt_builder",
+          "packet": "safe",
+          "status": "redact sensitive information",
+          "color": "warn"
+        },
+        {
+          "from": "prompt_builder",
+          "to": "llm_api",
+          "packet": "final",
+          "status": "add system instructions, context",
+          "color": "accent"
+        },
+        {
+          "from": "llm_api",
+          "to": "user",
+          "packet": "reply",
+          "status": "model generates and returns response",
+          "color": "good"
+        }
+      ]
+    },
+    {
+      "layout": "vertical-stack",
+      "heading": "LLM GUARDRAIL STACK",
+      "kind": "diagram",
+      "nodes": [
+        {
+          "id": "user_app_entry",
+          "label": "USER APP",
+          "icon": "📱"
+        },
+        {
+          "id": "request_gate",
+          "label": "REQUEST GATE",
+          "icon": "🚪"
+        },
+        {
+          "id": "safety_layer",
+          "label": "SAFETY LAYER",
+          "icon": "🛡️"
+        },
+        {
+          "id": "llm_core",
+          "label": "LLM CORE",
+          "icon": "🧠"
+        },
+        {
+          "id": "response_gate",
+          "label": "RESPONSE GATE",
+          "icon": "✅"
+        },
+        {
+          "id": "user_app_exit",
+          "label": "USER APP",
+          "icon": "📱"
+        }
+      ],
+      "steps": [
+        {
+          "from": "user_app_entry",
+          "to": "request_gate",
+          "packet": "query",
+          "status": "user sends request",
+          "color": "accent"
+        },
+        {
+          "from": "request_gate",
+          "to": "safety_layer",
+          "packet": "query",
+          "status": "enforce rate limits, authentication",
+          "color": "accent"
+        },
+        {
+          "from": "safety_layer",
+          "to": "llm_core",
+          "packet": "query",
+          "status": "check for harmful content, jailbreaks",
+          "color": "warn"
+        },
+        {
+          "from": "llm_core",
+          "to": "response_gate",
+          "packet": "reply",
+          "status": "model generates response",
+          "color": "good"
+        },
+        {
+          "from": "response_gate",
+          "to": "user_app_exit",
+          "packet": "reply",
+          "status": "validate format, filter unwanted output",
+          "color": "warn"
         }
       ]
     }
   ],
-  "theme": "#bc8cff",
-  "motion": "buildup"
+  "caption": "Relying solely on your LLM's built-in safety? That's a production incident waiting to happen.Robust LLM applications demand *external* guardrails—layers of defense built around the model itself. Here's a common architecture:1. USER APP: Your application receives a user's raw input. This is where user intent meets your system.2. INPUT VALIDATION & PII FILTER: Before touching the LLM, this crucial layer sanitizes input, detects prompt injection attempts, and redacts sensitive PII (Personally Identifiable Information). It's proactive defense against malicious prompts.3. PROMPT BUILDER: This component orchestrates the final prompt by adding system instructions, retrieving relevant context (like RAG), and inserting the now-safe user query into a controlled template. This ensures predictable input to the LLM.4. LLM API: Only after passing all these external checks does the carefully constructed prompt reach the LLM for generation. The LLM's internal safety mechanisms are a *last resort*, not the primary defense.5. RESPONSE GATE: The LLM's raw output is then intercepted. This layer validates the output's format, checks for unwanted content or bias, and can reformat or filter before the data goes back to the user. It's your final quality and safety check.6. USER APP (Reply): The validated, safe response is finally delivered to the user.Frameworks like Guardrails AI, NVIDIA NeMo Guardrails, or cloud services like Azure AI Content Safety provide dedicated solutions for implementing these critical external layers. Relying on them ensures more consistent and auditable safety than depending on black-box model behavior.Your guardrails start *before* the prompt hits the model, and continue *after* the reply leaves it. Build accordingly.📌 Save this for building robust and secure LLM applications.🔁 Send it to someone who thinks LLMs handle all their own safety.Written by Kai.Follow @byteflowlabs for AI systems, no hype.",
+  "hashtags": [
+    "#llm",
+    "#aiforsecurity",
+    "#aiengineering",
+    "#guardrails",
+    "#promptinjection",
+    "#llmops",
+    "#aisafety"
+  ],
+  "takeaway": "External guardrails are your *real* safety net, not just the LLM.",
+  "footage_queries": [
+    "server room lights",
+    "abstract data flow",
+    "cyber security interface",
+    "digital circuit board"
+  ],
+  "theme": "#58a6ff",
+  "motion": "buildup",
+  "footage": true
 }

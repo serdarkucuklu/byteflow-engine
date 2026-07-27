@@ -177,5 +177,20 @@
     "date": "2026-07-27",
     "mediaId": "18093680075376615",
     "postedAt": "2026-07-27T12:27:41.699Z"
+  },
+  {
+    "title": "EXTERNAL LLM GUARDRAILS",
+    "pillar": "guardrails",
+    "layout": "nodes-flow+vertical-stack",
+    "motion": "buildup",
+    "theme": "#58a6ff",
+    "source": "gemini",
+    "footage": [
+      "pexels:server room lights",
+      "pexels:abstract data flow",
+      "pexels:cyber security interface",
+      "pexels:digital circuit board"
+    ],
+    "date": "2026-07-27"
   }
 ]
