@@ -192,5 +192,20 @@
       "pexels:digital circuit board"
     ],
     "date": "2026-07-27"
+  },
+  {
+    "title": "MCP Turns Every API Into a Tool an LLM Can Call",
+    "pillar": "mcp-tools",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#3fb950",
+    "source": "seed",
+    "footage": [
+      "pexels:mcp turns every technology abstract",
+      "pexels:terminal screen scrolling",
+      "pexels:abstract digital particles",
+      "pexels:circuit board macro"
+    ],
+    "date": "2026-07-27"
   }
 ]
