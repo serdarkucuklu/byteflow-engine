@@ -6,20 +6,55 @@
     "hook": "Your RAG retrieves garbage. Here's why.",
     "takeaway": "Chunk boundaries decide retrieval quality, not model size.",
     "caption": "Your RAG retrieves garbage. Here's why.\nBad chunking breaks context before the embedding model ever sees it.\nSave this before your next RAG debug session.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-    "hashtags": ["#rag", "#llm", "#embeddings", "#aiengineering"],
+    "hashtags": [
+      "#rag",
+      "#llm",
+      "#embeddings",
+      "#aiengineering"
+    ],
     "scenes": [
       {
         "layout": "nodes-flow",
         "heading": "Bad chunks, bad retrieval",
         "nodes": [
-          {"id": "query", "icon": "🔍", "label": "QUERY"},
-          {"id": "vdb", "icon": "🗂️", "label": "VECTOR DB"},
-          {"id": "llm", "icon": "🤖", "label": "LLM"}
+          {
+            "id": "query",
+            "icon": "🔍",
+            "label": "QUERY"
+          },
+          {
+            "id": "vdb",
+            "icon": "🗂️",
+            "label": "VECTOR DB"
+          },
+          {
+            "id": "llm",
+            "icon": "🤖",
+            "label": "LLM"
+          }
         ],
         "steps": [
-          {"from": "query", "to": "vdb", "packet": "SEARCH", "color": "accent", "status": "embed query, search index"},
-          {"from": "vdb", "to": "llm", "packet": "CHUNKS", "color": "warn", "status": "wrong chunks retrieved"},
-          {"from": "llm", "to": "query", "packet": "BAD", "color": "warn", "status": "garbage in, garbage out"}
+          {
+            "from": "query",
+            "to": "vdb",
+            "packet": "SEARCH",
+            "color": "accent",
+            "status": "embed query, search index"
+          },
+          {
+            "from": "vdb",
+            "to": "llm",
+            "packet": "CHUNKS",
+            "color": "warn",
+            "status": "wrong chunks retrieved"
+          },
+          {
+            "from": "llm",
+            "to": "query",
+            "packet": "BAD",
+            "color": "warn",
+            "status": "garbage in, garbage out"
+          }
         ]
       }
     ]
@@ -31,20 +66,55 @@
     "hook": "More context tokens != better answers.",
     "takeaway": "Context rot kills accuracy long before the token limit does.",
     "caption": "More context tokens != better answers.\nContext rot buries your instructions in the middle of a 100k-token prompt.\nSave this before you dump your whole codebase into one prompt.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-    "hashtags": ["#llm", "#contextwindow", "#promptengineering", "#aiengineering"],
+    "hashtags": [
+      "#llm",
+      "#contextwindow",
+      "#promptengineering",
+      "#aiengineering"
+    ],
     "scenes": [
       {
         "layout": "nodes-flow",
         "heading": "Context rot in action",
         "nodes": [
-          {"id": "prompt", "icon": "📝", "label": "PROMPT"},
-          {"id": "window", "icon": "🪟", "label": "CONTEXT"},
-          {"id": "model", "icon": "🤖", "label": "MODEL"}
+          {
+            "id": "prompt",
+            "icon": "📝",
+            "label": "PROMPT"
+          },
+          {
+            "id": "window",
+            "icon": "🪟",
+            "label": "CONTEXT"
+          },
+          {
+            "id": "model",
+            "icon": "🤖",
+            "label": "MODEL"
+          }
         ],
         "steps": [
-          {"from": "prompt", "to": "window", "packet": "STUFF", "color": "accent", "status": "cram everything into context"},
-          {"from": "window", "to": "model", "packet": "READ", "color": "warn", "status": "instructions lost in the middle"},
-          {"from": "model", "to": "prompt", "packet": "MISS", "color": "warn", "status": "key detail ignored"}
+          {
+            "from": "prompt",
+            "to": "window",
+            "packet": "STUFF",
+            "color": "accent",
+            "status": "cram everything into context"
+          },
+          {
+            "from": "window",
+            "to": "model",
+            "packet": "READ",
+            "color": "warn",
+            "status": "instructions lost in the middle"
+          },
+          {
+            "from": "model",
+            "to": "prompt",
+            "packet": "MISS",
+            "color": "warn",
+            "status": "key detail ignored"
+          }
         ]
       }
     ]
@@ -56,20 +126,55 @@
     "hook": "Embeddings don't understand your query.",
     "takeaway": "Similarity scores measure geometry, not meaning.",
     "caption": "Embeddings don't understand your query.\nCosine similarity just measures the angle between vectors, not intent.\nSave this before trusting a top-1 embedding match blindly.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-    "hashtags": ["#embeddings", "#llm", "#vectorsearch", "#aiengineering"],
+    "hashtags": [
+      "#embeddings",
+      "#llm",
+      "#vectorsearch",
+      "#aiengineering"
+    ],
     "scenes": [
       {
         "layout": "nodes-flow",
         "heading": "Similarity is not meaning",
         "nodes": [
-          {"id": "text", "icon": "📝", "label": "TEXT"},
-          {"id": "encoder", "icon": "🧮", "label": "ENCODER"},
-          {"id": "vector", "icon": "📍", "label": "VECTOR"}
+          {
+            "id": "text",
+            "icon": "📝",
+            "label": "TEXT"
+          },
+          {
+            "id": "encoder",
+            "icon": "🧮",
+            "label": "ENCODER"
+          },
+          {
+            "id": "vector",
+            "icon": "📍",
+            "label": "VECTOR"
+          }
         ],
         "steps": [
-          {"from": "text", "to": "encoder", "packet": "EMBED", "color": "accent", "status": "text mapped by encoder"},
-          {"from": "encoder", "to": "vector", "packet": "N-DIM", "color": "accent", "status": "output is just geometry"},
-          {"from": "vector", "to": "encoder", "packet": "CHECK", "color": "warn", "status": "high similarity, wrong meaning"}
+          {
+            "from": "text",
+            "to": "encoder",
+            "packet": "EMBED",
+            "color": "accent",
+            "status": "text mapped by encoder"
+          },
+          {
+            "from": "encoder",
+            "to": "vector",
+            "packet": "N-DIM",
+            "color": "accent",
+            "status": "output is just geometry"
+          },
+          {
+            "from": "vector",
+            "to": "encoder",
+            "packet": "CHECK",
+            "color": "warn",
+            "status": "high similarity, wrong meaning"
+          }
         ]
       }
     ]
@@ -81,20 +186,55 @@
     "hook": "Your LLM gets slower the longer it talks.",
     "takeaway": "KV cache grows with every token, and so does latency.",
     "caption": "Your LLM gets slower the longer it talks.\nEvery generated token grows the KV cache the model has to attend over.\nSave this before you blame the model for a serving problem.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-    "hashtags": ["#llm", "#inference", "#genai", "#aiengineering"],
+    "hashtags": [
+      "#llm",
+      "#inference",
+      "#genai",
+      "#aiengineering"
+    ],
     "scenes": [
       {
         "layout": "nodes-flow",
         "heading": "KV cache grows every token",
         "nodes": [
-          {"id": "token", "icon": "🔤", "label": "TOKEN"},
-          {"id": "kv", "icon": "🗃️", "label": "KV CACHE"},
-          {"id": "gpu", "icon": "⚡", "label": "GPU"}
+          {
+            "id": "token",
+            "icon": "🔤",
+            "label": "TOKEN"
+          },
+          {
+            "id": "kv",
+            "icon": "🗃️",
+            "label": "KV CACHE"
+          },
+          {
+            "id": "gpu",
+            "icon": "⚡",
+            "label": "GPU"
+          }
         ],
         "steps": [
-          {"from": "token", "to": "kv", "packet": "STORE", "color": "accent", "status": "cache grows every step"},
-          {"from": "kv", "to": "gpu", "packet": "READ", "color": "warn", "status": "more memory to scan"},
-          {"from": "gpu", "to": "token", "packet": "SLOW", "color": "warn", "status": "latency creeps up"}
+          {
+            "from": "token",
+            "to": "kv",
+            "packet": "STORE",
+            "color": "accent",
+            "status": "cache grows every step"
+          },
+          {
+            "from": "kv",
+            "to": "gpu",
+            "packet": "READ",
+            "color": "warn",
+            "status": "more memory to scan"
+          },
+          {
+            "from": "gpu",
+            "to": "token",
+            "packet": "SLOW",
+            "color": "warn",
+            "status": "latency creeps up"
+          }
         ]
       }
     ]
@@ -106,20 +246,55 @@
     "hook": "Your eval LLM might be lying to you.",
     "takeaway": "A biased judge model gives you a biased benchmark.",
     "caption": "Your eval LLM might be lying to you.\nLLM-as-judge tends to favor its own family's writing style, not quality.\nSave this before you trust a single-model eval score.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-    "hashtags": ["#llm", "#evaluation", "#aiengineering", "#genai"],
+    "hashtags": [
+      "#llm",
+      "#evaluation",
+      "#aiengineering",
+      "#genai"
+    ],
     "scenes": [
       {
         "layout": "nodes-flow",
         "heading": "Judge model bias",
         "nodes": [
-          {"id": "output", "icon": "📄", "label": "OUTPUT"},
-          {"id": "judge", "icon": "⚖️", "label": "JUDGE LLM"},
-          {"id": "score", "icon": "🔢", "label": "SCORE"}
+          {
+            "id": "output",
+            "icon": "📄",
+            "label": "OUTPUT"
+          },
+          {
+            "id": "judge",
+            "icon": "⚖️",
+            "label": "JUDGE LLM"
+          },
+          {
+            "id": "score",
+            "icon": "🔢",
+            "label": "SCORE"
+          }
         ],
         "steps": [
-          {"from": "output", "to": "judge", "packet": "GRADE", "color": "accent", "status": "judge model scores answer"},
-          {"from": "judge", "to": "score", "packet": "BIAS", "color": "warn", "status": "favors own writing style"},
-          {"from": "score", "to": "output", "packet": "SKEW", "color": "warn", "status": "benchmark quietly skewed"}
+          {
+            "from": "output",
+            "to": "judge",
+            "packet": "GRADE",
+            "color": "accent",
+            "status": "judge model scores answer"
+          },
+          {
+            "from": "judge",
+            "to": "score",
+            "packet": "BIAS",
+            "color": "warn",
+            "status": "favors own writing style"
+          },
+          {
+            "from": "score",
+            "to": "output",
+            "packet": "SKEW",
+            "color": "warn",
+            "status": "benchmark quietly skewed"
+          }
         ]
       }
     ]
@@ -131,20 +306,55 @@
     "hook": "Stop paying flagship prices for easy questions.",
     "takeaway": "Route by difficulty, not habit, and costs drop fast.",
     "caption": "Stop paying flagship prices for easy questions.\nA router sends simple queries to a cheap model and hard ones to a strong one.\nSave this before your token bill embarrasses you.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-    "hashtags": ["#llm", "#aiengineering", "#costoptimization", "#genai"],
+    "hashtags": [
+      "#llm",
+      "#aiengineering",
+      "#costoptimization",
+      "#genai"
+    ],
     "scenes": [
       {
         "layout": "nodes-flow",
         "heading": "Route by difficulty",
         "nodes": [
-          {"id": "query", "icon": "❓", "label": "QUERY"},
-          {"id": "router", "icon": "🔀", "label": "ROUTER"},
-          {"id": "model", "icon": "🤖", "label": "MODEL"}
+          {
+            "id": "query",
+            "icon": "❓",
+            "label": "QUERY"
+          },
+          {
+            "id": "router",
+            "icon": "🔀",
+            "label": "ROUTER"
+          },
+          {
+            "id": "model",
+            "icon": "🤖",
+            "label": "MODEL"
+          }
         ],
         "steps": [
-          {"from": "query", "to": "router", "packet": "CHECK", "color": "accent", "status": "classify difficulty first"},
-          {"from": "router", "to": "model", "packet": "EASY", "color": "good", "status": "cheap model handles it"},
-          {"from": "router", "to": "model", "packet": "HARD", "color": "warn", "status": "flagship model only if needed"}
+          {
+            "from": "query",
+            "to": "router",
+            "packet": "CHECK",
+            "color": "accent",
+            "status": "classify difficulty first"
+          },
+          {
+            "from": "router",
+            "to": "model",
+            "packet": "EASY",
+            "color": "good",
+            "status": "cheap model handles it"
+          },
+          {
+            "from": "router",
+            "to": "model",
+            "packet": "HARD",
+            "color": "warn",
+            "status": "flagship model only if needed"
+          }
         ]
       }
     ]
@@ -156,20 +366,55 @@
     "hook": "That PDF you fed your agent might attack it.",
     "takeaway": "Untrusted input is still input, even inside a tool result.",
     "caption": "That PDF you fed your agent might attack it.\nPrompt injection hides instructions inside documents, emails, and tool output.\nSave this before you let an agent read untrusted content unchecked.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-    "hashtags": ["#llm", "#promptinjection", "#aiagents", "#aiengineering"],
+    "hashtags": [
+      "#llm",
+      "#promptinjection",
+      "#aiagents",
+      "#aiengineering"
+    ],
     "scenes": [
       {
         "layout": "nodes-flow",
         "heading": "Injection hides in input",
         "nodes": [
-          {"id": "doc", "icon": "📄", "label": "DOCUMENT"},
-          {"id": "agent", "icon": "🤖", "label": "AGENT"},
-          {"id": "action", "icon": "⚙️", "label": "ACTION"}
+          {
+            "id": "doc",
+            "icon": "📄",
+            "label": "DOCUMENT"
+          },
+          {
+            "id": "agent",
+            "icon": "🤖",
+            "label": "AGENT"
+          },
+          {
+            "id": "action",
+            "icon": "⚙️",
+            "label": "ACTION"
+          }
         ],
         "steps": [
-          {"from": "doc", "to": "agent", "packet": "READ", "color": "accent", "status": "agent reads untrusted text"},
-          {"from": "agent", "to": "action", "packet": "EXEC", "color": "warn", "status": "hidden instruction executed"},
-          {"from": "action", "to": "agent", "packet": "LEAK", "color": "warn", "status": "data exfiltrated silently"}
+          {
+            "from": "doc",
+            "to": "agent",
+            "packet": "READ",
+            "color": "accent",
+            "status": "agent reads untrusted text"
+          },
+          {
+            "from": "agent",
+            "to": "action",
+            "packet": "EXEC",
+            "color": "warn",
+            "status": "hidden instruction executed"
+          },
+          {
+            "from": "action",
+            "to": "agent",
+            "packet": "LEAK",
+            "color": "warn",
+            "status": "data exfiltrated silently"
+          }
         ]
       }
     ]
@@ -181,20 +426,353 @@
     "hook": "Your LLM can't use tools it can't describe.",
     "takeaway": "A clean schema matters more than a clever prompt.",
     "caption": "Your LLM can't use tools it can't describe.\nMCP standardizes how a model discovers, calls, and gets results from external tools.\nSave this before you hardcode another one-off tool integration.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
-    "hashtags": ["#mcp", "#llm", "#aiagents", "#aiengineering"],
+    "hashtags": [
+      "#mcp",
+      "#llm",
+      "#aiagents",
+      "#aiengineering"
+    ],
     "scenes": [
       {
         "layout": "nodes-flow",
         "heading": "Tool call via MCP",
         "nodes": [
-          {"id": "llm", "icon": "🤖", "label": "LLM"},
-          {"id": "mcp", "icon": "🔌", "label": "MCP SERVER"},
-          {"id": "tool", "icon": "🛠️", "label": "TOOL"}
+          {
+            "id": "llm",
+            "icon": "🤖",
+            "label": "LLM"
+          },
+          {
+            "id": "mcp",
+            "icon": "🔌",
+            "label": "MCP SERVER"
+          },
+          {
+            "id": "tool",
+            "icon": "🛠️",
+            "label": "TOOL"
+          }
         ],
         "steps": [
-          {"from": "llm", "to": "mcp", "packet": "CALL", "color": "accent", "status": "request tool by schema"},
-          {"from": "mcp", "to": "tool", "packet": "EXEC", "color": "accent", "status": "server invokes real tool"},
-          {"from": "tool", "to": "llm", "packet": "RESULT", "color": "good", "status": "structured result returned"}
+          {
+            "from": "llm",
+            "to": "mcp",
+            "packet": "CALL",
+            "color": "accent",
+            "status": "request tool by schema"
+          },
+          {
+            "from": "mcp",
+            "to": "tool",
+            "packet": "EXEC",
+            "color": "accent",
+            "status": "server invokes real tool"
+          },
+          {
+            "from": "tool",
+            "to": "llm",
+            "packet": "RESULT",
+            "color": "good",
+            "status": "structured result returned"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Claude Code Edits Your Repo, Not a Chat Box",
+    "topic_source": "seed",
+    "pillar": "coding-environments",
+    "hook": "Claude Code does not answer. It acts.",
+    "takeaway": "The model got tools. That is the whole jump.",
+    "caption": "Claude Code does not answer. It acts.\nA chat assistant returns text you paste. An agentic coding tool reads your files, runs commands, sees the output and tries again.\n1. Prompt — you describe the change, not the diff.\n2. Read — the tool pulls the real files into context.\n3. Edit — it writes a patch to disk, not a code block.\n4. Verify — it runs your tests and reads the failure.\n5. Loop — the error becomes the next prompt, automatically.\nThat loop is why agentic tools fix bugs a chat window only describes.\n📌 Save this before your next 'paste the code back' session.\n🔁 Send it to someone still copy-pasting from a chat tab.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": [
+      "#claudecode",
+      "#aiagents",
+      "#aiengineering",
+      "#developers"
+    ],
+    "footage_queries": [
+      "developer typing at night",
+      "code on screen macro",
+      "server room corridor",
+      "sunrise over city skyline"
+    ],
+    "scenes": [
+      {
+        "layout": "cycle",
+        "heading": "The agentic loop",
+        "nodes": [
+          {
+            "id": "you",
+            "icon": "🧑‍💻",
+            "label": "YOU"
+          },
+          {
+            "id": "agent",
+            "icon": "🤖",
+            "label": "CLAUDE CODE"
+          },
+          {
+            "id": "files",
+            "icon": "📁",
+            "label": "YOUR REPO"
+          },
+          {
+            "id": "tests",
+            "label": "TESTS"
+          }
+        ],
+        "steps": [
+          {
+            "from": "you",
+            "to": "agent",
+            "packet": "TASK",
+            "color": "accent",
+            "status": "you describe the change"
+          },
+          {
+            "from": "agent",
+            "to": "files",
+            "packet": "EDIT",
+            "color": "accent",
+            "status": "it writes real files"
+          },
+          {
+            "from": "files",
+            "to": "tests",
+            "packet": "RUN",
+            "color": "warn",
+            "status": "the suite actually runs"
+          },
+          {
+            "from": "tests",
+            "to": "you",
+            "packet": "DIFF",
+            "color": "good",
+            "status": "you review a working diff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Claude Skills Are Just Files the Model Loads",
+    "topic_source": "seed",
+    "pillar": "assistant-features",
+    "hook": "A Skill is not a plugin. It is a folder.",
+    "takeaway": "Capability is context, delivered at the right moment.",
+    "caption": "A Skill is not a plugin. It is a folder.\nHere is what actually happens when a model 'gains a skill':\n1. Registry — the tool lists each skill by name and one-line description only.\n2. Match — the model picks a skill from that description, like choosing a tool.\n3. Load — only then does the full instruction file enter the context window.\n4. Follow — the model executes those instructions instead of its default behavior.\nNothing is fine-tuned and no weights change. You are paying for context discipline: the heavy instructions stay out of the window until they are needed.\n📌 Save this before you cram everything into one system prompt.\n🔁 Send it to someone who thinks skills are magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": [
+      "#claudeai",
+      "#llm",
+      "#aiengineering",
+      "#promptengineering"
+    ],
+    "footage_queries": [
+      "library archive shelves",
+      "circuit board macro",
+      "data center corridor",
+      "slow abstract particles"
+    ],
+    "scenes": [
+      {
+        "layout": "vertical-stack",
+        "heading": "Skill = deferred context",
+        "nodes": [
+          {
+            "id": "req",
+            "icon": "💬",
+            "label": "REQUEST"
+          },
+          {
+            "id": "reg",
+            "label": "SKILL LIST"
+          },
+          {
+            "id": "file",
+            "icon": "📄",
+            "label": "SKILL FILE"
+          },
+          {
+            "id": "ctx",
+            "icon": "🧠",
+            "label": "CONTEXT"
+          }
+        ],
+        "steps": [
+          {
+            "from": "req",
+            "to": "reg",
+            "packet": "MATCH",
+            "color": "accent",
+            "status": "name and one line, nothing more"
+          },
+          {
+            "from": "reg",
+            "to": "file",
+            "packet": "LOAD",
+            "color": "accent",
+            "status": "only the chosen file is read"
+          },
+          {
+            "from": "file",
+            "to": "ctx",
+            "packet": "RULES",
+            "color": "good",
+            "status": "instructions enter the window"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Why ChatGPT Forgets What You Said 30 Turns Ago",
+    "topic_source": "seed",
+    "pillar": "model-internals",
+    "hook": "It never forgot. It never saw it.",
+    "takeaway": "Memory is a re-send, not a recollection.",
+    "caption": "It never forgot. It never saw it.\nHere is what actually happens on a long chat:\n1. Stateless — the model has no memory between messages at all.\n2. Re-send — the app pastes the whole conversation back in on every turn.\n3. Budget — that transcript competes with your new question for the same token budget.\n4. Trim — when it no longer fits, the oldest turns are dropped or summarized.\n5. Gap — the model answers confidently from what remains, so it looks like forgetting.\nSeparate 'memory' features are just a stored note re-injected into the same window.\n📌 Save this before you blame the model for forgetting.\n🔁 Send it to someone with a 200-message thread.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": [
+      "#chatgpt",
+      "#llm",
+      "#context",
+      "#aiengineering"
+    ],
+    "footage_queries": [
+      "old paper archive",
+      "server room walkthrough",
+      "fiber optic cables closeup",
+      "quiet night city timelapse"
+    ],
+    "scenes": [
+      {
+        "layout": "nodes-flow",
+        "heading": "Every turn, from scratch",
+        "nodes": [
+          {
+            "id": "chat",
+            "icon": "💬",
+            "label": "CHAT LOG"
+          },
+          {
+            "id": "window",
+            "label": "CONTEXT WIN"
+          },
+          {
+            "id": "model",
+            "icon": "🤖",
+            "label": "MODEL"
+          },
+          {
+            "id": "drop",
+            "icon": "🗑️",
+            "label": "DROPPED"
+          }
+        ],
+        "steps": [
+          {
+            "from": "chat",
+            "to": "window",
+            "packet": "ALL",
+            "color": "accent",
+            "status": "whole history re-sent each turn"
+          },
+          {
+            "from": "window",
+            "to": "drop",
+            "packet": "OLD",
+            "color": "warn",
+            "status": "oldest turns fall out first"
+          },
+          {
+            "from": "window",
+            "to": "model",
+            "packet": "REST",
+            "color": "good",
+            "status": "it answers from what is left"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Gemini vs Claude vs GPT: Pick by Failure Mode",
+    "topic_source": "seed",
+    "pillar": "model-comparison",
+    "hook": "Benchmarks agree. Your workload will not.",
+    "takeaway": "Route by how each one fails, not by leaderboards.",
+    "caption": "Benchmarks agree. Your workload will not.\nA practical way to choose between Gemini, Claude and GPT:\n1. Shape the task — long document, agentic tool use, or bulk cheap calls?\n2. Long context — huge inputs favor the model with the biggest usable window, not the biggest advertised one.\n3. Tool use — multi-step agent work rewards models that follow schemas and stop when done.\n4. Volume — high-traffic, low-stakes calls belong on the cheapest tier that passes your eval.\n5. Eval — run your own 20 real examples; that beats any leaderboard.\nOne model for everything is a billing decision, not an engineering one.\n📌 Save this before your next model migration.\n🔁 Send it to whoever picks the default model.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+    "hashtags": [
+      "#gemini",
+      "#claudeai",
+      "#chatgpt",
+      "#aiengineering"
+    ],
+    "footage_queries": [
+      "split road aerial view",
+      "control room monitors",
+      "circuit board macro",
+      "calm ocean horizon"
+    ],
+    "scenes": [
+      {
+        "layout": "hub-spoke",
+        "heading": "Route by the job",
+        "nodes": [
+          {
+            "id": "router",
+            "icon": "🧭",
+            "label": "YOUR TASK"
+          },
+          {
+            "id": "long",
+            "label": "LONG CONTEXT"
+          },
+          {
+            "id": "agent",
+            "icon": "🛠️",
+            "label": "TOOL USE"
+          },
+          {
+            "id": "bulk",
+            "icon": "💸",
+            "label": "BULK CALLS"
+          },
+          {
+            "id": "eval",
+            "label": "YOUR EVAL"
+          }
+        ],
+        "steps": [
+          {
+            "from": "router",
+            "to": "long",
+            "packet": "DOCS",
+            "color": "accent",
+            "status": "huge input, one pass"
+          },
+          {
+            "from": "router",
+            "to": "agent",
+            "packet": "STEPS",
+            "color": "accent",
+            "status": "multi-step tool work"
+          },
+          {
+            "from": "router",
+            "to": "bulk",
+            "packet": "MANY",
+            "color": "warn",
+            "status": "cheap tier, high volume"
+          },
+          {
+            "from": "router",
+            "to": "eval",
+            "packet": "TEST",
+            "color": "good",
+            "status": "your 20 real examples decide"
+          }
         ]
       }
     ]
