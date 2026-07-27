@@ -1,7 +1,7 @@
 // @byteflowlabs niş kilidi: her post bu AI/LLM engineering pillar'larından birinin içinde kalır.
 // timely: true → güncel-haber pillar'ı (yeni çıkan özellik / yeni model sürümü; trend başlıklarına demir atar).
 // Serdar direktifi (2026-07): postların %75'i timely pillar'lardan çıkar — bkz. selectPillar.
-export const PILLARS = [
+const AI_ENGINEERING = [
   {key: 'agents', focus: 'autonomous LLM agents: planning, tool use, loops, memory, multi-agent handoff'},
   {key: 'rag', focus: 'retrieval-augmented generation: chunking, embeddings, reranking, retrieval quality'},
   {key: 'context', focus: 'context windows: token budgets, context rot, prompt caching, long-context tradeoffs'},
@@ -25,15 +25,29 @@ export const PILLARS = [
   {key: 'assistant-updates', timely: true, focus: 'newly shipped features across Claude / ChatGPT / Gemini / Grok — e.g. a new desktop app, design tool, flow builder, voice/omni mode (use timely trending headlines): what shipped, how it actually works, whether it matters'},
 ];
 
+// Konu havuzları — marka dosyası hangi kümeyi kullanacağını söyler (brands/<slug>.json).
+// Yeni niş = yeni küme; motor aynı kalır.
+export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING};
+
+/** Marka dosyasındaki pillarSet adına karşılık gelen havuz. */
+export function pillarsFor(setName = 'ai-engineering') {
+  const set = PILLAR_SETS[setName];
+  if (!set) throw new Error(`bilinmeyen pillar kümesi: ${setName} (${Object.keys(PILLAR_SETS).join(', ')})`);
+  return set;
+}
+
+// Geriye uyum: eski çağrılar doğrudan PILLARS kullanıyor.
+export const PILLARS = AI_ENGINEERING;
+
 // %75 güncel-içerik kuralı: 4 postluk deterministik pencerede 3 timely + 1 evergreen.
 // postCount = bugüne kadarki toplam post sayısı (history.length).
 // Seçilen grup içinde LRU: yakın zamanda kullanılmayanı, hepsi kullanıldıysa en eskisini seç.
 // stats verilirse (bkz. brain/scoreboard.mjs) grup içinde PERFORMANSA göre ağırlıklı seçilir:
 // tutan pillar'lar daha sık, hiç denenmemişler ortalama sayılır, hiçbiri tamamen ölmez.
 // Veri yoksa (ilk haftalar) eski deterministik LRU davranışı aynen sürer.
-export function selectPillar(recentKeys = [], postCount = 0, stats = null, pick = null) {
+export function selectPillar(recentKeys = [], postCount = 0, stats = null, pick = null, pillars = PILLARS) {
   const wantTimely = postCount % 4 !== 3;
-  const group = PILLARS.filter(p => Boolean(p.timely) === wantTimely);
+  const group = pillars.filter(p => Boolean(p.timely) === wantTimely);
   const recent = new Set(recentKeys);
   const fresh = group.filter(p => !recent.has(p.key));
   const pool = fresh.length ? fresh : group;

@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 
 // Ürün/özellik duyurusu feed'leri ÖNCE: %75 güncel-içerik kuralının haber kaynağı bunlar
 // (yeni model sürümleri, yeni çıkan asistan özellikleri). Round-robin karışımda öncelik alırlar.
-export const FEEDS = [
+const AI_NEWS = [
   {url: 'https://techcrunch.com/category/artificial-intelligence/feed/', source: 'techcrunch-ai'},
   {url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', source: 'verge-ai'},
   {url: 'https://blog.google/technology/ai/rss/', source: 'google-ai'},
@@ -23,6 +23,16 @@ export const FEEDS = [
   {url: 'https://medium.com/feed/tag/ai-agents', source: 'medium-agents'},
 ];
 
+// Kaynak kümeleri — marka dosyası hangisini kullanacağını söyler.
+export const FEED_SETS = {'ai-news': AI_NEWS};
+export const FEEDS = AI_NEWS;                      // geriye uyum
+
+export function feedsFor(setName = 'ai-news') {
+  const set = FEED_SETS[setName];
+  if (!set) throw new Error(`bilinmeyen feed kümesi: ${setName} (${Object.keys(FEED_SETS).join(', ')})`);
+  return set;
+}
+
 // Reddit varsayılan UA'lı isteklere 429/403 dönüyor → tarayıcıya benzer UA + Accept.
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (compatible; byteflow-bot/1.0; +https://instagram.com/byteflowlabs)',
@@ -30,9 +40,9 @@ const HEADERS = {
 };
 
 // agent:false → keep-alive soketi kalmasın (yoksa event loop kapanmıyor, CI adımı asılı kalır).
-export async function fetchTrends({limit = 20, parser = new Parser({timeout: 20000, headers: HEADERS, requestOptions: {agent: false}})} = {}) {
+export async function fetchTrends({limit = 20, feeds = FEEDS, parser = new Parser({timeout: 20000, headers: HEADERS, requestOptions: {agent: false}})} = {}) {
   const perFeed = [];
-  for (const feed of FEEDS) {
+  for (const feed of feeds) {
     try {
       const parsed = await parser.parseURL(feed.url);
       const items = [];

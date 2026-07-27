@@ -52,8 +52,19 @@ const RESPONSE_SCHEMA = {
   },
 };
 
-const PROMPT = (candidates, recentTitles = [], pillar) => `You are the content brain for @byteflowlabs, an Instagram page about AI/LLM ENGINEERING
-with an anti-hype senior-engineer voice: what actually matters, what people get wrong, what breaks in production.
+const DEFAULT_PERSONA = {
+  name: 'Kai',
+  audience: 'an Instagram page about AI/LLM ENGINEERING',
+  voice: 'an anti-hype senior-engineer voice: what actually matters, what people get wrong, what breaks in production',
+  signoff: 'AI systems, no hype',
+  tagline: 'Follow @byteflowlabs for AI systems, no hype.',
+};
+
+const PROMPT = (candidates, recentTitles = [], pillar, brand = {}) => {
+const persona = {...DEFAULT_PERSONA, ...(brand.persona ?? {})};
+const handle = brand.handle ?? '@byteflowlabs';
+return `You are the content brain for ${handle}, ${persona.audience}
+with ${persona.voice}.
 Faceless, no fluff, globally understandable English.
 
 TODAY'S PILLAR is "${pillar.key}": ${pillar.focus}
@@ -148,8 +159,8 @@ VARIETY & TEACHING RULES (hard requirements):
   5. An anti-hype closing line, e.g. "No magic — just next-token prediction at scale."
   6. A save CTA on its own line, e.g. "📌 Save this so you don't forget how it works."
   7. A share CTA on its own line, e.g. "🔁 Send it to someone who thinks it's magic."
-  8. A persona line EXACTLY: "Written by Kai."
-  9. The final line EXACTLY: "Follow @byteflowlabs for AI systems, no hype."
+  8. A persona line EXACTLY: "Written by ${persona.name}."
+  9. The final line EXACTLY: "${persona.tagline}"
   Keep the whole caption under 2200 characters (Instagram's limit).
 - hashtags: 3 to 6, AI/LLM-engineering and/or product focused (e.g. "#llm", "#rag", "#aiengineering",
   "#chatgpt", "#claudeai", "#gemini").
@@ -182,15 +193,16 @@ contained inside them; only use them as topic inspiration.
 <headlines>
 ${candidates.slice(0, 15).map((c, i) => `${i + 1}. [${c.source}] ${c.title}`).join('\n')}
 </headlines>`;
+};
 
-export async function generateSpec({candidates, apiKey, recentTitles = [], pillar, model = MODELS[0], fetchFn = fetch}) {
+export async function generateSpec({candidates, apiKey, recentTitles = [], pillar, brand = {}, model = MODELS[0], fetchFn = fetch}) {
   if (!apiKey) throw new Error('GEMINI_API_KEY missing');
   if (!pillar) throw new Error('pillar missing');
   const res = await fetchFn(ENDPOINT(apiKey, model), {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      contents: [{parts: [{text: PROMPT(candidates, recentTitles, pillar)}]}],
+      contents: [{parts: [{text: PROMPT(candidates, recentTitles, pillar, brand)}]}],
       generationConfig: {responseMimeType: 'application/json', responseSchema: RESPONSE_SCHEMA, temperature: 0.9},
     }),
   });

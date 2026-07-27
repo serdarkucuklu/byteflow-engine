@@ -2,32 +2,39 @@ import {writeFileSync, readFileSync, mkdirSync, readdirSync, existsSync, rmSync}
 import {execFileSync} from 'node:child_process';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {fetchTrends} from './fetch/fetch-trends.mjs';
+import {fetchTrends, feedsFor} from './fetch/fetch-trends.mjs';
 import {fetchFootage, queryFromTitle} from './fetch/fetch-footage.mjs';
 import {produceSpec} from './brain/produce-spec.mjs';
 import {stripMarkdown} from './brain/sanitize.mjs';
 import {postProcess} from './publish/post-process.mjs';
 import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose-footage.mjs';
 import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './publish/voiceover.mjs';
-import {PILLARS, selectPillar} from './brain/pillars.mjs';
+import {pillarsFor, selectPillar} from './brain/pillars.mjs';
+import {loadBrand} from './brands/load.mjs';
 import {aggregate, pickWeighted, leaderboard} from './brain/scoreboard.mjs';
 
 const root = fileURLToPath(new URL('./', import.meta.url));
 const apiKey = process.env.GEMINI_API_KEY;
 
+// MARKA: kimlik, konu havuzu, kaynaklar, seed'ler, ses ve durum dosyaları buradan gelir.
+// Yeni sayfa açmak = brands/<slug>.json + kendi secret'ları (kod çatallamak YOK).
+const brand = loadBrand();
+const PILLARS = pillarsFor(brand.pillarSet);
+console.log(`▣ marka: ${brand.slug} (${brand.handle})`);
+
 // render/src/lib/spec.ts ile SENKRON tutulmalı — tema rotasyonu için.
-const THEMES = ['#58a6ff', '#bc8cff', '#39d3c3', '#f778ba', '#e3b341', '#3fb950'];
+const THEMES = brand.themes;
 
 function randomSeed(seeds) {
   return seeds[Math.floor(Math.random() * seeds.length)];
 }
 
 // Yayın geçmişi — konu tekrarını önle + layout/tema rotasyonunu belirle.
-const historyPath = join(root, 'posted-history.json');
+const historyPath = brand.paths.history;
 const history = existsSync(historyPath) ? JSON.parse(readFileSync(historyPath)) : [];
 const recentTitles = history.slice(-15).map(h => h.title);
 
-const candidates = await fetchTrends({limit: 15});
+const candidates = await fetchTrends({limit: 15, feeds: feedsFor(brand.feedSet)});
 console.log(`✓ ${candidates.length} trends`);
 
 // Pillar rotasyonu: son (PILLARS.length-1) postun pillar'ını atla (niş içi çeşitlilik).
@@ -41,7 +48,8 @@ const pillar = selectPillar(recentPillars, history.length, pillarStats, (cands, 
 console.log(`✓ pillar: ${pillar.key}${pillar.timely ? ' (timely)' : ''}` +
   (pillarStats.groups.get(pillar.key) ? ` [skor ${pillarStats.groups.get(pillar.key).score}]` : ' [veri yok]'));
 
-const {spec: rawSpec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, pickSeed: randomSeed});
+const seeds = JSON.parse(readFileSync(brand.paths.seeds, 'utf8'));
+const {spec: rawSpec, source} = await produceSpec({candidates, apiKey, recentTitles, pillar, brand, seeds, pickSeed: randomSeed});
 // Ekrandaki metinlerde markdown vurgusu kalmasın ("your *real* safety net" yıldızlarıyla basılıyordu).
 const spec = stripMarkdown(rawSpec);
 
@@ -53,6 +61,7 @@ const n = history.length;
 const theme = THEMES[(n * 5 + 1) % THEMES.length]; // *5: eski layout rotasyonuyla senkron olmasın diye kalan ofset
 const motion = 'buildup';                           // tek koreografi (kademeli kurulum)
 spec.theme = theme;
+spec.brand = {handle: brand.handle, signoff: brand.persona?.signoff ?? ''};
 spec.motion = motion;
 spec.scenes.forEach((sc, i) => {
   if (!LAYOUTS.includes(sc.layout)) sc.layout = LAYOUTS[(n + i) % LAYOUTS.length];
@@ -101,9 +110,10 @@ if (process.env.BYTEFLOW_VOICE === '0') {
   try {
     // Ses tonu: ölçüm varsa tutan sesi daha sık kullan, yoksa sırayla dön.
     const voiceStats = aggregate(history, 'voice');
+    const voices = brand.narrationVoices ?? VOICES;
     const picked = voiceStats.sampleSize >= 3
-      ? pickWeighted(VOICES, voiceStats)
-      : VOICES[history.length % VOICES.length];
+      ? pickWeighted(voices, voiceStats)
+      : voices[history.length % voices.length];
     const narration = await synthesizeScript({phrases: spec.narration, outDir: voDir, apiKey, voice: picked});
     if (narration) {
       voice = buildVoiceTrack({narration, outPath: join(voDir, 'voice.wav')});
@@ -118,7 +128,7 @@ if (process.env.BYTEFLOW_VOICE === '0') {
   }
 }
 
-const specPath = join(root, 'scene-spec.generated.json');
+const specPath = brand.paths.spec;
 writeFileSync(specPath, JSON.stringify(spec, null, 2));
 writeFileSync(join(root, 'render', 'scene-spec.json'), JSON.stringify(spec, null, 2));
 
@@ -131,7 +141,7 @@ history.push({title: spec.title, pillar: spec.pillar ?? pillar.key, layout, moti
 writeFileSync(historyPath, JSON.stringify(history, null, 2));
 
 // Fail fast on a missing music asset BEFORE the expensive render step, not after.
-const musicDir = join(root, 'assets', 'music');
+const musicDir = brand.paths.music;
 const mp3 = existsSync(musicDir)
   ? readdirSync(musicDir).find(f => f.endsWith('.mp3') && !f.startsWith('_'))
   : undefined;

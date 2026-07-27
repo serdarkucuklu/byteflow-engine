@@ -19,7 +19,7 @@ function pickSeedDefault(seeds) {
 // retries=4: 2026-07-27'de Gemini düşünce video seed'e düştü ve markasız/jenerik bir konu
 // yayınlandı (Serdar beğenmedi, IG'den sildi). Seed düşüşü İSTİSNA olmalı — bir 429/503 dalgası
 // yayını off-strateji bir konuya çevirmesin diye deneme sayısı artırıldı.
-export async function produceSpec({candidates, apiKey, recentTitles = [], pillar, generate = generateSpec, retries = 4, pickSeed = pickSeedDefault, backoffMs = 400}) {
+export async function produceSpec({candidates, apiKey, recentTitles = [], pillar, brand = {}, seeds = SEED_BACKLOG, generate = generateSpec, retries = 4, pickSeed = pickSeedDefault, backoffMs = 400}) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       // Deneme başına model merdiveninde bir basamak in (503/kapasite dalgasını aş).
@@ -39,8 +39,8 @@ export async function produceSpec({candidates, apiKey, recentTitles = [], pillar
   // Seed fallback: son yayınlanan konuları havuzdan çıkar (tekrar olmasın) ve ürün ADI
   // geçen seed'leri tercih et — isimli videolar bu hesapta ölçülebilir şekilde daha çok
   // izleniyor, jenerik seed'ler ise flop ediyor (2026-07-27 deneyimi).
-  const pool = SEED_BACKLOG.filter(s => !recentTitles.includes(s.title));
-  const usable = pool.length ? pool : SEED_BACKLOG;
+  const pool = seeds.filter(s => !recentTitles.includes(s.title));
+  const usable = pool.length ? pool : seeds;
   const named = usable.filter(s => NAMED.test(s.title));
   const seed = pickSeed(named.length ? named : usable);
   console.error(`⚠ SEED FALLBACK (Gemini ${retries + 1} denemede üretemedi): ${seed.title}`);

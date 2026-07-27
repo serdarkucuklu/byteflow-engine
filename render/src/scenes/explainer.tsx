@@ -23,7 +23,10 @@ import specJson from '../../scene-spec.json';
 const spec = specJson as unknown as SceneSpec;
 const ACCENT = spec.theme ?? COLORS.accent;
 const HOOK = spec.hook ?? spec.title;
-const TAKEAWAY = spec.takeaway ?? 'follow @byteflowlabs for more';
+const TAKEAWAY = spec.takeaway ?? 'follow for more';
+// Kimlik marka dosyasından gelir (motor tek sayfaya bağlı değil).
+const HANDLE = spec.brand?.handle ?? '@byteflowlabs';
+const SIGNOFF = spec.brand?.signoff ?? 'AI systems, no hype';
 
 // Footage modunda sahne şeffaf render edilir (arka planı ffmpeg dolduruyor).
 const FOOTAGE = spec.footage === true;
@@ -109,7 +112,7 @@ export default makeScene2D(function* (view) {
     fontSize={78} fontWeight={800} letterSpacing={-1.4} lineHeight={90} opacity={0.55} y={-16}
     width={900} textAlign="center" textWrap {...SHADOW} />);
   view.add(<Rect ref={hookRule} width={0} height={4} radius={2} fill={ACCENT} y={150} opacity={0.9} />);
-  view.add(<Txt ref={hookTag} text="@byteflowlabs" fill={COLORS.muted} fontFamily={FONTS.mono}
+  view.add(<Txt ref={hookTag} text={HANDLE} fill={COLORS.muted} fontFamily={FONTS.mono}
     fontSize={30} letterSpacing={4} opacity={0} y={210} {...SHADOW} />);
   // 0.22sn'de tam görünür: ilk kare zaten okunuyor, sadece "oturuyor".
   yield* all(hook().opacity(1, 0.22, easeOutCubic), hook().y(-30, 0.5, easeOutCubic));
@@ -328,7 +331,7 @@ export default makeScene2D(function* (view) {
     fontSize={62} fontWeight={800} letterSpacing={-1.1} lineHeight={74} opacity={0} y={-20}
     width={900} textAlign="center" textWrap {...SHADOW} />);
   view.add(<Rect ref={rule} width={0} height={4} radius={2} fill={ACCENT} y={120} />);
-  view.add(<Txt ref={sign} text="@byteflowlabs · AI systems, no hype" fill={COLORS.muted}
+  view.add(<Txt ref={sign} text={`${HANDLE} · ${SIGNOFF}`} fill={COLORS.muted}
     fontFamily={FONTS.mono} fontSize={30} letterSpacing={2} opacity={0} y={180} {...SHADOW} />);
   yield* all(take().opacity(1, 0.5, easeOutCubic), take().y(-40, 0.6, easeOutCubic));
   yield* all(rule().width(200, 0.4, easeOutCubic), sign().opacity(0.85, 0.4));
