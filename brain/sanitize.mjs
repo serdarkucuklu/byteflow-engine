@@ -43,11 +43,18 @@ export function sanitizeHashtags(tags = []) {
 // numaralı maddeler ve CTA'lar satır başına çekiliyor. Zaten satırlıysa dokunulmaz.
 export function formatCaption(caption) {
   if (typeof caption !== 'string' || caption.includes('\n')) return caption;
+  // ⚠ Ayırıcı BOŞLUK OLMAYABİLİR. Canlı örnek (2026-07-28 @cilt.kodu ilk gönderisi):
+  // "…gerçekten olanlar:1. Retinol — …" ve "…kullanan birine gönder.Written by Kai."
+  // Boşluk şart koşan bir desen bu metinde hiçbir şey bölmüyordu.
   return caption
-    // "… cümle. 1. Madde — …" → numaralı maddeler kendi satırına
-    .replace(/\s+(?=\d+\.\s+\p{Lu})/gu, '\n')
-    // emoji CTA'lar, imza ve tagline kendi satırına
-    .replace(/\s+(?=(📌|🔁|↗|Written by |Yazan ))/gu, '\n\n')
-    .replace(/\s+(?=(Takip et:|Follow @))/gu, '\n')
+    // "…cümle.1. Madde —" / "…cümle. 1. Madde —" → numaralı maddeler kendi satırına
+    .replace(/\s*(?=\d+\.\s*\p{Lu}[^\n]{0,40}—)/gu, '\n')
+    // emoji CTA'lar ve imza kendi satırına
+    .replace(/\s*(?=📌|🔁|↗)/gu, '\n\n')
+    .replace(/\s*(?=Written by |Yazan )/gu, '\n\n')
+    .replace(/\s*(?=Takip et:|Follow @)/gu, '\n')
+    // "dönüşüyor.İşte" — cümle sonundaki eksik boşluk
+    .replace(/([.!?])(\p{Lu})/gu, '$1 $2')
+    .replace(/\n{3,}/g, '\n\n')
     .trim();
 }

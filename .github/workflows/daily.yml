@@ -109,7 +109,11 @@ jobs:
           for i in 1 2 3; do
             git push && break
             echo "· push reddedildi, rebase ile tekrar (deneme $i)"
-            git pull --rebase --autostash origin master || exit 1
+            # -X theirs: rebase'de "theirs" = YENİDEN UYGULANAN commit, yani BİZİM koşumuz.
+            # public/<marka>-latest.mp4 ikili dosya; iki koşu çakışınca düz rebase
+            # "Cannot merge binary files" ile düşüyor ve video hiç yüklenmiyordu
+            # (2026-07-28 canlı). Bizim taze render'ımız kazanmalı.
+            git pull --rebase -X theirs --autostash origin master || exit 1
             sleep 3
           done
 
