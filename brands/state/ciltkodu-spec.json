@@ -1,6 +1,6 @@
 {
-  "hook": "Claude MCP araç korumalarınız veri sızdırıyor. İşte nedeni.",
-  "title": "LLM Guardrail Bariyer Mimarisi",
+  "hook": "Güvenlik duvarı olmadan MCP araçlarınız kimlik sızdırır.",
+  "title": "MCP Araç Güvenlik Zafiyeti",
   "scenes": [
     {
       "layout": "nodes-flow",
@@ -8,72 +8,72 @@
       "nodes": [
         {
           "id": "prompt",
-          "label": "ENJEKTE PROMPT"
+          "label": "KULLANICI KOMUTU"
         },
         {
-          "id": "guardrail",
+          "id": "guard",
           "label": "GİRDİ KORUMASI"
         },
         {
-          "id": "mcp_host",
-          "label": "CLAUDE MCP",
-          "brand": "claude"
+          "id": "mcp",
+          "label": "MCP SUNUCUSU",
+          "brand": "mcp"
         },
         {
-          "id": "db",
-          "label": "POSTGRES DB",
-          "brand": "postgres"
+          "id": "llm",
+          "label": "CLAUDE AJANI",
+          "brand": "claude"
         }
       ],
       "steps": [
         {
           "from": "prompt",
-          "to": "guardrail",
-          "packet": "INPUT",
-          "status": "ham prompt doğrulama bariyerine ulaşır",
-          "color": "warn"
+          "to": "guard",
+          "packet": "PROMPT",
+          "status": "girdi koruması enjeksiyonu tarar",
+          "color": "accent"
         },
         {
-          "from": "guardrail",
-          "to": "mcp_host",
-          "packet": "CLEAN",
-          "status": "temizlenen niyet claude mcp'ye geçer",
+          "from": "guard",
+          "to": "mcp",
+          "packet": "TOOL",
+          "status": "mcp doğrulanmış parametreleri alır",
           "color": "good"
         },
         {
-          "from": "mcp_host",
-          "to": "db",
-          "packet": "QUERY",
-          "status": "güvenli araçlar postgres'te çalışır",
-          "color": "accent"
+          "from": "mcp",
+          "to": "llm",
+          "packet": "DATA",
+          "status": "claude temizlenmemiş ham çıktı alır",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Claude MCP güvenlik duvarlarınız, prompt enjeksiyonu basit kelime filtrelerini aştığında başarısız olur. Girdi güvenli bir LLM bariyerine ulaştığında aslında şunlar gerçekleşir: 1. ENJEKTE PROMPT — Kötü niyetli kullanıcı girdisi, sistem bağlamını geçersiz kılmaya veya veritabanı şemalarını sızdırmaya çalışır. 2. GİRDİ KORUMASI — Yapısal ayrıştırıcı, esnek sistem promptlarına güvenmek yerine LLM çalıştırılmasından önce soyut sözdizim ağaçlarını inceler. 3. CLAUDE MCP — Temizlenmiş niyet yükü, Model Context Protocol sunucusuna güvenli bir şekilde yönlendirilir. 4. POSTGRES DB — Parametrelendirilmiş sorgular, sıfır rastgele SQL erişimiyle kesin olarak sınırlandırılmış işlemleri yürütür. Asıl önemli olan: Deterministik şema doğrulaması, esnek LLM talimatlarını her zaman yener. Büyü yok — LLM araç ajanları için yalnızca katı girdi bariyerleri var. 📌 Save this so you don't forget how it works. 🔁 Send it to someone who thinks it's magic. Written by Kai. Follow @byteflowlabs for AI systems, no hype.",
+  "caption": "MCP araçlarınız çıktı korumaları olmadan kimlik bilgilerini sızdırır.\n\nMCP ajanlarını canlı ortamda çalıştırdığınızda gerçekte olan şudur:\n\n1. User Prompt — Ham kullanıcı girdileri doğrudan prompt enjeksiyonu saldırılarına karşı taranır.\n2. Input Guard — Gelen sorgu metnini filtreler ancak alt araç yükü bağlamını inceleyemez.\n3. MCP Server — Yerel araçları çalıştırır ve yapılandırılmamış API verilerini veya sistem durumunu çeker.\n4. Claude Agent — Araç çağrılarından temizlenmemiş ham bağlam alarak hassas jetonları açıkta bırakır.\n\nModel bağlam protokolü araçlarını dağıtırken, araç çıkış sınırında şema doğrulaması ve veri temizliği uygulayın.\n\nMucizevi çözümler yok — yalnızca her protokol katmanında açık güvenlik sınırları var.\n\n📌 Ajan güvenliğini bozmamak için bunu kaydedin.\n🔁 MCP ile geliştirme yapan bir yapay zeka mühendisine gönderin.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#ai шар",
-    "#tech",
+    "#ai",
+    "#aiengineering",
     "#llm",
-    "#yapayzeka",
-    "#yazilim",
     "#mcp",
-    "#siberguvenlik",
+    "#agenticai",
+    "#llmsecurity",
     "#claude",
-    "#postgres"
+    "#yapayzeka",
+    "#yazilim"
   ],
-  "takeaway": "Ham LLM çıktılarının doğrulanmamış araç çağrıları çalıştırmasına asla izin vermeyin.",
+  "takeaway": "Yalnızca girdi komutlarını değil, araç çıktılarını da MCP katmanında doğrulayın.",
   "footage_queries": [
-    "circuit board macro",
-    "empty data center aisle"
+    "network connection lines abstract",
+    "server led lights macro"
   ],
   "narration": [
-    "Claude MCP araç korumalarınız prompt enjeksiyonunda başarısız olur.",
-    "Dört bileşen veritabanınızı yasadışı araç çağrılarından korur.",
-    "Ham kullanıcı girdisi önce temizleme bariyerine çarpar.",
-    "Temizlenen niyet Claude MCP çalışma zamanına aktarılır.",
-    "Doğrulanmış araçlar Postgres veritabanınızda güvenli SQL çalıştırır.",
-    "Ham LLM çıktılarının doğrulanmamış araçları çalıştırmasına izin vermeyin."
+    "Korumasız MCP araçlarınız kimlik bilgisi sızdırır.",
+    "Ajan yürütme akışınızı dört bileşen yönetir.",
+    "İlk olarak güvenlik duvarı komutları tarar.",
+    "Ardından MCP doğrulanmış parametreleri alır.",
+    "Son olarak Claude temizlenmemiş çıktıyı alır.",
+    "Bunun yerine çıktıları araç katmanında filtreleyin."
   ],
   "theme": "#e8a0a8",
   "brand": {
@@ -93,34 +93,34 @@
   "footage": true,
   "beats": [
     {
-      "text": "Claude MCP araç korumalarınız prompt enjeksiyonunda başarısız olur.",
+      "text": "Korumasız MCP araçlarınız kimlik bilgisi sızdırır.",
       "start": 0.35,
-      "dur": 4.056
+      "dur": 3.756
     },
     {
-      "text": "Dört bileşen veritabanınızı yasadışı araç çağrılarından korur.",
-      "start": 4.406,
-      "dur": 3.753
+      "text": "Ajan yürütme akışınızı dört bileşen yönetir.",
+      "start": 4.106,
+      "dur": 3.306
     },
     {
-      "text": "Ham kullanıcı girdisi önce temizleme bariyerine çarpar.",
-      "start": 8.159,
-      "dur": 3.33
+      "text": "İlk olarak güvenlik duvarı komutları tarar.",
+      "start": 7.412,
+      "dur": 3.231
     },
     {
-      "text": "Temizlenen niyet Claude MCP çalışma zamanına aktarılır.",
-      "start": 11.489,
-      "dur": 3.33
+      "text": "Ardından MCP doğrulanmış parametreleri alır.",
+      "start": 10.643,
+      "dur": 3.306
     },
     {
-      "text": "Doğrulanmış araçlar Postgres veritabanınızda güvenli SQL çalıştırır.",
-      "start": 14.818,
-      "dur": 4.116
+      "text": "Son olarak Claude temizlenmemiş çıktıyı alır.",
+      "start": 13.948,
+      "dur": 3.381
     },
     {
-      "text": "Ham LLM çıktılarının doğrulanmamış araçları çalıştırmasına izin vermeyin.",
-      "start": 18.935,
-      "dur": 5.519
+      "text": "Bunun yerine çıktıları araç katmanında filtreleyin.",
+      "start": 17.329,
+      "dur": 4.932
     }
   ],
   "thumbOffset": 1450
