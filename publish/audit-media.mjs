@@ -31,8 +31,12 @@ for (const m of media.data) {
   console.log(`  ${m.permalink}`);
   console.log(`  BAŞLIK  : ${caption.split('\n')[0].slice(0, 90)}`);
   console.log(`  ETİKET  : ${tags.join(' ') || '(yok)'}`);
-  const tagline = caption.trim().split('\n').filter(Boolean).pop() ?? '';
-  console.log(`  TAGLINE : ${tagline.slice(0, 90)}`);
+  // Yanlış marka imzası ancak TAM açıklamada görülüyor (2026-07-28: cilt sayfasının
+  // gönderisinde "@byteflowlabs" imzası vardı — ilk satıra bakarak fark edilmiyordu).
+  const foreign = [...caption.matchAll(/@[A-Za-z0-9._]+/g)].map(x => x[0])
+    .filter(h => h.toLowerCase() !== brand.handle.toLowerCase());
+  console.log(`  AÇIKLAMA:\n${caption.split('\n').map(l => '    | ' + l).join('\n')}`);
+  if (foreign.length) console.log(`  ⚠ YABANCI HESAP ADI: ${[...new Set(foreign)].join(' ')}`);
 
   try {
     const cm = await q(`${G}/${m.id}/comments?fields=id,text,timestamp&access_token=${cred.igToken}`);
