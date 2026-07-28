@@ -64,6 +64,16 @@ const SOFT_FOOTAGE = [
   'flower petals close up',
   'steam rising slow motion',
   'gold glitter particles dark',
+  // Makyaj b-roll'ü (2026-07-28): sayfa cilt kimyasının yanında makyaj da anlatıyor.
+  // Hepsi YÜZSÜZ — sayfa faceless; ürün/doku çekimi, model değil.
+  'makeup brushes flat lay',
+  'lipstick close up macro',
+  'loose powder texture macro',
+  'liquid foundation swatch',
+  'cosmetic bottles soft light',
+  'mascara brush macro',
+  'compact powder pressed texture',
+  'nail polish drop macro',
 ];
 
 export const FOOTAGE_SETS = {tech: TECH_FOOTAGE, soft: SOFT_FOOTAGE};

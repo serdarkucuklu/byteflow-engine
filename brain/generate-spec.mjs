@@ -102,6 +102,10 @@ const namedExamples = brand.namedExamples
 const footageList = (brand.footageQueries?.length ? brand.footageQueries : SAFE_FOOTAGE_QUERIES);
 const brandKeys = brand.brandKeys ?? BRAND_KEYS;
 const ex = {...DEFAULT_EXAMPLES, ...(brand.examples ?? {})};
+// Video uzunluğu MARKADAN. 2026-07-28 Serdar direktifi: cilt/güzellik sayfasında daha uzun
+// video isteniyor (konu anlatımı 25s'ye sığmıyor, izleyici de daha uzun kalıyor).
+// Süreyi anlatım belirliyor: cümle sayısı = 3 + adım sayısı, cümle başına ~2.2s.
+const vid = {seconds: '25-30', minWords: 5, maxWords: 9, minSteps: 2, maxSteps: 3, ...(brand.video ?? {})};
 const langBlock = lang ? `
 LANGUAGE — HARD RULE: every viewer-facing string MUST be written in ${lang}, not English:
 hook, title, scene headings, node labels, step statuses, narration sentences, takeaway and the
@@ -127,7 +131,7 @@ trending headlines below. Lead with what JUST changed and what it actually means
 HARD RULE for this pillar: the title AND the hook must each NAME the thing concretely
 (${namedExamples}) — not a generic phrase. Named, specific videos measurably outperform abstract
 ones, so the name has to be on screen in the first frame.
-` : ''}Pick ONE sharp, specific idea INSIDE this pillar to explain as a 25-30s animated diagram.
+` : ''}Pick ONE sharp, specific idea INSIDE this pillar to explain as a ${vid.seconds}s animated diagram.
 Prefer a contrarian / "most people get this wrong" / "here's what actually happens" angle.
 WITHIN the pillar, PREFER concrete, named topics people actually search for and spend money on
 (${namedExamples}) over generic/abstract framing. The trending headlines below are fresh
@@ -162,8 +166,8 @@ ${brandKeys.length ? `- node.brand is OPTIONAL and PREFERRED whenever a card IS 
   Do NOT brand a concept card (a mechanism or a phase is not a brand).` : `- Do NOT use node.brand on this page; every card gets a numbered badge automatically.`}
 - Do NOT use emoji anywhere (no node.icon). Cards that are not a product get a numbered badge
   automatically, which reads cleaner than emoji on a dark UI.
-- 2 or 3 steps per scene (3 is the norm, 4 only if the mechanism truly needs it — every step
-  adds a spoken sentence and therefore seconds). step.from and step.to MUST equal a node.id IN THAT SCENE.
+- ${vid.minSteps} to ${vid.maxSteps} steps per scene — every step adds a spoken sentence and
+  therefore seconds, so use the count that actually fits the ${vid.seconds}s target. step.from and step.to MUST equal a node.id IN THAT SCENE.
   Each step is ONE beat of the story, in order; never zig-zag back and forth between the same
   two cards. step.packet <= 6 chars. step.color in {accent, good, warn}.
   step.status <= 40 chars, lowercase — the sentence the viewer reads at that moment.
@@ -247,8 +251,10 @@ VARIETY & TEACHING RULES (hard requirements):
        (${ex.narrationSetup}),
     3..N-1. one sentence per step, in step order, saying what happens at that moment,
     N. the closing sentence (the takeaway, spoken).
-  * Each sentence <= 9 words. This is a hard limit: the whole script is read aloud and the
-    video is only as long as the speech, so every extra word costs watch-through.
+  * Each sentence ${vid.minWords}-${vid.maxWords} words. This is a RANGE, not just a ceiling:
+    the whole script is read aloud and the video is exactly as long as the speech, so writing
+    every sentence at the short end makes the video too short for the ${vid.seconds}s target.
+    Aim for the middle of the range; never exceed ${vid.maxWords} words.
     Plain spoken English, no lists, no markdown, no emoji,
     no "in this video". Say the product name out loud in the first sentence — audio is
     indexed and searched now, so the name has to be SPOKEN, not just drawn.

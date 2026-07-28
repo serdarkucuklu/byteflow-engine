@@ -53,7 +53,23 @@ const SKINCARE_SCIENCE = [
 
 // Konu havuzları — marka dosyası hangi kümeyi kullanacağını söyler (brands/<slug>.json).
 // Yeni niş = yeni küme; motor aynı kalır.
-export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING, 'skincare-science': SKINCARE_SCIENCE};
+// MAKYAJ & GÜZELLİK — 2026-07-28 Serdar direktifi: sayfa fazla "kimya dersi" gibiydi.
+// Genç kadın izleyicinin GERÇEKTEN merak ettiği şey cilt kimyasıyla sınırlı değil; makyajın
+// neden akmadığı/aktığı, fondöten tonu neden değişiyor, hangi ürün neye para ettiriyor.
+// Ton değişiyor, omurga DEĞİL: hâlâ mekanizma anlatıyoruz, pazarlama cümlesi değil.
+const BEAUTY_TR = [
+  ...SKINCARE_SCIENCE,
+  {key: 'makyaj-tutunma', focus: 'makyaj neden akıyor/kayboluyor: sebum, primer film oluşumu, su bazlı ve silikon bazlı ürünün üst üste gelmesi (pilling), fixing sprey gerçekten ne yapıyor'},
+  {key: 'fondoten-ton', focus: 'fondöten tonu neden gün içinde koyulaşıyor (oksidasyon), alt ton (undertone) nasıl okunur, kapatıcı rengi neden yeşil/şeftali, SPF\'li fondötenin flashback\'i'},
+  {key: 'goz-makyaji', focus: 'göz makyajı mekaniği: maskara formülü (fiber/su bazlı/waterproof) kirpikte ne yapıyor, eyeliner neden dağılıyor, far primerinin işi ne, waterproof temizliği neden yağ ister'},
+  {key: 'dudak', focus: 'dudak ürünleri: mat ruj neden kurutuyor, lip oil ile balm farkı, dudak dolgunlaştırıcıdaki tahriş edici (mentol/kapsaisin) mekanizması, dudak peelingi'},
+  {key: 'temizleme', focus: 'makyaj temizleme: yağ bazlı temizleyici nasıl çalışıyor (benzer benzeri çözer), çift temizlik gerçekten gerekli mi, mendille temizlemenin bariyere maliyeti'},
+  {key: 'sac-ve-cilt', focus: 'saç ürünleriyle cildin kesiştiği yer: saç kremi/köpük kaynaklı sırt-alın akne (pomad akne), kuru şampuan, saç boyası öncesi cilt koruması'},
+  {key: 'trend-mekanik', timely: true, focus: 'sosyal medyada konuşulan bir güzellik trendi veya viral ürün (glass skin, slugging, cilt döngüsü, viral bir fondöten/serum) — trendin ARDINDAKİ mekanizma ne söylüyor, kimde işe yarar kimde ters teper'},
+  {key: 'para-degeri', timely: true, focus: 'bir üründe paranın gerçekte neye gittiği: aktif konsantrasyonu mu, ambalaj mı, marka mı; pahalı ile uygun fiyatlı arasındaki formülasyon farkı gerçekten hissedilir mi'},
+];
+
+export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING, 'skincare-science': SKINCARE_SCIENCE, 'beauty-tr': BEAUTY_TR};
 
 /** Marka dosyasındaki pillarSet adına karşılık gelen havuz. */
 export function pillarsFor(setName = 'ai-engineering') {

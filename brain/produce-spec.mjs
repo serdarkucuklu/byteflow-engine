@@ -32,7 +32,7 @@ export async function produceSpec({candidates, apiKey, recentTitles = [], pillar
       const raw = await generate({candidates, apiKey, recentTitles, pillar, brand, model});
       // Küçük kusurları (kodsuz kod sahnesi, taşan label/packet) onar — denemeyi harcamak
       // yerine düzelt; her başarısız deneme bizi seed'e (jenerik videoya) yaklaştırıyor.
-      const spec = repairSpec(raw, {defaultHashtags: brand.defaultHashtags});
+      const spec = repairSpec(raw, {defaultHashtags: brand.defaultHashtags, maxSteps: brand.video?.maxSteps});
       const {valid, errors} = validateSpec(spec);
       if (valid) return {spec, source: 'gemini'};
       console.error(`[produce] attempt ${attempt} (${MODELS[Math.min(attempt, MODELS.length - 1)]}) invalid: ${errors.join('; ')}`);

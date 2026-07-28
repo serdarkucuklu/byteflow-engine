@@ -149,8 +149,12 @@ if (process.env.BYTEFLOW_VOICE === '0') {
     const style = brand.language === 'tr'
       ? 'Türkçe, sıcak ve net bir anlatıcı tonuyla oku. Akıcı tempo, abartısız, doğal vurgu'
       : undefined;
+    // SÜRE TAVANI markadan: varsayılan 23s (byteflow). Tavanı aşan seslendirme tempo ile
+    // hızlandırılıyor — marka daha uzun video istiyorsa tavan da yükselmeli, yoksa uzun
+    // anlatım sıkıştırılıp cıvıyor (2026-07-28 Serdar direktifi: cilt/güzellik daha uzun).
+    const targetSec = brand.video?.targetSec;
     const narration = await synthesizeScript({phrases: spec.narration, outDir: voDir, apiKey,
-      voice: picked, ...(style ? {style} : {})});
+      voice: picked, ...(style ? {style} : {}), ...(targetSec ? {targetSec} : {})});
     if (narration) {
       voice = buildVoiceTrack({narration, outPath: join(voDir, 'voice.wav')});
       spec.beats = voice.beats;

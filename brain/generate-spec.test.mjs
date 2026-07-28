@@ -229,7 +229,9 @@ test('prompt: AI kelime evreni ÖRNEKLERDEN de sızmamalı (gerçek marka dosyas
     assert.doesNotMatch(prompt, leak, `AI kelimesi sızdı: ${leak}`);
   }
   assert.match(prompt, /retinol/i, 'markanın kendi kelime evreni prompt\'ta olmalı');
-  assert.match(prompt, /skincare science/i, 'konu evreni kuralı prompt\'ta olmalı');
+  assert.match(prompt, /SUBJECT UNIVERSE/, 'konu evreni kuralı prompt\'ta olmalı');
+  assert.match(prompt, /skincare/i);
+  assert.match(prompt, /makeup/i, 'makyaj da konu evreninde olmalı (2026-07-28 direktifi)');
 });
 
 test('recentTitles bir stil rehberi değil, kara liste olarak çerçevelenir', async () => {
@@ -245,4 +247,23 @@ test('recentTitles bir stil rehberi değil, kara liste olarak çerçevelenir', a
   const prompt = cap.body.contents[0].parts[0].text;
   assert.match(prompt, /BLOCKLIST, not a style guide/i);
   assert.match(prompt, /steer AWAY from it instead of producing a variation/i);
+});
+
+test('video profili markadan gelir (süre, cümle uzunluğu, adım sayısı)', async () => {
+  // 2026-07-28 Serdar direktifi: cilt/güzellik sayfasında daha uzun video.
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    brand: {video: {seconds: '40-45', minWords: 11, maxWords: 15, minSteps: 4, maxSteps: 5}},
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /40-45s animated diagram/);
+  assert.match(p, /Each sentence 11-15 words/);
+  assert.match(p, /4 to 5 steps per scene/);
+
+  const def = {};
+  await generateSpec({candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    fetchFn: fakeFetchCapturing(def)});
+  assert.match(def.body.contents[0].parts[0].text, /25-30s animated diagram/, 'byteflow varsayılanı değişmemeli');
 });

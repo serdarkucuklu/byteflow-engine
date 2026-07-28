@@ -10,7 +10,7 @@ const LIMITS = {nodes: 5, steps: 4, label: 18, packet: 6, status: 40, heading: 4
 
 const cut = (s, n) => (typeof s === 'string' && s.length > n ? s.slice(0, n).trim() : s);
 
-function repairScene(scene) {
+function repairScene(scene, maxSteps = LIMITS.steps) {
   const s = {...scene};
 
   // versus: nodes/steps aranmaz; satır sayısı 4'te tavanlanır.
@@ -52,7 +52,7 @@ function repairScene(scene) {
     const ids = new Set((s.nodes ?? []).map(n => n.id));
     s.steps = s.steps
       .filter(st => ids.has(st.from) && ids.has(st.to))   // var olmayan node'a giden adım = ölü adım
-      .slice(0, LIMITS.steps)                              // 4 beat'ten fazlası izleyiciyi kaybettiriyor
+      .slice(0, maxSteps)                                  // beat tavanı markadan (video uzunluğu)
       .map(st => ({...st, packet: cut(st.packet, LIMITS.packet), status: cut(st.status, LIMITS.status)}));
   }
   return s;
@@ -113,12 +113,12 @@ function repairNarration(out) {
 
 const cap = t => String(t).charAt(0).toUpperCase() + String(t).slice(1);
 
-export function repairSpec(spec, {defaultHashtags} = {}) {
+export function repairSpec(spec, {defaultHashtags, maxSteps} = {}) {
   const out = {...spec};
   out.hashtags = normalizeHashtags(out.hashtags, defaultHashtags?.length ? defaultHashtags : DEFAULT_HASHTAGS);
   for (const key of ['title', 'hook', 'takeaway']) if (key in out) out[key] = cut(out[key], LIMITS[key]);
 
-  const scenes = (spec.scenes ?? []).map(repairScene).filter(s =>
+  const scenes = (spec.scenes ?? []).map(sc => repairScene(sc, maxSteps)).filter(s =>
     s.kind === 'code' ? Boolean(s.code)
       : s.kind === 'versus' ? (s.rows?.length >= 2 && s.left && s.right)
       : (s.nodes?.length >= 3 && s.steps?.length >= 1));

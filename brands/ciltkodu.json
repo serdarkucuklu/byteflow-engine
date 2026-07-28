@@ -5,10 +5,10 @@
   "language": "tr",
   "persona": {
     "name": "Derin",
-    "audience": "cilt bakımını ETKEN MADDE düzeyinde anlatan bir Instagram sayfası (hedef: 18-35 yaş, Türkiye)",
-    "voice": "sakin, kanıta bakan bir ton: pazarlama iddiasını değil MEKANİZMAYI anlatır, abartmaz, korkutmaz",
-    "signoff": "cilt bakımı, pazarlama değil",
-    "tagline": "Takip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+    "audience": "cilt bakımı VE makyajı mekanizma düzeyinde anlatan bir Instagram sayfası (hedef: 18-35 yaş kadın, Türkiye). Amaç ders vermek değil, \"aaa demek oymuş\" dedirtmek",
+    "voice": "meraklı ve samimi bir arkadaş tonu: pazarlama iddiasını değil MEKANİZMAYI anlatır ama sıkıcı değil — şaşırtıcı olanı öne çıkarır, abartmaz, korkutmaz, ukalalık yapmaz",
+    "signoff": "güzellik, pazarlama değil",
+    "tagline": "Takip et: @cilt.kodu — güzellik, pazarlama değil.",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "themes": [
@@ -31,7 +31,7 @@
     "Kore",
     "Puck"
   ],
-  "pillarSet": "skincare-science",
+  "pillarSet": "beauty-tr",
   "feedSet": "skincare-news",
   "footageSet": "soft",
   "seedBacklog": "brands/seeds/ciltkodu.json",
@@ -49,30 +49,38 @@
     "history": "brands/state/ciltkodu-history.json",
     "spec": "brands/state/ciltkodu-spec.json"
   },
-  "namedExamples": "\"retinol\", \"niasinamid\", \"SPF 50\", \"seramid\", \"AHA/BHA\", \"hyalüronik asit\"",
+  "namedExamples": "\"retinol\", \"niasinamid\", \"SPF 50\", \"hyalüronik asit\", \"fondöten\", \"primer\", \"maskara\", \"mat ruj\", \"micellar su\", \"kapatıcı\"",
   "brandKeys": [],
   "examples": {
-    "domain": "skincare science / cosmetic chemistry (active ingredients, the skin barrier, formulation and marketing claims) for a Turkish audience",
-    "hook": "\"Niasinamidin ciltte yanması ürünün değil, sıranın suçu.\"",
+    "domain": "skincare AND makeup, explained at the mechanism level (active ingredients, the skin barrier, formulation, why makeup slides/oxidises/pills, what you are really paying for) for a Turkish audience of women aged 18-35 — curious and fun, never a chemistry lecture",
+    "hook": "\"Fondötenin gün sonunda koyulaşması cildinin değil, formülün suçu.\"",
     "hubSpoke": "one active ingredient acting on several skin structures at once",
     "cycle": "the skin renewal cycle, barrier damage and repair, irritation and tolerance",
-    "captionSetup": "\"Retinol cilde değdiğinde aslında şunlar oluyor:\"",
-    "captionItem": "\"1. Dönüşüm — retinol önce retinaldehite, sonra retinoik aside çevriliyor; etkiyi yapan son hâli.\"",
-    "closing": "\"Mucize yok — sadece hücre yenilenme hızı.\"",
+    "captionSetup": "\"Fondöten gün içinde koyulaşırken aslında şunlar oluyor:\"",
+    "captionItem": "\"1. Oksidasyon — formüldeki yağlar hava ve sebeple tepkimeye girip pigmenti koyultuyor; ton bir basamak aşağı kayıyor.\"",
+    "closing": "\"Mucize yok — sadece formül ve cildinin yağı.\"",
     "saveCta": "\"📌 Kaydet, bir dahaki ürün alırken bak.\"",
     "shareCta": "\"🔁 Bunu cildini yakan arkadaşına gönder.\"",
-    "broadTags": "\"#ciltbakimi\", \"#skincare\", \"#cilt\"",
-    "nicheTags": "\"#retinol\", \"#niasinamid\", \"#ciltbariyeri\", \"#güneşbakımı\", \"#aktifler\"",
+    "broadTags": "\"#ciltbakimi\", \"#makyaj\", \"#güzellik\"",
+    "nicheTags": "\"#fondöten\", \"#makyaj\", \"#retinol\", \"#niasinamid\", \"#makyajönerisi\", \"#ciltbariyeri\"",
     "versusRow": "\"ETKEN MADDE\", \"FİYAT\"",
-    "narrationSetup": "\"Burada üç şey iş yapıyor.\" / \"Retinol ciltte üç aşamadan geçiyor.\"",
+    "narrationSetup": "\"Burada üç şey iş yapıyor.\" / \"Fondöten ciltte üç aşamadan geçiyor.\"",
     "narrationEar": "\"Transepidermal su kaybı artar\" değil, \"cilt suyunu tutamaz olur.\""
   },
   "defaultHashtags": [
     "#ciltbakimi",
+    "#makyaj",
+    "#güzellik",
     "#skincare",
     "#cilt",
-    "#ciltbariyeri",
-    "#aktifler",
-    "#nemlendirici"
-  ]
+    "#makyajönerisi"
+  ],
+  "video": {
+    "seconds": "40-45",
+    "maxWords": 15,
+    "minSteps": 5,
+    "maxSteps": 5,
+    "targetSec": 44,
+    "minWords": 11
+  }
 }
