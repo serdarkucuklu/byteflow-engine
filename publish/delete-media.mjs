@@ -8,7 +8,10 @@
 // Gereken izin: instagram_manage_contents (yoksa Graph API 200 yerine hata döner).
 import {loadBrand, credentials} from '../brands/load.mjs';
 
-const GRAPH = 'https://graph.instagram.com/v23.0';
+// graph.facebook.com — publish/instagram-publish.mjs ile AYNI host olmak zorunda. Bu hesapların
+// token'ı Facebook Login token'ı; graph.instagram.com yalnız Instagram Login token'ı kabul edip
+// "Cannot parse access token" diyor (2026-07-28'de silme bu yüzden düştü).
+const GRAPH = 'https://graph.facebook.com/v21.0';
 
 const brand = loadBrand();
 const cred = credentials(brand);
