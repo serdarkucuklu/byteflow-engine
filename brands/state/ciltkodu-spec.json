@@ -1,81 +1,59 @@
 {
-  "hook": "Güvenlik duvarı olmadan MCP araçlarınız kimlik sızdırır.",
-  "title": "MCP Araç Güvenlik Zafiyeti",
+  "hook": "Claude Code çalıştırmalarınız 10 kat daha fazla token yakar.",
+  "title": "Claude Code vs Cursor",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "vertical-stack",
+      "kind": "versus",
+      "left": "Claude Code",
+      "right": "Cursor",
+      "rows": [
         {
-          "id": "prompt",
-          "label": "KULLANICI KOMUTU"
+          "label": "EXECUTION",
+          "left": "Autonomous CLI loop",
+          "right": "IDE inline & chat",
+          "winner": "left"
         },
         {
-          "id": "guard",
-          "label": "GİRDİ KORUMASI"
+          "label": "TOKEN EFFICIENCY",
+          "left": "High consumption",
+          "right": "Low targeted diffs",
+          "winner": "right"
         },
         {
-          "id": "mcp",
-          "label": "MCP SUNUCUSU",
-          "brand": "mcp"
-        },
-        {
-          "id": "llm",
-          "label": "CLAUDE AJANI",
-          "brand": "claude"
-        }
-      ],
-      "steps": [
-        {
-          "from": "prompt",
-          "to": "guard",
-          "packet": "PROMPT",
-          "status": "girdi koruması enjeksiyonu tarar",
-          "color": "accent"
-        },
-        {
-          "from": "guard",
-          "to": "mcp",
-          "packet": "TOOL",
-          "status": "mcp doğrulanmış parametreleri alır",
-          "color": "good"
-        },
-        {
-          "from": "mcp",
-          "to": "llm",
-          "packet": "DATA",
-          "status": "claude temizlenmemiş ham çıktı alır",
-          "color": "warn"
+          "label": "BEST USE CASE",
+          "left": "Repo refactoring",
+          "right": "Daily feature edits",
+          "winner": "tie"
         }
       ]
     }
   ],
-  "caption": "MCP araçlarınız çıktı korumaları olmadan kimlik bilgilerini sızdırır.\n\nMCP ajanlarını canlı ortamda çalıştırdığınızda gerçekte olan şudur:\n\n1. User Prompt — Ham kullanıcı girdileri doğrudan prompt enjeksiyonu saldırılarına karşı taranır.\n2. Input Guard — Gelen sorgu metnini filtreler ancak alt araç yükü bağlamını inceleyemez.\n3. MCP Server — Yerel araçları çalıştırır ve yapılandırılmamış API verilerini veya sistem durumunu çeker.\n4. Claude Agent — Araç çağrılarından temizlenmemiş ham bağlam alarak hassas jetonları açıkta bırakır.\n\nModel bağlam protokolü araçlarını dağıtırken, araç çıkış sınırında şema doğrulaması ve veri temizliği uygulayın.\n\nMucizevi çözümler yok — yalnızca her protokol katmanında açık güvenlik sınırları var.\n\n📌 Ajan güvenliğini bozmamak için bunu kaydedin.\n🔁 MCP ile geliştirme yapan bir yapay zeka mühendisine gönderin.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Claude Code bir Cursor katili değildir; temelde tamamen farklı sorunları çözerler.\n\nHer iki aracı çalıştırdığınızda gerçekte olan şey şudur:\n\n1. Claude Code — Deponuzu arayarak ve testleri bağımsız olarak çalıştırarak kesintisiz bir kabuk döngüsünde otonom bir terminal ajanı olarak çalışır.\n2. Cursor IDE — Hedefli, düşük gecikmeli kod farkları üretmek için indekslenmiş vektör gömmelerini kullanan bir satır içi düzenleyici olarak işlev görür.\n3. Maliyet Dengesi — Claude Code özyinelemeli bağlam döngüsü nedeniyle görev başına önemli ölçüde daha fazla token tüketirken, Cursor hassas bağlam pencereleriyle token kullanımını en aza indirir.\n\nBir yapay zeka geliştirme aracı seçerken, basit satır içi otomatik tamamlama yerine karmaşık refactor işlemlerinde otonom yürütme bağlamı için ödeme yapın.\n\nSihir yok; sadece terminal döngülerine karşı düzenleyici gömmeleri.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
     "#ai",
-    "#aiengineering",
     "#llm",
-    "#mcp",
-    "#agenticai",
-    "#llmsecurity",
-    "#claude",
-    "#yapayzeka",
-    "#yazilim"
+    "#aiengineering",
+    "#yazilim",
+    "#yazilimci",
+    "#claudecode",
+    "#cursor",
+    "#yapayzeka"
   ],
-  "takeaway": "Yalnızca girdi komutlarını değil, araç çıktılarını da MCP katmanında doğrulayın.",
+  "takeaway": "Derin refactor için Claude Code, günlük düzenlemeler için Cursor kullanın.",
   "footage_queries": [
-    "network connection lines abstract",
+    "microchip macro closeup",
     "server led lights macro"
   ],
   "narration": [
-    "Korumasız MCP araçlarınız kimlik bilgisi sızdırır.",
-    "Ajan yürütme akışınızı dört bileşen yönetir.",
-    "İlk olarak güvenlik duvarı komutları tarar.",
-    "Ardından MCP doğrulanmış parametreleri alır.",
-    "Son olarak Claude temizlenmemiş çıktıyı alır.",
-    "Bunun yerine çıktıları araç katmanında filtreleyin."
+    "Claude Code çalıştırmalarınız on kat fazla token harcar.",
+    "Bugün Claude Code ile Cursor'ı karşılaştıralım.",
+    "Claude Code, terminalde kabuk komutlarını otonom çalıştırır.",
+    "Cursor, düşük token maliyetiyle hedefli farklar gönderir.",
+    "Aracınızı görev kapsamına göre seçin.",
+    "Refactor için Claude Code, günlük işlerde Cursor kullanın."
   ],
-  "theme": "#e8a0a8",
+  "theme": "#c9a227",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "cilt bakımı, pazarlama değil",
@@ -93,34 +71,34 @@
   "footage": true,
   "beats": [
     {
-      "text": "Korumasız MCP araçlarınız kimlik bilgisi sızdırır.",
+      "text": "Claude Code çalıştırmalarınız on kat fazla token harcar.",
       "start": 0.35,
-      "dur": 3.756
+      "dur": 3.87
     },
     {
-      "text": "Ajan yürütme akışınızı dört bileşen yönetir.",
-      "start": 4.106,
-      "dur": 3.306
+      "text": "Bugün Claude Code ile Cursor'ı karşılaştıralım.",
+      "start": 4.22,
+      "dur": 3.248
     },
     {
-      "text": "İlk olarak güvenlik duvarı komutları tarar.",
-      "start": 7.412,
-      "dur": 3.231
+      "text": "Claude Code, terminalde kabuk komutlarını otonom çalıştırır.",
+      "start": 7.469,
+      "dur": 4.147
     },
     {
-      "text": "Ardından MCP doğrulanmış parametreleri alır.",
-      "start": 10.643,
-      "dur": 3.306
+      "text": "Cursor, düşük token maliyetiyle hedefli farklar gönderir.",
+      "start": 11.616,
+      "dur": 3.94
     },
     {
-      "text": "Son olarak Claude temizlenmemiş çıktıyı alır.",
-      "start": 13.948,
-      "dur": 3.381
+      "text": "Aracınızı görev kapsamına göre seçin.",
+      "start": 15.555,
+      "dur": 2.557
     },
     {
-      "text": "Bunun yerine çıktıları araç katmanında filtreleyin.",
-      "start": 17.329,
-      "dur": 4.932
+      "text": "Refactor için Claude Code, günlük işlerde Cursor kullanın.",
+      "start": 18.112,
+      "dur": 5.109
     }
   ],
   "thumbOffset": 1450

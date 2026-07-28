@@ -96,5 +96,21 @@
     "voiceName": null,
     "date": "2026-07-28",
     "durSec": 23.7
+  },
+  {
+    "title": "Claude Code vs Cursor",
+    "pillar": "karsilastirma",
+    "layout": "vertical-stack",
+    "motion": "buildup",
+    "theme": "#c9a227",
+    "source": "gemini",
+    "footage": [
+      "pexels:cream texture macro",
+      "pexels:serum drop close up"
+    ],
+    "voice": 6,
+    "voiceName": "Aoede",
+    "date": "2026-07-28",
+    "durSec": 23.1
   }
 ]
