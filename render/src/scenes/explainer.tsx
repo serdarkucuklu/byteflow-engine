@@ -500,23 +500,40 @@ function* renderVersusScene(view: any, scene: any, ctx: any, beatOffset: number)
   const container = createRef<Layout>();
   view.add(<Layout ref={container} opacity={1} />);
 
-  const COL = 232, GAP = 26, ROW_H = 118;
+  // Ölçüler: hücreler 9:16 karede okunur olmalı; satır aralığı etiketin hücreye BİNMESİNİ
+  // engelleyecek kadar açık (ilk render'da 'AKTİF MADDE' hücre kenarına biniyordu).
+  const COL = 268, GAP = 24, ROW_H = 148;
   const rows = (scene.rows ?? []).slice(0, 4);
-  const topY = CLUSTER_Y - (rows.length * ROW_H) / 2 - 60;
+  // Blok dikeyde ORTALANIR (ilk render'da üst yarıya sıkışmıştı, alt yarı boştu).
+  const topY = CLUSTER_Y - ((rows.length - 1) * ROW_H) / 2 + 20;
 
   // Başlık satırı: iki taraf
   const head = (text: string, x: number) => {
     const t = createRef<Txt>();
     container().add(<Txt ref={t} text={text} fill={COLORS.text} fontFamily={FONTS.display}
-      fontSize={34} fontWeight={800} letterSpacing={-0.4} x={x} y={topY - 78} opacity={0}
+      fontSize={34} fontWeight={800} letterSpacing={-0.4} x={x} y={topY - 118} opacity={0}
       width={COL + 60} textAlign="center" textWrap {...ctx.shadow} />);
     return t();
   };
+  // ALTYAZI: sessiz izleyen satırı okuyabilmeli (kazanan formatın 1 numaralı öğesi).
+  const capPill = createRef<Rect>();
+  const capTxt = createRef<Txt>();
+  container().add(
+    <Rect ref={capPill} layout padding={[16, 30]} radius={20} fill="#0a0e13e6"
+      stroke="#ffffff14" lineWidth={1.5} y={CAPTION_Y} opacity={0} zIndex={3}
+      shadowColor="#000000aa" shadowBlur={28} shadowOffsetY={8}>
+      <Txt ref={capTxt} text="" fill={COLORS.text} fontFamily={FONTS.display} fontSize={38}
+        fontWeight={700} letterSpacing={-0.3} lineHeight={48} width={860}
+        textAlign="center" textWrap />
+    </Rect>,
+  );
+  const caption = {pill: capPill, txt: capTxt};
+
   const leftHead = head(scene.left ?? 'A', -(COL / 2 + GAP / 2 + 40));
   const rightHead = head(scene.right ?? 'B', COL / 2 + GAP / 2 + 40);
   const vs = createRef<Txt>();
   container().add(<Txt ref={vs} text="VS" fill={accent} fontFamily={FONTS.mono} fontSize={26}
-    fontWeight={700} letterSpacing={2} y={topY - 78} opacity={0} />);
+    fontWeight={700} letterSpacing={2} y={topY - 118} opacity={0} />);
 
   yield* all(leftHead.opacity(1, 0.3, easeOutCubic), rightHead.opacity(1, 0.3, easeOutCubic),
     vs().opacity(0.9, 0.3));
@@ -527,20 +544,20 @@ function* renderVersusScene(view: any, scene: any, ctx: any, beatOffset: number)
     const label = createRef<Txt>();
     const cells: Rect[] = [];
     container().add(<Txt ref={label} text={String(row.label ?? '').toUpperCase()} fill={COLORS.muted}
-      fontFamily={FONTS.mono} fontSize={22} letterSpacing={1.5} y={y - 44} opacity={0} {...ctx.shadow} />);
+      fontFamily={FONTS.mono} fontSize={23} letterSpacing={1.5} y={y - 62} opacity={0} {...ctx.shadow} />);
 
     for (const side of ['left', 'right'] as const) {
       const isWinner = row.winner === side;
       const x = (side === 'left' ? -1 : 1) * (COL / 2 + GAP / 2 + 40);
       const cell = createRef<Rect>();
       container().add(
-        <Rect ref={cell} width={COL + 80} height={78} radius={18}
+        <Rect ref={cell} width={COL + 74} height={92} radius={20}
           fill={isWinner ? `${accent}1c` : CARD_FILL} stroke={isWinner ? `${accent}80` : CARD_STROKE}
           lineWidth={isWinner ? 2 : 1.5} x={x} y={y} opacity={0}
           justifyContent="center" alignItems="center" padding={[8, 14]}>
           <Txt text={String(row[side] ?? '')} fill={isWinner ? COLORS.text : COLORS.muted}
-            fontFamily={FONTS.display} fontSize={27} fontWeight={isWinner ? 700 : 500}
-            width={COL + 52} textAlign="center" textWrap />
+            fontFamily={FONTS.display} fontSize={29} fontWeight={isWinner ? 700 : 500}
+            width={COL + 46} textAlign="center" textWrap />
         </Rect>,
       );
       cells.push(cell());
@@ -548,12 +565,15 @@ function* renderVersusScene(view: any, scene: any, ctx: any, beatOffset: number)
 
     // Bu satırın kendi beat'i var (ses varsa o cümle konuşulurken açılır).
     yield* syncTo(beatStart(beatOffset + i + 2));
+    const line = BEATS?.[beatOffset + i + 2]?.text
+      ?? `${row.label}: ${row.winner === 'right' ? scene.right : row.winner === 'left' ? scene.left : 'berabere'}`;
+    yield* showCaption(caption, line, accent);
     yield* all(label().opacity(0.9, 0.22), ...cells.map(c => c.opacity(1, 0.28, easeOutCubic)));
     const nextAt = beatStart(beatOffset + i + 3);
     yield* waitFor(nextAt != null ? Math.max(0.3, nextAt - nowSec() - 0.15) : pacing.hold + 0.9);
   }
 
   yield* waitFor(BEATS ? 0.2 : pacing.finalDwell);
-  yield* all(container().opacity(0, 0.4));
+  yield* all(caption.pill().opacity(0, 0.3), container().opacity(0, 0.4));
   container().remove();
 }
