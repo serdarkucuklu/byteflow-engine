@@ -24,10 +24,15 @@ export async function produceSpec({candidates, apiKey, recentTitles = [], pillar
     try {
       // Deneme başına model merdiveninde bir basamak in (503/kapasite dalgasını aş).
       const model = MODELS[Math.min(attempt, MODELS.length - 1)];
-      const raw = await generate({candidates, apiKey, recentTitles, pillar, model});
+      // ⚠ brand'i GEÇMEYİ UNUTMA. 2026-07-28: burada eksikti ve generateSpec her koşuda
+      // brand={} ile çalıştı → varsayılan AI personası, "@byteflowlabs" tagline'ı ve
+      // "Claude Code/GPT-5.2" örnekleri. localizeSpec sonradan Türkçeye çevirdiği için
+      // @cilt.kodu'ya TÜRKÇE AI içeriği ("Claude Code vs Cursor") yayınlandı — marka
+      // dosyası doğru olduğu hâlde. Marka yalnızca bu satırdan modele ulaşıyor.
+      const raw = await generate({candidates, apiKey, recentTitles, pillar, brand, model});
       // Küçük kusurları (kodsuz kod sahnesi, taşan label/packet) onar — denemeyi harcamak
       // yerine düzelt; her başarısız deneme bizi seed'e (jenerik videoya) yaklaştırıyor.
-      const spec = repairSpec(raw);
+      const spec = repairSpec(raw, {defaultHashtags: brand.defaultHashtags});
       const {valid, errors} = validateSpec(spec);
       if (valid) return {spec, source: 'gemini'};
       console.error(`[produce] attempt ${attempt} (${MODELS[Math.min(attempt, MODELS.length - 1)]}) invalid: ${errors.join('; ')}`);

@@ -66,5 +66,13 @@
     "versusRow": "\"ETKEN MADDE\", \"FİYAT\"",
     "narrationSetup": "\"Burada üç şey iş yapıyor.\" / \"Retinol ciltte üç aşamadan geçiyor.\"",
     "narrationEar": "\"Transepidermal su kaybı artar\" değil, \"cilt suyunu tutamaz olur.\""
-  }
+  },
+  "defaultHashtags": [
+    "#ciltbakimi",
+    "#skincare",
+    "#cilt",
+    "#ciltbariyeri",
+    "#aktifler",
+    "#nemlendirici"
+  ]
 }

@@ -155,3 +155,20 @@ test('an incomplete versus scene is dropped rather than rendered broken', () => 
   assert.equal(fixed.scenes.length, 1);
   assert.equal(validateSpec(fixed).valid, true);
 });
+
+test('etiketlerde Türkçe harfler korunur', () => {
+  // '#güneşbakımı' → '#gnebakm' oluyordu: anlamsız, hiç aranmayan etiket (2026-07-28).
+  const out = repairSpec({...base, hashtags: ['#güneşbakımı', '#niasinamid', '#SPF50']});
+  assert.ok(out.hashtags.includes('#güneşbakımı'), `Türkçe harf düştü: ${out.hashtags.join(' ')}`);
+  assert.ok(out.hashtags.includes('#spf50'));
+});
+
+test('eksik etiket tamamlaması MARKADAN gelir, AI etiketi eklenmez', () => {
+  // 2026-07-28 canlı: cilt bakımı sayfasının gönderisine '#ai #llm #aiengineering' eklendi
+  // ve ilk yorum ilk 3 etiketi yazdığı için yorum da AI etiketleriyle çıktı.
+  const out = repairSpec({...base, hashtags: ['#ciltbakimi']},
+    {defaultHashtags: ['#ciltbakimi', '#skincare', '#cilt', '#ciltbariyeri', '#aktifler', '#nemlendirici']});
+  assert.equal(out.hashtags.length, 6);
+  assert.ok(!out.hashtags.some(t => /^#(ai|llm|aiengineering|aiagents|tech|developers)$/.test(t)),
+    `AI etiketi sızdı: ${out.hashtags.join(' ')}`);
+});

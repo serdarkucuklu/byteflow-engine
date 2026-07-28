@@ -1,0 +1,38 @@
+name: Sayfa Denetle (salt okunur)
+
+# Sayfada CANLI ne var: açıklama, etiketler ve yorumlar. Hiçbir şey değiştirmez.
+# Yorumlar ayrı bir yüzey — spec'e bakarak göremiyorsun, hesaba bakmak gerekiyor.
+
+on:
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: 'Marka (brands/<slug>.json) — ör. ciltkodu'
+        type: string
+        required: true
+      limit:
+        description: 'Kaç gönderi'
+        type: string
+        default: '10'
+
+permissions:
+  contents: read
+
+jobs:
+  denetle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BYTEFLOW_BRAND: ${{ inputs.brand }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
+          NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
+        run: node publish/audit-media.mjs ${{ inputs.limit }}

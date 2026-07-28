@@ -67,3 +67,18 @@ test('produceSpec with backoffMs: 0 does not add measurable delay', async () => 
   const elapsed = Date.now() - start;
   assert.ok(elapsed < 200, `expected near-instant with backoffMs 0, got ${elapsed}`);
 });
+
+test('produceSpec markayı generateSpec\'e GEÇİRİR (canlı hata: geçmiyordu)', async () => {
+  // 2026-07-28: bu satır eksikti; @cilt.kodu'ya "Claude Code vs Cursor" yayınlandı.
+  // Marka dosyası, pillar havuzu ve feed'ler doğruydu — marka modele hiç ulaşmıyordu.
+  const seen = [];
+  const brand = {handle: '@cilt.kodu', language: 'tr', namedExamples: '"retinol"',
+    persona: {name: 'Derin', tagline: 'Takip et: @cilt.kodu'}};
+  await produceSpec({
+    candidates: [], apiKey: 'k', pillar: {key: 'p', focus: 'f'}, brand,
+    generate: async args => { seen.push(args.brand); throw new Error('dur'); },
+    retries: 0, seeds: [{title: 's'}], backoffMs: 0,
+  });
+  assert.equal(seen.length, 1);
+  assert.equal(seen[0]?.handle, '@cilt.kodu', 'marka generateSpec\'e ulaşmalı');
+});

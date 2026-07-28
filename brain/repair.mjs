@@ -61,16 +61,23 @@ function repairScene(scene) {
 // Etiketler artık AÇIKLAMANIN İÇİNDE (2026-07-27) → sayısı ve biçimi doğrudan erişimi
 // etkiliyor. Model bazen tek etiket veriyordu (canlı örnek: sadece "#microsoft"); az etiket
 // keşifte kayıp demek. Burada normalize edip tabana tamamlıyoruz.
+// ⚠ MARKAYA BAĞLI. 2026-07-28: bu liste sabit AI etiketleriyken cilt bakımı sayfasının
+// gönderisine model 6'dan az etiket döndüğünde '#ai #llm #aiengineering' ekleniyordu.
+// brands/<slug>.json → defaultHashtags ile ezilir.
 const DEFAULT_HASHTAGS = ['#ai', '#llm', '#aiengineering', '#aiagents', '#tech', '#developers'];
 const MIN_TAGS = 6, MAX_TAGS = 9;
 
-function normalizeHashtags(list) {
+// Türkçe harfler KORUNUR. Eskiden [^a-z0-9#_] süzgeci vardı ve '#güneşbakımı' → '#gnebakm'
+// oluyordu: anlamsız, hiç aranmayan bir etiket. Türkçe bir sayfada keşfi doğrudan öldürüyor.
+const TAG_STRIP = /[^0-9a-zçğıöşü#_]/g;
+
+function normalizeHashtags(list, defaults = DEFAULT_HASHTAGS) {
   const clean = (Array.isArray(list) ? list : [])
-    .map(t => String(t).toLowerCase().replace(/[^a-z0-9#_]/g, ''))
+    .map(t => String(t).toLocaleLowerCase('tr').replace(TAG_STRIP, ''))
     .map(t => (t.startsWith('#') ? t : `#${t}`))
     .filter(t => t.length > 2);
   const out = [...new Set(clean)];
-  for (const d of DEFAULT_HASHTAGS) {
+  for (const d of defaults) {
     if (out.length >= MIN_TAGS) break;
     if (!out.includes(d)) out.push(d);
   }
@@ -106,9 +113,9 @@ function repairNarration(out) {
 
 const cap = t => String(t).charAt(0).toUpperCase() + String(t).slice(1);
 
-export function repairSpec(spec) {
+export function repairSpec(spec, {defaultHashtags} = {}) {
   const out = {...spec};
-  out.hashtags = normalizeHashtags(out.hashtags);
+  out.hashtags = normalizeHashtags(out.hashtags, defaultHashtags?.length ? defaultHashtags : DEFAULT_HASHTAGS);
   for (const key of ['title', 'hook', 'takeaway']) if (key in out) out[key] = cut(out[key], LIMITS[key]);
 
   const scenes = (spec.scenes ?? []).map(repairScene).filter(s =>
