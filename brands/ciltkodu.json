@@ -50,5 +50,19 @@
     "spec": "brands/state/ciltkodu-spec.json"
   },
   "namedExamples": "\"retinol\", \"niasinamid\", \"SPF 50\", \"seramid\", \"AHA/BHA\", \"hyalüronik asit\"",
-  "brandKeys": []
+  "brandKeys": [],
+  "examples": {
+    "domain": "skincare science / cosmetic chemistry (active ingredients, the skin barrier, formulation and marketing claims) for a Turkish audience",
+    "hook": "\"Niasinamidin ciltte yanması ürünün değil, sıranın suçu.\"",
+    "hubSpoke": "one active ingredient acting on several skin structures at once",
+    "cycle": "the skin renewal cycle, barrier damage and repair, irritation and tolerance",
+    "captionSetup": "\"Retinol cilde değdiğinde aslında şunlar oluyor:\"",
+    "captionItem": "\"1. Dönüşüm — retinol önce retinaldehite, sonra retinoik aside çevriliyor; etkiyi yapan son hâli.\"",
+    "closing": "\"Mucize yok — sadece hücre yenilenme hızı.\"",
+    "saveCta": "\"📌 Kaydet, bir dahaki ürün alırken bak.\"",
+    "shareCta": "\"🔁 Bunu cildini yakan arkadaşına gönder.\"",
+    "broadTags": "\"#ciltbakimi\", \"#skincare\", \"#cilt\"",
+    "nicheTags": "\"#retinol\", \"#niasinamid\", \"#ciltbariyeri\", \"#güneşbakımı\", \"#aktifler\"",
+    "versusRow": "\"ETKEN MADDE\", \"FİYAT\""
+  }
 }

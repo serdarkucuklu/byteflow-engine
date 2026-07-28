@@ -1,5 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {generateSpec} from './generate-spec.mjs';
 
 const fakePillar = {key: 'rag', focus: 'retrieval-augmented generation: chunking, embeddings, reranking'};
@@ -209,4 +210,24 @@ test('the prompt steers toward the BRAND\'s named examples, not hardcoded AI pro
   assert.match(skinPrompt, /cream texture macro/, 'b-roll listesi markadan gelmeli');
   assert.doesNotMatch(skinPrompt, /circuit board macro/, 'teknoloji b-roll listesi sızmamalı');
   assert.match(skinPrompt, /written in Turkish/i);
+});
+
+test('prompt: AI kelime evreni ÖRNEKLERDEN de sızmamalı (gerçek marka dosyasıyla)', async () => {
+  // 2026-07-28 canlı hata: @cilt.kodu "LLM Guardrail Bariyer Mimarisi" yayınladı. Ürün adları
+  // markadan geliyordu ama prompt'un içindeki ÖRNEKLER ("Your RAG…", "Tokenization…", "#mcp")
+  // sabitti — model örneği taklit edip sayfayı AI sayfası sandı. Bu test o örnekleri kilitler.
+  const brand = JSON.parse(readFileSync(new URL('../brands/ciltkodu.json', import.meta.url), 'utf8'));
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: {...fakePillar, timely: true},
+    brand: {...brand, footageQueries: ['cream texture macro', 'silk fabric flowing']},
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const prompt = cap.body.contents[0].parts[0].text;
+  for (const leak of [/\bRAG\b/, /\bLLM\b/, /\bMCP\b/, /tokeniz/i, /next-token/, /#aiagents/,
+    /#promptengineering/, /agent loops/, /orchestrator/, /prompt:/i]) {
+    assert.doesNotMatch(prompt, leak, `AI kelimesi sızdı: ${leak}`);
+  }
+  assert.match(prompt, /retinol/i, 'markanın kendi kelime evreni prompt\'ta olmalı');
+  assert.match(prompt, /skincare science/i, 'konu evreni kuralı prompt\'ta olmalı');
 });

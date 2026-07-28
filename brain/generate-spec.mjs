@@ -68,6 +68,26 @@ const DEFAULT_PERSONA = {
   tagline: 'Follow @byteflowlabs for AI systems, no hype.',
 };
 
+// ⚠ 2026-07-28 CANLI HATA: @cilt.kodu "LLM Guardrail Bariyer Mimarisi" yayınladı — cilt bakımı
+// sayfasına AI konusu. persona/pillar/namedExamples doğru markadandı; sızıntı prompt'un İÇİNDEKİ
+// ÖRNEKLERDEN geldi ("Your RAG retrieves garbage", "Tokenization…", "#mcp", "agent loops").
+// Model, kuralı değil örneği taklit ediyor: yeterince AI örneği görünce sayfanın AI sayfası
+// olduğuna karar veriyor. Bu yüzden her örnek de markadan gelmek zorunda.
+const DEFAULT_EXAMPLES = {
+  domain: 'AI / LLM engineering',
+  hook: '"Your RAG retrieves garbage. Here\'s why."',
+  hubSpoke: 'orchestrator + tools/agents',
+  cycle: 'agent loops, retries, training loops',
+  captionSetup: '"Here\'s what actually happens when you send a prompt:"',
+  captionItem: '"1. Tokenization — your text is split into tokens (chunks of ~4 characters), not words."',
+  closing: '"No magic — just next-token prediction at scale."',
+  saveCta: '"📌 Save this so you don\'t forget how it works."',
+  shareCta: '"🔁 Send it to someone who thinks it\'s magic."',
+  broadTags: '"#ai", "#llm", "#tech"',
+  nicheTags: '"#rag", "#aiagents", "#aiengineering", "#promptengineering", "#mcp"',
+  versusRow: '"CONTEXT", "PRICE"',
+};
+
 const LANG_NAMES = {tr: 'Turkish', en: 'English', de: 'German', es: 'Spanish'};
 
 const PROMPT = (candidates, recentTitles = [], pillar, brand = {}) => {
@@ -79,6 +99,7 @@ const namedExamples = brand.namedExamples
   ?? '"Claude Code", "GPT-5.2", "Gemini 3 Flash", "MCP"';
 const footageList = (brand.footageQueries?.length ? brand.footageQueries : SAFE_FOOTAGE_QUERIES);
 const brandKeys = brand.brandKeys ?? BRAND_KEYS;
+const ex = {...DEFAULT_EXAMPLES, ...(brand.examples ?? {})};
 const langBlock = lang ? `
 LANGUAGE — HARD RULE: every viewer-facing string MUST be written in ${lang}, not English:
 hook, title, scene headings, node labels, step statuses, narration sentences, takeaway and the
@@ -93,6 +114,11 @@ written in ${lang}. If you write them in English the video is unusable.
 with ${persona.voice}.
 Faceless, no fluff.
 ${langBlock}
+SUBJECT UNIVERSE — HARD RULE: this page is about ${ex.domain} and NOTHING else. Every topic,
+node label, example and hashtag must sit inside that universe. If an idea would only make sense
+to a different audience, it is wrong for this page no matter how good it is. The examples further
+down are FORMAT illustrations only — copy their SHAPE, never their subject.
+
 TODAY'S PILLAR is "${pillar.key}": ${pillar.focus}
 ${pillar.timely ? `This is a TIMELY pillar: anchor the video on ONE real, recent development from the
 trending headlines below. Lead with what JUST changed and what it actually means.
@@ -115,13 +141,13 @@ Produce a scene-spec with these fields:
   THEMSELVES, in the anti-hype voice — not a neutral topic label. People forward videos that
   name a problem their friends also have; that DM-send is now the strongest ranking signal.
   Write it as "your <thing> does <bad thing>" or "<product> is doing X and nobody says it".
-  NOT the same as the title. e.g. "Your RAG retrieves garbage. Here's why."
+  NOT the same as the title. e.g. ${ex.hook}
 - title: <= 60 chars, the concept name${lang ? `, IN ${lang.toUpperCase()}` : ''}.
 - 1 or 2 scenes (1 preferred). Each DIAGRAM scene picks its OWN "layout" — whichever TEACHES best:
   - "nodes-flow": a pipeline / data flow (A feeds B feeds C).
   - "vertical-stack": layers on top of each other (stacks, hierarchies, a request descending layers).
-  - "hub-spoke": one coordinator in the middle talking to satellites (orchestrator + tools/agents).
-  - "cycle": a loop / feedback cycle (agent loops, retries, training loops).
+  - "hub-spoke": one coordinator in the middle talking to satellites (${ex.hubSpoke}).
+  - "cycle": a loop / feedback cycle (${ex.cycle}).
   VARY the layout from video to video — never default to the same one every time.
 - 3 to 5 nodes per scene. SIMPLE BEATS COMPLETE: a 3-node diagram that lands is worth more
   than a 7-node map nobody follows. Use 5 only when the concept genuinely needs it.
@@ -139,7 +165,7 @@ ${brandKeys.length ? `- node.brand is OPTIONAL and PREFERRED whenever a card IS 
 - Each scene has a "kind": "diagram" (default), "code" or "versus".
   - A "versus" scene compares TWO named options head to head and is the strongest format on
     this platform. It MUST have: left + right (the two names, <= 22 chars each) and 2-4 rows.
-    Each row = {label (the dimension, <= 22 chars, e.g. "AKTİF", "FİYAT"), left, right
+    Each row = {label (the dimension, <= 22 chars, e.g. ${ex.versusRow}), left, right
     (<= 26 chars each, concrete values not adjectives), winner: "left" | "right" | "tie"}.
     Use it whenever the pillar is a comparison, a dupe/alternative, or "which one should I buy".
     A versus scene needs NO nodes and NO steps; narration gets one sentence per row.
@@ -167,7 +193,7 @@ VARIETY & TEACHING RULES (hard requirements):
   and do not make accusations about a company's data handling. Anti-hype means accurate, not
   cynical — a wrong claim on screen costs this account more than a boring one.
 - In "hub-spoke", the FIRST node in the array is drawn in the CENTER, so it must be the
-  coordinator/orchestrator — never a leaf like the user or a database.
+  central thing that everything else connects to — never a leaf that only participates.
 - NEVER INVENT A NUMBER YOU CANNOT SOURCE. Version numbers, percentages, concentrations and
   study years may only appear if they are in the headlines below or are textbook-stable facts.
   Your training data is older than today; a stale or invented number on screen destroys trust
@@ -182,24 +208,22 @@ VARIETY & TEACHING RULES (hard requirements):
   read the caption alone and fully understand the concept. This is what makes people SAVE and
   SHARE it. Structure, in this exact order:
   1. Line 1: the sharp claim (echoes the hook).
-  2. A one-line setup, e.g. "Here's what actually happens when you send a prompt:".
+  2. A one-line setup, e.g. ${ex.captionSetup}.
   3. A NUMBERED list, one item per node/step in the diagram, each item explaining that concept
-     in plain language and defining any jargon inline (e.g. "1. Tokenization — your text is
-     split into tokens (chunks of ~4 characters), not words."). This numbered list is the core
+     in plain language and defining any jargon inline (e.g. ${ex.captionItem}). This numbered list is the core
      of the caption — it must actually teach the mechanism, not just tease it.
   4. When the topic involves a product or a purchase decision, one short line on what actually
      matters when choosing / what you are really paying for.
-  5. An anti-hype closing line, e.g. "No magic — just next-token prediction at scale."
-  6. A save CTA on its own line, e.g. "📌 Save this so you don't forget how it works."
-  7. A share CTA on its own line, e.g. "🔁 Send it to someone who thinks it's magic."
+  5. An anti-hype closing line, e.g. ${ex.closing}
+  6. A save CTA on its own line, e.g. ${ex.saveCta}
+  7. A share CTA on its own line, e.g. ${ex.shareCta}
   8. A persona line EXACTLY: "Written by ${persona.name}."
   9. The final line EXACTLY: "${persona.tagline}"
   Keep the whole caption under 2200 characters (Instagram's limit).
 - hashtags: 6 to 9 tags, ALL lowercase, no spaces, and they now appear INSIDE the post
   description — so they must read as a deliberate, tidy line, not keyword soup. Mix three tiers:
-  * 2 broad reach tags (e.g. "#ai", "#llm", "#tech"),
-  * 3-4 niche tags that match the actual topic (e.g. "#rag", "#aiagents", "#aiengineering",
-    "#promptengineering", "#mcp"),
+  * 2 broad reach tags (e.g. ${ex.broadTags}),
+  * 3-4 niche tags that match the actual topic (e.g. ${ex.nicheTags}),
   * 1-2 product/ingredient tags ONLY if that thing is genuinely in the video (take them from
     this page's own vocabulary: ${namedExamples}).
   Never invent a brand tag for a product the video does not cover.
