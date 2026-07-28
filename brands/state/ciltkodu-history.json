@@ -16,22 +16,6 @@
     "durSec": 30.2
   },
   {
-    "title": "MCP Araç Şeması Yükü",
-    "pillar": "hassasiyet",
-    "layout": "hub-spoke",
-    "motion": "buildup",
-    "theme": "#e8a0a8",
-    "source": "gemini",
-    "footage": [
-      "pexels:cream texture macro",
-      "pexels:serum drop close up"
-    ],
-    "voice": 6,
-    "voiceName": "Kore",
-    "date": "2026-07-27",
-    "durSec": 23.6
-  },
-  {
     "title": "Mikroakım Cihazları: Gerçek Mekanizma",
     "pillar": "cihaz-ve-islem",
     "layout": "vertical-stack",
@@ -112,21 +96,5 @@
     "voiceName": null,
     "date": "2026-07-28",
     "durSec": 23.7
-  },
-  {
-    "title": "MCP Araç Güvenlik Zafiyeti",
-    "pillar": "bariyer",
-    "layout": "nodes-flow",
-    "motion": "buildup",
-    "theme": "#e8a0a8",
-    "source": "gemini",
-    "footage": [
-      "pexels:cream texture macro",
-      "pexels:serum drop close up"
-    ],
-    "voice": 6,
-    "voiceName": "Kore",
-    "date": "2026-07-28",
-    "durSec": 22.2
   }
 ]

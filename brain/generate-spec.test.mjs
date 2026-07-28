@@ -231,3 +231,18 @@ test('prompt: AI kelime evreni ÖRNEKLERDEN de sızmamalı (gerçek marka dosyas
   assert.match(prompt, /retinol/i, 'markanın kendi kelime evreni prompt\'ta olmalı');
   assert.match(prompt, /skincare science/i, 'konu evreni kuralı prompt\'ta olmalı');
 });
+
+test('recentTitles bir stil rehberi değil, kara liste olarak çerçevelenir', async () => {
+  // 2026-07-28: geçmişte kalan "MCP Araç Şeması Yükü" başlığı "bunu tekrarlama" listesindeydi;
+  // model yine de "MCP Araç Güvenlik Zafiyeti" üretti. Olumsuz talimat konuyu yasaklamıyor,
+  // nişi tanımlıyor — bu yüzden listenin yanına açık bir karşı-talimat gerekiyor.
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    recentTitles: ['MCP Araç Şeması Yükü'],
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const prompt = cap.body.contents[0].parts[0].text;
+  assert.match(prompt, /BLOCKLIST, not a style guide/i);
+  assert.match(prompt, /steer AWAY from it instead of producing a variation/i);
+});

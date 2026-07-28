@@ -63,6 +63,8 @@
     "shareCta": "\"🔁 Bunu cildini yakan arkadaşına gönder.\"",
     "broadTags": "\"#ciltbakimi\", \"#skincare\", \"#cilt\"",
     "nicheTags": "\"#retinol\", \"#niasinamid\", \"#ciltbariyeri\", \"#güneşbakımı\", \"#aktifler\"",
-    "versusRow": "\"ETKEN MADDE\", \"FİYAT\""
+    "versusRow": "\"ETKEN MADDE\", \"FİYAT\"",
+    "narrationSetup": "\"Burada üç şey iş yapıyor.\" / \"Retinol ciltte üç aşamadan geçiyor.\"",
+    "narrationEar": "\"Transepidermal su kaybı artar\" değil, \"cilt suyunu tutamaz olur.\""
   }
 }

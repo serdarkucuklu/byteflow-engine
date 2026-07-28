@@ -36,7 +36,13 @@ function randomSeed(seeds) {
 // Yayın geçmişi — konu tekrarını önle + layout/tema rotasyonunu belirle.
 const historyPath = brand.paths.history;
 const history = existsSync(historyPath) ? JSON.parse(readFileSync(historyPath)) : [];
-const recentTitles = history.slice(-15).map(h => h.title);
+// ⚠ SADECE YAYINLANMIŞ başlıklar (mediaId'si olanlar). İki nedenle:
+// 1) Yayınlanmamış test koşusunun konusu yanmasın — o konu hâlâ taze.
+// 2) 2026-07-28 canlı hata: liste modele "bu sayfa NE yazıyor" diye okunuyor. @cilt.kodu'nun
+//    geçmişinde test koşularından kalma "MCP Araç Şeması Yükü" vardı; "bunu TEKRARLAMA"
+//    talimatına rağmen model "MCP Araç Güvenlik Zafiyeti" üretti. Olumsuz talimat konuyu
+//    yasaklamıyor, sadece niş sinyali veriyor.
+const recentTitles = history.filter(h => h.mediaId).slice(-15).map(h => h.title);
 
 const candidates = await fetchTrends({limit: 15, feeds: feedsFor(brand.feedSet)});
 console.log(`✓ ${candidates.length} trends`);
