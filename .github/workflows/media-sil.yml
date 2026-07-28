@@ -1,0 +1,39 @@
+name: Gönderi Sil (elle)
+
+# YALNIZCA elle çalışır — cron YOK. Yanlış çıkan bir gönderiyi silmek için.
+# Silme GERİ ALINAMAZ; mediaId'yi elle yazmak zorunda olman kazara tetiklemeyi engelliyor.
+
+on:
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: 'Marka (brands/<slug>.json) — ör. ciltkodu'
+        type: string
+        required: true
+      mediaIds:
+        description: 'Silinecek mediaId(ler), boşlukla ayrılmış. GERİ ALINAMAZ.'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  sil:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BYTEFLOW_BRAND: ${{ inputs.brand }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Sil
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
+          NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
+        run: node publish/delete-media.mjs ${{ inputs.mediaIds }}
