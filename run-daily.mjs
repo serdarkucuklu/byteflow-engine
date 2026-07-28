@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {fetchTrends, feedsFor} from './fetch/fetch-trends.mjs';
 import {fetchFootage, queryFromTitle, footageSetFor} from './fetch/fetch-footage.mjs';
 import {produceSpec} from './brain/produce-spec.mjs';
-import {stripMarkdown} from './brain/sanitize.mjs';
+import {stripMarkdown, sanitizeHashtags, formatCaption} from './brain/sanitize.mjs';
 import {localizeSpec} from './brain/localize.mjs';
 import {postProcess} from './publish/post-process.mjs';
 import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose-footage.mjs';
@@ -77,6 +77,9 @@ const {spec: rawSpec, source} = fixturePath
 // Ayrı, dar kapsamlı bir çeviri adımı yapıyı bozmadan metinleri hedef dile çeviriyor.
 const localized = fixturePath ? rawSpec : await localizeSpec({spec: rawSpec, language: brand.language, apiKey});
 const spec = stripMarkdown(localized);
+// Etiket/açıklama hijyeni: yabancı alfabe sızıntısı ve tek-paragraf açıklama yayına gitmesin.
+spec.hashtags = sanitizeHashtags(spec.hashtags);
+spec.caption = formatCaption(spec.caption);
 
 // Görsel çeşitlilik: ardışık videolar aynı tema olmasın (deterministik rotasyon).
 // Layout'u BEYİN seçer (konsepti en iyi öğreten kompozisyon: flow/stack/hub/cycle) —

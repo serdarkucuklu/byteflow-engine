@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {stripMarkdown} from './sanitize.mjs';
+import {stripMarkdown, sanitizeHashtags, formatCaption} from './sanitize.mjs';
 
 test('strips emphasis from on-screen text fields', () => {
   const out = stripMarkdown({
@@ -37,4 +37,23 @@ test('is a pure function — the input spec is not mutated', () => {
   stripMarkdown(spec);
   assert.equal(spec.title, '*a*');
   assert.equal(spec.scenes[0].nodes[0].label, '*L*');
+});
+
+test('sanitizeHashtags yabancı alfabeyi atar, Türkçe harfleri korur', () => {
+  // 2026-07-28 canlı: Gemini "#ciltbakimi创业" üretti.
+  assert.deepEqual(
+    sanitizeHashtags(['#ciltbakimi创业', '#güneşbakımı', 'niasinamid', '#ciltbakimi创业', '#a', '#日本']),
+    ['#ciltbakimi', '#güneşbakımı', '#niasinamid']);   // tekrar + çok kısa + tamamen yabancı düşer
+});
+
+test('formatCaption tek paragrafı satırlara böler, satırlıya dokunmaz', () => {
+  const tek = 'İddia burada. Mekanizma şu: 1. Birinci — açıklama. 2. İkinci — açıklama. ' +
+    'Mucize yok. 📌 Kaydet bunu. 🔁 Arkadaşına gönder. Written by Derin. Takip et: @cilt.kodu';
+  const out = formatCaption(tek);
+  assert.ok(out.split('\n').length > 4, 'satırlara bölünmeli');
+  assert.match(out, /\n1\. Birinci/);
+  assert.match(out, /\n\n📌 Kaydet/);
+  assert.match(out, /\n\nWritten by Derin/);
+  const zaten = 'Satır bir.\n\nSatır iki.';
+  assert.equal(formatCaption(zaten), zaten, 'zaten satırlıysa dokunulmamalı');
 });
