@@ -128,5 +128,20 @@
     "voiceName": "Kore",
     "date": "2026-07-28",
     "durSec": 20.9
+  },
+  {
+    "title": "Makyajda Topaklanma Ve Soyulma Mekanizması",
+    "pillar": "makyaj-tutunma",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#8fa8c8",
+    "source": "fixture",
+    "footage": [
+      "pexels:liquid foundation swatch",
+      "pexels:loose powder texture macro"
+    ],
+    "voice": 8,
+    "voiceName": "Puck",
+    "date": "2026-07-28"
   }
 ]

@@ -19,6 +19,10 @@ on:
         description: "Test: hazır bir spec dosyasını render et (ör. render/fixtures/versus-tr.json)"
         type: string
         default: ""
+      voice:
+        description: "Seslendirme (ÖNİZLEME için: publish kapalıyken de sesli video üret)"
+        type: boolean
+        default: false
 
 
 permissions:
@@ -83,7 +87,10 @@ jobs:
           # KOTA KORUMASI: yayınlanmayacak test koşuları seslendirme üretmesin. Ücretsiz TTS
           # kotası günlük; 8-10 test koşusu günün kotasını bitirip GERÇEK yayını sessiz
           # bıraktı (2026-07-27, @cilt.kodu ilk gönderisi). Test = sessiz, yayın = sesli.
-          BYTEFLOW_VOICE: ${{ (github.event_name == 'schedule' || inputs.publish) && '1' || '0' }}
+          # ÖNİZLEME: yayınlamadan SESLİ video üretebilmek için ayrı bir anahtar. Yoksa
+          # publish=false koşusu sessiz video veriyor ve videoyu yayından önce gerçek
+          # hâliyle izlemek mümkün olmuyordu (2026-07-28).
+          BYTEFLOW_VOICE: ${{ (github.event_name == 'schedule' || inputs.publish || inputs.voice) && '1' || '0' }}
           BYTEFLOW_SPEC: ${{ inputs.spec }}
         run: xvfb-run -a node run-daily.mjs
 

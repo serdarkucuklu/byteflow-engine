@@ -1,0 +1,70 @@
+{
+  "hook": "Gözaltı kapatıcın saat 12'de seni çizgilerle bırakıyor.",
+  "title": "Kapatıcı Neden Çizgilere Dolur?",
+  "scenes": [
+    {
+      "layout": "nodes-flow",
+      "kind": "diagram",
+      "nodes": [
+        {
+          "id": "n1",
+          "label": "ISLAK BAZ KATMANI"
+        },
+        {
+          "id": "n2",
+          "label": "FAZLA KAPATICI"
+        },
+        {
+          "id": "n3",
+          "label": "ÇİZGİDE BİRİKME"
+        }
+      ],
+      "steps": [
+        {
+          "from": "n1",
+          "to": "n2",
+          "packet": "KAYMA",
+          "status": "emilmemiş nem kapatıcıyı kaydırır",
+          "color": "warn"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "DOLMA",
+          "status": "göz mimikleri fazla ürünü çizgiye iter",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n1",
+          "packet": "SABİT",
+          "status": "pudrasız katman gün içinde dibe çöker",
+          "color": "accent"
+        }
+      ]
+    }
+  ],
+  "caption": "Gözaltı kapatıcın saat ikiye doğru seni çizgilerle baş başa bırakıp terk ediyorsa sorun üründe olmayabilir. Kapatıcı öğlene doğru neden çizgilere doluyor, adım adım: 1. Islak Baz Katmanı — Nemlendirici veya göz kremi ciltte tamamen emilmeden kapatıcı sürülürse, taban kaygan kalır. Kapatıcı cilde tutunamayıp yüzeyde kayar. 2. Fazla Kapatıcı — Morlukları kapatma hırsıyla uygulanan kalın katman, gün içindeki göz mimikleriyle katlanarak ince çizgi hatlarına sürüklenir. 3. Çizgide Birikme — Uçucu yağlar buharlaştığında pudrayla sabitlenmemiş pigmentler çizginin tabanına oturur ve orada kilitlenir. Kapatıcı seçerken aşırı kapatıcılıktan ziyade ince yapılı ve esnek formüllere odaklanın. Ürün suçlu değil, nemlendiricinin kurumasını beklemeden makyaja başlayan sabırsızlığımız suçlu. 📌 Kaydet — bir dahaki ürün krizinde lazım olacak. 🔁 Bunu makyajı öğlen kaybolan arkadaşına gönder. Written by Derin. Takip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "hashtags": [
+    "#ciltbakimi",
+    "#makyaj",
+    "#güzellik",
+    "#kapatıcı",
+    "#makyajönerisi",
+    "#ciltbariyeri",
+    "#primer"
+  ],
+  "takeaway": "Kapatıcı suçlu değil, ıslak krem emilmeden makyaja başlaman suçlu.",
+  "footage_queries": [
+    "liquid foundation swatch",
+    "compact powder pressed texture"
+  ],
+  "narration": [
+    "Gözaltı kapatıcın saat ikiye doğru çizgilerine dolup seni olduğundan yaşlı mı gösteriyor?",
+    "Kapatıcının gözaltında çizgiye dolma süreci cilt üzerinde üç temel adımdan oluşur.",
+    "Ciltte tam emilmemiş ıslak krem kapatıcının tutunmasını zorlaştırıp tabakayı sürekli kaydırır.",
+    "Göz çevresi gün boyunca hareket ettikçe fazla sürülmüş ürün çizgilere birikir.",
+    "Transparan bir pudrayla sabitlenmeyen kapatıcı pigmentleri zamanla tamamen o çizgilere çöker.",
+    "Kapatıcı hiç suçlu değil sadece nemlendirici tam kurumadan aceleyle makyaja başladın."
+  ]
+}

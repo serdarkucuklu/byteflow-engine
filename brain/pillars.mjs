@@ -66,6 +66,13 @@ const BEAUTY_TR = [
   {key: 'temizleme', focus: 'makyaj temizleme: yağ bazlı temizleyici nasıl çalışıyor (benzer benzeri çözer), çift temizlik gerçekten gerekli mi, mendille temizlemenin bariyere maliyeti'},
   {key: 'sac-ve-cilt', focus: 'saç ürünleriyle cildin kesiştiği yer: saç kremi/köpük kaynaklı sırt-alın akne (pomad akne), kuru şampuan, saç boyası öncesi cilt koruması'},
   {key: 'trend-mekanik', timely: true, focus: 'sosyal medyada konuşulan bir güzellik trendi veya viral ürün (glass skin, slugging, cilt döngüsü, viral bir fondöten/serum) — trendin ARDINDAKİ mekanizma ne söylüyor, kimde işe yarar kimde ters teper'},
+  // EĞLENCE HATTI (2026-07-28): "yeter ki insanları güldürsün". Bunlar hâlâ mekanizma
+  // anlatıyor ama giriş noktası ortak dert/komik durum — kuru bilgi değil.
+  {key: 'makyaj-cantasi', focus: 'makyaj çantasının gerçekleri: ürünlerin GERÇEK ömrü (açıldıktan sonra maskara 3 ay, fondöten 1 yıl), dipteki kırılmış allık, herkesin sakladığı ama kullanmadığı ürün — neden bozulur, ne zaman atılır'},
+  {key: 'rutin-gercekleri', focus: '10 adımlı rutini üçüncü günde bırakma döngüsü: hangi adım gerçekten fark yaratıyor, hangisi sadece vicdan rahatlatıyor, minimum efor maksimum sonuç'},
+  {key: 'satin-alma-tuzagi', focus: 'bir videoyu izleyip aldığın ve bir daha dokunmadığın ürün: viral pazarlamanın mekaniği, "sana özel" iddiası, ambalajın fiyattaki payı — nasıl fark edilir'},
+  {key: 'gunluk-kazalar', focus: 'günlük makyaj kazaları ve gerçek sebepleri: gözaltı kapatıcının çizgilere oturması, ruj dişe bulaşması, öğlen parlayan T bölgesi, maskara alt göz kapağına baskı yapması'},
+  {key: 'ortak-yanilgilar', focus: 'herkesin birbirine söylediği ama yanlış olan klasikler: "sivilceyi kurutmak lazım", "gözenek buharla açılır", "yağlı ciltte nemlendirici gerekmez", "pahalı olan daha iyidir" — neden yanlış, doğrusu ne'},
   {key: 'para-degeri', timely: true, focus: 'bir üründe paranın gerçekte neye gittiği: aktif konsantrasyonu mu, ambalaj mı, marka mı; pahalı ile uygun fiyatlı arasındaki formülasyon farkı gerçekten hissedilir mi'},
 ];
 

@@ -267,3 +267,24 @@ test('video profili markadan gelir (süre, cümle uzunluğu, adım sayısı)', a
     fetchFn: fakeFetchCapturing(def)});
   assert.match(def.body.contents[0].parts[0].text, /25-30s animated diagram/, 'byteflow varsayılanı değişmemeli');
 });
+
+test('ton markadan gelir; ezmeyen marka byteflow tonunu korur', async () => {
+  // 2026-07-28 direktifi: @cilt.kodu mizah önce. Ton prompt'un giriş/kapanış/gövde
+  // kurallarını değiştiriyor — byteflow'un anti-hype tonu AYNEN kalmalı.
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    brand: {tone: {hookRule: 'MAKE HER LAUGH', takeawayRule: 'PUNCHLINE ONLY'}},
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /MAKE HER LAUGH/);
+  assert.match(p, /PUNCHLINE ONLY/);
+  assert.doesNotMatch(p, /PROBLEM THE VIEWER RECOGNISES/, 'ezilen varsayılan kural kalmamalı');
+
+  const def = {};
+  await generateSpec({candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    fetchFn: fakeFetchCapturing(def)});
+  assert.match(def.body.contents[0].parts[0].text, /PROBLEM THE VIEWER RECOGNISES/, 'byteflow tonu korunmalı');
+  assert.match(def.body.contents[0].parts[0].text, /anti-hype closing line/);
+});

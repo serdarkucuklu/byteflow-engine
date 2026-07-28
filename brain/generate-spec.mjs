@@ -90,6 +90,25 @@ const DEFAULT_EXAMPLES = {
   narrationEar: 'Not "Retrieval augmentation of the prompt occurs" but "Your prompt gets extra context first."',
 };
 
+// TON markadan. 2026-07-28 Serdar direktifi: @cilt.kodu "kimya dersi" gibiydi; giriş, kapanış
+// ve orta bölümün tonu değişmeli — "yeter ki insanları güldürsün". Varsayılanlar byteflow'un
+// bugünkü metni; marka dosyası ezmezse hiçbir şey değişmez.
+const DEFAULT_TONE = {
+  fluff: 'Faceless, no fluff.',
+  angle: 'Prefer a contrarian / "most people get this wrong" / "here\'s what actually happens" angle.',
+  hookRule: `State a PROBLEM THE VIEWER RECOGNISES IN
+  THEMSELVES, in the anti-hype voice — not a neutral topic label. People forward videos that
+  name a problem their friends also have; that DM-send is now the strongest ranking signal.
+  Write it as "your <thing> does <bad thing>" or "<product> is doing X and nobody says it".`,
+  bodyRule: `TEACHING beats aesthetics: each node is a real concept, each step.status explains in plain
+  words what is actually happening at that moment. A viewer should finish the video genuinely
+  understanding the mechanism, not just having watched shapes move.`,
+  takeawayRule: `ONE punchy closing line (<= 70 chars) — the sentence a viewer would QUOTE when
+  forwarding the video to a colleague. A rule of thumb, a correction, or the cost of getting it
+  wrong; never a generic sign-off like "hope this helps".`,
+  captionClosing: 'An anti-hype closing line',
+};
+
 const LANG_NAMES = {tr: 'Turkish', en: 'English', de: 'German', es: 'Spanish'};
 
 const PROMPT = (candidates, recentTitles = [], pillar, brand = {}) => {
@@ -102,6 +121,7 @@ const namedExamples = brand.namedExamples
 const footageList = (brand.footageQueries?.length ? brand.footageQueries : SAFE_FOOTAGE_QUERIES);
 const brandKeys = brand.brandKeys ?? BRAND_KEYS;
 const ex = {...DEFAULT_EXAMPLES, ...(brand.examples ?? {})};
+const tone = {...DEFAULT_TONE, ...(brand.tone ?? {})};
 // Video uzunluğu MARKADAN. 2026-07-28 Serdar direktifi: cilt/güzellik sayfasında daha uzun
 // video isteniyor (konu anlatımı 25s'ye sığmıyor, izleyici de daha uzun kalıyor).
 // Süreyi anlatım belirliyor: cümle sayısı = 3 + adım sayısı, cümle başına ~2.2s.
@@ -118,7 +138,7 @@ written in ${lang}. If you write them in English the video is unusable.
 
 ` : ''}You are the content brain for ${handle}, ${persona.audience}
 with ${persona.voice}.
-Faceless, no fluff.
+${tone.fluff}
 ${langBlock}
 SUBJECT UNIVERSE — HARD RULE: this page is about ${ex.domain} and NOTHING else. Every topic,
 node label, example and hashtag must sit inside that universe. If an idea would only make sense
@@ -132,7 +152,7 @@ HARD RULE for this pillar: the title AND the hook must each NAME the thing concr
 (${namedExamples}) — not a generic phrase. Named, specific videos measurably outperform abstract
 ones, so the name has to be on screen in the first frame.
 ` : ''}Pick ONE sharp, specific idea INSIDE this pillar to explain as a ${vid.seconds}s animated diagram.
-Prefer a contrarian / "most people get this wrong" / "here's what actually happens" angle.
+${tone.angle}
 WITHIN the pillar, PREFER concrete, named topics people actually search for and spend money on
 (${namedExamples}) over generic/abstract framing. The trending headlines below are fresh
 inspiration for WHICH idea inside the pillar is timely. Keep the anti-hype angle even on product
@@ -146,10 +166,7 @@ is about — the subject universe above is the only authority. If one of them si
 universe it was a mistake; steer AWAY from it instead of producing a variation of it.
 ` : ''}
 Produce a scene-spec with these fields:
-- hook${lang ? ` (IN ${lang.toUpperCase()})` : ''}: the FIRST on-screen line (<= 60 chars). State a PROBLEM THE VIEWER RECOGNISES IN
-  THEMSELVES, in the anti-hype voice — not a neutral topic label. People forward videos that
-  name a problem their friends also have; that DM-send is now the strongest ranking signal.
-  Write it as "your <thing> does <bad thing>" or "<product> is doing X and nobody says it".
+- hook${lang ? ` (IN ${lang.toUpperCase()})` : ''}: the FIRST on-screen line (<= 60 chars). ${tone.hookRule}
   NOT the same as the title. e.g. ${ex.hook}
 - title: <= 60 chars, the concept name${lang ? `, IN ${lang.toUpperCase()}` : ''}.
 - 1 or 2 scenes (1 preferred). Each DIAGRAM scene picks its OWN "layout" — whichever TEACHES best:
@@ -207,12 +224,8 @@ VARIETY & TEACHING RULES (hard requirements):
   study years may only appear if they are in the headlines below or are textbook-stable facts.
   Your training data is older than today; a stale or invented number on screen destroys trust
   with exactly the audience that knows the subject.
-- TEACHING beats aesthetics: each node is a real concept, each step.status explains in plain
-  words what is actually happening at that moment. A viewer should finish the video genuinely
-  understanding the mechanism, not just having watched shapes move.
-- takeaway: ONE punchy closing line (<= 70 chars) — the sentence a viewer would QUOTE when
-  forwarding the video to a colleague. A rule of thumb, a correction, or the cost of getting it
-  wrong; never a generic sign-off like "hope this helps".
+- ${tone.bodyRule}
+- takeaway: ${tone.takeawayRule}
 - caption${lang ? ` (IN ${lang.toUpperCase()})` : ''}: DETAILED and educational — someone who never watches the video should be able to
   read the caption alone and fully understand the concept. This is what makes people SAVE and
   SHARE it. Structure, in this exact order:
@@ -223,7 +236,7 @@ VARIETY & TEACHING RULES (hard requirements):
      of the caption — it must actually teach the mechanism, not just tease it.
   4. When the topic involves a product or a purchase decision, one short line on what actually
      matters when choosing / what you are really paying for.
-  5. An anti-hype closing line, e.g. ${ex.closing}
+  5. ${tone.captionClosing}, e.g. ${ex.closing}
   6. A save CTA on its own line, e.g. ${ex.saveCta}
   7. A share CTA on its own line, e.g. ${ex.shareCta}
   8. A persona line EXACTLY: "Written by ${persona.name}."

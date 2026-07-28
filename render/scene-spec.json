@@ -1,80 +1,100 @@
 {
-  "hook": "C vitamini ile niasinamid çakışmıyor, sıran yanlış.",
-  "title": "C Vitamini ve Niasinamid Çatışması",
+  "hook": "Fondötenin soyulması cildinin değil, kimyanın suçu.",
+  "title": "Makyajda Topaklanma Ve Soyulma Mekanizması",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "asit",
-          "label": "L-ASKORBİK ASİT"
+          "id": "n1",
+          "label": "SU BAZLI KREM"
         },
         {
-          "id": "ph",
-          "label": "ASİDİK PH (3.5)"
+          "id": "n2",
+          "label": "ISLAK BARIYER"
         },
         {
-          "id": "niacin",
-          "label": "NİASİNAMİD"
+          "id": "n3",
+          "label": "SİLİKON POLİMER"
         },
         {
-          "id": "flush",
-          "label": "GEÇİCİ KIZARIKLIK"
+          "id": "n4",
+          "label": "YÜZEY GERİLİMİ"
+        },
+        {
+          "id": "n5",
+          "label": "TOPAKLANMA"
         }
       ],
       "steps": [
         {
-          "from": "asit",
-          "to": "ph",
-          "packet": "PH 3.5",
-          "status": "düşük ph emilim için şarttır",
+          "from": "n1",
+          "to": "n2",
+          "packet": "ISLAK",
+          "status": "su bazlı nemlendirici ciltte katman kura",
           "color": "accent"
         },
         {
-          "from": "ph",
-          "to": "niacin",
-          "packet": "SIRA",
-          "status": "beklemeden sürünce ph dengesi bozulur",
+          "from": "n2",
+          "to": "n3",
+          "packet": "KATMAN",
+          "status": "tam kurumadan silikonlu fondöten sürülür",
+          "color": "accent"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "ÇAKIŞ",
+          "status": "silikon ve su filmi birbirini iter",
           "color": "warn"
         },
         {
-          "from": "niacin",
-          "to": "flush",
-          "packet": "FLUSH",
-          "status": "oluşan niasin cildi geçici kızartır",
+          "from": "n4",
+          "to": "n5",
+          "packet": "KIRIL",
+          "status": "polimer film esnemez ve yüzeyden kopar",
+          "color": "warn"
+        },
+        {
+          "from": "n5",
+          "to": "n1",
+          "packet": "SOYMA",
+          "status": "sürtünmeyle ürün silgi gibi dökülür",
           "color": "warn"
         }
       ]
     }
   ],
-  "caption": "C vitamini ile niasinamid birbirini nötrlemez, sadece pH sırasını karıştırıyorsunuz. C vitamini ve niasinamid üst üste sürüldüğünde gerçekleşen mekanizma:\n1. L-Askorbik Asit — C vitamininin saf formudur, emilmek için cildin pH seviyesini 3.5 civarına düşürür.\n2. Asidik pH Ortamı — Cilde sürüldüğünde yoğun asidik ortam oluşturur.\n3. Niasinamid — Nötr pH seviyesinde kararlı olan B3 vitamini türevidir.\n4. Geçici Kızarıklık — Asidik ortamda niasinamid niasine dönüşür ve damarları genişleterek yüzde kızarıklığa yol açar. İki ürünü de kullanmak için C vitaminini sabah, niasinamidi akşam rutinine koyabilirsiniz. Mucize yok — sadece doğru sıralama ve pH dengesi var.\n\n📌 Kaydet, bir dahaki bakım rutinini oluştururken bak.\n\n🔁 Bunu C vitaminiyle yüzü kızaran arkadaşına gönder.\n\nWritten by Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+  "caption": "Fondötenin soyulması cildinin değil, kimyanın suçu.\n\nMakyajın ciltte topaklanıp dökülmesine (pilling) neden olan mekanizma şöyle çalışıyor:\n\n1. Su Bazlı Krem — Nemlendirici cilt yüzeyinde nemli bir su tabakası oluşturur.\n2. Islak Bariyer — Ürün cilt tarafından tam emilmeden ikinci katmana geçildiğinde yüzey yaş kalır.\n3. Silikon Polimer — Silikon bazlı fondöten, suyun üstünde homojen bir film tabakası kuramaz.\n4. Yüzey Gerilimi — Yağ veya silikon ve su fazları birbiriyle karışmadığı için film çatlamaya başlar.\n5. Topaklanma — Sürtünmeyle birlikte kuruyan film rulo haline gelip silgi gibi cildinden dökülür.\n\nÜrün seçerken içerik listesindeki ilk maddelere bakıp su veya silikon bazlı uyumuna dikkat etmek gerekir.\n\nMucize içerik yok — sadece kimyasal faz uyumu var.\n\n📌 Kaydet, bir dahaki makyaj yaparken bak.\n🔁 Bunu makyajı sürekli soyulan arkadaşına gönder.\n\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#skincare",
+    "#makyaj",
+    "#fondöten",
+    "#makyajonerileri",
     "#ciltbariyeri",
-    "#aktifler",
-    "#cvitamini",
-    "#niasinamid"
+    "#primer"
   ],
-  "takeaway": "İki içeriği çakıştırmamak için araya 10 dakika koyun.",
+  "takeaway": "Aynı bazlı ürünleri üst üste sürmek makyajın soyulmasını engeller.",
   "footage_queries": [
-    "serum drop close up",
-    "cream texture macro"
+    "liquid foundation swatch",
+    "loose powder texture macro"
   ],
   "narration": [
-    "C vitamini ve niasinamid birbirini nötrlemez.",
-    "Burada sorun etken maddelerde değil ph sırasındadır.",
-    "L-askorbik asit emilmek için düşük ph ister.",
-    "Beklemeden niasinamid sürünce ortam asidik kalır.",
-    "Bu durum niasin oluşturup cildi kızartır.",
-    "Araya 10 dakika koyun veya farklı saatte sürün."
+    "Fondötenin yüzünde topaklanıp silgi gibi soyulması cildinin kuruluk problemi değil tamamen kimyasal uyumsuzluktur.",
+    "Bu soyulma mekanizmasını anlamak için nemlendirici ve fondöten arasındaki beş adımlı sürece bakalım.",
+    "Su bazlı nemlendirici cilde sürüldüğünde yüzeyde yüksek nem içeren ince bir tabaka bırakır.",
+    "Bu nemli tabaka kurumadan üstüne silikon bazlı bir fondöten uygulandığında sorun hemen başlar.",
+    "Silikon polimerleri su ile karışamadığı için iki ürün yüzeyde tutunacak alan bulamaz.",
+    "Oluşan esnek olmayan polimer film cildin hareketiyle çatlayıp yapısını tamamen kaybetmeye başlar.",
+    "Parmağınla veya süngerle dokunduğunda bu kırılan film rulo halinde cildinden dökülmeye başlar.",
+    "Benzer bazlı ürünleri üst üste kullanmak veya katmanlar arasında beklemek soyulmayı önler."
   ],
-  "pillar": "sira-ve-catisma",
-  "theme": "#e8a0a8",
+  "pillar": "makyaj-tutunma",
+  "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
-    "signoff": "cilt bakımı, pazarlama değil",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "palette": {
@@ -89,34 +109,44 @@
   "footage": true,
   "beats": [
     {
-      "text": "C vitamini ve niasinamid birbirini nötrlemez.",
+      "text": "Fondötenin yüzünde topaklanıp silgi gibi soyulması cildinin kuruluk problemi değil tamamen kimyasal uyumsuzluktur.",
       "start": 0.35,
-      "dur": 3.168
+      "dur": 6.557
     },
     {
-      "text": "Burada sorun etken maddelerde değil ph sırasındadır.",
-      "start": 3.518,
-      "dur": 3.661
+      "text": "Bu soyulma mekanizmasını anlamak için nemlendirici ve fondöten arasındaki beş adımlı sürece bakalım.",
+      "start": 6.907,
+      "dur": 5.752
     },
     {
-      "text": "L-askorbik asit emilmek için düşük ph ister.",
-      "start": 7.179,
-      "dur": 3.098
+      "text": "Su bazlı nemlendirici cilde sürüldüğünde yüzeyde yüksek nem içeren ince bir tabaka bırakır.",
+      "start": 12.66,
+      "dur": 5.234
     },
     {
-      "text": "Beklemeden niasinamid sürünce ortam asidik kalır.",
-      "start": 10.276,
-      "dur": 3.45
+      "text": "Bu nemli tabaka kurumadan üstüne silikon bazlı bir fondöten uygulandığında sorun hemen başlar.",
+      "start": 17.894,
+      "dur": 5.407
     },
     {
-      "text": "Bu durum niasin oluşturup cildi kızartır.",
-      "start": 13.726,
-      "dur": 2.886
+      "text": "Silikon polimerleri su ile karışamadığı için iki ürün yüzeyde tutunacak alan bulamaz.",
+      "start": 23.301,
+      "dur": 4.889
     },
     {
-      "text": "Araya 10 dakika koyun veya farklı saatte sürün.",
-      "start": 16.612,
-      "dur": 4.409
+      "text": "Oluşan esnek olmayan polimer film cildin hareketiyle çatlayıp yapısını tamamen kaybetmeye başlar.",
+      "start": 28.191,
+      "dur": 5.58
+    },
+    {
+      "text": "Parmağınla veya süngerle dokunduğunda bu kırılan film rulo halinde cildinden dökülmeye başlar.",
+      "start": 33.77,
+      "dur": 5.407
+    },
+    {
+      "text": "Benzer bazlı ürünleri üst üste kullanmak veya katmanlar arasında beklemek soyulmayı önler.",
+      "start": 39.177,
+      "dur": 6.277
     }
   ]
 }

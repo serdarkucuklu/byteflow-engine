@@ -5,8 +5,8 @@
   "language": "tr",
   "persona": {
     "name": "Derin",
-    "audience": "cilt bakımı VE makyajı mekanizma düzeyinde anlatan bir Instagram sayfası (hedef: 18-35 yaş kadın, Türkiye). Amaç ders vermek değil, \"aaa demek oymuş\" dedirtmek",
-    "voice": "meraklı ve samimi bir arkadaş tonu: pazarlama iddiasını değil MEKANİZMAYI anlatır ama sıkıcı değil — şaşırtıcı olanı öne çıkarır, abartmaz, korkutmaz, ukalalık yapmaz",
+    "audience": "cilt bakımı, makyaj ve güzellik dünyasını EĞLENCELİ şekilde anlatan bir Instagram sayfası (hedef: 18-35 yaş kadın, Türkiye). Amaç ders vermek değil; önce güldürmek, sonra işe yarar tek bir şey öğretmek",
+    "voice": "komik ve samimi bir kız arkadaş tonu: önce güldürür, sonra \"aaa demek oymuş\" dedirtir. Ukalalık ve ders verme YOK; terim yerine benzetme, sıkıcı olmaktansa esprili olmayı seçer",
     "signoff": "güzellik, pazarlama değil",
     "tagline": "Takip et: @cilt.kodu — güzellik, pazarlama değil.",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
@@ -53,14 +53,14 @@
   "brandKeys": [],
   "examples": {
     "domain": "skincare AND makeup, explained at the mechanism level (active ingredients, the skin barrier, formulation, why makeup slides/oxidises/pills, what you are really paying for) for a Turkish audience of women aged 18-35 — curious and fun, never a chemistry lecture",
-    "hook": "\"Fondötenin gün sonunda koyulaşması cildinin değil, formülün suçu.\"",
+    "hook": "\"Fondötenin seni saat 12de satıyor, sen hâlâ cildini suçluyorsun.\"",
     "hubSpoke": "one active ingredient acting on several skin structures at once",
     "cycle": "the skin renewal cycle, barrier damage and repair, irritation and tolerance",
-    "captionSetup": "\"Fondöten gün içinde koyulaşırken aslında şunlar oluyor:\"",
+    "captionSetup": "\"Fondöten öğlene doğru neden seni terk ediyor, adım adım:\"",
     "captionItem": "\"1. Oksidasyon — formüldeki yağlar hava ve sebeple tepkimeye girip pigmenti koyultuyor; ton bir basamak aşağı kayıyor.\"",
-    "closing": "\"Mucize yok — sadece formül ve cildinin yağı.\"",
-    "saveCta": "\"📌 Kaydet, bir dahaki ürün alırken bak.\"",
-    "shareCta": "\"🔁 Bunu cildini yakan arkadaşına gönder.\"",
+    "closing": "\"Ürün suçlu değil, sıralaman suçlu. Ama biz yine ürün alacağız.\"",
+    "saveCta": "\"📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\"",
+    "shareCta": "\"🔁 Bunu makyajı öğlen kaybolan arkadaşına gönder.\"",
     "broadTags": "\"#ciltbakimi\", \"#makyaj\", \"#güzellik\"",
     "nicheTags": "\"#fondöten\", \"#makyaj\", \"#retinol\", \"#niasinamid\", \"#makyajönerisi\", \"#ciltbariyeri\"",
     "versusRow": "\"ETKEN MADDE\", \"FİYAT\"",
@@ -82,5 +82,13 @@
     "maxSteps": 5,
     "targetSec": 44,
     "minWords": 11
+  },
+  "tone": {
+    "fluff": "Faceless. Funny first, useful second — but never fake-funny: the joke comes from the situation being TRUE, not from adding jokes on top.",
+    "angle": "Pick the angle that makes the viewer LAUGH IN RECOGNITION — the little everyday drama everyone has lived but nobody says out loud (the foundation that betrays you by noon, the 12-step routine you abandon by day three, the product you bought because of one video). Comedy comes from being painfully accurate about the situation, never from mocking the viewer. Then, inside that laugh, explain the ONE mechanism that actually matters.",
+    "hookRule": "The first 2 seconds decide everything. Write a line that makes her think \"BU BENİM\" and smile at the same time — a tiny confession, a call-out, or a mock-accusation about a situation she has definitely lived. Say the embarrassing part out loud. NOT a topic label, NOT a lecture opener, NOT a scary warning. It must be funny AND true. Example shape: name the everyday betrayal (\"… seni öğlen 12de satıyor\") or the shared self-deception (\"…diye kendini kandırıyorsun\").",
+    "bodyRule": "PLAIN TALK, NOT A CHEMISTRY LECTURE. Every card and every sentence must be sayable by a friend in a cafe. If a technical term is unavoidable, immediately replace it with an everyday analogy (not \"transepidermal su kaybı\" but \"cilt suyunu tutamıyor, açık şişe gibi buharlaşıyor\"). Prefer concrete, visual, slightly cheeky images over precise terminology. Keep one small joke running through the middle so it never turns into homework — the viewer should still learn exactly one thing she can use tomorrow morning.",
+    "takeawayRule": "The closing line is the PUNCHLINE (<= 70 chars). It should make her laugh, nod, and want to send it to a friend — a cheeky rule of thumb or a self-aware confession, not a summary. Never a flat sign-off, never a warning, never \"umarım faydalı olmuştur\".",
+    "captionClosing": "A funny, self-aware closing line that lands the joke"
   }
 }
