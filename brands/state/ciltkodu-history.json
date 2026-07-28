@@ -112,5 +112,21 @@
     "voiceName": null,
     "date": "2026-07-28",
     "durSec": 23.7
+  },
+  {
+    "title": "LLM Guardrail Bariyer Mimarisi",
+    "pillar": "bariyer",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#e8a0a8",
+    "source": "gemini",
+    "footage": [
+      "pexels:cream texture macro",
+      "pexels:serum drop close up"
+    ],
+    "voice": 6,
+    "voiceName": "Kore",
+    "date": "2026-07-28",
+    "durSec": 24.4
   }
 ]

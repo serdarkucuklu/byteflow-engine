@@ -1,61 +1,81 @@
 {
-  "title": "Pahalı Serum vs Muadili",
-  "hook": "Aynı aktif, üç kat fiyat farkı.",
-  "takeaway": "Aktif aynıysa fark formülasyonda, fiyatta değil.",
-  "topic_source": "fixture",
-  "pillar": "muadil",
-  "language": "tr",
-  "narration": [
-    "Aynı aktif madde, üç kat fiyat farkı.",
-    "Üç boyutta karşılaştıralım.",
-    "Aktif madde oranı ikisinde de aynı.",
-    "Fiyat farkı üç kata çıkıyor.",
-    "Bariyer desteğinde muadil öne geçiyor.",
-    "Aktif aynıysa fark formülasyonda, fiyatta değil."
-  ],
-  "caption": "Aynı aktif, üç kat fiyat farkı.\n\n1. Aktif madde — iki üründe de %10 niasinamid.\n2. Fiyat — 420 TL'ye karşı 139 TL.\n3. Bariyer — muadilde üç seramid var, pahalı olanda yok.\n\n📌 Kaydet, alışverişten önce bak.\n🔁 Serum arayan birine gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
-  "hashtags": [
-    "#ciltbakımı",
-    "#niasinamid",
-    "#muadil",
-    "#skincare",
-    "#serum",
-    "#ciltbakimrutini"
-  ],
-  "footage_queries": [
-    "cream texture macro",
-    "marble surface texture"
-  ],
+  "hook": "Claude MCP araç korumalarınız veri sızdırıyor. İşte nedeni.",
+  "title": "LLM Guardrail Bariyer Mimarisi",
   "scenes": [
     {
-      "kind": "versus",
       "layout": "nodes-flow",
-      "heading": "Aynı aktif, farklı fiyat",
-      "left": "PAHALI SERUM",
-      "right": "MUADİL",
-      "rows": [
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "AKTİF MADDE",
-          "left": "%10 niasinamid",
-          "right": "%10 niasinamid",
-          "winner": "tie"
+          "id": "prompt",
+          "label": "ENJEKTE PROMPT"
         },
         {
-          "label": "FİYAT",
-          "left": "420 TL",
-          "right": "139 TL",
-          "winner": "right"
+          "id": "guardrail",
+          "label": "GİRDİ KORUMASI"
         },
         {
-          "label": "BARİYER DESTEĞİ",
-          "left": "seramid yok",
-          "right": "3 seramid",
-          "winner": "right"
+          "id": "mcp_host",
+          "label": "CLAUDE MCP",
+          "brand": "claude"
+        },
+        {
+          "id": "db",
+          "label": "POSTGRES DB",
+          "brand": "postgres"
+        }
+      ],
+      "steps": [
+        {
+          "from": "prompt",
+          "to": "guardrail",
+          "packet": "INPUT",
+          "status": "ham prompt doğrulama bariyerine ulaşır",
+          "color": "warn"
+        },
+        {
+          "from": "guardrail",
+          "to": "mcp_host",
+          "packet": "CLEAN",
+          "status": "temizlenen niyet claude mcp'ye geçer",
+          "color": "good"
+        },
+        {
+          "from": "mcp_host",
+          "to": "db",
+          "packet": "QUERY",
+          "status": "güvenli araçlar postgres'te çalışır",
+          "color": "accent"
         }
       ]
     }
   ],
-  "theme": "#c9a227",
+  "caption": "Claude MCP güvenlik duvarlarınız, prompt enjeksiyonu basit kelime filtrelerini aştığında başarısız olur. Girdi güvenli bir LLM bariyerine ulaştığında aslında şunlar gerçekleşir: 1. ENJEKTE PROMPT — Kötü niyetli kullanıcı girdisi, sistem bağlamını geçersiz kılmaya veya veritabanı şemalarını sızdırmaya çalışır. 2. GİRDİ KORUMASI — Yapısal ayrıştırıcı, esnek sistem promptlarına güvenmek yerine LLM çalıştırılmasından önce soyut sözdizim ağaçlarını inceler. 3. CLAUDE MCP — Temizlenmiş niyet yükü, Model Context Protocol sunucusuna güvenli bir şekilde yönlendirilir. 4. POSTGRES DB — Parametrelendirilmiş sorgular, sıfır rastgele SQL erişimiyle kesin olarak sınırlandırılmış işlemleri yürütür. Asıl önemli olan: Deterministik şema doğrulaması, esnek LLM talimatlarını her zaman yener. Büyü yok — LLM araç ajanları için yalnızca katı girdi bariyerleri var. 📌 Save this so you don't forget how it works. 🔁 Send it to someone who thinks it's magic. Written by Kai. Follow @byteflowlabs for AI systems, no hype.",
+  "hashtags": [
+    "#ai шар",
+    "#tech",
+    "#llm",
+    "#yapayzeka",
+    "#yazilim",
+    "#mcp",
+    "#siberguvenlik",
+    "#claude",
+    "#postgres"
+  ],
+  "takeaway": "Ham LLM çıktılarının doğrulanmamış araç çağrıları çalıştırmasına asla izin vermeyin.",
+  "footage_queries": [
+    "circuit board macro",
+    "empty data center aisle"
+  ],
+  "narration": [
+    "Claude MCP araç korumalarınız prompt enjeksiyonunda başarısız olur.",
+    "Dört bileşen veritabanınızı yasadışı araç çağrılarından korur.",
+    "Ham kullanıcı girdisi önce temizleme bariyerine çarpar.",
+    "Temizlenen niyet Claude MCP çalışma zamanına aktarılır.",
+    "Doğrulanmış araçlar Postgres veritabanınızda güvenli SQL çalıştırır.",
+    "Ham LLM çıktılarının doğrulanmamış araçları çalıştırmasına izin vermeyin."
+  ],
+  "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "cilt bakımı, pazarlama değil",
@@ -68,6 +88,39 @@
     "text": "#f6ece7",
     "muted": "#b9a49c"
   },
+  "language": "tr",
   "motion": "buildup",
-  "footage": true
+  "footage": true,
+  "beats": [
+    {
+      "text": "Claude MCP araç korumalarınız prompt enjeksiyonunda başarısız olur.",
+      "start": 0.35,
+      "dur": 4.056
+    },
+    {
+      "text": "Dört bileşen veritabanınızı yasadışı araç çağrılarından korur.",
+      "start": 4.406,
+      "dur": 3.753
+    },
+    {
+      "text": "Ham kullanıcı girdisi önce temizleme bariyerine çarpar.",
+      "start": 8.159,
+      "dur": 3.33
+    },
+    {
+      "text": "Temizlenen niyet Claude MCP çalışma zamanına aktarılır.",
+      "start": 11.489,
+      "dur": 3.33
+    },
+    {
+      "text": "Doğrulanmış araçlar Postgres veritabanınızda güvenli SQL çalıştırır.",
+      "start": 14.818,
+      "dur": 4.116
+    },
+    {
+      "text": "Ham LLM çıktılarının doğrulanmamış araçları çalıştırmasına izin vermeyin.",
+      "start": 18.935,
+      "dur": 5.519
+    }
+  ]
 }
