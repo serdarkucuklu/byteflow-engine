@@ -59,6 +59,11 @@ jobs:
           SHA=$(node -p "require('./publish/pinned.json').sha")
           # Caption/etiket/kapak, videonun üretildiği commit'ten okunur — sonradan değişen
           # spec dosyası yanlış açıklamayla yayınlamasın.
+          # checkout@v4 SIĞ klonlar (depth=1): kuyruktaki commit'in ağacı runner'da YOK ve
+          # `git show` "exists on disk, but not in <sha>" ile 128 döner (2026-07-28'de yayını
+          # düşürdü). fetch-depth: 0 yerine SADECE o commit'i çekiyoruz — repo 189MB (günlük
+          # mp4), tam geçmişi indirmenin anlamı yok.
+          git fetch --depth=1 origin "$SHA"
           git show "$SHA:scene-spec.generated.json" > /tmp/pinned-spec.json
           node publish/publish-latest.mjs \
             "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${SHA}/public/latest.mp4" \
