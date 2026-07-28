@@ -143,5 +143,21 @@
     "voice": 8,
     "voiceName": "Puck",
     "date": "2026-07-28"
+  },
+  {
+    "title": "Kapatıcı Neden Çizgilere Dolur?",
+    "pillar": "iddia-kontrol",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#d98c5f",
+    "source": "fixture",
+    "footage": [
+      "pexels:liquid foundation swatch",
+      "pexels:compact powder pressed texture"
+    ],
+    "voice": 6,
+    "voiceName": "Aoede",
+    "date": "2026-07-28",
+    "durSec": 34.9
   }
 ]
