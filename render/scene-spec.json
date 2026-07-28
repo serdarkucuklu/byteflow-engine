@@ -1,59 +1,77 @@
 {
-  "hook": "Claude Code çalıştırmalarınız 10 kat daha fazla token yakar.",
-  "title": "Claude Code vs Cursor",
+  "hook": "C vitamini ile niasinamid çakışmıyor, sıran yanlış.",
+  "title": "C Vitamini ve Niasinamid Çatışması",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "versus",
-      "left": "Claude Code",
-      "right": "Cursor",
-      "rows": [
+      "layout": "nodes-flow",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "EXECUTION",
-          "left": "Autonomous CLI loop",
-          "right": "IDE inline & chat",
-          "winner": "left"
+          "id": "asit",
+          "label": "L-ASKORBİK ASİT"
         },
         {
-          "label": "TOKEN EFFICIENCY",
-          "left": "High consumption",
-          "right": "Low targeted diffs",
-          "winner": "right"
+          "id": "ph",
+          "label": "ASİDİK PH (3.5)"
         },
         {
-          "label": "BEST USE CASE",
-          "left": "Repo refactoring",
-          "right": "Daily feature edits",
-          "winner": "tie"
+          "id": "niacin",
+          "label": "NİASİNAMİD"
+        },
+        {
+          "id": "flush",
+          "label": "GEÇİCİ KIZARIKLIK"
+        }
+      ],
+      "steps": [
+        {
+          "from": "asit",
+          "to": "ph",
+          "packet": "PH 3.5",
+          "status": "düşük ph emilim için şarttır",
+          "color": "accent"
+        },
+        {
+          "from": "ph",
+          "to": "niacin",
+          "packet": "SIRA",
+          "status": "beklemeden sürünce ph dengesi bozulur",
+          "color": "warn"
+        },
+        {
+          "from": "niacin",
+          "to": "flush",
+          "packet": "FLUSH",
+          "status": "oluşan niasin cildi geçici kızartır",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Claude Code bir Cursor katili değildir; temelde tamamen farklı sorunları çözerler.\n\nHer iki aracı çalıştırdığınızda gerçekte olan şey şudur:\n\n1. Claude Code — Deponuzu arayarak ve testleri bağımsız olarak çalıştırarak kesintisiz bir kabuk döngüsünde otonom bir terminal ajanı olarak çalışır.\n2. Cursor IDE — Hedefli, düşük gecikmeli kod farkları üretmek için indekslenmiş vektör gömmelerini kullanan bir satır içi düzenleyici olarak işlev görür.\n3. Maliyet Dengesi — Claude Code özyinelemeli bağlam döngüsü nedeniyle görev başına önemli ölçüde daha fazla token tüketirken, Cursor hassas bağlam pencereleriyle token kullanımını en aza indirir.\n\nBir yapay zeka geliştirme aracı seçerken, basit satır içi otomatik tamamlama yerine karmaşık refactor işlemlerinde otonom yürütme bağlamı için ödeme yapın.\n\nSihir yok; sadece terminal döngülerine karşı düzenleyici gömmeleri.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "C vitamini ile niasinamid birbirini nötrlemez, sadece pH sırasını karıştırıyorsunuz. C vitamini ve niasinamid üst üste sürüldüğünde gerçekleşen mekanizma:\n1. L-Askorbik Asit — C vitamininin saf formudur, emilmek için cildin pH seviyesini 3.5 civarına düşürür.\n2. Asidik pH Ortamı — Cilde sürüldüğünde yoğun asidik ortam oluşturur.\n3. Niasinamid — Nötr pH seviyesinde kararlı olan B3 vitamini türevidir.\n4. Geçici Kızarıklık — Asidik ortamda niasinamid niasine dönüşür ve damarları genişleterek yüzde kızarıklığa yol açar. İki ürünü de kullanmak için C vitaminini sabah, niasinamidi akşam rutinine koyabilirsiniz. Mucize yok — sadece doğru sıralama ve pH dengesi var.\n\n📌 Kaydet, bir dahaki bakım rutinini oluştururken bak.\n\n🔁 Bunu C vitaminiyle yüzü kızaran arkadaşına gönder.\n\nWritten by Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
   "hashtags": [
-    "#ai",
-    "#llm",
-    "#aiengineering",
-    "#yazilim",
-    "#yazilimci",
-    "#claudecode",
-    "#cursor",
-    "#yapayzeka"
+    "#ciltbakimi",
+    "#skincare",
+    "#ciltbariyeri",
+    "#aktifler",
+    "#cvitamini",
+    "#niasinamid"
   ],
-  "takeaway": "Derin refactor için Claude Code, günlük düzenlemeler için Cursor kullanın.",
+  "takeaway": "İki içeriği çakıştırmamak için araya 10 dakika koyun.",
   "footage_queries": [
-    "microchip macro closeup",
-    "server led lights macro"
+    "serum drop close up",
+    "cream texture macro"
   ],
   "narration": [
-    "Claude Code çalıştırmalarınız on kat fazla token harcar.",
-    "Bugün Claude Code ile Cursor'ı karşılaştıralım.",
-    "Claude Code, terminalde kabuk komutlarını otonom çalıştırır.",
-    "Cursor, düşük token maliyetiyle hedefli farklar gönderir.",
-    "Aracınızı görev kapsamına göre seçin.",
-    "Refactor için Claude Code, günlük işlerde Cursor kullanın."
+    "C vitamini ve niasinamid birbirini nötrlemez.",
+    "Burada sorun etken maddelerde değil ph sırasındadır.",
+    "L-askorbik asit emilmek için düşük ph ister.",
+    "Beklemeden niasinamid sürünce ortam asidik kalır.",
+    "Bu durum niasin oluşturup cildi kızartır.",
+    "Araya 10 dakika koyun veya farklı saatte sürün."
   ],
-  "theme": "#c9a227",
+  "pillar": "sira-ve-catisma",
+  "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "cilt bakımı, pazarlama değil",
@@ -71,34 +89,34 @@
   "footage": true,
   "beats": [
     {
-      "text": "Claude Code çalıştırmalarınız on kat fazla token harcar.",
+      "text": "C vitamini ve niasinamid birbirini nötrlemez.",
       "start": 0.35,
-      "dur": 3.87
+      "dur": 3.168
     },
     {
-      "text": "Bugün Claude Code ile Cursor'ı karşılaştıralım.",
-      "start": 4.22,
-      "dur": 3.248
+      "text": "Burada sorun etken maddelerde değil ph sırasındadır.",
+      "start": 3.518,
+      "dur": 3.661
     },
     {
-      "text": "Claude Code, terminalde kabuk komutlarını otonom çalıştırır.",
-      "start": 7.469,
-      "dur": 4.147
+      "text": "L-askorbik asit emilmek için düşük ph ister.",
+      "start": 7.179,
+      "dur": 3.098
     },
     {
-      "text": "Cursor, düşük token maliyetiyle hedefli farklar gönderir.",
-      "start": 11.616,
-      "dur": 3.94
+      "text": "Beklemeden niasinamid sürünce ortam asidik kalır.",
+      "start": 10.276,
+      "dur": 3.45
     },
     {
-      "text": "Aracınızı görev kapsamına göre seçin.",
-      "start": 15.555,
-      "dur": 2.557
+      "text": "Bu durum niasin oluşturup cildi kızartır.",
+      "start": 13.726,
+      "dur": 2.886
     },
     {
-      "text": "Refactor için Claude Code, günlük işlerde Cursor kullanın.",
-      "start": 18.112,
-      "dur": 5.109
+      "text": "Araya 10 dakika koyun veya farklı saatte sürün.",
+      "start": 16.612,
+      "dur": 4.409
     }
   ]
 }

@@ -112,5 +112,21 @@
     "voiceName": "Aoede",
     "date": "2026-07-28",
     "durSec": 23.1
+  },
+  {
+    "title": "C Vitamini ve Niasinamid Çatışması",
+    "pillar": "sira-ve-catisma",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#e8a0a8",
+    "source": "fixture",
+    "footage": [
+      "pexels:serum drop close up",
+      "pexels:cream texture macro"
+    ],
+    "voice": 6,
+    "voiceName": "Kore",
+    "date": "2026-07-28",
+    "durSec": 20.9
   }
 ]
