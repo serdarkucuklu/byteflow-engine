@@ -159,5 +159,21 @@
     "voiceName": "Aoede",
     "date": "2026-07-28",
     "durSec": 34.9
+  },
+  {
+    "title": "Güneş Kremi Yenileme Derdi",
+    "pillar": "cok-satanlar",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#b08bbb",
+    "source": "gemini",
+    "footage": [
+      "pexels:makeup brushes flat lay",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": 6,
+    "voiceName": "Kore",
+    "date": "2026-07-29",
+    "durSec": 33.9
   }
 ]

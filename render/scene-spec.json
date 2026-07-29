@@ -1,118 +1,121 @@
 {
-  "hook": "Your MCP tools don't talk directly to Claude.",
-  "title": "MCP Architecture Under the Hood",
+  "hook": "Makyajlıyken güneş kremi yenilemek mi? Heba olan makyaj!",
+  "title": "Güneş Kremi Yenileme Derdi",
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "heading": "MCP Execution Model",
+      "layout": "nodes-flow",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "host",
-          "label": "MCP HOST",
-          "brand": "claude"
+          "id": "makyaj",
+          "label": "MAKYAJIN"
         },
         {
-          "id": "llm",
-          "label": "LLM API",
-          "brand": "anthropic"
+          "id": "gunes_kremi",
+          "label": "YENİ GÜNEŞ KREMİ"
         },
         {
-          "id": "server",
-          "label": "MCP SERVER",
-          "brand": "mcp"
+          "id": "bozulmus_makyaj",
+          "label": "BOZULMUŞ MAKYAJ"
         },
         {
-          "id": "db",
-          "label": "LOCAL DB",
-          "brand": "postgres"
+          "id": "yetersiz_koruma",
+          "label": "YETERSİZ KORUMA"
         }
       ],
       "steps": [
         {
-          "from": "llm",
-          "to": "host",
-          "packet": "JSON",
-          "status": "llm returns json tool call request",
+          "from": "makyaj",
+          "to": "gunes_kremi",
+          "packet": "SPF",
+          "status": "makyajının üzerine güneş kremi sürersin.",
           "color": "accent"
         },
         {
-          "from": "host",
-          "to": "server",
-          "packet": "STDIO",
-          "status": "host executes tool on local mcp server",
-          "color": "good"
+          "from": "gunes_kremi",
+          "to": "bozulmus_makyaj",
+          "packet": "SÜRTÜN",
+          "status": "yoğun formülü makyajını yerinden oynatır",
+          "color": "warn"
         },
         {
-          "from": "server",
-          "to": "db",
-          "packet": "SQL",
-          "status": "mcp server queries database isolatedly",
+          "from": "bozulmus_makyaj",
+          "to": "yetersiz_koruma",
+          "packet": "BOŞLUK",
+          "status": "eşit dağılmadığı için cilt korumasız kal",
           "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Your MCP tools don't talk directly to Claude. Here's what actually happens when an LLM uses MCP:\n\n1. LLM API — Claude never runs code directly; it only returns a JSON request.\n\n2. MCP Host — Applications like Cursor or Claude Desktop receive the request and act as the orchestrator.\n\n3. MCP Server — The host forwards requests via stdio or SSE to a local process.\n\n4. Local DB — The MCP server queries resources securely outside the LLM. When building AI tool integrations, remember MCP is a client-side protocol that protects credentials. No magic — just RPC over local transport.\n\n📌 Save this so you don't forget how it works.\n\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\n\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Makyajlıyken güneş kremi yenilemek mi? Ah o heba olan makyaj! Güneş kremi yenileme savaşı neden hep makyajın yenilgisiyle biter, adım adım:1. Makyajının Üzerine Güneş Kremi: Gün içinde güneş kremini yenilemek istediğinde, var olan makyajının üzerine yeni bir katman eklersin. Burada katmanlar arası sürtünme başlar.2. Bozulmuş Makyaj: Kremin yoğun yapısı ve uygulama sırasındaki sürtünme, makyajının yerinden oynamasına, çizgilenmesine veya topaklanmasına neden olur. Makyajın adeta bulanıklaşır.3. Yetersiz Koruma: Makyajın bozulduğu ve kremin eşit dağılmadığı yerlerde, cildin güneşe karşı savunmasız kalır. Bu da yeterli UV koruması alamadığın anlamına gelir. Makyajlıyken yenileme için sprey ya da pudra formunda güneş kremlerini tercih etmek, bu derdi azaltır. Ürün suçlu değil, uygulama yöntemi suçlu. Ama biz yine de makyajı bozmayan mucizevi ürünü arayacağız.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n\n🔁 Bunu makyajı öğlen kaybolan arkadaşına gönder.\n\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ai",
-    "#llm",
-    "#mcp",
-    "#aiengineering",
-    "#claude",
-    "#promptengineering",
-    "#softwareengineering"
+    "#ciltbakimi",
+    "#makyaj",
+    "#guneskremi",
+    "#spf",
+    "#makyajhileleri",
+    "#guzellik"
   ],
-  "takeaway": "MCP isolates model logic from direct system execution.",
+  "takeaway": "Sabahki makyajına yazık etmeden koruma için farklı yollar denemelisin, canım.",
   "footage_queries": [
-    "network connection lines abstract",
-    "server led lights macro"
+    "makeup brushes flat lay",
+    "sunlight through curtain"
   ],
   "narration": [
-    "Your MCP tools do not talk directly to Claude.",
-    "Four distinct components handle every single tool call.",
-    "Claude returns a structured text request for tool execution.",
-    "The MCP host routes that request over local transport.",
-    "The local server safely queries your underlying database.",
-    "MCP isolates model logic from direct system execution."
+    "Makyajının üzerine güneş kremi yenilemek mi? Ah o heba olan makyaj!",
+    "Peki bu savaşta makyajın neden yenilir, işte sana üç sebep.",
+    "Makyajının üzerine güneş kremi sürdüğünde, savaş aslında orada başlıyor.",
+    "Kremin yoğun formülü makyajını yerinden oynatır, bozulmuş bir görünüme neden olur.",
+    "Bozulmuş makyajın altındaki güneş kremi, eşit dağılmadığı için cildin korumasız kalır.",
+    "Sabahki makyajına yazık etmeden koruma için farklı yollar denemelisin, canım."
   ],
-  "theme": "#58a6ff",
+  "theme": "#b08bbb",
   "brand": {
-    "handle": "@byteflowlabs",
-    "signoff": "AI systems, no hype",
-    "shareCta": "↗  Send this to someone who needs it"
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
+    "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
+  "palette": {
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
+  },
+  "language": "tr",
   "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "Your MCP tools do not talk directly to Claude.",
+      "text": "Makyajının üzerine güneş kremi yenilemek mi? Ah o heba olan makyaj!",
       "start": 0.35,
-      "dur": 2.75
+      "dur": 4.926
     },
     {
-      "text": "Four distinct components handle every single tool call.",
-      "start": 3.1,
-      "dur": 3.288
+      "text": "Peki bu savaşta makyajın neden yenilir, işte sana üç sebep.",
+      "start": 5.276,
+      "dur": 4.338
     },
     {
-      "text": "Claude returns a structured text request for tool execution.",
-      "start": 6.389,
-      "dur": 3.587
+      "text": "Makyajının üzerine güneş kremi sürdüğünde, savaş aslında orada başlıyor.",
+      "start": 9.614,
+      "dur": 5.294
     },
     {
-      "text": "The MCP host routes that request over local transport.",
-      "start": 9.976,
-      "dur": 3.229
+      "text": "Kremin yoğun formülü makyajını yerinden oynatır, bozulmuş bir görünüme neden olur.",
+      "start": 14.908,
+      "dur": 6.029
     },
     {
-      "text": "The local server safely queries your underlying database.",
-      "start": 13.204,
-      "dur": 3.408
+      "text": "Bozulmuş makyajın altındaki güneş kremi, eşit dağılmadığı için cildin korumasız kalır.",
+      "start": 20.937,
+      "dur": 6.323
     },
     {
-      "text": "MCP isolates model logic from direct system execution.",
-      "start": 16.612,
-      "dur": 4.329
+      "text": "Sabahki makyajına yazık etmeden koruma için farklı yollar denemelisin, canım.",
+      "start": 27.26,
+      "dur": 6.761
     }
   ]
 }
