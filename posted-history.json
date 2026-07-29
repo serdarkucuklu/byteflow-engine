@@ -80,7 +80,7 @@
       "ig_reels_avg_watch_time": 4118,
       "ig_reels_video_view_total_time": 490053
     },
-    "insightsAt": "2026-07-27T19:29:53.265Z"
+    "insightsAt": "2026-07-29T16:15:33.014Z"
   },
   {
     "title": "LLM CONTEXT: LOST IN THE MIDDLE",
@@ -112,14 +112,14 @@
     "postedAt": "2026-07-20T11:50:03.438Z",
     "insights": {
       "views": 147,
-      "reach": 124,
+      "reach": 125,
       "saved": 1,
       "shares": 0,
       "total_interactions": 4,
       "ig_reels_avg_watch_time": 4235,
       "ig_reels_video_view_total_time": 559104
     },
-    "insightsAt": "2026-07-27T19:29:54.245Z"
+    "insightsAt": "2026-07-29T16:15:33.533Z"
   },
   {
     "title": "LLM Inference: The Batching Trade-off",
@@ -140,7 +140,7 @@
       "ig_reels_avg_watch_time": 2655,
       "ig_reels_video_view_total_time": 302702
     },
-    "insightsAt": "2026-07-27T19:29:54.965Z"
+    "insightsAt": "2026-07-29T16:15:34.691Z"
   },
   {
     "title": "KV Cache Is Why Your LLM Slows Down Mid-Reply",
@@ -161,7 +161,7 @@
       "ig_reels_avg_watch_time": 4054,
       "ig_reels_video_view_total_time": 421622
     },
-    "insightsAt": "2026-07-27T19:29:55.558Z"
+    "insightsAt": "2026-07-29T16:15:36.226Z"
   },
   {
     "title": "LLM GUARDRAILS: BEYOND THE PROMPT",
@@ -182,7 +182,7 @@
       "ig_reels_avg_watch_time": 3951,
       "ig_reels_video_view_total_time": 442519
     },
-    "insightsAt": "2026-07-27T19:29:56.410Z"
+    "insightsAt": "2026-07-29T16:15:37.337Z"
   },
   {
     "title": "SYSTEM PROMPT PRIORITIZATION",
@@ -203,7 +203,7 @@
       "ig_reels_avg_watch_time": 3787,
       "ig_reels_video_view_total_time": 401493
     },
-    "insightsAt": "2026-07-27T19:29:57.353Z"
+    "insightsAt": "2026-07-29T16:15:38.592Z"
   },
   {
     "title": "AI Keypad: Prompt Abstraction",
@@ -221,10 +221,10 @@
       "saved": 0,
       "shares": 0,
       "total_interactions": 2,
-      "ig_reels_avg_watch_time": 2597,
-      "ig_reels_video_view_total_time": 298657
+      "ig_reels_avg_watch_time": 2586,
+      "ig_reels_video_view_total_time": 300030
     },
-    "insightsAt": "2026-07-27T19:29:58.007Z"
+    "insightsAt": "2026-07-29T16:15:39.137Z"
   },
   {
     "title": "OPUS 5: UNEVEN CAPABILITIES",
@@ -237,15 +237,15 @@
     "mediaId": "18119431343498319",
     "postedAt": "2026-07-26T10:48:38.234Z",
     "insights": {
-      "views": 561,
-      "reach": 481,
+      "views": 565,
+      "reach": 483,
       "saved": 2,
       "shares": 0,
       "total_interactions": 6,
-      "ig_reels_avg_watch_time": 5932,
-      "ig_reels_video_view_total_time": 2948660
+      "ig_reels_avg_watch_time": 6061,
+      "ig_reels_video_view_total_time": 3036805
     },
-    "insightsAt": "2026-07-27T19:29:58.913Z"
+    "insightsAt": "2026-07-29T16:15:39.739Z"
   },
   {
     "title": "Model Routing Beats Always Using Flagship Models",
@@ -388,7 +388,17 @@
     "voice": 6,
     "date": "2026-07-27",
     "mediaId": "17901346656495899",
-    "postedAt": "2026-07-27T19:02:57.332Z"
+    "postedAt": "2026-07-27T19:02:57.332Z",
+    "insights": {
+      "views": 119,
+      "reach": 102,
+      "saved": 1,
+      "shares": 0,
+      "total_interactions": 7,
+      "ig_reels_avg_watch_time": 3707,
+      "ig_reels_video_view_total_time": 404104
+    },
+    "insightsAt": "2026-07-29T16:15:40.496Z"
   },
   {
     "title": "Microsoft Security Model",
@@ -436,6 +446,32 @@
     "date": "2026-07-27",
     "durSec": 18,
     "mediaId": "17915768925222888",
-    "postedAt": "2026-07-28T16:28:15.679Z"
+    "postedAt": "2026-07-28T16:28:15.679Z",
+    "insights": {
+      "views": 107,
+      "reach": 101,
+      "saved": 0,
+      "shares": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 1558,
+      "ig_reels_video_view_total_time": 163662
+    },
+    "insightsAt": "2026-07-29T16:15:41.703Z"
+  },
+  {
+    "title": "MCP Architecture Under the Hood",
+    "pillar": "assistant-features",
+    "layout": "hub-spoke",
+    "motion": "buildup",
+    "theme": "#58a6ff",
+    "source": "gemini",
+    "footage": [
+      "pexels:network connection lines abstract",
+      "pexels:server led lights macro"
+    ],
+    "voice": 6,
+    "voiceName": "Puck",
+    "date": "2026-07-29",
+    "durSec": 20.9
   }
 ]

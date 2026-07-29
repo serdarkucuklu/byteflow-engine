@@ -1,115 +1,118 @@
 {
-  "hook": "Your Claude Code session degrades during long runs.",
-  "title": "Claude Code Context Rot",
+  "hook": "Your MCP tools don't talk directly to Claude.",
+  "title": "MCP Architecture Under the Hood",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "diagram",
+      "layout": "hub-spoke",
+      "heading": "MCP Execution Model",
       "nodes": [
         {
-          "id": "claude",
-          "label": "CLAUDE CODE",
+          "id": "host",
+          "label": "MCP HOST",
           "brand": "claude"
         },
         {
-          "id": "bash",
-          "label": "TERMINAL EXEC"
+          "id": "llm",
+          "label": "LLM API",
+          "brand": "anthropic"
         },
         {
-          "id": "stdout",
-          "label": "RAW OUTPUT"
+          "id": "server",
+          "label": "MCP SERVER",
+          "brand": "mcp"
         },
         {
-          "id": "context",
-          "label": "CONTEXT WINDOW"
+          "id": "db",
+          "label": "LOCAL DB",
+          "brand": "postgres"
         }
       ],
       "steps": [
         {
-          "from": "claude",
-          "to": "bash",
-          "packet": "EXEC",
-          "status": "agent issues a shell command",
+          "from": "llm",
+          "to": "host",
+          "packet": "JSON",
+          "status": "llm returns json tool call request",
           "color": "accent"
         },
         {
-          "from": "bash",
-          "to": "stdout",
-          "packet": "LOGS",
-          "status": "command outputs verbose terminal logs",
-          "color": "warn"
+          "from": "host",
+          "to": "server",
+          "packet": "STDIO",
+          "status": "host executes tool on local mcp server",
+          "color": "good"
         },
         {
-          "from": "stdout",
-          "to": "context",
-          "packet": "FLOOD",
-          "status": "unfiltered text degrades model focus",
+          "from": "server",
+          "to": "db",
+          "packet": "SQL",
+          "status": "mcp server queries database isolatedly",
           "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Your Claude Code session gets dumber the longer you work in a single terminal session.\n\nHere's what actually happens when an agent runs shell tools:\n\n1. Claude Code — the CLI agent formats a user request into a tool invocation call.\n2. Terminal Exec — the underlying shell runner executes commands like build tools or test suites.\n3. Raw Output — standard output returns thousands of verbose log lines back to the agent.\n4. Context Window — unfiltered terminal logs fill context space, diluting instructions and causing context rot.\n\nWhen terminal outputs fill the context window, prompt space for reasoning drops and error rates spike.\n\nNo magic — just finite context buffers handling uncontrolled stdout streams.\n\n📌 Save this so you don't forget how it works.\n\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\n\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Your MCP tools don't talk directly to Claude. Here's what actually happens when an LLM uses MCP:\n\n1. LLM API — Claude never runs code directly; it only returns a JSON request.\n\n2. MCP Host — Applications like Cursor or Claude Desktop receive the request and act as the orchestrator.\n\n3. MCP Server — The host forwards requests via stdio or SSE to a local process.\n\n4. Local DB — The MCP server queries resources securely outside the LLM. When building AI tool integrations, remember MCP is a client-side protocol that protects credentials. No magic — just RPC over local transport.\n\n📌 Save this so you don't forget how it works.\n\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\n\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
     "#ai",
-    "#softwareengineering",
-    "#claudecode",
-    "#aiagents",
+    "#llm",
+    "#mcp",
     "#aiengineering",
+    "#claude",
     "#promptengineering",
-    "#claudeai",
-    "#anthropic"
+    "#softwareengineering"
   ],
-  "takeaway": "Filter terminal output before it poisons your agent context.",
+  "takeaway": "MCP isolates model logic from direct system execution.",
   "footage_queries": [
-    "server led lights macro",
-    "empty data center aisle"
+    "network connection lines abstract",
+    "server led lights macro"
   ],
   "narration": [
-    "Your Claude Code session degrades during long runs.",
-    "Terminal tools feed directly into the context window.",
-    "First, Claude Code executes a shell command.",
-    "Next, terminal commands return verbose output streams.",
-    "Finally, noisy logs flood the context window.",
-    "Filter tool outputs to prevent agent context rot."
+    "Your MCP tools do not talk directly to Claude.",
+    "Four distinct components handle every single tool call.",
+    "Claude returns a structured text request for tool execution.",
+    "The MCP host routes that request over local transport.",
+    "The local server safely queries your underlying database.",
+    "MCP isolates model logic from direct system execution."
   ],
-  "theme": "#bc8cff",
+  "theme": "#58a6ff",
   "brand": {
     "handle": "@byteflowlabs",
-    "signoff": "AI systems, no hype"
+    "signoff": "AI systems, no hype",
+    "shareCta": "↗  Send this to someone who needs it"
   },
   "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "Your Claude Code session degrades during long runs.",
+      "text": "Your MCP tools do not talk directly to Claude.",
       "start": 0.35,
-      "dur": 2.848
+      "dur": 2.75
     },
     {
-      "text": "Terminal tools feed directly into the context window.",
-      "start": 3.198,
-      "dur": 2.96
+      "text": "Four distinct components handle every single tool call.",
+      "start": 3.1,
+      "dur": 3.288
     },
     {
-      "text": "First, Claude Code executes a shell command.",
-      "start": 6.158,
-      "dur": 2.457
+      "text": "Claude returns a structured text request for tool execution.",
+      "start": 6.389,
+      "dur": 3.587
     },
     {
-      "text": "Next, terminal commands return verbose output streams.",
-      "start": 8.615,
-      "dur": 3.016
+      "text": "The MCP host routes that request over local transport.",
+      "start": 9.976,
+      "dur": 3.229
     },
     {
-      "text": "Finally, noisy logs flood the context window.",
-      "start": 11.631,
-      "dur": 2.513
+      "text": "The local server safely queries your underlying database.",
+      "start": 13.204,
+      "dur": 3.408
     },
     {
-      "text": "Filter tool outputs to prevent agent context rot.",
-      "start": 14.144,
-      "dur": 3.837
+      "text": "MCP isolates model logic from direct system execution.",
+      "start": 16.612,
+      "dur": 4.329
     }
   ],
   "thumbOffset": 1450
