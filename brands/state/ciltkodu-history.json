@@ -175,5 +175,21 @@
     "voiceName": "Kore",
     "date": "2026-07-29",
     "durSec": 33.9
+  },
+  {
+    "title": "Çöken Cilt Bariyerinin Anatomisi",
+    "pillar": "bariyer",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#7fb3a5",
+    "source": "gemini",
+    "footage": [
+      "pexels:cream texture macro",
+      "pexels:water droplets on glass"
+    ],
+    "voice": 7,
+    "voiceName": "Puck",
+    "date": "2026-07-30",
+    "durSec": 41.3
   }
 ]

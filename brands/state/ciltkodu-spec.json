@@ -1,76 +1,85 @@
 {
-  "hook": "Makyajlıyken güneş kremi yenilemek mi? Heba olan makyaj!",
-  "title": "Güneş Kremi Yenileme Derdi",
+  "hook": "Sadece hyalüronik asit sürerken bile yüzün cayır cayır yanıyor.",
+  "title": "Çöken Cilt Bariyerinin Anatomisi",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "makyaj",
-          "label": "MAKYAJIN"
+          "id": "asiri_asit",
+          "label": "SERT ASİT BAKIMI"
         },
         {
-          "id": "gunes_kremi",
-          "label": "YENİ GÜNEŞ KREMİ"
+          "id": "yag_kaybi",
+          "label": "SERAMİD KAYBI"
         },
         {
-          "id": "bozulmus_makyaj",
-          "label": "BOZULMUŞ MAKYAJ"
+          "id": "su_kaybi",
+          "label": "HIZLI SU KAYBI"
         },
         {
-          "id": "yetersiz_koruma",
-          "label": "YETERSİZ KORUMA"
+          "id": "sizlama",
+          "label": "SIZLAMA VE YANGIN"
         }
       ],
       "steps": [
         {
-          "from": "makyaj",
-          "to": "gunes_kremi",
-          "packet": "SPF",
-          "status": "makyajının üzerine güneş kremi sürersin.",
-          "color": "accent"
-        },
-        {
-          "from": "gunes_kremi",
-          "to": "bozulmus_makyaj",
-          "packet": "SÜRTÜN",
-          "status": "yoğun formülü makyajını yerinden oynatır",
+          "from": "asiri_asit",
+          "to": "yag_kaybi",
+          "packet": "TAHRİŞ",
+          "status": "koruyucu seramid ve yağlar yok olur",
           "color": "warn"
         },
         {
-          "from": "bozulmus_makyaj",
-          "to": "yetersiz_koruma",
-          "packet": "BOŞLUK",
-          "status": "eşit dağılmadığı için cilt korumasız kal",
+          "from": "yag_kaybi",
+          "to": "su_kaybi",
+          "packet": "BUHAR",
+          "status": "derin nem açık pencereden buharlaşır",
           "color": "warn"
+        },
+        {
+          "from": "su_kaybi",
+          "to": "sizlama",
+          "packet": "ALARM",
+          "status": "en masum nemlendirici bile yakar",
+          "color": "warn"
+        },
+        {
+          "from": "sizlama",
+          "to": "asiri_asit",
+          "packet": "ONARIM",
+          "status": "seramid kolesterol yağ asidi dengesi",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Makyajlıyken güneş kremi yenilemek mi? Ah o heba olan makyaj! Güneş kremi yenileme savaşı neden hep makyajın yenilgisiyle biter, adım adım:1. Makyajının Üzerine Güneş Kremi: Gün içinde güneş kremini yenilemek istediğinde, var olan makyajının üzerine yeni bir katman eklersin. Burada katmanlar arası sürtünme başlar.2. Bozulmuş Makyaj: Kremin yoğun yapısı ve uygulama sırasındaki sürtünme, makyajının yerinden oynamasına, çizgilenmesine veya topaklanmasına neden olur. Makyajın adeta bulanıklaşır.3. Yetersiz Koruma: Makyajın bozulduğu ve kremin eşit dağılmadığı yerlerde, cildin güneşe karşı savunmasız kalır. Bu da yeterli UV koruması alamadığın anlamına gelir. Makyajlıyken yenileme için sprey ya da pudra formunda güneş kremlerini tercih etmek, bu derdi azaltır. Ürün suçlu değil, uygulama yöntemi suçlu. Ama biz yine de makyajı bozmayan mucizevi ürünü arayacağız.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n\n🔁 Bunu makyajı öğlen kaybolan arkadaşına gönder.\n\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Sadece hyalüronik asit sürerken bile yüzün cayır cayır yanıyorsa sorun üründe değil.\n\nNemlendirici sürerken bile yüzün sızlıyorsa bariyerin çökmüş demektir, adım adım:\n\n1. Sert Asit Bakımı — Yüzü soyma aşkıyla üst üste kullanılan asitler cilt harcını tamamen eritir.\n2. Seramid Kaybı — Tuğla duvarın çimentosu olan seramid, kolesterol ve yağ asitleri yok olur.\n3. Hızlı Su Kaybı — Transepidermal su kaybı başlar; nem tutamayan cilt açık şişe gibi buharlaşır.\n4. Sızlama ve Yangın — Bariyeri çöken cilde su bile sürsen bariyer olmadığı için sinir uçları uyarılır.\n\nBariyeri onarmak için pahalı serumlar değil; seramid, kolesterol ve yağ asidi içeren bariyer kremleri şart.\n\nÜrünler suçlu değil, her gün soyucu asit süren sabırsız elimiz suçlu.\n\n📌 Kaydet — yüzün ne zaman sızlarsa açıp bakarsın.\n🔁 Bunu cildini asitle zımparalayan arkadaşına gönder.\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimi",
-    "#makyaj",
-    "#guneskremi",
-    "#spf",
-    "#makyajhileleri",
-    "#guzellik"
+    "#ciltbakimirupture",
+    "#güzellik",
+    "#ciltbariyeri",
+    "#seramid",
+    "#hyalüronikasit",
+    "#ciltbakimigundemi",
+    "#retinol"
   ],
-  "takeaway": "Sabahki makyajına yazık etmeden koruma için farklı yollar denemelisin, canım.",
+  "takeaway": "Yeni ürün almayı bırak, kremler değil bariyerin seni kurtarır.",
   "footage_queries": [
-    "makeup brushes flat lay",
-    "sunlight through curtain"
+    "cream texture macro",
+    "water droplets on glass"
   ],
   "narration": [
-    "Makyajının üzerine güneş kremi yenilemek mi? Ah o heba olan makyaj!",
-    "Peki bu savaşta makyajın neden yenilir, işte sana üç sebep.",
-    "Makyajının üzerine güneş kremi sürdüğünde, savaş aslında orada başlıyor.",
-    "Kremin yoğun formülü makyajını yerinden oynatır, bozulmuş bir görünüme neden olur.",
-    "Bozulmuş makyajın altındaki güneş kremi, eşit dağılmadığı için cildin korumasız kalır.",
-    "Sabahki makyajına yazık etmeden koruma için farklı yollar denemelisin, canım."
+    "Sadece basit bir hyalüronik asit sürerken bile yüzün cayır cayır yanmaya başladı mı?",
+    "Yüzündeki koruyucu bariyer duvarı yıkılınca cildinde tam olarak bu dört aşama yaşanır.",
+    "Üst üste sürülen sert asitler harç görevi gören seramid ve yağları tamamen temizler.",
+    "Çimento tutmayınca hücresel nem bariyerden adeta açık bir pencereden kaçar gibi buharlaşır.",
+    "Kuruyan cilt savunmasız kalır ve sürdüğün en masum kremler bile yangına dönüşür.",
+    "Çözüm için asitleri durdurup seramid kolesterol ve yağ asidi üçlüsüyle duvarı örmelisin.",
+    "Yeni ürün almayı bırakıp cildine biraz zaman ver, kremler değil bariyerin seni kurtarır."
   ],
-  "theme": "#b08bbb",
+  "theme": "#7fb3a5",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -88,34 +97,39 @@
   "footage": true,
   "beats": [
     {
-      "text": "Makyajının üzerine güneş kremi yenilemek mi? Ah o heba olan makyaj!",
+      "text": "Sadece basit bir hyalüronik asit sürerken bile yüzün cayır cayır yanmaya başladı mı?",
       "start": 0.35,
-      "dur": 4.926
+      "dur": 5.587
     },
     {
-      "text": "Peki bu savaşta makyajın neden yenilir, işte sana üç sebep.",
-      "start": 5.276,
-      "dur": 4.338
+      "text": "Yüzündeki koruyucu bariyer duvarı yıkılınca cildinde tam olarak bu dört aşama yaşanır.",
+      "start": 5.937,
+      "dur": 5.72
     },
     {
-      "text": "Makyajının üzerine güneş kremi sürdüğünde, savaş aslında orada başlıyor.",
-      "start": 9.614,
-      "dur": 5.294
+      "text": "Üst üste sürülen sert asitler harç görevi gören seramid ve yağları tamamen temizler.",
+      "start": 11.656,
+      "dur": 5.587
     },
     {
-      "text": "Kremin yoğun formülü makyajını yerinden oynatır, bozulmuş bir görünüme neden olur.",
-      "start": 14.908,
-      "dur": 6.029
+      "text": "Çimento tutmayınca hücresel nem bariyerden adeta açık bir pencereden kaçar gibi buharlaşır.",
+      "start": 17.243,
+      "dur": 6.052
     },
     {
-      "text": "Bozulmuş makyajın altındaki güneş kremi, eşit dağılmadığı için cildin korumasız kalır.",
-      "start": 20.937,
-      "dur": 6.323
+      "text": "Kuruyan cilt savunmasız kalır ve sürdüğün en masum kremler bile yangına dönüşür.",
+      "start": 23.295,
+      "dur": 5.321
     },
     {
-      "text": "Sabahki makyajına yazık etmeden koruma için farklı yollar denemelisin, canım.",
-      "start": 27.26,
-      "dur": 6.761
+      "text": "Çözüm için asitleri durdurup seramid kolesterol ve yağ asidi üçlüsüyle duvarı örmelisin.",
+      "start": 28.616,
+      "dur": 5.853
+    },
+    {
+      "text": "Yeni ürün almayı bırakıp cildine biraz zaman ver, kremler değil bariyerin seni kurtarır.",
+      "start": 34.468,
+      "dur": 6.953
     }
   ],
   "thumbOffset": 1450
