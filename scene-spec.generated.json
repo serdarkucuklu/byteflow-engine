@@ -1,78 +1,78 @@
 {
-  "hook": "Your Gemini Managed Agents break without execution hooks.",
-  "title": "Gemini Managed Agents Hook Flow",
+  "hook": "Your Gemini 3 Flash agent leaks state without hooks.",
+  "title": "Gemini 3 Flash Agent Hooks",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "prompt",
-          "label": "USER PROMPT"
+          "id": "user",
+          "label": "USER REQUEST"
         },
         {
-          "id": "agent",
-          "label": "GEMINI AGENT",
+          "id": "prehook",
+          "label": "PRE-CALL HOOK"
+        },
+        {
+          "id": "gemini",
+          "label": "GEMINI 3 FLASH",
           "brand": "gemini"
         },
         {
-          "id": "hook",
-          "label": "EXECUTION HOOKS"
-        },
-        {
-          "id": "tool",
-          "label": "EXTERNAL TOOLS"
+          "id": "posthook",
+          "label": "POST-CALL HOOK"
         }
       ],
       "steps": [
         {
-          "from": "prompt",
-          "to": "agent",
-          "packet": "TASK",
-          "status": "user task reaches gemini agent engine",
+          "from": "user",
+          "to": "prehook",
+          "packet": "REQ",
+          "status": "pre-hook validates incoming user payload",
           "color": "accent"
         },
         {
-          "from": "agent",
-          "to": "hook",
-          "packet": "CALL",
-          "status": "lifecycle hooks inspect each tool call",
-          "color": "warn"
+          "from": "prehook",
+          "to": "gemini",
+          "packet": "PROMPT",
+          "status": "sanitized prompt streams to model contex",
+          "color": "good"
         },
         {
-          "from": "hook",
-          "to": "tool",
-          "packet": "EXEC",
-          "status": "validated action executes in tool state",
-          "color": "good"
+          "from": "gemini",
+          "to": "posthook",
+          "packet": "CALL",
+          "status": "post-hook audits tool call permissions",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Your Gemini Managed Agents break without execution hooks.\n\nHere's how Gemini Managed Agents handle tool execution hooks:\n1. User Prompt — Raw task input enters the managed agent environment.\n2. Gemini Agent — The model parses intent and generates structured tool execution plans.\n3. Execution Hooks — Deterministic middleware intercepts generated tool calls before execution to sanitize arguments and enforce security bounds.\n4. External Tools — Approved tool payloads are dispatched safely to external services.\n\nWhen evaluating managed agent frameworks, deterministic tool validation matters more than sheer context length.\n\nNo autonomous magic — just structured state management and deterministic guardrails.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Your Gemini 3 Flash agent leaks state without hook validation.\n\nHere's what actually happens inside a managed agent lifecycle:\n\n1. USER REQUEST — The raw request payload sent by the user before any LLM execution begins.\n2. PRE-CALL HOOK — Deterministic middleware that redacts sensitive PII, validates schema, and sets state.\n3. GEMINI 3 FLASH — The model receives strictly sanitized context, preventing prompt injection leakage.\n4. POST-CALL HOOK — An inspection barrier that checks requested tool signatures before execution.\n\nWhen building production agents, hook architecture matters more than raw token throughput.\n\nNo magic — just explicit middleware pipelines around LLMs.\n\n📌 Save this so you don't forget how to secure agent calls.\n🔁 Send it to someone building with Gemini API.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
     "#ai",
     "#llm",
-    "#aiagents",
     "#aiengineering",
-    "#agenticai",
-    "#systemarchitecture",
-    "#gemini"
+    "#gemini",
+    "#aiagents",
+    "#promptengineering",
+    "#gemini3flash"
   ],
-  "takeaway": "Control agent execution flow before side effects touch production.",
+  "takeaway": "Intercept every payload before Gemini 3 Flash touches context.",
   "footage_queries": [
-    "network connection lines abstract",
-    "server led lights macro"
+    "server led lights macro",
+    "network connection lines abstract"
   ],
   "narration": [
-    "Your Gemini Managed Agents break without execution hooks.",
-    "Four core layers make up this agent architecture.",
-    "First the prompt enters the Gemini engine.",
-    "Then execution hooks inspect every tool call.",
-    "Finally the approved action triggers external tools.",
-    "Control agent execution flow before tools execute."
+    "Your Gemini 3 Flash agent leaks state without hooks.",
+    "Four components control every managed agent execution cycle.",
+    "First, the pre-hook validates incoming user input payload.",
+    "Next, clean prompt data feeds Gemini 3 Flash.",
+    "Then, post-hooks intercept model tool call requests cleanly.",
+    "Intercept every payload before Gemini touches context state."
   ],
-  "theme": "#3fb950",
+  "theme": "#e3b341",
   "brand": {
     "handle": "@byteflowlabs",
     "signoff": "AI systems, no hype",
@@ -82,34 +82,34 @@
   "footage": true,
   "beats": [
     {
-      "text": "Your Gemini Managed Agents break without execution hooks.",
+      "text": "Your Gemini 3 Flash agent leaks state without hooks.",
       "start": 0.35,
-      "dur": 3.256
+      "dur": 2.74
     },
     {
-      "text": "Four core layers make up this agent architecture.",
-      "start": 3.606,
-      "dur": 2.799
+      "text": "Four components control every managed agent execution cycle.",
+      "start": 3.09,
+      "dur": 3.161
     },
     {
-      "text": "First the prompt enters the Gemini engine.",
-      "start": 6.405,
-      "dur": 2.399
+      "text": "First, the pre-hook validates incoming user input payload.",
+      "start": 6.251,
+      "dur": 3.056
     },
     {
-      "text": "Then execution hooks inspect every tool call.",
-      "start": 8.804,
-      "dur": 2.57
+      "text": "Next, clean prompt data feeds Gemini 3 Flash.",
+      "start": 9.307,
+      "dur": 2.371
     },
     {
-      "text": "Finally the approved action triggers external tools.",
-      "start": 11.375,
-      "dur": 2.97
+      "text": "Then, post-hooks intercept model tool call requests cleanly.",
+      "start": 11.678,
+      "dur": 3.161
     },
     {
-      "text": "Control agent execution flow before tools execute.",
-      "start": 14.345,
-      "dur": 3.956
+      "text": "Intercept every payload before Gemini touches context state.",
+      "start": 14.84,
+      "dur": 4.261
     }
   ],
   "thumbOffset": 1450

@@ -1,135 +1,115 @@
 {
-  "hook": "Sadece hyalüronik asit sürerken bile yüzün cayır cayır yanıyor.",
-  "title": "Çöken Cilt Bariyerinin Anatomisi",
+  "hook": "Your Gemini 3 Flash agent leaks state without hooks.",
+  "title": "Gemini 3 Flash Agent Hooks",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "asiri_asit",
-          "label": "SERT ASİT BAKIMI"
+          "id": "user",
+          "label": "USER REQUEST"
         },
         {
-          "id": "yag_kaybi",
-          "label": "SERAMİD KAYBI"
+          "id": "prehook",
+          "label": "PRE-CALL HOOK"
         },
         {
-          "id": "su_kaybi",
-          "label": "HIZLI SU KAYBI"
+          "id": "gemini",
+          "label": "GEMINI 3 FLASH",
+          "brand": "gemini"
         },
         {
-          "id": "sizlama",
-          "label": "SIZLAMA VE YANGIN"
+          "id": "posthook",
+          "label": "POST-CALL HOOK"
         }
       ],
       "steps": [
         {
-          "from": "asiri_asit",
-          "to": "yag_kaybi",
-          "packet": "TAHRİŞ",
-          "status": "koruyucu seramid ve yağlar yok olur",
-          "color": "warn"
+          "from": "user",
+          "to": "prehook",
+          "packet": "REQ",
+          "status": "pre-hook validates incoming user payload",
+          "color": "accent"
         },
         {
-          "from": "yag_kaybi",
-          "to": "su_kaybi",
-          "packet": "BUHAR",
-          "status": "derin nem açık pencereden buharlaşır",
-          "color": "warn"
-        },
-        {
-          "from": "su_kaybi",
-          "to": "sizlama",
-          "packet": "ALARM",
-          "status": "en masum nemlendirici bile yakar",
-          "color": "warn"
-        },
-        {
-          "from": "sizlama",
-          "to": "asiri_asit",
-          "packet": "ONARIM",
-          "status": "seramid kolesterol yağ asidi dengesi",
+          "from": "prehook",
+          "to": "gemini",
+          "packet": "PROMPT",
+          "status": "sanitized prompt streams to model contex",
           "color": "good"
+        },
+        {
+          "from": "gemini",
+          "to": "posthook",
+          "packet": "CALL",
+          "status": "post-hook audits tool call permissions",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Sadece hyalüronik asit sürerken bile yüzün cayır cayır yanıyorsa sorun üründe değil.\n\nNemlendirici sürerken bile yüzün sızlıyorsa bariyerin çökmüş demektir, adım adım:\n\n1. Sert Asit Bakımı — Yüzü soyma aşkıyla üst üste kullanılan asitler cilt harcını tamamen eritir.\n2. Seramid Kaybı — Tuğla duvarın çimentosu olan seramid, kolesterol ve yağ asitleri yok olur.\n3. Hızlı Su Kaybı — Transepidermal su kaybı başlar; nem tutamayan cilt açık şişe gibi buharlaşır.\n4. Sızlama ve Yangın — Bariyeri çöken cilde su bile sürsen bariyer olmadığı için sinir uçları uyarılır.\n\nBariyeri onarmak için pahalı serumlar değil; seramid, kolesterol ve yağ asidi içeren bariyer kremleri şart.\n\nÜrünler suçlu değil, her gün soyucu asit süren sabırsız elimiz suçlu.\n\n📌 Kaydet — yüzün ne zaman sızlarsa açıp bakarsın.\n🔁 Bunu cildini asitle zımparalayan arkadaşına gönder.\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Your Gemini 3 Flash agent leaks state without hook validation.\n\nHere's what actually happens inside a managed agent lifecycle:\n\n1. USER REQUEST — The raw request payload sent by the user before any LLM execution begins.\n2. PRE-CALL HOOK — Deterministic middleware that redacts sensitive PII, validates schema, and sets state.\n3. GEMINI 3 FLASH — The model receives strictly sanitized context, preventing prompt injection leakage.\n4. POST-CALL HOOK — An inspection barrier that checks requested tool signatures before execution.\n\nWhen building production agents, hook architecture matters more than raw token throughput.\n\nNo magic — just explicit middleware pipelines around LLMs.\n\n📌 Save this so you don't forget how to secure agent calls.\n🔁 Send it to someone building with Gemini API.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#ciltbakimirupture",
-    "#güzellik",
-    "#ciltbariyeri",
-    "#seramid",
-    "#hyalüronikasit",
-    "#ciltbakimigundemi",
-    "#retinol"
+    "#ai",
+    "#llm",
+    "#aiengineering",
+    "#gemini",
+    "#aiagents",
+    "#promptengineering",
+    "#gemini3flash"
   ],
-  "takeaway": "Yeni ürün almayı bırak, kremler değil bariyerin seni kurtarır.",
+  "takeaway": "Intercept every payload before Gemini 3 Flash touches context.",
   "footage_queries": [
-    "cream texture macro",
-    "water droplets on glass"
+    "server led lights macro",
+    "network connection lines abstract"
   ],
   "narration": [
-    "Sadece basit bir hyalüronik asit sürerken bile yüzün cayır cayır yanmaya başladı mı?",
-    "Yüzündeki koruyucu bariyer duvarı yıkılınca cildinde tam olarak bu dört aşama yaşanır.",
-    "Üst üste sürülen sert asitler harç görevi gören seramid ve yağları tamamen temizler.",
-    "Çimento tutmayınca hücresel nem bariyerden adeta açık bir pencereden kaçar gibi buharlaşır.",
-    "Kuruyan cilt savunmasız kalır ve sürdüğün en masum kremler bile yangına dönüşür.",
-    "Çözüm için asitleri durdurup seramid kolesterol ve yağ asidi üçlüsüyle duvarı örmelisin.",
-    "Yeni ürün almayı bırakıp cildine biraz zaman ver, kremler değil bariyerin seni kurtarır."
+    "Your Gemini 3 Flash agent leaks state without hooks.",
+    "Four components control every managed agent execution cycle.",
+    "First, the pre-hook validates incoming user input payload.",
+    "Next, clean prompt data feeds Gemini 3 Flash.",
+    "Then, post-hooks intercept model tool call requests cleanly.",
+    "Intercept every payload before Gemini touches context state."
   ],
-  "theme": "#7fb3a5",
+  "theme": "#e3b341",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
-    "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
+    "handle": "@byteflowlabs",
+    "signoff": "AI systems, no hype",
+    "shareCta": "↗  Send this to someone who needs it"
   },
-  "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
-  },
-  "language": "tr",
   "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "Sadece basit bir hyalüronik asit sürerken bile yüzün cayır cayır yanmaya başladı mı?",
+      "text": "Your Gemini 3 Flash agent leaks state without hooks.",
       "start": 0.35,
-      "dur": 5.587
+      "dur": 2.74
     },
     {
-      "text": "Yüzündeki koruyucu bariyer duvarı yıkılınca cildinde tam olarak bu dört aşama yaşanır.",
-      "start": 5.937,
-      "dur": 5.72
+      "text": "Four components control every managed agent execution cycle.",
+      "start": 3.09,
+      "dur": 3.161
     },
     {
-      "text": "Üst üste sürülen sert asitler harç görevi gören seramid ve yağları tamamen temizler.",
-      "start": 11.656,
-      "dur": 5.587
+      "text": "First, the pre-hook validates incoming user input payload.",
+      "start": 6.251,
+      "dur": 3.056
     },
     {
-      "text": "Çimento tutmayınca hücresel nem bariyerden adeta açık bir pencereden kaçar gibi buharlaşır.",
-      "start": 17.243,
-      "dur": 6.052
+      "text": "Next, clean prompt data feeds Gemini 3 Flash.",
+      "start": 9.307,
+      "dur": 2.371
     },
     {
-      "text": "Kuruyan cilt savunmasız kalır ve sürdüğün en masum kremler bile yangına dönüşür.",
-      "start": 23.295,
-      "dur": 5.321
+      "text": "Then, post-hooks intercept model tool call requests cleanly.",
+      "start": 11.678,
+      "dur": 3.161
     },
     {
-      "text": "Çözüm için asitleri durdurup seramid kolesterol ve yağ asidi üçlüsüyle duvarı örmelisin.",
-      "start": 28.616,
-      "dur": 5.853
-    },
-    {
-      "text": "Yeni ürün almayı bırakıp cildine biraz zaman ver, kremler değil bariyerin seni kurtarır.",
-      "start": 34.468,
-      "dur": 6.953
+      "text": "Intercept every payload before Gemini touches context state.",
+      "start": 14.84,
+      "dur": 4.261
     }
   ]
 }

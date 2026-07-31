@@ -80,7 +80,7 @@
       "ig_reels_avg_watch_time": 4118,
       "ig_reels_video_view_total_time": 490053
     },
-    "insightsAt": "2026-07-30T16:20:12.383Z"
+    "insightsAt": "2026-07-31T16:30:28.650Z"
   },
   {
     "title": "LLM CONTEXT: LOST IN THE MIDDLE",
@@ -119,7 +119,7 @@
       "ig_reels_avg_watch_time": 4235,
       "ig_reels_video_view_total_time": 559104
     },
-    "insightsAt": "2026-07-30T16:20:12.763Z"
+    "insightsAt": "2026-07-31T16:30:29.598Z"
   },
   {
     "title": "LLM Inference: The Batching Trade-off",
@@ -140,7 +140,7 @@
       "ig_reels_avg_watch_time": 2655,
       "ig_reels_video_view_total_time": 302702
     },
-    "insightsAt": "2026-07-30T16:20:13.645Z"
+    "insightsAt": "2026-07-31T16:30:30.709Z"
   },
   {
     "title": "KV Cache Is Why Your LLM Slows Down Mid-Reply",
@@ -161,7 +161,7 @@
       "ig_reels_avg_watch_time": 4054,
       "ig_reels_video_view_total_time": 421622
     },
-    "insightsAt": "2026-07-30T16:20:14.123Z"
+    "insightsAt": "2026-07-31T16:30:31.399Z"
   },
   {
     "title": "LLM GUARDRAILS: BEYOND THE PROMPT",
@@ -182,7 +182,7 @@
       "ig_reels_avg_watch_time": 3951,
       "ig_reels_video_view_total_time": 442519
     },
-    "insightsAt": "2026-07-30T16:20:15.510Z"
+    "insightsAt": "2026-07-31T16:30:31.997Z"
   },
   {
     "title": "SYSTEM PROMPT PRIORITIZATION",
@@ -203,7 +203,7 @@
       "ig_reels_avg_watch_time": 3787,
       "ig_reels_video_view_total_time": 401493
     },
-    "insightsAt": "2026-07-30T16:20:16.188Z"
+    "insightsAt": "2026-07-31T16:30:32.888Z"
   },
   {
     "title": "AI Keypad: Prompt Abstraction",
@@ -224,7 +224,7 @@
       "ig_reels_avg_watch_time": 2586,
       "ig_reels_video_view_total_time": 300030
     },
-    "insightsAt": "2026-07-30T16:20:16.957Z"
+    "insightsAt": "2026-07-31T16:30:33.447Z"
   },
   {
     "title": "OPUS 5: UNEVEN CAPABILITIES",
@@ -245,7 +245,7 @@
       "ig_reels_avg_watch_time": 6061,
       "ig_reels_video_view_total_time": 3036805
     },
-    "insightsAt": "2026-07-30T16:20:17.728Z"
+    "insightsAt": "2026-07-31T16:30:34.139Z"
   },
   {
     "title": "Model Routing Beats Always Using Flagship Models",
@@ -395,10 +395,10 @@
       "saved": 1,
       "shares": 0,
       "total_interactions": 7,
-      "ig_reels_avg_watch_time": 3707,
-      "ig_reels_video_view_total_time": 404104
+      "ig_reels_avg_watch_time": 3674,
+      "ig_reels_video_view_total_time": 404145
     },
-    "insightsAt": "2026-07-30T16:20:18.487Z"
+    "insightsAt": "2026-07-31T16:30:35.498Z"
   },
   {
     "title": "Microsoft Security Model",
@@ -453,10 +453,10 @@
       "saved": 0,
       "shares": 0,
       "total_interactions": 2,
-      "ig_reels_avg_watch_time": 1558,
-      "ig_reels_video_view_total_time": 163662
+      "ig_reels_avg_watch_time": 1548,
+      "ig_reels_video_view_total_time": 164126
     },
-    "insightsAt": "2026-07-30T16:20:19.038Z"
+    "insightsAt": "2026-07-31T16:30:36.541Z"
   },
   {
     "title": "MCP Architecture Under the Hood",
@@ -481,10 +481,10 @@
       "saved": 3,
       "shares": 0,
       "total_interactions": 4,
-      "ig_reels_avg_watch_time": 4698,
-      "ig_reels_video_view_total_time": 507441
+      "ig_reels_avg_watch_time": 4661,
+      "ig_reels_video_view_total_time": 508050
     },
-    "insightsAt": "2026-07-30T16:20:20.563Z"
+    "insightsAt": "2026-07-31T16:30:37.037Z"
   },
   {
     "title": "Gemini Managed Agents Hook Flow",
@@ -502,6 +502,32 @@
     "date": "2026-07-30",
     "durSec": 18.2,
     "mediaId": "18609010045023491",
-    "postedAt": "2026-07-30T16:25:51.089Z"
+    "postedAt": "2026-07-30T16:25:51.089Z",
+    "insights": {
+      "views": 110,
+      "reach": 101,
+      "saved": 0,
+      "shares": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 1991,
+      "ig_reels_video_view_total_time": 209153
+    },
+    "insightsAt": "2026-07-31T16:30:37.520Z"
+  },
+  {
+    "title": "Gemini 3 Flash Agent Hooks",
+    "pillar": "model-releases",
+    "layout": "nodes-flow",
+    "motion": "buildup",
+    "theme": "#e3b341",
+    "source": "gemini",
+    "footage": [
+      "pexels:server led lights macro",
+      "pexels:network connection lines abstract"
+    ],
+    "voice": 6,
+    "voiceName": "Charon",
+    "date": "2026-07-31",
+    "durSec": 19
   }
 ]
