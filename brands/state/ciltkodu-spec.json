@@ -1,85 +1,85 @@
 {
-  "hook": "Sadece hyalüronik asit sürerken bile yüzün cayır cayır yanıyor.",
-  "title": "Çöken Cilt Bariyerinin Anatomisi",
+  "hook": "Hyalüronik asit cildini nemlendireceğine kurutuyorsa dinle.",
+  "title": "Hyalüronik Asit Neden Cildi Kurutur?",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "cycle",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "asiri_asit",
-          "label": "SERT ASİT BAKIMI"
+          "id": "n1",
+          "label": "HYALÜRONİK ASİT"
         },
         {
-          "id": "yag_kaybi",
-          "label": "SERAMİD KAYBI"
+          "id": "n2",
+          "label": "KURU HAVA"
         },
         {
-          "id": "su_kaybi",
-          "label": "HIZLI SU KAYBI"
+          "id": "n3",
+          "label": "CİLT DOKUSU"
         },
         {
-          "id": "sizlama",
-          "label": "SIZLAMA VE YANGIN"
+          "id": "n4",
+          "label": "NEM KAYBI"
         }
       ],
       "steps": [
         {
-          "from": "asiri_asit",
-          "to": "yag_kaybi",
-          "packet": "TAHRİŞ",
-          "status": "koruyucu seramid ve yağlar yok olur",
+          "from": "n1",
+          "to": "n2",
+          "packet": "NEM",
+          "status": "havada nem bulamayınca çaresiz kalır",
           "color": "warn"
         },
         {
-          "from": "yag_kaybi",
-          "to": "su_kaybi",
+          "from": "n2",
+          "to": "n3",
+          "packet": "ÇEKİM",
+          "status": "gözünü cildin kendi alt suyuna diker",
+          "color": "accent"
+        },
+        {
+          "from": "n3",
+          "to": "n1",
+          "packet": "EMME",
+          "status": "derindeki tüm suyu yukarıya çeker",
+          "color": "warn"
+        },
+        {
+          "from": "n1",
+          "to": "n4",
           "packet": "BUHAR",
-          "status": "derin nem açık pencereden buharlaşır",
+          "status": "kuru havaya buharlaşıp cildi kurutur",
           "color": "warn"
-        },
-        {
-          "from": "su_kaybi",
-          "to": "sizlama",
-          "packet": "ALARM",
-          "status": "en masum nemlendirici bile yakar",
-          "color": "warn"
-        },
-        {
-          "from": "sizlama",
-          "to": "asiri_asit",
-          "packet": "ONARIM",
-          "status": "seramid kolesterol yağ asidi dengesi",
-          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Sadece hyalüronik asit sürerken bile yüzün cayır cayır yanıyorsa sorun üründe değil.\n\nNemlendirici sürerken bile yüzün sızlıyorsa bariyerin çökmüş demektir, adım adım:\n\n1. Sert Asit Bakımı — Yüzü soyma aşkıyla üst üste kullanılan asitler cilt harcını tamamen eritir.\n2. Seramid Kaybı — Tuğla duvarın çimentosu olan seramid, kolesterol ve yağ asitleri yok olur.\n3. Hızlı Su Kaybı — Transepidermal su kaybı başlar; nem tutamayan cilt açık şişe gibi buharlaşır.\n4. Sızlama ve Yangın — Bariyeri çöken cilde su bile sürsen bariyer olmadığı için sinir uçları uyarılır.\n\nBariyeri onarmak için pahalı serumlar değil; seramid, kolesterol ve yağ asidi içeren bariyer kremleri şart.\n\nÜrünler suçlu değil, her gün soyucu asit süren sabırsız elimiz suçlu.\n\n📌 Kaydet — yüzün ne zaman sızlarsa açıp bakarsın.\n🔁 Bunu cildini asitle zımparalayan arkadaşına gönder.\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Hyalüronik asit cildini nemlendirmek yerine kurutuyorsa yalnız değilsiniz.\n\nHyalüronik asit cildini neden gerim gerim gerer, adım adım:\n\n1. Hyalüronik Asit — Kendi ağırlığının bin katı su tutabilen bir nem mıknatısıdır, ama suyu kendi üretmez, havadan toplar.\n2. Kuru Hava — Bulunduğun odada nem azsa, bu molekül havada tutunacak tek bir su damlası bile bulamaz.\n3. Cilt Dokusu — Dışarıda nem bulamayan serum, gözünü cildinin alt katmanlarında hazır bekleyen kendi doğal suyuna diker.\n4. Nem Kaybı — Alt katmandan çekilen su yüzeye çıkar ve kuru havada buharlaşır; cilt nemleneceği yerine çölleşir.\n\nIslak cilde uygulamak ve üzerine nemlendirici krem sürmek tek çözümdür.\n\nÜrün bozuk değil, hava nemli değil. Ama biz su sıkmak yerine yeni serum alacağız.\n\n📌 Kaydet — bir dahaki nem serumu krizinde lazım olacak.\n🔁 Bunu cildi kuruyup krem üzerine krem süren arkadaşına gönder.\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimirupture",
+    "#ciltbakimi",
     "#güzellik",
-    "#ciltbariyeri",
-    "#seramid",
     "#hyalüronikasit",
-    "#ciltbakimigundemi",
-    "#retinol"
+    "#cildinemi",
+    "#ciltbariyeri",
+    "#serum",
+    "#skincare"
   ],
-  "takeaway": "Yeni ürün almayı bırak, kremler değil bariyerin seni kurtarır.",
+  "takeaway": "Serumu ıslak cilde sür, yoksa cildinin suyunu emip havaya uçurur.",
   "footage_queries": [
-    "cream texture macro",
+    "serum drop close up",
     "water droplets on glass"
   ],
   "narration": [
-    "Sadece basit bir hyalüronik asit sürerken bile yüzün cayır cayır yanmaya başladı mı?",
-    "Yüzündeki koruyucu bariyer duvarı yıkılınca cildinde tam olarak bu dört aşama yaşanır.",
-    "Üst üste sürülen sert asitler harç görevi gören seramid ve yağları tamamen temizler.",
-    "Çimento tutmayınca hücresel nem bariyerden adeta açık bir pencereden kaçar gibi buharlaşır.",
-    "Kuruyan cilt savunmasız kalır ve sürdüğün en masum kremler bile yangına dönüşür.",
-    "Çözüm için asitleri durdurup seramid kolesterol ve yağ asidi üçlüsüyle duvarı örmelisin.",
-    "Yeni ürün almayı bırakıp cildine biraz zaman ver, kremler değil bariyerin seni kurtarır."
+    "Hyalüronik asit sürdükten sonra cildinizin daha da kuruduğunu hissediyorsanız yalnız değilsiniz kızlar.",
+    "Bu serumun cildinizde tam olarak nasıl çalıştığını dört adımda hemen çözelim.",
+    "Hyalüronik asit molekülü çevredeki nemi sünger gibi çekmek üzere tasarlanmış bir maddedir.",
+    "Bulunduğunuz ortamda yeterli nem yoksa bu molekül havadan su yakalamayı başaramaz.",
+    "Çaresiz kalan serum cildinizin alt katmanlarındaki kendi doğal suyunu yukarıya doğru çeker.",
+    "Yüzeye çekilen bu değerli su rüzgarla uçup gider ve cildiniz iyice kurur.",
+    "Serumdan önce yüzünüzü biraz ıslatın ki serum cildinizin suyunu emip havaya uçurmasın."
   ],
-  "theme": "#7fb3a5",
+  "theme": "#c9a227",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -97,39 +97,39 @@
   "footage": true,
   "beats": [
     {
-      "text": "Sadece basit bir hyalüronik asit sürerken bile yüzün cayır cayır yanmaya başladı mı?",
+      "text": "Hyalüronik asit sürdükten sonra cildinizin daha da kuruduğunu hissediyorsanız yalnız değilsiniz kızlar.",
       "start": 0.35,
-      "dur": 5.587
+      "dur": 7.208
     },
     {
-      "text": "Yüzündeki koruyucu bariyer duvarı yıkılınca cildinde tam olarak bu dört aşama yaşanır.",
-      "start": 5.937,
-      "dur": 5.72
+      "text": "Bu serumun cildinizde tam olarak nasıl çalıştığını dört adımda hemen çözelim.",
+      "start": 7.558,
+      "dur": 5.389
     },
     {
-      "text": "Üst üste sürülen sert asitler harç görevi gören seramid ve yağları tamamen temizler.",
-      "start": 11.656,
-      "dur": 5.587
+      "text": "Hyalüronik asit molekülü çevredeki nemi sünger gibi çekmek üzere tasarlanmış bir maddedir.",
+      "start": 12.947,
+      "dur": 6.299
     },
     {
-      "text": "Çimento tutmayınca hücresel nem bariyerden adeta açık bir pencereden kaçar gibi buharlaşır.",
-      "start": 17.243,
-      "dur": 6.052
+      "text": "Bulunduğunuz ortamda yeterli nem yoksa bu molekül havadan su yakalamayı başaramaz.",
+      "start": 19.246,
+      "dur": 5.739
     },
     {
-      "text": "Kuruyan cilt savunmasız kalır ve sürdüğün en masum kremler bile yangına dönüşür.",
-      "start": 23.295,
-      "dur": 5.321
+      "text": "Çaresiz kalan serum cildinizin alt katmanlarındaki kendi doğal suyunu yukarıya doğru çeker.",
+      "start": 24.985,
+      "dur": 6.369
     },
     {
-      "text": "Çözüm için asitleri durdurup seramid kolesterol ve yağ asidi üçlüsüyle duvarı örmelisin.",
-      "start": 28.616,
-      "dur": 5.853
+      "text": "Yüzeye çekilen bu değerli su rüzgarla uçup gider ve cildiniz iyice kurur.",
+      "start": 31.353,
+      "dur": 5.109
     },
     {
-      "text": "Yeni ürün almayı bırakıp cildine biraz zaman ver, kremler değil bariyerin seni kurtarır.",
-      "start": 34.468,
-      "dur": 6.953
+      "text": "Serumdan önce yüzünüzü biraz ıslatın ki serum cildinizin suyunu emip havaya uçurmasın.",
+      "start": 36.462,
+      "dur": 7.119
     }
   ],
   "thumbOffset": 1450

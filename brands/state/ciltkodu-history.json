@@ -191,5 +191,21 @@
     "voiceName": "Puck",
     "date": "2026-07-30",
     "durSec": 41.3
+  },
+  {
+    "title": "Hyalüronik Asit Neden Cildi Kurutur?",
+    "pillar": "trend-mekanik",
+    "layout": "cycle",
+    "motion": "buildup",
+    "theme": "#c9a227",
+    "source": "gemini",
+    "footage": [
+      "pexels:serum drop close up",
+      "pexels:water droplets on glass"
+    ],
+    "voice": 7,
+    "voiceName": "Aoede",
+    "date": "2026-07-31",
+    "durSec": 43.6
   }
 ]
