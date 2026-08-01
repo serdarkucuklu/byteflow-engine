@@ -207,5 +207,21 @@
     "voiceName": "Aoede",
     "date": "2026-07-31",
     "durSec": 43.6
+  },
+  {
+    "title": "Hyalüronik Asit: Parayı Neye Ödüyoruz?",
+    "pillar": "para-degeri",
+    "layout": "vertical-stack",
+    "motion": "buildup",
+    "theme": "#e8a0a8",
+    "source": "gemini",
+    "footage": [
+      "pexels:serum drop close up",
+      "pexels:cosmetic bottles soft light"
+    ],
+    "voice": 8,
+    "voiceName": "Kore",
+    "date": "2026-08-01",
+    "durSec": 45.4
   }
 ]

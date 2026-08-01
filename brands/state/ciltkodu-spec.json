@@ -1,85 +1,94 @@
 {
-  "hook": "Hyalüronik asit cildini nemlendireceğine kurutuyorsa dinle.",
-  "title": "Hyalüronik Asit Neden Cildi Kurutur?",
+  "hook": "Hyalüronik asit serumuna bin lira verip su satın almak.",
+  "title": "Hyalüronik Asit: Parayı Neye Ödüyoruz?",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "vertical-stack",
+      "heading": "Premium Nem Serumu Maliyet Dağılımı",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "HYALÜRONİK ASİT"
+          "id": "REKLAM",
+          "label": "PAZARLAMA BUTCESI"
         },
         {
-          "id": "n2",
-          "label": "KURU HAVA"
+          "id": "SISENIN_KENDISI",
+          "label": "LUKS CAM AMBALAJ"
         },
         {
-          "id": "n3",
-          "label": "CİLT DOKUSU"
+          "id": "ARITILMIS_SU",
+          "label": "ARITILMIS SU"
         },
         {
-          "id": "n4",
-          "label": "NEM KAYBI"
+          "id": "NEM_TUTUCU",
+          "label": "AKTIF HYALURONIK"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "NEM",
-          "status": "havada nem bulamayınca çaresiz kalır",
+          "from": "REKLAM",
+          "to": "SISENIN_KENDISI",
+          "packet": "%70",
+          "status": "bütçenin çoğu reklama gidiyor",
           "color": "warn"
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "ÇEKİM",
-          "status": "gözünü cildin kendi alt suyuna diker",
+          "from": "SISENIN_KENDISI",
+          "to": "ARITILMIS_SU",
+          "packet": "%20",
+          "status": "cam şişe ve paketleme maliyeti",
+          "color": "warn"
+        },
+        {
+          "from": "ARITILMIS_SU",
+          "to": "NEM_TUTUCU",
+          "packet": "%8",
+          "status": "şişenin içi aslında düz arıtılmış su",
+          "color": "good"
+        },
+        {
+          "from": "NEM_TUTUCU",
+          "to": "REKLAM",
+          "packet": "%2",
+          "status": "asıl nem veren madde aşırı ucuzdur",
+          "color": "good"
+        },
+        {
+          "from": "REKLAM",
+          "to": "NEM_TUTUCU",
+          "packet": "0",
+          "status": "pazarlama illüzyonuna para döküyoruz",
           "color": "accent"
-        },
-        {
-          "from": "n3",
-          "to": "n1",
-          "packet": "EMME",
-          "status": "derindeki tüm suyu yukarıya çeker",
-          "color": "warn"
-        },
-        {
-          "from": "n1",
-          "to": "n4",
-          "packet": "BUHAR",
-          "status": "kuru havaya buharlaşıp cildi kurutur",
-          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Hyalüronik asit cildini nemlendirmek yerine kurutuyorsa yalnız değilsiniz.\n\nHyalüronik asit cildini neden gerim gerim gerer, adım adım:\n\n1. Hyalüronik Asit — Kendi ağırlığının bin katı su tutabilen bir nem mıknatısıdır, ama suyu kendi üretmez, havadan toplar.\n2. Kuru Hava — Bulunduğun odada nem azsa, bu molekül havada tutunacak tek bir su damlası bile bulamaz.\n3. Cilt Dokusu — Dışarıda nem bulamayan serum, gözünü cildinin alt katmanlarında hazır bekleyen kendi doğal suyuna diker.\n4. Nem Kaybı — Alt katmandan çekilen su yüzeye çıkar ve kuru havada buharlaşır; cilt nemleneceği yerine çölleşir.\n\nIslak cilde uygulamak ve üzerine nemlendirici krem sürmek tek çözümdür.\n\nÜrün bozuk değil, hava nemli değil. Ama biz su sıkmak yerine yeni serum alacağız.\n\n📌 Kaydet — bir dahaki nem serumu krizinde lazım olacak.\n🔁 Bunu cildi kuruyup krem üzerine krem süren arkadaşına gönder.\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Hyalüronik asit serumuna bin lira verip aslında su satın alıyor olabilir misin?\n\nPahalı bir nem serumu aldığında paran gerçekte nereye gidiyor, adım adım dökümü:\n\n1. Pazarlama bütçesi — Ödediğin paranın neredeyse %70'i, o ürünü TikTok'ta görmeni sağlayan reklamlara ve influencer iş birliklerine gidiyor.\n2. Ambalaj maliyeti — Banyonda lüks dursun diye tasarlanan o ağır cam şişeler ve özel damlalıklar formülün kendisinden daha pahalı.\n3. Dolgu maddesi — Şişenin %95'ten fazlası sadece arıtılmış sudan ibaret. Aktif maddeleri taşımak için bu su şart ama maliyeti sıfıra yakın.\n4. Aktif hammadde — Cildi nemlendiren asıl kahraman olan hyalüronik asit hammaddesi ton bazında alındığında komik derecede ucuzdur.\n\nBir nemlendirici serum seçerken markanın adına değil, içindeki aktif konsantrasyonuna ve formülasyon kalitesine bakın.\n\nÜrün kötü değil, pazarlama dâhice. Ama biz yine de o şık şişeyi alacağız gibi.\n\n📌 Kaydet — bir dahaki kozmetik alışverişinde paranı korur.\n\n🔁 Bunu hyalüronik asit aşığı kankana gönder.\n\nWritten by Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
     "#hyalüronikasit",
-    "#cildinemi",
-    "#ciltbariyeri",
-    "#serum",
-    "#skincare"
+    "#nemlendirici",
+    "#skincare",
+    "#kozmetik",
+    "#ciltbakımıtavsiyeleri"
   ],
-  "takeaway": "Serumu ıslak cilde sür, yoksa cildinin suyunu emip havaya uçurur.",
+  "takeaway": "Musluk suyuna marka etiketi yapıştırıp bize bin liraya satıyorlar.",
   "footage_queries": [
     "serum drop close up",
-    "water droplets on glass"
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Hyalüronik asit sürdükten sonra cildinizin daha da kuruduğunu hissediyorsanız yalnız değilsiniz kızlar.",
-    "Bu serumun cildinizde tam olarak nasıl çalıştığını dört adımda hemen çözelim.",
-    "Hyalüronik asit molekülü çevredeki nemi sünger gibi çekmek üzere tasarlanmış bir maddedir.",
-    "Bulunduğunuz ortamda yeterli nem yoksa bu molekül havadan su yakalamayı başaramaz.",
-    "Çaresiz kalan serum cildinizin alt katmanlarındaki kendi doğal suyunu yukarıya doğru çeker.",
-    "Yüzeye çekilen bu değerli su rüzgarla uçup gider ve cildiniz iyice kurur.",
-    "Serumdan önce yüzünüzü biraz ıslatın ki serum cildinizin suyunu emip havaya uçurmasın."
+    "Pahalı hyalüronik asit serumuna bin lira verip aslında sadece lüks musluk suyu alıyorsun.",
+    "Gelin bu havalı şişelerin içindeki gerçek bütçe dağılımına adım adım yakından bakalım.",
+    "Ödediğin paranın aslan payı aslında seni bu ürüne ikna eden reklamlara gidiyor.",
+    "Kalan büyük dilim ise banyonda havalı duracak o ağır cam şişenin maliyetidir.",
+    "Şişeyi açtığında karşılaştığın o yoğun sıvının neredeyse tamamı ise düz arıtılmış sudur.",
+    "Cildini neme doyuran o mucizevi hyalüronik asit hammaddesi aslında inanılmaz derecede ucuzdur.",
+    "Yani marka algısı yüzünden küçücük bir aktif maddeye binlerce lira dökmüş oluyoruz.",
+    "Neme doymak için servet harcamana gerek yok, önemli olan doğru formülü bulmaktır."
   ],
-  "theme": "#c9a227",
+  "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -97,39 +106,44 @@
   "footage": true,
   "beats": [
     {
-      "text": "Hyalüronik asit sürdükten sonra cildinizin daha da kuruduğunu hissediyorsanız yalnız değilsiniz kızlar.",
+      "text": "Pahalı hyalüronik asit serumuna bin lira verip aslında sadece lüks musluk suyu alıyorsun.",
       "start": 0.35,
-      "dur": 7.208
+      "dur": 5.785
     },
     {
-      "text": "Bu serumun cildinizde tam olarak nasıl çalıştığını dört adımda hemen çözelim.",
-      "start": 7.558,
-      "dur": 5.389
+      "text": "Gelin bu havalı şişelerin içindeki gerçek bütçe dağılımına adım adım yakından bakalım.",
+      "start": 6.135,
+      "dur": 5.59
     },
     {
-      "text": "Hyalüronik asit molekülü çevredeki nemi sünger gibi çekmek üzere tasarlanmış bir maddedir.",
-      "start": 12.947,
-      "dur": 6.299
+      "text": "Ödediğin paranın aslan payı aslında seni bu ürüne ikna eden reklamlara gidiyor.",
+      "start": 11.724,
+      "dur": 5.135
     },
     {
-      "text": "Bulunduğunuz ortamda yeterli nem yoksa bu molekül havadan su yakalamayı başaramaz.",
-      "start": 19.246,
-      "dur": 5.739
+      "text": "Kalan büyük dilim ise banyonda havalı duracak o ağır cam şişenin maliyetidir.",
+      "start": 16.859,
+      "dur": 5.005
     },
     {
-      "text": "Çaresiz kalan serum cildinizin alt katmanlarındaki kendi doğal suyunu yukarıya doğru çeker.",
-      "start": 24.985,
-      "dur": 6.369
+      "text": "Şişeyi açtığında karşılaştığın o yoğun sıvının neredeyse tamamı ise düz arıtılmış sudur.",
+      "start": 21.863,
+      "dur": 5.72
     },
     {
-      "text": "Yüzeye çekilen bu değerli su rüzgarla uçup gider ve cildiniz iyice kurur.",
-      "start": 31.353,
-      "dur": 5.109
+      "text": "Cildini neme doyuran o mucizevi hyalüronik asit hammaddesi aslında inanılmaz derecede ucuzdur.",
+      "start": 27.583,
+      "dur": 6.11
     },
     {
-      "text": "Serumdan önce yüzünüzü biraz ıslatın ki serum cildinizin suyunu emip havaya uçurmasın.",
-      "start": 36.462,
-      "dur": 7.119
+      "text": "Yani marka algısı yüzünden küçücük bir aktif maddeye binlerce lira dökmüş oluyoruz.",
+      "start": 33.692,
+      "dur": 5.395
+    },
+    {
+      "text": "Neme doymak için servet harcamana gerek yok, önemli olan doğru formülü bulmaktır.",
+      "start": 39.087,
+      "dur": 6.365
     }
   ],
   "thumbOffset": 1450

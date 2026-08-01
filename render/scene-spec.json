@@ -1,128 +1,149 @@
 {
-  "hook": "Your Claude Code agent burns context on subtasks.",
-  "title": "Claude Code Subagent Context Protection",
+  "hook": "Hyalüronik asit serumuna bin lira verip su satın almak.",
+  "title": "Hyalüronik Asit: Parayı Neye Ödüyoruz?",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "vertical-stack",
+      "heading": "Premium Nem Serumu Maliyet Dağılımı",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "claude-main",
-          "label": "MAIN AGENT",
-          "brand": "claude"
+          "id": "REKLAM",
+          "label": "PAZARLAMA BUTCESI"
         },
         {
-          "id": "subagent",
-          "label": "FORKED SUBAGENT"
+          "id": "SISENIN_KENDISI",
+          "label": "LUKS CAM AMBALAJ"
         },
         {
-          "id": "bash-tool",
-          "label": "BASH ENVIRONMENT"
+          "id": "ARITILMIS_SU",
+          "label": "ARITILMIS SU"
         },
         {
-          "id": "context-filter",
-          "label": "SUMMARY FILTER"
+          "id": "NEM_TUTUCU",
+          "label": "AKTIF HYALURONIK"
         }
       ],
       "steps": [
         {
-          "from": "claude-main",
-          "to": "subagent",
-          "packet": "TASK",
-          "status": "main agent delegates subtask to fork",
-          "color": "accent"
-        },
-        {
-          "from": "subagent",
-          "to": "bash-tool",
-          "packet": "EXEC",
-          "status": "subagent runs tools in isolated shell",
-          "color": "good"
-        },
-        {
-          "from": "bash-tool",
-          "to": "context-filter",
-          "packet": "LOGS",
-          "status": "raw execution logs get compressed",
+          "from": "REKLAM",
+          "to": "SISENIN_KENDISI",
+          "packet": "%70",
+          "status": "bütçenin çoğu reklama gidiyor",
           "color": "warn"
         },
         {
-          "from": "context-filter",
-          "to": "claude-main",
-          "packet": "BRIEF",
-          "status": "condensed summary returns to main agent",
+          "from": "SISENIN_KENDISI",
+          "to": "ARITILMIS_SU",
+          "packet": "%20",
+          "status": "cam şişe ve paketleme maliyeti",
+          "color": "warn"
+        },
+        {
+          "from": "ARITILMIS_SU",
+          "to": "NEM_TUTUCU",
+          "packet": "%8",
+          "status": "şişenin içi aslında düz arıtılmış su",
+          "color": "good"
+        },
+        {
+          "from": "NEM_TUTUCU",
+          "to": "REKLAM",
+          "packet": "%2",
+          "status": "asıl nem veren madde aşırı ucuzdur",
+          "color": "good"
+        },
+        {
+          "from": "REKLAM",
+          "to": "NEM_TUTUCU",
+          "packet": "0",
+          "status": "pazarlama illüzyonuna para döküyoruz",
           "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Your Claude Code CLI session degrades when bash outputs fill the context window.\n\nHere is how subagents preserve reasoning capacity during long coding sessions:\n\n1. Main Agent — The primary reasoning loop handling architecture and user commands.\n2. Forked Subagent — An isolated worker spawned to execute targeted subtasks like file discovery or test runs.\n3. Bash Environment — Execution environment where verbose terminal outputs and compile errors occur.\n4. Summary Filter — Condensation step that strips raw log noise and extracts key status returns.\n\nWhen evaluating agentic coding tools, you are paying for context hygiene, not raw model IQ.\n\nNo magic — just isolated subshells and context summarization.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Hyalüronik asit serumuna bin lira verip aslında su satın alıyor olabilir misin?\n\nPahalı bir nem serumu aldığında paran gerçekte nereye gidiyor, adım adım dökümü:\n\n1. Pazarlama bütçesi — Ödediğin paranın neredeyse %70'i, o ürünü TikTok'ta görmeni sağlayan reklamlara ve influencer iş birliklerine gidiyor.\n2. Ambalaj maliyeti — Banyonda lüks dursun diye tasarlanan o ağır cam şişeler ve özel damlalıklar formülün kendisinden daha pahalı.\n3. Dolgu maddesi — Şişenin %95'ten fazlası sadece arıtılmış sudan ibaret. Aktif maddeleri taşımak için bu su şart ama maliyeti sıfıra yakın.\n4. Aktif hammadde — Cildi nemlendiren asıl kahraman olan hyalüronik asit hammaddesi ton bazında alındığında komik derecede ucuzdur.\n\nBir nemlendirici serum seçerken markanın adına değil, içindeki aktif konsantrasyonuna ve formülasyon kalitesine bakın.\n\nÜrün kötü değil, pazarlama dâhice. Ama biz yine de o şık şişeyi alacağız gibi.\n\n📌 Kaydet — bir dahaki kozmetik alışverişinde paranı korur.\n\n🔁 Bunu hyalüronik asit aşığı kankana gönder.\n\nWritten by Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ai",
-    "#llm",
-    "#claudecode",
-    "#aiagents",
-    "#aiengineering",
-    "#promptengineering",
-    "#mcp"
+    "#ciltbakimi",
+    "#güzellik",
+    "#hyalüronikasit",
+    "#nemlendirici",
+    "#skincare",
+    "#kozmetik",
+    "#ciltbakımıtavsiyeleri"
   ],
-  "takeaway": "Subagents protect main context by filtering verbose tool logs.",
+  "takeaway": "Musluk suyuna marka etiketi yapıştırıp bize bin liraya satıyorlar.",
   "footage_queries": [
-    "server led lights macro",
-    "empty data center aisle"
+    "serum drop close up",
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Your Claude Code agent loses speed on complex refactors.",
-    "Isolated subagents prevent your main context from rotting.",
-    "The main agent forks a subagent for subtasks.",
-    "The subagent runs bash tools in isolation.",
-    "Raw terminal logs get stripped and summarized.",
-    "Only clean findings return to main context.",
-    "Isolate tool output to protect prompt budget."
+    "Pahalı hyalüronik asit serumuna bin lira verip aslında sadece lüks musluk suyu alıyorsun.",
+    "Gelin bu havalı şişelerin içindeki gerçek bütçe dağılımına adım adım yakından bakalım.",
+    "Ödediğin paranın aslan payı aslında seni bu ürüne ikna eden reklamlara gidiyor.",
+    "Kalan büyük dilim ise banyonda havalı duracak o ağır cam şişenin maliyetidir.",
+    "Şişeyi açtığında karşılaştığın o yoğun sıvının neredeyse tamamı ise düz arıtılmış sudur.",
+    "Cildini neme doyuran o mucizevi hyalüronik asit hammaddesi aslında inanılmaz derecede ucuzdur.",
+    "Yani marka algısı yüzünden küçücük bir aktif maddeye binlerce lira dökmüş oluyoruz.",
+    "Neme doymak için servet harcamana gerek yok, önemli olan doğru formülü bulmaktır."
   ],
-  "theme": "#f778ba",
+  "theme": "#e8a0a8",
   "brand": {
-    "handle": "@byteflowlabs",
-    "signoff": "AI systems, no hype",
-    "shareCta": "↗  Send this to someone who needs it"
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
+    "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
+  "palette": {
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
+  },
+  "language": "tr",
   "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "Your Claude Code agent loses speed on complex refactors.",
+      "text": "Pahalı hyalüronik asit serumuna bin lira verip aslında sadece lüks musluk suyu alıyorsun.",
       "start": 0.35,
-      "dur": 3.038
+      "dur": 5.785
     },
     {
-      "text": "Isolated subagents prevent your main context from rotting.",
-      "start": 3.388,
-      "dur": 3.146
+      "text": "Gelin bu havalı şişelerin içindeki gerçek bütçe dağılımına adım adım yakından bakalım.",
+      "start": 6.135,
+      "dur": 5.59
     },
     {
-      "text": "The main agent forks a subagent for subtasks.",
-      "start": 6.534,
-      "dur": 2.441
+      "text": "Ödediğin paranın aslan payı aslında seni bu ürüne ikna eden reklamlara gidiyor.",
+      "start": 11.724,
+      "dur": 5.135
     },
     {
-      "text": "The subagent runs bash tools in isolation.",
-      "start": 8.974,
-      "dur": 2.278
+      "text": "Kalan büyük dilim ise banyonda havalı duracak o ağır cam şişenin maliyetidir.",
+      "start": 16.859,
+      "dur": 5.005
     },
     {
-      "text": "Raw terminal logs get stripped and summarized.",
-      "start": 11.253,
-      "dur": 2.495
+      "text": "Şişeyi açtığında karşılaştığın o yoğun sıvının neredeyse tamamı ise düz arıtılmış sudur.",
+      "start": 21.863,
+      "dur": 5.72
     },
     {
-      "text": "Only clean findings return to main context.",
-      "start": 13.748,
-      "dur": 2.332
+      "text": "Cildini neme doyuran o mucizevi hyalüronik asit hammaddesi aslında inanılmaz derecede ucuzdur.",
+      "start": 27.583,
+      "dur": 6.11
     },
     {
-      "text": "Isolate tool output to protect prompt budget.",
-      "start": 16.08,
-      "dur": 3.541
+      "text": "Yani marka algısı yüzünden küçücük bir aktif maddeye binlerce lira dökmüş oluyoruz.",
+      "start": 33.692,
+      "dur": 5.395
+    },
+    {
+      "text": "Neme doymak için servet harcamana gerek yok, önemli olan doğru formülü bulmaktır.",
+      "start": 39.087,
+      "dur": 6.365
     }
   ]
 }
