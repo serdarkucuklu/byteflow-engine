@@ -11,6 +11,8 @@ import {postProcess} from './publish/post-process.mjs';
 import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose-footage.mjs';
 import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './publish/voiceover.mjs';
 import {pillarsFor, selectPillar} from './brain/pillars.mjs';
+import {twistsFor, selectTwist} from './brain/twists.mjs';
+import {recentSubjects} from './brain/subjects.mjs';
 import {loadBrand} from './brands/load.mjs';
 import {aggregate, pickWeighted, leaderboard} from './brain/scoreboard.mjs';
 
@@ -44,6 +46,27 @@ const history = existsSync(historyPath) ? JSON.parse(readFileSync(historyPath)) 
 //    yasaklamıyor, sadece niş sinyali veriyor.
 const recentTitles = history.filter(h => h.mediaId).slice(-15).map(h => h.title);
 
+// KONU SOĞUMASI: son postların ÖZNESİ (etken madde/ürün) bugün yasak. Başlık bloklisti bunu
+// yakalamıyordu — 2026-08-01'de iki farklı başlık altında üst üste hyalüronik asit yayınlandı.
+// mediaId filtresi YOK: tekrar, yayınlansın ya da yayınlanmasın kötüdür.
+const bannedSubjects = recentSubjects(history);
+if (bannedSubjects.length) console.log(`⛔ konu soğumada: ${bannedSubjects.join(', ')}`);
+
+// GAF EKSENİ: her videonun zorunlu esprili açısı, rotasyonla (Serdar 2026-08-01: "para gafı
+// süperdi, ama sadece para değil — farklı gaflar"). Tutan gaf türü zamanla öne çıkar.
+const TWISTS = twistsFor(brand.twistSet);
+const twist = TWISTS
+  ? selectTwist(history.slice(-4).map(h => h.twist).filter(Boolean), TWISTS,
+      aggregate(history, 'twist'), (cands, st) => pickWeighted(cands, st))
+  : null;
+if (twist) console.log(`😏 gaf ekseni: ${twist.key}`);
+
+// GÖRSEL ROTASYON: son 2 postun kompozisyonu bugün yasak — iki komşu video aynı animasyonla
+// akmasın (Serdar 2026-08-01: "farklı animasyonlar süper olur").
+const bannedLayouts = [...new Set(history.slice(-2).flatMap(h => String(h.layout ?? '').split('+')))]
+  .filter(l => l && l !== 'code');
+const recentKinds = history.slice(-3).map(h => h.kinds ?? 'diagram');
+
 const candidates = await fetchTrends({limit: 15, feeds: feedsFor(brand.feedSet)});
 console.log(`✓ ${candidates.length} trends`);
 
@@ -71,7 +94,8 @@ const seeds = JSON.parse(readFileSync(brand.paths.seeds, 'utf8'));
 const brandForBrain = {...brand, footageQueries: footageSetFor(brand.footageSet)};
 const {spec: rawSpec, source} = fixturePath
   ? {spec: JSON.parse(readFileSync(join(root, fixturePath), 'utf8')), source: 'fixture'}
-  : await produceSpec({candidates, apiKey, recentTitles, pillar, brand: brandForBrain, seeds, pickSeed: randomSeed});
+  : await produceSpec({candidates, apiKey, recentTitles, pillar, brand: brandForBrain, seeds, pickSeed: randomSeed,
+      bannedSubjects, twist, bannedLayouts, recentKinds});
 // Ekrandaki metinlerde markdown vurgusu kalmasın ("your *real* safety net" yıldızlarıyla basılıyordu).
 // YERELLEŞTİRME: prompt'a "Türkçe yaz" demek yetmedi (model üç koşuda da İngilizce yazdı).
 // Ayrı, dar kapsamlı bir çeviri adımı yapıyı bozmadan metinleri hedef dile çeviriyor.
@@ -94,11 +118,22 @@ spec.brand = {handle: brand.handle, signoff: brand.persona?.signoff ?? '',
 if (brand.palette) spec.palette = brand.palette;
 if (brand.language) spec.language = brand.language;
 spec.motion = motion;
+// Düzen ARKA ARKAYA tekrar etmesin: prompt zaten farklısını istiyor, burası sert kapı.
+// 'versus' ve 'code' sahneleri kendi şablonlarıyla çizildiği için düzenleri görüntüyü
+// etkilemiyor — onlara dokunma, sadece diyagram sahnelerini döndür.
+const freshLayouts = LAYOUTS.filter(l => !bannedLayouts.includes(l));
 spec.scenes.forEach((sc, i) => {
-  if (!LAYOUTS.includes(sc.layout)) sc.layout = LAYOUTS[(n + i) % LAYOUTS.length];
+  const rotate = () => (freshLayouts.length ? freshLayouts : LAYOUTS)[(n + i) % (freshLayouts.length || LAYOUTS.length)];
+  if (!LAYOUTS.includes(sc.layout)) sc.layout = rotate();
+  else if (sc.kind !== 'versus' && sc.kind !== 'code' && bannedLayouts.includes(sc.layout)) {
+    const forced = rotate();
+    console.log(`↻ düzen tekrarı engellendi: ${sc.layout} → ${forced}`);
+    sc.layout = forced;
+  }
 });
 const layout = spec.scenes.map(sc => sc.kind === 'code' ? 'code' : sc.layout).join('+');
-console.log(`✓ spec (${source}): ${spec.title} [${layout} / ${motion} / ${theme}]`);
+const kinds = spec.scenes.map(sc => sc.kind ?? 'diagram').join('+');
+console.log(`✓ spec (${source}): ${spec.title} [konu: ${spec.subject ?? '—'} / gaf: ${twist?.key ?? '—'} / ${layout} / ${kinds} / ${theme}]`);
 
 // ---- B-roll: gerçek hareketli görüntü indir (Pexels/Pixabay/Coverr) ----
 // Klip inebildiyse spec.footage=true → sahne ŞEFFAF (alpha PNG) render edilir ve
@@ -173,7 +208,9 @@ writeFileSync(specPath, JSON.stringify(spec, null, 2));
 writeFileSync(join(root, 'render', 'scene-spec.json'), JSON.stringify(spec, null, 2));
 
 // Geçmişe ekle (workflow posted-history.json'ı commit eder).
-history.push({title: spec.title, pillar: spec.pillar ?? pillar.key, layout, motion, theme, source,
+// subject/twist/kinds: bir sonraki koşunun tekrar kilitleri bu üç alandan besleniyor.
+history.push({title: spec.title, subject: spec.subject ?? null, twist: twist?.key ?? null,
+  pillar: spec.pillar ?? pillar.key, layout, kinds, motion, theme, source,
   footage: spec.footage ? clips.map(c => `${c.provider}:${c.query}`) : null,
   voice: voice ? voice.beats.length : null,
   voiceName,

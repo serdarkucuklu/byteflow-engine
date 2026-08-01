@@ -144,7 +144,13 @@ jobs:
         run: |
           git config user.name "byteflow-bot"
           git config user.email "byteflow-bot@users.noreply.github.com"
+          # ⚠ brands/state DE eklenmeli: mediaId'yi publish-latest.mjs MARKANIN geçmiş dosyasına
+          # yazıyor (brands/state/<marka>-history.json). Burada sadece posted-history.json
+          # commit'lendiği için @cilt.kodu'nun mediaId'leri her koşuda kayboluyordu → başlık
+          # bloklisti (mediaId'si olan kayıtlar) 14 postun 1'ini görüyordu ve konu tekrarı
+          # engellenemiyordu (2026-08-01, üst üste iki hyalüronik asit videosu).
           git add posted-history.json
+          [ -d brands/state ] && git add -f brands/state || true
           git commit -m "chore: reel mediaId $(date -u +%F)" || echo "değişiklik yok"
           for i in 1 2 3; do
             git push && break

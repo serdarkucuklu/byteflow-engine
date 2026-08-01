@@ -57,3 +57,21 @@ Marka dosyaları repoda duruyor. İçinde token olsaydı ilk push'ta sızardı. 
 
 Her markanın kendi `history` dosyası var: yayın geçmişi, insight'lar ve skor tablosu marka
 bazında birikir — bir sayfanın performansı diğerinin konu seçimini etkilemez.
+
+## Tekrar kilitleri — bir konu/gaf/animasyon üst üste çıkmasın
+
+Sayfa kendini tekrar ettiği anda ölür. Üç ayrı eksen, üç ayrı kilit (hepsi geçmiş dosyasından
+beslenir, hiçbiri modelin iyi niyetine bırakılmaz):
+
+| Eksen | Alan | Kilit |
+|---|---|---|
+| **Konu (özne)** | `subject` | Model her spec'te işlediği ürünü/etken maddeyi beyan eder. Son 8 postun öznesi yasak listesine girer (`brain/subjects.mjs`); model yine de tekrar ederse üretim **geçersiz** sayılıp yeniden denenir, seed yedeği bile yasaklı konuya düşmez. |
+| **Gaf (espri açısı)** | `twist` | Her postun ZORUNLU esprili açısı var (`brain/twists.mjs`: para, zaman, pazarlama dili, sosyal medya, itiraf…). Son 4 postun gafı seçilemez; tutan gaf türü zamanla ağırlık kazanır. |
+| **Animasyon** | `layout` / `kinds` | Son 2 postun kompozisyonu yasak. Prompt farklısını ister, `run-daily.mjs` ayrıca kod tarafında zorlar; üç video üst üste düz diyagramsa `versus` formatı öne çıkarılır. |
+
+⚠ **2026-08-01 canlı hata:** @cilt.kodu üst üste iki hyalüronik asit videosu yayınladı. Pillar
+rotasyonu çalışıyordu (`trend-mekanik` → `para-degeri`); tekrarlayan şey **özneydi** ve özneyi
+hiçbir şey takip etmiyordu. Başlık bloklisti de yakalayamazdı: iki başlık birbirine benzemiyor.
+Üstelik blocklist zaten boştu — `mediaId` marka geçmişine yazılıyor ama workflow'un yayın sonrası
+adımı yalnızca `posted-history.json`'ı commit'liyordu, yani 14 postun 13'ünün `mediaId`'si her
+koşuda kayboluyordu. İkisi de düzeltildi.

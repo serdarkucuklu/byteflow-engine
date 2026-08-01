@@ -32,6 +32,7 @@
     "Puck"
   ],
   "pillarSet": "beauty-tr",
+  "twistSet": "beauty-tr",
   "feedSet": "skincare-news",
   "footageSet": "soft",
   "seedBacklog": "brands/seeds/ciltkodu.json",
@@ -86,9 +87,9 @@
   "tone": {
     "fluff": "Faceless. Funny first, useful second — but never fake-funny: the joke comes from the situation being TRUE, not from adding jokes on top.",
     "angle": "Pick the angle that makes the viewer LAUGH IN RECOGNITION — the little everyday drama everyone has lived but nobody says out loud (the foundation that betrays you by noon, the 12-step routine you abandon by day three, the product you bought because of one video). Comedy comes from being painfully accurate about the situation, never from mocking the viewer. Then, inside that laugh, explain the ONE mechanism that actually matters.",
-    "hookRule": "The first 2 seconds decide everything. Write a line that makes her think \"BU BENİM\" and smile at the same time — a tiny confession, a call-out, or a mock-accusation about a situation she has definitely lived. Say the embarrassing part out loud. NOT a topic label, NOT a lecture opener, NOT a scary warning. It must be funny AND true. Example shape: name the everyday betrayal (\"… seni öğlen 12de satıyor\") or the shared self-deception (\"…diye kendini kandırıyorsun\").",
+    "hookRule": "The first 2 seconds decide everything. It opens TODAY'S GAF — the day's assigned comic angle is stated here, out loud, in the first line. Write a line that makes her think \"BU BENİM\" and smile at the same time — a tiny confession, a call-out, or a mock-accusation about a situation she has definitely lived. Say the embarrassing part out loud. NOT a topic label, NOT a lecture opener, NOT a scary warning. It must be funny AND true. Example shape: name the everyday betrayal (\"… seni öğlen 12de satıyor\") or the shared self-deception (\"…diye kendini kandırıyorsun\").",
     "bodyRule": "PLAIN TALK, NOT A CHEMISTRY LECTURE. Every card and every sentence must be sayable by a friend in a cafe. If a technical term is unavoidable, immediately replace it with an everyday analogy (not \"transepidermal su kaybı\" but \"cilt suyunu tutamıyor, açık şişe gibi buharlaşıyor\"). Prefer concrete, visual, slightly cheeky images over precise terminology. Keep one small joke running through the middle so it never turns into homework — the viewer should still learn exactly one thing she can use tomorrow morning.",
-    "takeawayRule": "The closing line is the PUNCHLINE (<= 70 chars). It should make her laugh, nod, and want to send it to a friend — a cheeky rule of thumb or a self-aware confession, not a summary. Never a flat sign-off, never a warning, never \"umarım faydalı olmuştur\".",
-    "captionClosing": "A funny, self-aware closing line that lands the joke"
+    "takeawayRule": "The closing line is the PUNCHLINE (<= 70 chars) and it must LAND TODAY'S GAF — the same angle the hook opened with, now with the twist of the knife. A cheeky rule of thumb or a self-aware confession, never a summary, never a flat sign-off, never \"umarım faydalı olmuştur\".",
+    "captionClosing": "A funny, self-aware closing line that lands today's gaf (the same angle as the hook), not a generic sign-off"
   }
 }

@@ -11,9 +11,14 @@ import {BRAND_KEYS} from '../render/src/lib/brand-keys.mjs';
 // Gemini responseSchema — scene-spec şeklini ZORLAR (hook + takeaway dahil)
 const responseSchemaFor = (brandKeys = BRAND_KEYS) => ({
   type: 'OBJECT',
-  required: ['hook', 'title', 'scenes', 'caption', 'hashtags', 'takeaway', 'footage_queries', 'narration'],
+  required: ['hook', 'title', 'scenes', 'caption', 'hashtags', 'takeaway', 'footage_queries', 'narration', 'subject'],
   properties: {
     hook: {type: 'STRING'},
+    // subject: videonun ÖZNESİ (tek ürün/etken madde), makine alanı — ekranda görünmez.
+    // Sayfanın kendini tekrar etmesini bu alan engelliyor: geçmişe yazılır, sonraki koşularda
+    // soğuma listesine girer (bkz. brain/subjects.mjs). 2026-08-01: üst üste iki hyalüronik
+    // asit videosu yayınlandı çünkü özneyi takip eden hiçbir şey yoktu.
+    subject: {type: 'STRING'},
     // Arka plandaki b-roll için stok-video arama sorguları (fetch/fetch-footage.mjs).
     // enum: b-roll konusu beyaz listeden seçilmek ZORUNDA — serbest metin sorgusu
     // insanlı klip getiriyordu ve sayfa faceless (bkz. fetch/fetch-footage.mjs).
@@ -111,7 +116,10 @@ const DEFAULT_TONE = {
 
 const LANG_NAMES = {tr: 'Turkish', en: 'English', de: 'German', es: 'Spanish'};
 
-const PROMPT = (candidates, recentTitles = [], pillar, brand = {}) => {
+const PROMPT = (candidates, recentTitles = [], pillar, brand = {}, opts = {}) => {
+// bannedSubjects: son postların öznesi (tekrar yasağı), twist: bugünün zorunlu gaf ekseni,
+// bannedLayouts/recentKinds: görsel tekrarı kırmak için (hepsi run-daily.mjs'ten gelir).
+const {bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = []} = opts;
 const persona = {...DEFAULT_PERSONA, ...(brand.persona ?? {})};
 const handle = brand.handle ?? '@byteflowlabs';
 const lang = brand.language && brand.language !== 'en' ? LANG_NAMES[brand.language] ?? brand.language : null;
@@ -164,8 +172,37 @@ ${recentTitles.map(t => `- ${t}`).join('\n')}
 This is a BLOCKLIST, not a style guide. Do not treat these titles as evidence of what this page
 is about — the subject universe above is the only authority. If one of them sits outside that
 universe it was a mistake; steer AWAY from it instead of producing a variation of it.
-` : ''}
+` : ''}${bannedSubjects.length ? `
+SUBJECT COOLDOWN — HARDEST RULE ON THIS PAGE. Each of these was the SUBJECT of a recent video
+and is BANNED today:
+${bannedSubjects.map(s => `- ${s}`).join('\n')}
+They are perfectly on-brand; they are banned ONLY because the page just covered them. Today's
+video must be about a DIFFERENT product / ingredient / thing. A new angle, a new pillar or a new
+joke about a banned subject is STILL BANNED — the viewer sees the subject, not your angle.
+Also do not make a banned subject the co-star: it may appear in ONE comparison line at most,
+never in the title, the hook or more than one node label.
+` : ''}${twist?.focus ? `
+TODAY'S GAF (the laugh) — REQUIRED, and it is why this page gets sent to friends. Angle:
+${twist.focus}
+Land it in exactly three places and nowhere else: (1) the hook, (2) ONE step.status / versus row
+in the middle, (3) the closing takeaway + the caption's closing line. The rest of the video stays
+useful and accurate — the gaf is the seasoning, not the meal.
+The joke must come from something TRUE about this subject, never from mocking the viewer. It is
+a shared confession ("hepimiz yapıyoruz"), not a lecture and not an accusation.
+Use ONLY this angle today. Do not smuggle in the other classic angles (money, time, marketing
+language, social media, confession…) unless the one above IS that angle — the page rotates them
+so that no two neighbouring videos land the same joke.
+` : ''}${bannedLayouts.length ? `
+VISUAL ROTATION — HARD RULE: the last videos already used these layouts: ${bannedLayouts.join(', ')}.
+Pick a layout that is NOT in that list, so two neighbouring videos never animate the same way.
+${recentKinds.length && recentKinds.every(k => k === 'diagram') ? `The last ${recentKinds.length} videos were all plain diagrams. Strongly prefer a "versus" scene
+today (it is the strongest format here), unless the idea genuinely cannot be framed as two
+named options head to head.
+` : ''}` : ''}
 Produce a scene-spec with these fields:
+- subject${lang ? ` (IN ${lang.toUpperCase()})` : ''}: the ONE thing this video is about, as its plain canonical name, 1-3 words,
+  lowercase (${namedExamples}). NOT a sentence, NOT the title, NOT an angle. This field never
+  appears on screen — it is how the page remembers what it has already covered.
 - hook${lang ? ` (IN ${lang.toUpperCase()})` : ''}: the FIRST on-screen line (<= 60 chars). ${tone.hookRule}
   NOT the same as the title. e.g. ${ex.hook}
 - title: <= 60 chars, the concept name${lang ? `, IN ${lang.toUpperCase()}` : ''}.
@@ -282,14 +319,16 @@ ${candidates.slice(0, 15).map((c, i) => `${i + 1}. [${c.source}] ${c.title}`).jo
 </headlines>`;
 };
 
-export async function generateSpec({candidates, apiKey, recentTitles = [], pillar, brand = {}, model = MODELS[0], fetchFn = fetch}) {
+export async function generateSpec({candidates, apiKey, recentTitles = [], pillar, brand = {}, model = MODELS[0], fetchFn = fetch,
+  bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = []}) {
   if (!apiKey) throw new Error('GEMINI_API_KEY missing');
   if (!pillar) throw new Error('pillar missing');
   const res = await fetchFn(ENDPOINT(apiKey, model), {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      contents: [{parts: [{text: PROMPT(candidates, recentTitles, pillar, brand)}]}],
+      contents: [{parts: [{text: PROMPT(candidates, recentTitles, pillar, brand,
+        {bannedSubjects, twist, bannedLayouts, recentKinds})}]}],
       generationConfig: {responseMimeType: 'application/json',
         responseSchema: responseSchemaFor(brand.brandKeys ?? BRAND_KEYS), temperature: 0.9},
     }),

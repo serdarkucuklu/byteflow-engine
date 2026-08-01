@@ -13,7 +13,9 @@
     "voice": null,
     "voiceName": null,
     "date": "2026-07-27",
-    "durSec": 30.2
+    "durSec": 30.2,
+    "subject": "stick güneş kremi",
+    "twist": null
   },
   {
     "title": "Mikroakım Cihazları: Gerçek Mekanizma",
@@ -29,7 +31,9 @@
     "voice": null,
     "voiceName": null,
     "date": "2026-07-27",
-    "durSec": 31.5
+    "durSec": 31.5,
+    "subject": "mikroakım cihazı",
+    "twist": null
   },
   {
     "title": "Retinoid Dönüşüm Darboğazı",
@@ -47,7 +51,9 @@
     "date": "2026-07-27",
     "durSec": 31,
     "mediaId": "18141193588489372",
-    "postedAt": "2026-07-27T22:35:51.358Z"
+    "postedAt": "2026-07-27T22:35:51.358Z",
+    "subject": "retinol",
+    "twist": null
   },
   {
     "title": "The Ordinary Niasinamid INCI Analizi",
@@ -63,7 +69,9 @@
     "voice": null,
     "voiceName": null,
     "date": "2026-07-27",
-    "durSec": 30.9
+    "durSec": 30.9,
+    "subject": "niasinamid",
+    "twist": null
   },
   {
     "title": "Pahalı Serum vs Muadili",
@@ -79,7 +87,9 @@
     "voice": null,
     "voiceName": null,
     "date": "2026-07-27",
-    "durSec": 22.6
+    "durSec": 22.6,
+    "subject": "muadil serum",
+    "twist": null
   },
   {
     "title": "Pahalı Serum vs Muadili",
@@ -95,7 +105,9 @@
     "voice": null,
     "voiceName": null,
     "date": "2026-07-28",
-    "durSec": 23.7
+    "durSec": 23.7,
+    "subject": "muadil serum",
+    "twist": null
   },
   {
     "title": "Claude Code vs Cursor",
@@ -111,7 +123,9 @@
     "voice": 6,
     "voiceName": "Aoede",
     "date": "2026-07-28",
-    "durSec": 23.1
+    "durSec": 23.1,
+    "subject": null,
+    "twist": null
   },
   {
     "title": "C Vitamini ve Niasinamid Çatışması",
@@ -127,7 +141,9 @@
     "voice": 6,
     "voiceName": "Kore",
     "date": "2026-07-28",
-    "durSec": 20.9
+    "durSec": 20.9,
+    "subject": "c vitamini",
+    "twist": null
   },
   {
     "title": "Makyajda Topaklanma Ve Soyulma Mekanizması",
@@ -142,7 +158,9 @@
     ],
     "voice": 8,
     "voiceName": "Puck",
-    "date": "2026-07-28"
+    "date": "2026-07-28",
+    "subject": "topaklanma",
+    "twist": null
   },
   {
     "title": "Kapatıcı Neden Çizgilere Dolur?",
@@ -158,7 +176,9 @@
     "voice": 6,
     "voiceName": "Aoede",
     "date": "2026-07-28",
-    "durSec": 34.9
+    "durSec": 34.9,
+    "subject": "kapatıcı",
+    "twist": null
   },
   {
     "title": "Güneş Kremi Yenileme Derdi",
@@ -174,7 +194,9 @@
     "voice": 6,
     "voiceName": "Kore",
     "date": "2026-07-29",
-    "durSec": 33.9
+    "durSec": 33.9,
+    "subject": "güneş kremi",
+    "twist": null
   },
   {
     "title": "Çöken Cilt Bariyerinin Anatomisi",
@@ -190,7 +212,9 @@
     "voice": 7,
     "voiceName": "Puck",
     "date": "2026-07-30",
-    "durSec": 41.3
+    "durSec": 41.3,
+    "subject": "cilt bariyeri",
+    "twist": null
   },
   {
     "title": "Hyalüronik Asit Neden Cildi Kurutur?",
@@ -206,7 +230,9 @@
     "voice": 7,
     "voiceName": "Aoede",
     "date": "2026-07-31",
-    "durSec": 43.6
+    "durSec": 43.6,
+    "subject": "hyalüronik asit",
+    "twist": null
   },
   {
     "title": "Hyalüronik Asit: Parayı Neye Ödüyoruz?",
@@ -222,6 +248,8 @@
     "voice": 8,
     "voiceName": "Kore",
     "date": "2026-08-01",
-    "durSec": 45.4
+    "durSec": 45.4,
+    "subject": "hyalüronik asit",
+    "twist": "para"
   }
 ]

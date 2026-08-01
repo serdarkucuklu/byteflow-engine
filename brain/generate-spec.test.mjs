@@ -288,3 +288,60 @@ test('ton markadan gelir; ezmeyen marka byteflow tonunu korur', async () => {
   assert.match(def.body.contents[0].parts[0].text, /PROBLEM THE VIEWER RECOGNISES/, 'byteflow tonu korunmalı');
   assert.match(def.body.contents[0].parts[0].text, /anti-hype closing line/);
 });
+
+// ---- 2026-08-01 CANLI HATA: üst üste iki hyalüronik asit videosu (@cilt.kodu) ----
+// Pillar rotasyonu çalışıyordu; tekrarlayan şey ÖZNE'ydi ve özneyi kimse takip etmiyordu.
+test('yasaklı özneler prompt\'a sert kural olarak girer', async () => {
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    bannedSubjects: ['hyalüronik asit', 'niasinamid'],
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /SUBJECT COOLDOWN/);
+  assert.match(p, /- hyalüronik asit/);
+  assert.match(p, /- niasinamid/);
+  assert.match(p, /STILL BANNED/, 'yeni açı da yasak olmalı');
+});
+
+test('özne alanı şemada ZORUNLU (geçmişin tekrar kilidi bu alandan besleniyor)', async () => {
+  const cap = {};
+  await generateSpec({candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    fetchFn: fakeFetchCapturing(cap)});
+  const schema = cap.body.generationConfig.responseSchema;
+  assert.ok(schema.required.includes('subject'));
+  assert.equal(schema.properties.subject.type, 'STRING');
+});
+
+test('gaf ekseni verilince zorunlu olarak prompt\'a girer, verilmezse hiç görünmez', async () => {
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    twist: {key: 'para', focus: 'PARA GAFI: paranın gerçekte neye gittiği'},
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /TODAY'S GAF/);
+  assert.match(p, /PARA GAFI: paranın gerçekte neye gittiği/);
+  assert.match(p, /Use ONLY this angle today/, 'gaf türü de tekrar etmemeli');
+
+  // byteflow (gaf kümesi yok) etkilenmemeli
+  const def = {};
+  await generateSpec({candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    fetchFn: fakeFetchCapturing(def)});
+  assert.doesNotMatch(def.body.contents[0].parts[0].text, /TODAY'S GAF/);
+});
+
+test('son iki videonun düzeni yasaklanır; hepsi diyagramsa versus önerilir', async () => {
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    bannedLayouts: ['nodes-flow', 'cycle'], recentKinds: ['diagram', 'diagram', 'diagram'],
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /VISUAL ROTATION/);
+  assert.match(p, /nodes-flow, cycle/);
+  assert.match(p, /prefer a "versus" scene/);
+});

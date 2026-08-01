@@ -82,3 +82,42 @@ test('produceSpec markayı generateSpec\'e GEÇİRİR (canlı hata: geçmiyordu)
   assert.equal(seen.length, 1);
   assert.equal(seen[0]?.handle, '@cilt.kodu', 'marka generateSpec\'e ulaşmalı');
 });
+
+// ---- Konu tekrarı SERT KAPI (2026-08-01 Serdar direktifi: "bir daha asla") ----
+test('yasaklı özne dönerse üretim geçersiz sayılır ve tekrar denenir', async () => {
+  const calls = [];
+  const generate = async ({bannedSubjects}) => {
+    calls.push(bannedSubjects);
+    // İlk deneme kuralı çiğniyor, ikincisi farklı konuya geçiyor.
+    return calls.length === 1
+      ? {...SEED_BACKLOG[0], subject: 'hyaluronik asit serumu'}
+      : {...SEED_BACKLOG[0], subject: 'retinol'};
+  };
+  const {spec, source} = await produceSpec({candidates: cands, apiKey: 'x', pillar: fakePillar,
+    generate, bannedSubjects: ['hyalüronik asit'], retries: 3, backoffMs: 0});
+  assert.equal(source, 'gemini');
+  assert.equal(spec.subject, 'retinol');
+  assert.equal(calls.length, 2, 'ilk deneme reddedilip yeniden üretilmeliydi');
+  assert.deepEqual(calls[0], ['hyalüronik asit'], 'yasak liste modele iletilmeli');
+});
+
+test('model ısrarla tekrar ederse seed yedeği de yasaklı konuya düşmez', async () => {
+  const generate = async () => ({...SEED_BACKLOG[0], subject: 'hyalüronik asit'});
+  const seeds = [{...SEED_BACKLOG[0], title: 'Yasaklı', subject: 'hyalüronik asit'},
+                 {...SEED_BACKLOG[1], title: 'Temiz', subject: 'retinol'}];
+  const {spec, source} = await produceSpec({candidates: cands, apiKey: 'x', pillar: fakePillar,
+    generate, seeds, bannedSubjects: ['hyaluronik asit'], retries: 1, backoffMs: 0,
+    pickSeed: s => s[0]});
+  assert.equal(source, 'seed');
+  assert.equal(spec.subject, 'retinol', 'seed yedeği tekrarın mazereti değil');
+});
+
+test('gaf ekseni ve görsel rotasyon beyne iletilir', async () => {
+  let got;
+  const generate = async (args) => { got = args; return {...SEED_BACKLOG[0], subject: 'retinol'}; };
+  await produceSpec({candidates: cands, apiKey: 'x', pillar: fakePillar, generate,
+    twist: {key: 'zaman', focus: 'ZAMAN GAFI'}, bannedLayouts: ['cycle'], recentKinds: ['diagram']});
+  assert.equal(got.twist.key, 'zaman');
+  assert.deepEqual(got.bannedLayouts, ['cycle']);
+  assert.deepEqual(got.recentKinds, ['diagram']);
+});
