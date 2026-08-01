@@ -80,7 +80,7 @@
       "ig_reels_avg_watch_time": 4118,
       "ig_reels_video_view_total_time": 490053
     },
-    "insightsAt": "2026-07-31T16:30:28.650Z"
+    "insightsAt": "2026-08-01T15:51:49.432Z"
   },
   {
     "title": "LLM CONTEXT: LOST IN THE MIDDLE",
@@ -119,7 +119,7 @@
       "ig_reels_avg_watch_time": 4235,
       "ig_reels_video_view_total_time": 559104
     },
-    "insightsAt": "2026-07-31T16:30:29.598Z"
+    "insightsAt": "2026-08-01T15:51:50.225Z"
   },
   {
     "title": "LLM Inference: The Batching Trade-off",
@@ -140,7 +140,7 @@
       "ig_reels_avg_watch_time": 2655,
       "ig_reels_video_view_total_time": 302702
     },
-    "insightsAt": "2026-07-31T16:30:30.709Z"
+    "insightsAt": "2026-08-01T15:51:52.228Z"
   },
   {
     "title": "KV Cache Is Why Your LLM Slows Down Mid-Reply",
@@ -161,7 +161,7 @@
       "ig_reels_avg_watch_time": 4054,
       "ig_reels_video_view_total_time": 421622
     },
-    "insightsAt": "2026-07-31T16:30:31.399Z"
+    "insightsAt": "2026-08-01T15:51:53.070Z"
   },
   {
     "title": "LLM GUARDRAILS: BEYOND THE PROMPT",
@@ -182,7 +182,7 @@
       "ig_reels_avg_watch_time": 3951,
       "ig_reels_video_view_total_time": 442519
     },
-    "insightsAt": "2026-07-31T16:30:31.997Z"
+    "insightsAt": "2026-08-01T15:51:54.001Z"
   },
   {
     "title": "SYSTEM PROMPT PRIORITIZATION",
@@ -203,7 +203,7 @@
       "ig_reels_avg_watch_time": 3787,
       "ig_reels_video_view_total_time": 401493
     },
-    "insightsAt": "2026-07-31T16:30:32.888Z"
+    "insightsAt": "2026-08-01T15:51:54.843Z"
   },
   {
     "title": "AI Keypad: Prompt Abstraction",
@@ -224,7 +224,7 @@
       "ig_reels_avg_watch_time": 2586,
       "ig_reels_video_view_total_time": 300030
     },
-    "insightsAt": "2026-07-31T16:30:33.447Z"
+    "insightsAt": "2026-08-01T15:51:55.569Z"
   },
   {
     "title": "OPUS 5: UNEVEN CAPABILITIES",
@@ -245,7 +245,7 @@
       "ig_reels_avg_watch_time": 6061,
       "ig_reels_video_view_total_time": 3036805
     },
-    "insightsAt": "2026-07-31T16:30:34.139Z"
+    "insightsAt": "2026-08-01T15:51:56.365Z"
   },
   {
     "title": "Model Routing Beats Always Using Flagship Models",
@@ -398,7 +398,7 @@
       "ig_reels_avg_watch_time": 3674,
       "ig_reels_video_view_total_time": 404145
     },
-    "insightsAt": "2026-07-31T16:30:35.498Z"
+    "insightsAt": "2026-08-01T15:51:58.191Z"
   },
   {
     "title": "Microsoft Security Model",
@@ -456,7 +456,7 @@
       "ig_reels_avg_watch_time": 1548,
       "ig_reels_video_view_total_time": 164126
     },
-    "insightsAt": "2026-07-31T16:30:36.541Z"
+    "insightsAt": "2026-08-01T15:52:00.514Z"
   },
   {
     "title": "MCP Architecture Under the Hood",
@@ -484,7 +484,7 @@
       "ig_reels_avg_watch_time": 4661,
       "ig_reels_video_view_total_time": 508050
     },
-    "insightsAt": "2026-07-31T16:30:37.037Z"
+    "insightsAt": "2026-08-01T15:52:01.568Z"
   },
   {
     "title": "Gemini Managed Agents Hook Flow",
@@ -512,7 +512,7 @@
       "ig_reels_avg_watch_time": 1991,
       "ig_reels_video_view_total_time": 209153
     },
-    "insightsAt": "2026-07-31T16:30:37.520Z"
+    "insightsAt": "2026-08-01T15:52:02.892Z"
   },
   {
     "title": "Gemini 3 Flash Agent Hooks",
@@ -530,6 +530,32 @@
     "date": "2026-07-31",
     "durSec": 19,
     "mediaId": "18097742096017047",
-    "postedAt": "2026-07-31T16:35:45.876Z"
+    "postedAt": "2026-07-31T16:35:45.876Z",
+    "insights": {
+      "views": 83,
+      "reach": 72,
+      "saved": 0,
+      "shares": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 1890,
+      "ig_reels_video_view_total_time": 143708
+    },
+    "insightsAt": "2026-08-01T15:52:04.255Z"
+  },
+  {
+    "title": "Claude Code Subagent Context Protection",
+    "pillar": "coding-environments",
+    "layout": "hub-spoke",
+    "motion": "buildup",
+    "theme": "#f778ba",
+    "source": "gemini",
+    "footage": [
+      "pexels:server led lights macro",
+      "pexels:empty data center aisle"
+    ],
+    "voice": 7,
+    "voiceName": "Charon",
+    "date": "2026-08-01",
+    "durSec": 19.5
   }
 ]

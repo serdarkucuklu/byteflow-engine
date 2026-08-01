@@ -1,78 +1,86 @@
 {
-  "hook": "Your Gemini 3 Flash agent leaks state without hooks.",
-  "title": "Gemini 3 Flash Agent Hooks",
+  "hook": "Your Claude Code agent burns context on subtasks.",
+  "title": "Claude Code Subagent Context Protection",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "hub-spoke",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "user",
-          "label": "USER REQUEST"
+          "id": "claude-main",
+          "label": "MAIN AGENT",
+          "brand": "claude"
         },
         {
-          "id": "prehook",
-          "label": "PRE-CALL HOOK"
+          "id": "subagent",
+          "label": "FORKED SUBAGENT"
         },
         {
-          "id": "gemini",
-          "label": "GEMINI 3 FLASH",
-          "brand": "gemini"
+          "id": "bash-tool",
+          "label": "BASH ENVIRONMENT"
         },
         {
-          "id": "posthook",
-          "label": "POST-CALL HOOK"
+          "id": "context-filter",
+          "label": "SUMMARY FILTER"
         }
       ],
       "steps": [
         {
-          "from": "user",
-          "to": "prehook",
-          "packet": "REQ",
-          "status": "pre-hook validates incoming user payload",
+          "from": "claude-main",
+          "to": "subagent",
+          "packet": "TASK",
+          "status": "main agent delegates subtask to fork",
           "color": "accent"
         },
         {
-          "from": "prehook",
-          "to": "gemini",
-          "packet": "PROMPT",
-          "status": "sanitized prompt streams to model contex",
+          "from": "subagent",
+          "to": "bash-tool",
+          "packet": "EXEC",
+          "status": "subagent runs tools in isolated shell",
           "color": "good"
         },
         {
-          "from": "gemini",
-          "to": "posthook",
-          "packet": "CALL",
-          "status": "post-hook audits tool call permissions",
+          "from": "bash-tool",
+          "to": "context-filter",
+          "packet": "LOGS",
+          "status": "raw execution logs get compressed",
           "color": "warn"
+        },
+        {
+          "from": "context-filter",
+          "to": "claude-main",
+          "packet": "BRIEF",
+          "status": "condensed summary returns to main agent",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Your Gemini 3 Flash agent leaks state without hook validation.\n\nHere's what actually happens inside a managed agent lifecycle:\n\n1. USER REQUEST — The raw request payload sent by the user before any LLM execution begins.\n2. PRE-CALL HOOK — Deterministic middleware that redacts sensitive PII, validates schema, and sets state.\n3. GEMINI 3 FLASH — The model receives strictly sanitized context, preventing prompt injection leakage.\n4. POST-CALL HOOK — An inspection barrier that checks requested tool signatures before execution.\n\nWhen building production agents, hook architecture matters more than raw token throughput.\n\nNo magic — just explicit middleware pipelines around LLMs.\n\n📌 Save this so you don't forget how to secure agent calls.\n🔁 Send it to someone building with Gemini API.\n\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Your Claude Code CLI session degrades when bash outputs fill the context window.\n\nHere is how subagents preserve reasoning capacity during long coding sessions:\n\n1. Main Agent — The primary reasoning loop handling architecture and user commands.\n2. Forked Subagent — An isolated worker spawned to execute targeted subtasks like file discovery or test runs.\n3. Bash Environment — Execution environment where verbose terminal outputs and compile errors occur.\n4. Summary Filter — Condensation step that strips raw log noise and extracts key status returns.\n\nWhen evaluating agentic coding tools, you are paying for context hygiene, not raw model IQ.\n\nNo magic — just isolated subshells and context summarization.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
     "#ai",
     "#llm",
-    "#aiengineering",
-    "#gemini",
+    "#claudecode",
     "#aiagents",
+    "#aiengineering",
     "#promptengineering",
-    "#gemini3flash"
+    "#mcp"
   ],
-  "takeaway": "Intercept every payload before Gemini 3 Flash touches context.",
+  "takeaway": "Subagents protect main context by filtering verbose tool logs.",
   "footage_queries": [
     "server led lights macro",
-    "network connection lines abstract"
+    "empty data center aisle"
   ],
   "narration": [
-    "Your Gemini 3 Flash agent leaks state without hooks.",
-    "Four components control every managed agent execution cycle.",
-    "First, the pre-hook validates incoming user input payload.",
-    "Next, clean prompt data feeds Gemini 3 Flash.",
-    "Then, post-hooks intercept model tool call requests cleanly.",
-    "Intercept every payload before Gemini touches context state."
+    "Your Claude Code agent loses speed on complex refactors.",
+    "Isolated subagents prevent your main context from rotting.",
+    "The main agent forks a subagent for subtasks.",
+    "The subagent runs bash tools in isolation.",
+    "Raw terminal logs get stripped and summarized.",
+    "Only clean findings return to main context.",
+    "Isolate tool output to protect prompt budget."
   ],
-  "theme": "#e3b341",
+  "theme": "#f778ba",
   "brand": {
     "handle": "@byteflowlabs",
     "signoff": "AI systems, no hype",
@@ -82,34 +90,39 @@
   "footage": true,
   "beats": [
     {
-      "text": "Your Gemini 3 Flash agent leaks state without hooks.",
+      "text": "Your Claude Code agent loses speed on complex refactors.",
       "start": 0.35,
-      "dur": 2.74
+      "dur": 3.038
     },
     {
-      "text": "Four components control every managed agent execution cycle.",
-      "start": 3.09,
-      "dur": 3.161
+      "text": "Isolated subagents prevent your main context from rotting.",
+      "start": 3.388,
+      "dur": 3.146
     },
     {
-      "text": "First, the pre-hook validates incoming user input payload.",
-      "start": 6.251,
-      "dur": 3.056
+      "text": "The main agent forks a subagent for subtasks.",
+      "start": 6.534,
+      "dur": 2.441
     },
     {
-      "text": "Next, clean prompt data feeds Gemini 3 Flash.",
-      "start": 9.307,
-      "dur": 2.371
+      "text": "The subagent runs bash tools in isolation.",
+      "start": 8.974,
+      "dur": 2.278
     },
     {
-      "text": "Then, post-hooks intercept model tool call requests cleanly.",
-      "start": 11.678,
-      "dur": 3.161
+      "text": "Raw terminal logs get stripped and summarized.",
+      "start": 11.253,
+      "dur": 2.495
     },
     {
-      "text": "Intercept every payload before Gemini touches context state.",
-      "start": 14.84,
-      "dur": 4.261
+      "text": "Only clean findings return to main context.",
+      "start": 13.748,
+      "dur": 2.332
+    },
+    {
+      "text": "Isolate tool output to protect prompt budget.",
+      "start": 16.08,
+      "dur": 3.541
     }
   ],
   "thumbOffset": 1450

@@ -1,135 +1,128 @@
 {
-  "hook": "Hyalüronik asit cildini nemlendireceğine kurutuyorsa dinle.",
-  "title": "Hyalüronik Asit Neden Cildi Kurutur?",
+  "hook": "Your Claude Code agent burns context on subtasks.",
+  "title": "Claude Code Subagent Context Protection",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "hub-spoke",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "HYALÜRONİK ASİT"
+          "id": "claude-main",
+          "label": "MAIN AGENT",
+          "brand": "claude"
         },
         {
-          "id": "n2",
-          "label": "KURU HAVA"
+          "id": "subagent",
+          "label": "FORKED SUBAGENT"
         },
         {
-          "id": "n3",
-          "label": "CİLT DOKUSU"
+          "id": "bash-tool",
+          "label": "BASH ENVIRONMENT"
         },
         {
-          "id": "n4",
-          "label": "NEM KAYBI"
+          "id": "context-filter",
+          "label": "SUMMARY FILTER"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "NEM",
-          "status": "havada nem bulamayınca çaresiz kalır",
-          "color": "warn"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "ÇEKİM",
-          "status": "gözünü cildin kendi alt suyuna diker",
+          "from": "claude-main",
+          "to": "subagent",
+          "packet": "TASK",
+          "status": "main agent delegates subtask to fork",
           "color": "accent"
         },
         {
-          "from": "n3",
-          "to": "n1",
-          "packet": "EMME",
-          "status": "derindeki tüm suyu yukarıya çeker",
+          "from": "subagent",
+          "to": "bash-tool",
+          "packet": "EXEC",
+          "status": "subagent runs tools in isolated shell",
+          "color": "good"
+        },
+        {
+          "from": "bash-tool",
+          "to": "context-filter",
+          "packet": "LOGS",
+          "status": "raw execution logs get compressed",
           "color": "warn"
         },
         {
-          "from": "n1",
-          "to": "n4",
-          "packet": "BUHAR",
-          "status": "kuru havaya buharlaşıp cildi kurutur",
-          "color": "warn"
+          "from": "context-filter",
+          "to": "claude-main",
+          "packet": "BRIEF",
+          "status": "condensed summary returns to main agent",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Hyalüronik asit cildini nemlendirmek yerine kurutuyorsa yalnız değilsiniz.\n\nHyalüronik asit cildini neden gerim gerim gerer, adım adım:\n\n1. Hyalüronik Asit — Kendi ağırlığının bin katı su tutabilen bir nem mıknatısıdır, ama suyu kendi üretmez, havadan toplar.\n2. Kuru Hava — Bulunduğun odada nem azsa, bu molekül havada tutunacak tek bir su damlası bile bulamaz.\n3. Cilt Dokusu — Dışarıda nem bulamayan serum, gözünü cildinin alt katmanlarında hazır bekleyen kendi doğal suyuna diker.\n4. Nem Kaybı — Alt katmandan çekilen su yüzeye çıkar ve kuru havada buharlaşır; cilt nemleneceği yerine çölleşir.\n\nIslak cilde uygulamak ve üzerine nemlendirici krem sürmek tek çözümdür.\n\nÜrün bozuk değil, hava nemli değil. Ama biz su sıkmak yerine yeni serum alacağız.\n\n📌 Kaydet — bir dahaki nem serumu krizinde lazım olacak.\n🔁 Bunu cildi kuruyup krem üzerine krem süren arkadaşına gönder.\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Your Claude Code CLI session degrades when bash outputs fill the context window.\n\nHere is how subagents preserve reasoning capacity during long coding sessions:\n\n1. Main Agent — The primary reasoning loop handling architecture and user commands.\n2. Forked Subagent — An isolated worker spawned to execute targeted subtasks like file discovery or test runs.\n3. Bash Environment — Execution environment where verbose terminal outputs and compile errors occur.\n4. Summary Filter — Condensation step that strips raw log noise and extracts key status returns.\n\nWhen evaluating agentic coding tools, you are paying for context hygiene, not raw model IQ.\n\nNo magic — just isolated subshells and context summarization.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#hyalüronikasit",
-    "#cildinemi",
-    "#ciltbariyeri",
-    "#serum",
-    "#skincare"
+    "#ai",
+    "#llm",
+    "#claudecode",
+    "#aiagents",
+    "#aiengineering",
+    "#promptengineering",
+    "#mcp"
   ],
-  "takeaway": "Serumu ıslak cilde sür, yoksa cildinin suyunu emip havaya uçurur.",
+  "takeaway": "Subagents protect main context by filtering verbose tool logs.",
   "footage_queries": [
-    "serum drop close up",
-    "water droplets on glass"
+    "server led lights macro",
+    "empty data center aisle"
   ],
   "narration": [
-    "Hyalüronik asit sürdükten sonra cildinizin daha da kuruduğunu hissediyorsanız yalnız değilsiniz kızlar.",
-    "Bu serumun cildinizde tam olarak nasıl çalıştığını dört adımda hemen çözelim.",
-    "Hyalüronik asit molekülü çevredeki nemi sünger gibi çekmek üzere tasarlanmış bir maddedir.",
-    "Bulunduğunuz ortamda yeterli nem yoksa bu molekül havadan su yakalamayı başaramaz.",
-    "Çaresiz kalan serum cildinizin alt katmanlarındaki kendi doğal suyunu yukarıya doğru çeker.",
-    "Yüzeye çekilen bu değerli su rüzgarla uçup gider ve cildiniz iyice kurur.",
-    "Serumdan önce yüzünüzü biraz ıslatın ki serum cildinizin suyunu emip havaya uçurmasın."
+    "Your Claude Code agent loses speed on complex refactors.",
+    "Isolated subagents prevent your main context from rotting.",
+    "The main agent forks a subagent for subtasks.",
+    "The subagent runs bash tools in isolation.",
+    "Raw terminal logs get stripped and summarized.",
+    "Only clean findings return to main context.",
+    "Isolate tool output to protect prompt budget."
   ],
-  "theme": "#c9a227",
+  "theme": "#f778ba",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
-    "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
+    "handle": "@byteflowlabs",
+    "signoff": "AI systems, no hype",
+    "shareCta": "↗  Send this to someone who needs it"
   },
-  "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
-  },
-  "language": "tr",
   "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "Hyalüronik asit sürdükten sonra cildinizin daha da kuruduğunu hissediyorsanız yalnız değilsiniz kızlar.",
+      "text": "Your Claude Code agent loses speed on complex refactors.",
       "start": 0.35,
-      "dur": 7.208
+      "dur": 3.038
     },
     {
-      "text": "Bu serumun cildinizde tam olarak nasıl çalıştığını dört adımda hemen çözelim.",
-      "start": 7.558,
-      "dur": 5.389
+      "text": "Isolated subagents prevent your main context from rotting.",
+      "start": 3.388,
+      "dur": 3.146
     },
     {
-      "text": "Hyalüronik asit molekülü çevredeki nemi sünger gibi çekmek üzere tasarlanmış bir maddedir.",
-      "start": 12.947,
-      "dur": 6.299
+      "text": "The main agent forks a subagent for subtasks.",
+      "start": 6.534,
+      "dur": 2.441
     },
     {
-      "text": "Bulunduğunuz ortamda yeterli nem yoksa bu molekül havadan su yakalamayı başaramaz.",
-      "start": 19.246,
-      "dur": 5.739
+      "text": "The subagent runs bash tools in isolation.",
+      "start": 8.974,
+      "dur": 2.278
     },
     {
-      "text": "Çaresiz kalan serum cildinizin alt katmanlarındaki kendi doğal suyunu yukarıya doğru çeker.",
-      "start": 24.985,
-      "dur": 6.369
+      "text": "Raw terminal logs get stripped and summarized.",
+      "start": 11.253,
+      "dur": 2.495
     },
     {
-      "text": "Yüzeye çekilen bu değerli su rüzgarla uçup gider ve cildiniz iyice kurur.",
-      "start": 31.353,
-      "dur": 5.109
+      "text": "Only clean findings return to main context.",
+      "start": 13.748,
+      "dur": 2.332
     },
     {
-      "text": "Serumdan önce yüzünüzü biraz ıslatın ki serum cildinizin suyunu emip havaya uçurmasın.",
-      "start": 36.462,
-      "dur": 7.119
+      "text": "Isolate tool output to protect prompt budget.",
+      "start": 16.08,
+      "dur": 3.541
     }
   ]
 }
