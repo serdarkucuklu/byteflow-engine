@@ -1,0 +1,47 @@
+{
+  "title": "LED Maske Evde Ne Kadar İş Yapıyor?",
+  "hook": "LED maskeyi 3 gün kullanıp dolaba kaldıranlar?",
+  "takeaway": "Cihaz değil, üçüncü günde biten sabrımız suçlu.",
+  "subject": "led maske",
+  "caption": "Kareografi denetimi için sabit spec — yayına gitmez.",
+  "hashtags": ["#ciltbakimi", "#ledmaske", "#güzellik"],
+  "theme": "#e8a0a8",
+  "palette": {"bg": "#17110f", "card": "#241b18", "stroke": "#3c2f2a", "text": "#f6ece7", "muted": "#b9a49c"},
+  "brand": {"handle": "@cilt.kodu", "signoff": "güzellik, pazarlama değil", "shareCta": "↗  Bunu ihtiyacı olan birine gönder"},
+  "language": "tr",
+  "footage_queries": ["cream texture macro", "serum drop close up"],
+  "narration": [
+    "LED maskeyi üç gün kullanıp dolaba kaldırıyoruz.",
+    "Bu işte üç şey aynı anda çalışıyor.",
+    "Ev cihazı güvenli olsun diye ışığı düşük tutuyor.",
+    "Düşük ışık cilde daha uzun sürede ulaşıyor.",
+    "Klinik cihazı aynı işi çok daha yoğun yapıyor.",
+    "Cihaz değil, üçüncü günde biten sabrımız suçlu."
+  ],
+  "beats": [
+    {"text": "LED maskeyi üç gün kullanıp dolaba kaldırıyoruz.", "start": 0, "dur": 2.4},
+    {"text": "Bu işte üç şey aynı anda çalışıyor.", "start": 2.4, "dur": 1.9},
+    {"text": "Ev cihazı güvenli olsun diye ışığı düşük tutuyor.", "start": 4.3, "dur": 2.5},
+    {"text": "Düşük ışık cilde daha uzun sürede ulaşıyor.", "start": 6.8, "dur": 2.4},
+    {"text": "Klinik cihazı aynı işi çok daha yoğun yapıyor.", "start": 9.2, "dur": 2.5},
+    {"text": "Cihaz değil, üçüncü günde biten sabrımız suçlu.", "start": 11.7, "dur": 2.6}
+  ],
+  "scenes": [
+    {
+      "kind": "diagram",
+      "layout": "nodes-flow",
+      "heading": "EVDE Mİ KLİNİKTE Mİ",
+      "nodes": [
+        {"id": "n1", "label": "EV TİPİ MASKE"},
+        {"id": "n2", "label": "DÜŞÜK IŞIK DOZU"},
+        {"id": "n3", "label": "UZUN SÜRE"},
+        {"id": "n4", "label": "KLİNİK SEANSI"}
+      ],
+      "steps": [
+        {"from": "n1", "to": "n2", "packet": "DOZ", "status": "ev cihazı ışığı düşük tutuyor", "color": "warn"},
+        {"from": "n2", "to": "n3", "packet": "SÜRE", "status": "düşük doz uzun süre istiyor", "color": "accent"},
+        {"from": "n3", "to": "n4", "packet": "YOĞUN", "status": "klinik aynı işi yoğun yapıyor", "color": "good"}
+      ]
+    }
+  ]
+}

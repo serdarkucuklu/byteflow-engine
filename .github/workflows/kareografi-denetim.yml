@@ -1,0 +1,66 @@
+name: Kareografi Denetimi
+
+# BEŞ hareket dilini AYNI spec ile render eder ve videoları artifact olarak bırakır.
+# Yayın YOK, Gemini çağrısı YOK, TTS kotası harcanmaz: sabit fixture'ın kendi `beats`
+# alanı var, yani canlı yoldaki SES-OTORİTE zamanlaması da bu koşuda sınanıyor.
+# Amaç: bir kareografi değiştiğinde "yarın canlıda görürüz" demek zorunda kalmamak.
+
+on:
+  workflow_dispatch:
+    inputs:
+      spec:
+        description: "Denetlenecek spec (render/fixtures/… )"
+        type: string
+        default: "render/fixtures/kareografi-denetim.json"
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        motion: [buildup, spotlight, camera, cascade, ripple]
+    env:
+      BYTEFLOW_BRAND: ciltkodu
+      BYTEFLOW_MOTION: ${{ matrix.motion }}
+      BYTEFLOW_SPEC: ${{ inputs.spec }}
+      BYTEFLOW_VOICE: '0'     # fixture'ın kendi beat'leri var → TTS kotası harcanmıyor
+      BYTEFLOW_FOOTAGE: '0'   # b-roll yok: sınanan şey hareket, arka plan değil
+      RENDER_HEADED: '1'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Sistem bağımlılıkları (ffmpeg + fontlar)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg xvfb fonts-noto-color-emoji fonts-jetbrains-mono fonts-inter \
+            || sudo apt-get install -y ffmpeg xvfb fonts-noto-color-emoji
+
+      - name: Bağımlılıklar (root + render + chromium)
+        run: |
+          npm ci
+          cd render
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Render (${{ matrix.motion }})
+        run: xvfb-run -a node run-daily.mjs
+
+      - name: Süre ölçümü
+        run: |
+          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 dist/final.mp4
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 dist/final.mp4
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kareografi-${{ matrix.motion }}
+          path: dist/final.mp4
+          retention-days: 7

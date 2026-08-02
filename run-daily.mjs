@@ -13,6 +13,7 @@ import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './pub
 import {pillarsFor, selectPillar} from './brain/pillars.mjs';
 import {twistsFor, selectTwist} from './brain/twists.mjs';
 import {recentSubjects} from './brain/subjects.mjs';
+import {selectMotion} from './render/src/lib/motion-registry.mjs';
 import {loadBrand} from './brands/load.mjs';
 import {aggregate, pickWeighted, leaderboard} from './brain/scoreboard.mjs';
 
@@ -111,7 +112,12 @@ spec.caption = formatCaption(spec.caption);
 const LAYOUTS = ['nodes-flow', 'vertical-stack', 'hub-spoke', 'cycle']; // render/src/lib/spec.ts ile senkron
 const n = history.length;
 const theme = THEMES[(n * 5 + 1) % THEMES.length]; // *5: eski layout rotasyonuyla senkron olmasın diye kalan ofset
-const motion = 'buildup';                           // tek koreografi (kademeli kurulum)
+// KAREOGRAFİ ROTASYONU: 5 hareket dili (render/src/scenes/choreo.tsx), son 2 video
+// hariç LRU. Serdar 2026-08-02: "5 farklı kareografi olsun, mevcuttan da iyi."
+// BYTEFLOW_MOTION: tek bir kareografiyi zorlamak için (denetim koşuları — bkz.
+// .github/workflows/kareografi-denetim.yml). Boşsa normal rotasyon işler.
+const motion = process.env.BYTEFLOW_MOTION
+  || selectMotion(history.slice(-2).map(h => h.motion).filter(Boolean), n).name;
 spec.theme = theme;
 spec.brand = {handle: brand.handle, signoff: brand.persona?.signoff ?? '',
   shareCta: brand.persona?.shareCta ?? ''};
@@ -133,7 +139,7 @@ spec.scenes.forEach((sc, i) => {
 });
 const layout = spec.scenes.map(sc => sc.kind === 'code' ? 'code' : sc.layout).join('+');
 const kinds = spec.scenes.map(sc => sc.kind ?? 'diagram').join('+');
-console.log(`✓ spec (${source}): ${spec.title} [konu: ${spec.subject ?? '—'} / gaf: ${twist?.key ?? '—'} / ${layout} / ${kinds} / ${theme}]`);
+console.log(`✓ spec (${source}): ${spec.title} [konu: ${spec.subject ?? '—'} / gaf: ${twist?.key ?? '—'} / ${layout} / ${kinds} / hareket: ${motion} / ${theme}]`);
 
 // ---- B-roll: gerçek hareketli görüntü indir (Pexels/Pixabay/Coverr) ----
 // Klip inebildiyse spec.footage=true → sahne ŞEFFAF (alpha PNG) render edilir ve

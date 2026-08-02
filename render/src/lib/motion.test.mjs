@@ -1,11 +1,24 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {MOTION_META, MOTION_NAMES, pickMotion, motionTarget} from './motion-registry.mjs';
+import {MOTION_META, MOTION_NAMES, pickMotion, motionTarget, weightOf, selectMotion} from './motion-registry.mjs';
 
-test('single build-up preset', () => {
-  assert.equal(MOTION_META.length, 1);
-  assert.equal(MOTION_NAMES.length, 1);
-  assert.equal(MOTION_NAMES[0], 'buildup');
+// Serdar 2026-08-02: "5 farklı kareografi olsun, mevcuttan da iyi."
+test('beş kareografi kayıtlı ve adları tekil', () => {
+  assert.equal(MOTION_META.length, 5);
+  assert.deepEqual(MOTION_NAMES, ['buildup', 'spotlight', 'camera', 'cascade', 'ripple']);
+  assert.equal(new Set(MOTION_NAMES).size, 5);
+});
+
+// Kayıt defteri scenes/choreo.tsx ile SENKRON olmalı: burada olup orada olmayan bir ad
+// render'da sessizce buildup'a düşer ve "5 farklı" iddiası kâğıt üstünde kalır.
+test('kayıt defteri choreo.tsx ile senkron', async () => {
+  const {readFileSync} = await import('node:fs');
+  const src = readFileSync(new URL('../scenes/choreo.tsx', import.meta.url), 'utf8');
+  const exported = src.match(/export const CHOREOS[^{]*\{([^}]*)\}/)?.[1] ?? '';
+  for (const name of MOTION_NAMES) {
+    assert.match(src, new RegExp(`key: '${name}'`), `choreo.tsx'te ${name} tanımı yok`);
+    assert.match(exported, new RegExp(`\\b${name}\\b`), `${name} CHOREOS haritasında değil`);
+  }
 });
 
 test('every meta entry has name/stagger/weight of correct types', () => {
@@ -18,11 +31,26 @@ test('every meta entry has name/stagger/weight of correct types', () => {
   }
 });
 
-test('pickMotion always returns buildup (single preset), any index', () => {
+test('pickMotion her indekste havuzun içinde kalır', () => {
+  for (const i of [0, 5, 12, -1]) assert.ok(MOTION_NAMES.includes(pickMotion(i).name));
   assert.equal(pickMotion(0).name, 'buildup');
-  assert.equal(pickMotion(5).name, 'buildup');
-  assert.equal(pickMotion(12).name, 'buildup');
-  assert.equal(pickMotion(-1).name, 'buildup');
+  assert.equal(pickMotion(5).name, 'buildup');   // 5 kareografi → tur başa döner
+});
+
+test('weightOf bilinmeyen adı varsayılana düşürür', () => {
+  assert.equal(weightOf('cascade'), 1.5);
+  assert.equal(weightOf('olmayan'), MOTION_META[0].weight);
+  assert.equal(weightOf(undefined), MOTION_META[0].weight);
+});
+
+test('selectMotion son kullanılanları atlar', () => {
+  const picked = selectMotion(['buildup', 'spotlight'], 0);
+  assert.ok(!['buildup', 'spotlight'].includes(picked.name));
+});
+
+test('selectMotion hepsi kullanıldıysa kilitlenmez', () => {
+  const picked = selectMotion(MOTION_NAMES, 3);
+  assert.ok(MOTION_NAMES.includes(picked.name));
 });
 
 test('motionTarget stays inside the 25-30s band', () => {

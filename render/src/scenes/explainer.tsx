@@ -2,7 +2,8 @@ import {makeScene2D, Rect, Txt, Layout, Line, Path, Code, LezerHighlighter} from
 import {all, delay, createRef, waitFor, useThread, easeOutCubic, easeInOutCubic, easeOutQuad} from '@motion-canvas/core';
 import {FONTS, CAPTION_Y, CLUSTER_Y, resolvePalette, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
-import {motionTarget} from '../lib/motion-registry.mjs';
+import {motionTarget, weightOf} from '../lib/motion-registry.mjs';
+import {resolveChoreo, type ChoreoCtx} from './choreo';
 import {byteflowHighlighter} from '../lib/codeHighlighter';
 import {brandOf} from '../lib/brands';
 import specJson from '../../scene-spec.json';
@@ -36,8 +37,10 @@ const SHARE_CTA = spec.brand?.shareCta || '↗  Send this to someone who needs i
 const FOOTAGE = spec.footage === true;
 const SHADOW = FOOTAGE ? {shadowColor: '#000000e6', shadowBlur: 30} : {};
 
-const BUILDUP_WEIGHT = 1;
-const pacing = computePacing(specShape(spec), motionTarget(BUILDUP_WEIGHT));
+// HAREKET DİLİ: spec.motion hangi kareografiyi istiyorsa o (bkz. scenes/choreo.tsx).
+// Bilinmeyen değer buildup'a düşer — yayın hiçbir koşulda kırılmaz.
+const CHOREO = resolveChoreo(spec.motion);
+const pacing = computePacing(specShape(spec), motionTarget(weightOf(spec.motion)));
 
 // SES OTORİTE: seslendirme varsa her beat'in süresi ölçülmüştür; görsel ona uyar.
 // beats[0]=hook, beats[1..n]=adımlar, beats[son]=kapanış. Yoksa eski governor devrede.
@@ -154,6 +157,10 @@ export default makeScene2D(function* (view) {
 
     const container = createRef<Layout>();
     view.add(<Layout ref={container} opacity={1} />);
+    // stage: SADECE kartlar + bağlantılar. 'camera' kareografisi bunu kaydırıp
+    // yakınlaştırıyor; başlık, ilerleme rayı ve altyazı container'da kalıp sabit duruyor.
+    const stage = createRef<Layout>();
+    container().add(<Layout ref={stage} />);
 
     const heading = createRef<Txt>();
     container().add(<Txt ref={heading} text={scene.heading ?? ''} fill={ACCENT}
@@ -198,7 +205,7 @@ export default makeScene2D(function* (view) {
     nodes.forEach((n, i) => {
       const box = createRef<Rect>();
       const glyph = nodeGlyph(n, glyphSize, i, ACCENT);
-      container().add(
+      stage().add(
         <Rect ref={box} width={w} height={h} radius={column ? 24 : 26} fill={CARD_FILL}
           stroke={CARD_STROKE} lineWidth={1.5} x={pos[i].x} y={pos[i].y + RISE} opacity={0} zIndex={1}
           shadowColor={'#00000070'} shadowBlur={36} shadowOffsetY={14}
@@ -223,7 +230,7 @@ export default makeScene2D(function* (view) {
     const allLines: Line[] = [];
     segs.forEach(([a, b]) => {
       const ln = createRef<Line>();
-      container().add(
+      stage().add(
         <Line ref={ln} points={[[pos[a].x, pos[a].y], [pos[b].x, pos[b].y]]}
           stroke={CARD_STROKE} lineWidth={2} end={0} zIndex={0} />,
       );
@@ -257,18 +264,11 @@ export default makeScene2D(function* (view) {
     const enterT = BEATS ? clamp(setupBudget / (count + edges * 0.6), 0.14, 0.5) : pacing.enter;
     const lineT = BEATS ? enterT * 0.6 : pacing.lines;
 
-    yield* all(
-      boxByIndex[0].opacity(1, enterT, easeOutCubic),
-      boxByIndex[0].y(pos[0].y, enterT, easeOutCubic),
-    );
-    for (let i = 1; i < count; i++) {
-      const incoming = lineByTarget.get(i) ?? [];
-      if (incoming.length) yield* all(...incoming.map(l => l.end(1, lineT, easeOutQuad)));
-      yield* all(
-        boxByIndex[i].opacity(1, enterT, easeOutCubic),
-        boxByIndex[i].y(pos[i].y, enterT, easeOutCubic),
-      );
-    }
+    const choreoCtx: ChoreoCtx = {
+      stage: stage(), boxes: boxByIndex, pos, lineByTarget, allLines,
+      accent: ACCENT, cardStroke: CARD_STROKE, enterT, lineT, rise: RISE, clusterY: CLUSTER_Y,
+    };
+    yield* CHOREO.enter(choreoCtx);
 
     // ── AKIŞ: adım başına TEK YÖNLÜ ışık darbesi + odak ─────────────────────
     for (const [si, step] of steps.entries()) {
@@ -284,16 +284,7 @@ export default makeScene2D(function* (view) {
         ? lineByPair.get(fi < ti ? `${fi}-${ti}` : `${ti}-${fi}`)
         : undefined;
       const others = boxByIndex.filter(b => b !== from && b !== to);
-
-      // Işık darbesi: bağlantının üstünde ilerleyen kısa parlak segment (tek geçiş).
-      const pulse = createRef<Line>();
-      if (base) {
-        container().add(
-          <Line ref={pulse} points={[[pos[fi].x, pos[fi].y], [pos[ti].x, pos[ti].y]]}
-            stroke={col} lineWidth={4} lineCap="round" start={0} end={0} zIndex={2}
-            shadowColor={col} shadowBlur={22} opacity={0.95} />,
-        );
-      }
+      const stepCtx = {...choreoCtx, from, to, fi, ti, others, col, pulseT, line: base};
 
       // rayda bulunduğumuz adımı yak
       rail.forEach((bar, i) => {
@@ -303,25 +294,8 @@ export default makeScene2D(function* (view) {
 
       // ALTYAZI: o an konuşulan cümle (ses yoksa adımın status metni).
       yield* showCaption(caption, BEATS?.[si + 2]?.text ?? step.status, col);
-      yield* all(
-        // odak: hedef ve kaynak öne çıkar, gerisi geri çekilir
-        from.stroke(col, 0.22), from.shadowColor(`${col}55`, 0.22),
-        ...others.map(b => b.opacity(0.45, 0.22)),
-      );
-
-      if (pulse()) {
-        const t = pulseT;
-        yield* all(
-          pulse().end(1, t, easeInOutCubic),
-          // kuyruk, başın 0.3t gerisinden gelir → kısa ışık izi (dot+chip git-gel yerine)
-          delay(t * 0.3, pulse().start(1, t * 0.7, easeInOutCubic)),
-          to.stroke(col, t * 0.9),
-          to.shadowColor(`${col}66`, t * 0.9),
-        );
-        pulse().remove();
-      } else {
-        yield* all(to.stroke(col, pulseT), to.shadowColor(`${col}66`, pulseT));
-      }
+      // Odak + aktarım: kareografinin kendi hareket dili (bkz. scenes/choreo.tsx).
+      yield* CHOREO.emphasize(stepCtx);
 
       // Varış: hedef bir tık yükselir (kart "kabul etti" hissi), sonra okuma molası.
       yield* all(to.y(to.y() - 6, 0.18, easeOutCubic), to.lineWidth(2.5, 0.18));
@@ -333,9 +307,7 @@ export default makeScene2D(function* (view) {
       yield* waitFor(holdT);
       yield* all(
         to.y(to.y() + 6, 0.3, easeOutCubic), to.lineWidth(1.5, 0.3),
-        from.stroke(CARD_STROKE, 0.3), from.shadowColor('#00000070', 0.3),
-        to.stroke(CARD_STROKE, 0.3), to.shadowColor('#00000070', 0.3),
-        ...others.map(b => b.opacity(1, 0.3)),
+        CHOREO.reset(stepCtx),
       );
     }
 
@@ -343,8 +315,7 @@ export default makeScene2D(function* (view) {
     yield* waitFor(BEATS ? 0.25 : pacing.finalDwell + 0.5);
     yield* all(
       caption.pill().opacity(0, 0.3),
-      ...boxByIndex.map((b, i) => all(b.opacity(0, 0.4), b.y(b.y() - 18, 0.45, easeOutCubic))),
-      ...allLines.map(l => l.opacity(0, 0.3)),
+      CHOREO.exit(choreoCtx),
       heading().opacity(0, 0.3),
     );
     container().remove();
