@@ -119,7 +119,7 @@
       "ig_reels_avg_watch_time": 4235,
       "ig_reels_video_view_total_time": 559104
     },
-    "insightsAt": "2026-08-01T15:51:50.225Z"
+    "insightsAt": "2026-08-02T15:52:15.652Z"
   },
   {
     "title": "LLM Inference: The Batching Trade-off",
@@ -140,7 +140,7 @@
       "ig_reels_avg_watch_time": 2655,
       "ig_reels_video_view_total_time": 302702
     },
-    "insightsAt": "2026-08-01T15:51:52.228Z"
+    "insightsAt": "2026-08-02T15:52:16.455Z"
   },
   {
     "title": "KV Cache Is Why Your LLM Slows Down Mid-Reply",
@@ -161,7 +161,7 @@
       "ig_reels_avg_watch_time": 4054,
       "ig_reels_video_view_total_time": 421622
     },
-    "insightsAt": "2026-08-01T15:51:53.070Z"
+    "insightsAt": "2026-08-02T15:52:17.408Z"
   },
   {
     "title": "LLM GUARDRAILS: BEYOND THE PROMPT",
@@ -182,7 +182,7 @@
       "ig_reels_avg_watch_time": 3951,
       "ig_reels_video_view_total_time": 442519
     },
-    "insightsAt": "2026-08-01T15:51:54.001Z"
+    "insightsAt": "2026-08-02T15:52:17.918Z"
   },
   {
     "title": "SYSTEM PROMPT PRIORITIZATION",
@@ -203,7 +203,7 @@
       "ig_reels_avg_watch_time": 3787,
       "ig_reels_video_view_total_time": 401493
     },
-    "insightsAt": "2026-08-01T15:51:54.843Z"
+    "insightsAt": "2026-08-02T15:52:18.491Z"
   },
   {
     "title": "AI Keypad: Prompt Abstraction",
@@ -224,7 +224,7 @@
       "ig_reels_avg_watch_time": 2586,
       "ig_reels_video_view_total_time": 300030
     },
-    "insightsAt": "2026-08-01T15:51:55.569Z"
+    "insightsAt": "2026-08-02T15:52:19.291Z"
   },
   {
     "title": "OPUS 5: UNEVEN CAPABILITIES",
@@ -245,7 +245,7 @@
       "ig_reels_avg_watch_time": 6061,
       "ig_reels_video_view_total_time": 3036805
     },
-    "insightsAt": "2026-08-01T15:51:56.365Z"
+    "insightsAt": "2026-08-02T15:52:20.146Z"
   },
   {
     "title": "Model Routing Beats Always Using Flagship Models",
@@ -398,7 +398,7 @@
       "ig_reels_avg_watch_time": 3674,
       "ig_reels_video_view_total_time": 404145
     },
-    "insightsAt": "2026-08-01T15:51:58.191Z"
+    "insightsAt": "2026-08-02T15:52:20.962Z"
   },
   {
     "title": "Microsoft Security Model",
@@ -456,7 +456,7 @@
       "ig_reels_avg_watch_time": 1548,
       "ig_reels_video_view_total_time": 164126
     },
-    "insightsAt": "2026-08-01T15:52:00.514Z"
+    "insightsAt": "2026-08-02T15:52:21.533Z"
   },
   {
     "title": "MCP Architecture Under the Hood",
@@ -484,7 +484,7 @@
       "ig_reels_avg_watch_time": 4661,
       "ig_reels_video_view_total_time": 508050
     },
-    "insightsAt": "2026-08-01T15:52:01.568Z"
+    "insightsAt": "2026-08-02T15:52:22.009Z"
   },
   {
     "title": "Gemini Managed Agents Hook Flow",
@@ -512,7 +512,7 @@
       "ig_reels_avg_watch_time": 1991,
       "ig_reels_video_view_total_time": 209153
     },
-    "insightsAt": "2026-08-01T15:52:02.892Z"
+    "insightsAt": "2026-08-02T15:52:22.907Z"
   },
   {
     "title": "Gemini 3 Flash Agent Hooks",
@@ -532,15 +532,15 @@
     "mediaId": "18097742096017047",
     "postedAt": "2026-07-31T16:35:45.876Z",
     "insights": {
-      "views": 83,
-      "reach": 72,
+      "views": 102,
+      "reach": 91,
       "saved": 0,
       "shares": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 1890,
-      "ig_reels_video_view_total_time": 143708
+      "ig_reels_avg_watch_time": 1783,
+      "ig_reels_video_view_total_time": 169433
     },
-    "insightsAt": "2026-08-01T15:52:04.255Z"
+    "insightsAt": "2026-08-02T15:52:23.468Z"
   },
   {
     "title": "Claude Code Subagent Context Protection",
@@ -558,6 +558,35 @@
     "date": "2026-08-01",
     "durSec": 19.5,
     "mediaId": "18146359339477248",
-    "postedAt": "2026-08-01T15:57:27.373Z"
+    "postedAt": "2026-08-01T15:57:27.373Z",
+    "insights": {
+      "views": 70,
+      "reach": 54,
+      "saved": 0,
+      "shares": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 2757,
+      "ig_reels_video_view_total_time": 157185
+    },
+    "insightsAt": "2026-08-02T15:52:24.880Z"
+  },
+  {
+    "title": "Speculative Decoding in Gemini 3 Flash",
+    "subject": "gemini 3 flash",
+    "twist": null,
+    "pillar": "model-internals",
+    "layout": "vertical-stack",
+    "kinds": "versus",
+    "motion": "ripple",
+    "theme": "#39d3c3",
+    "source": "gemini",
+    "footage": [
+      "pexels:server led lights macro",
+      "pexels:empty data center aisle"
+    ],
+    "voice": 6,
+    "voiceName": "Charon",
+    "date": "2026-08-02",
+    "durSec": 22.2
   }
 ]

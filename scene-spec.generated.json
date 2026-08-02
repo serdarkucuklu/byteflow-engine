@@ -1,128 +1,96 @@
 {
-  "hook": "Your Claude Code agent burns context on subtasks.",
-  "title": "Claude Code Subagent Context Protection",
+  "hook": "Gemini 3 Flash isn't predicting tokens one by one.",
+  "title": "Speculative Decoding in Gemini 3 Flash",
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "vertical-stack",
+      "kind": "versus",
+      "left": "STANDARD DECODING",
+      "right": "SPECULATIVE DRAFTING",
+      "rows": [
         {
-          "id": "claude-main",
-          "label": "MAIN AGENT",
-          "brand": "claude"
+          "label": "TOKEN PROPOSAL",
+          "left": "1 token per pass",
+          "right": "4 draft tokens per pass",
+          "winner": "right"
         },
         {
-          "id": "subagent",
-          "label": "FORKED SUBAGENT"
+          "label": "VERIFICATION",
+          "left": "Sequential loop",
+          "right": "Parallel target check",
+          "winner": "right"
         },
         {
-          "id": "bash-tool",
-          "label": "BASH ENVIRONMENT"
-        },
-        {
-          "id": "context-filter",
-          "label": "SUMMARY FILTER"
-        }
-      ],
-      "steps": [
-        {
-          "from": "claude-main",
-          "to": "subagent",
-          "packet": "TASK",
-          "status": "main agent delegates subtask to fork",
-          "color": "accent"
-        },
-        {
-          "from": "subagent",
-          "to": "bash-tool",
-          "packet": "EXEC",
-          "status": "subagent runs tools in isolated shell",
-          "color": "good"
-        },
-        {
-          "from": "bash-tool",
-          "to": "context-filter",
-          "packet": "LOGS",
-          "status": "raw execution logs get compressed",
-          "color": "warn"
-        },
-        {
-          "from": "context-filter",
-          "to": "claude-main",
-          "packet": "BRIEF",
-          "status": "condensed summary returns to main agent",
-          "color": "accent"
+          "label": "LATENCY",
+          "left": "High memory bottleneck",
+          "right": "3x faster token stream",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Your Claude Code CLI session degrades when bash outputs fill the context window.\n\nHere is how subagents preserve reasoning capacity during long coding sessions:\n\n1. Main Agent — The primary reasoning loop handling architecture and user commands.\n2. Forked Subagent — An isolated worker spawned to execute targeted subtasks like file discovery or test runs.\n3. Bash Environment — Execution environment where verbose terminal outputs and compile errors occur.\n4. Summary Filter — Condensation step that strips raw log noise and extracts key status returns.\n\nWhen evaluating agentic coding tools, you are paying for context hygiene, not raw model IQ.\n\nNo magic — just isolated subshells and context summarization.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
+  "caption": "Gemini 3 Flash isn't predicting tokens one by one in production.\n\nHere's what actually happens when modern LLMs stream text fast:\n\n1. Standard Decoding — traditional autoregressive inference runs the full multi-billion parameter model for every single token, causing severe memory-bandwidth bottlenecks.\n2. Draft Model Proposal — speculative decoding uses a tiny, fast draft model to quickly generate multiple candidate tokens ahead of time.\n3. Target Verification — the primary model (like Gemini 3 Flash) evaluates all proposed draft tokens simultaneously in a single forward pass.\n4. Token Acceptance — correct draft tokens are accepted instantly, while incorrect ones are rejected and corrected without wasted computation.\n\nWhen choosing inference infrastructure, per-token latency and memory bandwidth matter far more than theoretical parameter counts.\n\nNo magic — just parallel matrix multiplication at scale.\n\n📌 Save this so you don't forget how it works.\n🔁 Send it to someone who thinks it's magic.\nWritten by Kai.\nFollow @byteflowlabs for AI systems, no hype.",
   "hashtags": [
     "#ai",
     "#llm",
-    "#claudecode",
-    "#aiagents",
     "#aiengineering",
-    "#promptengineering",
-    "#mcp"
+    "#llminference",
+    "#deeplearning",
+    "#machinelearning",
+    "#gemini3flash"
   ],
-  "takeaway": "Subagents protect main context by filtering verbose tool logs.",
+  "takeaway": "Draft models cut streaming latency without altering output quality.",
   "footage_queries": [
     "server led lights macro",
     "empty data center aisle"
   ],
   "narration": [
-    "Your Claude Code agent loses speed on complex refactors.",
-    "Isolated subagents prevent your main context from rotting.",
-    "The main agent forks a subagent for subtasks.",
-    "The subagent runs bash tools in isolation.",
-    "Raw terminal logs get stripped and summarized.",
-    "Only clean findings return to main context.",
-    "Isolate tool output to protect prompt budget."
+    "Gemini 3 Flash does not generate tokens sequentially.",
+    "Here is how speculative decoding speeds up LLM inference.",
+    "Standard decoding runs a full model pass per token.",
+    "Speculative drafting uses a tiny model for draft tokens.",
+    "The target model verifies all draft tokens in parallel.",
+    "Drafting cuts latency without sacrificing target model quality."
   ],
-  "theme": "#f778ba",
+  "subject": "gemini 3 flash",
+  "theme": "#39d3c3",
   "brand": {
     "handle": "@byteflowlabs",
     "signoff": "AI systems, no hype",
     "shareCta": "↗  Send this to someone who needs it"
   },
-  "motion": "buildup",
+  "motion": "ripple",
   "footage": true,
   "beats": [
     {
-      "text": "Your Claude Code agent loses speed on complex refactors.",
+      "text": "Gemini 3 Flash does not generate tokens sequentially.",
       "start": 0.35,
-      "dur": 3.038
+      "dur": 3.292
     },
     {
-      "text": "Isolated subagents prevent your main context from rotting.",
-      "start": 3.388,
-      "dur": 3.146
-    },
-    {
-      "text": "The main agent forks a subagent for subtasks.",
-      "start": 6.534,
-      "dur": 2.441
-    },
-    {
-      "text": "The subagent runs bash tools in isolation.",
-      "start": 8.974,
-      "dur": 2.278
-    },
-    {
-      "text": "Raw terminal logs get stripped and summarized.",
-      "start": 11.253,
-      "dur": 2.495
-    },
-    {
-      "text": "Only clean findings return to main context.",
-      "start": 13.748,
-      "dur": 2.332
-    },
-    {
-      "text": "Isolate tool output to protect prompt budget.",
-      "start": 16.08,
+      "text": "Here is how speculative decoding speeds up LLM inference.",
+      "start": 3.642,
       "dur": 3.541
+    },
+    {
+      "text": "Standard decoding runs a full model pass per token.",
+      "start": 7.183,
+      "dur": 3.168
+    },
+    {
+      "text": "Speculative drafting uses a tiny model for draft tokens.",
+      "start": 10.352,
+      "dur": 3.479
+    },
+    {
+      "text": "The target model verifies all draft tokens in parallel.",
+      "start": 13.831,
+      "dur": 3.417
+    },
+    {
+      "text": "Drafting cuts latency without sacrificing target model quality.",
+      "start": 17.247,
+      "dur": 5.014
     }
   ],
   "thumbOffset": 1450
