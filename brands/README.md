@@ -68,6 +68,15 @@ beslenir, hiçbiri modelin iyi niyetine bırakılmaz):
 | **Konu (özne)** | `subject` | Model her spec'te işlediği ürünü/etken maddeyi beyan eder. Son 8 postun öznesi yasak listesine girer (`brain/subjects.mjs`); model yine de tekrar ederse üretim **geçersiz** sayılıp yeniden denenir, seed yedeği bile yasaklı konuya düşmez. |
 | **Gaf (espri açısı)** | `twist` | Her postun ZORUNLU esprili açısı var (`brain/twists.mjs`: para, zaman, pazarlama dili, sosyal medya, itiraf…). Son 4 postun gafı seçilemez; tutan gaf türü zamanla ağırlık kazanır. |
 | **Animasyon** | `layout` / `kinds` | Son 2 postun kompozisyonu yasak. Prompt farklısını ister, `run-daily.mjs` ayrıca kod tarafında zorlar; üç video üst üste düz diyagramsa `versus` formatı öne çıkarılır. |
+| **Hareket dili** | `motion` | Beş kareografi (`render/src/scenes/choreo.tsx`): `buildup` (aşağıdan sıralı kurulum), `spotlight` (karanlık oda, gezen ışık), `camera` (aktif çifte kayan kamera), `cascade` (yukarıdan düşüş + çarpma), `ripple` (merkezden açılma + halka dalgası). Son 2 videonunki atlanır. |
+
+Kareografi eklerken: `choreo.tsx`'e `Choreo` sözleşmesini (enter/emphasize/reset/exit)
+uygulayan bir nesne + `motion-registry.mjs`'e bir satır. İkisi senkron olmalı — testi var
+(`render/src/lib/motion.test.mjs`), çünkü kayıt defterinde olup `choreo.tsx`'te olmayan ad
+render'da sessizce `buildup`'a düşer. ⚠ Zamanlama sözleşmesi: süre seslendirmenin
+beat'lerinden gelir; bir kareografi bütçesini AŞARSA altyazı konuşmanın gerisine düşer.
+Kısa kalmak serbest, uzamak değil. Değişiklikten sonra **Kareografi Denetimi** akışını
+çalıştır (5'ini de aynı spec ile render eder, yayına gitmez).
 
 ⚠ **2026-08-01 canlı hata:** @cilt.kodu üst üste iki hyalüronik asit videosu yayınladı. Pillar
 rotasyonu çalışıyordu (`trend-mekanik` → `para-degeri`); tekrarlayan şey **özneydi** ve özneyi
