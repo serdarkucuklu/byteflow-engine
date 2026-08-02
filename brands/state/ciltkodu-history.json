@@ -251,5 +251,24 @@
     "durSec": 45.4,
     "subject": "hyalüronik asit",
     "twist": "para"
+  },
+  {
+    "title": "Mikroakım Cihazı vs Retinol",
+    "subject": "retinol",
+    "twist": "zaman",
+    "pillar": "cihaz-ve-islem",
+    "layout": "nodes-flow",
+    "kinds": "versus",
+    "motion": "cascade",
+    "theme": "#8fa8c8",
+    "source": "gemini",
+    "footage": [
+      "pexels:cosmetic bottles soft light",
+      "pexels:cream texture macro"
+    ],
+    "voice": 6,
+    "voiceName": "Puck",
+    "date": "2026-08-02",
+    "durSec": 43.2
   }
 ]

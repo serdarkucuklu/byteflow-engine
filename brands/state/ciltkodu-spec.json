@@ -1,94 +1,59 @@
 {
-  "hook": "Hyalüronik asit serumuna bin lira verip su satın almak.",
-  "title": "Hyalüronik Asit: Parayı Neye Ödüyoruz?",
+  "hook": "Retinol yerine mikroakım cihazına ömür gömenler?",
+  "title": "Mikroakım Cihazı vs Retinol",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "heading": "Premium Nem Serumu Maliyet Dağılımı",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "nodes-flow",
+      "kind": "versus",
+      "left": "MİKROAKIM CİHAZI",
+      "right": "RETİNOL SERUMU",
+      "rows": [
         {
-          "id": "REKLAM",
-          "label": "PAZARLAMA BUTCESI"
+          "label": "GÜNLÜK SEANS",
+          "left": "15 dk kol kası + jel",
+          "right": "3 saniyede sür ve uyu",
+          "winner": "right"
         },
         {
-          "id": "SISENIN_KENDISI",
-          "label": "LUKS CAM AMBALAJ"
+          "label": "ETKİ KALICILIĞI",
+          "left": "Bıraktığın gün biter",
+          "right": "Hücresel düzeyde kalıcı",
+          "winner": "right"
         },
         {
-          "id": "ARITILMIS_SU",
-          "label": "ARITILMIS SU"
-        },
-        {
-          "id": "NEM_TUTUCU",
-          "label": "AKTIF HYALURONIK"
-        }
-      ],
-      "steps": [
-        {
-          "from": "REKLAM",
-          "to": "SISENIN_KENDISI",
-          "packet": "%70",
-          "status": "bütçenin çoğu reklama gidiyor",
-          "color": "warn"
-        },
-        {
-          "from": "SISENIN_KENDISI",
-          "to": "ARITILMIS_SU",
-          "packet": "%20",
-          "status": "cam şişe ve paketleme maliyeti",
-          "color": "warn"
-        },
-        {
-          "from": "ARITILMIS_SU",
-          "to": "NEM_TUTUCU",
-          "packet": "%8",
-          "status": "şişenin içi aslında düz arıtılmış su",
-          "color": "good"
-        },
-        {
-          "from": "NEM_TUTUCU",
-          "to": "REKLAM",
-          "packet": "%2",
-          "status": "asıl nem veren madde aşırı ucuzdur",
-          "color": "good"
-        },
-        {
-          "from": "REKLAM",
-          "to": "NEM_TUTUCU",
-          "packet": "0",
-          "status": "pazarlama illüzyonuna para döküyoruz",
-          "color": "accent"
+          "label": "PES ETME SÜRESİ",
+          "left": "Üçüncü gün çekmeceye",
+          "right": "Kusma döneminde kaçış",
+          "winner": "tie"
         }
       ]
     }
   ],
-  "caption": "Hyalüronik asit serumuna bin lira verip aslında su satın alıyor olabilir misin?\n\nPahalı bir nem serumu aldığında paran gerçekte nereye gidiyor, adım adım dökümü:\n\n1. Pazarlama bütçesi — Ödediğin paranın neredeyse %70'i, o ürünü TikTok'ta görmeni sağlayan reklamlara ve influencer iş birliklerine gidiyor.\n2. Ambalaj maliyeti — Banyonda lüks dursun diye tasarlanan o ağır cam şişeler ve özel damlalıklar formülün kendisinden daha pahalı.\n3. Dolgu maddesi — Şişenin %95'ten fazlası sadece arıtılmış sudan ibaret. Aktif maddeleri taşımak için bu su şart ama maliyeti sıfıra yakın.\n4. Aktif hammadde — Cildi nemlendiren asıl kahraman olan hyalüronik asit hammaddesi ton bazında alındığında komik derecede ucuzdur.\n\nBir nemlendirici serum seçerken markanın adına değil, içindeki aktif konsantrasyonuna ve formülasyon kalitesine bakın.\n\nÜrün kötü değil, pazarlama dâhice. Ama biz yine de o şık şişeyi alacağız gibi.\n\n📌 Kaydet — bir dahaki kozmetik alışverişinde paranı korur.\n\n🔁 Bunu hyalüronik asit aşığı kankana gönder.\n\nWritten by Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Retinol yerine mikroakım cihazına ömür gömenler, gelin biraz dertleşelim.\n\nHer gece o jeli sürüp yüzümüzü robot gibi çekmenin anatomisi:\n\n1. Günlük Seans — Mikroakım her gece 15 dakika masaj ve yapış yapış iletken jel seansı gerektirir; retinol ise temiz cilde 3 saniyede sürülür ve biter.\n2. Etki Kalıcılığı — Mikroakım kasları geçici olarak uyarır ve bıraktığınız an etki söner; retinol ise hücre yenilenmesini tetikleyerek kolajen üretimini kalıcı olarak artırır.\n3. Pes Etme Süresi — Kabul edelim, o pahalı mikroakım cihazı maksimum iki hafta sonra çekmecenin en karanlık köşesinde kaderine terk edilecek. Retinol ise sabır gerektirse de rutine oturduğunda ömürlük bir yatırımdır.\n\nCihaz alırken pazarlama vaatlerine değil, her gün üşenmeden yapıp yapmayacağınıza bakın.\n\nO cihaz o çekmeceden çıkmayacak ama biz yine de yenisini sipariş edeceğiz.\n\n📌 Kaydet — bir dahaki teknolojik alet krizinde mantığın kazansın.\n\n🔁 Bunu her gece yüzünü robotla ütüleyen o arkadaşına gönder.\n\nWritten by Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#güzellik",
-    "#hyalüronikasit",
-    "#nemlendirici",
-    "#skincare",
-    "#kozmetik",
-    "#ciltbakımıtavsiyeleri"
+    "#guzellik",
+    "#retinolserum",
+    "#yaslanmakarsiti",
+    "#evdeciltbakimi",
+    "#guzellikcihazlari",
+    "#retinol"
   ],
-  "takeaway": "Musluk suyuna marka etiketi yapıştırıp bize bin liraya satıyorlar.",
+  "takeaway": "Her gece 15 dakika kol kası yapacağına, 3 saniye retinol sür yat.",
   "footage_queries": [
-    "serum drop close up",
-    "cosmetic bottles soft light"
+    "cosmetic bottles soft light",
+    "cream texture macro"
   ],
   "narration": [
-    "Pahalı hyalüronik asit serumuna bin lira verip aslında sadece lüks musluk suyu alıyorsun.",
-    "Gelin bu havalı şişelerin içindeki gerçek bütçe dağılımına adım adım yakından bakalım.",
-    "Ödediğin paranın aslan payı aslında seni bu ürüne ikna eden reklamlara gidiyor.",
-    "Kalan büyük dilim ise banyonda havalı duracak o ağır cam şişenin maliyetidir.",
-    "Şişeyi açtığında karşılaştığın o yoğun sıvının neredeyse tamamı ise düz arıtılmış sudur.",
-    "Cildini neme doyuran o mucizevi hyalüronik asit hammaddesi aslında inanılmaz derecede ucuzdur.",
-    "Yani marka algısı yüzünden küçücük bir aktif maddeye binlerce lira dökmüş oluyoruz.",
-    "Neme doymak için servet harcamana gerek yok, önemli olan doğru formülü bulmaktır."
+    "Retinol sürmek yerine her gece mikroakım cihazıyla kol kası yapanlar burada mı toplanıyor?",
+    "Bugün çekmecede tozlanacak o pahalı cihazla retinolün amansız savaşını saniye saniye inceliyoruz.",
+    "Mikroakım her gece jel sürüp on beş dakika masaj isterken retinol üç saniyede bitiyor.",
+    "Cihazı bıraktığın gün yüzün eski haline dönerken retinol hücrelerini dipten tırnağa kalıcı yeniliyor.",
+    "Cihazı üçüncü gün dolaba kaldırıp unutursun ama retinolde sabredersen altı ayda parlarsın.",
+    "Her gece robota ömür adayacağına doğru dürüst bir retinole yatırım yapıp hemen uyu."
   ],
-  "theme": "#e8a0a8",
+  "subject": "retinol",
+  "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -102,48 +67,38 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "cascade",
   "footage": true,
   "beats": [
     {
-      "text": "Pahalı hyalüronik asit serumuna bin lira verip aslında sadece lüks musluk suyu alıyorsun.",
+      "text": "Retinol sürmek yerine her gece mikroakım cihazıyla kol kası yapanlar burada mı toplanıyor?",
       "start": 0.35,
-      "dur": 5.785
+      "dur": 6.866
     },
     {
-      "text": "Gelin bu havalı şişelerin içindeki gerçek bütçe dağılımına adım adım yakından bakalım.",
-      "start": 6.135,
-      "dur": 5.59
+      "text": "Bugün çekmecede tozlanacak o pahalı cihazla retinolün amansız savaşını saniye saniye inceliyoruz.",
+      "start": 7.216,
+      "dur": 7.4
     },
     {
-      "text": "Ödediğin paranın aslan payı aslında seni bu ürüne ikna eden reklamlara gidiyor.",
-      "start": 11.724,
-      "dur": 5.135
+      "text": "Mikroakım her gece jel sürüp on beş dakika masaj isterken retinol üç saniyede bitiyor.",
+      "start": 14.616,
+      "dur": 6.561
     },
     {
-      "text": "Kalan büyük dilim ise banyonda havalı duracak o ağır cam şişenin maliyetidir.",
-      "start": 16.859,
-      "dur": 5.005
+      "text": "Cihazı bıraktığın gün yüzün eski haline dönerken retinol hücrelerini dipten tırnağa kalıcı yeniliyor.",
+      "start": 21.177,
+      "dur": 7.705
     },
     {
-      "text": "Şişeyi açtığında karşılaştığın o yoğun sıvının neredeyse tamamı ise düz arıtılmış sudur.",
-      "start": 21.863,
-      "dur": 5.72
+      "text": "Cihazı üçüncü gün dolaba kaldırıp unutursun ama retinolde sabredersen altı ayda parlarsın.",
+      "start": 28.883,
+      "dur": 6.866
     },
     {
-      "text": "Cildini neme doyuran o mucizevi hyalüronik asit hammaddesi aslında inanılmaz derecede ucuzdur.",
-      "start": 27.583,
-      "dur": 6.11
-    },
-    {
-      "text": "Yani marka algısı yüzünden küçücük bir aktif maddeye binlerce lira dökmüş oluyoruz.",
-      "start": 33.692,
-      "dur": 5.395
-    },
-    {
-      "text": "Neme doymak için servet harcamana gerek yok, önemli olan doğru formülü bulmaktır.",
-      "start": 39.087,
-      "dur": 6.365
+      "text": "Her gece robota ömür adayacağına doğru dürüst bir retinole yatırım yapıp hemen uyu.",
+      "start": 35.749,
+      "dur": 7.432
     }
   ],
   "thumbOffset": 1450
