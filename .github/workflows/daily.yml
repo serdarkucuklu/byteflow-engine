@@ -135,10 +135,14 @@ jobs:
           mkdir -p public && cp dist/final.mp4 "$VIDEO_PATH"
           # Push mantığı publish/repo-push.sh'de: aynı iş onay döngüsünde (tekrar denemede)
           # de gerekiyor, iki kopya tutulmuyor. Son satır = commit SHA.
-          bash publish/repo-push.sh "chore: daily reel $(date -u +%F)" \
+          # Boru KULLANMA: `... | tail -1` başarısızlığı yutar (pipefail kapalı) ve boş bir
+          # SHA ile devam edilir → onay akışı bozuk bir video adresi alır. Komut ikamesi
+          # ise `set -e` altında hatayı olduğu gibi düşürür. (Script SHA'yı stdout'a,
+          # geri kalan her şeyi stderr'e yazıyor.)
+          SHA=$(bash publish/repo-push.sh "chore: daily reel $(date -u +%F)" \
             "$VIDEO_PATH" scene-spec.generated.json render/scene-spec.json \
-            posted-history.json brands/state | tail -1 > /tmp/sha.txt
-          echo "VIDEO_SHA=$(cat /tmp/sha.txt)" >> "$GITHUB_ENV"
+            posted-history.json brands/state)
+          echo "VIDEO_SHA=$SHA" >> "$GITHUB_ENV"
 
       # ── ONAYLI MARKA: yayın kararı Serdar'ın ────────────────────────────────────
       # Video kuyruğa girer, bildirim gider, bu iş kararı BEKLER (varsayılan ~2,8 saat).
