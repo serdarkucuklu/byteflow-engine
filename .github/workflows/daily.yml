@@ -32,7 +32,9 @@ permissions:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    # Onaylı markada iş, karar gelene kadar nöbette bekliyor (üretim ~10 dk + nöbet ~2,8 sa).
+    # Onaysız markalarda akış eskisi gibi ~15 dakikada biter.
+    timeout-minutes: 300
     strategy:
       # Her marka AYRI koşu: biri düşerse diğeri yayınlanmaya devam eder.
       fail-fast: false
@@ -56,6 +58,36 @@ jobs:
         with:
           node-version: '22'
 
+      # ── ONAY KAPISI ────────────────────────────────────────────────────────────
+      # Markanın onay kilidi açıksa (brands/<slug>.json → onay.aktif) ve onay kutusunda
+      # HÂLÂ karar bekleyen bir video varsa BU KOŞU HİÇBİR ŞEY ÜRETMEZ. Serdar'ın kuralı:
+      # "onayda bekleyen video olduğu sürece sonraki video öbür gün oluşturulmayacak."
+      # Kilit sunucuda da var (onaybox 409 döner); buradaki kontrol 10 dakikalık boş
+      # render'ı ve boşa harcanan Gemini/TTS kotasını engelliyor.
+      - name: Onay kapısı — bekleyen video var mı?
+        id: kapi
+        env:
+          ONAY_BASE_URL: ${{ secrets.ONAY_BASE_URL }}
+          ONAY_INGEST_KEY: ${{ secrets.ONAY_INGEST_KEY }}
+        run: |
+          ONAY=$(jq -r '.onay.aktif // false' "brands/${BYTEFLOW_BRAND}.json")
+          echo "onay=$ONAY" >> "$GITHUB_OUTPUT"
+          if [ "$ONAY" != "true" ]; then echo "· bu markada onay kapısı kapalı"; exit 0; fi
+          if [ -z "$ONAY_BASE_URL" ] || [ -z "$ONAY_INGEST_KEY" ]; then
+            echo "::error::onay.aktif=true ama ONAY_BASE_URL/ONAY_INGEST_KEY secret'ı yok"; exit 1
+          fi
+          # Video yolu onay akışının da ihtiyacı (tekrar denemede yeniden push ediyor).
+          OUT=public/latest.mp4
+          [ "$BYTEFLOW_BRAND" != "byteflow" ] && OUT="public/${BYTEFLOW_BRAND}-latest.mp4"
+          echo "VIDEO_PATH=$OUT" >> "$GITHUB_ENV"
+          DURUM=$(curl -fsS -H "x-onay-key: $ONAY_INGEST_KEY" \
+            "$ONAY_BASE_URL/api/durum?marka=$BYTEFLOW_BRAND")
+          echo "$DURUM"
+          if [ "$(echo "$DURUM" | jq -r '.bekleyenVar')" = "true" ]; then
+            echo "bekleyen=1" >> "$GITHUB_OUTPUT"
+            echo "::notice::Onayda bekleyen video var → bugün yeni video üretilmiyor, karar nöbetine geçiliyor."
+          fi
+
       - name: Sistem bağımlılıkları (ffmpeg + fontlar)
         run: |
           sudo apt-get update
@@ -77,6 +109,7 @@ jobs:
         run: node publish/backfill-insights.mjs
 
       - name: Video üret (trend → Gemini → b-roll → render → kompozit → müzik)
+        if: ${{ steps.kapi.outputs.bekleyen != '1' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Stok b-roll sağlayıcıları — sırayla denenir, hiçbiri yoksa düz arka plana düşer.
@@ -95,37 +128,49 @@ jobs:
         run: xvfb-run -a node run-daily.mjs
 
       - name: Videoyu barındır (repo'ya push)
+        if: ${{ steps.kapi.outputs.bekleyen != '1' }}
         run: |
           # Marka başına ayrı dosya: iki marka aynı public/latest.mp4'ü ezerse yayınlar karışır.
-          OUT=public/latest.mp4
-          [ "$BYTEFLOW_BRAND" != "byteflow" ] && OUT="public/${BYTEFLOW_BRAND}-latest.mp4"
-          echo "VIDEO_PATH=$OUT" >> "$GITHUB_ENV"
-          mkdir -p public && cp dist/final.mp4 "$OUT"
-          git config user.name "byteflow-bot"
-          git config user.email "byteflow-bot@users.noreply.github.com"
-          # Her yolu AYRI ekle: tek bir eksik yol (ör. brands/state) tüm add'i düşürüyordu ve
-          # posted-history.json commit'lenmeden kalıyordu → skor tablosu verisi kayboluyordu.
-          for f in "$OUT" scene-spec.generated.json render/scene-spec.json posted-history.json; do
-            [ -e "$f" ] && git add -f "$f" || echo "· yok, atlandı: $f"
-          done
-          [ -d brands/state ] && git add -f brands/state || true
-          git commit -m "chore: daily reel $(date -u +%F)" || echo "değişiklik yok"
-          # Push YARIŞI: koşu ~8 dakika sürüyor; bu sırada başka bir push olursa fast-forward
-          # reddediliyor ve adım komple düşüyordu → video hiç yüklenmiyor, yayın da yapılmıyor.
-          # (2026-07-27'de canlı yaşandı.) Rebase ederek 3 kez dene.
-          for i in 1 2 3; do
-            git push && break
-            echo "· push reddedildi, rebase ile tekrar (deneme $i)"
-            # -X theirs: rebase'de "theirs" = YENİDEN UYGULANAN commit, yani BİZİM koşumuz.
-            # public/<marka>-latest.mp4 ikili dosya; iki koşu çakışınca düz rebase
-            # "Cannot merge binary files" ile düşüyor ve video hiç yüklenmiyordu
-            # (2026-07-28 canlı). Bizim taze render'ımız kazanmalı.
-            git pull --rebase -X theirs --autostash origin master || exit 1
-            sleep 3
-          done
+          # (VIDEO_PATH onay kapısı adımında hesaplanıp GITHUB_ENV'e yazıldı.)
+          mkdir -p public && cp dist/final.mp4 "$VIDEO_PATH"
+          # Push mantığı publish/repo-push.sh'de: aynı iş onay döngüsünde (tekrar denemede)
+          # de gerekiyor, iki kopya tutulmuyor. Son satır = commit SHA.
+          bash publish/repo-push.sh "chore: daily reel $(date -u +%F)" \
+            "$VIDEO_PATH" scene-spec.generated.json render/scene-spec.json \
+            posted-history.json brands/state | tail -1 > /tmp/sha.txt
+          echo "VIDEO_SHA=$(cat /tmp/sha.txt)" >> "$GITHUB_ENV"
+
+      # ── ONAYLI MARKA: yayın kararı Serdar'ın ────────────────────────────────────
+      # Video kuyruğa girer, bildirim gider, bu iş kararı BEKLER (varsayılan ~2,8 saat).
+      # "Tekrar dene" gelirse yeni video AYNI koşuda üretilir — bağımlılıklar zaten kurulu,
+      # yeniden üretim ~5 dk. Süre dolarsa kalem onayda kalır; nöbetçi cron devralır.
+      - name: Onay nöbeti (kuyruğa koy → karar bekle → uygula)
+        if: ${{ steps.kapi.outputs.onay == 'true' }}
+        timeout-minutes: 240
+        env:
+          ONAY_BASE_URL: ${{ secrets.ONAY_BASE_URL }}
+          ONAY_INGEST_KEY: ${{ secrets.ONAY_INGEST_KEY }}
+          ONAY_BEKLEME_DK: ${{ vars.ONAY_BEKLEME_DK || '170' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
+          RENDER_HEADED: '1'
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
+          NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
+          NOBLE_FB_PAGE_ID: ${{ secrets.NOBLE_FB_PAGE_ID }}
+        run: |
+          URL=""
+          if [ "${{ steps.kapi.outputs.bekleyen }}" != "1" ]; then
+            URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${VIDEO_SHA}/${VIDEO_PATH}"
+          fi
+          xvfb-run -a node publish/onay-akisi.mjs $URL
 
       - name: Instagram + Facebook'a yayınla
-        if: ${{ github.event_name == 'schedule' || inputs.publish }}
+        if: ${{ steps.kapi.outputs.onay != 'true' && (github.event_name == 'schedule' || inputs.publish) }}
         env:
           # Marka dosyası hangi env adını istiyorsa onu okuyor (brands/<slug>.json → publish).
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
@@ -139,24 +184,17 @@ jobs:
           node publish/publish-latest.mjs "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${SHA}/${VIDEO_PATH}"
 
       - name: mediaId'yi geçmişe commit et
-        if: ${{ github.event_name == 'schedule' || inputs.publish }}
+        # Onaylı markada bu işi onay akışı yapıyor (yayın anında) — burada tekrarlanmaz.
+        if: ${{ steps.kapi.outputs.onay != 'true' && (github.event_name == 'schedule' || inputs.publish) }}
         continue-on-error: true
         run: |
-          git config user.name "byteflow-bot"
-          git config user.email "byteflow-bot@users.noreply.github.com"
           # ⚠ brands/state DE eklenmeli: mediaId'yi publish-latest.mjs MARKANIN geçmiş dosyasına
-          # yazıyor (brands/state/<marka>-history.json). Burada sadece posted-history.json
+          # yazıyor (brands/state/<marka>-history.json). Yalnız posted-history.json
           # commit'lendiği için @cilt.kodu'nun mediaId'leri her koşuda kayboluyordu → başlık
           # bloklisti (mediaId'si olan kayıtlar) 14 postun 1'ini görüyordu ve konu tekrarı
           # engellenemiyordu (2026-08-01, üst üste iki hyalüronik asit videosu).
-          git add posted-history.json
-          [ -d brands/state ] && git add -f brands/state || true
-          git commit -m "chore: reel mediaId $(date -u +%F)" || echo "değişiklik yok"
-          for i in 1 2 3; do
-            git push && break
-            git pull --rebase --autostash origin master || exit 1
-            sleep 3
-          done
+          bash publish/repo-push.sh "chore: reel mediaId $(date -u +%F)" \
+            posted-history.json brands/state >/dev/null
 
       - name: Token expiry guard
         if: always()

@@ -1,0 +1,94 @@
+name: Onay Nöbetçisi
+
+# Serdar kararı ne zaman verirse versin uygulansın diye.
+#
+# Günlük iş, videoyu ürettikten sonra ~2,8 saat nöbette bekliyor; karar o pencerede
+# gelirse ANINDA (15 sn içinde) uygulanır ve bu iş hiç devreye girmez. Karar gece yarısı
+# ya da ertesi sabah gelirse pencere kapanmış olur — işte o zaman bu cron devralır.
+#
+# Maliyet: repo public → Actions dakikaları ücretsiz. Karar yoksa iş ~20 saniyede biter
+# (kurulum adımları YALNIZCA iş varken çalışır).
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: 'Marka (varsayılan: ciltkodu)'
+        type: string
+        default: 'ciltkodu'
+
+permissions:
+  contents: write
+
+concurrency:
+  # Günlük iş nöbetteyken nöbetçi de aynı kararı kapmaya çalışmasın diye SUNUCU tarafında
+  # kiralama var; buradaki grup ise nöbetçinin kendi kopyalarını sıraya sokar.
+  group: onay-nobetci-${{ github.event.inputs.brand || 'ciltkodu' }}
+  cancel-in-progress: false
+
+jobs:
+  nobet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      BYTEFLOW_BRAND: ${{ github.event.inputs.brand || 'ciltkodu' }}
+      ONAY_BASE_URL: ${{ secrets.ONAY_BASE_URL }}
+      ONAY_INGEST_KEY: ${{ secrets.ONAY_INGEST_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Uygulanacak karar var mı?
+        id: bak
+        run: |
+          if [ -z "$ONAY_BASE_URL" ] || [ -z "$ONAY_INGEST_KEY" ]; then
+            echo "· onay secret'ları yok, atlanıyor"; exit 0
+          fi
+          DURUM=$(curl -fsS --max-time 20 -H "x-onay-key: $ONAY_INGEST_KEY" \
+            "$ONAY_BASE_URL/api/durum?marka=$BYTEFLOW_BRAND") || { echo "· onay kutusuna ulaşılamadı"; exit 0; }
+          echo "$DURUM" | jq -c '{bekleyenVar, durum: .kalem.durum, karar: .kalem.karar}'
+          if [ "$(echo "$DURUM" | jq -r '.kalem.durum // ""')" = "karar-verildi" ]; then
+            echo "is=1" >> "$GITHUB_OUTPUT"
+            echo "::notice::Bekleyen karar var → uygulanıyor."
+          fi
+
+      # Bundan sonrası YALNIZCA iş varken: 15 dakikada bir boş yere Chromium kurulmaz.
+      - uses: actions/setup-node@v4
+        if: steps.bak.outputs.is == '1'
+        with:
+          node-version: '22'
+
+      - name: Sistem bağımlılıkları (ffmpeg + fontlar)
+        if: steps.bak.outputs.is == '1'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg xvfb fonts-noto-color-emoji fonts-jetbrains-mono fonts-inter \
+            || sudo apt-get install -y ffmpeg xvfb fonts-noto-color-emoji
+
+      - name: Bağımlılıklar (root + render + chromium)
+        if: steps.bak.outputs.is == '1'
+        run: |
+          npm ci
+          cd render
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Kararı uygula
+        if: steps.bak.outputs.is == '1'
+        env:
+          # "Tekrar dene" gelirse burada da tam bir video üretimi koşuyor.
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
+          RENDER_HEADED: '1'
+          # Tekrar denemeden sonra kısa bir nöbet: Serdar konsolda beklerken ikinci kararı
+          # da anında alalım, ama cron'u saatlerce meşgul etmeyelim.
+          ONAY_BEKLEME_DK: '25'
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
+          NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
+          NOBLE_FB_PAGE_ID: ${{ secrets.NOBLE_FB_PAGE_ID }}
+        run: xvfb-run -a node publish/onay-akisi.mjs --nobet

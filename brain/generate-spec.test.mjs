@@ -345,3 +345,31 @@ test('son iki videonun düzeni yasaklanır; hepsi diyagramsa versus önerilir', 
   assert.match(p, /nodes-flow, cycle/);
   assert.match(p, /prefer a "versus" scene/);
 });
+
+test('Serdar\'ın onay notu prompt\'un EN BAŞINDA ve sonunda, siparişi olarak geçer', async () => {
+  // Onay konsolundan "tekrar dene + not" gelince not, pillar/gaf/düzen kurallarının üstünde
+  // olmalı. Ortaya gömülen bir talimat rotasyon kurallarının altında eziliyordu; model
+  // prompt'un iki ucuna daha çok dikkat ediyor.
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    bannedSubjects: ['retinol'], twist: {key: 'para', focus: 'para gafı'},
+    not: 'leke konusunu anlat, gaf pazarlama dili üstünden olsun',
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p.slice(0, 400), /SAYFA SAHİBİNİN NOTU/, 'not en başta');
+  assert.match(p.slice(0, 400), /leke konusunu anlat/);
+  assert.match(p.slice(-400), /SON HATIRLATMA/, 'not sonda da tekrarlanır');
+  assert.match(p, /NOT KAZANIR/, 'çelişkide notun kazandığı açıkça yazılı');
+});
+
+test('not yoksa sipariş bloğu prompt\'a hiç girmez', async () => {
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.doesNotMatch(p, /SAYFA SAHİBİNİN NOTU|SON HATIRLATMA/);
+});

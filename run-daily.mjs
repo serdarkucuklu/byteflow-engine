@@ -51,6 +51,17 @@ const recentTitles = history.filter(h => h.mediaId).slice(-15).map(h => h.title)
 // yakalamıyordu — 2026-08-01'de iki farklı başlık altında üst üste hyalüronik asit yayınlandı.
 // mediaId filtresi YOK: tekrar, yayınlansın ya da yayınlanmasın kötüdür.
 const bannedSubjects = recentSubjects(history);
+
+// ONAY DÖNGÜSÜ (publish/onay-akisi.mjs): Serdar videoyu beğenmeyip "tekrar dene" derse bu
+// koşu onun notuyla çalışır. İki ayrı sinyal geliyor:
+//  · BYTEFLOW_NOT     — notun kendisi; prompt'ta her kuralın üstünde (bkz. generate-spec).
+//  · BYTEFLOW_YASAK_KONU — NOT YAZILMADIĞINDA çöpe atılan videonun öznesi. Not yoksa
+//    "başka bir şey anlat" demektir; aynı konuyu ikinci kez göstermek hakaret olur.
+//    Not VARSA bu boş gelir: notun aynı konuyu farklı işlemesini isteme hakkı var.
+const serdarNotu = (process.env.BYTEFLOW_NOT ?? '').trim() || null;
+const yasakKonu = (process.env.BYTEFLOW_YASAK_KONU ?? '').trim();
+if (yasakKonu && !bannedSubjects.some(s => s === yasakKonu)) bannedSubjects.push(yasakKonu);
+if (serdarNotu) console.log(`📝 Serdar'ın notu: ${serdarNotu}`);
 if (bannedSubjects.length) console.log(`⛔ konu soğumada: ${bannedSubjects.join(', ')}`);
 
 // GAF EKSENİ: her videonun zorunlu esprili açısı, rotasyonla (Serdar 2026-08-01: "para gafı
@@ -96,7 +107,7 @@ const brandForBrain = {...brand, footageQueries: footageSetFor(brand.footageSet)
 const {spec: rawSpec, source} = fixturePath
   ? {spec: JSON.parse(readFileSync(join(root, fixturePath), 'utf8')), source: 'fixture'}
   : await produceSpec({candidates, apiKey, recentTitles, pillar, brand: brandForBrain, seeds, pickSeed: randomSeed,
-      bannedSubjects, twist, bannedLayouts, recentKinds});
+      bannedSubjects, twist, bannedLayouts, recentKinds, not: serdarNotu});
 // Ekrandaki metinlerde markdown vurgusu kalmasın ("your *real* safety net" yıldızlarıyla basılıyordu).
 // YERELLEŞTİRME: prompt'a "Türkçe yaz" demek yetmedi (model üç koşuda da İngilizce yazdı).
 // Ayrı, dar kapsamlı bir çeviri adımı yapıyı bozmadan metinleri hedef dile çeviriyor.
@@ -220,6 +231,8 @@ history.push({title: spec.title, subject: spec.subject ?? null, twist: twist?.ke
   footage: spec.footage ? clips.map(c => `${c.provider}:${c.query}`) : null,
   voice: voice ? voice.beats.length : null,
   voiceName,
+  // Not yazıldıysa geçmişe de düşsün: hangi video hangi siparişten doğdu, sonradan bakılır.
+  ...(serdarNotu ? {not: serdarNotu} : {}),
   date: new Date().toISOString().slice(0, 10)});
 writeFileSync(historyPath, JSON.stringify(history, null, 2));
 

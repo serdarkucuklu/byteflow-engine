@@ -21,7 +21,7 @@ function pickSeedDefault(seeds) {
 // yayınlandı (Serdar beğenmedi, IG'den sildi). Seed düşüşü İSTİSNA olmalı — bir 429/503 dalgası
 // yayını off-strateji bir konuya çevirmesin diye deneme sayısı artırıldı.
 export async function produceSpec({candidates, apiKey, recentTitles = [], pillar, brand = {}, seeds = SEED_BACKLOG, generate = generateSpec, retries = 4, pickSeed = pickSeedDefault, backoffMs = 400,
-  bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = []}) {
+  bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = [], not = null}) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       // Deneme başına model merdiveninde bir basamak in (503/kapasite dalgasını aş).
@@ -32,7 +32,7 @@ export async function produceSpec({candidates, apiKey, recentTitles = [], pillar
       // @cilt.kodu'ya TÜRKÇE AI içeriği ("Claude Code vs Cursor") yayınlandı — marka
       // dosyası doğru olduğu hâlde. Marka yalnızca bu satırdan modele ulaşıyor.
       const raw = await generate({candidates, apiKey, recentTitles, pillar, brand, model,
-        bannedSubjects, twist, bannedLayouts, recentKinds});
+        bannedSubjects, twist, bannedLayouts, recentKinds, not});
       // Küçük kusurları (kodsuz kod sahnesi, taşan label/packet) onar — denemeyi harcamak
       // yerine düzelt; her başarısız deneme bizi seed'e (jenerik videoya) yaklaştırıyor.
       const spec = repairSpec(raw, {defaultHashtags: brand.defaultHashtags, maxSteps: brand.video?.maxSteps});
@@ -52,6 +52,10 @@ export async function produceSpec({candidates, apiKey, recentTitles = [], pillar
     }
     if (attempt < retries) await new Promise(r => setTimeout(r, backoffMs * (attempt + 1)));
   }
+  // NOT VARSA SEED YASAK. Serdar "şunu değiştir" diye not yazdıysa, havuzdan rastgele bir
+  // yedek video onun notuyla hiç ilgilenmez — "tekrar dene"ye alakasız bir video dönmesi
+  // sistemin güvenilirliğini bitirir. Hata dönüp konsolda görünmek daha dürüst.
+  if (not) throw new Error(`not uygulanamadı: Gemini ${retries + 1} denemede spec üretemedi`);
   // Seed fallback: son yayınlanan konuları havuzdan çıkar (tekrar olmasın) ve ürün ADI
   // geçen seed'leri tercih et — isimli videolar bu hesapta ölçülebilir şekilde daha çok
   // izleniyor, jenerik seed'ler ise flop ediyor (2026-07-27 deneyimi).

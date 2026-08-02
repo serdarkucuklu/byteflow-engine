@@ -121,3 +121,19 @@ test('gaf ekseni ve görsel rotasyon beyne iletilir', async () => {
   assert.deepEqual(got.bannedLayouts, ['cycle']);
   assert.deepEqual(got.recentKinds, ['diagram']);
 });
+
+test('not varsa seed yedeğine DÜŞÜLMEZ — hata fırlatır', async () => {
+  // "Tekrar dene" notuna karşılık havuzdan rastgele bir video dönerse Serdar notunun
+  // yok sayıldığını görür. Hata konsolda görünüp yeniden denenebilir; sessiz yanlış cevap
+  // sistemin güvenilirliğini bitirir.
+  await assert.rejects(
+    produceSpec({candidates: [], apiKey: 'k', pillar: {key: 'p', focus: 'f'}, retries: 1, backoffMs: 0,
+      not: 'leke konusu olsun', generate: async () => { throw new Error('503'); }}),
+    /not uygulanamadı/);
+});
+
+test('not yokken seed yedeği eskisi gibi çalışır', async () => {
+  const {source} = await produceSpec({candidates: [], apiKey: 'k', pillar: {key: 'p', focus: 'f'},
+    retries: 0, backoffMs: 0, generate: async () => { throw new Error('503'); }});
+  assert.equal(source, 'seed');
+});

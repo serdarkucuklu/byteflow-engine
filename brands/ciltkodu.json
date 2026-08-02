@@ -46,6 +46,10 @@
       "pageId": "NOBLE_FB_PAGE_ID"
     }
   },
+  "onay": {
+    "aktif": true,
+    "aciklama": "Video Serdar onaylamadan yayınlanmaz (38-onaybox → onay.temsor.com). Onayda bekleyen kalem varken yeni video üretilmez."
+  },
   "state": {
     "history": "brands/state/ciltkodu-history.json",
     "spec": "brands/state/ciltkodu-spec.json"

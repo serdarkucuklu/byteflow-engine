@@ -79,6 +79,16 @@ export function publishStory({igUserId, token, videoUrl, onStatus}) {
   return publishVideo({igUserId, token, videoUrl, mediaType: 'STORIES', onStatus});
 }
 
+// Gönderinin herkese açık adresi. mediaId'den TÜRETİLEMEZ (kısa kod ayrı bir alan), bu
+// yüzden ayrı bir çağrı gerekiyor. Onay konsolundaki "IG →" bağlantısı bunu kullanır;
+// başarısız olursa yayın etkilenmez, sadece bağlantı gösterilmez.
+export async function permalinkAl({mediaId, token}) {
+  try {
+    const d = await fbGet(mediaId, {fields: 'permalink', access_token: token});
+    return d.permalink ?? null;
+  } catch { return null; }
+}
+
 // Yayınlanan medyaya yorum (hashtag'leri caption yerine ilk yoruma koymak için).
 export async function postComment({mediaId, token, message}) {
   const d = await fbPost(`${mediaId}/comments`, {message, access_token: token});

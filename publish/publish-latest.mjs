@@ -1,7 +1,7 @@
 // Çok-platform yayın: IG Reel + ilk yorum(hashtag) + Story, Facebook, (Threads varsa).
 // Kullanım: node --env-file=.env publish/publish-latest.mjs <videoUrl> [specPath]
-import {readFileSync, writeFileSync} from 'node:fs';
-import {publishReel, publishStory, postComment} from './instagram-publish.mjs';
+import {readFileSync, writeFileSync, mkdirSync} from 'node:fs';
+import {publishReel, publishStory, postComment, permalinkAl} from './instagram-publish.mjs';
 import {publishFacebookVideo} from './facebook-publish.mjs';
 import {publishThread} from './threads-publish.mjs';
 import {loadBrand, credentials} from '../brands/load.mjs';
@@ -38,6 +38,17 @@ try {
     console.log('✓ mediaId geçmişe yazıldı');
   }
 } catch (e) { console.error('⚠ history mediaId yazılamadı:', e.message); }
+
+// MAKİNE OKUNUR SONUÇ: onay akışı (publish/onay-akisi.mjs) mediaId'yi ve gönderi adresini
+// buradan alıp onay kutusuna yazıyor — konsol geçmişinde "IG →" bağlantısı bu.
+// stdout'u ayrıştırmak kırılgan olurdu (log biçimi değişebilir).
+try {
+  const permalink = await permalinkAl({mediaId: reelId, token: IG.token});
+  mkdirSync(new URL('../dist/', import.meta.url), {recursive: true});
+  writeFileSync(new URL('../dist/yayin-sonucu.json', import.meta.url),
+    JSON.stringify({mediaId: reelId, permalink, title: spec.title, at: new Date().toISOString()}, null, 2));
+  if (permalink) console.log('✓ permalink —', permalink);
+} catch (e) { console.error('⚠ yayın sonucu yazılamadı:', e.message); }
 
 // 2) İlk yorum: etiketler açıklamaya taşındığı için burada TEKRAR edilmiyor (spam görünür).
 //    Bunun yerine kaydetmeye/paylaşmaya çağıran kısa bir not — etkileşim sinyali için.

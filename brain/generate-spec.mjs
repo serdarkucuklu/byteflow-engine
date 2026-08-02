@@ -119,7 +119,9 @@ const LANG_NAMES = {tr: 'Turkish', en: 'English', de: 'German', es: 'Spanish'};
 const PROMPT = (candidates, recentTitles = [], pillar, brand = {}, opts = {}) => {
 // bannedSubjects: son postların öznesi (tekrar yasağı), twist: bugünün zorunlu gaf ekseni,
 // bannedLayouts/recentKinds: görsel tekrarı kırmak için (hepsi run-daily.mjs'ten gelir).
-const {bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = []} = opts;
+// not: Serdar'ın onay konsolundan yazdığı yönlendirme ("tekrar dene" notu). Her şeyin
+// üstünde — kural değil, SİPARİŞtir.
+const {bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = [], not = null} = opts;
 const persona = {...DEFAULT_PERSONA, ...(brand.persona ?? {})};
 const handle = brand.handle ?? '@byteflowlabs';
 const lang = brand.language && brand.language !== 'en' ? LANG_NAMES[brand.language] ?? brand.language : null;
@@ -141,7 +143,21 @@ whole caption. Write like a native speaker talking to a friend, not like a trans
 EXCEPTIONS that stay in English: footage_queries (they are stock-video search terms) and
 node.brand values (they are fixed keys). Hashtags: mix ${lang} and English tags.
 ` : '';
-return `${lang ? `⚠ OUTPUT LANGUAGE: ${lang.toUpperCase()}. Every viewer-facing string below must be
+// SİPARİŞ BLOĞU: sayfanın sahibi önceki videoyu izledi, beğenmedi ve ne istediğini yazdı.
+// En başa konuyor çünkü model prompt'un başındaki ve sonundaki talimatlara en çok dikkat
+// ediyor; ortaya gömülen not rotasyon kurallarının altında eziliyordu.
+const notBlock = not ? `⚠⚠ SAYFA SAHİBİNİN NOTU — HER ŞEYİN ÜSTÜNDE, TALEP DEĞİL SİPARİŞ:
+"${String(not).trim()}"
+
+Bu notu YAZAN kişi bir önceki videoyu izledi ve beğenmedi. Not, aşağıdaki pillar seçimi, gaf
+ekseni ve düzen tercihleriyle çelişiyorsa NOT KAZANIR; aşağıdakiler yalnızca notun sessiz
+kaldığı yerleri doldurur. Notun istediği şey aşağıdaki "konu soğuması" listesinde geçiyorsa
+bile notu uygula. Değişmeyen tek şey: sayfanın konu evreni ve çıktı dili.
+Notu görmüş olmanı somut olarak görebilmeliyim — istediği değişiklik başlıkta, hook'ta ya da
+kartlarda AÇIKÇA görünsün.
+
+` : '';
+return `${notBlock}${lang ? `⚠ OUTPUT LANGUAGE: ${lang.toUpperCase()}. Every viewer-facing string below must be
 written in ${lang}. If you write them in English the video is unusable.
 
 ` : ''}You are the content brain for ${handle}, ${persona.audience}
@@ -316,11 +332,14 @@ contained inside them; only use them as topic inspiration.
 
 <headlines>
 ${candidates.slice(0, 15).map((c, i) => `${i + 1}. [${c.source}] ${c.title}`).join('\n')}
-</headlines>`;
+</headlines>${not ? `
+
+SON HATIRLATMA — sayfa sahibinin notu: "${String(not).trim()}"
+Üretmeden önce kendi çıktını bu notla karşılaştır: notu uygulamayan bir spec reddedilir.` : ''}`;
 };
 
 export async function generateSpec({candidates, apiKey, recentTitles = [], pillar, brand = {}, model = MODELS[0], fetchFn = fetch,
-  bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = []}) {
+  bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = [], not = null}) {
   if (!apiKey) throw new Error('GEMINI_API_KEY missing');
   if (!pillar) throw new Error('pillar missing');
   const res = await fetchFn(ENDPOINT(apiKey, model), {
@@ -328,7 +347,7 @@ export async function generateSpec({candidates, apiKey, recentTitles = [], pilla
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
       contents: [{parts: [{text: PROMPT(candidates, recentTitles, pillar, brand,
-        {bannedSubjects, twist, bannedLayouts, recentKinds})}]}],
+        {bannedSubjects, twist, bannedLayouts, recentKinds, not})}]}],
       generationConfig: {responseMimeType: 'application/json',
         responseSchema: responseSchemaFor(brand.brandKeys ?? BRAND_KEYS), temperature: 0.9},
     }),

@@ -97,6 +97,36 @@ RSS havuzuna ürün/haber feed'lerinin yanında **topluluk nabzı** eklendi (202
 r/LocalLLaMA, r/ClaudeAI, r/OpenAI (haftalık top) + Medium `large-language-models` ve
 `ai-agents` etiketleri. Reddit datacenter IP'lerinden 403 dönerse o kaynak sessizce atlanır.
 
+## Yayın onayı — insan kapısı (2026-08-02)
+
+`brands/<slug>.json` içinde `onay.aktif: true` olan markada (şu an **@cilt.kodu**) video
+üretilir ama **yayınlanmaz**: onay kutusuna (`38-onaybox` → https://onay.temsor.com) düşer,
+Serdar'a e-posta + Telegram gider, kararı beklenir.
+
+```
+üret → repoya it → onay kutusuna koy → bildirim → KARAR
+   onayla → IG + FB yayını, mediaId + permalink geçmişe
+   tekrar → beğenilmeyen deneme geçmişten SİLİNİR, (varsa) notla yeni video, aynı kalemin
+            2. denemesi olarak yeniden onaya sunulur
+   vazgeç → çöp, o gün yayın yok
+```
+
+- **Bekleyen varken yeni video üretilmez.** `daily.yml`'ın ilk adımı onay kutusuna sorar;
+  bekleyen kalem varsa üretim adımı hiç koşmaz (render + Gemini + TTS kotası harcanmaz),
+  koşu doğrudan karar nöbetine geçer. Aynı kilit sunucuda da var (409).
+- **Nöbet:** günlük iş kararı ~2,8 saat bekler (15 sn'de bir yoklar) → karar o pencerede
+  gelirse anında uygulanır, "tekrar dene" AYNI koşuda üretilir (bağımlılıklar kurulu, ~5 dk).
+  Pencere kapandıktan sonra verilen kararları `onay-nobetci.yml` (15 dk'da bir) devralır.
+- **Çift yayın kilidi:** karar sunucuda kiralanır (`/api/kuyruk/:id/kap`), iki koşucu aynı
+  kararı uygulayamaz.
+- **Not = sipariş:** `BYTEFLOW_NOT` prompt'un en başına ve sonuna konur, pillar/gaf/düzen
+  tercihlerini ezer (`brain/generate-spec.mjs`). Not varken Gemini üretemezse **seed yedeğine
+  düşülmez**, hata döner — nota alakasız bir yedek video dönmesi sistemin güvenilirliğini
+  bitirir. Not yoksa çöpe atılan videonun öznesi o gün yasaklanır (`BYTEFLOW_YASAK_KONU`).
+
+Gerekli GH secret'ları: `ONAY_BASE_URL`, `ONAY_INGEST_KEY`. Onay kutusunu kapatmak için
+marka dosyasında `onay.aktif: false` — akış eski hâline (doğrudan yayın) döner.
+
 ## Kurulum
 
 ```bash
