@@ -1,59 +1,94 @@
 {
-  "hook": "Retinol yerine mikroakım cihazına ömür gömenler?",
-  "title": "Mikroakım Cihazı vs Retinol",
+  "hook": "Kutuda %97 memnun yazıyor ama mucize dedikleri şey gliserin.",
+  "title": "Gliserin: Nem Çeken Basit Mucize",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "versus",
-      "left": "MİKROAKIM CİHAZI",
-      "right": "RETİNOL SERUMU",
-      "rows": [
+      "layout": "hub-spoke",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "GÜNLÜK SEANS",
-          "left": "15 dk kol kası + jel",
-          "right": "3 saniyede sür ve uyu",
-          "winner": "right"
+          "id": "n1",
+          "label": "GLİSERİN MOLEKÜLÜ"
         },
         {
-          "label": "ETKİ KALICILIĞI",
-          "left": "Bıraktığın gün biter",
-          "right": "Hücresel düzeyde kalıcı",
-          "winner": "right"
+          "id": "n2",
+          "label": "HAVADAKİ NEM"
         },
         {
-          "label": "PES ETME SÜRESİ",
-          "left": "Üçüncü gün çekmeceye",
-          "right": "Kusma döneminde kaçış",
-          "winner": "tie"
+          "id": "n3",
+          "label": "CİLT TABAKASI"
+        },
+        {
+          "id": "n4",
+          "label": "OKLÜZİF KİLİT"
+        }
+      ],
+      "steps": [
+        {
+          "from": "n1",
+          "to": "n2",
+          "packet": "NEM",
+          "status": "%97 memnuniyet yazan ankette sadece 15 k",
+          "color": "accent"
+        },
+        {
+          "from": "n2",
+          "to": "n1",
+          "packet": "SU",
+          "status": "gliserin ortamdaki nem moleküllerini hız",
+          "color": "good"
+        },
+        {
+          "from": "n1",
+          "to": "n3",
+          "packet": "AKTART",
+          "status": "çektiği suyu cildin alt katmanlarına kad",
+          "color": "good"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "BUHAR",
+          "status": "üzerine kilitleyici krem sürmezsen su ha",
+          "color": "warn"
+        },
+        {
+          "from": "n4",
+          "to": "n3",
+          "packet": "KİLİT",
+          "status": "oklüzif katman nemi hapsederek cildi uzu",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Retinol yerine mikroakım cihazına ömür gömenler, gelin biraz dertleşelim.\n\nHer gece o jeli sürüp yüzümüzü robot gibi çekmenin anatomisi:\n\n1. Günlük Seans — Mikroakım her gece 15 dakika masaj ve yapış yapış iletken jel seansı gerektirir; retinol ise temiz cilde 3 saniyede sürülür ve biter.\n2. Etki Kalıcılığı — Mikroakım kasları geçici olarak uyarır ve bıraktığınız an etki söner; retinol ise hücre yenilenmesini tetikleyerek kolajen üretimini kalıcı olarak artırır.\n3. Pes Etme Süresi — Kabul edelim, o pahalı mikroakım cihazı maksimum iki hafta sonra çekmecenin en karanlık köşesinde kaderine terk edilecek. Retinol ise sabır gerektirse de rutine oturduğunda ömürlük bir yatırımdır.\n\nCihaz alırken pazarlama vaatlerine değil, her gün üşenmeden yapıp yapmayacağınıza bakın.\n\nO cihaz o çekmeceden çıkmayacak ama biz yine de yenisini sipariş edeceğiz.\n\n📌 Kaydet — bir dahaki teknolojik alet krizinde mantığın kazansın.\n\n🔁 Bunu her gece yüzünü robotla ütüleyen o arkadaşına gönder.\n\nWritten by Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kutudaki %97 memnuniyet yazısı gözünü boyadı ama asıl güç gliserinde.\nKrem kutusundaki vaatler ve nemlendirme mekanizması adım adım:\n1. Pazarlama Masalı — Kutudaki klinik testler genelde 10-15 kişilik minik gruplarla yapılır.\n2. Nem Tutucu Güç — Gliserin havadan su moleküllerini çeken en etkili hümektandır.\n3. Nem Aktarımı — Çekilen nem cildin epidermis katmanına iletilerek dolgunluk sağlar.\n4. Buharlaşma Riski — Kilitlenmeyen su ortam kuruysa havaya geri kaçar.\n5. Oklüzif Katman — Vazelin veya ağır kremler nemin kaçmasını engelleyen koruyucu kapaktır.\nBir nemlendirici seçerken süslü sloganlara değil, hümektan ve oklüzif dengesine bakın.\nKutuda %97 memnun yazsa da sorulan 15 kişiden biri kesin bendim.\n📌 Kaydet — bir dahaki krem alışverişinde lazım olacak.\n🔁 Bunu krem kutusundaki vaatlere kanan arkadaşına gönder.\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimi",
-    "#guzellik",
-    "#retinolserum",
-    "#yaslanmakarsiti",
-    "#evdeciltbakimi",
-    "#guzellikcihazlari",
-    "#retinol"
+    "#ciltbakimirupture",
+    "#güzellik",
+    "#nemlendirici",
+    "#gliserin",
+    "#ciltsağlığı",
+    "#skincare",
+    "#krem"
   ],
-  "takeaway": "Her gece 15 dakika kol kası yapacağına, 3 saniye retinol sür yat.",
+  "takeaway": "Kutudaki %97 vaadine değil, gliserini kilitleyen kreme paranı ver.",
   "footage_queries": [
-    "cosmetic bottles soft light",
-    "cream texture macro"
+    "cream texture macro",
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Retinol sürmek yerine her gece mikroakım cihazıyla kol kası yapanlar burada mı toplanıyor?",
-    "Bugün çekmecede tozlanacak o pahalı cihazla retinolün amansız savaşını saniye saniye inceliyoruz.",
-    "Mikroakım her gece jel sürüp on beş dakika masaj isterken retinol üç saniyede bitiyor.",
-    "Cihazı bıraktığın gün yüzün eski haline dönerken retinol hücrelerini dipten tırnağa kalıcı yeniliyor.",
-    "Cihazı üçüncü gün dolaba kaldırıp unutursun ama retinolde sabredersen altı ayda parlarsın.",
-    "Her gece robota ömür adayacağına doğru dürüst bir retinole yatırım yapıp hemen uyu."
+    "Kutuda yüzde doksan yedi memnun yazıyor ama mucize dedikleri şey aslında sadece ucuz gliserin.",
+    "Ekrandaki bu dört yapı nemlendirme mekanizmasının tam olarak nasıl çalıştığını bize açıkça gösteriyor.",
+    "Kutudaki o süslü pazarlama vaatleri genellikle sadece on beş kişilik minik anketlere dayanıyor.",
+    "Formüldeki gliserin molekülü havadaki su buharını adeta bir mıknatıs gibi kendine doğru çeker.",
+    "Yakaladığı su moleküllerini cildin üst katmanlarına aktararak cildin anında daha dolgun görünmesini sağlar.",
+    "Ancak üzeri kapatılmazsa bu çekilen nem kısa süre sonra havaya tekrar buharlaşıp uçar.",
+    "Bu yüzden gliserinin üzerine yağ bazlı oklüzif bir krem sürerek nemi içeriye kilitlemelisiniz.",
+    "Kutudaki iddialara değil içerikteki gliserin ve oklüzif katman uyumuna odaklanmak en mantıklı seçimdir."
   ],
-  "subject": "retinol",
-  "theme": "#8fa8c8",
+  "subject": "gliserin",
+  "theme": "#d98c5f",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -67,38 +102,48 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "cascade",
+  "motion": "spotlight",
   "footage": true,
   "beats": [
     {
-      "text": "Retinol sürmek yerine her gece mikroakım cihazıyla kol kası yapanlar burada mı toplanıyor?",
+      "text": "Kutuda yüzde doksan yedi memnun yazıyor ama mucize dedikleri şey aslında sadece ucuz gliserin.",
       "start": 0.35,
-      "dur": 6.866
+      "dur": 5.338
     },
     {
-      "text": "Bugün çekmecede tozlanacak o pahalı cihazla retinolün amansız savaşını saniye saniye inceliyoruz.",
-      "start": 7.216,
-      "dur": 7.4
+      "text": "Ekrandaki bu dört yapı nemlendirme mekanizmasının tam olarak nasıl çalıştığını bize açıkça gösteriyor.",
+      "start": 5.688,
+      "dur": 5.792
     },
     {
-      "text": "Mikroakım her gece jel sürüp on beş dakika masaj isterken retinol üç saniyede bitiyor.",
-      "start": 14.616,
-      "dur": 6.561
+      "text": "Kutudaki o süslü pazarlama vaatleri genellikle sadece on beş kişilik minik anketlere dayanıyor.",
+      "start": 11.48,
+      "dur": 5.395
     },
     {
-      "text": "Cihazı bıraktığın gün yüzün eski haline dönerken retinol hücrelerini dipten tırnağa kalıcı yeniliyor.",
-      "start": 21.177,
-      "dur": 7.705
+      "text": "Formüldeki gliserin molekülü havadaki su buharını adeta bir mıknatıs gibi kendine doğru çeker.",
+      "start": 16.874,
+      "dur": 5.338
     },
     {
-      "text": "Cihazı üçüncü gün dolaba kaldırıp unutursun ama retinolde sabredersen altı ayda parlarsın.",
-      "start": 28.883,
-      "dur": 6.866
+      "text": "Yakaladığı su moleküllerini cildin üst katmanlarına aktararak cildin anında daha dolgun görünmesini sağlar.",
+      "start": 22.212,
+      "dur": 6.076
     },
     {
-      "text": "Her gece robota ömür adayacağına doğru dürüst bir retinole yatırım yapıp hemen uyu.",
-      "start": 35.749,
-      "dur": 7.432
+      "text": "Ancak üzeri kapatılmazsa bu çekilen nem kısa süre sonra havaya tekrar buharlaşıp uçar.",
+      "start": 28.288,
+      "dur": 4.884
+    },
+    {
+      "text": "Bu yüzden gliserinin üzerine yağ bazlı oklüzif bir krem sürerek nemi içeriye kilitlemelisiniz.",
+      "start": 33.172,
+      "dur": 5.338
+    },
+    {
+      "text": "Kutudaki iddialara değil içerikteki gliserin ve oklüzif katman uyumuna odaklanmak en mantıklı seçimdir.",
+      "start": 38.509,
+      "dur": 6.949
     }
   ]
 }

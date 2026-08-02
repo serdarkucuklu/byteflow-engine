@@ -272,5 +272,24 @@
     "durSec": 43.2,
     "mediaId": "18107786381041790",
     "postedAt": "2026-08-02T17:37:22.529Z"
+  },
+  {
+    "title": "Gliserin: Nem Çeken Basit Mucize",
+    "subject": "gliserin",
+    "twist": "pazarlama-dili",
+    "pillar": "nemlendirme",
+    "layout": "hub-spoke",
+    "kinds": "diagram",
+    "motion": "spotlight",
+    "theme": "#d98c5f",
+    "source": "gemini",
+    "footage": [
+      "pexels:cream texture macro",
+      "pexels:cosmetic bottles soft light"
+    ],
+    "voice": 8,
+    "voiceName": "Aoede",
+    "date": "2026-08-02",
+    "durSec": 45.4
   }
 ]
