@@ -1,0 +1,75 @@
+name: mediaId Kurtarma
+
+# YALNIZCA elle çalışır — cron YOK. Tek seferlik onarım işi.
+#
+# Neden: 2026-08-02'ye kadar marka geçmişine yazılan mediaId'ler commit edilmiyordu ve her
+# koşuda kayboluyordu. Postlar Instagram'da duruyor; kopan şey geçmiş kaydıyla arasındaki bağ.
+# Bağ kopuk olduğu sürece insight backfill o postları hiç göremiyor ve skor tablosu açılmıyor.
+#
+# VARSAYILAN KURU KOŞU: `yaz` işaretlenmeden hiçbir şey yazılmaz. Önce raporu oku, eşleşmeler
+# doğruysa `yaz` ile tekrar çalıştır. Yanlış mediaId eksik mediaId'den çok daha pahalı —
+# yanlış postun insight'ı başka postun skoruna yazılır ve konu seçimini yanlış yöne çeker.
+
+on:
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: 'Marka (brands/<slug>.json) — ör. ciltkodu'
+        type: string
+        required: true
+        default: 'ciltkodu'
+      yaz:
+        description: 'Eşleşmeleri geçmişe YAZ (kapalıysa sadece rapor)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  # Günlük iş de aynı geçmiş dosyasını yazıyor — ikisi çakışmasın.
+  group: byteflow-daily-${{ inputs.brand }}
+  cancel-in-progress: false
+
+jobs:
+  kurtar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BYTEFLOW_BRAND: ${{ inputs.brand }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Eşleştir
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
+          NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
+        run: node publish/eslestir-mediaid.mjs ${{ inputs.yaz && '--yaz' || '' }}
+
+      - name: Kurtarılanları commit et
+        if: ${{ inputs.yaz }}
+        run: |
+          bash publish/repo-push.sh "chore: mediaId kurtarma (${BYTEFLOW_BRAND})" brands/state >/dev/null
+
+      # Bağ kurulur kurulmaz ölçümü de doldur: asıl amaç buydu, ayrı bir koşu beklemeye gerek yok.
+      - name: Kurtarılan postların insight'larını doldur
+        if: ${{ inputs.yaz }}
+        continue-on-error: true
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
+          NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
+        run: |
+          node publish/backfill-insights.mjs
+          bash publish/repo-push.sh "chore: kurtarilan postlarin insightlari" brands/state >/dev/null
+
+      - name: Takipçi raporu
+        if: ${{ inputs.yaz }}
+        continue-on-error: true
+        run: node publish/takipci-raporu.mjs

@@ -88,6 +88,25 @@ jobs:
             echo "::notice::Onayda bekleyen video var → bugün yeni video üretilmiyor, karar nöbetine geçiliyor."
           fi
 
+      # ── GÜNLÜK KOTA ────────────────────────────────────────────────────────────
+      # Serdar kuralı: günde EN FAZLA bir yayın. Onay kapısı yalnız "bekleyen varsa üretme"
+      # diyordu; kalem onaylanıp yayınlandıktan sonra aynı günün cron'u boş kapı görüp ikinci
+      # videoyu üretiyordu (2026-08-02'de iki post aynı gün çıktı). Dünden kalan bugün
+      # yayınlandıysa bugünün yeni videosu PAS GEÇİLİR.
+      - name: Günlük kota — bugün zaten yayın yapıldı mı?
+        id: kota
+        run: |
+          set +e
+          node publish/gunluk-kota.mjs
+          KOD=$?
+          set -e
+          if [ "$KOD" = "10" ]; then
+            echo "bekleyen=1" >> "$GITHUB_OUTPUT"
+            echo "::notice::Bugün zaten yayın yapıldı → bugünün yeni videosu pas geçildi."
+          elif [ "$KOD" != "0" ]; then
+            echo "::error::gunluk-kota.mjs beklenmedik çıkış kodu: $KOD"; exit "$KOD"
+          fi
+
       - name: Sistem bağımlılıkları (ffmpeg + fontlar)
         run: |
           sudo apt-get update
@@ -115,8 +134,30 @@ jobs:
           NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
         run: node publish/backfill-insights.mjs
 
+      # ── HESAP DÜZEYİ ÖLÇÜM ─────────────────────────────────────────────────────
+      # ⚠ SIRA ÖNEMLİ: bu adım YAYINDAN ÖNCE koşmalı. Günün anlık görüntüsü "o günkü post
+      # yayınlanmadan önceki takipçi sayısı" anlamına geliyor; takipçi atfı (publish/
+      # takipci-raporu.mjs) tam olarak bu sözleşmeye yaslanıyor. Adımı yayından sonraya
+      # taşırsan rapor bir gün kayar ve sessizce yanlış post'a kredi verir.
+      - name: Hesap ölçümü (takipçi anlık görüntüsü)
+        continue-on-error: true
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
+          NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
+        run: node publish/hesap-olcum.mjs
+
+      # Ayrı commit: onaylı markada yayın olmayan günlerde (Serdar onaylamadıysa) aşağıdaki
+      # yayın-sonrası commit adımı hiç çalışmıyor → o günün takipçi ölçümü kaybolurdu.
+      # Takipçi eğrisinde delik olmaması bu adıma bağlı.
+      - name: Hesap ölçümünü commit et
+        continue-on-error: true
+        run: |
+          bash publish/repo-push.sh "chore: hesap olcumu $(date -u +%F)" brands/state >/dev/null
+
       - name: Video üret (trend → Gemini → b-roll → render → kompozit → müzik)
-        if: ${{ steps.kapi.outputs.bekleyen != '1' }}
+        if: ${{ steps.kapi.outputs.bekleyen != '1' && steps.kota.outputs.bekleyen != '1' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Stok b-roll sağlayıcıları — sırayla denenir, hiçbiri yoksa düz arka plana düşer.
@@ -135,7 +176,7 @@ jobs:
         run: xvfb-run -a node run-daily.mjs
 
       - name: Videoyu barındır (repo'ya push)
-        if: ${{ steps.kapi.outputs.bekleyen != '1' }}
+        if: ${{ steps.kapi.outputs.bekleyen != '1' && steps.kota.outputs.bekleyen != '1' }}
         run: |
           # Marka başına ayrı dosya: iki marka aynı public/latest.mp4'ü ezerse yayınlar karışır.
           # (VIDEO_PATH onay kapısı adımında hesaplanıp GITHUB_ENV'e yazıldı.)
@@ -175,13 +216,14 @@ jobs:
           NOBLE_FB_PAGE_ID: ${{ secrets.NOBLE_FB_PAGE_ID }}
         run: |
           URL=""
-          if [ "${{ steps.kapi.outputs.bekleyen }}" != "1" ]; then
+          if [ "${{ steps.kapi.outputs.bekleyen }}" != "1" ] && [ "${{ steps.kota.outputs.bekleyen }}" != "1" ]; then
             URL="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${VIDEO_SHA}/${VIDEO_PATH}"
           fi
           xvfb-run -a node publish/onay-akisi.mjs $URL
 
       - name: Instagram + Facebook'a yayınla
-        if: ${{ steps.kapi.outputs.onay != 'true' && (github.event_name == 'schedule' || inputs.publish) }}
+        if: ${{ steps.kapi.outputs.onay != 'true' && steps.kota.outputs.bekleyen != '1'
+          && (github.event_name == 'schedule' || inputs.publish) }}
         env:
           # Marka dosyası hangi env adını istiyorsa onu okuyor (brands/<slug>.json → publish).
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
