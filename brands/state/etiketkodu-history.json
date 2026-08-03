@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "title": "5000 TL Polyester Kazak Nereye Gidiyor?",
+    "subject": "polyester",
+    "twist": "para",
+    "pillar": "hizli-moda-ekonomisi",
+    "layout": "vertical-stack",
+    "kinds": "diagram",
+    "motion": "buildup",
+    "theme": "#a08663",
+    "source": "gemini",
+    "footage": [
+      "pexels:clothing label tag close up",
+      "pexels:price tag close up macro"
+    ],
+    "voice": 7,
+    "voiceName": "Aoede",
+    "date": "2026-08-03",
+    "durSec": 43.4
+  }
+]

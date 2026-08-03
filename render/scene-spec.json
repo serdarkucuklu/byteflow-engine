@@ -1,6 +1,6 @@
 {
-  "hook": "2000 liraya aldığın o polyester bluz aslında mağazanın kirasını ödüyor",
-  "title": "2000₺'lik Polyester Bluzun Gerçek Maliyeti",
+  "hook": "Beş bin liraya polyester kazak alan arkadaşın burada mı?",
+  "title": "5000 TL Polyester Kazak Nereye Gidiyor?",
   "scenes": [
     {
       "layout": "vertical-stack",
@@ -8,15 +8,15 @@
       "nodes": [
         {
           "id": "n1",
-          "label": "KUMAŞ VE İŞÇİLİK"
+          "label": "POLYESTER KUMAŞ"
         },
         {
           "id": "n2",
-          "label": "MAĞAZA KİRASI"
+          "label": "DİKİM VE İŞÇİLİK"
         },
         {
           "id": "n3",
-          "label": "REKLAM PAZARLAMA"
+          "label": "MAĞAZA VE KİRA"
         },
         {
           "id": "n4",
@@ -27,69 +27,61 @@
         {
           "from": "n1",
           "to": "n2",
-          "packet": "150 TL",
-          "status": "kumaş ve dikiş maliyeti sadece bu",
+          "packet": "HAMMAD",
+          "status": "sentetik ip ucuza imal edilir",
           "color": "good"
         },
         {
           "from": "n2",
           "to": "n3",
-          "packet": "650 TL",
-          "status": "avm kirası ve personel gideri eklenir",
-          "color": "warn"
+          "packet": "İŞÇİLİ",
+          "status": "seri üretimde dikim maliyeti düşer",
+          "color": "good"
         },
         {
           "from": "n3",
           "to": "n4",
-          "packet": "500 TL",
-          "status": "influencer ve reklam bütçesi katılır",
+          "packet": "KİRA",
+          "status": "lüks caddeler faturayı kabartır",
           "color": "warn"
         },
         {
           "from": "n4",
-          "to": "n4",
-          "packet": "700 TL",
-          "status": "o parayı verdiğine inanamayan arkadaşın",
-          "color": "accent"
-        },
-        {
-          "from": "n1",
-          "to": "n4",
-          "packet": "2000TL",
-          "status": "etiketteki devasa fiyat ortaya çıkar",
+          "to": "n1",
+          "packet": "ETİKET",
+          "status": "fiyatın çoğu kumaşa değil markaya gider",
           "color": "accent"
         }
       ]
     }
   ],
-  "caption": "2000 liraya aldığın o polyester bluz aslında mağazanın kirasını ödüyor.\n\nAynı fabrikadan çıkan iki bluzun fiyatı neden ten kat fark ediyor, adım adım:\n\n1. Kumaş ve İşçilik — Sentetik polyester kumaşın metre fiyatı son derece düşüktür; temel dikişle birleştiğinde gerçek ürün maliyeti 150₺ civarındadır.\n2. Mağaza Kirası — Lüks caddelerdeki ve büyük AVM'lerdeki dev mağazaların kirası ile personel giderleri doğrudan kıyafet etiketine yansıtılır.\n3. Reklam ve Pazarlama — Şık çekimler, influencer iş birlikleri ve dijital reklam campaigns ürün başına ciddi bir pay ekler.\n4. Marka Kar Marjı — Marka algısı yüksek tutularak tüketicinin kaliteli hissetmesi sağlanır ve kalan tutar marka primi olur.\n\nNeye para ödediğinizi bilmek en büyük gücünüzdür; kumaş içeriğine bakmadan etiket ödemeyin.\n\nKumaş aynı polyester ama faturayı biz ödüyoruz. Yine de o sepete onay verilecek.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu 2000 liraya polyester bluz alıp kumaşı lüks sanan o arkadaşına gönder.\nSen en son neye etiket fiyatı ödeyip pişman oldun: Bluz mu çanta mı?\nYazan: Ece.\nTakip et: @etiket.kodu — kumaş, reklam değil.",
+  "caption": "Beş bin liralık kıyafette gerçekte ne ödediğini hiç merak ettin mi?\n\nBeş bin liralık polyester kazağın maliyet dağılımı adım adım:\n\n1. Polyester Kumaş — Sentetik elyafın imalat maliyeti oldukça düşüktür.\n2. Dikim ve İşçilik — Seri imalatta birim başına düşen dikim payı küçüktür.\n3. Mağaza ve Kira — Popüler AVM ve caddelerin kirası fiyata eklenir.\n4. Marka Primi — Fiyatın en büyük kısmı markanın imajına kalır.\n\nAlışveriş yaparken etiket içeriğine bakmak paranızın nereye gittiğini net gösterir.\n\nKumaş aynı polyester olsa da çoğu zaman etiket logosu için ödüyoruz.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu beş bin liraya polyester kazak alıp etiketine bakmayan arkadaşına gönder.\n\nSen hiç etiketine bakmadan sadece markası için binler ödedin mi?\n\nYazan: Ece.\n\nTakip et: @etiket.kodu — kumaş, reklam değil.",
   "hashtags": [
     "#giyim",
-    "#alışveriş",
+    "#moda",
     "#kumaş",
     "#gardırop",
     "#giyimtüyoları",
     "#polyester",
-    "#fiyatperformans"
+    "#alışveriş"
   ],
-  "takeaway": "Kumaş aynı polyester, sen kıyafete değil AVM kirasına ortak oluyorsun.",
+  "takeaway": "Kumaşa değil markaya para veriyorsun, bari etiketini oku!",
   "footage_queries": [
-    "price tag close up macro",
-    "clothing rack hangers minimal"
+    "clothing label tag close up",
+    "price tag close up macro"
   ],
   "narration": [
-    "İki bin liraya aldığın o polyester bluz aslında kumaşına değil mağazanın kirasına gidiyor.",
-    "Bugün bir lüks hızlı moda bluzunun etiket fiyatının arkasındaki maliyet katmanlarını inceliyoruz.",
-    "İlk katmanda kullanılan polyester kumaş ve fabrikanın dikiş işçiliği sadece yüz elli lira tutuyor.",
-    "İkinci katmanda devasa alışveriş merkezlerinin mağaza kirası ve çalışan maaşları fiyata ekleniyor.",
-    "Üçüncü katmanda havalı prodüksiyonlar ve sponsorlu sosyal medya reklamlarının dev bütçesi yer alıyor.",
-    "Son katmanda ise o parayı verdiğine inanamayan arkadaşının ödediği saf marka primi kalıyor.",
-    "Böylece yüz elli liralık ham kumaş mağaza ışıkları altında iki bin liraya dönüşmüş oluyor.",
-    "Kumaş aynı polyester ama sen gardırobuna değil mağazanın popüler lokasyonuna kira ödüyorsun."
+    "Beş bin liraya polyester kazak alıp etiketine hiç bakmayan arkadaşın bu videoyu kesinlikle izlemeli.",
+    "Yüksek etiketli bir polyester kazağın ödediğiniz parasının nereye gittiğini adım adım inceliyoruz.",
+    "İlk olarak sentetik iplikten üretilen kumaşın hammadde maliyeti toplam tutarın çok küçük kısmıdır.",
+    "Seri üretim tesislerinde yapılan dikim ve işçilik harcamaları da sanıldığı kadar yüksek tutmaz.",
+    "AVM ve popüler caddelerdeki mağazaların kira masrafları ürünün nihai fiyatına doğrudan yansıtılır.",
+    "Son aşamada ödediğiniz rakamın en büyük bölümü markanın kendi algısına ve kârına kalır.",
+    "Aynı polyester kumaş iki yüz liraya da beş bin liraya da satılabilir."
   ],
   "subject": "polyester",
-  "sendTo": "2000 liraya polyester bluz alıp kumaşı lüks sanan o arkadaşına",
-  "soru": "Sen en son neye etiket fiyatı ödeyip pişman oldun: Bluz mu çanta mı?",
+  "sendTo": "beş bin liraya polyester kazak alıp etiketine bakmayan arkadaşına",
+  "soru": "Sen hiç etiketine bakmadan sadece markası için binler ödedin mi?",
   "theme": "#a08663",
   "brand": {
     "handle": "@etiket.kodu",
@@ -108,44 +100,39 @@
   "footage": true,
   "beats": [
     {
-      "text": "İki bin liraya aldığın o polyester bluz aslında kumaşına değil mağazanın kirasına gidiyor.",
+      "text": "Beş bin liraya polyester kazak alıp etiketine hiç bakmayan arkadaşın bu videoyu kesinlikle izlemeli.",
       "start": 0.35,
-      "dur": 5.235
+      "dur": 6.513
     },
     {
-      "text": "Bugün bir lüks hızlı moda bluzunun etiket fiyatının arkasındaki maliyet katmanlarını inceliyoruz.",
-      "start": 5.585,
-      "dur": 5.642
+      "text": "Yüksek etiketli bir polyester kazağın ödediğiniz parasının nereye gittiğini adım adım inceliyoruz.",
+      "start": 6.863,
+      "dur": 6.383
     },
     {
-      "text": "İlk katmanda kullanılan polyester kumaş ve fabrikanın dikiş işçiliği sadece yüz elli lira tutuyor.",
-      "start": 11.226,
-      "dur": 5.7
+      "text": "İlk olarak sentetik iplikten üretilen kumaşın hammadde maliyeti toplam tutarın çok küçük kısmıdır.",
+      "start": 13.246,
+      "dur": 6.383
     },
     {
-      "text": "İkinci katmanda devasa alışveriş merkezlerinin mağaza kirası ve çalışan maaşları fiyata ekleniyor.",
-      "start": 16.926,
-      "dur": 5.7
+      "text": "Seri üretim tesislerinde yapılan dikim ve işçilik harcamaları da sanıldığı kadar yüksek tutmaz.",
+      "start": 19.629,
+      "dur": 6.188
     },
     {
-      "text": "Üçüncü katmanda havalı prodüksiyonlar ve sponsorlu sosyal medya reklamlarının dev bütçesi yer alıyor.",
-      "start": 22.626,
-      "dur": 5.874
+      "text": "AVM ve popüler caddelerdeki mağazaların kira masrafları ürünün nihai fiyatına doğrudan yansıtılır.",
+      "start": 25.817,
+      "dur": 6.383
     },
     {
-      "text": "Son katmanda ise o parayı verdiğine inanamayan arkadaşının ödediği saf marka primi kalıyor.",
-      "start": 28.5,
-      "dur": 5.293
+      "text": "Son aşamada ödediğiniz rakamın en büyük bölümü markanın kendi algısına ve kârına kalır.",
+      "start": 32.2,
+      "dur": 5.667
     },
     {
-      "text": "Böylece yüz elli liralık ham kumaş mağaza ışıkları altında iki bin liraya dönüşmüş oluyor.",
-      "start": 33.793,
-      "dur": 5.235
-    },
-    {
-      "text": "Kumaş aynı polyester ama sen gardırobuna değil mağazanın popüler lokasyonuna kira ödüyorsun.",
-      "start": 39.028,
-      "dur": 6.451
+      "text": "Aynı polyester kumaş iki yüz liraya da beş bin liraya da satılabilir.",
+      "start": 37.867,
+      "dur": 5.594
     }
   ]
 }
