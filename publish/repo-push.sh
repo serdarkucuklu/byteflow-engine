@@ -25,10 +25,45 @@ done
 
 git commit -m "$MESAJ" >&2 || echo "değişiklik yok" >&2
 
+# Rebase ORTASINDA kalan çakışmaları deterministik bir kuralla kapat.
+#
+# ⚠ 2026-08-03 CANLI HATA: `-X theirs` ikili dosyayı çözüyor ama MODIFY/DELETE çakışmasını
+# ÇÖZMÜYOR. Marka yeniden adlandırılırken eski slug'ın durum dosyaları master'da silindi;
+# o sırada koşan iş ise eski checkout'uyla aynı dosyaları commit'lemişti. Rebase
+# modify/delete'e düştü, script teslim oldu ve ÜRETİLMİŞ VİDEO push edilemediği için onaya
+# hiç düşemedi — yani Gemini + TTS kotası harcandıktan SONRA kaybedildi.
+#
+# Kural: dosyayı yukarı akış (master) SİLDİYSE silme kazanır — silme kasıtlıdır, geri
+# diriltmek ölü marka dosyalarını sürekli geri getirir. Diğer her çakışmada BİZİM
+# sürümümüz kazanır (bu koşunun ürettiği taze içerik).
+cakismalari_coz() {
+  local f
+  git diff --name-only --diff-filter=U | while read -r f; do
+    if git cat-file -e HEAD:"$f" 2>/dev/null; then
+      git add -- "$f"                       # iki taraf da değiştirdi → bizimki (-X theirs) kalsın
+    else
+      git rm -q --force -- "$f" 2>/dev/null || git rm -q --cached --force -- "$f"
+      echo "· yukarı akış silmiş, silme kabul edildi: $f" >&2
+    fi
+  done
+}
+
 for i in 1 2 3; do
   if git push >&2; then break; fi
   echo "· push reddedildi, rebase ile tekrar (deneme $i)" >&2
-  git pull --rebase -X theirs --autostash origin master >&2 || exit 1
+  if ! git pull --rebase -X theirs --autostash origin master >&2; then
+    # Rebase yarıda kaldıysa çakışmaları kapatıp devam et; kapatamazsak temiz vazgeç.
+    if [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]; then
+      cakismalari_coz
+      if ! GIT_EDITOR=true git rebase --continue >&2; then
+        echo "✖ rebase çakışması çözülemedi — vazgeçiliyor" >&2
+        git rebase --abort >&2 || true
+        exit 1
+      fi
+    else
+      exit 1
+    fi
+  fi
   sleep 3
 done
 
