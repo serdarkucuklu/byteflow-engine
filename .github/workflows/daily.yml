@@ -105,7 +105,14 @@ jobs:
       - name: Önceki postların insight'larını doldur (best-effort)
         continue-on-error: true
         env:
+          # ⚠ HER MARKANIN token'ı burada olmalı. backfill-insights.mjs marka dosyasındaki
+          # env ADINI okuyor (brands/<slug>.json → publish.instagram.token). Yalnız
+          # IG_ACCESS_TOKEN verildiği için @cilt.kodu'da script sessizce "token yok" deyip
+          # çıkıyordu → 2026-08-03'e kadar sayfanın HİÇBİR postunda insight birikmedi ve
+          # skor tablosu (sampleSize >= 3 şartı) o sayfa için hiç devreye girmedi.
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
+          NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
         run: node publish/backfill-insights.mjs
 
       - name: Video üret (trend → Gemini → b-roll → render → kompozit → müzik)
