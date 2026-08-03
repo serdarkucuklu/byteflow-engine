@@ -215,10 +215,15 @@ never in the title, the hook or more than one node label.
 TODAY'S GAF (the laugh) — REQUIRED, and it is why this page gets sent to friends. Angle:
 ${twist.focus}${twist.kime ? `
 WHO THIS ONE IS FOR — today's gaf has a natural recipient: ${twist.kime}
-That person must be RECOGNISABLE inside the video: the viewer should be able to picture a
-specific real person while watching. Put them in the hook (or in one middle line), and let the
-"sendTo" field name them. Do NOT address that person directly in the second person as if they
-were the viewer — the viewer is the SENDER, the recipient is someone she knows.` : ''}
+The viewer should be able to picture a specific real person while watching. Do NOT address that
+person in the second person as if they were the viewer — the viewer is the SENDER, the recipient
+is someone she knows.
+⚠ WHERE THE RECIPIENT MAY APPEAR — EXACTLY three places: the hook, the "sendTo" field, and the
+caption's send CTA. NOWHERE ELSE. Specifically she must NEVER appear in a node label, in a
+step.status, in a versus row, or in a narration sentence that explains the mechanism. Those slots
+describe HOW THE THING WORKS; a person is not a step in a mechanism. (2026-08-03 canlı hata:
+"o parayı verdiğine inanamayan arkadaşın" bir maliyet katmanı kartı olarak ekrana çıktı ve
+seslendirmede "arkadaşının ödediği saf marka primi" diye okundu — anlamsız.)` : ''}
 Land it in exactly three places and nowhere else: (1) the hook, (2) ONE step.status / versus row
 in the middle, (3) the closing takeaway + the caption's closing line. The rest of the video stays
 useful and accurate — the gaf is the seasoning, not the meal.
@@ -305,6 +310,13 @@ VARIETY & TEACHING RULES (hard requirements):
   central thing that everything else connects to — never a leaf that only participates.
 - NEVER INVENT A NUMBER YOU CANNOT SOURCE. Version numbers, percentages, concentrations and
   study years may only appear if they are in the headlines below or are textbook-stable facts.
+  This applies HARDEST to money. Do NOT state what something "actually costs to make", a margin,
+  a rent share or a cost breakdown figure — nobody publishes those and you cannot know them.
+  Talk about ORDER and DIRECTION instead ("çoğu kumaşa değil mağazaya gidiyor", "aynı aktif
+  üçte bir fiyata"), never a manufactured amount. A made-up cost number is the single most
+  quotable thing in the video: the viewer will repeat it to a friend and be wrong, on a page
+  whose whole promise is telling her the truth about where her money goes.
+  (2026-08-03 canlı hata: "kumaş ve dikiş sadece yüz elli lira tutuyor" — kaynaksız uydurma.)
   Your training data is older than today; a stale or invented number on screen destroys trust
   with exactly the audience that knows the subject.
 - ${tone.doorRule}

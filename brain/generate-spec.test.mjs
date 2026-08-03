@@ -432,3 +432,26 @@ test('imza satırı markanın diline uyar (Turkce caption icinde Ingilizce satir
   assert.match(promptText, /Yazan: Derin\./);
   assert.doesNotMatch(promptText, /Written by Derin\./);
 });
+
+test('alıcı YALNIZ hook/sendTo/send CTA\'da geçebilir — mekanizma yuvalarında yasak', async () => {
+  // 2026-08-03 canlı hata: gafın "kime" metni bir maliyet katmanı KARTI olarak ekrana çıktı
+  // ve seslendirmede "arkadaşının ödediği saf marka primi" diye okundu. Kişi mekanizmanın
+  // adımı değildir; prompt bunu artık açıkça yasaklıyor.
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar,
+    twist: {key: 'para', focus: 'PARA GAFI', kime: 'o parayı verdiğine inanamayan arkadaşına'},
+    fetchFn: fakeFetchCapturing(capture)});
+  const p = capture.body.contents[0].parts[0].text;
+  assert.match(p, /EXACTLY three places/);
+  assert.match(p, /never appear in a node label/i);
+  assert.match(p, /step\.status/);
+});
+
+test('uydurma PARA rakamı ayrıca yasaklanır (maliyet/marj/kira payı)', async () => {
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar,
+    fetchFn: fakeFetchCapturing(capture)});
+  const p = capture.body.contents[0].parts[0].text;
+  assert.match(p, /applies HARDEST to money/);
+  assert.match(p, /cost breakdown figure/);
+});
