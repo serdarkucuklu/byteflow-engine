@@ -83,3 +83,37 @@ test('eksenOzeti gaf eksenine göre toplar ve takipçiye göre sıralar', () => 
   assert.deepEqual(eksenOzeti(satirlar, 'twist').map(g => [g.anahtar, g.post, g.takipci]),
     [['para', 2, 80], ['zaman', 1, 10]], 'ölçülmemiş satır toplama girmemeli');
 });
+
+// ── Canlı doğrulanmış metrik biçimleri (2026-08-03, @byteflowlabs) ────────────
+test('profile_views ve reach metric_type=total_value ile istenir', async () => {
+  // Onsuz Meta HTTP 400 döndürüyor ("should be specified with parameter metric_type").
+  const gorulen = [];
+  const fakeFetch = async (url) => {
+    gorulen.push(url);
+    return {ok: true, json: async () => ({data: [{total_value: {value: 1}}]})};
+  };
+  await hesapMetrikleri({igUserId: '9', token: 't', fetchFn: fakeFetch});
+  const profil = gorulen.find(u => u.includes('metric=profile_views'));
+  const erisim = gorulen.find(u => u.includes('metric=reach'));
+  assert.match(profil, /metric_type=total_value/);
+  assert.match(erisim, /metric_type=total_value/);
+});
+
+test('boş dönebilen metrik boş gelince UYARI ÜRETMEZ', async () => {
+  // follows_and_unfollows küçük hesaplarda boş dizi dönüyor — hata değil. Her koşuda
+  // sahte uyarı basarsa gerçek bozulma gürültüde kaybolur.
+  const fakeFetch = async (url) => ({ok: true, json: async () =>
+    (url.includes('follows_and_unfollows') ? {data: []} : {data: [{total_value: {value: 5}}]})});
+  const {metrikler, hatalar} = await hesapMetrikleri({igUserId: '9', token: 't', fetchFn: fakeFetch});
+  assert.deepEqual(hatalar, [], 'boş kırılım hata sayılmamalı');
+  assert.equal(metrikler.follows_and_unfollows, undefined);
+  assert.equal(metrikler.reach, 5, 'diğer metrikler yine dolmalı');
+});
+
+test('boş dönmesi BEKLENMEYEN metrik boş gelirse hata verir', async () => {
+  const fakeFetch = async () => ({ok: true, json: async () => ({data: []})});
+  const {hatalar} = await hesapMetrikleri({igUserId: '9', token: 't', fetchFn: fakeFetch,
+    metrikler: [{ad: 'reach', params: 'period=day&metric_type=total_value'}]});
+  assert.equal(hatalar.length, 1);
+  assert.match(hatalar[0], /değer yok/);
+});
