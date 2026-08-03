@@ -42,3 +42,29 @@ test('ağırlıklı seçim havuz dışı bir anahtar döndürürse LRU\'ya düş
   const picked = selectTwist([], BEAUTY, {sampleSize: 9}, () => 'olmayan-gaf');
   assert.equal(picked.key, BEAUTY[0].key);
 });
+
+// ── SEÇİM KİLİDİ (2026-08-03 canlı hata) ──────────────────────────────────────
+test('ölçüm YOKKEN de gaf ekseni döner — listenin ilkine çakılmaz', () => {
+  const T = twistsFor('moda-tr');
+  const bosIstatistik = {sampleSize: 0, groups: new Map(), global: 0};
+  // pickWeighted'ın ölçümsüz hâli: tekdüze rastgele. Burada sahte bir seçici yeter.
+  let sira = 0;
+  const secici = keys => keys[(sira++) % keys.length];
+  const cikan = new Set();
+  for (let i = 0; i < T.length; i++) cikan.add(selectTwist([], T, bosIstatistik, secici).key);
+  assert.equal(cikan.size, T.length, 'her eksen erişilebilir olmalı');
+});
+
+test('seçici verilmezse davranış belirlenimci kalır', () => {
+  const T = twistsFor('moda-tr');
+  assert.equal(selectTwist([], T).key, T[0].key);
+});
+
+test('moda-tr para gafı markanın gider tablosunu YASAKLAR', () => {
+  // Üç videoda da "kumaş → dikim → kira → marka primi" merdiveni çıktı; odak metni
+  // birebir onu davet ediyordu.
+  const para = twistsFor('moda-tr').find(t => t.key === 'para');
+  assert.match(para.focus, /YASAK/);
+  assert.match(para.focus, /gider tablosu/);
+  assert.doesNotMatch(para.focus, /kumaşın kilo fiyatı/);
+});

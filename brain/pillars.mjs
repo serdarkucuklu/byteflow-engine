@@ -149,7 +149,10 @@ export function selectPillar(recentKeys = [], postCount = 0, stats = null, pick 
   const fresh = group.filter(p => !recent.has(p.key));
   const pool = fresh.length ? fresh : group;
 
-  if (stats && pick && stats.sampleSize >= 3) {
+  // ⚠ selectTwist ile AYNI hata (bkz. brain/twists.mjs): `sampleSize >= 3` şartı tutmayınca
+  // her koşuda fresh[0] dönüyordu ve ölçüm birikmemiş yeni sayfa tek bir pillar'a çakılıyordu.
+  // pickWeighted ölçüm yokken tekdüze rastgele seçer — asıl keşif orada, ama hiç sorulmuyordu.
+  if (pick) {
     const key = pick(pool.map(p => p.key), stats);
     const hit = pool.find(p => p.key === key);
     if (hit) return hit;

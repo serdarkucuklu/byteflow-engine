@@ -53,8 +53,14 @@ const BEAUTY_TR = [
 // cilt.kodu'daki kural aynen geçerli: gaf zorunlu, rotasyona girer ve her gafın doğal bir
 // ALICISI vardır ("bu tam sensin" göndertir, "bu benim" yalnızca kaydettirir).
 const MODA_TR = [
+  // ⚠ 2026-08-03: bu eksen ÜÇ videoda da "kumaş → dikim → kira → marka primi" maliyet
+  // merdivenine dönüştü. Serdar direktifi: "hep o zaman kira personel vs den gaf yapıyor."
+  // Sorun eksende değil ODAKTA: metin markanın gider tablosunu sayıyordu. Markanın gider
+  // tablosu (a) kaynaklanamaz, uydurma rakam doğurur, (b) izleyicinin YAŞADIĞI bir şey
+  // değil — kimse arkadaşına mağaza kirası göndermez. Odak artık ONUN parası:
+  // aynı parçanın iki fiyatı, indirimin matematiği, bir kez giyilen elbise.
   {key: 'para', kime: 'o parayı verdiğine hâlâ inanamayan arkadaşına',
-    focus: 'PARA GAFI: bu parçaya verdiğin paranın gerçekte neye gittiği — kumaşın kilo fiyatı, marka primi, mağaza kirası, "designer iş birliği" etiketi. Rakamı uydurma; oranı ve nereye gittiğini konuş'},
+    focus: 'PARA GAFI: onun kendi parasıyla yaşadığı komik gerçek — vitrindeki ile aynı olan üçte bir fiyatlı parça, "indirimli" etiketin üstündeki hiç var olmamış eski fiyat, ücretsiz kargo eşiğini doldurmak için eklenen ve hiç giyilmeyen üçüncü ürün, bir kez giyilip dolapta yatan davet elbisesi, giyilme başına düşen gerçek maliyet. ⛔ YASAK: markanın gider tablosunu saymak (kumaş şu kadar, dikim şu kadar, kira şu kadar, marka primi şu kadar). O bir maliyet dersidir, gaf değildir; üstelik hiçbir rakamı kaynaklanamaz. Kimse arkadaşına mağaza kirası göndermez — ama "senin de dolabında bir tane var" dedirten parçayı gönderir'},
   {key: 'kargo-hayali', kime: 'kargo kodunu saatte üç kez sorgulayan arkadaşına',
     focus: 'KARGO GAFI: sipariş ile paket arasında geçen süre — kargo takibini ezberlemek, gelene kadar kurulan kombin hayali, kutuyu açınca kumaşın elde bambaşka çıkması. Fotoğrafta görülemeyen ne varsa onu anlat'},
   {key: 'beden-savasi', kime: 'kabinde aynı bedenin iki farklı çıktığını gören arkadaşına',
@@ -112,7 +118,15 @@ export function selectTwist(recentKeys = [], twists = BEAUTY_TR, stats = null, p
   const fresh = twists.filter(t => !recent.has(t.key));
   const pool = fresh.length ? fresh : twists;
 
-  if (stats && pick && stats.sampleSize >= 3) {
+  // ⚠ 2026-08-03 CANLI HATA: burada `stats.sampleSize >= 3` şartı vardı ve şart tutmayınca
+  // HER KOŞUDA pool[0] dönüyordu — yani ölçüm birikmemiş YENİ bir sayfada gaf ekseni hiç
+  // dönmüyor, listenin ilkine çakılıyordu. @etiket.kodu'nun üç videosunun üçü de "para"
+  // gafıyla çıktı (18 eksen arasından), üçü de "hizli-moda-ekonomisi" pillar'ıyla.
+  // Onay döngüsü tabloyu daha da kilitliyordu: reddedilen deneme geçmişten düşürülünce
+  // `recentKeys` de boşalıyor ve sayfa ilk koşunun seçimine sonsuza kadar çakılı kalıyordu.
+  // pickWeighted zaten ölçüm yokken düzgün davranıyor (tekdüze rastgele seçiyor); tek
+  // yapılması gereken ona SORMAKTI. Seçici verilmediğinde davranış hâlâ belirlenimci.
+  if (pick) {
     const key = pick(pool.map(t => t.key), stats);
     const hit = pool.find(t => t.key === key);
     if (hit) return hit;
