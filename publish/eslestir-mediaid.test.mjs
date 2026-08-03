@@ -98,3 +98,56 @@ test('medyaListesi hatayı yutmaz', async () => {
   await assert.rejects(() => medyaListesi({igUserId: '1', token: 't', fetchFn: fakeFetch}),
     /media HTTP 400/);
 });
+
+// ── İKİNCİ GEÇİŞ: tam tarih 1:1 zorlaması ─────────────────────────────────────
+// Canlı senaryodan alındı: 07-31 ve 08-01'de arka arkaya iki hyalüronik asit postu var,
+// caption'lar birbirine benziyor → caption puanı karar veremiyor ama takvim veriyor.
+const HYALU = [
+  {title: 'Hyalüronik Asit Neden Cildi Kurutur?', subject: 'hyalüronik asit', date: '2026-07-31'},
+  {title: 'Hyalüronik Asit: Parayı Neye Ödüyoruz?', subject: 'hyalüronik asit', date: '2026-08-01'},
+];
+const HYALU_MEDYA = [
+  {id: 'M_31', timestamp: '2026-07-31T16:40:00+0000',
+    caption: cap('Hyalüronik asit cildini nemlendirmek yerine kurutuyorsa yalnız değilsin')},
+  {id: 'M_01', timestamp: '2026-08-01T16:40:00+0000',
+    caption: cap('Hyalüronik asit serumuna bin lira verip aslında su satın alıyor olabilirsin')},
+];
+
+test('caption ayırt edemediğinde tam tarih 1:1 eşlemeyi kurtarır', () => {
+  const {eslesenler} = eslestir({history: HYALU, medya: HYALU_MEDYA});
+  assert.deepEqual(eslesenler.map(e => [e.index, e.mediaId]), [[0, 'M_31'], [1, 'M_01']]);
+  assert.ok(eslesenler.every(e => e.kaynak === 'tarih-1e1'), 'ikinci geçişten geldiği işaretlenmeli');
+});
+
+test('aynı günde iki boş kayıt varsa tarih zorlaması ÇALIŞMAZ (1:1 değil)', () => {
+  const history = [
+    {title: 'Birinci Konu Hakkinda', subject: 'gliserin', date: '2026-08-01'},
+    {title: 'Ikinci Konu Hakkinda', subject: 'gliserin', date: '2026-08-01'},
+  ];
+  const medya = [{id: 'TEK', timestamp: '2026-08-01T16:00:00+0000', caption: cap('gliserin üzerine')}];
+  assert.equal(eslestir({history, medya}).eslesenler.length, 0);
+});
+
+test('aynı günde iki boş medya varsa tarih zorlaması ÇALIŞMAZ', () => {
+  const history = [{title: 'Gliserin Hakkinda', subject: 'gliserin', date: '2026-08-01'}];
+  const medya = [
+    {id: 'A', timestamp: '2026-08-01T09:00:00+0000', caption: cap('gliserin sabah')},
+    {id: 'B', timestamp: '2026-08-01T19:00:00+0000', caption: cap('gliserin akşam')},
+  ];
+  assert.equal(eslestir({history, medya}).eslesenler.length, 0);
+});
+
+test('tarih tuttuğu hâlde ortak kök yoksa bağ kurulmaz (yabancı post koruması)', () => {
+  // Hesabın eski Noble Vision dönemine ait, alakasız bir postla tarih çakışması.
+  const history = [{title: 'Retinol Kusma Donemi', subject: 'retinol', date: '2026-08-01'}];
+  const medya = [{id: 'ESKI', timestamp: '2026-08-01T16:00:00+0000',
+    caption: cap('Uzayda kesfedilen yeni gezegen hakkinda bilgiler')}];
+  assert.equal(eslestir({history, medya}).eslesenler.length, 0);
+});
+
+test('ikinci geçiş bağlarsa kayıt belirsiz/boş listelerinde KALMAZ', () => {
+  const {eslesenler, belirsizler, bossular} = eslestir({history: HYALU, medya: HYALU_MEDYA});
+  const bagli = new Set(eslesenler.map(e => e.index));
+  assert.ok(![...belirsizler, ...bossular].some(b => bagli.has(b.index)),
+    'aynı kayıt hem eşleşti hem eşleşmedi diye raporlanmamalı');
+});

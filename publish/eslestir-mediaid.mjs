@@ -116,8 +116,36 @@ export function eslestir({history = [], medya = []}) {
       postedAt: aday.medya.timestamp, skor: Number(aday.skor.toFixed(2))});
   }
 
+  // 4) İKİNCİ GEÇİŞ — TAM TARİH 1:1 ZORLAMASI.
+  //    Caption benzerliği tek başına yetmiyor: 07-31 ve 08-01'de arka arkaya iki hyalüronik
+  //    asit postu var (Serdar'ın şikâyet ettiği tekrarın ta kendisi). İki caption birbirine
+  //    benziyor → birinci geçiş ikisinde de karar veremedi ve GERÇEKTEN yayınlanmış iki post
+  //    ölçüm dışı kalacaktı (biri "para" gafı postu, sayfanın en iyilerinden).
+  //    Sağlam ek sinyal: üretim `date`'i yazıyor ve yayın aynı gün oluyor. Artakalanlar
+  //    arasında bir tarihte TEK boş kayıt ve TEK boş medya varsa eşleme zorunludur — caption
+  //    değil takvim karar veriyor. Yine de tek bir ayırt edici kök ortaklığı şart koşuluyor
+  //    ki bambaşka bir postla (ör. hesabın eski Noble Vision dönemi) tarih çakışması bağ kurmasın.
+  const kalanKayit = [...adaylar.keys()].filter(i => !eslesenler.some(e => e.index === i));
+  const kalanMedya = havuz.filter(m => !sahiplenen.has(m.id));
+  for (const m of kalanMedya) {
+    const gun = trTarih(m.timestamp);
+    const ayniGun = kalanKayit.filter(i => history[i].date === gun
+      && !eslesenler.some(e => e.index === i));
+    if (ayniGun.length !== 1) continue;
+    const oGunMedya = kalanMedya.filter(x => trTarih(x.timestamp) === gun);
+    if (oGunMedya.length !== 1) continue;
+    const i = ayniGun[0];
+    if (benzerlik(history[i], m) <= 0) continue;   // en az bir ayırt edici kök ortak olmalı
+    eslesenler.push({index: i, title: history[i].title, mediaId: m.id,
+      postedAt: m.timestamp, skor: Number(benzerlik(history[i], m).toFixed(2)), kaynak: 'tarih-1e1'});
+  }
+  // İkinci geçişte bağlananları belirsiz/boş listelerinden düş.
+  const bagli = new Set(eslesenler.map(e => e.index));
+  const belirsizKalan = belirsizler.filter(b => !bagli.has(b.index));
+  const bosKalan = bossular.filter(b => !bagli.has(b.index));
+
   eslesenler.sort((a, b) => a.index - b.index);
-  return {eslesenler, belirsizler, bossular};
+  return {eslesenler, belirsizler: belirsizKalan, bossular: bosKalan};
 }
 
 /** Eşleşmeleri geçmişe işler (yeni dizi döner, girdi değişmez). */
