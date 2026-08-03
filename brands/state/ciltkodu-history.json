@@ -362,6 +362,16 @@
     "date": "2026-08-02",
     "durSec": 45.4,
     "mediaId": "18544905898073222",
-    "postedAt": "2026-08-02T19:42:26.780Z"
+    "postedAt": "2026-08-02T19:42:26.780Z",
+    "insights": {
+      "views": 1174,
+      "reach": 1041,
+      "saved": 7,
+      "shares": 8,
+      "total_interactions": 24,
+      "ig_reels_avg_watch_time": 7588,
+      "ig_reels_video_view_total_time": 7930415
+    },
+    "insightsAt": "2026-08-03T16:12:06.298Z"
   }
 ]
