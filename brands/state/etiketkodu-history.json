@@ -1,21 +1,22 @@
 [
   {
-    "title": "5000 TL Polyester Kazak Nereye Gidiyor?",
-    "subject": "polyester",
+    "title": "Beden Tablosu Neden Hep Yalan Söyler?",
+    "subject": "beden tablosu",
     "twist": "para",
     "pillar": "hizli-moda-ekonomisi",
-    "layout": "vertical-stack",
+    "layout": "nodes-flow",
     "kinds": "diagram",
     "motion": "buildup",
     "theme": "#a08663",
     "source": "gemini",
     "footage": [
       "pexels:clothing label tag close up",
-      "pexels:price tag close up macro"
+      "pexels:measuring tape and fabric"
     ],
-    "voice": 7,
+    "voice": 8,
     "voiceName": "Aoede",
+    "not": "Polyester ve maliyet dağılımı olmasın, bambaşka bir konu. Sonunda gerçekten gülünecek bir gaf istiyorum, ders değil.",
     "date": "2026-08-03",
-    "durSec": 43.4
+    "durSec": 45.4
   }
 ]

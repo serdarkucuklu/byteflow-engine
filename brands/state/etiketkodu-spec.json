@@ -1,87 +1,89 @@
 {
-  "hook": "Beş bin liraya polyester kazak alan arkadaşın burada mı?",
-  "title": "5000 TL Polyester Kazak Nereye Gidiyor?",
+  "hook": "Kabin kapısında S beden diye direten o arkadaşına gönder.",
+  "title": "Beden Tablosu Neden Hep Yalan Söyler?",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "diagram",
+      "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "n1",
-          "label": "POLYESTER KUMAŞ"
+          "id": "ILLUZYON",
+          "label": "SÜSLÜ İLLÜZYON"
         },
         {
-          "id": "n2",
-          "label": "DİKİM VE İŞÇİLİK"
+          "id": "KISMALAR",
+          "label": "KUMAŞ TIRAŞLAMA"
         },
         {
-          "id": "n3",
-          "label": "MAĞAZA VE KİRA"
-        },
-        {
-          "id": "n4",
-          "label": "MARKA PRİMİ"
+          "id": "KAOS",
+          "label": "KABİN KAOSU"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "HAMMAD",
-          "status": "sentetik ip ucuza imal edilir",
-          "color": "good"
+          "from": "ILLUZYON",
+          "to": "KISMALAR",
+          "packet": "BEDEN",
+          "status": "marka sana kendini iyi hissettirir",
+          "color": "accent"
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "İŞÇİLİ",
-          "status": "seri üretimde dikim maliyeti düşer",
-          "color": "good"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "KİRA",
-          "status": "lüks caddeler faturayı kabartır",
+          "from": "KISMALAR",
+          "to": "KAOS",
+          "packet": "KUP",
+          "status": "maliyeti kısmak için santim çalınır",
           "color": "warn"
         },
         {
-          "from": "n4",
-          "to": "n1",
-          "packet": "ETİKET",
-          "status": "fiyatın çoğu kumaşa değil markaya gider",
+          "from": "KAOS",
+          "to": "ILLUZYON",
+          "packet": "DRAMA",
+          "status": "fermuar yarı yolda pes eder",
+          "color": "warn"
+        },
+        {
+          "from": "ILLUZYON",
+          "to": "KAOS",
+          "packet": "KABUL",
+          "status": "kalıbı dar diye kendini kandırırsın",
+          "color": "good"
+        },
+        {
+          "from": "KAOS",
+          "to": "KISMALAR",
+          "packet": "İADE",
+          "status": "aslında senin bedenin hiç değişmedi",
           "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Beş bin liralık kıyafette gerçekte ne ödediğini hiç merak ettin mi?\n\nBeş bin liralık polyester kazağın maliyet dağılımı adım adım:\n\n1. Polyester Kumaş — Sentetik elyafın imalat maliyeti oldukça düşüktür.\n2. Dikim ve İşçilik — Seri imalatta birim başına düşen dikim payı küçüktür.\n3. Mağaza ve Kira — Popüler AVM ve caddelerin kirası fiyata eklenir.\n4. Marka Primi — Fiyatın en büyük kısmı markanın imajına kalır.\n\nAlışveriş yaparken etiket içeriğine bakmak paranızın nereye gittiğini net gösterir.\n\nKumaş aynı polyester olsa da çoğu zaman etiket logosu için ödüyoruz.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu beş bin liraya polyester kazak alıp etiketine bakmayan arkadaşına gönder.\n\nSen hiç etiketine bakmadan sadece markası için binler ödedin mi?\n\nYazan: Ece.\n\nTakip et: @etiket.kodu — kumaş, reklam değil.",
+  "caption": "Kabin kapısında s beden diye diretip fermuarı patlatanlar burada mı?\n\nAlışverişte yaşadığımız o sinir bozucu beden illüzyonunun gerçek sebebi:\n\n1. Süslü İllüzyon: Markalar kendinizi iyi hissedip daha çok satın alın diye gerçekte l beden olan bir elbiseye s etiketi basabiliyor. Buna pazarlamada algısal beden hilesi deniyor.\n2. Kumaş Tıraşlama: Hızlı moda markaları milyonlarca adet üretim yaparken her parçadan ikişer santim kısarak devasa kumaş tasarrufu elde ediyor. O yüzden m beden aldığın tişört aslında s beden gibi duruyor.\n3. Kabin Kaosu: İki farklı mağazada tamamen farklı beden çıkmanın sebebi senin vücudun değil, markaların kendi kâr oranlarına göre belirlediği düzensiz kesim standartlarıdır.\n\nAlışveriş yaparken etiket üzerindeki harflere değil, kumaşın esneklik oranına ve gerçek mezura ölçülerine güvenmek gerekiyor.\n\nKumaş suçlu değil ama o daracık kalıpları yapanlar kesinlikle suçlu. Yine de o s bedeni deneyeceğiz.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu kabin önünde hala s beden olduğuna yemin eden o arkadaşına gönder.\n\nSen en son hangi mağazada kabin krizi yaşadın?\n\nYazan: Ece.\nTakip et: @etiket.kodu — kumaş, reklam değil. #moda #alışveriş #bedenölçüsü #gardırop #giyimtüyoları #bedentablosu",
   "hashtags": [
-    "#giyim",
     "#moda",
-    "#kumaş",
+    "#alışveriş",
+    "#bedenölçüsü",
     "#gardırop",
     "#giyimtüyoları",
-    "#polyester",
-    "#alışveriş"
+    "#bedentablosu"
   ],
-  "takeaway": "Kumaşa değil markaya para veriyorsun, bari etiketini oku!",
+  "takeaway": "Kendini suçlama, kumaş fiyatı arttıkça bedenler küçülüyor.",
   "footage_queries": [
     "clothing label tag close up",
-    "price tag close up macro"
+    "measuring tape and fabric"
   ],
   "narration": [
-    "Beş bin liraya polyester kazak alıp etiketine hiç bakmayan arkadaşın bu videoyu kesinlikle izlemeli.",
-    "Yüksek etiketli bir polyester kazağın ödediğiniz parasının nereye gittiğini adım adım inceliyoruz.",
-    "İlk olarak sentetik iplikten üretilen kumaşın hammadde maliyeti toplam tutarın çok küçük kısmıdır.",
-    "Seri üretim tesislerinde yapılan dikim ve işçilik harcamaları da sanıldığı kadar yüksek tutmaz.",
-    "AVM ve popüler caddelerdeki mağazaların kira masrafları ürünün nihai fiyatına doğrudan yansıtılır.",
-    "Son aşamada ödediğiniz rakamın en büyük bölümü markanın kendi algısına ve kârına kalır.",
-    "Aynı polyester kumaş iki yüz liraya da beş bin liraya da satılabilir."
+    "Kabin kapısında hala s beden olduğuna yemin eden o arkadaşına bu videoyu gönder.",
+    "Markaların beden tabloları arkasında dönen üç farklı komik illüzyonu adım adım açıklıyorum.",
+    "Bazı markalar sırf sen mutlu ol diye büyük bedenleri s beden olarak etiketler.",
+    "Ucuz üretim yapanlar ise kumaştan tasarruf etmek için kalıpları gizlice daraltıp küçültürler.",
+    "Kabinde fermuar asla kapanmayınca yaşadığın o derin panik aslında tamamen maliyet odaklıdır.",
+    "Kalıbı dar diye kendini kandırıp bir beden büyüğünü almak ise bizim milli sporumuzdur.",
+    "Etiketteki harflere inanmayı bırakıp mezura kullanmaya başladığında bütün bu kaos tamamen sona erecek.",
+    "Kendini suçlama kumaş fiyatları arttıkça markaların bedenleri de kendi kafasına göre küçülüyor."
   ],
-  "subject": "polyester",
-  "sendTo": "beş bin liraya polyester kazak alıp etiketine bakmayan arkadaşına",
-  "soru": "Sen hiç etiketine bakmadan sadece markası için binler ödedin mi?",
+  "subject": "beden tablosu",
+  "sendTo": "kabin önünde hala s beden olduğuna yemin eden o arkadaşına",
+  "soru": "Sen en son hangi mağazada kabin krizi yaşadın?",
   "theme": "#a08663",
   "brand": {
     "handle": "@etiket.kodu",
@@ -100,39 +102,44 @@
   "footage": true,
   "beats": [
     {
-      "text": "Beş bin liraya polyester kazak alıp etiketine hiç bakmayan arkadaşın bu videoyu kesinlikle izlemeli.",
+      "text": "Kabin kapısında hala s beden olduğuna yemin eden o arkadaşına bu videoyu gönder.",
       "start": 0.35,
-      "dur": 6.513
+      "dur": 4.907
     },
     {
-      "text": "Yüksek etiketli bir polyester kazağın ödediğiniz parasının nereye gittiğini adım adım inceliyoruz.",
-      "start": 6.863,
-      "dur": 6.383
+      "text": "Markaların beden tabloları arkasında dönen üç farklı komik illüzyonu adım adım açıklıyorum.",
+      "start": 5.257,
+      "dur": 5.582
     },
     {
-      "text": "İlk olarak sentetik iplikten üretilen kumaşın hammadde maliyeti toplam tutarın çok küçük kısmıdır.",
-      "start": 13.246,
-      "dur": 6.383
+      "text": "Bazı markalar sırf sen mutlu ol diye büyük bedenleri s beden olarak etiketler.",
+      "start": 10.839,
+      "dur": 4.784
     },
     {
-      "text": "Seri üretim tesislerinde yapılan dikim ve işçilik harcamaları da sanıldığı kadar yüksek tutmaz.",
-      "start": 19.629,
-      "dur": 6.188
+      "text": "Ucuz üretim yapanlar ise kumaştan tasarruf etmek için kalıpları gizlice daraltıp küçültürler.",
+      "start": 15.623,
+      "dur": 5.704
     },
     {
-      "text": "AVM ve popüler caddelerdeki mağazaların kira masrafları ürünün nihai fiyatına doğrudan yansıtılır.",
-      "start": 25.817,
-      "dur": 6.383
+      "text": "Kabinde fermuar asla kapanmayınca yaşadığın o derin panik aslında tamamen maliyet odaklıdır.",
+      "start": 21.328,
+      "dur": 5.643
     },
     {
-      "text": "Son aşamada ödediğiniz rakamın en büyük bölümü markanın kendi algısına ve kârına kalır.",
-      "start": 32.2,
-      "dur": 5.667
+      "text": "Kalıbı dar diye kendini kandırıp bir beden büyüğünü almak ise bizim milli sporumuzdur.",
+      "start": 26.971,
+      "dur": 5.275
     },
     {
-      "text": "Aynı polyester kumaş iki yüz liraya da beş bin liraya da satılabilir.",
-      "start": 37.867,
-      "dur": 5.594
+      "text": "Etiketteki harflere inanmayı bırakıp mezura kullanmaya başladığında bütün bu kaos tamamen sona erecek.",
+      "start": 32.246,
+      "dur": 6.257
+    },
+    {
+      "text": "Kendini suçlama kumaş fiyatları arttıkça markaların bedenleri de kendi kafasına göre küçülüyor.",
+      "start": 38.503,
+      "dur": 6.927
     }
   ],
   "thumbOffset": 1450
