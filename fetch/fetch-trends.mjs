@@ -55,7 +55,36 @@ const FASHION_NEWS = [
   {url: 'https://medium.com/feed/tag/sustainable-fashion', source: 'medium-sustainable'},
 ];
 
-export const FEED_SETS = {'ai-news': AI_NEWS, 'skincare-news': SKINCARE_NEWS, 'fashion-news': FASHION_NEWS};
+
+// @kizlar.kodu için: "şu an ne konuşuluyor + insanlar neyi merak ediyor" akışı.
+// ⚠ Tohum listesi (brands/seeds) yalnızca Gemini düştüğünde devreye giren YEDEKTİR; günlük
+// konuyu bu akış + konu havuzu belirler. Serdar direktifi (2026-08-03): "sadece ürettiklerine
+// bağlı kalma — gündem, trendler ve eski alışkanlıklar sonsuz kaynak."
+// Bu yüzden kaynaklar üç kola ayrıldı:
+//  · GÜNDEM/TREND — şu an ne konuşuluyor (viral alışkanlık, yeni ürün, tartışma)
+//  · MERAK/AÇIKLAMA — insanların gerçekten sorduğu "neden böyle oluyor" soruları
+//  · ESKİ USUL — anneanne yöntemleri, ev tarifleri, kuşaktan kuşağa geçen alışkanlıklar
+const KIZLAR_NEWS = [
+  // gündem / trend
+  {url: 'https://www.reddit.com/r/TwoXChromosomes/top/.rss?t=week', source: 'reddit-twox'},
+  {url: 'https://www.reddit.com/r/femalefashionadvice/top/.rss?t=week', source: 'reddit-ffa'},
+  {url: 'https://www.reddit.com/r/HaircareScience/top/.rss?t=week', source: 'reddit-haircare'},
+  {url: 'https://www.reddit.com/r/fragrance/top/.rss?t=week', source: 'reddit-fragrance'},
+  {url: 'https://www.reddit.com/r/declutter/top/.rss?t=week', source: 'reddit-declutter'},
+  // merak / açıklama — "neden böyle oluyor" hattının ana damarı
+  {url: 'https://www.reddit.com/r/explainlikeimfive/top/.rss?t=week', source: 'reddit-eli5'},
+  {url: 'https://www.reddit.com/r/NoStupidQuestions/top/.rss?t=week', source: 'reddit-nsq'},
+  {url: 'https://www.reddit.com/r/todayilearned/top/.rss?t=week', source: 'reddit-til'},
+  {url: 'https://www.reddit.com/r/answers/top/.rss?t=week', source: 'reddit-answers'},
+  {url: 'https://www.reddit.com/r/sleep/top/.rss?t=week', source: 'reddit-sleep'},
+  // eski usul / kuşak bilgisi — bitmeyen kuyu
+  {url: 'https://www.reddit.com/r/oldschoolcool/top/.rss?t=week', source: 'reddit-osc'},
+  {url: 'https://www.reddit.com/r/CleaningTips/top/.rss?t=week', source: 'reddit-cleaning'},
+  {url: 'https://www.reddit.com/r/frugal/top/.rss?t=week', source: 'reddit-frugal'},
+  {url: 'https://www.reddit.com/r/laundry/top/.rss?t=week', source: 'reddit-laundry'},
+];
+
+export const FEED_SETS = {'ai-news': AI_NEWS, 'skincare-news': SKINCARE_NEWS, 'fashion-news': FASHION_NEWS, 'kizlar-news': KIZLAR_NEWS};
 export const FEEDS = AI_NEWS;                      // geriye uyum
 
 export function feedsFor(setName = 'ai-news') {

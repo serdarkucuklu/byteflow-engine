@@ -59,6 +59,30 @@ function inTagHole(x, y, cx, cy, r) {
   return Math.hypot(x - cx, y - (cy - r * 1.05)) <= r * 0.20;
 }
 
+
+/**
+ * Soru işareti: üstte açık bir kanca (halka dilimi) + altta gövde + nokta.
+ * Neden etiket değil: sayfa @kizlar.kodu ve tezi "her şeyin bir sebebi var" — simge bir ürünü
+ * değil SORUYU göstermeli. Kardeş sayfalarla akrabalığı yine dıştaki eşmerkezli halkalar
+ * taşıyor; ortadaki şekil her sayfada farklı (damla = cilt, soru = merak).
+ */
+function inQuestion(x, y, cx, cy, r) {
+  const kancaCy = cy - r * 0.58, R = r * 0.66, kalinlik = r * 0.30;
+  const dx = x - cx, dy = y - kancaCy;
+  const d = Math.hypot(dx, dy);
+  if (Math.abs(d - R) <= kalinlik / 2) {
+    // Açı: y aşağı doğru arttığı için ekran koordinatında ölçülüyor.
+    // Kanca ÜSTÜ tam kapsar, sol-altta açıklık bırakır (soru işaretinin boşluğu).
+    const ang = Math.atan2(dy, dx) * 180 / Math.PI;   // -180..180, 0 = sağ, -90 = yukarı
+    if (ang <= 90 || ang >= 160) return true;
+  }
+  // Gövde: kancanın alt ucundan aşağı inen dikey çubuk.
+  if (Math.abs(dx) <= kalinlik / 2 && y >= kancaCy + R - kalinlik / 2 && y <= cy + r * 0.42) return true;
+  // Nokta.
+  if (Math.hypot(dx, y - (cy + r * 0.92)) <= kalinlik * 0.58) return true;
+  return false;
+}
+
 function render(brand) {
   const bg = hex(brand.palette?.bg ?? '#17110f');
   const c1 = hex(brand.themes?.[0] ?? '#e8a0a8');
@@ -66,9 +90,10 @@ function render(brand) {
   // Damla halkaların İÇİNDE kalmalı: ilk denemede uç kadrajın üstünden taştı ve iç halkayı kesti.
   // Marka `symbol` demezse damla — kardeş sayfanın (@cilt.kodu) görüntüsü değişmesin.
   const etiket = brand.symbol === 'etiket';
+  const soru = brand.symbol === 'soru';
   const W = SIZE * SS, cx = W / 2, r = W * 0.118;
   // Damla siluetinin ağırlık merkezi altta; etiket simetrik, bu yüzden kadraja ortalanır.
-  const cy = etiket ? W * 0.5 : W * 0.605;
+  const cy = (etiket || soru) ? W * 0.5 : W * 0.605;
   const acc = new Float64Array(SIZE * SIZE * 3);
 
   for (let y = 0; y < W; y++) {
@@ -78,7 +103,12 @@ function render(brand) {
       const ringR = W * 0.395, ringW = W * 0.006;
       if (Math.abs(d - ringR) < ringW) col = mix(bg, c2, 0.55);                       // dış halka
       if (Math.abs(d - ringR * 0.86) < ringW * 0.6) col = mix(bg, c2, 0.28);          // ince iç halka
-      if (etiket) {
+      if (soru) {
+        if (inQuestion(x, y, cx, cy, r * 1.18)) {
+          const t = Math.min(1, Math.max(0, (y - (cy - r * 1.5)) / (r * 3)));
+          col = mix(c1, c2, t);                                                        // soru dolgusu
+        }
+      } else if (etiket) {
         if (inTag(x, y, cx, cy, r) && !inTagHole(x, y, cx, cy, r)) {
           const t = Math.min(1, Math.max(0, (y - (cy - r * 1.42)) / (r * 2.84)));
           col = mix(c1, c2, t);                                                        // etiket dolgusu

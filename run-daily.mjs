@@ -14,7 +14,7 @@ import {pillarsFor, selectPillar} from './brain/pillars.mjs';
 import {twistsFor, selectTwist} from './brain/twists.mjs';
 import {recentSubjects} from './brain/subjects.mjs';
 import {redOku, bugunkuRedler} from './brain/red-defteri.mjs';
-import {selectMotion} from './render/src/lib/motion-registry.mjs';
+import {selectMotion, motionsFor} from './render/src/lib/motion-registry.mjs';
 import {loadBrand} from './brands/load.mjs';
 import {aggregate, pickWeighted, leaderboard} from './brain/scoreboard.mjs';
 
@@ -99,8 +99,10 @@ console.log('★ skor tablosu:');
 console.log(leaderboard(history));
 // DİKKAT: pillar havuzu MARKADAN gelir. 5. argüman geçilmezse modülün varsayılan AI havuzu
 // kullanılıyordu ve cilt bakımı markası 'model-releases' konusu üretmişti (canlı görüldü).
+// timelyPayi MARKADAN: haber kancası AI sayfasında belirleyiciydi, merak sayfasında değil
+// (bkz. brain/pillars.mjs). Verilmezse eski davranış (%75) korunur.
 const pillar = selectPillar(recentPillars, history.length, pillarStats,
-  (cands, st) => pickWeighted(cands, st), PILLARS);
+  (cands, st) => pickWeighted(cands, st), PILLARS, brand.timelyPayi ?? 0.75);
 console.log(`✓ pillar: ${pillar.key}${pillar.timely ? ' (timely)' : ''}` +
   (pillarStats.groups.get(pillar.key) ? ` [skor ${pillarStats.groups.get(pillar.key).score}]` : ' [veri yok]'));
 
@@ -135,8 +137,11 @@ const theme = THEMES[(n * 5 + 1) % THEMES.length]; // *5: eski layout rotasyonuy
 // hariç LRU. Serdar 2026-08-02: "5 farklı kareografi olsun, mevcuttan da iyi."
 // BYTEFLOW_MOTION: tek bir kareografiyi zorlamak için (denetim koşuları — bkz.
 // .github/workflows/kareografi-denetim.yml). Boşsa normal rotasyon işler.
+// Kareografi havuzu MARKADAN: @kizlar.kodu kendi hareket dilini kullanıyor (sketch/flip/orbit)
+// ki keşfet akışında kardeş sayfayla aynı motordan çıkmış gibi durmasın.
 const motion = process.env.BYTEFLOW_MOTION
-  || selectMotion(history.slice(-2).map(h => h.motion).filter(Boolean), n).name;
+  || selectMotion(history.slice(-2).map(h => h.motion).filter(Boolean), n,
+       motionsFor(brand.motionSet)).name;
 spec.theme = theme;
 spec.brand = {handle: brand.handle, signoff: brand.persona?.signoff ?? '',
   shareCta: brand.persona?.shareCta ?? ''};

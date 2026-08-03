@@ -77,7 +77,7 @@ const BEAUTY_TR = [
 ];
 
 
-// ── @dolap.kodu — giyim, dolap ve alışveriş psikolojisi (2026-08-03) ──────────
+// ── @kizlar.kodu / giyim-dolap ailesi — MODA_TR (2026-08-03) ─────────────────
 // @byteflowlabs (İngilizce AI içeriği) 20 postta 2 takipçide kaldı; medyan 118 izlenme,
 // 14 kaydetme, 2 PAYLAŞIM. Aynı motorun TR güzellik sayfası tek postta 8 paylaşım + 1349
 // izlenme yaptı. Teşhis: konu "kötü" değildi, GÖNDERİLEBİLİR değildi.
@@ -124,7 +124,51 @@ const MODA_TR = [
   {key: 'gunluk-kazalar', focus: 'günlük kazalar ve gerçek sebepleri — açılan fermuar, kopan düğme, vuran topuk, statik elektrikle bacağa yapışan etek, koltuk altı ter lekesi'},
 ];
 
-export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING, 'skincare-science': SKINCARE_SCIENCE, 'beauty-tr': BEAUTY_TR, 'moda-tr': MODA_TR};
+
+// ── @kizlar.kodu — vücut + günlük hayat merakları (2026-08-03) ────────────────
+// Serdar kapsam kararı: sayfa "etiket okuma"dan ÇIKIP "bunu neden herkes yaşıyor"a genişledi.
+// Bu aile MODA_TR'nin ÜSTÜNE biner (kizlar-tr = moda + bu), çünkü giyim konuları da birer
+// "neden" sorusudur ("neden kazak bilye yapar") — hiçbiri atılmıyor, alt küme oluyorlar.
+//
+// ⚠ KARDEŞ SAYFA SINIRI: @cilt.kodu = yüze sürülen ÜRÜN ve cilde olan biten. Bu havuzda
+// yüz cildi ve cilt bakım ürünü YOK — iki sayfa aynı hafta aynı konuyu anlatırsa ikisi de
+// kaybeder. Sınır ihlali örnekleri: gözenek, sivilce, güneş kremi, serum, makyajla uyumak.
+//
+// ⚠ HEPSİ MEKANİZMASI OLAN sorular. Motorun ürettiği şey diyagram: düğüm → adım → sonuç.
+// Mekanizması olmayan konu (ilişki psikolojisi, "bir kızın 'bir şey yok' demesi") bu havuza
+// GİRMEZ: kaynaklanamaz, uydurma doğurur. "Test ettik" iddiası da yasak — biz test etmiyoruz.
+const VUCUT_GUNLUK = [
+  {key: 'koku-korlugu', focus: 'kendi parfümünü bir süre sonra artık koklamamak (koku körlüğü) — burnun aynı uyarana alışması, o yüzden her gün biraz daha fazla sıkmak. "Ben kokmuyor muyum artık?" durumundan gir'},
+  {key: 'koku-hafiza', focus: 'bir kokunun aniden eski bir anıyı getirmesi — koku sinyalinin hafıza ve duygu bölgesine diğer duyulardan daha kısa yoldan gitmesi. Bir markette çarpılıp geçmişe gitmek durumundan gir'},
+  {key: 'sabah-sismesi', focus: 'sabah uyanınca yüzün ve göz kapaklarının şiş olması — gece yatay pozisyonda sıvının yer değiştirmesi, tuz ve uykusuzluğun payı, gün içinde neden kendiliğinden geçtiği'},
+  {key: 'yastik-izleri', focus: 'yüzde ve kolda kalan yastık/çarşaf izleri, sabah kalkınca saatlerce çıkmaması — dokunun basınç altında sıkışması ve geri dolması, hangi uyku pozisyonunun iz bıraktığı'},
+  {key: 'parmak-burusmasi', focus: 'duşta ya da bulaşıkta parmak uçlarının buruşması — bunun "su emmek" olmadığı, sinir sisteminin kontrol ettiği bir tepki olduğu ve ıslak yüzeyi kavramaya yaradığı'},
+  {key: 'tuy-diken-diken', focus: 'üşüyünce ya da bir şarkıda tüylerin diken diken olması — her tüyün dibindeki minik kasın kasılması, aynı tepkinin hem soğukta hem duyguda çıkması'},
+  {key: 'esneme-gozyasi', focus: 'esnerken gözlerin dolması, esnemenin bulaşıcı olması — yüz kaslarının gözyaşı bezine yaptığı basınç ve esnemenin neden yanındakine geçtiği'},
+  {key: 'uzuv-uyusmasi', focus: 'bacak bacak üstüne atınca ayağın uyuşması, uyanınca kolun "ölmesi" — sinire uzun süren basınç, karıncalanmanın aslında iyileşme sinyali olması'},
+  {key: 'mide-guruldamasi', focus: 'açken (ve bazen tokken) karnın guruldaması, hep en sessiz ortamda olması — bağırsağın boş boruyu süpürmesi ve sesin neden o kadar yükseldiği'},
+  {key: 'usume-farki', focus: 'aynı odada birinin üşüyüp diğerinin terlemesi — kas oranı, kan akışı ve ellerin/ayakların neden ilk üşüyen yer olduğu'},
+  {key: 'sac-yikama-sikligi', focus: 'saçı her gün yıkamak — "saç dökülür" efsanesi, yağlanma döngüsünün nasıl kurulduğu, iki gün yıkamayınca ne olduğu. Saç derisi ve yağ dengesi (yüz cildi DEĞİL)'},
+  {key: 'sac-elektriklenmesi', focus: 'kışın saçın kabarması, atkı çıkarınca havalanması, kıyafetin bacağa yapışması — kuru havada yüzeyler arası yük birikmesi ve neden kışın olduğu'},
+  {key: 'tirnak-isaretleri', focus: 'tırnaktaki beyaz lekeler ve dikey çizgiler — "kalsiyum eksikliği" efsanesi, tırnağın nasıl uzadığı, ne kadar sürede tamamen yenilendiği'},
+  {key: 'dudak-catlamasi', focus: 'dudağın çatlaması ve yaladıkça daha beter olması — dudakta yağ bezi olmaması, tükürüğün buharlaşırken nemi de götürmesi. Ürün önermek değil MEKANİZMA anlat'},
+  {key: 'ter-kokusu', focus: 'terin aslında kokusuz olması, kokuyu bakterilerin yapması, stres terinin neden farklı koktuğu, spor kıyafetinin yıkansa da kokması'},
+  {key: 'uyku-borcu', focus: 'hafta içi az uyuyup hafta sonu telafi etmek, alarmın 5 dakikasında daha kötü uyanmak — uyku döngüsünün nerede kesildiğinin uyanma kalitesini belirlemesi'},
+  {key: 'ekran-gozu', focus: 'ekrana bakarken gözün kuruması ve yanması — kırpma sayısının düşmesi, "20 dakikada bir uzağa bak" kuralının neden işe yaradığı'},
+  {key: 'pahali-mi-degeri', timely: true, focus: 'aynı işi gören ucuz ve pahalı ürün gerçekten farklı mı — parfüm, şampuan, saç kurutma, çanta, takı, deodorant. Farkın NEREDE olduğu (kalıcılık, malzeme, donanım) ve nerede SADECE etiket olduğu. Rakam uydurma; farkın yönünü ve neyi satın aldığını konuş'},
+  // — BİTMEYEN KUYULAR (Serdar, 2026-08-03): "türettiklerin bitebilir; gündem, eski
+  //   insanlar ve alışkanlıklar hep yeni konu üretir." Bu üçü tohum listesine değil,
+  //   sürekli yenilenen kaynağa yaslanıyor: —
+  {key: 'anneanne-yontemi', focus: 'anneannenin/annenin yöntemi gerçekten işe yarıyor mu — sirkeyle durulanan saç, tuzlu suyla gargara, kolonyayla ateş düşürme, dolaba konan sabun, yastığın altına konan şey. Alay ETME: çoğunun içinde gerçek bir mekanizma var, onu bul; işe yaramayanı da nereden çıktığıyla anlat'},
+  {key: 'eski-usul-ev', focus: 'eskiden herkesin evinde olan ama artık kimsede olmayan alışkanlık — çamaşıra çivit, dolapta güve kesesi, gazete ile cam silmek, kışlık kavanoz, yorgan güneşe serme. Neden yapılıyordu, hangisi hâlâ mantıklı'},
+  {key: 'viral-aliskanlik', timely: true, focus: 'şu an sosyal medyada dönen ve herkesin denediği alışkanlık/yöntem — akışta üst üste çıkan o şey aslında ne yapıyor, nereden çıktı, işe yarıyor mu. GÜNDEMDEN seç; "test ettik" DEME (biz test etmiyoruz), yayınlanmış mekanizmayı anlat'},
+  {key: 'sehir-efsanesi', timely: true, focus: 'herkesin birbirine söylediği ama yanlış olan klasik — "ıslak saçla dışarı çıkma hasta edersin", "sakız yutulunca 7 yıl kalır", "gece aynaya bakma", "soğuk havada saç daha çok dökülür". Efsanenin NEREDEN çıktığını da söyle, sadece "yanlış" deme'},
+];
+
+// kizlar-tr = giyim/dolap ailesi + vücut/günlük hayat ailesi (üst küme).
+const KIZLAR_TR = [...MODA_TR, ...VUCUT_GUNLUK];
+
+export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING, 'skincare-science': SKINCARE_SCIENCE, 'beauty-tr': BEAUTY_TR, 'moda-tr': MODA_TR, 'kizlar-tr': KIZLAR_TR};
 
 /** Marka dosyasındaki pillarSet adına karşılık gelen havuz. */
 export function pillarsFor(setName = 'ai-engineering') {
@@ -142,8 +186,13 @@ export const PILLARS = AI_ENGINEERING;
 // stats verilirse (bkz. brain/scoreboard.mjs) grup içinde PERFORMANSA göre ağırlıklı seçilir:
 // tutan pillar'lar daha sık, hiç denenmemişler ortalama sayılır, hiçbiri tamamen ölmez.
 // Veri yoksa (ilk haftalar) eski deterministik LRU davranışı aynen sürer.
-export function selectPillar(recentKeys = [], postCount = 0, stats = null, pick = null, pillars = PILLARS) {
-  const wantTimely = postCount % 4 !== 3;
+export function selectPillar(recentKeys = [], postCount = 0, stats = null, pick = null, pillars = PILLARS,
+    timelyPayi = 0.75) {
+  // %75 kuralı AI sayfasından geliyor: orada kanca HABERDİ (yeni model sürümü). Merak/eğlence
+  // sayfasında tersi doğru — asıl varlık evergreen havuz. @kizlar.kodu'da timely havuzu 8
+  // konu; %75 ile seçilirse aynı konu ~10 postta bir dönüyor ve Serdar'ın "konu ASLA tekrar
+  // etmez" kuralını doğrudan çiğniyor. Oran artık marka dosyasından (`timelyPayi`).
+  const wantTimely = (postCount % 4) < Math.round(Math.max(0, Math.min(1, timelyPayi)) * 4);
   const group = pillars.filter(p => Boolean(p.timely) === wantTimely);
   const recent = new Set(recentKeys);
   const fresh = group.filter(p => !recent.has(p.key));

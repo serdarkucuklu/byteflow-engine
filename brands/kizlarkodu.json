@@ -1,42 +1,42 @@
 {
-  "slug": "dolapkodu",
-  "handle": "@dolap.kodu",
+  "slug": "kizlarkodu",
+  "handle": "@kizlar.kodu",
   "displayName": "Etiket Kodu",
   "language": "tr",
   "persona": {
     "name": "Ece",
-    "audience": "giyim, dolap ve alışveriş hayatını EĞLENCELİ şekilde anlatan bir Instagram sayfası (hedef: 18-35 yaş kadın, Türkiye). Amaç ders vermek değil; önce güldürmek, sonra \"aaa demek oymuş\" dedirtmek",
+    "audience": "kadınların günlük hayatındaki \"bunu neden herkes yaşıyor?\" sorularını EĞLENCELİ şekilde açıklayan bir Instagram sayfası (hedef: 18-35 yaş kadın, Türkiye). Kıyafet, vücut, saç, uyku, koku, alışveriş — her videoda bir merak, bir mekanizma, bir espri",
     "voice": "komik ve samimi bir kız arkadaş tonu: önce güldürür, sonra \"aaa demek oymuş\" dedirtir. Ukalalık ve ders verme YOK; terim yerine benzetme, sıkıcı olmaktansa esprili olmayı seçer",
     "byline": "Yazan: Ece.",
-    "signoff": "dolabında olan biten",
-    "tagline": "Takip et: @dolap.kodu — dolabında olan biten.",
+    "signoff": "her şeyin bir sebebi var",
+    "tagline": "Takip et: @kizlar.kodu — her şeyin bir sebebi var.",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "themes": [
-    "#c4a888",
-    "#a08663",
-    "#8f7f9e",
-    "#d9c4a8",
-    "#7d6b52",
-    "#b09a8f"
+    "#7de2d1",
+    "#b39cff",
+    "#ffb37d",
+    "#ff8fab",
+    "#8fd0ff",
+    "#ffe07d"
   ],
   "palette": {
-    "bg": "#181410",
-    "card": "#221c17",
-    "stroke": "#3a2f26",
-    "text": "#f5efe7",
-    "muted": "#bdae9c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "narrationVoices": [
     "Aoede",
     "Kore",
     "Puck"
   ],
-  "pillarSet": "moda-tr",
+  "pillarSet": "kizlar-tr",
   "twistSet": "moda-tr",
-  "feedSet": "fashion-news",
+  "feedSet": "kizlar-news",
   "footageSet": "fabric",
-  "seedBacklog": "brands/seeds/dolapkodu.json",
+  "seedBacklog": "brands/seeds/kizlarkodu.json",
   "musicDir": "assets/music",
   "publish": {
     "instagram": {
@@ -99,5 +99,8 @@
     "takeawayRule": "The closing line is the PUNCHLINE (<= 70 chars) and it must LAND TODAY'S GAF — the same angle the hook opened with, now with the twist of the knife. A cheeky rule of thumb or a self-aware confession, never a summary, never a flat sign-off.",
     "captionClosing": "A funny, self-aware closing line that lands today's gaf (the same angle as the hook), not a generic sign-off"
   },
-  "symbol": "etiket"
+  "symbol": "soru",
+  "timelyPayi": 0.25,
+  "kapsamSiniri": "@cilt.kodu = ÜRÜN ve etken madde (kavanozun içi: serum, retinol, INCI, gözenek, sivilce). @kizlar.kodu = ALIŞKANLIK/RİTÜEL ve VÜCUDUN TEPKİSİ (neden yapıyoruz, işe yarıyor mu) + saç, tırnak, uyku, koku, ev, kıyafet, dolap, alışveriş. Aynı konu iki sayfada işlenecekse cilt.kodu üründen, kizlar.kodu davranıştan bakar.",
+  "motionSet": "kizlar"
 }

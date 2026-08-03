@@ -49,7 +49,7 @@ const BEAUTY_TR = [
 ];
 
 
-// ── @dolap.kodu gaf havuzu (2026-08-03) ──────────────────────────────────────
+// ── @kizlar.kodu gaf havuzu (2026-08-03) ────────────────────────────────────
 // cilt.kodu'daki kural aynen geçerli: gaf zorunlu, rotasyona girer ve her gafın doğal bir
 // ALICISI vardır ("bu tam sensin" göndertir, "bu benim" yalnızca kaydettirir).
 const MODA_TR = [

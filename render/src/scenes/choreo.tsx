@@ -346,8 +346,155 @@ const ripple: Choreo = {
   },
 };
 
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// @kizlar.kodu HATTI (Serdar, 2026-08-03: "bu sayfanın animasyonları cilt.kodu'ya
+// göre farklılaşsın — şekiller çizilsin, hareketli olsun, renklendirme değişsin").
+// Ortak beşliden ayrılan üç kareografi: kartlar ÇİZİLEREK, ÇEVRİLEREK ve YAY çizerek
+// gelir. Vurgu efektleri de farklı: nabız yerine çerçeve turu / eğilme / yörünge.
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ── 6. SKETCH — önce çizgiler çizilir, kartlar üstüne "eskiz" gibi oturur ─────
+// Kimlik: sayfa bir SORU sorup cevabı çizerek anlatıyor; eleman tek tek doğuyor.
+const sketch: Choreo = {
+  key: 'sketch',
+  *enter(ctx) {
+    ctx.boxes.forEach((b, i) => { b.y(ctx.pos[i].y); b.scale(0.9); b.rotation(-2.5); });
+    // Önce bağlantı iskeleti çizilir (boş bir taslak), sonra kartlar üstüne oturur.
+    yield* drawAllLines(ctx, ctx.lineT * 1.8);
+    for (let i = 0; i < ctx.boxes.length; i++) {
+      const b = ctx.boxes[i];
+      yield* all(
+        b.opacity(1, ctx.enterT * 0.7, easeOutCubic),
+        b.scale(1, ctx.enterT * 0.85, easeOutBack),
+        b.rotation(0, ctx.enterT * 0.9, easeOutCubic),
+      );
+    }
+  },
+  *emphasize(step) {
+    // Vurgu: kartın çevresinde ince bir çerçeve turu — "kalemle daire içine alma".
+    const kalem = createRef<Rect>();
+    step.stage.add(
+      <Rect ref={kalem} x={step.pos[step.ti].x} y={step.pos[step.ti].y}
+        size={step.to.size()} radius={18} stroke={step.col} lineWidth={4}
+        opacity={0} zIndex={0} scale={1.16} />,
+    );
+    yield* all(
+      step.from.stroke(step.col, 0.2), step.from.shadowColor(`${step.col}55`, 0.2),
+      ...step.others.map(b => b.opacity(DIM, 0.22)),
+    );
+    yield* all(
+      pulseAlong(step, step.pulseT * 0.8),
+      kalem().opacity(0.95, step.pulseT * 0.35),
+      kalem().scale(1, step.pulseT * 0.6, easeOutBack),
+      step.to.stroke(step.col, step.pulseT * 0.6),
+      delay(step.pulseT * 0.6, kalem().opacity(0, step.pulseT * 0.4)),
+    );
+    kalem().remove();
+  },
+  reset: plainReset,
+  *exit(ctx) {
+    yield* all(
+      ...ctx.boxes.map(b => all(b.opacity(0, 0.35), b.rotation(2, 0.4), b.scale(0.9, 0.4))),
+      ...ctx.allLines.map(l => l.opacity(0, 0.3)),
+    );
+  },
+};
+
+// ── 7. FLIP — kartlar soru-cevap kartı gibi çevrilerek açılır ─────────────────
+// Kimlik: sayfanın simgesi soru işareti; her kart bir cevabın açılması gibi dönüyor.
+const flip: Choreo = {
+  key: 'flip',
+  *enter(ctx) {
+    ctx.boxes.forEach((b, i) => { b.y(ctx.pos[i].y); b.scale([0.02, 0.92]); b.opacity(1); });
+    yield* all(
+      ...ctx.boxes.map((b, i) => delay(i * ctx.enterT * 0.42,
+        all(b.scale([1, 1], ctx.enterT * 0.85, easeOutBack)))),
+      delay(ctx.enterT * 0.7, drawAllLines(ctx, ctx.lineT * 1.4)),
+    );
+  },
+  *emphasize(step) {
+    // Vurgu: hedef kart yarım tur döner ve rengiyle geri gelir.
+    yield* all(
+      step.from.stroke(step.col, 0.2), step.from.shadowColor(`${step.col}55`, 0.2),
+      ...step.others.map(b => b.opacity(DIM, 0.22)),
+    );
+    yield* all(
+      pulseAlong(step, step.pulseT * 0.7),
+      step.to.stroke(step.col, step.pulseT * 0.5),
+      step.to.shadowColor(`${step.col}66`, step.pulseT * 0.5),
+    );
+    yield* step.to.scale([0.04, 1], step.pulseT * 0.28, easeInQuad);
+    yield* step.to.scale([1, 1], step.pulseT * 0.34, easeOutBack);
+  },
+  reset: plainReset,
+  *exit(ctx) {
+    yield* all(
+      ...ctx.boxes.map((b, i) => delay(i * 0.05, b.scale([0.02, 0.9], 0.32, easeInQuad))),
+      ...ctx.allLines.map(l => l.opacity(0, 0.3)),
+    );
+  },
+};
+
+// ── 8. ORBIT — kartlar merkez etrafında yay çizerek yerine süzülür ────────────
+// Kimlik: hareketin kendisi "dolanıp yerini bulma" — dümdüz giriş yerine eğri.
+const orbit: Choreo = {
+  key: 'orbit',
+  *enter(ctx) {
+    // Her kart, merkezden dışa doğru bir yay üzerinde başlar; hem konum hem açı animasyonu.
+    ctx.boxes.forEach((b, i) => {
+      const p = ctx.pos[i];
+      const ac = Math.atan2(p.y - ctx.clusterY, p.x || 0.001);
+      b.x(p.x - Math.cos(ac) * 150);
+      b.y(p.y - Math.sin(ac) * 150 + ctx.rise * 0.3);
+      b.scale(0.8);
+      b.rotation(-8);
+    });
+    yield* all(
+      ...ctx.boxes.map((b, i) => delay(i * ctx.enterT * 0.3, all(
+        b.opacity(1, ctx.enterT * 0.8, easeOutCubic),
+        b.x(ctx.pos[i].x, ctx.enterT * 1.1, easeOutBack),
+        b.y(ctx.pos[i].y, ctx.enterT * 1.1, easeOutCubic),
+        b.scale(1, ctx.enterT, easeOutBack),
+        b.rotation(0, ctx.enterT, easeOutCubic),
+      ))),
+      delay(ctx.enterT * 0.9, drawAllLines(ctx, ctx.lineT * 1.5)),
+    );
+  },
+  *emphasize(step) {
+    // Vurgu: hedef kartın çevresinde küçük bir nokta tur atar (yörünge).
+    const nokta = createRef<Circle>();
+    step.stage.add(
+      <Circle ref={nokta} x={step.pos[step.ti].x} y={step.pos[step.ti].y - 46}
+        size={14} fill={step.col} opacity={0} zIndex={3} />,
+    );
+    yield* all(
+      step.from.stroke(step.col, 0.2), step.from.shadowColor(`${step.col}55`, 0.2),
+      ...step.others.map(b => b.opacity(DIM, 0.22)),
+    );
+    yield* all(
+      pulseAlong(step, step.pulseT * 0.8),
+      nokta().opacity(1, step.pulseT * 0.2),
+      step.to.stroke(step.col, step.pulseT * 0.5),
+      step.to.shadowColor(`${step.col}66`, step.pulseT * 0.5),
+      step.to.scale(1.04, step.pulseT * 0.5, easeOutCubic),
+      delay(step.pulseT * 0.55, nokta().opacity(0, step.pulseT * 0.3)),
+    );
+    nokta().remove();
+  },
+  reset: plainReset,
+  *exit(ctx) {
+    yield* all(
+      ...ctx.boxes.map(b => all(b.opacity(0, 0.35), b.rotation(6, 0.4), b.scale(0.88, 0.4))),
+      ...ctx.allLines.map(l => l.opacity(0, 0.3)),
+    );
+  },
+};
+
 export const CHOREOS: Record<string, Choreo> = {
   buildup, spotlight, camera, cascade, ripple,
+  // @kizlar.kodu hattı:
+  sketch, flip, orbit,
 };
 
 /** spec.motion → kareografi. Bilinmeyen/eksik değer buildup'a düşer (yayın kırılmaz). */

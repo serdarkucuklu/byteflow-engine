@@ -21,7 +21,7 @@ test('brand slug comes from --brand, then env, then the default', () => {
 });
 
 test('credentials map secret NAMES to values — the repo never holds a token', () => {
-  const b = loadBrand('dolapkodu');
+  const b = loadBrand('kizlarkodu');
   const raw = JSON.stringify(b.publish);
   assert.doesNotMatch(raw, /EAA|IGQ|Bearer/, 'marka dosyasında token görünmemeli');
   const cred = credentials(b, {IG_USER_ID: '123', IG_ACCESS_TOKEN: 'tok', FB_PAGE_ID: '9'});
@@ -33,10 +33,10 @@ test('credentials map secret NAMES to values — the repo never holds a token', 
 
 test('listBrands sees every brand file', () => {
   assert.ok(listBrands().includes('ciltkodu'));
-  assert.ok(listBrands().includes('dolapkodu'));
+  assert.ok(listBrands().includes('kizlarkodu'));
 });
 
-// @byteflowlabs 2026-08-03'te @dolap.kodu'ya dönüştürüldü (20 post, 2 takipçi, medyan 118
+// @byteflowlabs 2026-08-03'te @kizlar.kodu'ya dönüştürüldü (20 post, 2 takipçi, medyan 118
 // izlenme). Marka dosyası SİLİNDİ çünkü aynı IG hesabını/token'ını gösteriyordu: dosya kalsaydı
 // --brand=byteflow ya da markasız bir koşu, İngilizce AI içeriğini YENİ sayfaya yayınlayabilirdi.
 // Silinmiş olması, markasız çağrının sessizce yanlış sayfaya gitmek yerine patlamasını sağlıyor.
@@ -59,9 +59,10 @@ test('each brand really uses its own pillar pool (not the engine default)', asyn
   }
 });
 
-// Avatar simgesi markadan gelir. Varsayılan DAMLA olmalı: @dolap.kodu'ya etiket simgesi
-// eklenirken kardeş sayfanın (@cilt.kodu) profil resminin sessizce değişmemesi buna bağlı.
+// Avatar simgesi markadan gelir. Varsayılan DAMLA olmalı: yeni sayfaya simge eklenirken
+// kardeş sayfanın (@cilt.kodu) profil resminin sessizce değişmemesi buna bağlı.
+// Her sayfa KENDİ şeklini taşır (damla = cilt, soru = merak); akrabalığı dıştaki halkalar verir.
 test('avatar simgesi markadan gelir, varsayılanı damla', () => {
   assert.equal(loadBrand('ciltkodu').symbol, undefined, '@cilt.kodu damlada kalmalı');
-  assert.equal(loadBrand('dolapkodu').symbol, 'etiket');
+  assert.equal(loadBrand('kizlarkodu').symbol, 'soru');
 });

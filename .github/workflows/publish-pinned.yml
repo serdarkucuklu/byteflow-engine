@@ -20,10 +20,10 @@ permissions:
   contents: write
 
 # ⚠ Marka AÇIKÇA yazılmalı: bu iş BYTEFLOW_BRAND belirtmiyordu ve varsayılana ('byteflow')
-# düşüyordu. byteflow markası 2026-08-03'te emekli edildi (sayfa @dolap.kodu oldu) — varsayılan
+# düşüyordu. byteflow markası 2026-08-03'te emekli edildi (sayfa @kizlar.kodu oldu) — varsayılan
 # bırakılsaydı bu cron her gün "marka bulunamadı" ile patlardı.
 env:
-  BYTEFLOW_BRAND: dolapkodu
+  BYTEFLOW_BRAND: kizlarkodu
 
 concurrency:
   group: byteflow-pinned

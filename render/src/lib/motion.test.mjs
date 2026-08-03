@@ -1,12 +1,20 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {MOTION_META, MOTION_NAMES, pickMotion, motionTarget, weightOf, selectMotion} from './motion-registry.mjs';
+import {MOTION_META, MOTION_NAMES, pickMotion, motionTarget, weightOf, selectMotion, motionsFor} from './motion-registry.mjs';
 
 // Serdar 2026-08-02: "5 farklı kareografi olsun, mevcuttan da iyi."
-test('beş kareografi kayıtlı ve adları tekil', () => {
-  assert.equal(MOTION_META.length, 5);
-  assert.deepEqual(MOTION_NAMES, ['buildup', 'spotlight', 'camera', 'cascade', 'ripple']);
-  assert.equal(new Set(MOTION_NAMES).size, 5);
+// 2026-08-03: kareografi MARKA BAŞINA havuzlandı — "5 farklı" kuralı artık defterin
+// tamamı için değil HER SAYFANIN havuzu için geçerli (sayfalar birbirine benzemesin).
+test('her markanın havuzunda en az beş kareografi var ve adlar tekil', () => {
+  assert.equal(new Set(MOTION_NAMES).size, MOTION_NAMES.length, 'adlar tekil olmalı');
+  for (const kume of ['ortak', 'kizlar']) {
+    const havuz = motionsFor(kume).map(m => m.name);
+    assert.ok(havuz.length >= 5, `${kume} havuzunda beşten az kareografi var`);
+    assert.equal(new Set(havuz).size, havuz.length, `${kume} havuzunda tekrar var`);
+  }
+  // @cilt.kodu'nun hareket dili DEĞİŞMEDİ: yeni kareografiler oraya sızmamalı.
+  assert.deepEqual(motionsFor('ortak').map(m => m.name),
+    ['buildup', 'spotlight', 'camera', 'cascade', 'ripple']);
 });
 
 // Kayıt defteri scenes/choreo.tsx ile SENKRON olmalı: burada olup orada olmayan bir ad
@@ -34,7 +42,10 @@ test('every meta entry has name/stagger/weight of correct types', () => {
 test('pickMotion her indekste havuzun içinde kalır', () => {
   for (const i of [0, 5, 12, -1]) assert.ok(MOTION_NAMES.includes(pickMotion(i).name));
   assert.equal(pickMotion(0).name, 'buildup');
-  assert.equal(pickMotion(5).name, 'buildup');   // 5 kareografi → tur başa döner
+  // Tur başa döner. Sabit sayı YAZMA: defter büyüdükçe (yeni marka hattı eklendikçe)
+  // sarma noktası kayıyor; sınanan şey sayı değil DAVRANIŞ.
+  assert.equal(pickMotion(MOTION_META.length).name, pickMotion(0).name);
+  assert.equal(pickMotion(MOTION_META.length * 3).name, pickMotion(0).name);
 });
 
 test('weightOf bilinmeyen adı varsayılana düşürür', () => {
@@ -60,4 +71,29 @@ test('motionTarget stays inside the 25-30s band', () => {
   }
   assert.equal(motionTarget(-100), 25);
   assert.equal(motionTarget(100), 30);
+});
+
+// ── MARKA BAŞINA HAREKET HAVUZU (2026-08-03) ──────────────────────────────────
+// Serdar: "@kizlar.kodu'nun animasyonları cilt.kodu'ya göre farklılaşsın."
+test('markanın hareket havuzu ayrı — kizlar kendi kareografilerini kullanır', () => {
+  const kizlar = motionsFor('kizlar').map(m => m.name);
+  const ortak = motionsFor('ortak').map(m => m.name);
+  for (const yeni of ['sketch', 'flip', 'orbit']) {
+    assert.ok(kizlar.includes(yeni), `kizlar havuzunda eksik: ${yeni}`);
+    assert.ok(!ortak.includes(yeni), `yeni kareografi @cilt.kodu'ya sızmış: ${yeni}`);
+  }
+});
+
+test('bilinmeyen küme ortak havuza düşer (yayın kırılmaz)', () => {
+  assert.deepEqual(motionsFor('olmayan-kume').map(m => m.name), motionsFor('ortak').map(m => m.name));
+  assert.deepEqual(motionsFor(undefined).map(m => m.name), motionsFor('ortak').map(m => m.name));
+});
+
+test('selectMotion verilen havuzun DIŞINA çıkmaz', () => {
+  const havuz = motionsFor('kizlar');
+  const adlar = havuz.map(m => m.name);
+  for (let n = 0; n < 12; n++) {
+    assert.ok(adlar.includes(selectMotion([], n, havuz).name));
+    assert.ok(adlar.includes(selectMotion(['sketch', 'flip'], n, havuz).name));
+  }
 });

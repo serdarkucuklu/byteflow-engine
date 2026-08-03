@@ -1,6 +1,6 @@
 name: Kareografi Denetimi
 
-# BEŞ hareket dilini AYNI spec ile render eder ve videoları artifact olarak bırakır.
+# Hareket dillerini AYNI spec ile render eder ve videoları artifact olarak bırakır.
 # Yayın YOK, Gemini çağrısı YOK, TTS kotası harcanmaz: sabit fixture'ın kendi `beats`
 # alanı var, yani canlı yoldaki SES-OTORİTE zamanlaması da bu koşuda sınanıyor.
 # Amaç: bir kareografi değiştiğinde "yarın canlıda görürüz" demek zorunda kalmamak.
@@ -12,6 +12,14 @@ on:
         description: "Denetlenecek spec (render/fixtures/… )"
         type: string
         default: "render/fixtures/kareografi-denetim.json"
+      brand:
+        description: "Hangi markanın paleti/hareket havuzuyla render edilsin"
+        type: string
+        default: "ciltkodu"
+      motions:
+        description: "Denetlenecek hareketler (JSON dizi). Boş = ortak beşli."
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -23,9 +31,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        motion: [buildup, spotlight, camera, cascade, ripple]
+        motion: ${{ fromJSON(inputs.motions != '' && inputs.motions
+          || '["buildup","spotlight","camera","cascade","ripple"]') }}
     env:
-      BYTEFLOW_BRAND: ciltkodu
+      BYTEFLOW_BRAND: ${{ inputs.brand }}
       BYTEFLOW_MOTION: ${{ matrix.motion }}
       BYTEFLOW_SPEC: ${{ inputs.spec }}
       BYTEFLOW_VOICE: '0'     # fixture'ın kendi beat'leri var → TTS kotası harcanmıyor
