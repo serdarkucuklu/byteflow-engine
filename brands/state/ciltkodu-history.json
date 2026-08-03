@@ -373,5 +373,24 @@
       "ig_reels_video_view_total_time": 7930415
     },
     "insightsAt": "2026-08-03T16:12:06.298Z"
+  },
+  {
+    "title": "Micellar Su: Durulama İddiası Gerçek mi?",
+    "subject": "micellar su",
+    "twist": "sosyal-medya",
+    "pillar": "iddia-kontrol",
+    "layout": "vertical-stack",
+    "kinds": "diagram",
+    "motion": "camera",
+    "theme": "#b08bbb",
+    "source": "gemini",
+    "footage": [
+      "pexels:oil and water macro",
+      "pexels:clean bathroom tiles light"
+    ],
+    "voice": 8,
+    "voiceName": "Aoede",
+    "date": "2026-08-03",
+    "durSec": 45.4
   }
 ]

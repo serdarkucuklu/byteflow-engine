@@ -1,94 +1,96 @@
 {
-  "hook": "Kutuda %97 memnun yazıyor ama mucize dedikleri şey gliserin.",
-  "title": "Gliserin: Nem Çeken Basit Mucize",
+  "hook": "Akışta görüp aldığın micellar su gerçekten durulanmaz mı?",
+  "title": "Micellar Su: Durulama İddiası Gerçek mi?",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "GLİSERİN MOLEKÜLÜ"
+          "id": "micel",
+          "label": "MİCEL KÜRELERİ"
         },
         {
-          "id": "n2",
-          "label": "HAVADAKİ NEM"
+          "id": "kir",
+          "label": "MAKYAJ VE YAĞ"
         },
         {
-          "id": "n3",
-          "label": "CİLT TABAKASI"
+          "id": "kalinti",
+          "label": "SURFAKTAN KATMANI"
         },
         {
-          "id": "n4",
-          "label": "OKLÜZİF KİLİT"
+          "id": "tikanma",
+          "label": "TIKANMA VE TAHRİŞ"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "NEM",
-          "status": "%97 memnuniyet yazan ankette sadece 15 k",
+          "from": "micel",
+          "to": "kir",
+          "packet": "TUTAR",
+          "status": "su molekülleri yağı ve kiri hızla yakala",
           "color": "accent"
         },
         {
-          "from": "n2",
-          "to": "n1",
-          "packet": "SU",
-          "status": "gliserin ortamdaki nem moleküllerini hız",
-          "color": "good"
-        },
-        {
-          "from": "n1",
-          "to": "n3",
-          "packet": "AKTART",
-          "status": "çektiği suyu cildin alt katmanlarına kad",
-          "color": "good"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "BUHAR",
-          "status": "üzerine kilitleyici krem sürmezsen su ha",
+          "from": "kir",
+          "to": "kalinti",
+          "packet": "PAMUK",
+          "status": "pamuk kiri alır ama yüzde deterjan kalır",
           "color": "warn"
         },
         {
-          "from": "n4",
-          "to": "n3",
-          "packet": "KİLİT",
-          "status": "oklüzif katman nemi hapsederek cildi uzu",
+          "from": "kalinti",
+          "to": "kalinti",
+          "packet": "BİRİKİ",
+          "status": "akışta her ürünü alan arkadaşının cildi",
+          "color": "warn"
+        },
+        {
+          "from": "kalinti",
+          "to": "tikanma",
+          "packet": "TAHRİŞ",
+          "status": "kalan sürfaktan cilt bariyelerini yorar",
+          "color": "warn"
+        },
+        {
+          "from": "tikanma",
+          "to": "micel",
+          "packet": "SU",
+          "status": "sadece bir suyla durulamak her şeyi çöze",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kutudaki %97 memnuniyet yazısı gözünü boyadı ama asıl güç gliserinde.\nKrem kutusundaki vaatler ve nemlendirme mekanizması adım adım:\n1. Pazarlama Masalı — Kutudaki klinik testler genelde 10-15 kişilik minik gruplarla yapılır.\n2. Nem Tutucu Güç — Gliserin havadan su moleküllerini çeken en etkili hümektandır.\n3. Nem Aktarımı — Çekilen nem cildin epidermis katmanına iletilerek dolgunluk sağlar.\n4. Buharlaşma Riski — Kilitlenmeyen su ortam kuruysa havaya geri kaçar.\n5. Oklüzif Katman — Vazelin veya ağır kremler nemin kaçmasını engelleyen koruyucu kapaktır.\nBir nemlendirici seçerken süslü sloganlara değil, hümektan ve oklüzif dengesine bakın.\nKutuda %97 memnun yazsa da sorulan 15 kişiden biri kesin bendim.\n📌 Kaydet — bir dahaki krem alışverişinde lazım olacak.\n🔁 Bunu krem kutusundaki vaatlere kanan arkadaşına gönder.\nWritten by Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Akışta görüp aldığın micellar su durulama istemez iddiasında ne kadar haklı?\n\nReklamlarda durulamaya gerek yok denen micellar su ciltte aslında ne yapıyor, adım adım:\n\n1. MİCEL KÜRELERİ — İçindeki mikroskobik yağ küreleri yüzeydeki makyajı ve kiri mıknatıs gibi çeker.\n2. MAKYAJ VE YAĞ — Pamukla sildiğinde kir pamuğa geçer ama sürfaktan adı verilen temizleyici deterjan molekülleri ciltte kalır.\n3. SURFAKTAN KATMANI — Durulamadığında bu yüzey aktif maddeler cilt üzerinde ince bir film tabakası oluşturur.\n4. TIKANMA VE TAHRİŞ — Gece boyu yüzde kalan temizleyici maddeler gözenekleri tıkar ve hassasiyet yaratır.\n\nÜrün kötü değil, durulamadan bırakmak yanlış.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu akışta gördüğü her mucize ürünü anında sepete atan arkadaşına gönder.\nMicellar suyu duruluyor musun yoksa pamukla silip yatıyor musun?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimirupture",
+    "#ciltbakimi",
+    "#makyaj",
+    "#micellarsu",
+    "#cilttemizligi",
     "#güzellik",
-    "#nemlendirici",
-    "#gliserin",
-    "#ciltsağlığı",
-    "#skincare",
-    "#krem"
+    "#ciltbakimigundemi",
+    "#makyajtemizleme"
   ],
-  "takeaway": "Kutudaki %97 vaadine değil, gliserini kilitleyen kreme paranı ver.",
+  "takeaway": "Pazarlama durulama yok dese de sen arkasından duru su gezdir.",
   "footage_queries": [
-    "cream texture macro",
-    "cosmetic bottles soft light"
+    "oil and water macro",
+    "clean bathroom tiles light"
   ],
   "narration": [
-    "Kutuda yüzde doksan yedi memnun yazıyor ama mucize dedikleri şey aslında sadece ucuz gliserin.",
-    "Ekrandaki bu dört yapı nemlendirme mekanizmasının tam olarak nasıl çalıştığını bize açıkça gösteriyor.",
-    "Kutudaki o süslü pazarlama vaatleri genellikle sadece on beş kişilik minik anketlere dayanıyor.",
-    "Formüldeki gliserin molekülü havadaki su buharını adeta bir mıknatıs gibi kendine doğru çeker.",
-    "Yakaladığı su moleküllerini cildin üst katmanlarına aktararak cildin anında daha dolgun görünmesini sağlar.",
-    "Ancak üzeri kapatılmazsa bu çekilen nem kısa süre sonra havaya tekrar buharlaşıp uçar.",
-    "Bu yüzden gliserinin üzerine yağ bazlı oklüzif bir krem sürerek nemi içeriye kilitlemelisiniz.",
-    "Kutudaki iddialara değil içerikteki gliserin ve oklüzif katman uyumuna odaklanmak en mantıklı seçimdir."
+    "Akışta görüp aldığın micellar su durulama istemez iddiasında acaba ne kadar haklı?",
+    "Bu temizleme mekanizması cilt üzerinde tam dört farklı aşamadan oluşarak çalışmaktadır.",
+    "İlk aşamada micel küreleri cildinizdeki tüm yağı ve kiri hızla yakalayıp hapseder.",
+    "Pamukla silince kir gider fakat deterjan yapısındaki sürfaktanlar cilt yüzeyinde kalmaya devam eder.",
+    "Durulamadan bıraktığında bu birikinti akışta her ürünü alan arkadaşının cildini zamanla yormaya başlar.",
+    "Yüzeyde bekleyen aktif maddeler uzun vadede gözenek tıkanıklığına ve hassasiyete doğrudan yol açar.",
+    "Sadece duru bir suyla yüzü yıkamak kalan tüm artık maddeleri tamamen uzaklaştırır.",
+    "Pazarlama durulama yok dese de sen yine de arkasından duru su gezdir."
   ],
-  "subject": "gliserin",
-  "theme": "#d98c5f",
+  "subject": "micellar su",
+  "sendTo": "akışta gördüğü her mucize ürünü anında sepete atan arkadaşına",
+  "soru": "Micellar suyu duruluyor musun yoksa pamukla silip yatıyor musun?",
+  "theme": "#b08bbb",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -102,48 +104,48 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "spotlight",
+  "motion": "camera",
   "footage": true,
   "beats": [
     {
-      "text": "Kutuda yüzde doksan yedi memnun yazıyor ama mucize dedikleri şey aslında sadece ucuz gliserin.",
+      "text": "Akışta görüp aldığın micellar su durulama istemez iddiasında acaba ne kadar haklı?",
       "start": 0.35,
-      "dur": 5.338
+      "dur": 5.125
     },
     {
-      "text": "Ekrandaki bu dört yapı nemlendirme mekanizmasının tam olarak nasıl çalıştığını bize açıkça gösteriyor.",
-      "start": 5.688,
-      "dur": 5.792
+      "text": "Bu temizleme mekanizması cilt üzerinde tam dört farklı aşamadan oluşarak çalışmaktadır.",
+      "start": 5.475,
+      "dur": 5.437
     },
     {
-      "text": "Kutudaki o süslü pazarlama vaatleri genellikle sadece on beş kişilik minik anketlere dayanıyor.",
-      "start": 11.48,
-      "dur": 5.395
+      "text": "İlk aşamada micel küreleri cildinizdeki tüm yağı ve kiri hızla yakalayıp hapseder.",
+      "start": 10.912,
+      "dur": 5.125
     },
     {
-      "text": "Formüldeki gliserin molekülü havadaki su buharını adeta bir mıknatıs gibi kendine doğru çeker.",
-      "start": 16.874,
-      "dur": 5.338
+      "text": "Pamukla silince kir gider fakat deterjan yapısındaki sürfaktanlar cilt yüzeyinde kalmaya devam eder.",
+      "start": 16.037,
+      "dur": 6.25
     },
     {
-      "text": "Yakaladığı su moleküllerini cildin üst katmanlarına aktararak cildin anında daha dolgun görünmesini sağlar.",
-      "start": 22.212,
-      "dur": 6.076
+      "text": "Durulamadan bıraktığında bu birikinti akışta her ürünü alan arkadaşının cildini zamanla yormaya başlar.",
+      "start": 22.286,
+      "dur": 6.437
     },
     {
-      "text": "Ancak üzeri kapatılmazsa bu çekilen nem kısa süre sonra havaya tekrar buharlaşıp uçar.",
-      "start": 28.288,
-      "dur": 4.884
+      "text": "Yüzeyde bekleyen aktif maddeler uzun vadede gözenek tıkanıklığına ve hassasiyete doğrudan yol açar.",
+      "start": 28.723,
+      "dur": 6.187
     },
     {
-      "text": "Bu yüzden gliserinin üzerine yağ bazlı oklüzif bir krem sürerek nemi içeriye kilitlemelisiniz.",
-      "start": 33.172,
-      "dur": 5.338
+      "text": "Sadece duru bir suyla yüzü yıkamak kalan tüm artık maddeleri tamamen uzaklaştırır.",
+      "start": 34.91,
+      "dur": 5.125
     },
     {
-      "text": "Kutudaki iddialara değil içerikteki gliserin ve oklüzif katman uyumuna odaklanmak en mantıklı seçimdir.",
-      "start": 38.509,
-      "dur": 6.949
+      "text": "Pazarlama durulama yok dese de sen yine de arkasından duru su gezdir.",
+      "start": 40.035,
+      "dur": 5.412
     }
   ],
   "thumbOffset": 1450

@@ -1,138 +1,151 @@
 {
-  "hook": "Beş bin liraya polyester kazak alan arkadaşın burada mı?",
-  "title": "5000 TL Polyester Kazak Nereye Gidiyor?",
+  "hook": "Akışta görüp aldığın micellar su gerçekten durulanmaz mı?",
+  "title": "Micellar Su: Durulama İddiası Gerçek mi?",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "POLYESTER KUMAŞ"
+          "id": "micel",
+          "label": "MİCEL KÜRELERİ"
         },
         {
-          "id": "n2",
-          "label": "DİKİM VE İŞÇİLİK"
+          "id": "kir",
+          "label": "MAKYAJ VE YAĞ"
         },
         {
-          "id": "n3",
-          "label": "MAĞAZA VE KİRA"
+          "id": "kalinti",
+          "label": "SURFAKTAN KATMANI"
         },
         {
-          "id": "n4",
-          "label": "MARKA PRİMİ"
+          "id": "tikanma",
+          "label": "TIKANMA VE TAHRİŞ"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "HAMMAD",
-          "status": "sentetik ip ucuza imal edilir",
-          "color": "good"
+          "from": "micel",
+          "to": "kir",
+          "packet": "TUTAR",
+          "status": "su molekülleri yağı ve kiri hızla yakala",
+          "color": "accent"
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "İŞÇİLİ",
-          "status": "seri üretimde dikim maliyeti düşer",
-          "color": "good"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "KİRA",
-          "status": "lüks caddeler faturayı kabartır",
+          "from": "kir",
+          "to": "kalinti",
+          "packet": "PAMUK",
+          "status": "pamuk kiri alır ama yüzde deterjan kalır",
           "color": "warn"
         },
         {
-          "from": "n4",
-          "to": "n1",
-          "packet": "ETİKET",
-          "status": "fiyatın çoğu kumaşa değil markaya gider",
-          "color": "accent"
+          "from": "kalinti",
+          "to": "kalinti",
+          "packet": "BİRİKİ",
+          "status": "akışta her ürünü alan arkadaşının cildi",
+          "color": "warn"
+        },
+        {
+          "from": "kalinti",
+          "to": "tikanma",
+          "packet": "TAHRİŞ",
+          "status": "kalan sürfaktan cilt bariyelerini yorar",
+          "color": "warn"
+        },
+        {
+          "from": "tikanma",
+          "to": "micel",
+          "packet": "SU",
+          "status": "sadece bir suyla durulamak her şeyi çöze",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Beş bin liralık kıyafette gerçekte ne ödediğini hiç merak ettin mi?\n\nBeş bin liralık polyester kazağın maliyet dağılımı adım adım:\n\n1. Polyester Kumaş — Sentetik elyafın imalat maliyeti oldukça düşüktür.\n2. Dikim ve İşçilik — Seri imalatta birim başına düşen dikim payı küçüktür.\n3. Mağaza ve Kira — Popüler AVM ve caddelerin kirası fiyata eklenir.\n4. Marka Primi — Fiyatın en büyük kısmı markanın imajına kalır.\n\nAlışveriş yaparken etiket içeriğine bakmak paranızın nereye gittiğini net gösterir.\n\nKumaş aynı polyester olsa da çoğu zaman etiket logosu için ödüyoruz.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu beş bin liraya polyester kazak alıp etiketine bakmayan arkadaşına gönder.\n\nSen hiç etiketine bakmadan sadece markası için binler ödedin mi?\n\nYazan: Ece.\n\nTakip et: @etiket.kodu — kumaş, reklam değil.",
+  "caption": "Akışta görüp aldığın micellar su durulama istemez iddiasında ne kadar haklı?\n\nReklamlarda durulamaya gerek yok denen micellar su ciltte aslında ne yapıyor, adım adım:\n\n1. MİCEL KÜRELERİ — İçindeki mikroskobik yağ küreleri yüzeydeki makyajı ve kiri mıknatıs gibi çeker.\n2. MAKYAJ VE YAĞ — Pamukla sildiğinde kir pamuğa geçer ama sürfaktan adı verilen temizleyici deterjan molekülleri ciltte kalır.\n3. SURFAKTAN KATMANI — Durulamadığında bu yüzey aktif maddeler cilt üzerinde ince bir film tabakası oluşturur.\n4. TIKANMA VE TAHRİŞ — Gece boyu yüzde kalan temizleyici maddeler gözenekleri tıkar ve hassasiyet yaratır.\n\nÜrün kötü değil, durulamadan bırakmak yanlış.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu akışta gördüğü her mucize ürünü anında sepete atan arkadaşına gönder.\nMicellar suyu duruluyor musun yoksa pamukla silip yatıyor musun?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#moda",
-    "#kumaş",
-    "#gardırop",
-    "#giyimtüyoları",
-    "#polyester",
-    "#alışveriş"
+    "#ciltbakimi",
+    "#makyaj",
+    "#micellarsu",
+    "#cilttemizligi",
+    "#güzellik",
+    "#ciltbakimigundemi",
+    "#makyajtemizleme"
   ],
-  "takeaway": "Kumaşa değil markaya para veriyorsun, bari etiketini oku!",
+  "takeaway": "Pazarlama durulama yok dese de sen arkasından duru su gezdir.",
   "footage_queries": [
-    "clothing label tag close up",
-    "price tag close up macro"
+    "oil and water macro",
+    "clean bathroom tiles light"
   ],
   "narration": [
-    "Beş bin liraya polyester kazak alıp etiketine hiç bakmayan arkadaşın bu videoyu kesinlikle izlemeli.",
-    "Yüksek etiketli bir polyester kazağın ödediğiniz parasının nereye gittiğini adım adım inceliyoruz.",
-    "İlk olarak sentetik iplikten üretilen kumaşın hammadde maliyeti toplam tutarın çok küçük kısmıdır.",
-    "Seri üretim tesislerinde yapılan dikim ve işçilik harcamaları da sanıldığı kadar yüksek tutmaz.",
-    "AVM ve popüler caddelerdeki mağazaların kira masrafları ürünün nihai fiyatına doğrudan yansıtılır.",
-    "Son aşamada ödediğiniz rakamın en büyük bölümü markanın kendi algısına ve kârına kalır.",
-    "Aynı polyester kumaş iki yüz liraya da beş bin liraya da satılabilir."
+    "Akışta görüp aldığın micellar su durulama istemez iddiasında acaba ne kadar haklı?",
+    "Bu temizleme mekanizması cilt üzerinde tam dört farklı aşamadan oluşarak çalışmaktadır.",
+    "İlk aşamada micel küreleri cildinizdeki tüm yağı ve kiri hızla yakalayıp hapseder.",
+    "Pamukla silince kir gider fakat deterjan yapısındaki sürfaktanlar cilt yüzeyinde kalmaya devam eder.",
+    "Durulamadan bıraktığında bu birikinti akışta her ürünü alan arkadaşının cildini zamanla yormaya başlar.",
+    "Yüzeyde bekleyen aktif maddeler uzun vadede gözenek tıkanıklığına ve hassasiyete doğrudan yol açar.",
+    "Sadece duru bir suyla yüzü yıkamak kalan tüm artık maddeleri tamamen uzaklaştırır.",
+    "Pazarlama durulama yok dese de sen yine de arkasından duru su gezdir."
   ],
-  "subject": "polyester",
-  "sendTo": "beş bin liraya polyester kazak alıp etiketine bakmayan arkadaşına",
-  "soru": "Sen hiç etiketine bakmadan sadece markası için binler ödedin mi?",
-  "theme": "#a08663",
+  "subject": "micellar su",
+  "sendTo": "akışta gördüğü her mucize ürünü anında sepete atan arkadaşına",
+  "soru": "Micellar suyu duruluyor musun yoksa pamukla silip yatıyor musun?",
+  "theme": "#b08bbb",
   "brand": {
-    "handle": "@etiket.kodu",
-    "signoff": "kumaş, reklam değil",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "palette": {
-    "bg": "#181410",
-    "card": "#221c17",
-    "stroke": "#3a2f26",
-    "text": "#f5efe7",
-    "muted": "#bdae9c"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "camera",
   "footage": true,
   "beats": [
     {
-      "text": "Beş bin liraya polyester kazak alıp etiketine hiç bakmayan arkadaşın bu videoyu kesinlikle izlemeli.",
+      "text": "Akışta görüp aldığın micellar su durulama istemez iddiasında acaba ne kadar haklı?",
       "start": 0.35,
-      "dur": 6.513
+      "dur": 5.125
     },
     {
-      "text": "Yüksek etiketli bir polyester kazağın ödediğiniz parasının nereye gittiğini adım adım inceliyoruz.",
-      "start": 6.863,
-      "dur": 6.383
+      "text": "Bu temizleme mekanizması cilt üzerinde tam dört farklı aşamadan oluşarak çalışmaktadır.",
+      "start": 5.475,
+      "dur": 5.437
     },
     {
-      "text": "İlk olarak sentetik iplikten üretilen kumaşın hammadde maliyeti toplam tutarın çok küçük kısmıdır.",
-      "start": 13.246,
-      "dur": 6.383
+      "text": "İlk aşamada micel küreleri cildinizdeki tüm yağı ve kiri hızla yakalayıp hapseder.",
+      "start": 10.912,
+      "dur": 5.125
     },
     {
-      "text": "Seri üretim tesislerinde yapılan dikim ve işçilik harcamaları da sanıldığı kadar yüksek tutmaz.",
-      "start": 19.629,
-      "dur": 6.188
+      "text": "Pamukla silince kir gider fakat deterjan yapısındaki sürfaktanlar cilt yüzeyinde kalmaya devam eder.",
+      "start": 16.037,
+      "dur": 6.25
     },
     {
-      "text": "AVM ve popüler caddelerdeki mağazaların kira masrafları ürünün nihai fiyatına doğrudan yansıtılır.",
-      "start": 25.817,
-      "dur": 6.383
+      "text": "Durulamadan bıraktığında bu birikinti akışta her ürünü alan arkadaşının cildini zamanla yormaya başlar.",
+      "start": 22.286,
+      "dur": 6.437
     },
     {
-      "text": "Son aşamada ödediğiniz rakamın en büyük bölümü markanın kendi algısına ve kârına kalır.",
-      "start": 32.2,
-      "dur": 5.667
+      "text": "Yüzeyde bekleyen aktif maddeler uzun vadede gözenek tıkanıklığına ve hassasiyete doğrudan yol açar.",
+      "start": 28.723,
+      "dur": 6.187
     },
     {
-      "text": "Aynı polyester kumaş iki yüz liraya da beş bin liraya da satılabilir.",
-      "start": 37.867,
-      "dur": 5.594
+      "text": "Sadece duru bir suyla yüzü yıkamak kalan tüm artık maddeleri tamamen uzaklaştırır.",
+      "start": 34.91,
+      "dur": 5.125
+    },
+    {
+      "text": "Pazarlama durulama yok dese de sen yine de arkasından duru su gezdir.",
+      "start": 40.035,
+      "dur": 5.412
     }
   ]
 }
