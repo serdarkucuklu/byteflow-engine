@@ -58,3 +58,10 @@ test('each brand really uses its own pillar pool (not the engine default)', asyn
     assert.ok(skin.some(p => p.key === picked.key), `${n}. postta yanlış havuz: ${picked.key}`);
   }
 });
+
+// Avatar simgesi markadan gelir. Varsayılan DAMLA olmalı: @etiket.kodu'ya etiket simgesi
+// eklenirken kardeş sayfanın (@cilt.kodu) profil resminin sessizce değişmemesi buna bağlı.
+test('avatar simgesi markadan gelir, varsayılanı damla', () => {
+  assert.equal(loadBrand('ciltkodu').symbol, undefined, '@cilt.kodu damlada kalmalı');
+  assert.equal(loadBrand('etiketkodu').symbol, 'etiket');
+});

@@ -33,12 +33,42 @@ function inDroplet(x, y, cx, cy, r) {
   return Math.abs(x - cx) <= half;
 }
 
+
+/**
+ * Etiket (asma kartela) silueti: üstü pahlı bir dikdörtgen + ip deliği.
+ * Neden damla değil: damla sıvı demek — cilt bakımında doğru, giyimde yanlış. Sayfanın adı
+ * @etiket.kodu ve tezi "etiketi oku"; simge de onu söylemeli. Aile kimliğini ORTADAKİ şekil
+ * değil, dıştaki eşmerkezli halkalar taşıyor (kardeş sayfada da aynı halkalar var).
+ *
+ * `delik` true dönerse orası arka planla doldurulur (ipin geçtiği yer).
+ */
+function inTag(x, y, cx, cy, r) {
+  const halfW = r * 1.02, halfH = r * 1.42;         // gövde
+  const dx = Math.abs(x - cx), dy = y - cy;
+  if (dx > halfW || dy > halfH || dy < -halfH) return false;
+  // Üst iki köşe pahlı: kartelanın sivrilen ucu (45°).
+  const pah = r * 0.62;
+  if (dy < -halfH + pah && dx > halfW - pah) {
+    if ((dx - (halfW - pah)) + ((-halfH + pah) - dy) > pah) return false;
+  }
+  return true;
+}
+
+/** İp deliği — etiketin üst kısmında, gövdeden oyulur. */
+function inTagHole(x, y, cx, cy, r) {
+  return Math.hypot(x - cx, y - (cy - r * 1.05)) <= r * 0.20;
+}
+
 function render(brand) {
   const bg = hex(brand.palette?.bg ?? '#17110f');
   const c1 = hex(brand.themes?.[0] ?? '#e8a0a8');
   const c2 = hex(brand.themes?.[1] ?? '#c9a227');
   // Damla halkaların İÇİNDE kalmalı: ilk denemede uç kadrajın üstünden taştı ve iç halkayı kesti.
-  const W = SIZE * SS, cx = W / 2, cy = W * 0.605, r = W * 0.118;
+  // Marka `symbol` demezse damla — kardeş sayfanın (@cilt.kodu) görüntüsü değişmesin.
+  const etiket = brand.symbol === 'etiket';
+  const W = SIZE * SS, cx = W / 2, r = W * 0.118;
+  // Damla siluetinin ağırlık merkezi altta; etiket simetrik, bu yüzden kadraja ortalanır.
+  const cy = etiket ? W * 0.5 : W * 0.605;
   const acc = new Float64Array(SIZE * SIZE * 3);
 
   for (let y = 0; y < W; y++) {
@@ -48,7 +78,14 @@ function render(brand) {
       const ringR = W * 0.395, ringW = W * 0.006;
       if (Math.abs(d - ringR) < ringW) col = mix(bg, c2, 0.55);                       // dış halka
       if (Math.abs(d - ringR * 0.86) < ringW * 0.6) col = mix(bg, c2, 0.28);          // ince iç halka
-      if (inDroplet(x, y, cx, cy, r)) {
+      if (etiket) {
+        if (inTag(x, y, cx, cy, r) && !inTagHole(x, y, cx, cy, r)) {
+          const t = Math.min(1, Math.max(0, (y - (cy - r * 1.42)) / (r * 2.84)));
+          col = mix(c1, c2, t);                                                        // etiket dolgusu
+        } else if (inTag(x, y, cx, cy, r * 1.13) && !inTag(x, y, cx, cy, r * 1.05)) {
+          col = mix(bg, c1, 0.45);                                                     // etiket konturu
+        }
+      } else if (inDroplet(x, y, cx, cy, r)) {
         const t = Math.min(1, Math.max(0, (y - (cy - r * 2.5)) / (r * 3.5)));
         col = mix(c1, c2, t);                                                          // damla dolgusu
       } else if (inDroplet(x, y, cx, cy, r * 1.14) && !inDroplet(x, y, cx, cy, r * 1.06)) {

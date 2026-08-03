@@ -13,19 +13,19 @@
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "themes": [
-    "#6aa9e0",
-    "#4f7fbf",
-    "#7fc4d8",
-    "#8f9fd8",
-    "#5fb0a8",
-    "#a9c4e8"
+    "#c4a888",
+    "#a08663",
+    "#8f7f9e",
+    "#d9c4a8",
+    "#7d6b52",
+    "#b09a8f"
   ],
   "palette": {
-    "bg": "#0f141b",
-    "card": "#18202b",
-    "stroke": "#2a3644",
-    "text": "#eaf1f8",
-    "muted": "#9fb1c4"
+    "bg": "#181410",
+    "card": "#221c17",
+    "stroke": "#3a2f26",
+    "text": "#f5efe7",
+    "muted": "#bdae9c"
   },
   "narrationVoices": [
     "Aoede",
@@ -98,5 +98,6 @@
     "bodyRule": "PLAIN TALK, NOT A TEXTILE LECTURE. Every card and every sentence must be sayable by a friend in a cafe. If a technical term is unavoidable, immediately replace it with an everyday analogy (not \"elyaf migrasyonu\" but \"kısa lifler sürtünmeyle yüzeye çıkıyor, tüy topu oluyor\"). Prefer concrete, visual, slightly cheeky images over precise terminology. Keep one small joke running through the middle so it never turns into homework — the viewer should still learn exactly one thing she can use on her next purchase.",
     "takeawayRule": "The closing line is the PUNCHLINE (<= 70 chars) and it must LAND TODAY'S GAF — the same angle the hook opened with, now with the twist of the knife. A cheeky rule of thumb or a self-aware confession, never a summary, never a flat sign-off.",
     "captionClosing": "A funny, self-aware closing line that lands today's gaf (the same angle as the hook), not a generic sign-off"
-  }
+  },
+  "symbol": "etiket"
 }
