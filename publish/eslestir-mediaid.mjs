@@ -164,6 +164,18 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   console.log(`▣ ${brand.handle}: hesapta ${medya.length} medya, geçmişte ${history.length} kayıt `
     + `(${history.filter(h => h.mediaId).length} tanesinde mediaId var)`);
 
+  // --liste: hesabın gerçek medyasını dök. Yazmadan ÖNCE gözle doğrulamak için — eşleştirme
+  // ne kadar muhafazakâr olursa olsun, geçmişe yazılacak bağın insan tarafından bir kez
+  // görülmesi gerekiyor (yanlış mediaId sessizce başka postun skoruna yazılır).
+  if (process.argv.includes('--liste')) {
+    console.log('\n— hesaptaki medya —');
+    for (const m of medya) {
+      const ilk = (m.caption ?? '').split('\n')[0].slice(0, 70);
+      console.log(`  ${m.id}  ${trTarih(m.timestamp)}  ${m.media_type ?? '?'}  ${ilk}`);
+    }
+    console.log('');
+  }
+
   const {eslesenler, belirsizler, bossular} = eslestir({history, medya});
   for (const e of eslesenler) console.log(`  ✓ ${e.mediaId}  (${e.skor})  ${e.title}`);
   for (const b of belirsizler) console.log(`  ? BELİRSİZ — ${b.title} :: ${b.sebep ?? 'iki aday çok yakın'}`);

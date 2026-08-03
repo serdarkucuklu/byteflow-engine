@@ -49,7 +49,7 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
           NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
-        run: node publish/eslestir-mediaid.mjs ${{ inputs.yaz && '--yaz' || '' }}
+        run: node publish/eslestir-mediaid.mjs --liste ${{ inputs.yaz && '--yaz' || '' }}
 
       - name: Kurtarılanları commit et
         if: ${{ inputs.yaz }}
