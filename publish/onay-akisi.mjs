@@ -223,10 +223,31 @@ async function kararUygula(kalem) {
 
 const bitis = Date.now() + BEKLEME_DK * 60_000;
 
+/**
+ * Yoklama SERVİSİN kısa kesintisine dayanmalı. Nöbet 2,8 saat sürüyor; onaybox'ın yeniden
+ * başlatıldığı 3 saniyede atılan tek bir ağ hatası bütün nöbeti düşürüyordu ve karar ancak
+ * 15 dakikalık nöbetçi cron'la uygulanabiliyordu. Üst üste 8 hata (≈2 dk) gerçek arızadır,
+ * o zaman hatayı yükselt.
+ */
+async function durumYokla(ardArda = {n: 0}) {
+  try {
+    const d = await istemci.durum(brand.slug);
+    ardArda.n = 0;
+    return d;
+  } catch (e) {
+    if (++ardArda.n >= 8) throw e;
+    console.error(`⚠ onaybox'a ulaşılamadı (${ardArda.n}/8): ${e.message.slice(0, 120)}`);
+    return null;
+  }
+}
+
 async function bekleVeUygula() {
   let bildirildi = false;
+  const ardArda = {n: 0};
   while (Date.now() < bitis) {
-    const {kalem, bekleyenVar} = await istemci.durum(brand.slug);
+    const yoklama = await durumYokla(ardArda);
+    if (!yoklama) { await bekle(YOKLAMA_SN * 1000); continue; }
+    const {kalem, bekleyenVar} = yoklama;
     if (!bekleyenVar || !kalem) { log('· bekleyen kalem yok — çıkılıyor'); return; }
     if (kalem.durum === 'karar-verildi') {
       log(`◆ karar geldi: ${kalem.karar}${kalem.not ? ` — "${kalem.not}"` : ''}`);
