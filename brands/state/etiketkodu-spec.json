@@ -1,89 +1,99 @@
 {
-  "hook": "Kabin kapısında S beden diye direten o arkadaşına gönder.",
-  "title": "Beden Tablosu Neden Hep Yalan Söyler?",
+  "hook": "Polyester elbise için servet ödeyen o arkadaşına bunu gönder.",
+  "title": "Polyester Elbisenin Fiyat Matriksi",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "vertical-stack",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "ILLUZYON",
-          "label": "SÜSLÜ İLLÜZYON"
+          "id": "ip",
+          "label": "HAM KUMAŞ"
         },
         {
-          "id": "KISMALAR",
-          "label": "KUMAŞ TIRAŞLAMA"
+          "id": "dik",
+          "label": "DİKİM VE İŞÇİLİK"
         },
         {
-          "id": "KAOS",
-          "label": "KABİN KAOSU"
+          "id": "mag",
+          "label": "MAĞAZA KİRASI"
+        },
+        {
+          "id": "rek",
+          "label": "REKLAM BÜTÇESİ"
+        },
+        {
+          "id": "mar",
+          "label": "MARKA PRİMİ"
         }
       ],
       "steps": [
         {
-          "from": "ILLUZYON",
-          "to": "KISMALAR",
-          "packet": "BEDEN",
-          "status": "marka sana kendini iyi hissettirir",
-          "color": "accent"
-        },
-        {
-          "from": "KISMALAR",
-          "to": "KAOS",
-          "packet": "KUP",
-          "status": "maliyeti kısmak için santim çalınır",
-          "color": "warn"
-        },
-        {
-          "from": "KAOS",
-          "to": "ILLUZYON",
-          "packet": "DRAMA",
-          "status": "fermuar yarı yolda pes eder",
-          "color": "warn"
-        },
-        {
-          "from": "ILLUZYON",
-          "to": "KAOS",
-          "packet": "KABUL",
-          "status": "kalıbı dar diye kendini kandırırsın",
+          "from": "ip",
+          "to": "dik",
+          "packet": "KUMAŞ",
+          "status": "ip üretimi ucuz petrolden başlar",
           "color": "good"
         },
         {
-          "from": "KAOS",
-          "to": "KISMALAR",
-          "packet": "İADE",
-          "status": "aslında senin bedenin hiç değişmedi",
+          "from": "dik",
+          "to": "mag",
+          "packet": "DİKİM",
+          "status": "hızlı seri dikiş hattından geçer",
+          "color": "good"
+        },
+        {
+          "from": "mag",
+          "to": "rek",
+          "packet": "KİRA",
+          "status": "AVM dükkan kirası fiyata biner",
+          "color": "warn"
+        },
+        {
+          "from": "rek",
+          "to": "mar",
+          "packet": "REKLAM",
+          "status": "ışıltılı çekimler maliyeti katlar",
+          "color": "warn"
+        },
+        {
+          "from": "mar",
+          "to": "ip",
+          "packet": "MARKA",
+          "status": "etiket basılınca fiyat uçuruma gider",
           "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Kabin kapısında s beden diye diretip fermuarı patlatanlar burada mı?\n\nAlışverişte yaşadığımız o sinir bozucu beden illüzyonunun gerçek sebebi:\n\n1. Süslü İllüzyon: Markalar kendinizi iyi hissedip daha çok satın alın diye gerçekte l beden olan bir elbiseye s etiketi basabiliyor. Buna pazarlamada algısal beden hilesi deniyor.\n2. Kumaş Tıraşlama: Hızlı moda markaları milyonlarca adet üretim yaparken her parçadan ikişer santim kısarak devasa kumaş tasarrufu elde ediyor. O yüzden m beden aldığın tişört aslında s beden gibi duruyor.\n3. Kabin Kaosu: İki farklı mağazada tamamen farklı beden çıkmanın sebebi senin vücudun değil, markaların kendi kâr oranlarına göre belirlediği düzensiz kesim standartlarıdır.\n\nAlışveriş yaparken etiket üzerindeki harflere değil, kumaşın esneklik oranına ve gerçek mezura ölçülerine güvenmek gerekiyor.\n\nKumaş suçlu değil ama o daracık kalıpları yapanlar kesinlikle suçlu. Yine de o s bedeni deneyeceğiz.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu kabin önünde hala s beden olduğuna yemin eden o arkadaşına gönder.\n\nSen en son hangi mağazada kabin krizi yaşadın?\n\nYazan: Ece.\nTakip et: @etiket.kodu — kumaş, reklam değil. #moda #alışveriş #bedenölçüsü #gardırop #giyimtüyoları #bedentablosu",
+  "caption": "Polyester elbise alırken gerçekte neye para ödüyoruz?\n\nPolyester bir elbisenin etiket fiyatı adım adım nasıl oluşuyor:\n\n1. HAM KUMAŞ — Petrol türevi sentetik iplik, maliyeti en düşük kısımdır.\n2. DİKİM VE İŞÇİLİK — Seri üretim bantlarında hızlıca dikilir, az zaman alır.\n3. MAĞAZA KİRASI — Işıltılı AVM dükkanlarının kirası doğrudan etikete yansır.\n4. REKLAM BÜTÇESİ — Büyük kampanya çekimleri ve influencer iş birlikleri eklenir.\n5. MARKA PRİMİ — Sadece o etiketi taşıdığı için ödediğin ekstra değerdir.\n\nAlışveriş yaparken kumaşın içeriğine bakmak paranı nereye harcadığını gösterir.\n\nSonuçta plastik giyiyoruz ama marka logosu kalbimizi çalıyor.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu beş bin lirayı plastik kumaşa severek ödeyen o arkadaşına gönder.\nSen hiç polyester elbiseye servet ödedin mi: evet mi hayır mı?\nYazan: Ece.\nTakip et: @etiket.kodu — kumaş, reklam değil.",
   "hashtags": [
+    "#giyim",
     "#moda",
     "#alışveriş",
-    "#bedenölçüsü",
+    "#kumaş",
     "#gardırop",
     "#giyimtüyoları",
-    "#bedentablosu"
+    "#polyester"
   ],
-  "takeaway": "Kendini suçlama, kumaş fiyatı arttıkça bedenler küçülüyor.",
+  "takeaway": "Kumaşa değil hayallere para veriyoruz ama yine de alıyoruz.",
   "footage_queries": [
-    "clothing label tag close up",
-    "measuring tape and fabric"
+    "price tag close up macro",
+    "shopping bags flat lay"
   ],
   "narration": [
-    "Kabin kapısında hala s beden olduğuna yemin eden o arkadaşına bu videoyu gönder.",
-    "Markaların beden tabloları arkasında dönen üç farklı komik illüzyonu adım adım açıklıyorum.",
-    "Bazı markalar sırf sen mutlu ol diye büyük bedenleri s beden olarak etiketler.",
-    "Ucuz üretim yapanlar ise kumaştan tasarruf etmek için kalıpları gizlice daraltıp küçültürler.",
-    "Kabinde fermuar asla kapanmayınca yaşadığın o derin panik aslında tamamen maliyet odaklıdır.",
-    "Kalıbı dar diye kendini kandırıp bir beden büyüğünü almak ise bizim milli sporumuzdur.",
-    "Etiketteki harflere inanmayı bırakıp mezura kullanmaya başladığında bütün bu kaos tamamen sona erecek.",
-    "Kendini suçlama kumaş fiyatları arttıkça markaların bedenleri de kendi kafasına göre küçülüyor."
+    "Polyester elbise için küçük bir servet ödeyen o sevgili arkadaşına bu videoyu hemen gönder.",
+    "Etikette yazan o yüksek rakamın arkasında tam olarak beş ayrı katman var.",
+    "İlk katman olan polyester kumaş aslında petrol türevi ucuz bir ip maddesidir.",
+    "İkinci adımda seri üretim dikiş bandı devreye girer ve maliyet azıcık artar.",
+    "Üçüncü katmanda lüks AVM dükkanının yüksek kirası elbisenin etiket fiyatına eklenir.",
+    "Dördüncü adımda havalı sosyal medya reklamları ve moda çekimleri hesaba dahil olur.",
+    "Son katmanda ünlü logosu basılır ve ödediğin para sadece marka algısına gider.",
+    "Yani kumaşa değil hayallere para veriyoruz ama yine de sepeti doldurmaya devam."
   ],
-  "subject": "beden tablosu",
-  "sendTo": "kabin önünde hala s beden olduğuna yemin eden o arkadaşına",
-  "soru": "Sen en son hangi mağazada kabin krizi yaşadın?",
+  "subject": "polyester",
+  "sendTo": "beş bin lirayı plastik kumaşa severek ödeyen o arkadaşına",
+  "soru": "Sen hiç polyester elbiseye servet ödedin mi: evet mi hayır mı?",
   "theme": "#a08663",
   "brand": {
     "handle": "@etiket.kodu",
@@ -102,44 +112,44 @@
   "footage": true,
   "beats": [
     {
-      "text": "Kabin kapısında hala s beden olduğuna yemin eden o arkadaşına bu videoyu gönder.",
+      "text": "Polyester elbise için küçük bir servet ödeyen o sevgili arkadaşına bu videoyu hemen gönder.",
       "start": 0.35,
-      "dur": 4.907
+      "dur": 6.244
     },
     {
-      "text": "Markaların beden tabloları arkasında dönen üç farklı komik illüzyonu adım adım açıklıyorum.",
-      "start": 5.257,
-      "dur": 5.582
+      "text": "Etikette yazan o yüksek rakamın arkasında tam olarak beş ayrı katman var.",
+      "start": 6.594,
+      "dur": 5.009
     },
     {
-      "text": "Bazı markalar sırf sen mutlu ol diye büyük bedenleri s beden olarak etiketler.",
-      "start": 10.839,
-      "dur": 4.784
+      "text": "İlk katman olan polyester kumaş aslında petrol türevi ucuz bir ip maddesidir.",
+      "start": 11.603,
+      "dur": 5.283
     },
     {
-      "text": "Ucuz üretim yapanlar ise kumaştan tasarruf etmek için kalıpları gizlice daraltıp küçültürler.",
-      "start": 15.623,
-      "dur": 5.704
+      "text": "İkinci adımda seri üretim dikiş bandı devreye girer ve maliyet azıcık artar.",
+      "start": 16.886,
+      "dur": 5.215
     },
     {
-      "text": "Kabinde fermuar asla kapanmayınca yaşadığın o derin panik aslında tamamen maliyet odaklıdır.",
-      "start": 21.328,
-      "dur": 5.643
+      "text": "Üçüncü katmanda lüks AVM dükkanının yüksek kirası elbisenin etiket fiyatına eklenir.",
+      "start": 22.101,
+      "dur": 5.764
     },
     {
-      "text": "Kalıbı dar diye kendini kandırıp bir beden büyüğünü almak ise bizim milli sporumuzdur.",
-      "start": 26.971,
-      "dur": 5.275
+      "text": "Dördüncü adımda havalı sosyal medya reklamları ve moda çekimleri hesaba dahil olur.",
+      "start": 27.865,
+      "dur": 5.695
     },
     {
-      "text": "Etiketteki harflere inanmayı bırakıp mezura kullanmaya başladığında bütün bu kaos tamamen sona erecek.",
-      "start": 32.246,
-      "dur": 6.257
+      "text": "Son katmanda ünlü logosu basılır ve ödediğin para sadece marka algısına gider.",
+      "start": 33.56,
+      "dur": 5.352
     },
     {
-      "text": "Kendini suçlama kumaş fiyatları arttıkça markaların bedenleri de kendi kafasına göre küçülüyor.",
-      "start": 38.503,
-      "dur": 6.927
+      "text": "Yani kumaşa değil hayallere para veriyoruz ama yine de sepeti doldurmaya devam.",
+      "start": 38.912,
+      "dur": 6.521
     }
   ],
   "thumbOffset": 1450

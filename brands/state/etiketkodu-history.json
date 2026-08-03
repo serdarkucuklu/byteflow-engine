@@ -1,21 +1,21 @@
 [
   {
-    "title": "Beden Tablosu Neden Hep Yalan Söyler?",
-    "subject": "beden tablosu",
+    "title": "Polyester Elbisenin Fiyat Matriksi",
+    "subject": "polyester",
     "twist": "para",
     "pillar": "hizli-moda-ekonomisi",
-    "layout": "nodes-flow",
+    "layout": "vertical-stack",
     "kinds": "diagram",
     "motion": "buildup",
     "theme": "#a08663",
     "source": "gemini",
     "footage": [
-      "pexels:clothing label tag close up",
-      "pexels:measuring tape and fabric"
+      "pexels:price tag close up macro",
+      "pexels:shopping bags flat lay"
     ],
     "voice": 8,
     "voiceName": "Aoede",
-    "not": "Polyester ve maliyet dağılımı olmasın, bambaşka bir konu. Sonunda gerçekten gülünecek bir gaf istiyorum, ders değil.",
+    "not": "Biraz daha komik olabilir bence, türkçe söylenmesi kolay kelimeler kullan",
     "date": "2026-08-03",
     "durSec": 45.4
   }

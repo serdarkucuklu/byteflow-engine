@@ -1,163 +1,155 @@
 {
-  "hook": "Niasinamid mi? Arkadaşın onu da sosyal medyada görüp aldı, di mi?",
-  "title": "Niasinamid: Gerçekten İşe Yarıyor mu?",
+  "hook": "Polyester elbise için servet ödeyen o arkadaşına bunu gönder.",
+  "title": "Polyester Elbisenin Fiyat Matriksi",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "dengesiz",
-          "label": "DENGESİZ CİLT"
+          "id": "ip",
+          "label": "HAM KUMAŞ"
         },
         {
-          "id": "uygulama",
-          "label": "NİASİNAMİD UYGULA"
+          "id": "dik",
+          "label": "DİKİM VE İŞÇİLİK"
         },
         {
-          "id": "hucreyaniti",
-          "label": "HÜCRE YANITI"
+          "id": "mag",
+          "label": "MAĞAZA KİRASI"
         },
         {
-          "id": "denge",
-          "label": "CİLT DENGESİ"
+          "id": "rek",
+          "label": "REKLAM BÜTÇESİ"
         },
         {
-          "id": "koruma",
-          "label": "GÜÇLENMİŞ CİLT"
+          "id": "mar",
+          "label": "MARKA PRİMİ"
         }
       ],
       "steps": [
         {
-          "from": "dengesiz",
-          "to": "uygulama",
-          "packet": "SERUM",
-          "status": "dengesiz cilde niasinamid serumu uygulan",
-          "color": "accent"
-        },
-        {
-          "from": "uygulama",
-          "to": "hucreyaniti",
-          "packet": "SİNYAL",
-          "status": "niasinamid hücrelere düzenleyici sinyal",
-          "color": "accent"
-        },
-        {
-          "from": "hucreyaniti",
-          "to": "denge",
-          "packet": "UYUM",
-          "status": "cilt hücreleri tepki vererek dengeyi yen",
+          "from": "ip",
+          "to": "dik",
+          "packet": "KUMAŞ",
+          "status": "ip üretimi ucuz petrolden başlar",
           "color": "good"
         },
         {
-          "from": "denge",
-          "to": "koruma",
-          "packet": "KALKAN",
-          "status": "cilt güçlenir ve dış etkilere dayanıklı",
+          "from": "dik",
+          "to": "mag",
+          "packet": "DİKİM",
+          "status": "hızlı seri dikiş hattından geçer",
           "color": "good"
         },
         {
-          "from": "koruma",
-          "to": "uygulama",
-          "packet": "DÖNGÜ",
-          "status": "bu döngü cilt sağlığını sürekli destekle",
-          "color": "good"
+          "from": "mag",
+          "to": "rek",
+          "packet": "KİRA",
+          "status": "AVM dükkan kirası fiyata biner",
+          "color": "warn"
         },
         {
-          "from": "KAOS",
-          "to": "KISMALAR",
-          "packet": "İADE",
-          "status": "aslında senin bedenin hiç değişmedi",
+          "from": "rek",
+          "to": "mar",
+          "packet": "REKLAM",
+          "status": "ışıltılı çekimler maliyeti katlar",
+          "color": "warn"
+        },
+        {
+          "from": "mar",
+          "to": "ip",
+          "packet": "MARKA",
+          "status": "etiket basılınca fiyat uçuruma gider",
           "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Niasinamid mucize değil, sadece akıllı bir dengeleyici! Niasinamidin cildinde nasıl bir döngü başlattığını adım adım inceleyelim:\n1. DENGESİZ CİLT — Yağlanma, kızarıklık, leke gibi sorunlar cildin doğal dengesini bozar ve strese sokar. Sosyal medyada görülen abartılı sonuçlar genelde bu başlangıç noktasından alınır.\n2. NİASİNAMİD UYGULA — Cilde uygulanan niasinamid, hücrelere ulaşarak onların daha doğru çalışması için bir başlangıç sinyali verir.\n3. HÜCRE YANITI — Niasinamid sayesinde cilt hücreleri, yağ üretimini düzenleme, iltihabı azaltma ve tonu eşitleme gibi fonksiyonlarını optimize etmeye başlar.\n4. CİLT DENGESİ — Hücrelerin daha düzenli çalışmasıyla cilt, aşırı tepkileri bırakır ve kendi doğal dengesine kavuşur. Bu sayede yağlanma ve kızarıklık azalır.\n5. GÜÇLENMİŞ CİLT — Niasinamid desteğiyle cilt daha dirençli ve dış etkenlere karşı güçlü hale gelir. Bu sürekli döngü cildin uzun vadeli sağlığını destekler. Unutma, niasinamid bir 'sihirli değnek' değil, cildinin kendi kendini iyileştirme mekanizmalarını destekleyen bir yardımcıdır. Sabır ve düzenli kullanım anahtardır. Yine de beklentin gerçekçi olsun; her cilt hikayesi farklıdır unutma. O viral videodaki sonuca ulaşmak senin cildin için farklı bir yolculuk demek.\n\n📌 Kaydet — niasinamid beklentilerini dengelemen gerektiğinde lazım olacak.\n\n🔁 Bunu sosyal medyada gördüğü her ürünü sepete atan arkadaşına gönder. Sen niasinamidi hangi beklentiyle aldın: gözenek mi, leke mi? Yazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Polyester elbise alırken gerçekte neye para ödüyoruz?\n\nPolyester bir elbisenin etiket fiyatı adım adım nasıl oluşuyor:\n\n1. HAM KUMAŞ — Petrol türevi sentetik iplik, maliyeti en düşük kısımdır.\n2. DİKİM VE İŞÇİLİK — Seri üretim bantlarında hızlıca dikilir, az zaman alır.\n3. MAĞAZA KİRASI — Işıltılı AVM dükkanlarının kirası doğrudan etikete yansır.\n4. REKLAM BÜTÇESİ — Büyük kampanya çekimleri ve influencer iş birlikleri eklenir.\n5. MARKA PRİMİ — Sadece o etiketi taşıdığı için ödediğin ekstra değerdir.\n\nAlışveriş yaparken kumaşın içeriğine bakmak paranı nereye harcadığını gösterir.\n\nSonuçta plastik giyiyoruz ama marka logosu kalbimizi çalıyor.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu beş bin lirayı plastik kumaşa severek ödeyen o arkadaşına gönder.\nSen hiç polyester elbiseye servet ödedin mi: evet mi hayır mı?\nYazan: Ece.\nTakip et: @etiket.kodu — kumaş, reklam değil.",
   "hashtags": [
-    "#ciltbakimi",
-    "#guzellik",
-    "#niasinamid",
-    "#skincare",
-    "#makyajblogu",
-    "#ciltbakimrutini",
-    "#trendurunler",
-    "#viralurunler"
+    "#giyim",
+    "#moda",
+    "#alışveriş",
+    "#kumaş",
+    "#gardırop",
+    "#giyimtüyoları",
+    "#polyester"
   ],
-  "takeaway": "Yine de beklentin gerçekçi olsun; her cilt hikayesi farklıdır unutma.",
+  "takeaway": "Kumaşa değil hayallere para veriyoruz ama yine de alıyoruz.",
   "footage_queries": [
-    "ink in water slow motion",
-    "clean bathroom tiles light"
+    "price tag close up macro",
+    "shopping bags flat lay"
   ],
   "narration": [
-    "Niasinamid mi? Arkadaşın onu da sosyal medyada görüp aldı, di mi?",
-    "Niasinamid, cildin kendini dengeleme döngüsünde önemli bir rol oynar.",
-    "Dengesiz cilde niasinamid serumu uygulandığında, cildin kendini onarma süreci başlar.",
-    "Niasinamid, cilt hücrelerine özel düzenleyici sinyaller gönderir, karmaşayı bitirir.",
-    "Bu sinyallere tepki veren cilt hücreleri, kendi doğal dengesini yeniden bulur.",
-    "Dengelenen cilt güçlenir, dış etkenlere karşı daha dayanıklı bir kalkan oluşturur.",
-    "Bu pozitif döngü, niasinamid desteğiyle cilt sağlığını sürekli olarak pekiştirir.",
-    "Yine de beklentin gerçekçi olsun; her cilt hikayesi farklıdır unutma."
+    "Polyester elbise için küçük bir servet ödeyen o sevgili arkadaşına bu videoyu hemen gönder.",
+    "Etikette yazan o yüksek rakamın arkasında tam olarak beş ayrı katman var.",
+    "İlk katman olan polyester kumaş aslında petrol türevi ucuz bir ip maddesidir.",
+    "İkinci adımda seri üretim dikiş bandı devreye girer ve maliyet azıcık artar.",
+    "Üçüncü katmanda lüks AVM dükkanının yüksek kirası elbisenin etiket fiyatına eklenir.",
+    "Dördüncü adımda havalı sosyal medya reklamları ve moda çekimleri hesaba dahil olur.",
+    "Son katmanda ünlü logosu basılır ve ödediğin para sadece marka algısına gider.",
+    "Yani kumaşa değil hayallere para veriyoruz ama yine de sepeti doldurmaya devam."
   ],
-  "subject": "niasinamid",
-  "sendTo": "sosyal medyada gördüğü her ürünü sepete atan arkadaşına",
-  "soru": "Sen niasinamidi hangi beklentiyle aldın: gözenek mi, leke mi?",
-  "theme": "#b08bbb",
+  "subject": "polyester",
+  "sendTo": "beş bin lirayı plastik kumaşa severek ödeyen o arkadaşına",
+  "soru": "Sen hiç polyester elbiseye servet ödedin mi: evet mi hayır mı?",
+  "theme": "#a08663",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@etiket.kodu",
+    "signoff": "kumaş, reklam değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#181410",
+    "card": "#221c17",
+    "stroke": "#3a2f26",
+    "text": "#f5efe7",
+    "muted": "#bdae9c"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "Niasinamid mi? Arkadaşın onu da sosyal medyada görüp aldı, di mi?",
+      "text": "Polyester elbise için küçük bir servet ödeyen o sevgili arkadaşına bu videoyu hemen gönder.",
       "start": 0.35,
-      "dur": 4.357
+      "dur": 6.244
     },
     {
-      "text": "Niasinamid, cildin kendini dengeleme döngüsünde önemli bir rol oynar.",
-      "start": 4.707,
-      "dur": 4.625
+      "text": "Etikette yazan o yüksek rakamın arkasında tam olarak beş ayrı katman var.",
+      "start": 6.594,
+      "dur": 5.009
     },
     {
-      "text": "Dengesiz cilde niasinamid serumu uygulandığında, cildin kendini onarma süreci başlar.",
-      "start": 9.332,
-      "dur": 5.698
+      "text": "İlk katman olan polyester kumaş aslında petrol türevi ucuz bir ip maddesidir.",
+      "start": 11.603,
+      "dur": 5.283
     },
     {
-      "text": "Niasinamid, cilt hücrelerine özel düzenleyici sinyaller gönderir, karmaşayı bitirir.",
-      "start": 15.03,
-      "dur": 5.631
+      "text": "İkinci adımda seri üretim dikiş bandı devreye girer ve maliyet azıcık artar.",
+      "start": 16.886,
+      "dur": 5.215
     },
     {
-      "text": "Bu sinyallere tepki veren cilt hücreleri, kendi doğal dengesini yeniden bulur.",
-      "start": 20.661,
-      "dur": 5.229
+      "text": "Üçüncü katmanda lüks AVM dükkanının yüksek kirası elbisenin etiket fiyatına eklenir.",
+      "start": 22.101,
+      "dur": 5.764
     },
     {
-      "text": "Dengelenen cilt güçlenir, dış etkenlere karşı daha dayanıklı bir kalkan oluşturur.",
-      "start": 25.889,
-      "dur": 5.497
+      "text": "Dördüncü adımda havalı sosyal medya reklamları ve moda çekimleri hesaba dahil olur.",
+      "start": 27.865,
+      "dur": 5.695
     },
     {
-      "text": "Bu pozitif döngü, niasinamid desteğiyle cilt sağlığını sürekli olarak pekiştirir.",
-      "start": 31.386,
-      "dur": 5.43
+      "text": "Son katmanda ünlü logosu basılır ve ödediğin para sadece marka algısına gider.",
+      "start": 33.56,
+      "dur": 5.352
     },
     {
-      "text": "Yine de beklentin gerçekçi olsun; her cilt hikayesi farklıdır unutma.",
-      "start": 36.816,
-      "dur": 5.725
+      "text": "Yani kumaşa değil hayallere para veriyoruz ama yine de sepeti doldurmaya devam.",
+      "start": 38.912,
+      "dur": 6.521
     }
   ]
 }
