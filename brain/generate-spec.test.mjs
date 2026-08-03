@@ -177,7 +177,10 @@ test('the prompt requires a detailed, numbered, educational caption structure', 
   assert.match(promptText, /DETAILED and educational/);
   assert.match(promptText, /NUMBERED list/);
   assert.match(promptText, /save CTA/i);
-  assert.match(promptText, /share CTA/i);
+  // "share CTA" -> "SEND CTA": genel bir paylaş çağrısı değil, sendTo alanındaki KİŞİYİ
+  // adıyla anan satır. Gönderme (sends per reach) bu sayfadaki erişimi büyüten sinyal.
+  assert.match(promptText, /SEND CTA/);
+  assert.match(promptText, /comment question/i);
   assert.match(promptText, /2200 characters/);
   // required literal lines still present, in order, inside the caption structure
   assert.match(promptText, /Written by Kai\./);
@@ -372,4 +375,60 @@ test('not yoksa sipariş bloğu prompt\'a hiç girmez', async () => {
   });
   const p = cap.body.contents[0].parts[0].text;
   assert.doesNotMatch(p, /SAYFA SAHİBİNİN NOTU|SON HATIRLATMA/);
+});
+
+
+// ── 2026-08-03: gönderme + yorum alanları ────────────────────────────────────
+// Ölçüm: 1349 izlenmeli postu taşıyan metrik paylaşımdı (8 paylaşım -> 1153 erişim);
+// ondan önceki 5 postta toplam 0 paylaşım ve TÜM postlarda 0 yorum vardı.
+
+test('şema sendTo ve soru alanlarını ZORUNLU kılar', async () => {
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar,
+    fetchFn: fakeFetchCapturing(capture)});
+  const schema = capture.body.generationConfig.responseSchema;
+  assert.ok(schema.required.includes('sendTo'), 'sendTo zorunlu olmalı');
+  assert.ok(schema.required.includes('soru'), 'soru zorunlu olmalı');
+  assert.equal(schema.properties.sendTo.type, 'STRING');
+  assert.equal(schema.properties.soru.type, 'STRING');
+});
+
+test('gafın "kime gönderilir" bilgisi prompt\'a düşer', async () => {
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar,
+    twist: {key: 'sevgili-farki', focus: 'HAYAT ADALETSIZ GAFI', kime: 'tek sabunla gezen sevgiline'},
+    fetchFn: fakeFetchCapturing(capture)});
+  const promptText = capture.body.contents[0].parts[0].text;
+  assert.match(promptText, /tek sabunla gezen sevgiline/);
+  assert.match(promptText, /the viewer is the SENDER/);
+});
+
+test('kime alanı yoksa alıcı bloğu hiç yazılmaz (geriye uyum)', async () => {
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar,
+    twist: {key: 'para', focus: 'PARA GAFI'}, fetchFn: fakeFetchCapturing(capture)});
+  assert.doesNotMatch(capture.body.contents[0].parts[0].text, /WHO THIS ONE IS FOR/);
+});
+
+test('görünür kapı kuralı prompt\'ta ve marka onu ezebiliyor', async () => {
+  const varsayilan = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar,
+    fetchFn: fakeFetchCapturing(varsayilan)});
+  assert.match(varsayilan.body.contents[0].parts[0].text, /OPEN ON SOMETHING OBSERVABLE/);
+
+  const marka = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar,
+    brand: {tone: {doorRule: 'MARKAYA OZEL KAPI KURALI'}}, fetchFn: fakeFetchCapturing(marka)});
+  const p2 = marka.body.contents[0].parts[0].text;
+  assert.match(p2, /MARKAYA OZEL KAPI KURALI/);
+  assert.doesNotMatch(p2, /OPEN ON SOMETHING OBSERVABLE/);
+});
+
+test('imza satırı markanın diline uyar (Turkce caption icinde Ingilizce satir kalmasin)', async () => {
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar,
+    brand: {persona: {name: 'Derin', byline: 'Yazan: Derin.'}}, fetchFn: fakeFetchCapturing(capture)});
+  const promptText = capture.body.contents[0].parts[0].text;
+  assert.match(promptText, /Yazan: Derin\./);
+  assert.doesNotMatch(promptText, /Written by Derin\./);
 });

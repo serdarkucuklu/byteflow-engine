@@ -11,9 +11,18 @@ import {BRAND_KEYS} from '../render/src/lib/brand-keys.mjs';
 // Gemini responseSchema — scene-spec şeklini ZORLAR (hook + takeaway dahil)
 const responseSchemaFor = (brandKeys = BRAND_KEYS) => ({
   type: 'OBJECT',
-  required: ['hook', 'title', 'scenes', 'caption', 'hashtags', 'takeaway', 'footage_queries', 'narration', 'subject'],
+  required: ['hook', 'title', 'scenes', 'caption', 'hashtags', 'takeaway', 'footage_queries', 'narration', 'subject', 'sendTo', 'soru'],
   properties: {
     hook: {type: 'STRING'},
+    // sendTo: bu videoyu KİME göndereceği. 2026-08-03 ölçümü: 1349 izlenmeli postu taşıyan
+    // metrik paylaşımdı (8 paylaşım → 1153 erişim; ondan önceki 5 postta toplam 0 paylaşım).
+    // Instagram'ın açıkladığı sıralama sinyallerinde "sends per reach" beğeniden 3-5 kat
+    // değerli. Gönderme ise ilişkiseldir: insan "bu benim" dediğinde KAYDEDER, "bu tam sensin"
+    // dediğinde GÖNDERİR. Bu alan videonun içine o ikinci kişiyi koymayı zorunlu kılıyor.
+    sendTo: {type: 'STRING'},
+    // soru: caption'ın sonundaki yoruma davet. Sayfanın bugüne kadarki TÜM postlarında
+    // 0 yorum var — yorum hem sıralama sinyali hem de sayfanın ilk topluluk kıvılcımı.
+    soru: {type: 'STRING'},
     // subject: videonun ÖZNESİ (tek ürün/etken madde), makine alanı — ekranda görünmez.
     // Sayfanın kendini tekrar etmesini bu alan engelliyor: geçmişe yazılır, sonraki koşularda
     // soğuma listesine girer (bkz. brain/subjects.mjs). 2026-08-01: üst üste iki hyalüronik
@@ -108,6 +117,11 @@ const DEFAULT_TONE = {
   bodyRule: `TEACHING beats aesthetics: each node is a real concept, each step.status explains in plain
   words what is actually happening at that moment. A viewer should finish the video genuinely
   understanding the mechanism, not just having watched shapes move.`,
+  doorRule: `OPEN ON SOMETHING OBSERVABLE. The first line and the first card must describe a
+  situation the viewer has SEEN with her own eyes, never a mechanism name. "Cilt bariyeri" is
+  not a door; "su değince yanan yüz" is. The mechanism is the EXPLANATION that arrives after
+  the door, never the entrance. Measured on this page (2026-08-03): videos that opened on
+  abstract biology got 32-36 views; the one that opened on a concrete purchase got 1349.`,
   takeawayRule: `ONE punchy closing line (<= 70 chars) — the sentence a viewer would QUOTE when
   forwarding the video to a colleague. A rule of thumb, a correction, or the cost of getting it
   wrong; never a generic sign-off like "hope this helps".`,
@@ -199,7 +213,12 @@ Also do not make a banned subject the co-star: it may appear in ONE comparison l
 never in the title, the hook or more than one node label.
 ` : ''}${twist?.focus ? `
 TODAY'S GAF (the laugh) — REQUIRED, and it is why this page gets sent to friends. Angle:
-${twist.focus}
+${twist.focus}${twist.kime ? `
+WHO THIS ONE IS FOR — today's gaf has a natural recipient: ${twist.kime}
+That person must be RECOGNISABLE inside the video: the viewer should be able to picture a
+specific real person while watching. Put them in the hook (or in one middle line), and let the
+"sendTo" field name them. Do NOT address that person directly in the second person as if they
+were the viewer — the viewer is the SENDER, the recipient is someone she knows.` : ''}
 Land it in exactly three places and nowhere else: (1) the hook, (2) ONE step.status / versus row
 in the middle, (3) the closing takeaway + the caption's closing line. The rest of the video stays
 useful and accurate — the gaf is the seasoning, not the meal.
@@ -222,6 +241,17 @@ Produce a scene-spec with these fields:
 - hook${lang ? ` (IN ${lang.toUpperCase()})` : ''}: the FIRST on-screen line (<= 60 chars). ${tone.hookRule}
   NOT the same as the title. e.g. ${ex.hook}
 - title: <= 60 chars, the concept name${lang ? `, IN ${lang.toUpperCase()}` : ''}.
+- sendTo${lang ? ` (IN ${lang.toUpperCase()})` : ''}: <= 70 chars. The ONE person the viewer will forward this to, described by what
+  she DOES, never by a name or a label — "her gece makyajıyla uyuyan arkadaşına", not "arkadaşına"
+  and not "cilt bakımı sevenlere". It must be so specific that the viewer instantly thinks of a
+  real person. This is the single most important field for reach: sending a video to one friend
+  moves this page further than a hundred likes. The situation it describes MUST actually appear
+  in the video — a send CTA that promises a person the video never showed reads as spam.
+- soru${lang ? ` (IN ${lang.toUpperCase()})` : ''}: <= 80 chars. The comment question that closes the caption. Rules that decide whether
+  anyone answers: it costs ZERO effort (a choice between two named options, a confession, or a
+  number), it has NO right answer, and it is about HER, not about the topic. Good shape:
+  "Sen hangisisin: X mi Y mi?" / "Kaç tane yarım serumun var, dürüst ol." Bad shape: "Siz ne
+  düşünüyorsunuz?" or anything that asks her to explain something.
 - 1 or 2 scenes (1 preferred). Each DIAGRAM scene picks its OWN "layout" — whichever TEACHES best:
   - "nodes-flow": a pipeline / data flow (A feeds B feeds C).
   - "vertical-stack": layers on top of each other (stacks, hierarchies, a request descending layers).
@@ -277,6 +307,7 @@ VARIETY & TEACHING RULES (hard requirements):
   study years may only appear if they are in the headlines below or are textbook-stable facts.
   Your training data is older than today; a stale or invented number on screen destroys trust
   with exactly the audience that knows the subject.
+- ${tone.doorRule}
 - ${tone.bodyRule}
 - takeaway: ${tone.takeawayRule}
 - caption${lang ? ` (IN ${lang.toUpperCase()})` : ''}: DETAILED and educational — someone who never watches the video should be able to
@@ -291,9 +322,11 @@ VARIETY & TEACHING RULES (hard requirements):
      matters when choosing / what you are really paying for.
   5. ${tone.captionClosing}, e.g. ${ex.closing}
   6. A save CTA on its own line, e.g. ${ex.saveCta}
-  7. A share CTA on its own line, e.g. ${ex.shareCta}
-  8. A persona line EXACTLY: "Written by ${persona.name}."
-  9. The final line EXACTLY: "${persona.tagline}"
+  7. The SEND CTA on its own line — it must name the person from your "sendTo" field, word for
+     word, e.g. ${ex.shareCta}. Generic ("etiketle", "paylaş") is a wasted line.
+  8. The comment question on its own line — your "soru" field, verbatim.
+  9. A persona line EXACTLY: "${persona.byline ?? `Written by ${persona.name}.`}"
+  10. The final line EXACTLY: "${persona.tagline}"
   Keep the whole caption under 2200 characters (Instagram's limit).
 - hashtags: 6 to 9 tags, ALL lowercase, no spaces, and they now appear INSIDE the post
   description — so they must read as a deliberate, tidy line, not keyword soup. Mix three tiers:

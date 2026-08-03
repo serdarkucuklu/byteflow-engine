@@ -9,7 +9,8 @@
     "voice": "komik ve samimi bir kız arkadaş tonu: önce güldürür, sonra \"aaa demek oymuş\" dedirtir. Ukalalık ve ders verme YOK; terim yerine benzetme, sıkıcı olmaktansa esprili olmayı seçer",
     "signoff": "güzellik, pazarlama değil",
     "tagline": "Takip et: @cilt.kodu — güzellik, pazarlama değil.",
-    "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
+    "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
+    "byline": "Yazan: Derin."
   },
   "themes": [
     "#e8a0a8",
@@ -91,9 +92,10 @@
   "tone": {
     "fluff": "Faceless. Funny first, useful second — but never fake-funny: the joke comes from the situation being TRUE, not from adding jokes on top.",
     "angle": "Pick the angle that makes the viewer LAUGH IN RECOGNITION — the little everyday drama everyone has lived but nobody says out loud (the foundation that betrays you by noon, the 12-step routine you abandon by day three, the product you bought because of one video). Comedy comes from being painfully accurate about the situation, never from mocking the viewer. Then, inside that laugh, explain the ONE mechanism that actually matters.",
-    "hookRule": "The first 2 seconds decide everything. It opens TODAY'S GAF — the day's assigned comic angle is stated here, out loud, in the first line. Write a line that makes her think \"BU BENİM\" and smile at the same time — a tiny confession, a call-out, or a mock-accusation about a situation she has definitely lived. Say the embarrassing part out loud. NOT a topic label, NOT a lecture opener, NOT a scary warning. It must be funny AND true. Example shape: name the everyday betrayal (\"… seni öğlen 12de satıyor\") or the shared self-deception (\"…diye kendini kandırıyorsun\").",
+    "hookRule": "The first 2 seconds decide everything. It opens TODAY'S GAF — the day's assigned comic angle is stated here, out loud, in the first line. Two things must be true at once: (1) she smiles because it is painfully accurate, (2) a SPECIFIC PERSON SHE KNOWS comes to mind. \"Bu benim\" makes her save; \"bu tam sensin\" makes her SEND — and sending is what grows this page. So name a behaviour, not a topic: the everyday betrayal (\"… seni öğlen 12de satıyor\"), the shared self-deception (\"…diye kendini kandırıyorsun\"), or the person everyone has in their life (\"hayatında tek bir sabun olan o insan\"). Say the embarrassing part out loud. NOT a topic label, NOT a lecture opener, NOT a scary warning, NOT a mechanism name — it must be funny AND true AND about someone real.",
     "bodyRule": "PLAIN TALK, NOT A CHEMISTRY LECTURE. Every card and every sentence must be sayable by a friend in a cafe. If a technical term is unavoidable, immediately replace it with an everyday analogy (not \"transepidermal su kaybı\" but \"cilt suyunu tutamıyor, açık şişe gibi buharlaşıyor\"). Prefer concrete, visual, slightly cheeky images over precise terminology. Keep one small joke running through the middle so it never turns into homework — the viewer should still learn exactly one thing she can use tomorrow morning.",
     "takeawayRule": "The closing line is the PUNCHLINE (<= 70 chars) and it must LAND TODAY'S GAF — the same angle the hook opened with, now with the twist of the knife. A cheeky rule of thumb or a self-aware confession, never a summary, never a flat sign-off, never \"umarım faydalı olmuştur\".",
-    "captionClosing": "A funny, self-aware closing line that lands today's gaf (the same angle as the hook), not a generic sign-off"
+    "captionClosing": "A funny, self-aware closing line that lands today's gaf (the same angle as the hook), not a generic sign-off",
+    "doorRule": "GÖRÜNÜR KAPI: video gözle görülmüş bir durumdan açılır, mekanizma adından ASLA. \"Cilt bariyeri\" kapı değildir; \"su değince yanan yüz\" kapıdır. \"Transepidermal su kaybı\" kapı değildir; \"nemlendirici sürüyorum yine kuru\" kapıdır. Mekanizma kapıdan SONRA gelen açıklamadır. Ölçüldü (2026-08-03): soyut biyolojiyle açılan videolar 32-36 izlenmede kaldı, somut bir satın almayla açılan 1349 yaptı."
   }
 }

@@ -29,15 +29,15 @@ const AI_ENGINEERING = [
 // her konu bir MEKANİZMA — motorun 3 adımlı diyagram anlatımı buna birebir oturuyor.
 // Veri: etken madde açıklayıcıları, ürün tanıtımlarını izlenme süresi ve kaydetmede geçiyor.
 const SKINCARE_SCIENCE = [
-  {key: 'aktifler', focus: 'aktif maddelerin cilt içinde NE YAPTIĞI: retinol/retinal, C vitamini, niasinamid, AHA/BHA, azelaik asit — hücre yenilenmesi, kolajen, pigment yolu'},
-  {key: 'bariyer', focus: 'cilt bariyeri: seramid, kolesterol, yağ asidi dengesi, transepidermal su kaybı, bariyer bozulunca ne oluyor ve nasıl onarılıyor'},
-  {key: 'nemlendirme', focus: 'nem tutucu/çekici/örtücü ayrımı: hyalüronik asit ne zaman kurutuyor, gliserin, üre, oklüzif katman mantığı'},
+  {key: 'aktifler', focus: 'aktif maddeler — ama videoyu SOMUT bir üründen/karardan aç (kaç gündür sürüyorum bir şey yok, kusma dönemi, hangi sırayla süreceğim), etken madde ansiklopedisinden değil. Retinol/C vitamini/niasinamid/AHA-BHA cilt içinde ne yapıyor: bu, kararın açıklaması olarak gelir'},
+  {key: 'bariyer', focus: 'cilt bariyeri — ama HER ZAMAN görünür bir durumdan gir (su değince yanan yüz, kaşınan yanak, birden hassaslaşan cilt, üst üste sürülen asitler), anatomi dersinden değil. Seramid/yağ asidi dengesi ve suyun buharlaşması bunun AÇIKLAMASI olarak gelir, konusu olarak değil'},
+  {key: 'nemlendirme', focus: 'nem — "nemlendirici sürüyorum yine kuru", yaz-kış aynı kremi kullanmak, üstüne makyaj tutmaması gibi görünür durumdan gir. Nem çekici/tutucu/örtücü ayrımı, hyalüronik asidin ne zaman kuruttuğu ve oklüzif katman mantığı açıklama katmanı'},
   {key: 'gunes', focus: 'güneş koruması: UVA/UVB farkı, SPF ve PA ne ölçer, filtre tipleri (mineral/kimyasal), yeniden sürme, yeni çıkan filtre teknolojileri'},
   {key: 'sira-ve-catisma', focus: 'ürün sırası ve etken madde çatışmaları: retinol + asit, C vitamini + niasinamid efsanesi, pH ve nüfuz sırası'},
   {key: 'akne', focus: 'akne mekanizması: gözenek tıkanması, C. acnes, sebum, hormonal akne döngüsü; komedojenik iddiasının ne kadar geçerli olduğu'},
-  {key: 'pigment', focus: 'leke ve renk eşitsizliği: melanin üretim yolu, PIH ve melazma farkı, tirozinaz inhibitörleri, güneşin rolü'},
-  {key: 'yaslanma', focus: 'yaşlanma biyolojisi: kolajen kaybı hızı, elastin, glikasyon, foto-yaşlanma; hangi iddia kanıtlı hangisi pazarlama'},
-  {key: 'hassasiyet', focus: 'hassas cilt ve tahriş: parfüm/esans, alkol türleri, alerjen listeleri, "doğal" iddiasının anlamı; gündemdeki içerik tartışmaları'},
+  {key: 'pigment', focus: 'leke ve renk eşitsizliği — kapatıcıyla kapanmayan iz, geçmeyen sivilce izi, yazın koyulaşan bölgeler, hamilelik/doğum kontrol lekesi gibi görünür durumdan gir. Melanin yolu, PIH ile melazma farkı ve güneşin rolü açıklama katmanı'},
+  {key: 'yaslanma', focus: 'yaşlanma — "annemin cildi benimkinden iyi", uyumadığın sabah çöken yüz, makyajın oturduğu ilk çizgi, aynı yaştaki iki insanın farkı gibi görünür durumdan gir. Kolajen kaybı hızı, glikasyon ve foto-yaşlanma açıklama; hangi iddia kanıtlı hangisi pazarlama'},
+  {key: 'hassasiyet', focus: 'hassas cilt ve tahriş — sürerken batan ürün, "doğal" diye alınıp yüzü kızartan yağ, parfümlü kremle gelen kaşıntı, herkeste işe yarayıp sende ters tepen ürün gibi görünür durumdan gir. Esans/alkol türleri ve alerjen listesi açıklama katmanı'},
   {key: 'efsaneler', focus: 'yaygın efsanelerin mekanizmayla çürütülmesi: gözenek açılıp kapanmaz, pahalı formül daha etkili değildir, doğal her zaman güvenli değildir'},
   {key: 'rutin-tasarimi', focus: 'minimum etkili rutin: kaç adım gerçekten gerekli, hangi sırayla, ne kadar sürede sonuç beklenir (haftalar cinsinden gerçekçi takvim)'},
   // ÜRÜN-MERKEZLİ HAT (Serdar, 2026-07-28): hacim ürünün kendisinde — insanlar "şu serumu
