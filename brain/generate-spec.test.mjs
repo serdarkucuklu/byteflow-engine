@@ -433,6 +433,18 @@ test('imza satırı markanın diline uyar (Turkce caption icinde Ingilizce satir
   assert.doesNotMatch(promptText, /Written by Derin\./);
 });
 
+test('Türkçe cümlenin İÇİNDE İngilizce kelime yasağı ayrıca yazılır', async () => {
+  // 2026-08-03 canlı hata: caption'da "dijital reklam campaigns" ve "ten kat fark ediyor".
+  // Dil kuralı "her metin Türkçe" diyordu ama kırılma noktası cümlenin tamamı değil, cümlenin
+  // içindeki tek kelime — o yüzden açıkça yasaklanıyor.
+  const capture = {};
+  await generateSpec({candidates: [{source: 'hn', title: 'x'}], apiKey: 'k', pillar: fakePillar,
+    brand: {language: 'tr'}, fetchFn: fakeFetchCapturing(capture)});
+  const p = capture.body.contents[0].parts[0].text;
+  assert.match(p, /NO ENGLISH WORD MAY SURVIVE INSIDE A TURKISH SENTENCE/);
+  assert.match(p, /ten kat fark ediyor/);
+});
+
 test('alıcı YALNIZ hook/sendTo/send CTA\'da geçebilir — mekanizma yuvalarında yasak', async () => {
   // 2026-08-03 canlı hata: gafın "kime" metni bir maliyet katmanı KARTI olarak ekrana çıktı
   // ve seslendirmede "arkadaşının ödediği saf marka primi" diye okundu. Kişi mekanizmanın

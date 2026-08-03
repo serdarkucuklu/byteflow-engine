@@ -156,6 +156,13 @@ hook, title, scene headings, node labels, step statuses, narration sentences, ta
 whole caption. Write like a native speaker talking to a friend, not like a translation.
 EXCEPTIONS that stay in English: footage_queries (they are stock-video search terms) and
 node.brand values (they are fixed keys). Hashtags: mix ${lang} and English tags.
+⚠ NO ENGLISH WORD MAY SURVIVE INSIDE A ${lang.toUpperCase()} SENTENCE. This is the way the rule
+actually breaks: the sentence is ${lang}, but one word inside it is not. Two live errors from
+2026-08-03: "dijital reklam campaigns" (should be "kampanyaları") and "ten kat fark ediyor"
+(the number "on" written as the English "ten"). Numbers written as words, marketing/industry
+jargon (campaign, brand, retail, margin, target) and verbs are the usual offenders — write all
+of them in ${lang}. An English term is allowed ONLY if a ${lang} speaker genuinely uses it as-is
+in speech; if you would have to translate it, you must.
 ` : '';
 // SİPARİŞ BLOĞU: sayfanın sahibi önceki videoyu izledi, beğenmedi ve ne istediğini yazdı.
 // En başa konuyor çünkü model prompt'un başındaki ve sonundaki talimatlara en çok dikkat
