@@ -76,7 +76,42 @@ const SOFT_FOOTAGE = [
   'nail polish drop macro',
 ];
 
-export const FOOTAGE_SETS = {tech: TECH_FOOTAGE, soft: SOFT_FOOTAGE};
+
+// @etiket.kodu için: giyim/kumaş estetiği. Aynı YÜZSÜZ kural — kumaş, dikiş, askı, ayakkabı,
+// alışveriş nesneleri. Model/manken YOK: sayfa faceless ve stok "moda" kliplerinin çoğunda
+// insan var, bu yüzden liste bilinçli olarak doku/nesne çekimlerinden kuruldu.
+const FABRIC_FOOTAGE = [
+  'folded clothes stack close up',
+  'clothing rack hangers minimal',
+  'denim fabric texture macro',
+  'knitted wool texture macro',
+  'cotton fabric weave macro',
+  'silk fabric flowing',
+  'linen fabric texture',
+  'sewing machine stitching close up',
+  'thread spools close up',
+  'zipper macro detail',
+  'button on fabric macro',
+  'clothing label tag close up',
+  'washing machine drum spinning',
+  'laundry detergent pouring close up',
+  'clothes drying on line',
+  'iron pressing fabric steam',
+  'leather texture macro',
+  'shoe sole close up',
+  'sneakers on plain background',
+  'handbag on plain surface',
+  'jewelry on dark surface macro',
+  'shopping bags flat lay',
+  'cardboard parcel box close up',
+  'price tag close up macro',
+  'measuring tape and fabric',
+  'wardrobe interior minimal',
+  'fabric dye in water macro',
+  'marble surface texture',
+];
+
+export const FOOTAGE_SETS = {tech: TECH_FOOTAGE, soft: SOFT_FOOTAGE, fabric: FABRIC_FOOTAGE};
 
 /** Marka dosyasındaki footageSet adına göre beyaz liste (varsayılan: tech). */
 export function footageSetFor(name = 'tech') {

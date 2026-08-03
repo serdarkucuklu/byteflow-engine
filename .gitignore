@@ -9,3 +9,4 @@ assets/music/_*.mp3
 .playwright-mcp/
 .superpowers/
 render/footage/
+kareo-out/

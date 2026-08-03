@@ -3,7 +3,7 @@ name: ByteFlow Daily Reel
 on:
   schedule:
     # Her sayfa KENDİ kitlesinin en iyi saatinde çıkar (cron → marka eşlemesi aşağıda):
-    - cron: '0 15 * * *'    # byteflow — 15:00 UTC: ABD sabahı (11:00 ET) + Avrupa akşamı
+    - cron: '0 18 * * *'    # etiketkodu — 18:00 UTC: koşu ~8dk, yayın ~21:10 TR (TR akşam zirvesi)
     - cron: '20 16 * * *'   # ciltkodu — 16:20 UTC: koşu ~8dk, yayın ~19:30 TR (TR akşam zirvesi)
   workflow_dispatch:
     inputs:
@@ -45,7 +45,8 @@ jobs:
         brand: ${{ fromJSON(
           inputs.brand != '' && format('["{0}"]', inputs.brand)
           || (github.event.schedule == '20 16 * * *' && '["ciltkodu"]')
-          || '["byteflow"]') }}
+          || (github.event.schedule == '0 18 * * *' && '["etiketkodu"]')
+          || '["etiketkodu"]') }}
     concurrency:
       group: byteflow-daily-${{ matrix.brand }}
       cancel-in-progress: false
@@ -77,8 +78,7 @@ jobs:
             echo "::error::onay.aktif=true ama ONAY_BASE_URL/ONAY_INGEST_KEY secret'ı yok"; exit 1
           fi
           # Video yolu onay akışının da ihtiyacı (tekrar denemede yeniden push ediyor).
-          OUT=public/latest.mp4
-          [ "$BYTEFLOW_BRAND" != "byteflow" ] && OUT="public/${BYTEFLOW_BRAND}-latest.mp4"
+          OUT="public/${BYTEFLOW_BRAND}-latest.mp4"
           echo "VIDEO_PATH=$OUT" >> "$GITHUB_ENV"
           DURUM=$(curl -fsS -H "x-onay-key: $ONAY_INGEST_KEY" \
             "$ONAY_BASE_URL/api/durum?marka=$BYTEFLOW_BRAND")

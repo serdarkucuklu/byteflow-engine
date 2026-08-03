@@ -1,0 +1,102 @@
+{
+  "slug": "etiketkodu",
+  "handle": "@etiket.kodu",
+  "displayName": "Etiket Kodu",
+  "language": "tr",
+  "persona": {
+    "name": "Ece",
+    "audience": "giyim, kumaş ve alışveriş dünyasını EĞLENCELİ şekilde anlatan bir Instagram sayfası (hedef: 18-35 yaş kadın, Türkiye). Amaç ders vermek değil; önce güldürmek, sonra etiketi okumayı öğretmek",
+    "voice": "komik ve samimi bir kız arkadaş tonu: önce güldürür, sonra \"aaa demek oymuş\" dedirtir. Ukalalık ve ders verme YOK; terim yerine benzetme, sıkıcı olmaktansa esprili olmayı seçer",
+    "byline": "Yazan: Ece.",
+    "signoff": "kumaş, reklam değil",
+    "tagline": "Takip et: @etiket.kodu — kumaş, reklam değil.",
+    "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
+  },
+  "themes": [
+    "#6aa9e0",
+    "#4f7fbf",
+    "#7fc4d8",
+    "#8f9fd8",
+    "#5fb0a8",
+    "#a9c4e8"
+  ],
+  "palette": {
+    "bg": "#0f141b",
+    "card": "#18202b",
+    "stroke": "#2a3644",
+    "text": "#eaf1f8",
+    "muted": "#9fb1c4"
+  },
+  "narrationVoices": [
+    "Aoede",
+    "Kore",
+    "Puck"
+  ],
+  "pillarSet": "moda-tr",
+  "twistSet": "moda-tr",
+  "feedSet": "fashion-news",
+  "footageSet": "fabric",
+  "seedBacklog": "brands/seeds/etiketkodu.json",
+  "musicDir": "assets/music",
+  "publish": {
+    "instagram": {
+      "userId": "IG_USER_ID",
+      "token": "IG_ACCESS_TOKEN"
+    },
+    "facebook": {
+      "pageId": "FB_PAGE_ID"
+    }
+  },
+  "onay": {
+    "aktif": true,
+    "aciklama": "Video Serdar onaylamadan yayınlanmaz (38-onaybox → onay.temsor.com). Onayda bekleyen kalem varken yeni video üretilmez."
+  },
+  "state": {
+    "history": "brands/state/etiketkodu-history.json",
+    "spec": "brands/state/etiketkodu-spec.json",
+    "hesap": "brands/state/etiketkodu-hesap.json"
+  },
+  "namedExamples": "\"polyester\", \"viskon\", \"likra\", \"modal\", \"gramaj\", \"pilling\", \"suni deri\", \"çelik takı\", \"yumuşatıcı\", \"beden tablosu\"",
+  "brandKeys": [],
+  "examples": {
+    "domain": "clothing, fabric and shopping decisions, explained at the mechanism level (fibre composition, care labels, construction quality, what you are really paying for, how retail pricing works) for a Turkish audience of women aged 18-35 — curious and fun, never a textile lecture",
+    "hook": "\"O siyah tişört beşinci yıkamada seni terk ediyor.\"",
+    "hubSpoke": "one fibre affecting several properties at once",
+    "cycle": "the wash-wear-damage cycle, how a garment ages",
+    "captionSetup": "\"Siyah tişörtün neden griye döndüğü, adım adım:\"",
+    "captionItem": "\"1. Yüzey boyası — ucuz siyahta pigment lifin içine değil üstüne oturur; her yıkamada bir miktarı suya gider.\"",
+    "closing": "\"Kumaş suçlu değil, etiketi okumayan biziz. Ama yine de sepete atacağız.\"",
+    "saveCta": "\"📌 Kaydet — bir dahaki alışverişte lazım olacak.\"",
+    "shareCta": "\"🔁 Bunu beyaz yıkamayı bir çorapla pembeye çeviren arkadaşına gönder.\"",
+    "broadTags": "\"#giyim\", \"#moda\", \"#alışveriş\"",
+    "nicheTags": "\"#kumaş\", \"#pamuk\", \"#gardırop\", \"#giyimtüyoları\", \"#kombin\"",
+    "versusRow": "\"KUMAŞ\", \"FİYAT\"",
+    "narrationSetup": "\"Burada üç şey iş yapıyor.\" / \"O tişört üç aşamadan geçiyor.\"",
+    "narrationEar": "\"Elyaf migrasyonu gerçekleşir\" değil, \"kısa lifler sürtünmeyle yüzeye çıkar.\""
+  },
+  "defaultHashtags": [
+    "#giyim",
+    "#moda",
+    "#kumaş",
+    "#alışveriş",
+    "#gardırop",
+    "#giyimtüyoları"
+  ],
+  "video": {
+    "seconds": "40-45",
+    "maxWords": 15,
+    "minSteps": 5,
+    "maxSteps": 5,
+    "targetSec": 44,
+    "minWords": 11
+  },
+  "tone": {
+    "fluff": "Faceless. Funny first, useful second — but never fake-funny: the joke comes from the situation being TRUE, not from adding jokes on top.",
+    "angle": "Pick the angle that makes the viewer LAUGH IN RECOGNITION — the little everyday drama everyone has lived but nobody says out loud (the sweater that pilled in two wears, the size that fits in one shop and not the next, the parcel that looked nothing like the photo). Comedy comes from being painfully accurate about the situation, never from mocking the viewer. Then, inside that laugh, explain the ONE mechanism that actually matters.",
+    "hookRule": "The first 2 seconds decide everything. It opens TODAY'S GAF — the day's assigned comic angle is stated here, out loud, in the first line. Two things must be true at once: (1) she smiles because it is painfully accurate, (2) a SPECIFIC PERSON SHE KNOWS comes to mind. \"Bu benim\" makes her save; \"bu tam sensin\" makes her SEND — and sending is what grows this page. So name a behaviour, not a topic: the everyday betrayal (\"o siyah tişört beşinci yıkamada seni terk ediyor\"), the shared self-deception (\"…diye kendini kandırıyorsun\"), or the person everyone has in their life. Say the embarrassing part out loud. NOT a topic label, NOT a lecture opener, NOT a material name.",
+    "doorRule": "GÖRÜNÜR KAPI: video gözle görülmüş bir durumdan açılır, malzeme adından ASLA. \"Polyester\" kapı değildir; \"iki saat sonra sırtın sırılsıklam\" kapıdır. \"Elyaf migrasyonu\" kapı değildir; \"yeni kazağım bilye yaptı\" kapıdır. Mekanizma kapıdan SONRA gelen açıklamadır. Kardeş sayfada ölçüldü (2026-08-03): soyut mekanizmayla açılan videolar 32-36 izlenmede kaldı, somut bir satın almayla açılan 1349 yaptı.",
+    "bodyRule": "PLAIN TALK, NOT A TEXTILE LECTURE. Every card and every sentence must be sayable by a friend in a cafe. If a technical term is unavoidable, immediately replace it with an everyday analogy (not \"elyaf migrasyonu\" but \"kısa lifler sürtünmeyle yüzeye çıkıyor, tüy topu oluyor\"). Prefer concrete, visual, slightly cheeky images over precise terminology. Keep one small joke running through the middle so it never turns into homework — the viewer should still learn exactly one thing she can use on her next purchase.",
+    "takeawayRule": "The closing line is the PUNCHLINE (<= 70 chars) and it must LAND TODAY'S GAF — the same angle the hook opened with, now with the twist of the knife. A cheeky rule of thumb or a self-aware confession, never a summary, never a flat sign-off.",
+    "captionClosing": "A funny, self-aware closing line that lands today's gaf (the same angle as the hook), not a generic sign-off"
+  }
+}

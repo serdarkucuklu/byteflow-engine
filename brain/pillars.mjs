@@ -76,7 +76,55 @@ const BEAUTY_TR = [
   {key: 'para-degeri', timely: true, focus: 'bir üründe paranın gerçekte neye gittiği: aktif konsantrasyonu mu, ambalaj mı, marka mı; pahalı ile uygun fiyatlı arasındaki formülasyon farkı gerçekten hissedilir mi'},
 ];
 
-export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING, 'skincare-science': SKINCARE_SCIENCE, 'beauty-tr': BEAUTY_TR};
+
+// ── @etiket.kodu — giyim + alışveriş psikolojisi (2026-08-03) ──────────────────
+// @byteflowlabs (İngilizce AI içeriği) 20 postta 2 takipçide kaldı; medyan 118 izlenme,
+// 14 kaydetme, 2 PAYLAŞIM. Aynı motorun TR güzellik sayfası tek postta 8 paylaşım + 1349
+// izlenme yaptı. Teşhis: konu "kötü" değildi, GÖNDERİLEBİLİR değildi.
+//
+// Bu havuz cilt.kodu'nun tuttuğu mekaniği giyime taşıyor: okunacak bir ETİKET (INCI'nin
+// karşılığı = kumaş bileşimi + yıkama etiketi), somut bir PARA gafı ve ortak bir dert.
+// Serdar kapsam kararı: giyim + alışveriş psikolojisi (para gafı en güçlü eksenimiz).
+const MODA_TR = [
+  // — Kumaş ve malzeme: sayfanın "etiket okuma" omurgası —
+  {key: 'kumas-bilesimi', focus: 'kumaş bileşim etiketi — ama HER ZAMAN görünür bir durumdan gir (2 yıkamada biten tişört, terletmeyen gömlek, kaşındıran kazak). %100 pamuk ile %65 polyesterin ne demek olduğu, karışımdaki her lifin ne iş yaptığı açıklama katmanı'},
+  {key: 'gramaj-ve-orgu', focus: 'gramaj ve örgü — "ışığa tuttum içi göründü", ilk giyişte sarkan yaka, vücuda oturmayan elbise gibi görünür durumdan gir. Gram/m², örgü sıkılığı ve elyaf uzunluğu açıklama katmanı'},
+  {key: 'pilling', focus: 'bilye/tüylenme (pilling) — "yeni kazağım bilye yaptı" durumundan gir. Kısa elyafın sürtünmeyle yüzeye çıkması, hangi karışımların bilye yaptığı, koltuk altı ve çanta askısı bölgeleri neden önce bozulur'},
+  {key: 'cekme-ve-deforme', focus: 'çekme ve deformasyon — makineden küçülerek çıkan kazak, dizde torbalanan pantolon, uzayan yaka. Lif gerilimi, sıcak su ve kurutucunun yaptığı; hangi hasar geri döner hangisi dönmez'},
+  {key: 'renk-ve-solma', focus: 'renk — 5 yıkamada griye dönen siyah tişört, ilk yıkamada akan kırmızı, güneşte solan parça. Boya tipi/boyama yöntemi, sürtünme ve suyun rolü'},
+  {key: 'nefes-ve-koku', focus: 'terleme ve koku — yıkanmasına rağmen kokan spor tişört, sırtta kalan ter izi. Sentetik liflerin kokuyu tutması, nem transferi, hangi kumaş ne zaman doğru seçim'},
+  {key: 'lif-ansiklopedisi', focus: 'viskon/modal/likra/polyester/akrilik farkı — ama somut bir karardan gir ("hangisini alayım", "bu neden bu kadar ucuz"). Her lifin gerçekte ne verdiği ve neyi vermediği'},
+  // — Bakım —
+  {key: 'yikama-etiketi', focus: 'yıkama etiketindeki semboller — leğen içindeki sayı, üçgen, kare, daire ne diyor; "sadece kuru temizleme" ne zaman gerçek ne zaman markanın kendini garantiye alması'},
+  {key: 'leke', focus: 'leke — kahve, ter sarısı, deodorant izi, ruj, yağ. Leke tipine göre neden farklı müdahale gerekiyor (protein/yağ/pigment), sıcak suyun lekeyi ne zaman kalıcı yaptığı'},
+  {key: 'kurutma-ve-utu', focus: 'kurutma ve ütü — kurutucudan küçülerek çıkan parça, ütüde parlayan kumaş, askıda uzayan kazak. Isı ve ağırlığın life yaptığı'},
+  {key: 'deterjan-yumusatici', focus: 'deterjan ve yumuşatıcı — havlunun su çekmemesi, spor kıyafetin kokması, "daha çok deterjan daha temiz" mantığı. Yumuşatıcının lif üzerinde bıraktığı film'},
+  {key: 'saklama', focus: 'dolapta saklama — güve deliği, askıda deforme olan kazak, vakumlu poşette kırışan parça, mevsim geçişi. Nem, ışık ve askı seçiminin etkisi'},
+  // — Beden, kalıp, kalite —
+  {key: 'beden-tablosu', focus: 'beden tablosu — aynı markada iki farklı beden, kabinde olan evde olmayan parça. Beden standardının markadan markaya neden değiştiği, ölçü almanın nasıl yapıldığı'},
+  {key: 'kalite-isaretleri', focus: 'bir parçanın kalitesi elde nasıl anlaşılır — dikiş sıklığı, astar, fermuar ağırlığı, desen hizası, düğme dikişi, kenar temizliği. Mağazada 10 saniyede bakılacak yerler'},
+  // — Ayakkabı, çanta, takı —
+  {key: 'ayakkabi', focus: 'ayakkabı — vuran topuk, ıslanan taban, çatlayan suni deri. Gerçek deri/suni deri farkı, taban malzemesi ve yapıştırma-dikiş ayrımı'},
+  {key: 'canta', focus: 'çanta — kabaran kaplama, sarkan sap, yırtılan astar. PU ile gerçek derinin ömrü, donanım kalitesi, ağırlığın sapa yaptığı'},
+  {key: 'taki', focus: 'takı — kararan yüzük, yeşil iz bırakan bileklik, alerji yapan küpe. Çelik/gümüş/kaplama farkı, nikel meselesi, kaplamanın kaç ayda gittiği'},
+  // — Alışveriş psikolojisi (para gafının doğal evi) —
+  {key: 'hizli-moda-ekonomisi', timely: true, focus: 'aynı fabrikadan çıkan 200₺ ve 2000₺ parça — fiyat farkı gerçekte neye gidiyor (kumaş mı, işçilik mi, marka primi mi, mağaza mı). Gündemdeki bir marka/koleksiyon üzerinden konuş; suçlama değil, muhasebe'},
+  {key: 'indirim-mekanigi', timely: true, focus: 'indirim etiketinin mekaniği — üstü çizili referans fiyat, "son 3 ürün" sayacı, sezon sonu takvimi, kampanya günlerinde fiyatın önce yükselmesi. Perakende fiyatlamasının nasıl kurulduğu'},
+  {key: 'online-alisveris', timely: true, focus: 'ekrandaki parça ile gelen parça — ürün fotoğrafındaki ışık ve iğneleme, model bedeni, renk kalibrasyonu, yorumların nasıl okunacağı. Neyi görsele bakarak ASLA anlayamazsın'},
+  {key: 'kargo-ve-iade', timely: true, focus: 'kargo ve iade — ücretsiz kargo eşiğini doldurmak için eklenen üçüncü ürün, iade penceresi, "kutusuyla iade" şartı, iade edilen ürünün akıbeti. Mekaniğin alışveriş kararını nasıl bozduğu'},
+  {key: 'marka-primi', timely: true, focus: 'logonun fiyattaki payı — aynı üreticiden çıkan iki etiket, lisanslı koleksiyonlar, "designer" iş birliği parçaları. Neye para verildiğini dürüstçe ayır'},
+  {key: 'trend-mekanik', timely: true, focus: 'gündemdeki bir parça ya da mikro trend — neden birden herkeste çıktı, kaç ay sürecek, kumaş/kalıp olarak gerçekten dayanıklı mı yoksa tek sezonluk mu'},
+  {key: 'ikinci-el', timely: true, focus: 'ikinci el ve vintage — ne alınır ne alınmaz, eski üretimin kumaşı neden daha ağır, ikinci elde nelere bakılır (koltuk altı, fermuar, astar), online ikinci el platformlarının mekaniği'},
+  {key: 'cok-satanlar', timely: true, focus: 'şu an konuşulan/çok satan bir parça ya da malzeme — neden konuşuluyor ve etiketi ne söylüyor. Ürünü açıkça adlandır; "kötü" deme, "şu bileşimle beklentin şu olmalı" de'},
+  // — Dolap ve karar —
+  {key: 'giyilme-basina-maliyet', focus: 'giyilme başına maliyet — 300₺lik 3 kez giyilen parça ile 1500₺lik 200 kez giyilen parçanın gerçek hesabı. "Ucuza almak" ne zaman pahalıya patlıyor'},
+  {key: 'kapsul-dolap', focus: 'az parçayla çok kombin — hangi parçalar gerçekten çok işe yarıyor, dolabın hangi kısmı hiç dönmüyor, renk ve kalıp uyumunun basit mantığı'},
+  {key: 'satin-alma-tuzagi', focus: 'bir videoyu/vitrini görüp alınan ve bir daha giyilmeyen parça — "bir gün lazım olur" rafı, özel gün alışverişi, sezon başı heyecanı. Satın alma anındaki hissin mekaniği'},
+  {key: 'ortak-yanilgilar', focus: 'herkesin birbirine söylediği ama yanlış olan klasikler — "pahalı olan dayanır", "%100 pamuk her zaman iyidir", "kuru temizleme kumaşa iyi gelir", "sık yıkamak kıyafeti eskitir"'},
+  {key: 'gunluk-kazalar', focus: 'günlük kazalar ve gerçek sebepleri — açılan fermuar, kopan düğme, vuran topuk, statik elektrikle bacağa yapışan etek, koltuk altı ter lekesi'},
+];
+
+export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING, 'skincare-science': SKINCARE_SCIENCE, 'beauty-tr': BEAUTY_TR, 'moda-tr': MODA_TR};
 
 /** Marka dosyasındaki pillarSet adına karşılık gelen havuz. */
 export function pillarsFor(setName = 'ai-engineering') {

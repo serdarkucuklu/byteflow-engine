@@ -37,7 +37,25 @@ const SKINCARE_NEWS = [
 ];
 
 // Kaynak kümeleri — marka dosyası hangisini kullanacağını söyler.
-export const FEED_SETS = {'ai-news': AI_NEWS, 'skincare-news': SKINCARE_NEWS};
+
+// @etiket.kodu için: moda/giyim + perakende. Amaç podyum haberi DEĞİL — sayfanın timely
+// pillar'ları (hızlı moda ekonomisi, indirim mekaniği, ikinci el, trend) için gündem yakalamak.
+// r/femalefashionadvice ve r/ZeroWaste gibi kaynaklar "ne konuşuluyor"u veriyor; ticaret
+// kaynakları da fiyat/perakende tarafını.
+const FASHION_NEWS = [
+  {url: 'https://www.reddit.com/r/femalefashionadvice/top/.rss?t=week', source: 'reddit-ffa'},
+  {url: 'https://www.reddit.com/r/fashionadvice/top/.rss?t=week', source: 'reddit-fa'},
+  {url: 'https://www.reddit.com/r/BuyItForLife/top/.rss?t=week', source: 'reddit-bifl'},
+  {url: 'https://www.reddit.com/r/ThriftStoreHauls/top/.rss?t=week', source: 'reddit-thrift'},
+  {url: 'https://www.reddit.com/r/laundry/top/.rss?t=week', source: 'reddit-laundry'},
+  {url: 'https://www.reddit.com/r/sewing/top/.rss?t=week', source: 'reddit-sewing'},
+  {url: 'https://www.businessoffashion.com/feed/', source: 'bof'},
+  {url: 'https://www.retaildive.com/feeds/news/', source: 'retaildive'},
+  {url: 'https://medium.com/feed/tag/fashion', source: 'medium-fashion'},
+  {url: 'https://medium.com/feed/tag/sustainable-fashion', source: 'medium-sustainable'},
+];
+
+export const FEED_SETS = {'ai-news': AI_NEWS, 'skincare-news': SKINCARE_NEWS, 'fashion-news': FASHION_NEWS};
 export const FEEDS = AI_NEWS;                      // geriye uyum
 
 export function feedsFor(setName = 'ai-news') {

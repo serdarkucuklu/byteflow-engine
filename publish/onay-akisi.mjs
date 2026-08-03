@@ -30,8 +30,10 @@ const BEKLEME_DK = Number(process.env.ONAY_BEKLEME_DK || 170);
 const YOKLAMA_SN = Number(process.env.ONAY_YOKLAMA_SN || 15);
 const KOSUCU = process.env.GITHUB_RUN_ID ? `gh-${process.env.GITHUB_RUN_ID}` : `yerel-${process.pid}`;
 const REPO = process.env.GITHUB_REPOSITORY || 'serdarkucuklu/byteflow-engine';
-const VIDEO_YOLU = process.env.VIDEO_PATH
-  || (brand.slug === 'byteflow' ? 'public/latest.mp4' : `public/${brand.slug}-latest.mp4`);
+// Her marka KENDİ dosyasına yazar; iki marka aynı public/latest.mp4'ü ezerse yayınlar karışır.
+// (byteflow'un `public/latest.mp4` istisnası 2026-08-03'te kalktı: sayfa @etiket.kodu'ya
+// dönüştürüldü ve marka emekli edildi — emekli markanın özel durumu ölü kod demektir.)
+const VIDEO_YOLU = process.env.VIDEO_PATH || `public/${brand.slug}-latest.mp4`;
 
 const bekle = ms => new Promise(r => setTimeout(r, ms));
 const log = (...a) => console.log(...a);

@@ -37,7 +37,18 @@ for (const id of ids) {
   const body = await res.json().catch(() => ({}));
   if (!res.ok || body.error) {
     failed++;
-    console.error(`✗ ${id} silinemedi: ${body.error?.message ?? res.status}`);
+    const e = body.error ?? {};
+    // Meta'nın `message` alanı burada işe yaramaz ("Fatal"); teşhis subcode ile kullanıcı
+    // mesajında saklı. İkisi de basılmazsa hata okunamıyor (2026-08-03'te tam bu oldu).
+    console.error(`✗ ${id} silinemedi: ${e.message ?? res.status}`
+      + (e.error_subcode ? ` [subcode ${e.error_subcode}]` : '')
+      + (e.error_user_msg ? ` — ${e.error_user_msg}` : ''));
+    if (e.error_subcode === 2207085) {
+      console.error('  ⓘ 2207085 = Meta bu medyayı API\'den SİLDİRMİYOR (izin sorunu değil:'
+        + ' instagram_manage_contents verili olsa da dönüyor, v21 ve v23\'te aynı).'
+        + ' Reels için tek yol uygulamadan silmek — Ayarlar → Etkinliğin → Fotoğraflar ve'
+        + ' videolar → Seç → Sil (çoklu seçim var).');
+    }
   } else {
     console.log(`✓ silindi: ${id}`);
   }

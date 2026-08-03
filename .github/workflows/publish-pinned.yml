@@ -19,6 +19,12 @@ on:
 permissions:
   contents: write
 
+# ⚠ Marka AÇIKÇA yazılmalı: bu iş BYTEFLOW_BRAND belirtmiyordu ve varsayılana ('byteflow')
+# düşüyordu. byteflow markası 2026-08-03'te emekli edildi (sayfa @etiket.kodu oldu) — varsayılan
+# bırakılsaydı bu cron her gün "marka bulunamadı" ile patlardı.
+env:
+  BYTEFLOW_BRAND: etiketkodu
+
 concurrency:
   group: byteflow-pinned
   cancel-in-progress: false

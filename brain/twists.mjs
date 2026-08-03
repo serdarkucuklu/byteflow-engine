@@ -48,7 +48,50 @@ const BEAUTY_TR = [
     focus: 'SICAK GAFI: yaz — terleyen alın, denize girince biten makyaj, plajda güneş kremi yenileme savaşı, klima ile dışarı arasında gidip gelen cilt. Ter/sebum ile ürün filminin ilişkisi, suya dayanıklı ne demek (ve kaç dakika demek)'},
 ];
 
-export const TWIST_SETS = {'beauty-tr': BEAUTY_TR};
+
+// ── @etiket.kodu gaf havuzu (2026-08-03) ──────────────────────────────────────
+// cilt.kodu'daki kural aynen geçerli: gaf zorunlu, rotasyona girer ve her gafın doğal bir
+// ALICISI vardır ("bu tam sensin" göndertir, "bu benim" yalnızca kaydettirir).
+const MODA_TR = [
+  {key: 'para', kime: 'o parayı verdiğine hâlâ inanamayan arkadaşına',
+    focus: 'PARA GAFI: bu parçaya verdiğin paranın gerçekte neye gittiği — kumaşın kilo fiyatı, marka primi, mağaza kirası, "designer iş birliği" etiketi. Rakamı uydurma; oranı ve nereye gittiğini konuş'},
+  {key: 'kargo-hayali', kime: 'kargo kodunu saatte üç kez sorgulayan arkadaşına',
+    focus: 'KARGO GAFI: sipariş ile paket arasında geçen süre — kargo takibini ezberlemek, gelene kadar kurulan kombin hayali, kutuyu açınca kumaşın elde bambaşka çıkması. Fotoğrafta görülemeyen ne varsa onu anlat'},
+  {key: 'beden-savasi', kime: 'kabinde aynı bedenin iki farklı çıktığını gören arkadaşına',
+    focus: 'BEDEN GAFI: beden tablosuyla savaş — aynı markada tutmayan iki beden, "oturur belki" diye alınan parça, kabin aynasının açısı, online alınan bedenin evde bambaşka olması. Beden standardının neden markadan markaya kaydığını anlat'},
+  {key: 'yikama-kazasi', kime: 'beyaz yıkamayı bir çorapla pembeye çeviren arkadaşına',
+    focus: 'YIKAMA GAFI: tek hamlede biten parça — makineye giren tek kırmızı çorap, 60 derecede yıkanan kazak, kurutucudan bebek bedeninde çıkan tişört, ütüde parlayan pantolon. Isı ve suyun life ne yaptığını anlat'},
+  {key: 'dolap-mezarligi', kime: 'dolabında hâlâ etiketi duran parçalar olan arkadaşına',
+    focus: 'DOLAP GAFI: "bir gün lazım olur" rafı — etiketi kesilmemiş parça, iki beden küçük alınıp beklenen elbise, özel gün için alınıp bir kez giyilen. Giyilme başına maliyeti sessizce hesapla'},
+  {key: 'kombin-yalani', kime: 'dolabı dolu olduğu hâlde her sabah giyecek bir şey bulamayan arkadaşına',
+    focus: 'KOMBİN GAFI: dolap dolu, giyecek bir şey yok — sabah yatağa fırlatılan üç parça, hep aynı üç kıyafetin dönmesi, "bunun altına ne giyerim" çıkmazı. Dolabın hangi kısmının hiç dönmediğini göster'},
+  {key: 'sosyal-medya', kime: 'akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına',
+    focus: 'SOSYAL MEDYA GAFI: o parçayı neden aldın — akışta çıkan tek video, iğnelenmiş ürün fotoğrafı, aynı hafta herkeste çıkan parça, "linki attım" kültürü'},
+  {key: 'magaza-danismani', kime: 'mağazadan planladığından hep fazlasıyla çıkan arkadaşına',
+    focus: 'MAĞAZA GAFI: "üstünüzde çok güzel durdu" — kabin önünde kurulan üç dakikalık güven, yanına önerilen ikinci parça, kasadaki son ekleme. Satış tekniğini sevecen şekilde deşifre et, danışmanı kötüleme'},
+  {key: 'gece-sepeti', kime: 'gece 2\u0027de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına',
+    focus: 'SEPET GAFI: gece alışverişi — "son 3 ürün" sayacı, ücretsiz kargo eşiğini doldurmak için eklenen üçüncü parça, sabah gelen sipariş onayına şaşırmak'},
+  {key: 'iade-tembelligi', kime: 'iade süresi dolduğu için o parçayı hâlâ saklayan arkadaşına',
+    focus: 'İADE GAFI: iade edilmeyen parça — kutusu duruyor ama kargoya gitmiyor, iade penceresi sessizce kapanıyor, "nasılsa giyerim" ile biten hikâye. İade mekaniğinin bunu nasıl beklediğini anlat'},
+  {key: 'pazarlama-dili', kime: 'ürün açıklamasındaki her cümleye inanan arkadaşına',
+    focus: 'PAZARLAMA DİLİ GAFI: etiketteki ve ürün açıklamasındaki cümlenin insan diline çevirisi — "premium pamuk", "sınırlı sayıda", "el işçiliği", "yumuşacık dokusu". Hangisi ölçülebilir bir şey söylüyor, hangisi sadece his satıyor'},
+  {key: 'itiraf', kime: 'aynı pantolonu üst üste kaç gün giydiğini senden başka kimsenin bilmediği arkadaşına',
+    focus: 'İTİRAF GAFI: kimseye söylemediğin şey — kokla-giy testi, ters çevrilip bir gün daha giyilen tişört, ütü yerine el düzeltmesi, yıkanmadan dolaba geri konan parça. Alay değil ORTAK itiraf: anlatıcı da yapıyor'},
+  {key: 'beklenti', kime: 'ilk yıkamadan sonra parçayı suçlayan arkadaşına',
+    focus: 'BEKLENTİ GAFI: parçadan beklenen ömür — 200 liralık tişörtten üç sezon beklemek, ilk bozulmada "kalitesizmiş" demek, etikette yazan bakımı hiç yapmadan dayanmasını istemek'},
+  {key: 'arkadas-kopyasi', kime: 'aynı parçayı senin yüzünden alıp üstünde bambaşka duran arkadaşına',
+    focus: 'KOPYA GAFI: arkadaşta harika, sende olmuyor — aynı parçanın iki kişide farklı düşmesi, kalıp/boy/omuz genişliği, kumaşın dökümü. Suçun bedende değil kalıpta olduğunu anlat'},
+  {key: 'anne-terzi', kime: 'her parçayı "kısalttırırız" diye alan annene ya da o arkadaşına',
+    focus: 'TERZİ GAFI: müdahale kültürü — "biraz bollaştırırız", bir türlü terziye gitmeyen pantolon, annenin dikiş kutusu, kısaltılınca kalıbı bozulan parça. Neyin tadil edilebildiğini, neyin edilemediğini söyle'},
+  {key: 'sezon-aldatmacasi', kime: 'yazlık aldığı parçayı yaz bitmeden eskiten arkadaşına',
+    focus: 'SEZON GAFI: tek sezonluk ömür — sezon başında alınıp sezon bitmeden bozulan parça, "yazlık" diye alınıp terleten kumaş, mevsim geçişinde giyilecek hiçbir şeyin olmaması'},
+  {key: 'ozel-gun', kime: 'düğün için aldığı elbiseyi bir daha hiç giymeyen arkadaşına',
+    focus: 'ÖZEL GÜN GAFI: bir kez giyilen parça — düğün/davet/mezuniyet alışverişi, "aynı elbiseyi iki kere giyemem" baskısı, o gecenin fotoğrafı dışında hiç görünmeyen kıyafet'},
+  {key: 'zaman', kime: 'her sabah dolabın önünde 20 dakika kaybeden arkadaşına',
+    focus: 'ZAMAN GAFI: bu işe giden ömür — sabah dolap önünde geçen dakikalar, ütü kuyruğu, elde yıkanacaklar sepeti, "sonra bakarım" diye ertelenen leke. Zamanın nereye gittiğini dürüstçe say'},
+];
+
+export const TWIST_SETS = {'beauty-tr': BEAUTY_TR, 'moda-tr': MODA_TR};
 
 /** Marka dosyasındaki twistSet adına karşılık gelen havuz (yoksa null → gaf ekseni kapalı). */
 export function twistsFor(setName) {

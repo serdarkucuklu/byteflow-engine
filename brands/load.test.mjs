@@ -3,15 +3,15 @@ import assert from 'node:assert/strict';
 import {loadBrand, credentials, listBrands, resolveBrandSlug} from './load.mjs';
 
 test('the default brand loads and resolves its state paths', () => {
-  const b = loadBrand('byteflow');
-  assert.equal(b.handle, '@byteflowlabs');
-  assert.ok(b.paths.history.endsWith('posted-history.json'));
-  assert.ok(b.paths.seeds.endsWith('seed-backlog.json'));
+  const b = loadBrand('ciltkodu');
+  assert.equal(b.handle, '@cilt.kodu');
+  assert.ok(b.paths.history.endsWith('ciltkodu-history.json'));
+  assert.ok(b.paths.seeds.endsWith('ciltkodu.json'), 'marka KENDİ seed havuzunu kullanmalı');
   assert.ok(b.themes.length >= 1 && b.narrationVoices.length >= 1);
 });
 
 test('an unknown brand fails loudly, listing what exists', () => {
-  assert.throws(() => loadBrand('yok-boyle-bir-marka'), /marka bulunamadı.*byteflow/s);
+  assert.throws(() => loadBrand('yok-boyle-bir-marka'), /marka bulunamadı.*ciltkodu/s);
 });
 
 test('brand slug comes from --brand, then env, then the default', () => {
@@ -21,7 +21,7 @@ test('brand slug comes from --brand, then env, then the default', () => {
 });
 
 test('credentials map secret NAMES to values — the repo never holds a token', () => {
-  const b = loadBrand('byteflow');
+  const b = loadBrand('etiketkodu');
   const raw = JSON.stringify(b.publish);
   assert.doesNotMatch(raw, /EAA|IGQ|Bearer/, 'marka dosyasında token görünmemeli');
   const cred = credentials(b, {IG_USER_ID: '123', IG_ACCESS_TOKEN: 'tok', FB_PAGE_ID: '9'});
@@ -32,7 +32,17 @@ test('credentials map secret NAMES to values — the repo never holds a token', 
 });
 
 test('listBrands sees every brand file', () => {
-  assert.ok(listBrands().includes('byteflow'));
+  assert.ok(listBrands().includes('ciltkodu'));
+  assert.ok(listBrands().includes('etiketkodu'));
+});
+
+// @byteflowlabs 2026-08-03'te @etiket.kodu'ya dönüştürüldü (20 post, 2 takipçi, medyan 118
+// izlenme). Marka dosyası SİLİNDİ çünkü aynı IG hesabını/token'ını gösteriyordu: dosya kalsaydı
+// --brand=byteflow ya da markasız bir koşu, İngilizce AI içeriğini YENİ sayfaya yayınlayabilirdi.
+// Silinmiş olması, markasız çağrının sessizce yanlış sayfaya gitmek yerine patlamasını sağlıyor.
+test('emekli marka geri gelmez ve markasız çağrı sessizce yayın yapamaz', () => {
+  assert.ok(!listBrands().includes('byteflow'), 'byteflow markası emekli edildi');
+  assert.throws(() => loadBrand(resolveBrandSlug(['node', 'x'], {})), /marka bulunamadı/);
 });
 
 test('each brand really uses its own pillar pool (not the engine default)', async () => {
