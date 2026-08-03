@@ -77,7 +77,7 @@ const BEAUTY_TR = [
 ];
 
 
-// ── @etiket.kodu — giyim + alışveriş psikolojisi (2026-08-03) ──────────────────
+// ── @dolap.kodu — giyim, dolap ve alışveriş psikolojisi (2026-08-03) ──────────
 // @byteflowlabs (İngilizce AI içeriği) 20 postta 2 takipçide kaldı; medyan 118 izlenme,
 // 14 kaydetme, 2 PAYLAŞIM. Aynı motorun TR güzellik sayfası tek postta 8 paylaşım + 1349
 // izlenme yaptı. Teşhis: konu "kötü" değildi, GÖNDERİLEBİLİR değildi.

@@ -3,7 +3,7 @@ name: ByteFlow Daily Reel
 on:
   schedule:
     # Her sayfa KENDİ kitlesinin en iyi saatinde çıkar (cron → marka eşlemesi aşağıda):
-    - cron: '0 18 * * *'    # etiketkodu — 18:00 UTC: koşu ~8dk, yayın ~21:10 TR (TR akşam zirvesi)
+    - cron: '0 18 * * *'    # dolapkodu — 18:00 UTC: koşu ~8dk, yayın ~21:10 TR (TR akşam zirvesi)
     - cron: '20 16 * * *'   # ciltkodu — 16:20 UTC: koşu ~8dk, yayın ~19:30 TR (TR akşam zirvesi)
   workflow_dispatch:
     inputs:
@@ -45,8 +45,8 @@ jobs:
         brand: ${{ fromJSON(
           inputs.brand != '' && format('["{0}"]', inputs.brand)
           || (github.event.schedule == '20 16 * * *' && '["ciltkodu"]')
-          || (github.event.schedule == '0 18 * * *' && '["etiketkodu"]')
-          || '["etiketkodu"]') }}
+          || (github.event.schedule == '0 18 * * *' && '["dolapkodu"]')
+          || '["dolapkodu"]') }}
     concurrency:
       group: byteflow-daily-${{ matrix.brand }}
       cancel-in-progress: false

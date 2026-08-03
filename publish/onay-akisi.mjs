@@ -287,7 +287,15 @@ async function ana() {
     log(`· zaten onayda bekleyen kalem var (${kalem.baslik}) — yeni video kuyruğa alınmıyor`);
   } else {
     const url = process.argv.find(a => a.startsWith('https://'));
-    if (!url) throw new Error('video adresi (raw.githubusercontent) argümanı gerekli');
+    // ⚠ 2026-08-03 CANLI HATA: iş akışı, üretim ADIMI ATLANDIĞINDA bu script'i adressiz
+    // çağırıyor (onay kapısı ya da günlük kota engellediyse) — ve burada "adres şart" diye
+    // patlıyordu. Sonuç: yayın yapılan HER günün kendi cron'u kırmızı düşüyordu (o gün zaten
+    // yayınlanmıştı, kota ikinci videoyu doğru şekilde engellemişti). Gerçek arızayı gizleyen
+    // sahte kırmızı. Adres yoksa ortada kuyruğa konacak video da yoktur: sessizce çık.
+    if (!url) {
+      log('· bu koşu video üretmedi (onay kapısı ya da günlük kota) — kuyruğa konacak bir şey yok');
+      return;
+    }
     await kuyrugaKoy({url});
   }
   await bekleVeUygula();

@@ -1,15 +1,15 @@
 {
-  "slug": "etiketkodu",
-  "handle": "@etiket.kodu",
+  "slug": "dolapkodu",
+  "handle": "@dolap.kodu",
   "displayName": "Etiket Kodu",
   "language": "tr",
   "persona": {
     "name": "Ece",
-    "audience": "giyim, kumaş ve alışveriş dünyasını EĞLENCELİ şekilde anlatan bir Instagram sayfası (hedef: 18-35 yaş kadın, Türkiye). Amaç ders vermek değil; önce güldürmek, sonra etiketi okumayı öğretmek",
+    "audience": "giyim, dolap ve alışveriş hayatını EĞLENCELİ şekilde anlatan bir Instagram sayfası (hedef: 18-35 yaş kadın, Türkiye). Amaç ders vermek değil; önce güldürmek, sonra \"aaa demek oymuş\" dedirtmek",
     "voice": "komik ve samimi bir kız arkadaş tonu: önce güldürür, sonra \"aaa demek oymuş\" dedirtir. Ukalalık ve ders verme YOK; terim yerine benzetme, sıkıcı olmaktansa esprili olmayı seçer",
     "byline": "Yazan: Ece.",
-    "signoff": "kumaş, reklam değil",
-    "tagline": "Takip et: @etiket.kodu — kumaş, reklam değil.",
+    "signoff": "dolabında olan biten",
+    "tagline": "Takip et: @dolap.kodu — dolabında olan biten.",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "themes": [
@@ -36,7 +36,7 @@
   "twistSet": "moda-tr",
   "feedSet": "fashion-news",
   "footageSet": "fabric",
-  "seedBacklog": "brands/seeds/etiketkodu.json",
+  "seedBacklog": "brands/seeds/dolapkodu.json",
   "musicDir": "assets/music",
   "publish": {
     "instagram": {
