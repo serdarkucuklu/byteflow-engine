@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Beden Tablosu Tuzağı ve İade Edilemeyen Kutular",
+    "subject": "beden tablosu",
+    "twist": "iade-tembelligi",
+    "pillar": "marka-primi",
+    "layout": "cycle",
+    "kinds": "diagram",
+    "motion": "buildup",
+    "theme": "#a08663",
+    "source": "gemini",
+    "footage": [
+      "pexels:cardboard parcel box close up",
+      "pexels:clothing label tag close up"
+    ],
+    "voice": 7,
+    "voiceName": "Aoede",
+    "date": "2026-08-03",
+    "durSec": 42.4
+  }
+]
