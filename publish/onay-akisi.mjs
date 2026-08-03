@@ -20,6 +20,7 @@ import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {loadBrand, credentials} from '../brands/load.mjs';
 import {OnayIstemci} from './onay-client.mjs';
+import {redEkle} from '../brain/red-defteri.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const brand = loadBrand();
@@ -161,7 +162,12 @@ async function yenidenUret(kalem, kap) {
   const env = {...process.env, BYTEFLOW_VOICE: '1', BYTEFLOW_NOT: not};
   // Not yoksa "başka bir şey anlat" demektir → beğenilmeyen özne bugün yasak.
   // Not varsa yasaklamıyoruz: not aynı konunun daha iyi işlenmesini isteyebilir.
-  if (!not && atilan?.subject) env.BYTEFLOW_YASAK_KONU = atilan.subject;
+  // Deftere de yazılıyor: bu koşu zaman aşımına uğrarsa işi nöbetçi cron'un açtığı BAŞKA bir
+  // koşu devralıyor ve ortam değişkeni onunla gitmiyor.
+  if (!not && atilan?.subject) {
+    env.BYTEFLOW_YASAK_KONU = atilan.subject;
+    redEkle(brand.paths.red, atilan);
+  }
   log(`↻ yeniden üretiliyor${not ? ` — not: "${not}"` : ' (not yok: bambaşka bir konu)'}`);
 
   const komut = process.env.ONAY_URET_KOMUT || 'xvfb-run -a node run-daily.mjs';
@@ -175,7 +181,13 @@ async function yenidenUret(kalem, kap) {
 }
 
 async function vazgec(kalem) {
-  sonDenemeyiDus();
+  const atilan = sonDenemeyiDus();
+  // Beğenilmeyen özne BUGÜN bir daha çıkmasın. "Tekrar dene"deki yasak bir ortam değişkeniydi
+  // ve aynı süreçte yaşıyordu; vazgeçten sonra üretimi YENİ bir koşu yapıyor. O koşunun tek
+  // hafızası bu defter — 2026-08-03'te defter yokken reddedilen "polyester" bir saat sonra
+  // aynı gaf ve aynı kurguyla geri geldi.
+  const kayit = redEkle(brand.paths.red, atilan);
+  if (kayit) log(`⛔ red defterine yazıldı: ${kayit.subject} (bugün yasak)`);
   try {
     itVeSha(`chore: onaydan vazgeçildi ${new Date().toISOString().slice(0, 10)}`);
   } catch (e) {

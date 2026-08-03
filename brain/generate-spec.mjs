@@ -281,7 +281,10 @@ ${brandKeys.length ? `- node.brand is OPTIONAL and PREFERRED whenever a card IS 
 - ${vid.minSteps} to ${vid.maxSteps} steps per scene — every step adds a spoken sentence and
   therefore seconds, so use the count that actually fits the ${vid.seconds}s target. step.from and step.to MUST equal a node.id IN THAT SCENE.
   Each step is ONE beat of the story, in order; never zig-zag back and forth between the same
-  two cards. step.packet <= 6 chars. step.color in {accent, good, warn}.
+  two cards. step.packet <= 6 chars — but it must be a WHOLE word a reader recognises, NEVER a
+  word chopped to fit ("HAMMAD", "İŞÇİLİ" and "KAMPAN" are all failures; pick a short synonym
+  such as "İPLİK", "DİKİM", "REKLAM" instead). If nothing short enough exists, use a single
+  emoji or a 2-3 letter symbol. step.color in {accent, good, warn}.
   step.status <= 40 chars, lowercase — the sentence the viewer reads at that moment.
 - Each scene has a "kind": "diagram" (default), "code" or "versus".
   - A "versus" scene compares TWO named options head to head and is the strongest format on

@@ -13,6 +13,7 @@ import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './pub
 import {pillarsFor, selectPillar} from './brain/pillars.mjs';
 import {twistsFor, selectTwist} from './brain/twists.mjs';
 import {recentSubjects} from './brain/subjects.mjs';
+import {redOku, bugunkuRedler} from './brain/red-defteri.mjs';
 import {selectMotion} from './render/src/lib/motion-registry.mjs';
 import {loadBrand} from './brands/load.mjs';
 import {aggregate, pickWeighted, leaderboard} from './brain/scoreboard.mjs';
@@ -61,6 +62,13 @@ const bannedSubjects = recentSubjects(history);
 const serdarNotu = (process.env.BYTEFLOW_NOT ?? '').trim() || null;
 const yasakKonu = (process.env.BYTEFLOW_YASAK_KONU ?? '').trim();
 if (yasakKonu && !bannedSubjects.some(s => s === yasakKonu)) bannedSubjects.push(yasakKonu);
+
+// RED DEFTERİ: onay kutusunda BUGÜN reddedilmiş özneler. Ortam değişkeni yalnız aynı süreçte
+// (tekrar dene) yaşıyor; "vazgeç" sonrası açılan YENİ koşu için tek hafıza bu dosya.
+// 2026-08-03: bu defter yokken reddedilen "polyester" bir saat sonra aynen geri geldi.
+for (const s of bugunkuRedler(redOku(brand.paths.red))) {
+  if (!bannedSubjects.some(b => b === s)) bannedSubjects.push(s);
+}
 if (serdarNotu) console.log(`📝 Serdar'ın notu: ${serdarNotu}`);
 if (bannedSubjects.length) console.log(`⛔ konu soğumada: ${bannedSubjects.join(', ')}`);
 

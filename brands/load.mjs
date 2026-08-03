@@ -49,6 +49,9 @@ export function loadBrand(slug = resolveBrandSlug(), {root = ROOT} = {}) {
       spec: join(root, state.spec ?? `brands/state/${slug}-spec.json`),
       // Günlük hesap anlık görüntüsü (takipçi sayısı) — post düzeyi ölçümün eksik yarısı.
       hesap: join(root, state.hesap ?? `brands/state/${slug}-hesap.json`),
+      // Reddedilen denemelerin defteri — geçmişten düşürülen özne buraya yazılır, yoksa
+      // bir sonraki koşu aynı konuyu yeniden üretir (bkz. brain/red-defteri.mjs).
+      red: join(root, state.red ?? `brands/state/${slug}-red.json`),
       seeds: join(root, brand.seedBacklog ?? 'brain/seed-backlog.json'),
       music: join(root, brand.musicDir ?? 'assets/music'),
     },
