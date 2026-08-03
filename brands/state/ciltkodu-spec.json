@@ -1,95 +1,100 @@
 {
-  "hook": "Akışta görüp aldığın micellar su gerçekten durulanmaz mı?",
-  "title": "Micellar Su: Durulama İddiası Gerçek mi?",
+  "hook": "Niasinamid mi? Arkadaşın onu da sosyal medyada görüp aldı, di mi?",
+  "title": "Niasinamid: Gerçekten İşe Yarıyor mu?",
   "scenes": [
     {
-      "layout": "vertical-stack",
+      "layout": "cycle",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "micel",
-          "label": "MİCEL KÜRELERİ"
+          "id": "dengesiz",
+          "label": "DENGESİZ CİLT"
         },
         {
-          "id": "kir",
-          "label": "MAKYAJ VE YAĞ"
+          "id": "uygulama",
+          "label": "NİASİNAMİD UYGULA"
         },
         {
-          "id": "kalinti",
-          "label": "SURFAKTAN KATMANI"
+          "id": "hucreyaniti",
+          "label": "HÜCRE YANITI"
         },
         {
-          "id": "tikanma",
-          "label": "TIKANMA VE TAHRİŞ"
+          "id": "denge",
+          "label": "CİLT DENGESİ"
+        },
+        {
+          "id": "koruma",
+          "label": "GÜÇLENMİŞ CİLT"
         }
       ],
       "steps": [
         {
-          "from": "micel",
-          "to": "kir",
-          "packet": "TUTAR",
-          "status": "su molekülleri yağı ve kiri hızla yakala",
+          "from": "dengesiz",
+          "to": "uygulama",
+          "packet": "SERUM",
+          "status": "dengesiz cilde niasinamid serumu uygulan",
           "color": "accent"
         },
         {
-          "from": "kir",
-          "to": "kalinti",
-          "packet": "PAMUK",
-          "status": "pamuk kiri alır ama yüzde deterjan kalır",
-          "color": "warn"
+          "from": "uygulama",
+          "to": "hucreyaniti",
+          "packet": "SİNYAL",
+          "status": "niasinamid hücrelere düzenleyici sinyal",
+          "color": "accent"
         },
         {
-          "from": "kalinti",
-          "to": "kalinti",
-          "packet": "BİRİKİ",
-          "status": "akışta her ürünü alan arkadaşının cildi",
-          "color": "warn"
+          "from": "hucreyaniti",
+          "to": "denge",
+          "packet": "UYUM",
+          "status": "cilt hücreleri tepki vererek dengeyi yen",
+          "color": "good"
         },
         {
-          "from": "kalinti",
-          "to": "tikanma",
-          "packet": "TAHRİŞ",
-          "status": "kalan sürfaktan cilt bariyelerini yorar",
-          "color": "warn"
+          "from": "denge",
+          "to": "koruma",
+          "packet": "KALKAN",
+          "status": "cilt güçlenir ve dış etkilere dayanıklı",
+          "color": "good"
         },
         {
-          "from": "tikanma",
-          "to": "micel",
-          "packet": "SU",
-          "status": "sadece bir suyla durulamak her şeyi çöze",
+          "from": "koruma",
+          "to": "uygulama",
+          "packet": "DÖNGÜ",
+          "status": "bu döngü cilt sağlığını sürekli destekle",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Akışta görüp aldığın micellar su durulama istemez iddiasında ne kadar haklı?\n\nReklamlarda durulamaya gerek yok denen micellar su ciltte aslında ne yapıyor, adım adım:\n\n1. MİCEL KÜRELERİ — İçindeki mikroskobik yağ küreleri yüzeydeki makyajı ve kiri mıknatıs gibi çeker.\n2. MAKYAJ VE YAĞ — Pamukla sildiğinde kir pamuğa geçer ama sürfaktan adı verilen temizleyici deterjan molekülleri ciltte kalır.\n3. SURFAKTAN KATMANI — Durulamadığında bu yüzey aktif maddeler cilt üzerinde ince bir film tabakası oluşturur.\n4. TIKANMA VE TAHRİŞ — Gece boyu yüzde kalan temizleyici maddeler gözenekleri tıkar ve hassasiyet yaratır.\n\nÜrün kötü değil, durulamadan bırakmak yanlış.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu akışta gördüğü her mucize ürünü anında sepete atan arkadaşına gönder.\nMicellar suyu duruluyor musun yoksa pamukla silip yatıyor musun?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Niasinamid mucize değil, sadece akıllı bir dengeleyici! Niasinamidin cildinde nasıl bir döngü başlattığını adım adım inceleyelim:\n1. DENGESİZ CİLT — Yağlanma, kızarıklık, leke gibi sorunlar cildin doğal dengesini bozar ve strese sokar. Sosyal medyada görülen abartılı sonuçlar genelde bu başlangıç noktasından alınır.\n2. NİASİNAMİD UYGULA — Cilde uygulanan niasinamid, hücrelere ulaşarak onların daha doğru çalışması için bir başlangıç sinyali verir.\n3. HÜCRE YANITI — Niasinamid sayesinde cilt hücreleri, yağ üretimini düzenleme, iltihabı azaltma ve tonu eşitleme gibi fonksiyonlarını optimize etmeye başlar.\n4. CİLT DENGESİ — Hücrelerin daha düzenli çalışmasıyla cilt, aşırı tepkileri bırakır ve kendi doğal dengesine kavuşur. Bu sayede yağlanma ve kızarıklık azalır.\n5. GÜÇLENMİŞ CİLT — Niasinamid desteğiyle cilt daha dirençli ve dış etkenlere karşı güçlü hale gelir. Bu sürekli döngü cildin uzun vadeli sağlığını destekler. Unutma, niasinamid bir 'sihirli değnek' değil, cildinin kendi kendini iyileştirme mekanizmalarını destekleyen bir yardımcıdır. Sabır ve düzenli kullanım anahtardır. Yine de beklentin gerçekçi olsun; her cilt hikayesi farklıdır unutma. O viral videodaki sonuca ulaşmak senin cildin için farklı bir yolculuk demek.\n\n📌 Kaydet — niasinamid beklentilerini dengelemen gerektiğinde lazım olacak.\n\n🔁 Bunu sosyal medyada gördüğü her ürünü sepete atan arkadaşına gönder. Sen niasinamidi hangi beklentiyle aldın: gözenek mi, leke mi? Yazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#makyaj",
-    "#micellarsu",
-    "#cilttemizligi",
-    "#güzellik",
-    "#ciltbakimigundemi",
-    "#makyajtemizleme"
+    "#guzellik",
+    "#niasinamid",
+    "#skincare",
+    "#makyajblogu",
+    "#ciltbakimrutini",
+    "#trendurunler",
+    "#viralurunler"
   ],
-  "takeaway": "Pazarlama durulama yok dese de sen arkasından duru su gezdir.",
+  "takeaway": "Yine de beklentin gerçekçi olsun; her cilt hikayesi farklıdır unutma.",
   "footage_queries": [
-    "oil and water macro",
+    "ink in water slow motion",
     "clean bathroom tiles light"
   ],
   "narration": [
-    "Akışta görüp aldığın micellar su durulama istemez iddiasında acaba ne kadar haklı?",
-    "Bu temizleme mekanizması cilt üzerinde tam dört farklı aşamadan oluşarak çalışmaktadır.",
-    "İlk aşamada micel küreleri cildinizdeki tüm yağı ve kiri hızla yakalayıp hapseder.",
-    "Pamukla silince kir gider fakat deterjan yapısındaki sürfaktanlar cilt yüzeyinde kalmaya devam eder.",
-    "Durulamadan bıraktığında bu birikinti akışta her ürünü alan arkadaşının cildini zamanla yormaya başlar.",
-    "Yüzeyde bekleyen aktif maddeler uzun vadede gözenek tıkanıklığına ve hassasiyete doğrudan yol açar.",
-    "Sadece duru bir suyla yüzü yıkamak kalan tüm artık maddeleri tamamen uzaklaştırır.",
-    "Pazarlama durulama yok dese de sen yine de arkasından duru su gezdir."
+    "Niasinamid mi? Arkadaşın onu da sosyal medyada görüp aldı, di mi?",
+    "Niasinamid, cildin kendini dengeleme döngüsünde önemli bir rol oynar.",
+    "Dengesiz cilde niasinamid serumu uygulandığında, cildin kendini onarma süreci başlar.",
+    "Niasinamid, cilt hücrelerine özel düzenleyici sinyaller gönderir, karmaşayı bitirir.",
+    "Bu sinyallere tepki veren cilt hücreleri, kendi doğal dengesini yeniden bulur.",
+    "Dengelenen cilt güçlenir, dış etkenlere karşı daha dayanıklı bir kalkan oluşturur.",
+    "Bu pozitif döngü, niasinamid desteğiyle cilt sağlığını sürekli olarak pekiştirir.",
+    "Yine de beklentin gerçekçi olsun; her cilt hikayesi farklıdır unutma."
   ],
-  "subject": "micellar su",
-  "sendTo": "akışta gördüğü her mucize ürünü anında sepete atan arkadaşına",
-  "soru": "Micellar suyu duruluyor musun yoksa pamukla silip yatıyor musun?",
+  "subject": "niasinamid",
+  "sendTo": "sosyal medyada gördüğü her ürünü sepete atan arkadaşına",
+  "soru": "Sen niasinamidi hangi beklentiyle aldın: gözenek mi, leke mi?",
   "theme": "#b08bbb",
   "brand": {
     "handle": "@cilt.kodu",
@@ -108,44 +113,44 @@
   "footage": true,
   "beats": [
     {
-      "text": "Akışta görüp aldığın micellar su durulama istemez iddiasında acaba ne kadar haklı?",
+      "text": "Niasinamid mi? Arkadaşın onu da sosyal medyada görüp aldı, di mi?",
       "start": 0.35,
-      "dur": 5.125
+      "dur": 4.357
     },
     {
-      "text": "Bu temizleme mekanizması cilt üzerinde tam dört farklı aşamadan oluşarak çalışmaktadır.",
-      "start": 5.475,
-      "dur": 5.437
+      "text": "Niasinamid, cildin kendini dengeleme döngüsünde önemli bir rol oynar.",
+      "start": 4.707,
+      "dur": 4.625
     },
     {
-      "text": "İlk aşamada micel küreleri cildinizdeki tüm yağı ve kiri hızla yakalayıp hapseder.",
-      "start": 10.912,
-      "dur": 5.125
+      "text": "Dengesiz cilde niasinamid serumu uygulandığında, cildin kendini onarma süreci başlar.",
+      "start": 9.332,
+      "dur": 5.698
     },
     {
-      "text": "Pamukla silince kir gider fakat deterjan yapısındaki sürfaktanlar cilt yüzeyinde kalmaya devam eder.",
-      "start": 16.037,
-      "dur": 6.25
+      "text": "Niasinamid, cilt hücrelerine özel düzenleyici sinyaller gönderir, karmaşayı bitirir.",
+      "start": 15.03,
+      "dur": 5.631
     },
     {
-      "text": "Durulamadan bıraktığında bu birikinti akışta her ürünü alan arkadaşının cildini zamanla yormaya başlar.",
-      "start": 22.286,
-      "dur": 6.437
+      "text": "Bu sinyallere tepki veren cilt hücreleri, kendi doğal dengesini yeniden bulur.",
+      "start": 20.661,
+      "dur": 5.229
     },
     {
-      "text": "Yüzeyde bekleyen aktif maddeler uzun vadede gözenek tıkanıklığına ve hassasiyete doğrudan yol açar.",
-      "start": 28.723,
-      "dur": 6.187
+      "text": "Dengelenen cilt güçlenir, dış etkenlere karşı daha dayanıklı bir kalkan oluşturur.",
+      "start": 25.889,
+      "dur": 5.497
     },
     {
-      "text": "Sadece duru bir suyla yüzü yıkamak kalan tüm artık maddeleri tamamen uzaklaştırır.",
-      "start": 34.91,
-      "dur": 5.125
+      "text": "Bu pozitif döngü, niasinamid desteğiyle cilt sağlığını sürekli olarak pekiştirir.",
+      "start": 31.386,
+      "dur": 5.43
     },
     {
-      "text": "Pazarlama durulama yok dese de sen yine de arkasından duru su gezdir.",
-      "start": 40.035,
-      "dur": 5.412
+      "text": "Yine de beklentin gerçekçi olsun; her cilt hikayesi farklıdır unutma.",
+      "start": 36.816,
+      "dur": 5.725
     }
   ],
   "thumbOffset": 1450

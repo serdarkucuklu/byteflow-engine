@@ -375,22 +375,23 @@
     "insightsAt": "2026-08-03T16:12:06.298Z"
   },
   {
-    "title": "Micellar Su: Durulama İddiası Gerçek mi?",
-    "subject": "micellar su",
+    "title": "Niasinamid: Gerçekten İşe Yarıyor mu?",
+    "subject": "niasinamid",
     "twist": "sosyal-medya",
-    "pillar": "iddia-kontrol",
-    "layout": "vertical-stack",
+    "pillar": "trend-mekanik",
+    "layout": "cycle",
     "kinds": "diagram",
     "motion": "camera",
     "theme": "#b08bbb",
     "source": "gemini",
     "footage": [
-      "pexels:oil and water macro",
+      "pexels:ink in water slow motion",
       "pexels:clean bathroom tiles light"
     ],
     "voice": 8,
-    "voiceName": "Aoede",
+    "voiceName": "Puck",
+    "not": "Arkadaşından sadece hook'ta ve açıklamada bahset; kartlarda ve seslendirmede geçmesin. Kartlardaki kelimeler kesilmesin.",
     "date": "2026-08-03",
-    "durSec": 45.4
+    "durSec": 42.5
   }
 ]
