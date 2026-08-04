@@ -29,5 +29,24 @@
       "ig_reels_video_view_total_time": 1056110
     },
     "insightsAt": "2026-08-04T19:00:16.657Z"
+  },
+  {
+    "title": "Alışverişte İade Tuzağı Ve Süreç",
+    "subject": "iade süreci",
+    "twist": "iade-tembelligi",
+    "pillar": "parmak-burusmasi",
+    "layout": "vertical-stack",
+    "kinds": "versus",
+    "motion": "orbit",
+    "theme": "#7de2d1",
+    "source": "gemini",
+    "footage": [
+      "pexels:cardboard parcel box close up",
+      "pexels:clothing label tag close up"
+    ],
+    "voice": 6,
+    "voiceName": "Kore",
+    "date": "2026-08-04",
+    "durSec": 40.5
   }
 ]

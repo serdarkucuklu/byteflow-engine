@@ -1,96 +1,61 @@
 {
-  "hook": "Düğün için polyester saten alıp tek gece giyen arkadaşın.",
-  "title": "Polyester Saten Abiye Neden Bir Kez Giyilir?",
+  "hook": "Kutusu kenarda bekleyen o elbiseyi kargoya asla vermeyeceksin.",
+  "title": "Alışverişte İade Tuzağı Ve Süreç",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "vertical-stack",
+      "kind": "versus",
+      "left": "ANINDA İADE",
+      "right": "EVDE BEKLETME",
+      "rows": [
         {
-          "id": "n1",
-          "label": "POLYESTER İPLİK"
+          "label": "KARGO SÜRECİ",
+          "left": "14 gün yasal hak",
+          "right": "Kutu köşede bekler",
+          "winner": "left"
         },
         {
-          "id": "n2",
-          "label": "ABİYE MAĞAZASI"
+          "label": "SÜRE TAKİBİ",
+          "left": "Anında kargo kodu",
+          "right": "Süre sessizce biter",
+          "winner": "left"
         },
         {
-          "id": "n3",
-          "label": "DÜĞÜN GECESİ"
-        },
-        {
-          "id": "n4",
-          "label": "DOLAP HAPİS"
-        }
-      ],
-      "steps": [
-        {
-          "from": "n1",
-          "to": "n2",
-          "packet": "ÜRETİM",
-          "status": "ucuz sentetik iplik saten dokunur",
-          "color": "accent"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "ETİKET",
-          "status": "özel gün etiketiyle yüksek fiyata satılı",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n3",
-          "packet": "TERLE",
-          "status": "hava almadığı için salonda pişirir",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "FOTO",
-          "status": "fotoğraf çekildiği an devri biter",
-          "color": "good"
-        },
-        {
-          "from": "n4",
-          "to": "n4",
-          "packet": "ASKI",
-          "status": "davetliler unutana kadar askıda bekler",
-          "color": "accent"
+          "label": "SONUÇ",
+          "left": "Para hesaba yatar",
+          "right": "Dolapta kalan etiket",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "Bir düğün gecesi için servet ödenen o elbise neden bir daha asla giyilmez?\n\nDüğün için alınan polyester saten elbisenin öyküsü:\n\n1. Polyester İplik — Plastik türevi sentetik iplikler parlak saten dokumayla lüks bir görünüme büründürülür.\n2. Abiye Mağazası — 'Özel gün' etiketi yapıştırıldığı an kumaş kalitesinden bağımsız yüksek fiyata satılır.\n3. Düğün Gecesi — Hava geçirgenliği sıfır olduğu için gecenin ikinci saatinde sıcaklık krizine yol açar.\n4. Dolap Hapsi — Aynı davetli kadrosunun tekrar göreceği korkusuyla askının en arkasına kaldırılır.\n\nBir kez giyilecek parçalarda kumaşa değil, kiralama seçeneğine yönelmek bütçeyi korur.\n\nFotoğrafı çekildi, görevi bitti; artık dolabın müzelik parçası.\n\n📌 Kaydet — bir dahaki düğün sezonunda lazım olacak.\n🔁 Bunu düğün için aldığı elbiseyi dolapta çürümeye terk eden arkadaşına gönder.\nDolabında sadece 1 kere giyilmiş kaç tane abiye var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "O kutu kargoya gitmeyecek ve o elbise dolapta kalacak.\n\nİade sürecinde paranı kurtaran ve kaybettiren adımlar:\n\n1. Yasal Süre — İnternet alışverişinde yasal iade hakkı teslimatla başlar ve zaman hızla akar.\n2. Bekleme Süreci — Paketi açıp kenara koymak erteleme psikolojisini tetikler ve iade kodu zaman aşımına uğrar.\n3. Sonuç — Zamanında verilmeyen kargo yüzünden iade hakkı biter ve giyilmeyen ürün dolaba yerleşir.\n\nKıyafet alırken iade şartlarını ve kargo kodunu hemen almak her zaman paranı korur.\n\nO kutu orada iki ay daha duracak ama olsun, bir gün giyeriz.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu kargoya vermeyi unutup etiketli kıyafetle yaşayan arkadaşına gönder.\nDolabında etiketi üstünde kaç parça bekliyor, dürüst ol?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#giyim",
-    "#moda",
     "#alışveriş",
+    "#moda",
     "#gardırop",
-    "#abiye",
-    "#düğün",
-    "#polyester"
+    "#giyimtüyoları",
+    "#kıyafet",
+    "#iade",
+    "#bedentablosu"
   ],
-  "takeaway": "Fotoğrafı çekildi, görevi bitti; dolabın en karanlık köşesi onun.",
+  "takeaway": "İade süresi bitince o elbise artık dolabın kalıcı üyesi oluyor.",
   "footage_queries": [
-    "clothing label tag close up",
-    "wardrobe interior minimal"
+    "cardboard parcel box close up",
+    "clothing label tag close up"
   ],
   "narration": [
-    "Düğün için polyester saten elbise alıp tek gece giyen o arkadaşını hatırla.",
-    "Bir abiyenin gardırop hapishanesine uzanan serüveni tam olarak bu dört aşamada gerçekleşiyor.",
-    "Ucuz polyester iplik parlak bir saten dokumayla devasa bir özel gün elbisesine dönüşüyor.",
-    "Sadece düğün konsepti taşıdığı için maliyetinin katlarca üstünde fiyata mağazada alıcı buluyor.",
-    "Hava almayan kumaş yapısı yüzünden düğün salonunda bütün gece buram buram terletmeyi başarıyor.",
-    "O gecenin tek bir fotoğrafı sosyal medyaya yüklendiği an elbisenin tüm görevi tamamlanıyor.",
-    "Aynı davetli kadrosu unutana kadar o elbise dolabın en karanlık köşesinde hapsedilip bekletiliyor.",
-    "Bir daha giymeyeceğin polyester satene servet ödemek yerine akıllıca kiralama seçeneklerini değerlendirmelisin."
+    "Kutusu odanın kenarında duran o elbiseyi kargoya asla vermeyeceğini hepimiz çok iyi biliyoruz.",
+    "İnternet alışverişinde iade mekanizmasının nasıl çalıştığını ve nerede takıldığımızı iki açıdan inceliyoruz.",
+    "Kanunen verilen yetkili iade hakkı ilk günden itibaren hızlıca işlemeye başlar.",
+    "Kutuyu kapı önünde bekletmek iade süresinin sessizce dolmasına ve iptal olmasına yol açar.",
+    "Erken davranan parasını geri alırken erteleyen kişi giymediği kıyafetle baş başa kalır.",
+    "Süresi geçen her ürün zamanla dolabın vazgeçilmez ama giyilmeyen bir parçasına dönüşür."
   ],
-  "subject": "polyester saten",
-  "sendTo": "Düğün için aldığı elbiseyi dolapta çürümeye terk eden arkadaşına",
-  "soru": "Dolabında sadece 1 kere giyilmiş kaç tane abiye var?",
-  "theme": "#b39cff",
+  "subject": "iade süreci",
+  "sendTo": "kargoya vermeyi unutup etiketli kıyafetle yaşayan arkadaşına",
+  "soru": "Dolabında etiketi üstünde kaç parça bekliyor, dürüst ol?",
+  "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -104,48 +69,38 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "orbit",
   "footage": true,
   "beats": [
     {
-      "text": "Düğün için polyester saten elbise alıp tek gece giyen o arkadaşını hatırla.",
+      "text": "Kutusu odanın kenarında duran o elbiseyi kargoya asla vermeyeceğini hepimiz çok iyi biliyoruz.",
       "start": 0.35,
-      "dur": 4.417
+      "dur": 6.756
     },
     {
-      "text": "Bir abiyenin gardırop hapishanesine uzanan serüveni tam olarak bu dört aşamada gerçekleşiyor.",
-      "start": 4.767,
-      "dur": 5.477
+      "text": "İnternet alışverişinde iade mekanizmasının nasıl çalıştığını ve nerede takıldığımızı iki açıdan inceliyoruz.",
+      "start": 7.106,
+      "dur": 7.762
     },
     {
-      "text": "Ucuz polyester iplik parlak bir saten dokumayla devasa bir özel gün elbisesine dönüşüyor.",
-      "start": 10.243,
-      "dur": 5.241
+      "text": "Kanunen verilen yetkili iade hakkı ilk günden itibaren hızlıca işlemeye başlar.",
+      "start": 14.868,
+      "dur": 5.678
     },
     {
-      "text": "Sadece düğün konsepti taşıdığı için maliyetinin katlarca üstünde fiyata mağazada alıcı buluyor.",
-      "start": 15.484,
-      "dur": 5.594
+      "text": "Kutuyu kapı önünde bekletmek iade süresinin sessizce dolmasına ve iptal olmasına yol açar.",
+      "start": 20.546,
+      "dur": 6.469
     },
     {
-      "text": "Hava almayan kumaş yapısı yüzünden düğün salonunda bütün gece buram buram terletmeyi başarıyor.",
-      "start": 21.079,
-      "dur": 5.594
+      "text": "Erken davranan parasını geri alırken erteleyen kişi giymediği kıyafetle baş başa kalır.",
+      "start": 27.015,
+      "dur": 6.253
     },
     {
-      "text": "O gecenin tek bir fotoğrafı sosyal medyaya yüklendiği an elbisenin tüm görevi tamamlanıyor.",
-      "start": 26.673,
-      "dur": 5.359
-    },
-    {
-      "text": "Aynı davetli kadrosu unutana kadar o elbise dolabın en karanlık köşesinde hapsedilip bekletiliyor.",
-      "start": 32.032,
-      "dur": 5.771
-    },
-    {
-      "text": "Bir daha giymeyeceğin polyester satene servet ödemek yerine akıllıca kiralama seçeneklerini değerlendirmelisin.",
-      "start": 37.803,
-      "dur": 7.637
+      "text": "Süresi geçen her ürün zamanla dolabın vazgeçilmez ama giyilmeyen bir parçasına dönüşür.",
+      "start": 33.268,
+      "dur": 7.353
     }
   ],
   "thumbOffset": 1450

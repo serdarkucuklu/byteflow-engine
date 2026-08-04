@@ -1,151 +1,106 @@
 {
-  "hook": "Pahalı serumunu çalan kardeşin dermaroller'ı da paylaşıyor.",
-  "title": "Dermaroller Paylaşılmaz: Evde İğneli Hijyen Riski",
+  "hook": "Kutusu kenarda bekleyen o elbiseyi kargoya asla vermeyeceksin.",
+  "title": "Alışverişte İade Tuzağı Ve Süreç",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "vertical-stack",
+      "kind": "versus",
+      "left": "ANINDA İADE",
+      "right": "EVDE BEKLETME",
+      "rows": [
         {
-          "id": "n1",
-          "label": "MİKRO İĞNELER"
+          "label": "KARGO SÜRECİ",
+          "left": "14 gün yasal hak",
+          "right": "Kutu köşede bekler",
+          "winner": "left"
         },
         {
-          "id": "n2",
-          "label": "GÖZENEK KANALI"
+          "label": "SÜRE TAKİBİ",
+          "left": "Anında kargo kodu",
+          "right": "Süre sessizce biter",
+          "winner": "left"
         },
         {
-          "id": "n3",
-          "label": "BAKTERİ BİRİKİMİ"
-        },
-        {
-          "id": "n4",
-          "label": "ENFEKSİYON RİSKİ"
-        }
-      ],
-      "steps": [
-        {
-          "from": "n1",
-          "to": "n2",
-          "packet": "İĞNE",
-          "status": "mikro iğneler üst deride delik açar",
-          "color": "accent"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "DOKU",
-          "status": "açılan kanallara bakteri dolar",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "BASKI",
-          "status": "ortak kullanımda yabancı flora bulaşır",
-          "color": "warn"
-        },
-        {
-          "from": "n4",
-          "to": "n3",
-          "packet": "LEKE",
-          "status": "tahriş olan dokuda leke gelişir",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n1",
-          "packet": "BAKTER",
-          "status": "sterilize edilmeyen iğne cildi bozar",
-          "color": "warn"
+          "label": "SONUÇ",
+          "left": "Para hesaba yatar",
+          "right": "Dolapta kalan etiket",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "Pahalı serumundan 'birazcık' alan kardeşin dermaroller'ı da ortak sanıyorsa orada duruyoruz.\n\nDermaroller ortak kullanıldığında cildinde ne oluyor, adım adım:\n\n1. Mikro İğneler — Cihaz üzerindeki minik iğneler ciltte mikro delikler açarak ürün emilimini tetiklemeye çalışır.\n2. Gözenek Kanalı — Açılan bu kanallar cildin savunmasız kaldığı doğrudan alt katman geçitleridir.\n3. Bakteri Birikimi — Alkolsüz dezenfekte edilmeyen başlıklar ve başkasının cilt florası bu deliklerden içeri sızar.\n4. Enfeksiyon Riski — Yabancı bakteri ve tahriş birleştiğinde iyileşme yerine derin iltihap ve leke kalır.\n\nEv tipi mikro iğnelemede tek kural: %70 alkolle sterilize edilmeyen ve kişiye özel olmayan iğneli cihaz asla kullanılmaz.\n\nSerumdan iki damla otlanmayı affederiz ama iğne kardeşliği banyoda biter.\n\n📌 Kaydet — banyoda ürün savaşları başlayınca lazım olacak.\n🔁 Bunu pahalı serumundan alan ve dermaroller'ı da ortak sanan kardeşine gönder.\nBanyoda serumunu en çok kim gizlice bitiriyor: Kardeşin mi evin annesi mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "O kutu kargoya gitmeyecek ve o elbise dolapta kalacak.\n\nİade sürecinde paranı kurtaran ve kaybettiren adımlar:\n\n1. Yasal Süre — İnternet alışverişinde yasal iade hakkı teslimatla başlar ve zaman hızla akar.\n2. Bekleme Süreci — Paketi açıp kenara koymak erteleme psikolojisini tetikler ve iade kodu zaman aşımına uğrar.\n3. Sonuç — Zamanında verilmeyen kargo yüzünden iade hakkı biter ve giyilmeyen ürün dolaba yerleşir.\n\nKıyafet alırken iade şartlarını ve kargo kodunu hemen almak her zaman paranı korur.\n\nO kutu orada iki ay daha duracak ama olsun, bir gün giyeriz.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu kargoya vermeyi unutup etiketli kıyafetle yaşayan arkadaşına gönder.\nDolabında etiketi üstünde kaç parça bekliyor, dürüst ol?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#dermaroller",
-    "#ciltbakımıönerileri",
-    "#skincarehacks",
-    "#gözenek",
-    "#serum"
+    "#alışveriş",
+    "#moda",
+    "#gardırop",
+    "#giyimtüyoları",
+    "#kıyafet",
+    "#iade",
+    "#bedentablosu"
   ],
-  "takeaway": "Serum paylaşılır ama iğne kardeşliği banyoda biter.",
+  "takeaway": "İade süresi bitince o elbise artık dolabın kalıcı üyesi oluyor.",
   "footage_queries": [
-    "clean bathroom tiles light",
-    "cosmetic bottles soft light"
+    "cardboard parcel box close up",
+    "clothing label tag close up"
   ],
   "narration": [
-    "Pahalı serumunu çalan kardeşin evdeki dermaroller cihazını da sanki ortak malı sanıyor.",
-    "Dermaroller cihazı cilde uygulandığında mikro iğnelerin izlediği mekanizma tam olarak şöyle işler.",
-    "Küçük iğneler cilt yüzeyinde gözle görülmeyen minik kanallar açarak emilimi artırmaya çalışır.",
-    "Steril edilmeyen iğneler bu açık kanallardan alt dokulara doğrudan bakteri taşımaya başlar.",
-    "Başkasının cilt florası ile temas eden başlıklar kanallarda derin enfeksiyon riski yaratır.",
-    "Tahriş olan ve iltihap kapan dokuda iyileşme yerine leke ve kızarıklık oluşur.",
-    "Dezenfekte edilmeden tekrar kullanılan iğneler cilt yapısını zamanla ciddi şekilde bozar.",
-    "Cilt bakımında serum paylaşılır ama iğneli cihazlar asla ortak banyo malzemesi yapılamaz."
+    "Kutusu odanın kenarında duran o elbiseyi kargoya asla vermeyeceğini hepimiz çok iyi biliyoruz.",
+    "İnternet alışverişinde iade mekanizmasının nasıl çalıştığını ve nerede takıldığımızı iki açıdan inceliyoruz.",
+    "Kanunen verilen yetkili iade hakkı ilk günden itibaren hızlıca işlemeye başlar.",
+    "Kutuyu kapı önünde bekletmek iade süresinin sessizce dolmasına ve iptal olmasına yol açar.",
+    "Erken davranan parasını geri alırken erteleyen kişi giymediği kıyafetle baş başa kalır.",
+    "Süresi geçen her ürün zamanla dolabın vazgeçilmez ama giyilmeyen bir parçasına dönüşür."
   ],
-  "subject": "dermaroller",
-  "sendTo": "pahalı serumundan alan ve dermaroller'ı da ortak sanan kardeşine",
-  "soru": "Banyoda serumunu en çok kim gizlice bitiriyor: Kardeşin mi evin annesi mi?",
-  "theme": "#7fb3a5",
+  "subject": "iade süreci",
+  "sendTo": "kargoya vermeyi unutup etiketli kıyafetle yaşayan arkadaşına",
+  "soru": "Dolabında etiketi üstünde kaç parça bekliyor, dürüst ol?",
+  "theme": "#7de2d1",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "orbit",
   "footage": true,
   "beats": [
     {
-      "text": "Pahalı serumunu çalan kardeşin evdeki dermaroller cihazını da sanki ortak malı sanıyor.",
+      "text": "Kutusu odanın kenarında duran o elbiseyi kargoya asla vermeyeceğini hepimiz çok iyi biliyoruz.",
       "start": 0.35,
-      "dur": 5.342
+      "dur": 6.756
     },
     {
-      "text": "Dermaroller cihazı cilde uygulandığında mikro iğnelerin izlediği mekanizma tam olarak şöyle işler.",
-      "start": 5.692,
-      "dur": 6.018
+      "text": "İnternet alışverişinde iade mekanizmasının nasıl çalıştığını ve nerede takıldığımızı iki açıdan inceliyoruz.",
+      "start": 7.106,
+      "dur": 7.762
     },
     {
-      "text": "Küçük iğneler cilt yüzeyinde gözle görülmeyen minik kanallar açarak emilimi artırmaya çalışır.",
-      "start": 11.71,
-      "dur": 5.772
+      "text": "Kanunen verilen yetkili iade hakkı ilk günden itibaren hızlıca işlemeye başlar.",
+      "start": 14.868,
+      "dur": 5.678
     },
     {
-      "text": "Steril edilmeyen iğneler bu açık kanallardan alt dokulara doğrudan bakteri taşımaya başlar.",
-      "start": 17.483,
-      "dur": 5.588
+      "text": "Kutuyu kapı önünde bekletmek iade süresinin sessizce dolmasına ve iptal olmasına yol açar.",
+      "start": 20.546,
+      "dur": 6.469
     },
     {
-      "text": "Başkasının cilt florası ile temas eden başlıklar kanallarda derin enfeksiyon riski yaratır.",
-      "start": 23.071,
-      "dur": 5.588
+      "text": "Erken davranan parasını geri alırken erteleyen kişi giymediği kıyafetle baş başa kalır.",
+      "start": 27.015,
+      "dur": 6.253
     },
     {
-      "text": "Tahriş olan ve iltihap kapan dokuda iyileşme yerine leke ve kızarıklık oluşur.",
-      "start": 28.659,
-      "dur": 4.79
-    },
-    {
-      "text": "Dezenfekte edilmeden tekrar kullanılan iğneler cilt yapısını zamanla ciddi şekilde bozar.",
-      "start": 33.449,
-      "dur": 5.465
-    },
-    {
-      "text": "Cilt bakımında serum paylaşılır ama iğneli cihazlar asla ortak banyo malzemesi yapılamaz.",
-      "start": 38.914,
-      "dur": 6.565
+      "text": "Süresi geçen her ürün zamanla dolabın vazgeçilmez ama giyilmeyen bir parçasına dönüşür.",
+      "start": 33.268,
+      "dur": 7.353
     }
   ]
 }
