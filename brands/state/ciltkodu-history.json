@@ -405,5 +405,24 @@
       "ig_reels_video_view_total_time": 637906
     },
     "insightsAt": "2026-08-04T18:09:30.781Z"
+  },
+  {
+    "title": "Dermaroller Paylaşılmaz: Evde İğneli Hijyen Riski",
+    "subject": "dermaroller",
+    "twist": "ev-arkadasi",
+    "pillar": "cihaz-ve-islem",
+    "layout": "nodes-flow",
+    "kinds": "diagram",
+    "motion": "ripple",
+    "theme": "#7fb3a5",
+    "source": "gemini",
+    "footage": [
+      "pexels:clean bathroom tiles light",
+      "pexels:cosmetic bottles soft light"
+    ],
+    "voice": 8,
+    "voiceName": "Puck",
+    "date": "2026-08-04",
+    "durSec": 45.5
   }
 ]

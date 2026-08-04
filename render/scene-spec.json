@@ -1,6 +1,6 @@
 {
-  "hook": "Düğün için polyester saten alıp tek gece giyen arkadaşın.",
-  "title": "Polyester Saten Abiye Neden Bir Kez Giyilir?",
+  "hook": "Pahalı serumunu çalan kardeşin dermaroller'ı da paylaşıyor.",
+  "title": "Dermaroller Paylaşılmaz: Evde İğneli Hijyen Riski",
   "scenes": [
     {
       "layout": "nodes-flow",
@@ -8,144 +8,144 @@
       "nodes": [
         {
           "id": "n1",
-          "label": "POLYESTER İPLİK"
+          "label": "MİKRO İĞNELER"
         },
         {
           "id": "n2",
-          "label": "ABİYE MAĞAZASI"
+          "label": "GÖZENEK KANALI"
         },
         {
           "id": "n3",
-          "label": "DÜĞÜN GECESİ"
+          "label": "BAKTERİ BİRİKİMİ"
         },
         {
           "id": "n4",
-          "label": "DOLAP HAPİS"
+          "label": "ENFEKSİYON RİSKİ"
         }
       ],
       "steps": [
         {
           "from": "n1",
           "to": "n2",
-          "packet": "ÜRETİM",
-          "status": "ucuz sentetik iplik saten dokunur",
+          "packet": "İĞNE",
+          "status": "mikro iğneler üst deride delik açar",
           "color": "accent"
         },
         {
           "from": "n2",
           "to": "n3",
-          "packet": "ETİKET",
-          "status": "özel gün etiketiyle yüksek fiyata satılı",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n3",
-          "packet": "TERLE",
-          "status": "hava almadığı için salonda pişirir",
+          "packet": "DOKU",
+          "status": "açılan kanallara bakteri dolar",
           "color": "warn"
         },
         {
           "from": "n3",
           "to": "n4",
-          "packet": "FOTO",
-          "status": "fotoğraf çekildiği an devri biter",
-          "color": "good"
+          "packet": "BASKI",
+          "status": "ortak kullanımda yabancı flora bulaşır",
+          "color": "warn"
         },
         {
           "from": "n4",
-          "to": "n4",
-          "packet": "ASKI",
-          "status": "davetliler unutana kadar askıda bekler",
-          "color": "accent"
+          "to": "n3",
+          "packet": "LEKE",
+          "status": "tahriş olan dokuda leke gelişir",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n1",
+          "packet": "BAKTER",
+          "status": "sterilize edilmeyen iğne cildi bozar",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Bir düğün gecesi için servet ödenen o elbise neden bir daha asla giyilmez?\n\nDüğün için alınan polyester saten elbisenin öyküsü:\n\n1. Polyester İplik — Plastik türevi sentetik iplikler parlak saten dokumayla lüks bir görünüme büründürülür.\n2. Abiye Mağazası — 'Özel gün' etiketi yapıştırıldığı an kumaş kalitesinden bağımsız yüksek fiyata satılır.\n3. Düğün Gecesi — Hava geçirgenliği sıfır olduğu için gecenin ikinci saatinde sıcaklık krizine yol açar.\n4. Dolap Hapsi — Aynı davetli kadrosunun tekrar göreceği korkusuyla askının en arkasına kaldırılır.\n\nBir kez giyilecek parçalarda kumaşa değil, kiralama seçeneğine yönelmek bütçeyi korur.\n\nFotoğrafı çekildi, görevi bitti; artık dolabın müzelik parçası.\n\n📌 Kaydet — bir dahaki düğün sezonunda lazım olacak.\n🔁 Bunu düğün için aldığı elbiseyi dolapta çürümeye terk eden arkadaşına gönder.\nDolabında sadece 1 kere giyilmiş kaç tane abiye var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Pahalı serumundan 'birazcık' alan kardeşin dermaroller'ı da ortak sanıyorsa orada duruyoruz.\n\nDermaroller ortak kullanıldığında cildinde ne oluyor, adım adım:\n\n1. Mikro İğneler — Cihaz üzerindeki minik iğneler ciltte mikro delikler açarak ürün emilimini tetiklemeye çalışır.\n2. Gözenek Kanalı — Açılan bu kanallar cildin savunmasız kaldığı doğrudan alt katman geçitleridir.\n3. Bakteri Birikimi — Alkolsüz dezenfekte edilmeyen başlıklar ve başkasının cilt florası bu deliklerden içeri sızar.\n4. Enfeksiyon Riski — Yabancı bakteri ve tahriş birleştiğinde iyileşme yerine derin iltihap ve leke kalır.\n\nEv tipi mikro iğnelemede tek kural: %70 alkolle sterilize edilmeyen ve kişiye özel olmayan iğneli cihaz asla kullanılmaz.\n\nSerumdan iki damla otlanmayı affederiz ama iğne kardeşliği banyoda biter.\n\n📌 Kaydet — banyoda ürün savaşları başlayınca lazım olacak.\n🔁 Bunu pahalı serumundan alan ve dermaroller'ı da ortak sanan kardeşine gönder.\nBanyoda serumunu en çok kim gizlice bitiriyor: Kardeşin mi evin annesi mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#moda",
-    "#alışveriş",
-    "#gardırop",
-    "#abiye",
-    "#düğün",
-    "#polyester"
+    "#ciltbakimi",
+    "#güzellik",
+    "#dermaroller",
+    "#ciltbakımıönerileri",
+    "#skincarehacks",
+    "#gözenek",
+    "#serum"
   ],
-  "takeaway": "Fotoğrafı çekildi, görevi bitti; dolabın en karanlık köşesi onun.",
+  "takeaway": "Serum paylaşılır ama iğne kardeşliği banyoda biter.",
   "footage_queries": [
-    "clothing label tag close up",
-    "wardrobe interior minimal"
+    "clean bathroom tiles light",
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Düğün için polyester saten elbise alıp tek gece giyen o arkadaşını hatırla.",
-    "Bir abiyenin gardırop hapishanesine uzanan serüveni tam olarak bu dört aşamada gerçekleşiyor.",
-    "Ucuz polyester iplik parlak bir saten dokumayla devasa bir özel gün elbisesine dönüşüyor.",
-    "Sadece düğün konsepti taşıdığı için maliyetinin katlarca üstünde fiyata mağazada alıcı buluyor.",
-    "Hava almayan kumaş yapısı yüzünden düğün salonunda bütün gece buram buram terletmeyi başarıyor.",
-    "O gecenin tek bir fotoğrafı sosyal medyaya yüklendiği an elbisenin tüm görevi tamamlanıyor.",
-    "Aynı davetli kadrosu unutana kadar o elbise dolabın en karanlık köşesinde hapsedilip bekletiliyor.",
-    "Bir daha giymeyeceğin polyester satene servet ödemek yerine akıllıca kiralama seçeneklerini değerlendirmelisin."
+    "Pahalı serumunu çalan kardeşin evdeki dermaroller cihazını da sanki ortak malı sanıyor.",
+    "Dermaroller cihazı cilde uygulandığında mikro iğnelerin izlediği mekanizma tam olarak şöyle işler.",
+    "Küçük iğneler cilt yüzeyinde gözle görülmeyen minik kanallar açarak emilimi artırmaya çalışır.",
+    "Steril edilmeyen iğneler bu açık kanallardan alt dokulara doğrudan bakteri taşımaya başlar.",
+    "Başkasının cilt florası ile temas eden başlıklar kanallarda derin enfeksiyon riski yaratır.",
+    "Tahriş olan ve iltihap kapan dokuda iyileşme yerine leke ve kızarıklık oluşur.",
+    "Dezenfekte edilmeden tekrar kullanılan iğneler cilt yapısını zamanla ciddi şekilde bozar.",
+    "Cilt bakımında serum paylaşılır ama iğneli cihazlar asla ortak banyo malzemesi yapılamaz."
   ],
-  "subject": "polyester saten",
-  "sendTo": "Düğün için aldığı elbiseyi dolapta çürümeye terk eden arkadaşına",
-  "soru": "Dolabında sadece 1 kere giyilmiş kaç tane abiye var?",
-  "theme": "#b39cff",
+  "subject": "dermaroller",
+  "sendTo": "pahalı serumundan alan ve dermaroller'ı da ortak sanan kardeşine",
+  "soru": "Banyoda serumunu en çok kim gizlice bitiriyor: Kardeşin mi evin annesi mi?",
+  "theme": "#7fb3a5",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "ripple",
   "footage": true,
   "beats": [
     {
-      "text": "Düğün için polyester saten elbise alıp tek gece giyen o arkadaşını hatırla.",
+      "text": "Pahalı serumunu çalan kardeşin evdeki dermaroller cihazını da sanki ortak malı sanıyor.",
       "start": 0.35,
-      "dur": 4.417
+      "dur": 5.342
     },
     {
-      "text": "Bir abiyenin gardırop hapishanesine uzanan serüveni tam olarak bu dört aşamada gerçekleşiyor.",
-      "start": 4.767,
-      "dur": 5.477
+      "text": "Dermaroller cihazı cilde uygulandığında mikro iğnelerin izlediği mekanizma tam olarak şöyle işler.",
+      "start": 5.692,
+      "dur": 6.018
     },
     {
-      "text": "Ucuz polyester iplik parlak bir saten dokumayla devasa bir özel gün elbisesine dönüşüyor.",
-      "start": 10.243,
-      "dur": 5.241
+      "text": "Küçük iğneler cilt yüzeyinde gözle görülmeyen minik kanallar açarak emilimi artırmaya çalışır.",
+      "start": 11.71,
+      "dur": 5.772
     },
     {
-      "text": "Sadece düğün konsepti taşıdığı için maliyetinin katlarca üstünde fiyata mağazada alıcı buluyor.",
-      "start": 15.484,
-      "dur": 5.594
+      "text": "Steril edilmeyen iğneler bu açık kanallardan alt dokulara doğrudan bakteri taşımaya başlar.",
+      "start": 17.483,
+      "dur": 5.588
     },
     {
-      "text": "Hava almayan kumaş yapısı yüzünden düğün salonunda bütün gece buram buram terletmeyi başarıyor.",
-      "start": 21.079,
-      "dur": 5.594
+      "text": "Başkasının cilt florası ile temas eden başlıklar kanallarda derin enfeksiyon riski yaratır.",
+      "start": 23.071,
+      "dur": 5.588
     },
     {
-      "text": "O gecenin tek bir fotoğrafı sosyal medyaya yüklendiği an elbisenin tüm görevi tamamlanıyor.",
-      "start": 26.673,
-      "dur": 5.359
+      "text": "Tahriş olan ve iltihap kapan dokuda iyileşme yerine leke ve kızarıklık oluşur.",
+      "start": 28.659,
+      "dur": 4.79
     },
     {
-      "text": "Aynı davetli kadrosu unutana kadar o elbise dolabın en karanlık köşesinde hapsedilip bekletiliyor.",
-      "start": 32.032,
-      "dur": 5.771
+      "text": "Dezenfekte edilmeden tekrar kullanılan iğneler cilt yapısını zamanla ciddi şekilde bozar.",
+      "start": 33.449,
+      "dur": 5.465
     },
     {
-      "text": "Bir daha giymeyeceğin polyester satene servet ödemek yerine akıllıca kiralama seçeneklerini değerlendirmelisin.",
-      "start": 37.803,
-      "dur": 7.637
+      "text": "Cilt bakımında serum paylaşılır ama iğneli cihazlar asla ortak banyo malzemesi yapılamaz.",
+      "start": 38.914,
+      "dur": 6.565
     }
   ]
 }
