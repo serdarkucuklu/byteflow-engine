@@ -2,9 +2,25 @@ name: ByteFlow Daily Reel
 
 on:
   schedule:
-    # Her sayfa KENDİ kitlesinin en iyi saatinde çıkar (cron → marka eşlemesi aşağıda):
-    - cron: '0 18 * * *'    # kizlarkodu — 18:00 UTC: koşu ~8dk, yayın ~21:10 TR (TR akşam zirvesi)
-    - cron: '20 16 * * *'   # ciltkodu — 16:20 UTC: koşu ~8dk, yayın ~19:30 TR (TR akşam zirvesi)
+    # Her sayfa KENDİ kitlesinin en iyi saatinde çıkar (cron → marka eşlemesi aşağıda).
+    #
+    # ⚠ GitHub zamanlanmış koşuyu ASLA saatinde başlatmıyor. 2026-07-29..08-04 arası 12
+    # koşuda ölçülen gecikme: 50 dk – 1 sa 51 dk (ortalama ~1 sa 25 dk). Saatler bu
+    # gecikme HESABA KATILARAK erkene alındı — nominal saate değil, gerçekleşen yayın
+    # saatine bak.
+    #
+    # ⚠ Daha kötüsü: GitHub bir girdiyi tamamen DÜŞÜREBİLİYOR. 2026-08-04'te kizlarkodu'nun
+    # 18:00 cron'u hiç tetiklenmedi (o gün sayfa yayın yapamadı, ciltkodu'nun 16:20 koşusu
+    # 18:08'de başlayıp tek koşu olarak kaldı). Bu yüzden her markanın bir de YEDEK girdisi
+    # var: ilki düşerse ikincisi o akşamı kurtarır.
+    #
+    # Yedek çift yayın YAPMAZ — iki kilit zaten duruyor: onay kapısı (onayda bekleyen kalem
+    # varsa üretme) + publish/gunluk-kota.mjs (bugün TR gününde yayın varsa üretme). Yedek
+    # koşu üretimi atlayıp sessizce çıkar (bkz. publish/onay-akisi.mjs "adres yoksa çık").
+    - cron: '0 15 * * *'    # ciltkodu   — hedef  (gecikmeyle ~19:00-20:15 TR yayın)
+    - cron: '20 16 * * *'   # ciltkodu   — YEDEK  (yalnız hedef düşerse iş yapar)
+    - cron: '0 17 * * *'    # kizlarkodu — hedef  (gecikmeyle ~21:00-22:10 TR yayın)
+    - cron: '30 18 * * *'   # kizlarkodu — YEDEK  (yalnız hedef düşerse iş yapar)
   workflow_dispatch:
     inputs:
       publish:
@@ -41,11 +57,15 @@ jobs:
       max-parallel: 1
       matrix:
         # Marka seçimi: elle tetiklemede girdi, zamanlanmışta HANGİ CRON tetiklediyse o marka.
-        # YENİ MARKA EKLERKEN: cron ekle + buraya eşle + yayın adımına secret'larını koy.
+        # Her markanın hedef + YEDEK girdisi aynı markaya eşlenir (bkz. yukarıdaki schedule).
+        # ⚠ YENİ CRON EKLERKEN buraya da eşle: eşlenmeyen bir cron sessizce kizlarkodu'yu
+        # üretir (son satır varsayılan), yani yanlış sayfaya video çıkar.
         brand: ${{ fromJSON(
           inputs.brand != '' && format('["{0}"]', inputs.brand)
+          || (github.event.schedule == '0 15 * * *' && '["ciltkodu"]')
           || (github.event.schedule == '20 16 * * *' && '["ciltkodu"]')
-          || (github.event.schedule == '0 18 * * *' && '["kizlarkodu"]')
+          || (github.event.schedule == '0 17 * * *' && '["kizlarkodu"]')
+          || (github.event.schedule == '30 18 * * *' && '["kizlarkodu"]')
           || '["kizlarkodu"]') }}
     concurrency:
       group: byteflow-daily-${{ matrix.brand }}

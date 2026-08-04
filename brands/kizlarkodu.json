@@ -1,7 +1,7 @@
 {
   "slug": "kizlarkodu",
   "handle": "@kizlar.kodu",
-  "displayName": "Etiket Kodu",
+  "displayName": "Kızlar Kodu",
   "language": "tr",
   "persona": {
     "name": "Ece",
@@ -52,9 +52,8 @@
     "aciklama": "Video Serdar onaylamadan yayınlanmaz (38-onaybox → onay.temsor.com). Onayda bekleyen kalem varken yeni video üretilmez."
   },
   "state": {
-    "history": "brands/state/etiketkodu-history.json",
-    "spec": "brands/state/etiketkodu-spec.json",
-    "hesap": "brands/state/etiketkodu-hesap.json"
+    "history": "brands/state/kizlarkodu-history.json",
+    "spec": "brands/state/kizlarkodu-spec.json"
   },
   "namedExamples": "\"polyester\", \"viskon\", \"likra\", \"modal\", \"gramaj\", \"pilling\", \"suni deri\", \"çelik takı\", \"yumuşatıcı\", \"beden tablosu\"",
   "brandKeys": [],
