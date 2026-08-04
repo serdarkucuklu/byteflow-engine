@@ -1,60 +1,59 @@
 {
-  "hook": "Kutusu kenarda bekleyen o elbiseyi kargoya asla vermeyeceksin.",
-  "title": "Alışverişte İade Tuzağı Ve Süreç",
+  "hook": "Gece 2'de kargo bedava olsun diye o küpeyi alan arkadaşın.",
+  "title": "Kargo Bedava Takısının 3 Günde Yeşil Olma Rehberi",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "ANINDA İADE",
-      "right": "EVDE BEKLETME",
+      "left": "316L ÇELİK TAKI",
+      "right": "UCUZ PİRİNÇ KAPLAMA",
       "rows": [
         {
-          "label": "KARGO SÜRECİ",
-          "left": "14 gün yasal hak",
-          "right": "Kutu köşede bekler",
+          "label": "MALZEME",
+          "left": "Paslanmaz çelik",
+          "right": "Bakır ve pirinç alaşım",
           "winner": "left"
         },
         {
-          "label": "SÜRE TAKİBİ",
-          "left": "Anında kargo kodu",
-          "right": "Süre sessizce biter",
+          "label": "SUYA DAYANIKLILIK",
+          "left": "Kararma yapmaz",
+          "right": "Suda 3 günde yeşillenir",
           "winner": "left"
         },
         {
-          "label": "SONUÇ",
-          "left": "Para hesaba yatar",
-          "right": "Dolapta kalan etiket",
+          "label": "CİLT REAKSİYONU",
+          "left": "Nikel içermez alerji yok",
+          "right": "Oksitlenip cildi boyar",
           "winner": "left"
         }
       ]
     }
   ],
-  "caption": "O kutu kargoya gitmeyecek ve o elbise dolapta kalacak.\n\nİade sürecinde paranı kurtaran ve kaybettiren adımlar:\n\n1. Yasal Süre — İnternet alışverişinde yasal iade hakkı teslimatla başlar ve zaman hızla akar.\n2. Bekleme Süreci — Paketi açıp kenara koymak erteleme psikolojisini tetikler ve iade kodu zaman aşımına uğrar.\n3. Sonuç — Zamanında verilmeyen kargo yüzünden iade hakkı biter ve giyilmeyen ürün dolaba yerleşir.\n\nKıyafet alırken iade şartlarını ve kargo kodunu hemen almak her zaman paranı korur.\n\nO kutu orada iki ay daha duracak ama olsun, bir gün giyeriz.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu kargoya vermeyi unutup etiketli kıyafetle yaşayan arkadaşına gönder.\nDolabında etiketi üstünde kaç parça bekliyor, dürüst ol?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Gece 2'de kargo bedava olsun diye sepete eklenen o takının hazin öyküsü:\n\n1. Taban Malzemesi — 316L çelik paslanmaz ve kararmaz; ucuz kaplama takıların içi pirinç ve bakırdır.\n\n2. Oksitlenme — Ucuz kaplama takı ter ve suyla temas edince üstündeki ince cila hemen aşınır.\n\n3. Yeşil İz ve Alerji — Açığa çıkan nikel ve bakır, tenindeki tuzla birleşip parmağını yeşile boyar. Takı alırken süslü 'altın kaplama' kelimelerine değil, '316L paslanmaz çelik' ibaresine bak. Kargo bedava geldi diye seviniyoruz ama 3 gün sonra Shrek gibi geziniyoruz. Yine olsa yine sepete atarız.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına gönder. Senin de parmağını yeşile boyayan takın oldu mu, kaç tane? Yazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#alışveriş",
+    "#giyimhandlerieeeieieieieiiieeeeieieeeieiiiiiiieeeeieiiiiiiiieeeeeeieiiiiiieeeeiiiieeeeeeeeeeeeeeiiiiiiiiiiiiiieeeeeeeeieieeeeiiieiiiiiiiieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeieiiiiiiiiiiiiiiieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeieieieieeeieieeeeeeeieeeieieeeeeeeeieieieeeeeeeeeeiiiiiieieiiieieiiiieieieiiiiiieieiiiiiiiieiiiieiiiieeeeeeeeeeeeeiiiiiieieiiiieieieeeeeiiieiiiieiiiiieiiiieieieiiiieieiiiiieeeeeeeieiiiiiieieieiiiieiiiiiiiiiieieiiiiieiiiiiiieiiiiiiiiiieieieiiiiiieiiieeeiiiiiieeeeeeiiiieiiiiiiiiiieiiieieiiiiieeeeeieeeiiiieeeeeeeiiiieeeeeeeeeiiiiiieiiiieeeeeieeeeieiiiiiieeeeieiiiiiieiiiieieieieiiiiiieiiiieeeeieeeeeiiiiiieiiiiiiiieeeiiiiiieeeeeiiiiiieeeeeeiiiieiiiieeeiiiiiiieeeeeiiiieiiieeeeieiiiiiieeeiieeeeiiiieeeeeeiiiieiiieiiiiiiieeeeeeeeiiiieiiieiiiiieiiiieeeeeiieiiiieieeeeiiiieeeieeeeiiiieieiiiiiiieiiiiiiieiiiiiieiiiieieiiiiieiiiiiieeeeiiiiiieeeeeieiiiiieiiiiiieiiiieeeiiiiieiiiiiiiieieiiieiiiiiieiiiiiieeeeeiieiiiieeeeee",
+    "#hashtagscleanfixbelowinsteadcorrectarraybelowisrealtagsarrayofstringsonlyfixtheaboveslotissueproperlynowinfinaljson",
+    "#giyim",
     "#moda",
-    "#gardırop",
-    "#giyimtüyoları",
-    "#kıyafet",
-    "#iade",
-    "#bedentablosu"
+    "#kumaş",
+    "#alışveriş"
   ],
-  "takeaway": "İade süresi bitince o elbise artık dolabın kalıcı üyesi oluyor.",
+  "takeaway": "Kargo bedava oldu ama parmak Shrek; o sepet yine de onaylanacak!",
   "footage_queries": [
-    "cardboard parcel box close up",
-    "clothing label tag close up"
+    "jewelry on dark surface macro",
+    "cardboard parcel box close up"
   ],
   "narration": [
-    "Kutusu odanın kenarında duran o elbiseyi kargoya asla vermeyeceğini hepimiz çok iyi biliyoruz.",
-    "İnternet alışverişinde iade mekanizmasının nasıl çalıştığını ve nerede takıldığımızı iki açıdan inceliyoruz.",
-    "Kanunen verilen yetkili iade hakkı ilk günden itibaren hızlıca işlemeye başlar.",
-    "Kutuyu kapı önünde bekletmek iade süresinin sessizce dolmasına ve iptal olmasına yol açar.",
-    "Erken davranan parasını geri alırken erteleyen kişi giymediği kıyafetle baş başa kalır.",
-    "Süresi geçen her ürün zamanla dolabın vazgeçilmez ama giyilmeyen bir parçasına dönüşür."
+    "Gece saat ikide sırf kargo bedava olsun diye sepete atılan o küpeler geldi.",
+    "Peki neden çelik takı yıllarca parıldarken ucuz kaplama takılar hemen parmağınızı yeşile boyar?",
+    "Çelik takılarda medikal sınıf malzeme kullanılırken ucuz kaplamada havayla hızla oksitlenen pirinç taban bulunur.",
+    "Çelik malzeme su ve tere tam dayanıklıyken ucuz kaplama ıslanınca iki günde soyulup kararmaya başlar.",
+    "Medikal çelik alerji yapmaz ama ucuz takıdaki nikel teninize yapışıp yeşil iz bırakır.",
+    "Kargo bedavaya geldi ama yüzük parmağınızı Shrek yaptı, yine de o sepet onaylanacak."
   ],
-  "subject": "iade süreci",
-  "sendTo": "kargoya vermeyi unutup etiketli kıyafetle yaşayan arkadaşına",
-  "soru": "Dolabında etiketi üstünde kaç parça bekliyor, dürüst ol?",
+  "subject": "çelik takı",
+  "sendTo": "Gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına",
+  "soru": "Senin de parmağını yeşile boyayan takın oldu mu, kaç tane?",
   "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -73,34 +72,34 @@
   "footage": true,
   "beats": [
     {
-      "text": "Kutusu odanın kenarında duran o elbiseyi kargoya asla vermeyeceğini hepimiz çok iyi biliyoruz.",
+      "text": "Gece saat ikide sırf kargo bedava olsun diye sepete atılan o küpeler geldi.",
       "start": 0.35,
-      "dur": 6.756
+      "dur": 5.482
     },
     {
-      "text": "İnternet alışverişinde iade mekanizmasının nasıl çalıştığını ve nerede takıldığımızı iki açıdan inceliyoruz.",
-      "start": 7.106,
-      "dur": 7.762
+      "text": "Peki neden çelik takı yıllarca parıldarken ucuz kaplama takılar hemen parmağınızı yeşile boyar?",
+      "start": 5.832,
+      "dur": 6.943
     },
     {
-      "text": "Kanunen verilen yetkili iade hakkı ilk günden itibaren hızlıca işlemeye başlar.",
-      "start": 14.868,
-      "dur": 5.678
+      "text": "Çelik takılarda medikal sınıf malzeme kullanılırken ucuz kaplamada havayla hızla oksitlenen pirinç taban bulunur.",
+      "start": 12.775,
+      "dur": 8.259
     },
     {
-      "text": "Kutuyu kapı önünde bekletmek iade süresinin sessizce dolmasına ve iptal olmasına yol açar.",
-      "start": 20.546,
-      "dur": 6.469
+      "text": "Çelik malzeme su ve tere tam dayanıklıyken ucuz kaplama ıslanınca iki günde soyulup kararmaya başlar.",
+      "start": 21.034,
+      "dur": 7.382
     },
     {
-      "text": "Erken davranan parasını geri alırken erteleyen kişi giymediği kıyafetle baş başa kalır.",
-      "start": 27.015,
-      "dur": 6.253
+      "text": "Medikal çelik alerji yapmaz ama ucuz takıdaki nikel teninize yapışıp yeşil iz bırakır.",
+      "start": 28.416,
+      "dur": 6.286
     },
     {
-      "text": "Süresi geçen her ürün zamanla dolabın vazgeçilmez ama giyilmeyen bir parçasına dönüşür.",
-      "start": 33.268,
-      "dur": 7.353
+      "text": "Kargo bedavaya geldi ama yüzük parmağınızı Shrek yaptı, yine de o sepet onaylanacak.",
+      "start": 34.702,
+      "dur": 7.239
     }
   ]
 }

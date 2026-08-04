@@ -31,22 +31,23 @@
     "insightsAt": "2026-08-04T19:00:16.657Z"
   },
   {
-    "title": "Alışverişte İade Tuzağı Ve Süreç",
-    "subject": "iade süreci",
-    "twist": "iade-tembelligi",
-    "pillar": "parmak-burusmasi",
+    "title": "Kargo Bedava Takısının 3 Günde Yeşil Olma Rehberi",
+    "subject": "çelik takı",
+    "twist": "gece-sepeti",
+    "pillar": "taki",
     "layout": "vertical-stack",
     "kinds": "versus",
     "motion": "orbit",
     "theme": "#7de2d1",
     "source": "gemini",
     "footage": [
-      "pexels:cardboard parcel box close up",
-      "pexels:clothing label tag close up"
+      "pexels:jewelry on dark surface macro",
+      "pexels:cardboard parcel box close up"
     ],
     "voice": 6,
     "voiceName": "Kore",
+    "not": "Biraz daha komik bir video olmalı bence",
     "date": "2026-08-04",
-    "durSec": 40.5
+    "durSec": 41.9
   }
 ]
