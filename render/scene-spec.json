@@ -1,105 +1,106 @@
 {
-  "hook": "Gece 2'de kargo bedava olsun diye o küpeyi alan arkadaşın.",
-  "title": "Kargo Bedava Takısının 3 Günde Yeşil Olma Rehberi",
+  "hook": "Abla bu sana birebir dedi ama primer yüzünde soyuluyor.",
+  "title": "Silikonlu Primer vs Su Bazlı Primer",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "316L ÇELİK TAKI",
-      "right": "UCUZ PİRİNÇ KAPLAMA",
+      "left": "SİLİKONLU PRİMER",
+      "right": "SU BAZLI PRİMER",
       "rows": [
         {
-          "label": "MALZEME",
-          "left": "Paslanmaz çelik",
-          "right": "Bakır ve pirinç alaşım",
-          "winner": "left"
+          "label": "ANA İÇERİK",
+          "left": "Silikon ve Dimethicone",
+          "right": "Su ve Hümektanlar",
+          "winner": "tie"
         },
         {
-          "label": "SUYA DAYANIKLILIK",
-          "left": "Kararma yapmaz",
-          "right": "Suda 3 günde yeşillenir",
-          "winner": "left"
+          "label": "FONDÖTEN UYUMU",
+          "left": "Silikon bazlı fondöten",
+          "right": "Su ve yağsız fondöten",
+          "winner": "tie"
         },
         {
-          "label": "CİLT REAKSİYONU",
-          "left": "Nikel içermez alerji yok",
-          "right": "Oksitlenip cildi boyar",
-          "winner": "left"
+          "label": "SOYULMA SEBEBİ",
+          "left": "Su bazlı nemlendirici üstü",
+          "right": "Ağır yağlı kremler üstü",
+          "winner": "tie"
         }
       ]
     }
   ],
-  "caption": "Gece 2'de kargo bedava olsun diye sepete eklenen o takının hazin öyküsü:\n\n1. Taban Malzemesi — 316L çelik paslanmaz ve kararmaz; ucuz kaplama takıların içi pirinç ve bakırdır.\n\n2. Oksitlenme — Ucuz kaplama takı ter ve suyla temas edince üstündeki ince cila hemen aşınır.\n\n3. Yeşil İz ve Alerji — Açığa çıkan nikel ve bakır, tenindeki tuzla birleşip parmağını yeşile boyar. Takı alırken süslü 'altın kaplama' kelimelerine değil, '316L paslanmaz çelik' ibaresine bak. Kargo bedava geldi diye seviniyoruz ama 3 gün sonra Shrek gibi geziniyoruz. Yine olsa yine sepete atarız.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına gönder. Senin de parmağını yeşile boyayan takın oldu mu, kaç tane? Yazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kozmetik reyonunda \"abla bu ikisi birlikte mucize yaratıyor\" lafına inanıp aldığın primer soyuluyorsa suç cildinde değil, kimyada.\n\nMakyaj bazı ve fondöten uyumsuzluğu neden soyulma yapar, adım adım:\n\n1. Silikon Primer Yapısı — Dimethicone gibi bileşenler cilt yüzeyinde kaygan bir katman oluşturur, gözenekleri doldurur.\n2. Su Bazlı Primer Yapısı — Su ve nem tutucularla cildi tazeler, yağ hissi bırakmadan hafif tutunma sağlar.\n3. Karşılaşma Kimyası — Su ve silikon birbiriyle karışmaz. Su bazlı nemlendiricinin üzerine silikon baz sürdüğünde ürün cilde tutunamaz ve silgi gibi dökülür.\n\nSatın alırken marka vaadine değil, primer ve fondöteninin ilk üç içerik maddesine bak; ikisi de aynı bazda olmalı.\n\nReyon danışmanı ne derse desin, kimya yasalarını değiştiremiyor.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n🔁 Bunu reyondan tek pamuk alacakken üç farklı primerla çıkan arkadaşına gönder.\nMakyajın en çok hangi adımda soyuluyor: primerda mı fondötende mi?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyimhandlerieeeieieieieiiieeeeieieeeieiiiiiiieeeeieiiiiiiiieeeeeeieiiiiiieeeeiiiieeeeeeeeeeeeeeiiiiiiiiiiiiiieeeeeeeeieieeeeiiieiiiiiiiieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeieiiiiiiiiiiiiiiieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeieieieieeeieieeeeeeeieeeieieeeeeeeeieieieeeeeeeeeeiiiiiieieiiieieiiiieieieiiiiiieieiiiiiiiieiiiieiiiieeeeeeeeeeeeeiiiiiieieiiiieieieeeeeiiieiiiieiiiiieiiiieieieiiiieieiiiiieeeeeeeieiiiiiieieieiiiieiiiiiiiiiieieiiiiieiiiiiiieiiiiiiiiiieieieiiiiiieiiieeeiiiiiieeeeeeiiiieiiiiiiiiiieiiieieiiiiieeeeeieeeiiiieeeeeeeiiiieeeeeeeeeiiiiiieiiiieeeeeieeeeieiiiiiieeeeieiiiiiieiiiieieieieiiiiiieiiiieeeeieeeeeiiiiiieiiiiiiiieeeiiiiiieeeeeiiiiiieeeeeeiiiieiiiieeeiiiiiiieeeeeiiiieiiieeeeieiiiiiieeeiieeeeiiiieeeeeeiiiieiiieiiiiiiieeeeeeeeiiiieiiieiiiiieiiiieeeeeiieiiiieieeeeiiiieeeieeeeiiiieieiiiiiiieiiiiiiieiiiiiieiiiieieiiiiieiiiiiieeeeiiiiiieeeeeieiiiiieiiiiiieiiiieeeiiiiieiiiiiiiieieiiieiiiiiieiiiiiieeeeeiieiiiieeeeee",
-    "#hashtagscleanfixbelowinsteadcorrectarraybelowisrealtagsarrayofstringsonlyfixtheaboveslotissueproperlynowinfinaljson",
-    "#giyim",
-    "#moda",
-    "#kumaş",
-    "#alışveriş"
+    "#ciltbakimi",
+    "#makyaj",
+    "#guzellik",
+    "#primer",
+    "#fondoten",
+    "#makyajonerileri",
+    "#kozmetik"
   ],
-  "takeaway": "Kargo bedava oldu ama parmak Shrek; o sepet yine de onaylanacak!",
+  "takeaway": "Ablaya güvenme, içerik listesindeki silikon sırasına bak.",
   "footage_queries": [
-    "jewelry on dark surface macro",
-    "cardboard parcel box close up"
+    "liquid foundation swatch",
+    "makeup brushes flat lay"
   ],
   "narration": [
-    "Gece saat ikide sırf kargo bedava olsun diye sepete atılan o küpeler geldi.",
-    "Peki neden çelik takı yıllarca parıldarken ucuz kaplama takılar hemen parmağınızı yeşile boyar?",
-    "Çelik takılarda medikal sınıf malzeme kullanılırken ucuz kaplamada havayla hızla oksitlenen pirinç taban bulunur.",
-    "Çelik malzeme su ve tere tam dayanıklıyken ucuz kaplama ıslanınca iki günde soyulup kararmaya başlar.",
-    "Medikal çelik alerji yapmaz ama ucuz takıdaki nikel teninize yapışıp yeşil iz bırakır.",
-    "Kargo bedavaya geldi ama yüzük parmağınızı Shrek yaptı, yine de o sepet onaylanacak."
+    "Reyonda abla bu primer sana birebir dedi ama makyajın öğlen soyulmaya başladı.",
+    "Pazarlamacıların mutlaka birlikte kullanın dediği iki primer çeşidini içerik olarak kafa kafaya kıyaslıyoruz.",
+    "Silikonlu primer gözenekleri doldururken su bazlı primer cilde hafif nem ve tazelik katıyor.",
+    "Aynı yapıdaki fondötenle birleşince silikon harika tutunurken su bazlı ürün doğal görünüm veriyor.",
+    "Su bazlı kremin üstüne silikon primer sürerseniz ürünler birbirini itip silgi gibi dökülüyor.",
+    "Reyondaki tavsiyeye değil ürünlerin baz uyumuna bakarak makyajının soyulmasını tamamen engellemek senin elinde."
   ],
-  "subject": "çelik takı",
-  "sendTo": "Gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına",
-  "soru": "Senin de parmağını yeşile boyayan takın oldu mu, kaç tane?",
-  "theme": "#7de2d1",
+  "subject": "primer",
+  "sendTo": "reyondan tek pamuk alacakken üç farklı primerla çıkan arkadaşına",
+  "soru": "Makyajın en çok hangi adımda soyuluyor: primerda mı fondötende mi?",
+  "theme": "#c9a227",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "buildup",
   "footage": true,
   "beats": [
     {
-      "text": "Gece saat ikide sırf kargo bedava olsun diye sepete atılan o küpeler geldi.",
+      "text": "Reyonda abla bu primer sana birebir dedi ama makyajın öğlen soyulmaya başladı.",
       "start": 0.35,
-      "dur": 5.482
+      "dur": 5.264
     },
     {
-      "text": "Peki neden çelik takı yıllarca parıldarken ucuz kaplama takılar hemen parmağınızı yeşile boyar?",
-      "start": 5.832,
-      "dur": 6.943
+      "text": "Pazarlamacıların mutlaka birlikte kullanın dediği iki primer çeşidini içerik olarak kafa kafaya kıyaslıyoruz.",
+      "start": 5.614,
+      "dur": 7.356
     },
     {
-      "text": "Çelik takılarda medikal sınıf malzeme kullanılırken ucuz kaplamada havayla hızla oksitlenen pirinç taban bulunur.",
-      "start": 12.775,
-      "dur": 8.259
+      "text": "Silikonlu primer gözenekleri doldururken su bazlı primer cilde hafif nem ve tazelik katıyor.",
+      "start": 12.97,
+      "dur": 6.209
     },
     {
-      "text": "Çelik malzeme su ve tere tam dayanıklıyken ucuz kaplama ıslanınca iki günde soyulup kararmaya başlar.",
-      "start": 21.034,
-      "dur": 7.382
+      "text": "Aynı yapıdaki fondötenle birleşince silikon harika tutunurken su bazlı ürün doğal görünüm veriyor.",
+      "start": 19.179,
+      "dur": 6.614
     },
     {
-      "text": "Medikal çelik alerji yapmaz ama ucuz takıdaki nikel teninize yapışıp yeşil iz bırakır.",
-      "start": 28.416,
-      "dur": 6.286
+      "text": "Su bazlı kremin üstüne silikon primer sürerseniz ürünler birbirini itip silgi gibi dökülüyor.",
+      "start": 25.793,
+      "dur": 6.276
     },
     {
-      "text": "Kargo bedavaya geldi ama yüzük parmağınızı Shrek yaptı, yine de o sepet onaylanacak.",
-      "start": 34.702,
-      "dur": 7.239
+      "text": "Reyondaki tavsiyeye değil ürünlerin baz uyumuna bakarak makyajının soyulmasını tamamen engellemek senin elinde.",
+      "start": 32.07,
+      "dur": 8.591
     }
   ]
 }

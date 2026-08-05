@@ -436,5 +436,24 @@
       "ig_reels_video_view_total_time": 340924
     },
     "insightsAt": "2026-08-05T16:44:04.248Z"
+  },
+  {
+    "title": "Silikonlu Primer vs Su Bazlı Primer",
+    "subject": "primer",
+    "twist": "magaza-danismani",
+    "pillar": "karsilastirma",
+    "layout": "vertical-stack",
+    "kinds": "versus",
+    "motion": "buildup",
+    "theme": "#c9a227",
+    "source": "gemini",
+    "footage": [
+      "pexels:liquid foundation swatch",
+      "pexels:makeup brushes flat lay"
+    ],
+    "voice": 6,
+    "voiceName": "Kore",
+    "date": "2026-08-05",
+    "durSec": 40.6
   }
 ]
