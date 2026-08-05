@@ -61,5 +61,24 @@
       "ig_reels_video_view_total_time": 580071
     },
     "insightsAt": "2026-08-05T18:24:45.033Z"
+  },
+  {
+    "title": "Kışın Kazaklar Neden Saçımızı Elektriklendirir?",
+    "subject": "statik elektrik",
+    "twist": "sosyal-medya",
+    "pillar": "sac-elektriklenmesi",
+    "layout": "hub-spoke",
+    "kinds": "diagram",
+    "motion": "cascade",
+    "theme": "#ffe07d",
+    "source": "gemini",
+    "footage": [
+      "pexels:knitted wool texture macro",
+      "pexels:clothing label tag close up"
+    ],
+    "voice": 8,
+    "voiceName": "Puck",
+    "date": "2026-08-05",
+    "durSec": 45.5
   }
 ]

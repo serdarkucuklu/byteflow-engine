@@ -1,60 +1,100 @@
 {
-  "hook": "Gece 2'de kargo bedava olsun diye o küpeyi alan arkadaşın.",
-  "title": "Kargo Bedava Takısının 3 Günde Yeşil Olma Rehberi",
+  "hook": "Akışta görüp sipariş ettiğin kazak saçlarını uçuruyor.",
+  "title": "Kışın Kazaklar Neden Saçımızı Elektriklendirir?",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "versus",
-      "left": "316L ÇELİK TAKI",
-      "right": "UCUZ PİRİNÇ KAPLAMA",
-      "rows": [
+      "layout": "hub-spoke",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "MALZEME",
-          "left": "Paslanmaz çelik",
-          "right": "Bakır ve pirinç alaşım",
-          "winner": "left"
+          "id": "n1",
+          "label": "AKRİLİK KAZAK"
         },
         {
-          "label": "SUYA DAYANIKLILIK",
-          "left": "Kararma yapmaz",
-          "right": "Suda 3 günde yeşillenir",
-          "winner": "left"
+          "id": "n2",
+          "label": "SÜRTÜNME YÜKÜ"
         },
         {
-          "label": "CİLT REAKSİYONU",
-          "left": "Nikel içermez alerji yok",
-          "right": "Oksitlenip cildi boyar",
-          "winner": "left"
+          "id": "n3",
+          "label": "KURU KIŞ HAVASI"
+        },
+        {
+          "id": "n4",
+          "label": "YAPIŞAN KUMAŞ"
+        },
+        {
+          "id": "n5",
+          "label": "HAVALANAN SAÇ"
+        }
+      ],
+      "steps": [
+        {
+          "from": "n1",
+          "to": "n2",
+          "packet": "TEMAS",
+          "status": "plastik lifler sürtünmeyle yük toplar",
+          "color": "accent"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "YÜK",
+          "status": "kuru kış havası elektronları tutar",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "NEM",
+          "status": "yüklenen etek bacağa yapışmaya başlar",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n5",
+          "packet": "ÇEKİM",
+          "status": "aynı yükle dolan saç telleri itişir",
+          "color": "warn"
+        },
+        {
+          "from": "n1",
+          "to": "n5",
+          "packet": "SAÇ",
+          "status": "atkıyı çıkarırken küçük kıvılcım çıkar",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Gece 2'de kargo bedava olsun diye sepete eklenen o takının hazin öyküsü:\n\n1. Taban Malzemesi — 316L çelik paslanmaz ve kararmaz; ucuz kaplama takıların içi pirinç ve bakırdır.\n\n2. Oksitlenme — Ucuz kaplama takı ter ve suyla temas edince üstündeki ince cila hemen aşınır.\n\n3. Yeşil İz ve Alerji — Açığa çıkan nikel ve bakır, tenindeki tuzla birleşip parmağını yeşile boyar. Takı alırken süslü 'altın kaplama' kelimelerine değil, '316L paslanmaz çelik' ibaresine bak. Kargo bedava geldi diye seviniyoruz ama 3 gün sonra Shrek gibi geziniyoruz. Yine olsa yine sepete atarız.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına gönder. Senin de parmağını yeşile boyayan takın oldu mu, kaç tane? Yazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Akışta görüp hemen aldığımız o tüylü kazak neden saçımızı havalandırır?\n\nKışın kazak çıkarırken saçların havaya dikilmesinin ve eteğin bacağa yapışmasının sebebi:\n\n1. Akrilik Kazak — Plastik türevli sentetik iplikler doğası gereği elektriği iletmez ve yüzeyinde biriktirir.\n2. Sürtünme Yükü — Hareket ettikçe kumaş lifleri birbirine sürter ve elektron toplayarak yüklenir.\n3. Kuru Kış Havası — Yazın havadaki nem bu elektriği nötrler; kuru kış havasında elektrik kumaşta hapsolur.\n4. Yapışan Kumaş — Statik yükle dolan kumaş zıt yüklü bacağınıza veya çorabınıza çekim uygulayıp yapışır.\n5. Havalanan Saç — Saç telleri aynı eksi yükle yüklendiği için birbirini iter ve tek tek havaya kalkar.\n\nAlışveriş yaparken etiket kontrolü önemli: Pamuk ve pamuk karışımlı dokumalar statik elektrik biriktirmez.\n\nAkışta viral oldu diye sepete attık ama kış boyu küçük bir trafo gibi dolaşacağız.\n\n📌 Kaydet — bir dahaki kışlık alışverişinde etiket bakarken lazım olacak.\n🔁 Bunu akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına gönder.\nKışın kıyafet yapışması mı daha sinir bozucu, saç elektriklenmesi mi?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#giyimhandlerieeeieieieieiiieeeeieieeeieiiiiiiieeeeieiiiiiiiieeeeeeieiiiiiieeeeiiiieeeeeeeeeeeeeeiiiiiiiiiiiiiieeeeeeeeieieeeeiiieiiiiiiiieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeieiiiiiiiiiiiiiiieeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeieieieieeeieieeeeeeeieeeieieeeeeeeeieieieeeeeeeeeeiiiiiieieiiieieiiiieieieiiiiiieieiiiiiiiieiiiieiiiieeeeeeeeeeeeeiiiiiieieiiiieieieeeeeiiieiiiieiiiiieiiiieieieiiiieieiiiiieeeeeeeieiiiiiieieieiiiieiiiiiiiiiieieiiiiieiiiiiiieiiiiiiiiiieieieiiiiiieiiieeeiiiiiieeeeeeiiiieiiiiiiiiiieiiieieiiiiieeeeeieeeiiiieeeeeeeiiiieeeeeeeeeiiiiiieiiiieeeeeieeeeieiiiiiieeeeieiiiiiieiiiieieieieiiiiiieiiiieeeeieeeeeiiiiiieiiiiiiiieeeiiiiiieeeeeiiiiiieeeeeeiiiieiiiieeeiiiiiiieeeeeiiiieiiieeeeieiiiiiieeeiieeeeiiiieeeeeeiiiieiiieiiiiiiieeeeeeeeiiiieiiieiiiiieiiiieeeeeiieiiiieieeeeiiiieeeieeeeiiiieieiiiiiiieiiiiiiieiiiiiieiiiieieiiiiieiiiiiieeeeiiiiiieeeeeieiiiiieiiiiiieiiiieeeiiiiieiiiiiiiieieiiieiiiiiieiiiiiieeeeeiieiiiieeeeee",
-    "#hashtagscleanfixbelowinsteadcorrectarraybelowisrealtagsarrayofstringsonlyfixtheaboveslotissueproperlynowinfinaljson",
     "#giyim",
     "#moda",
     "#kumaş",
-    "#alışveriş"
+    "#akrilik",
+    "#statikelektrik",
+    "#gardırop",
+    "#giyimtüyoları"
   ],
-  "takeaway": "Kargo bedava oldu ama parmak Shrek; o sepet yine de onaylanacak!",
+  "takeaway": "Akışta görüp sepete attığımız o kazak en sonunda saçımızı uçurur.",
   "footage_queries": [
-    "jewelry on dark surface macro",
-    "cardboard parcel box close up"
+    "knitted wool texture macro",
+    "clothing label tag close up"
   ],
   "narration": [
-    "Gece saat ikide sırf kargo bedava olsun diye sepete atılan o küpeler geldi.",
-    "Peki neden çelik takı yıllarca parıldarken ucuz kaplama takılar hemen parmağınızı yeşile boyar?",
-    "Çelik takılarda medikal sınıf malzeme kullanılırken ucuz kaplamada havayla hızla oksitlenen pirinç taban bulunur.",
-    "Çelik malzeme su ve tere tam dayanıklıyken ucuz kaplama ıslanınca iki günde soyulup kararmaya başlar.",
-    "Medikal çelik alerji yapmaz ama ucuz takıdaki nikel teninize yapışıp yeşil iz bırakır.",
-    "Kargo bedavaya geldi ama yüzük parmağınızı Shrek yaptı, yine de o sepet onaylanacak."
+    "Akışta görüp hemen sipariş ettiğin o tüylü kazak kışın neden saçını havalandırır?",
+    "Sentetik kumaş ile kuru kış havası yan yana gelince bu elektriklenme mekanizması şöyle çalışır.",
+    "Akrilik gibi sentetik lifler sürtünme sırasında elektron toplayarak yüzeyde yük biriktirir.",
+    "Kışın ortamdaki nem düştüğü için biriken bu elektrik havaya dağılmayıp kumaşta kalır.",
+    "Statik yükle dolan etek ve pantolon kumaşı bacağınıza çekim gücü uygulayıp yapışır.",
+    "Aynı eksi yükle yüklenen saç telleri birbirini iterek havaya doğru dikilmeye başlar.",
+    "Atkıyı başınızdan çıkarırken oluşan o çatırdayan ses biriken elektriğin ani boşalma anıdır.",
+    "Kumaş karışımına bakmadan aldığımız her sentetik kazak bize küçük çarpılmalar olarak geri dönüyor."
   ],
-  "subject": "çelik takı",
-  "sendTo": "Gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına",
-  "soru": "Senin de parmağını yeşile boyayan takın oldu mu, kaç tane?",
-  "theme": "#7de2d1",
+  "subject": "statik elektrik",
+  "sendTo": "akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına",
+  "soru": "Kışın kıyafet yapışması mı daha sinir bozucu, saç elektriklenmesi mi?",
+  "theme": "#ffe07d",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -68,38 +108,48 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "cascade",
   "footage": true,
   "beats": [
     {
-      "text": "Gece saat ikide sırf kargo bedava olsun diye sepete atılan o küpeler geldi.",
+      "text": "Akışta görüp hemen sipariş ettiğin o tüylü kazak kışın neden saçını havalandırır?",
       "start": 0.35,
-      "dur": 5.482
+      "dur": 5.037
     },
     {
-      "text": "Peki neden çelik takı yıllarca parıldarken ucuz kaplama takılar hemen parmağınızı yeşile boyar?",
-      "start": 5.832,
-      "dur": 6.943
+      "text": "Sentetik kumaş ile kuru kış havası yan yana gelince bu elektriklenme mekanizması şöyle çalışır.",
+      "start": 5.387,
+      "dur": 5.908
     },
     {
-      "text": "Çelik takılarda medikal sınıf malzeme kullanılırken ucuz kaplamada havayla hızla oksitlenen pirinç taban bulunur.",
-      "start": 12.775,
-      "dur": 8.259
+      "text": "Akrilik gibi sentetik lifler sürtünme sırasında elektron toplayarak yüzeyde yük biriktirir.",
+      "start": 11.295,
+      "dur": 5.659
     },
     {
-      "text": "Çelik malzeme su ve tere tam dayanıklıyken ucuz kaplama ıslanınca iki günde soyulup kararmaya başlar.",
-      "start": 21.034,
-      "dur": 7.382
+      "text": "Kışın ortamdaki nem düştüğü için biriken bu elektrik havaya dağılmayıp kumaşta kalır.",
+      "start": 16.954,
+      "dur": 5.286
     },
     {
-      "text": "Medikal çelik alerji yapmaz ama ucuz takıdaki nikel teninize yapışıp yeşil iz bırakır.",
-      "start": 28.416,
-      "dur": 6.286
+      "text": "Statik yükle dolan etek ve pantolon kumaşı bacağınıza çekim gücü uygulayıp yapışır.",
+      "start": 22.24,
+      "dur": 5.161
     },
     {
-      "text": "Kargo bedavaya geldi ama yüzük parmağınızı Shrek yaptı, yine de o sepet onaylanacak.",
-      "start": 34.702,
-      "dur": 7.239
+      "text": "Aynı eksi yükle yüklenen saç telleri birbirini iterek havaya doğru dikilmeye başlar.",
+      "start": 27.401,
+      "dur": 5.224
+    },
+    {
+      "text": "Atkıyı başınızdan çıkarırken oluşan o çatırdayan ses biriken elektriğin ani boşalma anıdır.",
+      "start": 32.625,
+      "dur": 5.659
+    },
+    {
+      "text": "Kumaş karışımına bakmadan aldığımız her sentetik kazak bize küçük çarpılmalar olarak geri dönüyor.",
+      "start": 38.284,
+      "dur": 7.194
     }
   ],
   "thumbOffset": 1450

@@ -1,106 +1,155 @@
 {
-  "hook": "Abla bu sana birebir dedi ama primer yüzünde soyuluyor.",
-  "title": "Silikonlu Primer vs Su Bazlı Primer",
+  "hook": "Akışta görüp sipariş ettiğin kazak saçlarını uçuruyor.",
+  "title": "Kışın Kazaklar Neden Saçımızı Elektriklendirir?",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "versus",
-      "left": "SİLİKONLU PRİMER",
-      "right": "SU BAZLI PRİMER",
-      "rows": [
+      "layout": "hub-spoke",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "ANA İÇERİK",
-          "left": "Silikon ve Dimethicone",
-          "right": "Su ve Hümektanlar",
-          "winner": "tie"
+          "id": "n1",
+          "label": "AKRİLİK KAZAK"
         },
         {
-          "label": "FONDÖTEN UYUMU",
-          "left": "Silikon bazlı fondöten",
-          "right": "Su ve yağsız fondöten",
-          "winner": "tie"
+          "id": "n2",
+          "label": "SÜRTÜNME YÜKÜ"
         },
         {
-          "label": "SOYULMA SEBEBİ",
-          "left": "Su bazlı nemlendirici üstü",
-          "right": "Ağır yağlı kremler üstü",
-          "winner": "tie"
+          "id": "n3",
+          "label": "KURU KIŞ HAVASI"
+        },
+        {
+          "id": "n4",
+          "label": "YAPIŞAN KUMAŞ"
+        },
+        {
+          "id": "n5",
+          "label": "HAVALANAN SAÇ"
+        }
+      ],
+      "steps": [
+        {
+          "from": "n1",
+          "to": "n2",
+          "packet": "TEMAS",
+          "status": "plastik lifler sürtünmeyle yük toplar",
+          "color": "accent"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "YÜK",
+          "status": "kuru kış havası elektronları tutar",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "NEM",
+          "status": "yüklenen etek bacağa yapışmaya başlar",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n5",
+          "packet": "ÇEKİM",
+          "status": "aynı yükle dolan saç telleri itişir",
+          "color": "warn"
+        },
+        {
+          "from": "n1",
+          "to": "n5",
+          "packet": "SAÇ",
+          "status": "atkıyı çıkarırken küçük kıvılcım çıkar",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kozmetik reyonunda \"abla bu ikisi birlikte mucize yaratıyor\" lafına inanıp aldığın primer soyuluyorsa suç cildinde değil, kimyada.\n\nMakyaj bazı ve fondöten uyumsuzluğu neden soyulma yapar, adım adım:\n\n1. Silikon Primer Yapısı — Dimethicone gibi bileşenler cilt yüzeyinde kaygan bir katman oluşturur, gözenekleri doldurur.\n2. Su Bazlı Primer Yapısı — Su ve nem tutucularla cildi tazeler, yağ hissi bırakmadan hafif tutunma sağlar.\n3. Karşılaşma Kimyası — Su ve silikon birbiriyle karışmaz. Su bazlı nemlendiricinin üzerine silikon baz sürdüğünde ürün cilde tutunamaz ve silgi gibi dökülür.\n\nSatın alırken marka vaadine değil, primer ve fondöteninin ilk üç içerik maddesine bak; ikisi de aynı bazda olmalı.\n\nReyon danışmanı ne derse desin, kimya yasalarını değiştiremiyor.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n🔁 Bunu reyondan tek pamuk alacakken üç farklı primerla çıkan arkadaşına gönder.\nMakyajın en çok hangi adımda soyuluyor: primerda mı fondötende mi?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Akışta görüp hemen aldığımız o tüylü kazak neden saçımızı havalandırır?\n\nKışın kazak çıkarırken saçların havaya dikilmesinin ve eteğin bacağa yapışmasının sebebi:\n\n1. Akrilik Kazak — Plastik türevli sentetik iplikler doğası gereği elektriği iletmez ve yüzeyinde biriktirir.\n2. Sürtünme Yükü — Hareket ettikçe kumaş lifleri birbirine sürter ve elektron toplayarak yüklenir.\n3. Kuru Kış Havası — Yazın havadaki nem bu elektriği nötrler; kuru kış havasında elektrik kumaşta hapsolur.\n4. Yapışan Kumaş — Statik yükle dolan kumaş zıt yüklü bacağınıza veya çorabınıza çekim uygulayıp yapışır.\n5. Havalanan Saç — Saç telleri aynı eksi yükle yüklendiği için birbirini iter ve tek tek havaya kalkar.\n\nAlışveriş yaparken etiket kontrolü önemli: Pamuk ve pamuk karışımlı dokumalar statik elektrik biriktirmez.\n\nAkışta viral oldu diye sepete attık ama kış boyu küçük bir trafo gibi dolaşacağız.\n\n📌 Kaydet — bir dahaki kışlık alışverişinde etiket bakarken lazım olacak.\n🔁 Bunu akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına gönder.\nKışın kıyafet yapışması mı daha sinir bozucu, saç elektriklenmesi mi?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#makyaj",
-    "#guzellik",
-    "#primer",
-    "#fondoten",
-    "#makyajonerileri",
-    "#kozmetik"
+    "#giyim",
+    "#moda",
+    "#kumaş",
+    "#akrilik",
+    "#statikelektrik",
+    "#gardırop",
+    "#giyimtüyoları"
   ],
-  "takeaway": "Ablaya güvenme, içerik listesindeki silikon sırasına bak.",
+  "takeaway": "Akışta görüp sepete attığımız o kazak en sonunda saçımızı uçurur.",
   "footage_queries": [
-    "liquid foundation swatch",
-    "makeup brushes flat lay"
+    "knitted wool texture macro",
+    "clothing label tag close up"
   ],
   "narration": [
-    "Reyonda abla bu primer sana birebir dedi ama makyajın öğlen soyulmaya başladı.",
-    "Pazarlamacıların mutlaka birlikte kullanın dediği iki primer çeşidini içerik olarak kafa kafaya kıyaslıyoruz.",
-    "Silikonlu primer gözenekleri doldururken su bazlı primer cilde hafif nem ve tazelik katıyor.",
-    "Aynı yapıdaki fondötenle birleşince silikon harika tutunurken su bazlı ürün doğal görünüm veriyor.",
-    "Su bazlı kremin üstüne silikon primer sürerseniz ürünler birbirini itip silgi gibi dökülüyor.",
-    "Reyondaki tavsiyeye değil ürünlerin baz uyumuna bakarak makyajının soyulmasını tamamen engellemek senin elinde."
+    "Akışta görüp hemen sipariş ettiğin o tüylü kazak kışın neden saçını havalandırır?",
+    "Sentetik kumaş ile kuru kış havası yan yana gelince bu elektriklenme mekanizması şöyle çalışır.",
+    "Akrilik gibi sentetik lifler sürtünme sırasında elektron toplayarak yüzeyde yük biriktirir.",
+    "Kışın ortamdaki nem düştüğü için biriken bu elektrik havaya dağılmayıp kumaşta kalır.",
+    "Statik yükle dolan etek ve pantolon kumaşı bacağınıza çekim gücü uygulayıp yapışır.",
+    "Aynı eksi yükle yüklenen saç telleri birbirini iterek havaya doğru dikilmeye başlar.",
+    "Atkıyı başınızdan çıkarırken oluşan o çatırdayan ses biriken elektriğin ani boşalma anıdır.",
+    "Kumaş karışımına bakmadan aldığımız her sentetik kazak bize küçük çarpılmalar olarak geri dönüyor."
   ],
-  "subject": "primer",
-  "sendTo": "reyondan tek pamuk alacakken üç farklı primerla çıkan arkadaşına",
-  "soru": "Makyajın en çok hangi adımda soyuluyor: primerda mı fondötende mi?",
-  "theme": "#c9a227",
+  "subject": "statik elektrik",
+  "sendTo": "akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına",
+  "soru": "Kışın kıyafet yapışması mı daha sinir bozucu, saç elektriklenmesi mi?",
+  "theme": "#ffe07d",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "cascade",
   "footage": true,
   "beats": [
     {
-      "text": "Reyonda abla bu primer sana birebir dedi ama makyajın öğlen soyulmaya başladı.",
+      "text": "Akışta görüp hemen sipariş ettiğin o tüylü kazak kışın neden saçını havalandırır?",
       "start": 0.35,
-      "dur": 5.264
+      "dur": 5.037
     },
     {
-      "text": "Pazarlamacıların mutlaka birlikte kullanın dediği iki primer çeşidini içerik olarak kafa kafaya kıyaslıyoruz.",
-      "start": 5.614,
-      "dur": 7.356
+      "text": "Sentetik kumaş ile kuru kış havası yan yana gelince bu elektriklenme mekanizması şöyle çalışır.",
+      "start": 5.387,
+      "dur": 5.908
     },
     {
-      "text": "Silikonlu primer gözenekleri doldururken su bazlı primer cilde hafif nem ve tazelik katıyor.",
-      "start": 12.97,
-      "dur": 6.209
+      "text": "Akrilik gibi sentetik lifler sürtünme sırasında elektron toplayarak yüzeyde yük biriktirir.",
+      "start": 11.295,
+      "dur": 5.659
     },
     {
-      "text": "Aynı yapıdaki fondötenle birleşince silikon harika tutunurken su bazlı ürün doğal görünüm veriyor.",
-      "start": 19.179,
-      "dur": 6.614
+      "text": "Kışın ortamdaki nem düştüğü için biriken bu elektrik havaya dağılmayıp kumaşta kalır.",
+      "start": 16.954,
+      "dur": 5.286
     },
     {
-      "text": "Su bazlı kremin üstüne silikon primer sürerseniz ürünler birbirini itip silgi gibi dökülüyor.",
-      "start": 25.793,
-      "dur": 6.276
+      "text": "Statik yükle dolan etek ve pantolon kumaşı bacağınıza çekim gücü uygulayıp yapışır.",
+      "start": 22.24,
+      "dur": 5.161
     },
     {
-      "text": "Reyondaki tavsiyeye değil ürünlerin baz uyumuna bakarak makyajının soyulmasını tamamen engellemek senin elinde.",
-      "start": 32.07,
-      "dur": 8.591
+      "text": "Aynı eksi yükle yüklenen saç telleri birbirini iterek havaya doğru dikilmeye başlar.",
+      "start": 27.401,
+      "dur": 5.224
+    },
+    {
+      "text": "Atkıyı başınızdan çıkarırken oluşan o çatırdayan ses biriken elektriğin ani boşalma anıdır.",
+      "start": 32.625,
+      "dur": 5.659
+    },
+    {
+      "text": "Kumaş karışımına bakmadan aldığımız her sentetik kazak bize küçük çarpılmalar olarak geri dönüyor.",
+      "start": 38.284,
+      "dur": 7.194
     }
   ]
 }
