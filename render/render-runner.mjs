@@ -77,11 +77,25 @@ async function main() {
     }
   }
 
+  // detached: Linux'ta ŞART. shell:true olduğu için child gerçek vite değil onu saran kabuk;
+  // process grubu olmadan killServerTree'nin grup öldürmesi (process.kill(-pid)) hata veriyor
+  // ve yalnız kabuk ölüyordu → her yerel koşudan bir vite SIZIYOR ve 9000'i tutmaya devam
+  // ediyordu. CI'da iş kabı bittiği için görünmüyordu; yerelde sonraki koşu portu 9001'e
+  // düşürüp ESKİ sunucu üzerinden render ediyordu (yanlış spec riski).
   const server = spawn('npm', ['run', 'serve'], {
     cwd: new URL('.', import.meta.url),
     shell: true,
+    detached: process.platform !== 'win32',
   });
-  server.stdout.on('data', d => process.stdout.write(`[vite] ${d}`));
+  // Vite'ın GERÇEKTEN bağlandığı portu kendi çıktısından oku. Sabit PORT'a bağlanmak, port
+  // doluysa BAŞKA birinin sunucusuna bağlanmak demek — sessizce yanlış içerik render edilir.
+  let portSozu;
+  const portHazir = new Promise(r => { portSozu = r; });
+  server.stdout.on('data', d => {
+    const m = String(d).match(/localhost:(\d+)/);
+    if (m) portSozu(Number(m[1]));
+    process.stdout.write(`[vite] ${d}`);
+  });
   server.stderr.on('data', d => process.stderr.write(`[vite] ${d}`));
 
   // Headless chromium'da Motion Canvas editör UI + canvas/ffmpeg render'ı takılıyor
@@ -97,10 +111,14 @@ async function main() {
     ],
   });
   try {
-    await waitForServer(`http://${HOST}:${PORT}/`);
+    // 20 sn içinde port satırı gelmezse varsayılana düş (çıktı biçimi değişmiş olabilir).
+    const port = await Promise.race([portHazir, sleep(20000).then(() => PORT)]);
+    if (port !== PORT) console.log(`⚠ vite ${PORT} yerine ${port} portunu kullandı (port dolu)`);
+    const adres = `http://${HOST}:${port}/`;
+    await waitForServer(adres);
     const page = await browser.newPage();
     page.on('pageerror', err => console.error('[page error]', err.message));
-    await page.goto(`http://${HOST}:${PORT}/`, {waitUntil: 'domcontentloaded'});
+    await page.goto(adres, {waitUntil: 'domcontentloaded'});
     // CI'da ilk vite derlemesi + editör mount yavaş olabilir → 90s.
     await page.waitForSelector('text=Video Settings', {timeout: 90000});
     // Editor mounts its reactive settings a beat after the panel label appears.
