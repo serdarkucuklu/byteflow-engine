@@ -328,6 +328,12 @@ test('gaf ekseni verilince zorunlu olarak prompt\'a girer, verilmezse hiç gör�
   assert.match(p, /TODAY'S GAF/);
   assert.match(p, /PARA GAFI: paranın gerçekte neye gittiği/);
   assert.match(p, /Use ONLY this angle today/, 'gaf türü de tekrar etmemeli');
+  // Serdar direktifi 2026-08-06: "daha komik olsun, gaflı" — mizah artık 3 yere sıkışmış
+  // baharat değil, videonun omurgası. Bu satır silinirse eski "seasoning" kuralına dönülmüş
+  // demektir; direktif kaybolmasın diye kilitli.
+  assert.match(p, /THE GAF IS THE SPINE, NOT THE SEASONING/, 'mizah yoğunluğu direktifi');
+  assert.match(p, /EVERY step\.status is written in the gaf's voice/, 'her kart gaf sesiyle yazılır');
+  assert.doesNotMatch(p, /exactly three places/, 'eski 3-yer kısıtı geri gelmemeli');
 
   // byteflow (gaf kümesi yok) etkilenmemeli
   const def = {};

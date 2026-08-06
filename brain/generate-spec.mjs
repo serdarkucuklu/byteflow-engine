@@ -231,9 +231,21 @@ step.status, in a versus row, or in a narration sentence that explains the mecha
 describe HOW THE THING WORKS; a person is not a step in a mechanism. (2026-08-03 canlı hata:
 "o parayı verdiğine inanamayan arkadaşın" bir maliyet katmanı kartı olarak ekrana çıktı ve
 seslendirmede "arkadaşının ödediği saf marka primi" diye okundu — anlamsız.)` : ''}
-Land it in exactly three places and nowhere else: (1) the hook, (2) ONE step.status / versus row
-in the middle, (3) the closing takeaway + the caption's closing line. The rest of the video stays
-useful and accurate — the gaf is the seasoning, not the meal.
+THE GAF IS THE SPINE, NOT THE SEASONING (sayfa sahibi direktifi, 2026-08-06: "daha komik
+olsun, gaflı"). This is a comedy video that happens to teach — not a lesson with three jokes
+taped on. Humor density rules:
+- The hook OPENS on the gaf, not on the topic.
+- EVERY step.status is written in the gaf's voice: each one states a true mechanism fact AND
+  lands a dry little punch in the same breath. "aktif emiliyor" is dead; "aktif emiliyor,
+  taksitler devam ediyor" is alive. Same 40-char limit — brevity IS the joke's delivery.
+- At least TWO mid-video narration sentences (between setup and takeaway) must be funny OUT
+  LOUD, in the gaf's angle — spoken deadpan, not read like a caption.
+- The takeaway and the caption's closing line land the BIGGEST laugh of the video — the line
+  she quotes when she forwards it.
+- The mechanism underneath stays TRUE and clear. The laugh must come FROM the mechanism — the
+  absurdity of what is actually happening — never instead of it. A sentence that is funny but
+  teaches nothing gets cut; a sentence that teaches but could carry a joke and doesn't is a
+  wasted slot.
 The joke must come from something TRUE about this subject, never from mocking the viewer. It is
 a shared confession ("hepimiz yapıyoruz"), not a lecture and not an accusation.
 Use ONLY this angle today. Do not smuggle in the other classic angles (money, time, marketing
