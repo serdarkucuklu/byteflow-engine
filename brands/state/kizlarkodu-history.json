@@ -82,5 +82,24 @@
     "durSec": 45.5,
     "mediaId": "18168941458447433",
     "postedAt": "2026-08-05T18:55:49.287Z"
+  },
+  {
+    "title": "Spor Kıyafetleri Yıkanınca Bile Neden Kokar?",
+    "subject": "ter kokusu",
+    "twist": "magaza-danismani",
+    "pillar": "ter-kokusu",
+    "layout": "nodes-flow",
+    "kinds": "diagram",
+    "motion": "sketch",
+    "theme": "#8fd0ff",
+    "source": "gemini",
+    "footage": [
+      "pexels:clothing label tag close up",
+      "pexels:washing machine drum spinning"
+    ],
+    "voice": 7,
+    "voiceName": "Aoede",
+    "date": "2026-08-06",
+    "durSec": 45.4
   }
 ]
