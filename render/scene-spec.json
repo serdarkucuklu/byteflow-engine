@@ -1,139 +1,117 @@
 {
-  "hook": "Mağazada 'tam sizlik' denen o spor tişört neden hep kokar?",
-  "title": "Spor Kıyafetleri Yıkanınca Bile Neden Kokar?",
+  "hook": "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklı",
+  "title": "Makyaj Temizleme Mendili vs Çift Aşama",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "hub-spoke",
+      "kind": "versus",
+      "left": "TEMİZLEME MENDİLİ",
+      "right": "ÇİFT AŞAMALI TEMİZLİK",
+      "rows": [
         {
-          "id": "n1",
-          "label": "SENTETİK KUMAŞ"
+          "label": "KİRİ ÇÖZME GÜCÜ",
+          "left": "Sadece yüzeye yayar",
+          "right": "Yağ gözenekten çeker",
+          "winner": "right"
         },
         {
-          "id": "n2",
-          "label": "TER VE BAKTERİ"
+          "label": "TAHRİŞ ETME ORANI",
+          "left": "Sürtünmeyle kızarıklık",
+          "right": "Sıfır sürtünme konforu",
+          "winner": "right"
         },
         {
-          "id": "n3",
-          "label": "BİYOFİLM YUVASI"
+          "label": "FOTOĞRAF FLAŞI ETKİSİ",
+          "left": "Kalan artıklar parlar",
+          "right": "Temiz ve mat görünüm",
+          "winner": "right"
         },
         {
-          "id": "n4",
-          "label": "YIKAMA HIZI"
-        }
-      ],
-      "steps": [
-        {
-          "from": "n1",
-          "to": "n2",
-          "packet": "SATIŞ",
-          "status": "kabinde harika durdu ama terle buluştu",
-          "color": "accent"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "TER",
-          "status": "bakteri yağı sevdi lif arasına girdi",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "YUVA",
-          "status": "biyofilm tabakası kumaşa iyice yapıştı",
-          "color": "warn"
-        },
-        {
-          "from": "n4",
-          "to": "n1",
-          "packet": "KOKU",
-          "status": "deterjan lifi temizlemedi koku kaldı",
-          "color": "good"
+          "label": "ÜŞENGEÇLİK SKORU",
+          "left": "Yatakta 10 saniye",
+          "right": "Banyoya gitmek şart",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "Kabin kapısında 'üstünüzde harika durdu' iltifatıyla aldığımız o spor üstün ikinci kullanımda kokma sebebi:\n\n1. Sentetik kumaş: Mağazada duruşu dik ve şık olan polyester lifler, hidrofobiktir yani suyu sevmez ama vücut yağını çeker.\n2. Ter ve bakteri: Terin kendisi Aslında kokusuzdur. Ancak ciltteki bakteriler terdeki yağları sindirirken koku molekülleri üretir.\n3. Biyofilm oluşumu: Bakteriler polyester liflerin arasına tutunup koruyucu bir biyofilm tabakası kurar.\n4. Yıkama yetersizliği: Düşük derecede yapılan standart yıkama suyu bu yağlı tabakayı sökemez, tişört giyilip ısındığı an koku canlanır.\n\nSpor alışverişinde kumaşın sadece görünüşüne değil, nefes alabilir ve doğal lif karışımlı olup olmadığına bakmak gerekir.\n\nKabindeki üç dakikalık iltifata kandık ama bakteriler o tişörtü çoktan sahiplendi.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu mağazadan tek tişörtle çıkamayıp kasada yakalanan arkadaşına gönder.\nSenin de yıkandığı halde kokusu çıkmayan o tek spor üstün var mı?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Filtresiz gece fotoğraflarında hortlak gibi parlamaktan bıktıysanız, aradığınız suçlu başucunuzda duruyor.\n\nMakyaj temizleme mendili vs Çift aşamalı temizlik savaşı başlıyor:\n\n1. Kiri Çözme Gücü: Temizleme mendilleri makyajı çözmez, sadece yüzeyde sağa sola sıvar. Yağ bazlı temizleyici ise gözeneklerin içine girerek sebumu ve makyajı kelimenin tam anlamıyla eritir.\n2. Tahriş Etme Oranı: Mendilin o pürüzlü liflerini yüzünüze hunharca sürtmek cildinizi zımparalamaktan farksızdır. Temizleme yağı ise sürtünmesizce kayar, cildi hırpalamaz.\n3. Flaş Etkisi: Mendilin geride bıraktığı yapışkan temizleyici artıkları, gece flaşlı bir fotoğraf çekildiğinde ışığı yansıtıp sizi parıl parıl parlatır. Çift temizlik ise pürüzsüz ve doğal bir matlık bırakır.\n4. Üşengeçlik Skoru: Evet, yatakta 10 saniyede mendille silmek aşırı pratik görünüyor ama banyoya gidip o yağı suyla arındırmak ertesi gün temiz bir ciltle uyanmanın tek yoludur.\n\nMakyaj temizliğinde önemli olan hız değil, formülün gözenekteki yağı çözebilme yeteneğidir.\n\nMendille silip yatıp sonra o flaşlı fotoğrafta beni niye böyle çektin diye arkadaşına trip atma.\n\n📌 Kaydet — üşendiğin o gece bu gerçekleri hatırla.\n\n🔁 Bunu seni her filtresiz fotoğrafta acımadan etiketleyen o arkadaşına gönder.\n\nSen hangisisin: Yatakta mendille silen mi, banyoya üşenmeyen mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#alışveriş",
-    "#kumaş",
-    "#sporkıyafetleri",
-    "#giyimtüyoları",
-    "#terkokusu",
-    "#polyester"
+    "#ciltbakimi",
+    "#guzellik",
+    "#makyajtemizleme",
+    "#ciftasamalitemizlik",
+    "#makyajonerileri",
+    "#temizlemeyagi"
   ],
-  "takeaway": "Kabindeki iltifata kandık ama bakteriler o polyesteri çoktan sahiplendi.",
+  "takeaway": "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her z",
   "footage_queries": [
-    "clothing label tag close up",
-    "washing machine drum spinning"
+    "oil and water macro",
+    "clean bathroom tiles light"
   ],
   "narration": [
-    "Kabin kapısında çok güzel durdu denerek alınan o spor üst neden yıkanınca kokar?",
-    "Mağaza danışmanının övgüsüyle başlayan bu süreçte polyester kumaş ve bakteriler rol oynuyor.",
-    "İlk olarak kabinde tam oturup alınan polyester tişört sporda vücut teriyle doğrudan buluşuyor.",
-    "Salgılanan ter aslında kokusuzdur fakat cildimizdeki bakteriler yağları parçalayarak kötü kokuyu hemen üretir.",
-    "Sentetik lifler suyu sevmez ama yağı tutar ve bakteriler orada dirençli biyofilm tabakası oluşturur.",
-    "Standart yıkama bu yağlı tabakayı sökemez ve tişört ısındığı an o koku tekrar yayılır.",
-    "Kabin iltifatı harikaydı ama spor kıyafetlerinde sporda kokmayan doğal karışımlı kumaşları seçmek lazım."
+    "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklıyorum, toplanın kızlar.",
+    "Makyajı alelacele temizleme mendiliyle silip yatmakla çift aşamalı temizliği bugün karşılaştırıyoruz.",
+    "Mendil kiri sadece yüzünüze sıvayıp bırakırken, yağ bazlı temizleyici gözeneklerin içine kadar nüfuz eder.",
+    "Sert mendil lifleri cildi zımparalayıp kızartırken, temizleme yağı sıfır sürtünmeyle nazikçe kayıp gider.",
+    "Mendilin bıraktığı o yapışkan tabaka gece flaşında parıldarken, diğeri pürüzsüz ve mat görünüm sağlar.",
+    "Mendil yatakta saniyeler sürse de, banyoya gitmeye üşenmemek sabah pürüzsüz uyanmanın tek sırrıdır.",
+    "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her zaman mahkum olursun."
   ],
-  "subject": "ter kokusu",
-  "sendTo": "mağazadan tek tişörtle çıkamayıp kasada yakalanan arkadaşına",
-  "soru": "Senin de yıkandığı halde kokusu çıkmayan o tek spor üstün var mı?",
-  "theme": "#8fd0ff",
+  "subject": "makyaj temizleme",
+  "sendTo": "seni her filtresiz fotoğrafta acımadan etiketleyen o arkadaşına",
+  "soru": "Sen hangisisin: Yatakta mendille silen mi, banyoya üşenmeyen mi?",
+  "theme": "#e8a0a8",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "camera",
   "footage": true,
   "beats": [
     {
-      "text": "Kabin kapısında çok güzel durdu denerek alınan o spor üst neden yıkanınca kokar?",
+      "text": "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklıyorum, toplanın kızlar.",
       "start": 0.35,
-      "dur": 5.285
+      "dur": 5.796
     },
     {
-      "text": "Mağaza danışmanının övgüsüyle başlayan bu süreçte polyester kumaş ve bakteriler rol oynuyor.",
-      "start": 5.635,
-      "dur": 6.078
+      "text": "Makyajı alelacele temizleme mendiliyle silip yatmakla çift aşamalı temizliği bugün karşılaştırıyoruz.",
+      "start": 6.146,
+      "dur": 6.294
     },
     {
-      "text": "İlk olarak kabinde tam oturup alınan polyester tişört sporda vücut teriyle doğrudan buluşuyor.",
-      "start": 11.712,
-      "dur": 6.21
-    },
-    {
-      "text": "Salgılanan ter aslında kokusuzdur fakat cildimizdeki bakteriler yağları parçalayarak kötü kokuyu hemen üretir.",
-      "start": 17.922,
-      "dur": 7.267
-    },
-    {
-      "text": "Sentetik lifler suyu sevmez ama yağı tutar ve bakteriler orada dirençli biyofilm tabakası oluşturur.",
-      "start": 25.189,
+      "text": "Mendil kiri sadece yüzünüze sıvayıp bırakırken, yağ bazlı temizleyici gözeneklerin içine kadar nüfuz eder.",
+      "start": 12.44,
       "dur": 6.606
     },
     {
-      "text": "Standart yıkama bu yağlı tabakayı sökemez ve tişört ısındığı an o koku tekrar yayılır.",
-      "start": 31.795,
-      "dur": 5.681
+      "text": "Sert mendil lifleri cildi zımparalayıp kızartırken, temizleme yağı sıfır sürtünmeyle nazikçe kayıp gider.",
+      "start": 19.046,
+      "dur": 6.544
     },
     {
-      "text": "Kabin iltifatı harikaydı ama spor kıyafetlerinde sporda kokmayan doğal karışımlı kumaşları seçmek lazım.",
-      "start": 37.476,
-      "dur": 7.97
+      "text": "Mendilin bıraktığı o yapışkan tabaka gece flaşında parıldarken, diğeri pürüzsüz ve mat görünüm sağlar.",
+      "start": 25.59,
+      "dur": 6.357
+    },
+    {
+      "text": "Mendil yatakta saniyeler sürse de, banyoya gitmeye üşenmemek sabah pürüzsüz uyanmanın tek sırrıdır.",
+      "start": 31.946,
+      "dur": 6.17
+    },
+    {
+      "text": "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her zaman mahkum olursun.",
+      "start": 38.116,
+      "dur": 7.332
     }
-  ],
-  "thumbOffset": 1450
+  ]
 }

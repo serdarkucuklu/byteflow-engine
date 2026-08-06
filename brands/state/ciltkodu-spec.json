@@ -1,61 +1,67 @@
 {
-  "hook": "Abla bu sana birebir dedi ama primer yüzünde soyuluyor.",
-  "title": "Silikonlu Primer vs Su Bazlı Primer",
+  "hook": "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklı",
+  "title": "Makyaj Temizleme Mendili vs Çift Aşama",
   "scenes": [
     {
-      "layout": "vertical-stack",
+      "layout": "hub-spoke",
       "kind": "versus",
-      "left": "SİLİKONLU PRİMER",
-      "right": "SU BAZLI PRİMER",
+      "left": "TEMİZLEME MENDİLİ",
+      "right": "ÇİFT AŞAMALI TEMİZLİK",
       "rows": [
         {
-          "label": "ANA İÇERİK",
-          "left": "Silikon ve Dimethicone",
-          "right": "Su ve Hümektanlar",
-          "winner": "tie"
+          "label": "KİRİ ÇÖZME GÜCÜ",
+          "left": "Sadece yüzeye yayar",
+          "right": "Yağ gözenekten çeker",
+          "winner": "right"
         },
         {
-          "label": "FONDÖTEN UYUMU",
-          "left": "Silikon bazlı fondöten",
-          "right": "Su ve yağsız fondöten",
-          "winner": "tie"
+          "label": "TAHRİŞ ETME ORANI",
+          "left": "Sürtünmeyle kızarıklık",
+          "right": "Sıfır sürtünme konforu",
+          "winner": "right"
         },
         {
-          "label": "SOYULMA SEBEBİ",
-          "left": "Su bazlı nemlendirici üstü",
-          "right": "Ağır yağlı kremler üstü",
-          "winner": "tie"
+          "label": "FOTOĞRAF FLAŞI ETKİSİ",
+          "left": "Kalan artıklar parlar",
+          "right": "Temiz ve mat görünüm",
+          "winner": "right"
+        },
+        {
+          "label": "ÜŞENGEÇLİK SKORU",
+          "left": "Yatakta 10 saniye",
+          "right": "Banyoya gitmek şart",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "Kozmetik reyonunda \"abla bu ikisi birlikte mucize yaratıyor\" lafına inanıp aldığın primer soyuluyorsa suç cildinde değil, kimyada.\n\nMakyaj bazı ve fondöten uyumsuzluğu neden soyulma yapar, adım adım:\n\n1. Silikon Primer Yapısı — Dimethicone gibi bileşenler cilt yüzeyinde kaygan bir katman oluşturur, gözenekleri doldurur.\n2. Su Bazlı Primer Yapısı — Su ve nem tutucularla cildi tazeler, yağ hissi bırakmadan hafif tutunma sağlar.\n3. Karşılaşma Kimyası — Su ve silikon birbiriyle karışmaz. Su bazlı nemlendiricinin üzerine silikon baz sürdüğünde ürün cilde tutunamaz ve silgi gibi dökülür.\n\nSatın alırken marka vaadine değil, primer ve fondöteninin ilk üç içerik maddesine bak; ikisi de aynı bazda olmalı.\n\nReyon danışmanı ne derse desin, kimya yasalarını değiştiremiyor.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n🔁 Bunu reyondan tek pamuk alacakken üç farklı primerla çıkan arkadaşına gönder.\nMakyajın en çok hangi adımda soyuluyor: primerda mı fondötende mi?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Filtresiz gece fotoğraflarında hortlak gibi parlamaktan bıktıysanız, aradığınız suçlu başucunuzda duruyor.\n\nMakyaj temizleme mendili vs Çift aşamalı temizlik savaşı başlıyor:\n\n1. Kiri Çözme Gücü: Temizleme mendilleri makyajı çözmez, sadece yüzeyde sağa sola sıvar. Yağ bazlı temizleyici ise gözeneklerin içine girerek sebumu ve makyajı kelimenin tam anlamıyla eritir.\n2. Tahriş Etme Oranı: Mendilin o pürüzlü liflerini yüzünüze hunharca sürtmek cildinizi zımparalamaktan farksızdır. Temizleme yağı ise sürtünmesizce kayar, cildi hırpalamaz.\n3. Flaş Etkisi: Mendilin geride bıraktığı yapışkan temizleyici artıkları, gece flaşlı bir fotoğraf çekildiğinde ışığı yansıtıp sizi parıl parıl parlatır. Çift temizlik ise pürüzsüz ve doğal bir matlık bırakır.\n4. Üşengeçlik Skoru: Evet, yatakta 10 saniyede mendille silmek aşırı pratik görünüyor ama banyoya gidip o yağı suyla arındırmak ertesi gün temiz bir ciltle uyanmanın tek yoludur.\n\nMakyaj temizliğinde önemli olan hız değil, formülün gözenekteki yağı çözebilme yeteneğidir.\n\nMendille silip yatıp sonra o flaşlı fotoğrafta beni niye böyle çektin diye arkadaşına trip atma.\n\n📌 Kaydet — üşendiğin o gece bu gerçekleri hatırla.\n\n🔁 Bunu seni her filtresiz fotoğrafta acımadan etiketleyen o arkadaşına gönder.\n\nSen hangisisin: Yatakta mendille silen mi, banyoya üşenmeyen mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#makyaj",
     "#guzellik",
-    "#primer",
-    "#fondoten",
+    "#makyajtemizleme",
+    "#ciftasamalitemizlik",
     "#makyajonerileri",
-    "#kozmetik"
+    "#temizlemeyagi"
   ],
-  "takeaway": "Ablaya güvenme, içerik listesindeki silikon sırasına bak.",
+  "takeaway": "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her z",
   "footage_queries": [
-    "liquid foundation swatch",
-    "makeup brushes flat lay"
+    "oil and water macro",
+    "clean bathroom tiles light"
   ],
   "narration": [
-    "Reyonda abla bu primer sana birebir dedi ama makyajın öğlen soyulmaya başladı.",
-    "Pazarlamacıların mutlaka birlikte kullanın dediği iki primer çeşidini içerik olarak kafa kafaya kıyaslıyoruz.",
-    "Silikonlu primer gözenekleri doldururken su bazlı primer cilde hafif nem ve tazelik katıyor.",
-    "Aynı yapıdaki fondötenle birleşince silikon harika tutunurken su bazlı ürün doğal görünüm veriyor.",
-    "Su bazlı kremin üstüne silikon primer sürerseniz ürünler birbirini itip silgi gibi dökülüyor.",
-    "Reyondaki tavsiyeye değil ürünlerin baz uyumuna bakarak makyajının soyulmasını tamamen engellemek senin elinde."
+    "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklıyorum, toplanın kızlar.",
+    "Makyajı alelacele temizleme mendiliyle silip yatmakla çift aşamalı temizliği bugün karşılaştırıyoruz.",
+    "Mendil kiri sadece yüzünüze sıvayıp bırakırken, yağ bazlı temizleyici gözeneklerin içine kadar nüfuz eder.",
+    "Sert mendil lifleri cildi zımparalayıp kızartırken, temizleme yağı sıfır sürtünmeyle nazikçe kayıp gider.",
+    "Mendilin bıraktığı o yapışkan tabaka gece flaşında parıldarken, diğeri pürüzsüz ve mat görünüm sağlar.",
+    "Mendil yatakta saniyeler sürse de, banyoya gitmeye üşenmemek sabah pürüzsüz uyanmanın tek sırrıdır.",
+    "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her zaman mahkum olursun."
   ],
-  "subject": "primer",
-  "sendTo": "reyondan tek pamuk alacakken üç farklı primerla çıkan arkadaşına",
-  "soru": "Makyajın en çok hangi adımda soyuluyor: primerda mı fondötende mi?",
-  "theme": "#c9a227",
+  "subject": "makyaj temizleme",
+  "sendTo": "seni her filtresiz fotoğrafta acımadan etiketleyen o arkadaşına",
+  "soru": "Sen hangisisin: Yatakta mendille silen mi, banyoya üşenmeyen mi?",
+  "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -69,38 +75,43 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "camera",
   "footage": true,
   "beats": [
     {
-      "text": "Reyonda abla bu primer sana birebir dedi ama makyajın öğlen soyulmaya başladı.",
+      "text": "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklıyorum, toplanın kızlar.",
       "start": 0.35,
-      "dur": 5.264
+      "dur": 5.796
     },
     {
-      "text": "Pazarlamacıların mutlaka birlikte kullanın dediği iki primer çeşidini içerik olarak kafa kafaya kıyaslıyoruz.",
-      "start": 5.614,
-      "dur": 7.356
+      "text": "Makyajı alelacele temizleme mendiliyle silip yatmakla çift aşamalı temizliği bugün karşılaştırıyoruz.",
+      "start": 6.146,
+      "dur": 6.294
     },
     {
-      "text": "Silikonlu primer gözenekleri doldururken su bazlı primer cilde hafif nem ve tazelik katıyor.",
-      "start": 12.97,
-      "dur": 6.209
+      "text": "Mendil kiri sadece yüzünüze sıvayıp bırakırken, yağ bazlı temizleyici gözeneklerin içine kadar nüfuz eder.",
+      "start": 12.44,
+      "dur": 6.606
     },
     {
-      "text": "Aynı yapıdaki fondötenle birleşince silikon harika tutunurken su bazlı ürün doğal görünüm veriyor.",
-      "start": 19.179,
-      "dur": 6.614
+      "text": "Sert mendil lifleri cildi zımparalayıp kızartırken, temizleme yağı sıfır sürtünmeyle nazikçe kayıp gider.",
+      "start": 19.046,
+      "dur": 6.544
     },
     {
-      "text": "Su bazlı kremin üstüne silikon primer sürerseniz ürünler birbirini itip silgi gibi dökülüyor.",
-      "start": 25.793,
-      "dur": 6.276
+      "text": "Mendilin bıraktığı o yapışkan tabaka gece flaşında parıldarken, diğeri pürüzsüz ve mat görünüm sağlar.",
+      "start": 25.59,
+      "dur": 6.357
     },
     {
-      "text": "Reyondaki tavsiyeye değil ürünlerin baz uyumuna bakarak makyajının soyulmasını tamamen engellemek senin elinde.",
-      "start": 32.07,
-      "dur": 8.591
+      "text": "Mendil yatakta saniyeler sürse de, banyoya gitmeye üşenmemek sabah pürüzsüz uyanmanın tek sırrıdır.",
+      "start": 31.946,
+      "dur": 6.17
+    },
+    {
+      "text": "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her zaman mahkum olursun.",
+      "start": 38.116,
+      "dur": 7.332
     }
   ],
   "thumbOffset": 1450

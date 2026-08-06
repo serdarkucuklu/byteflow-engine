@@ -457,5 +457,24 @@
     "durSec": 40.6,
     "mediaId": "17979142419073946",
     "postedAt": "2026-08-05T16:56:09.404Z"
+  },
+  {
+    "title": "Makyaj Temizleme Mendili vs Çift Aşama",
+    "subject": "makyaj temizleme",
+    "twist": "on-kamera",
+    "pillar": "temizleme",
+    "layout": "hub-spoke",
+    "kinds": "versus",
+    "motion": "camera",
+    "theme": "#e8a0a8",
+    "source": "gemini",
+    "footage": [
+      "pexels:oil and water macro",
+      "pexels:clean bathroom tiles light"
+    ],
+    "voice": 7,
+    "voiceName": "Kore",
+    "date": "2026-08-06",
+    "durSec": 45.4
   }
 ]
