@@ -84,21 +84,22 @@
     "postedAt": "2026-08-05T18:55:49.287Z"
   },
   {
-    "title": "Spor Kıyafetleri Yıkanınca Bile Neden Kokar?",
-    "subject": "ter kokusu",
-    "twist": "magaza-danismani",
-    "pillar": "ter-kokusu",
-    "layout": "nodes-flow",
+    "title": "Aynı Kazağı Giymekten Koku Körü Olma Döngüsü",
+    "subject": "koku körlüğü",
+    "twist": "kombin-yalani",
+    "pillar": "koku-korlugu",
+    "layout": "cycle",
     "kinds": "diagram",
     "motion": "sketch",
     "theme": "#8fd0ff",
     "source": "gemini",
     "footage": [
-      "pexels:clothing label tag close up",
-      "pexels:washing machine drum spinning"
+      "pexels:wardrobe interior minimal",
+      "pexels:clothing label tag close up"
     ],
     "voice": 7,
     "voiceName": "Aoede",
+    "not": "Daha komik konu olmalı",
     "date": "2026-08-06",
     "durSec": 45.4
   }

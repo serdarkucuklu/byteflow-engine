@@ -1,87 +1,87 @@
 {
-  "hook": "Mağazada 'tam sizlik' denen o spor tişört neden hep kokar?",
-  "title": "Spor Kıyafetleri Yıkanınca Bile Neden Kokar?",
+  "hook": "Dolabın kıyafetten çökecek gibidir ama koku körü olursun.",
+  "title": "Aynı Kazağı Giymekten Koku Körü Olma Döngüsü",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "diagram",
+      "layout": "cycle",
       "nodes": [
         {
-          "id": "n1",
-          "label": "SENTETİK KUMAŞ"
+          "id": "YATAN_YATIRIMLAR",
+          "label": "YATAN YATIRIMLAR"
         },
         {
-          "id": "n2",
-          "label": "TER VE BAKTERİ"
+          "id": "KADROLU_KOMBIN",
+          "label": "KADROLU KOMBİN"
         },
         {
-          "id": "n3",
-          "label": "BİYOFİLM YUVASI"
+          "id": "BODRUM_PARFUMU",
+          "label": "BODRUM PARFÜMÜ"
         },
         {
-          "id": "n4",
-          "label": "YIKAMA HIZI"
+          "id": "KOKU_KORLUGU",
+          "label": "KOKU KÖRLÜĞÜ"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "SATIŞ",
-          "status": "kabinde harika durdu ama terle buluştu",
+          "from": "YATAN_YATIRIMLAR",
+          "to": "KADROLU_KOMBIN",
+          "packet": "GİYSİ",
+          "status": "dolap doludur ama siyah kazak seçilir",
+          "color": "warn"
+        },
+        {
+          "from": "KADROLU_KOMBIN",
+          "to": "BODRUM_PARFUMU",
+          "packet": "FISFIS",
+          "status": "üçüncü gün giyildiğini gizleme çabası",
           "color": "accent"
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "TER",
-          "status": "bakteri yağı sevdi lif arasına girdi",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "YUVA",
-          "status": "biyofilm tabakası kumaşa iyice yapıştı",
-          "color": "warn"
-        },
-        {
-          "from": "n4",
-          "to": "n1",
-          "packet": "KOKU",
-          "status": "deterjan lifi temizlemedi koku kaldı",
+          "from": "BODRUM_PARFUMU",
+          "to": "KOKU_KORLUGU",
+          "packet": "BURUN",
+          "status": "beyin sürekli gelen kokuyu filtreler",
           "color": "good"
+        },
+        {
+          "from": "KOKU_KORLUGU",
+          "to": "YATAN_YATIRIMLAR",
+          "packet": "DÖNGÜ",
+          "status": "kendimiz duymadıkça daha çok sıkarız",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Kabin kapısında 'üstünüzde harika durdu' iltifatıyla aldığımız o spor üstün ikinci kullanımda kokma sebebi:\n\n1. Sentetik kumaş: Mağazada duruşu dik ve şık olan polyester lifler, hidrofobiktir yani suyu sevmez ama vücut yağını çeker.\n2. Ter ve bakteri: Terin kendisi Aslında kokusuzdur. Ancak ciltteki bakteriler terdeki yağları sindirirken koku molekülleri üretir.\n3. Biyofilm oluşumu: Bakteriler polyester liflerin arasına tutunup koruyucu bir biyofilm tabakası kurar.\n4. Yıkama yetersizliği: Düşük derecede yapılan standart yıkama suyu bu yağlı tabakayı sökemez, tişört giyilip ısındığı an koku canlanır.\n\nSpor alışverişinde kumaşın sadece görünüşüne değil, nefes alabilir ve doğal lif karışımlı olup olmadığına bakmak gerekir.\n\nKabindeki üç dakikalık iltifata kandık ama bakteriler o tişörtü çoktan sahiplendi.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu mağazadan tek tişörtle çıkamayıp kasada yakalanan arkadaşına gönder.\nSenin de yıkandığı halde kokusu çıkmayan o tek spor üstün var mı?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Dolap tıka basa doluyken her gün aynı kazağı giyip koku körü olmak...\n\nGardırop krizi ve burun reseptörlerinin dramatik savaşı adım adım şöyle ilerliyor:\n\n1. Yatan Yatırımlar: Askıda bekleyen o şık elbiseler, ütü isteyen gömlekler ve 'bunun altına ne giyeceğim' dediğin her şey dolapta çürürken yine en kolayına kaçarsın.\n2. Kadrolu Kombin: Üç gün üst üste giyilmiş o siyah kazak artık senin üniformandır. Ama üst üste giyildiğinde oluşan o hafif bayat kokuyu kamufle etmen gerekir.\n3. Bodrum Parfümü: Çözümü kazağı yıkamakta değil, üzerine yarım şişe parfüm boşaltmakta bulursun. İşte burada koku reseptörlerin devreye girer.\n4. Koku Körlüğü (Duyusal Alışma): Burnundaki koku reseptörleri sürekli aynı yoğun uyarıcıya maruz kaldığında beynin bu kokuyu 'tehlikesiz arka plan gürültüsü' olarak kodlar ve filtreler. Sen parfümün uçtuğunu sanıp fıslamaya devam ederken, çevrendekiler oksijen maskesi arar.\n\nKıyafetlerin yıpranmasını önlemek için onları kimyasallarla boğmak yerine havalandırmak en doğrusudur.\n\nÇünkü dolap dolu olsa da o tek kazak bizim kaderimizdir.\n\n📌 Kaydet — sabah ne giyeceğini düşünürken aklına gelsin.\n\n🔁 Bunu dolabı doluyken her sabah giyecek bir şey bulamayan arkadaşına gönder.\n\nSen dürüst ol: Dolabındaki kıyafetlerin yüzde kaçını giyiyorsun?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#giyim",
-    "#alışveriş",
-    "#kumaş",
-    "#sporkıyafetleri",
+    "#moda",
+    "#gardırop",
     "#giyimtüyoları",
-    "#terkokusu",
-    "#polyester"
+    "#kombin",
+    "#koku",
+    "#parfüm",
+    "#dolaptablosu",
+    "#pilling"
   ],
-  "takeaway": "Kabindeki iltifata kandık ama bakteriler o polyesteri çoktan sahiplendi.",
+  "takeaway": "Dolap kıyafet doludur ama bizim payımıza tüm mahalleyi zehirlemek düşer.",
   "footage_queries": [
-    "clothing label tag close up",
-    "washing machine drum spinning"
+    "wardrobe interior minimal",
+    "clothing label tag close up"
   ],
   "narration": [
-    "Kabin kapısında çok güzel durdu denerek alınan o spor üst neden yıkanınca kokar?",
-    "Mağaza danışmanının övgüsüyle başlayan bu süreçte polyester kumaş ve bakteriler rol oynuyor.",
-    "İlk olarak kabinde tam oturup alınan polyester tişört sporda vücut teriyle doğrudan buluşuyor.",
-    "Salgılanan ter aslında kokusuzdur fakat cildimizdeki bakteriler yağları parçalayarak kötü kokuyu hemen üretir.",
-    "Sentetik lifler suyu sevmez ama yağı tutar ve bakteriler orada dirençli biyofilm tabakası oluşturur.",
-    "Standart yıkama bu yağlı tabakayı sökemez ve tişört ısındığı an o koku tekrar yayılır.",
-    "Kabin iltifatı harikaydı ama spor kıyafetlerinde sporda kokmayan doğal karışımlı kumaşları seçmek lazım."
+    "Dolabın kıyafetten çökecek gibidir ama sen yine o tek kazağa sığınıp koku körü olursun.",
+    "Bu kısır döngü her sabah yatağın üzerine kıyafet fırlatırken tam olarak şöyle çalışıyor.",
+    "İlk önce yüzlerce liralık yatırımları es geçip o kadrolu siyah kazağını dolaptan çıkarırsın.",
+    "Dün de bunu giydiğini saklamak için üstüne yarım şişe ağır parfümü boca edersin.",
+    "Burnundaki koku reseptörleri sürekli aynı uyaranı alınca kendilerini korumak için hemen istifa ederler.",
+    "Sen artık kokmadığını sanıp daha çok sıkarsın ama çevredekiler kimyasal gaz saldırısına uğrar.",
+    "Dolabın kıyafet doludur ama senin payına düşen yine tüm mahalleyi parfümle zehirlemektir."
   ],
-  "subject": "ter kokusu",
-  "sendTo": "mağazadan tek tişörtle çıkamayıp kasada yakalanan arkadaşına",
-  "soru": "Senin de yıkandığı halde kokusu çıkmayan o tek spor üstün var mı?",
+  "subject": "koku körlüğü",
+  "sendTo": "dolabı doluyken her sabah giyecek bir şey bulamayan arkadaşına",
+  "soru": "Sen dürüst ol: Dolabındaki kıyafetlerin yüzde kaçını giyiyorsun?",
   "theme": "#8fd0ff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -100,39 +100,39 @@
   "footage": true,
   "beats": [
     {
-      "text": "Kabin kapısında çok güzel durdu denerek alınan o spor üst neden yıkanınca kokar?",
+      "text": "Dolabın kıyafetten çökecek gibidir ama sen yine o tek kazağa sığınıp koku körü olursun.",
       "start": 0.35,
-      "dur": 5.285
+      "dur": 6.049
     },
     {
-      "text": "Mağaza danışmanının övgüsüyle başlayan bu süreçte polyester kumaş ve bakteriler rol oynuyor.",
-      "start": 5.635,
-      "dur": 6.078
+      "text": "Bu kısır döngü her sabah yatağın üzerine kıyafet fırlatırken tam olarak şöyle çalışıyor.",
+      "start": 6.399,
+      "dur": 6.119
     },
     {
-      "text": "İlk olarak kabinde tam oturup alınan polyester tişört sporda vücut teriyle doğrudan buluşuyor.",
-      "start": 11.712,
-      "dur": 6.21
+      "text": "İlk önce yüzlerce liralık yatırımları es geçip o kadrolu siyah kazağını dolaptan çıkarırsın.",
+      "start": 12.518,
+      "dur": 6.397
     },
     {
-      "text": "Salgılanan ter aslında kokusuzdur fakat cildimizdeki bakteriler yağları parçalayarak kötü kokuyu hemen üretir.",
-      "start": 17.922,
-      "dur": 7.267
+      "text": "Dün de bunu giydiğini saklamak için üstüne yarım şişe ağır parfümü boca edersin.",
+      "start": 18.916,
+      "dur": 5.563
     },
     {
-      "text": "Sentetik lifler suyu sevmez ama yağı tutar ve bakteriler orada dirençli biyofilm tabakası oluşturur.",
-      "start": 25.189,
-      "dur": 6.606
+      "text": "Burnundaki koku reseptörleri sürekli aynı uyaranı alınca kendilerini korumak için hemen istifa ederler.",
+      "start": 24.478,
+      "dur": 7.162
     },
     {
-      "text": "Standart yıkama bu yağlı tabakayı sökemez ve tişört ısındığı an o koku tekrar yayılır.",
-      "start": 31.795,
-      "dur": 5.681
+      "text": "Sen artık kokmadığını sanıp daha çok sıkarsın ama çevredekiler kimyasal gaz saldırısına uğrar.",
+      "start": 31.64,
+      "dur": 6.536
     },
     {
-      "text": "Kabin iltifatı harikaydı ama spor kıyafetlerinde sporda kokmayan doğal karışımlı kumaşları seçmek lazım.",
-      "start": 37.476,
-      "dur": 7.97
+      "text": "Dolabın kıyafet doludur ama senin payına düşen yine tüm mahalleyi parfümle zehirlemektir.",
+      "start": 38.177,
+      "dur": 7.289
     }
   ],
   "thumbOffset": 1450

@@ -1,117 +1,138 @@
 {
-  "hook": "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklı",
-  "title": "Makyaj Temizleme Mendili vs Çift Aşama",
+  "hook": "Dolabın kıyafetten çökecek gibidir ama koku körü olursun.",
+  "title": "Aynı Kazağı Giymekten Koku Körü Olma Döngüsü",
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "kind": "versus",
-      "left": "TEMİZLEME MENDİLİ",
-      "right": "ÇİFT AŞAMALI TEMİZLİK",
-      "rows": [
+      "layout": "cycle",
+      "nodes": [
         {
-          "label": "KİRİ ÇÖZME GÜCÜ",
-          "left": "Sadece yüzeye yayar",
-          "right": "Yağ gözenekten çeker",
-          "winner": "right"
+          "id": "YATAN_YATIRIMLAR",
+          "label": "YATAN YATIRIMLAR"
         },
         {
-          "label": "TAHRİŞ ETME ORANI",
-          "left": "Sürtünmeyle kızarıklık",
-          "right": "Sıfır sürtünme konforu",
-          "winner": "right"
+          "id": "KADROLU_KOMBIN",
+          "label": "KADROLU KOMBİN"
         },
         {
-          "label": "FOTOĞRAF FLAŞI ETKİSİ",
-          "left": "Kalan artıklar parlar",
-          "right": "Temiz ve mat görünüm",
-          "winner": "right"
+          "id": "BODRUM_PARFUMU",
+          "label": "BODRUM PARFÜMÜ"
         },
         {
-          "label": "ÜŞENGEÇLİK SKORU",
-          "left": "Yatakta 10 saniye",
-          "right": "Banyoya gitmek şart",
-          "winner": "left"
+          "id": "KOKU_KORLUGU",
+          "label": "KOKU KÖRLÜĞÜ"
+        }
+      ],
+      "steps": [
+        {
+          "from": "YATAN_YATIRIMLAR",
+          "to": "KADROLU_KOMBIN",
+          "packet": "GİYSİ",
+          "status": "dolap doludur ama siyah kazak seçilir",
+          "color": "warn"
+        },
+        {
+          "from": "KADROLU_KOMBIN",
+          "to": "BODRUM_PARFUMU",
+          "packet": "FISFIS",
+          "status": "üçüncü gün giyildiğini gizleme çabası",
+          "color": "accent"
+        },
+        {
+          "from": "BODRUM_PARFUMU",
+          "to": "KOKU_KORLUGU",
+          "packet": "BURUN",
+          "status": "beyin sürekli gelen kokuyu filtreler",
+          "color": "good"
+        },
+        {
+          "from": "KOKU_KORLUGU",
+          "to": "YATAN_YATIRIMLAR",
+          "packet": "DÖNGÜ",
+          "status": "kendimiz duymadıkça daha çok sıkarız",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Filtresiz gece fotoğraflarında hortlak gibi parlamaktan bıktıysanız, aradığınız suçlu başucunuzda duruyor.\n\nMakyaj temizleme mendili vs Çift aşamalı temizlik savaşı başlıyor:\n\n1. Kiri Çözme Gücü: Temizleme mendilleri makyajı çözmez, sadece yüzeyde sağa sola sıvar. Yağ bazlı temizleyici ise gözeneklerin içine girerek sebumu ve makyajı kelimenin tam anlamıyla eritir.\n2. Tahriş Etme Oranı: Mendilin o pürüzlü liflerini yüzünüze hunharca sürtmek cildinizi zımparalamaktan farksızdır. Temizleme yağı ise sürtünmesizce kayar, cildi hırpalamaz.\n3. Flaş Etkisi: Mendilin geride bıraktığı yapışkan temizleyici artıkları, gece flaşlı bir fotoğraf çekildiğinde ışığı yansıtıp sizi parıl parıl parlatır. Çift temizlik ise pürüzsüz ve doğal bir matlık bırakır.\n4. Üşengeçlik Skoru: Evet, yatakta 10 saniyede mendille silmek aşırı pratik görünüyor ama banyoya gidip o yağı suyla arındırmak ertesi gün temiz bir ciltle uyanmanın tek yoludur.\n\nMakyaj temizliğinde önemli olan hız değil, formülün gözenekteki yağı çözebilme yeteneğidir.\n\nMendille silip yatıp sonra o flaşlı fotoğrafta beni niye böyle çektin diye arkadaşına trip atma.\n\n📌 Kaydet — üşendiğin o gece bu gerçekleri hatırla.\n\n🔁 Bunu seni her filtresiz fotoğrafta acımadan etiketleyen o arkadaşına gönder.\n\nSen hangisisin: Yatakta mendille silen mi, banyoya üşenmeyen mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Dolap tıka basa doluyken her gün aynı kazağı giyip koku körü olmak...\n\nGardırop krizi ve burun reseptörlerinin dramatik savaşı adım adım şöyle ilerliyor:\n\n1. Yatan Yatırımlar: Askıda bekleyen o şık elbiseler, ütü isteyen gömlekler ve 'bunun altına ne giyeceğim' dediğin her şey dolapta çürürken yine en kolayına kaçarsın.\n2. Kadrolu Kombin: Üç gün üst üste giyilmiş o siyah kazak artık senin üniformandır. Ama üst üste giyildiğinde oluşan o hafif bayat kokuyu kamufle etmen gerekir.\n3. Bodrum Parfümü: Çözümü kazağı yıkamakta değil, üzerine yarım şişe parfüm boşaltmakta bulursun. İşte burada koku reseptörlerin devreye girer.\n4. Koku Körlüğü (Duyusal Alışma): Burnundaki koku reseptörleri sürekli aynı yoğun uyarıcıya maruz kaldığında beynin bu kokuyu 'tehlikesiz arka plan gürültüsü' olarak kodlar ve filtreler. Sen parfümün uçtuğunu sanıp fıslamaya devam ederken, çevrendekiler oksijen maskesi arar.\n\nKıyafetlerin yıpranmasını önlemek için onları kimyasallarla boğmak yerine havalandırmak en doğrusudur.\n\nÇünkü dolap dolu olsa da o tek kazak bizim kaderimizdir.\n\n📌 Kaydet — sabah ne giyeceğini düşünürken aklına gelsin.\n\n🔁 Bunu dolabı doluyken her sabah giyecek bir şey bulamayan arkadaşına gönder.\n\nSen dürüst ol: Dolabındaki kıyafetlerin yüzde kaçını giyiyorsun?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#guzellik",
-    "#makyajtemizleme",
-    "#ciftasamalitemizlik",
-    "#makyajonerileri",
-    "#temizlemeyagi"
+    "#moda",
+    "#gardırop",
+    "#giyimtüyoları",
+    "#kombin",
+    "#koku",
+    "#parfüm",
+    "#dolaptablosu",
+    "#pilling"
   ],
-  "takeaway": "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her z",
+  "takeaway": "Dolap kıyafet doludur ama bizim payımıza tüm mahalleyi zehirlemek düşer.",
   "footage_queries": [
-    "oil and water macro",
-    "clean bathroom tiles light"
+    "wardrobe interior minimal",
+    "clothing label tag close up"
   ],
   "narration": [
-    "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklıyorum, toplanın kızlar.",
-    "Makyajı alelacele temizleme mendiliyle silip yatmakla çift aşamalı temizliği bugün karşılaştırıyoruz.",
-    "Mendil kiri sadece yüzünüze sıvayıp bırakırken, yağ bazlı temizleyici gözeneklerin içine kadar nüfuz eder.",
-    "Sert mendil lifleri cildi zımparalayıp kızartırken, temizleme yağı sıfır sürtünmeyle nazikçe kayıp gider.",
-    "Mendilin bıraktığı o yapışkan tabaka gece flaşında parıldarken, diğeri pürüzsüz ve mat görünüm sağlar.",
-    "Mendil yatakta saniyeler sürse de, banyoya gitmeye üşenmemek sabah pürüzsüz uyanmanın tek sırrıdır.",
-    "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her zaman mahkum olursun."
+    "Dolabın kıyafetten çökecek gibidir ama sen yine o tek kazağa sığınıp koku körü olursun.",
+    "Bu kısır döngü her sabah yatağın üzerine kıyafet fırlatırken tam olarak şöyle çalışıyor.",
+    "İlk önce yüzlerce liralık yatırımları es geçip o kadrolu siyah kazağını dolaptan çıkarırsın.",
+    "Dün de bunu giydiğini saklamak için üstüne yarım şişe ağır parfümü boca edersin.",
+    "Burnundaki koku reseptörleri sürekli aynı uyaranı alınca kendilerini korumak için hemen istifa ederler.",
+    "Sen artık kokmadığını sanıp daha çok sıkarsın ama çevredekiler kimyasal gaz saldırısına uğrar.",
+    "Dolabın kıyafet doludur ama senin payına düşen yine tüm mahalleyi parfümle zehirlemektir."
   ],
-  "subject": "makyaj temizleme",
-  "sendTo": "seni her filtresiz fotoğrafta acımadan etiketleyen o arkadaşına",
-  "soru": "Sen hangisisin: Yatakta mendille silen mi, banyoya üşenmeyen mi?",
-  "theme": "#e8a0a8",
+  "subject": "koku körlüğü",
+  "sendTo": "dolabı doluyken her sabah giyecek bir şey bulamayan arkadaşına",
+  "soru": "Sen dürüst ol: Dolabındaki kıyafetlerin yüzde kaçını giyiyorsun?",
+  "theme": "#8fd0ff",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "sketch",
   "footage": true,
   "beats": [
     {
-      "text": "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklıyorum, toplanın kızlar.",
+      "text": "Dolabın kıyafetten çökecek gibidir ama sen yine o tek kazağa sığınıp koku körü olursun.",
       "start": 0.35,
-      "dur": 5.796
+      "dur": 6.049
     },
     {
-      "text": "Makyajı alelacele temizleme mendiliyle silip yatmakla çift aşamalı temizliği bugün karşılaştırıyoruz.",
-      "start": 6.146,
-      "dur": 6.294
+      "text": "Bu kısır döngü her sabah yatağın üzerine kıyafet fırlatırken tam olarak şöyle çalışıyor.",
+      "start": 6.399,
+      "dur": 6.119
     },
     {
-      "text": "Mendil kiri sadece yüzünüze sıvayıp bırakırken, yağ bazlı temizleyici gözeneklerin içine kadar nüfuz eder.",
-      "start": 12.44,
-      "dur": 6.606
+      "text": "İlk önce yüzlerce liralık yatırımları es geçip o kadrolu siyah kazağını dolaptan çıkarırsın.",
+      "start": 12.518,
+      "dur": 6.397
     },
     {
-      "text": "Sert mendil lifleri cildi zımparalayıp kızartırken, temizleme yağı sıfır sürtünmeyle nazikçe kayıp gider.",
-      "start": 19.046,
-      "dur": 6.544
+      "text": "Dün de bunu giydiğini saklamak için üstüne yarım şişe ağır parfümü boca edersin.",
+      "start": 18.916,
+      "dur": 5.563
     },
     {
-      "text": "Mendilin bıraktığı o yapışkan tabaka gece flaşında parıldarken, diğeri pürüzsüz ve mat görünüm sağlar.",
-      "start": 25.59,
-      "dur": 6.357
+      "text": "Burnundaki koku reseptörleri sürekli aynı uyaranı alınca kendilerini korumak için hemen istifa ederler.",
+      "start": 24.478,
+      "dur": 7.162
     },
     {
-      "text": "Mendil yatakta saniyeler sürse de, banyoya gitmeye üşenmemek sabah pürüzsüz uyanmanın tek sırrıdır.",
-      "start": 31.946,
-      "dur": 6.17
+      "text": "Sen artık kokmadığını sanıp daha çok sıkarsın ama çevredekiler kimyasal gaz saldırısına uğrar.",
+      "start": 31.64,
+      "dur": 6.536
     },
     {
-      "text": "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her zaman mahkum olursun.",
-      "start": 38.116,
-      "dur": 7.332
+      "text": "Dolabın kıyafet doludur ama senin payına düşen yine tüm mahalleyi parfümle zehirlemektir.",
+      "start": 38.177,
+      "dur": 7.289
     }
   ]
 }
