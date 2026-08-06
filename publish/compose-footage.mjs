@@ -173,15 +173,21 @@ export function countFrames(dir) {
  * verirken yanlış dizin = "hiç kare yok" hatası → burada bir kez çözüyoruz.
  */
 export function findFramesDir(root) {
+  // EN ÇOK PNG içeren klasörü seç, ilk rastlananı DEĞİL. CI'da output/ tertemiz olduğu için
+  // "ilk PNG'li klasör" yetiyordu; geliştirme makinesinde output/ kökünde eski duman testi
+  // kareleri duruyor ve BFS render'ın 2727 karesi yerine o 25 artığı seçip koşuyu düşürüyordu.
+  // Kare dizisi her zaman en kalabalık klasördür — kıyas tek satırda tuzağı kapatıyor.
+  let best = null, bestCount = 0;
   const queue = [root];
   while (queue.length) {
     const dir = queue.shift();
     if (!existsSync(dir)) continue;
     const entries = readdirSync(dir, {withFileTypes: true});
-    if (entries.some(e => e.isFile() && e.name.endsWith('.png'))) return dir;
+    const pngs = entries.filter(e => e.isFile() && e.name.endsWith('.png')).length;
+    if (pngs > bestCount) { best = dir; bestCount = pngs; }
     for (const e of entries) if (e.isDirectory()) queue.push(`${dir}/${e.name}`);
   }
-  return null;
+  return best;
 }
 
 /**

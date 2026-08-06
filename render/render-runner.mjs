@@ -5,6 +5,8 @@ import {existsSync, rmSync, statSync, readFileSync, readdirSync, mkdirSync} from
 import {fileURLToPath} from 'node:url';
 
 const PORT = 9000;
+// RENDER_DEV_HOST='::' (WSL: IPv4 loopback engelli) → bağlantı [::1] üzerinden kurulur.
+const HOST = process.env.RENDER_DEV_HOST === '::' ? '[::1]' : (process.env.RENDER_DEV_HOST || 'localhost');
 const OUT = new URL('./output/project.mp4', import.meta.url);
 const OUT_PATH = fileURLToPath(OUT);
 // Footage modu: spec.footage true ise sahne şeffaf arka planla render edilir ve
@@ -95,10 +97,10 @@ async function main() {
     ],
   });
   try {
-    await waitForServer(`http://localhost:${PORT}/`);
+    await waitForServer(`http://${HOST}:${PORT}/`);
     const page = await browser.newPage();
     page.on('pageerror', err => console.error('[page error]', err.message));
-    await page.goto(`http://localhost:${PORT}/`, {waitUntil: 'domcontentloaded'});
+    await page.goto(`http://${HOST}:${PORT}/`, {waitUntil: 'domcontentloaded'});
     // CI'da ilk vite derlemesi + editör mount yavaş olabilir → 90s.
     await page.waitForSelector('text=Video Settings', {timeout: 90000});
     // Editor mounts its reactive settings a beat after the panel label appears.
