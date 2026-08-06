@@ -1,87 +1,99 @@
 {
-  "hook": "Dolabın kıyafetten çökecek gibidir ama koku körü olursun.",
-  "title": "Aynı Kazağı Giymekten Koku Körü Olma Döngüsü",
+  "hook": "Kabin görevlisinin o meşhur gazıyla alınan gömlek...",
+  "title": "Kabin Gazıyla Alınan Gömleği Pişirme Rehberi",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "nodes-flow",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "YATAN_YATIRIMLAR",
-          "label": "YATAN YATIRIMLAR"
+          "id": "KABIN",
+          "label": "MAĞAZA GAZI"
         },
         {
-          "id": "KADROLU_KOMBIN",
-          "label": "KADROLU KOMBİN"
+          "id": "LEKE",
+          "label": "ORGANİK LEKE"
         },
         {
-          "id": "BODRUM_PARFUMU",
-          "label": "BODRUM PARFÜMÜ"
+          "id": "SICAK",
+          "label": "SICAK SU TUZAĞI"
         },
         {
-          "id": "KOKU_KORLUGU",
-          "label": "KOKU KÖRLÜĞÜ"
+          "id": "REAKSIYON",
+          "label": "YUMURTA ETKİSİ"
+        },
+        {
+          "id": "SABIT",
+          "label": "EBEDİ DOSYA"
         }
       ],
       "steps": [
         {
-          "from": "YATAN_YATIRIMLAR",
-          "to": "KADROLU_KOMBIN",
-          "packet": "GİYSİ",
-          "status": "dolap doludur ama siyah kazak seçilir",
-          "color": "warn"
-        },
-        {
-          "from": "KADROLU_KOMBIN",
-          "to": "BODRUM_PARFUMU",
-          "packet": "FISFIS",
-          "status": "üçüncü gün giyildiğini gizleme çabası",
+          "from": "KABIN",
+          "to": "LEKE",
+          "packet": "GÖMLEK",
+          "status": "kabin görevlisinin gazıyla kart çekildi",
           "color": "accent"
         },
         {
-          "from": "BODRUM_PARFUMU",
-          "to": "KOKU_KORLUGU",
-          "packet": "BURUN",
-          "status": "beyin sürekli gelen kokuyu filtreler",
-          "color": "good"
+          "from": "LEKE",
+          "to": "SICAK",
+          "packet": "TER",
+          "status": "ilk terlemede yaka protein doldu",
+          "color": "warn"
         },
         {
-          "from": "KOKU_KORLUGU",
-          "to": "YATAN_YATIRIMLAR",
-          "packet": "DÖNGÜ",
-          "status": "kendimiz duymadıkça daha çok sıkarız",
+          "from": "SICAK",
+          "to": "REAKSIYON",
+          "packet": "KAYNAR",
+          "status": "temizlensin diye kaynar suya atıldı",
           "color": "warn"
+        },
+        {
+          "from": "REAKSIYON",
+          "to": "SABIT",
+          "packet": "KİMYA",
+          "status": "sıcak su proteinleri liflere pişirdi",
+          "color": "warn"
+        },
+        {
+          "from": "SABIT",
+          "to": "KABIN",
+          "packet": "TEKRAR",
+          "status": "gömlek çöp oldu, yeni kabine girildi",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Dolap tıka basa doluyken her gün aynı kazağı giyip koku körü olmak...\n\nGardırop krizi ve burun reseptörlerinin dramatik savaşı adım adım şöyle ilerliyor:\n\n1. Yatan Yatırımlar: Askıda bekleyen o şık elbiseler, ütü isteyen gömlekler ve 'bunun altına ne giyeceğim' dediğin her şey dolapta çürürken yine en kolayına kaçarsın.\n2. Kadrolu Kombin: Üç gün üst üste giyilmiş o siyah kazak artık senin üniformandır. Ama üst üste giyildiğinde oluşan o hafif bayat kokuyu kamufle etmen gerekir.\n3. Bodrum Parfümü: Çözümü kazağı yıkamakta değil, üzerine yarım şişe parfüm boşaltmakta bulursun. İşte burada koku reseptörlerin devreye girer.\n4. Koku Körlüğü (Duyusal Alışma): Burnundaki koku reseptörleri sürekli aynı yoğun uyarıcıya maruz kaldığında beynin bu kokuyu 'tehlikesiz arka plan gürültüsü' olarak kodlar ve filtreler. Sen parfümün uçtuğunu sanıp fıslamaya devam ederken, çevrendekiler oksijen maskesi arar.\n\nKıyafetlerin yıpranmasını önlemek için onları kimyasallarla boğmak yerine havalandırmak en doğrusudur.\n\nÇünkü dolap dolu olsa da o tek kazak bizim kaderimizdir.\n\n📌 Kaydet — sabah ne giyeceğini düşünürken aklına gelsin.\n\n🔁 Bunu dolabı doluyken her sabah giyecek bir şey bulamayan arkadaşına gönder.\n\nSen dürüst ol: Dolabındaki kıyafetlerin yüzde kaçını giyiyorsun?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kabin görevlisinin o meşhur 'size çok yakıştı' büyüsüyle alınan beyaz gömleğin sıcak suyla imtihanı.\n\nProtein lekelerinin kumaşa nasıl kalıcı olarak piştiğini adım adım deşifre ediyoruz:\n\n1. Kabin gazlaması — Mağaza danışmanının 'bu sezonun en hit parçası' övgüsüyle kasaya yönelip bütçeyi aşıyoruz.\n2. Organik leke — Ter, fondöten, süt veya kan gibi lekeler aslında tamamen organik protein moleküllerinden oluşur.\n3. Sıcak temas — Lekeyi hemen yok etmek için yaptığımız en büyük hata, gömleği doğrudan sıcak veya kaynar suya basmaktır.\n4. Pişme reaksiyonu — Sıcak su, protein moleküllerini tıpkı tavaya kırılan bir yumurta gibi katılaştırır ve liflerin arasına kilitler.\n5. Ebedi dosya — Pişen protein artık kumaşın bir parçası olur; gömlek çöp olunca kendimizi yine aynı kabinde yeni bir şeyler denerken buluruz.\n\nLekelerle mücadele ederken ilk kural: Protein lekelerine her zaman soğuk veya ılık suyla müdahale edilir, sıcak su lekeyi sabitler.\n\nKabin ışıkları ve tatlı sözler bizi kandırabilir ama kimya asla yalan söylemez.\n\n📌 Kaydet — bir dahaki leke kazasında hayat kurtaracak.\n\n🔁 Bunu mağazadan planladığından hep fazlasıyla çıkan arkadaşına gönder.\n\nSıcak suyla lekeyi kumaşa sabitleyenlerden misin, dürüst ol?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
+    "#giyim",
     "#moda",
+    "#kumaş",
+    "#temizlik",
     "#gardırop",
     "#giyimtüyoları",
-    "#kombin",
-    "#koku",
-    "#parfüm",
-    "#dolaptablosu",
-    "#pilling"
+    "#leke"
   ],
-  "takeaway": "Dolap kıyafet doludur ama bizim payımıza tüm mahalleyi zehirlemek düşer.",
+  "takeaway": "Lekeye sıcak su dökmek, onu kumaşa ebediyen tapulamaktır.",
   "footage_queries": [
-    "wardrobe interior minimal",
-    "clothing label tag close up"
+    "clothing label tag close up",
+    "washing machine drum spinning"
   ],
   "narration": [
-    "Dolabın kıyafetten çökecek gibidir ama sen yine o tek kazağa sığınıp koku körü olursun.",
-    "Bu kısır döngü her sabah yatağın üzerine kıyafet fırlatırken tam olarak şöyle çalışıyor.",
-    "İlk önce yüzlerce liralık yatırımları es geçip o kadrolu siyah kazağını dolaptan çıkarırsın.",
-    "Dün de bunu giydiğini saklamak için üstüne yarım şişe ağır parfümü boca edersin.",
-    "Burnundaki koku reseptörleri sürekli aynı uyaranı alınca kendilerini korumak için hemen istifa ederler.",
-    "Sen artık kokmadığını sanıp daha çok sıkarsın ama çevredekiler kimyasal gaz saldırısına uğrar.",
-    "Dolabın kıyafet doludur ama senin payına düşen yine tüm mahalleyi parfümle zehirlemektir."
+    "Kabin görevlisinin size çok yakıştı dediği o gömlek ilk günde ter lekesi oldu mu.",
+    "İşte o muhteşem gömleğin dramatik bir sıcak su hatasıyla çöp olma yolculuğu başlıyor.",
+    "Mağaza danışmanının tatlı diliyle aldığımız o beyaz gömleği ilk gün hevesle giyiyoruz.",
+    "Koltuk altı teri veya fondöten lekesi gibi lekeler aslında tamamen organik birer proteindir.",
+    "Biz bu lekeyi çıkarmak için sabırsızca gömleği hemen kaynar sıcak suyun altına tutuyoruz.",
+    "Ancak sıcak su bu organik proteinleri tıpkı tavada pişen yumurta gibi liflere sabitler.",
+    "Kimyasal olarak pişen leke artık o kumaşın kalıcı bir parçası haline gelmiş oluyor.",
+    "Lekeli gömlek çöp olduğu için kendimizi yine aynı kabinde yeni kıyafetler denerken buluyoruz."
   ],
-  "subject": "koku körlüğü",
-  "sendTo": "dolabı doluyken her sabah giyecek bir şey bulamayan arkadaşına",
-  "soru": "Sen dürüst ol: Dolabındaki kıyafetlerin yüzde kaçını giyiyorsun?",
+  "subject": "leke",
+  "sendTo": "mağazadan planladığından hep fazlasıyla çıkan arkadaşına",
+  "soru": "Sıcak suyla lekeyi kumaşa sabitleyenlerden misin, dürüst ol?",
   "theme": "#8fd0ff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -100,39 +112,44 @@
   "footage": true,
   "beats": [
     {
-      "text": "Dolabın kıyafetten çökecek gibidir ama sen yine o tek kazağa sığınıp koku körü olursun.",
+      "text": "Kabin görevlisinin size çok yakıştı dediği o gömlek ilk günde ter lekesi oldu mu.",
       "start": 0.35,
-      "dur": 6.049
+      "dur": 5.122
     },
     {
-      "text": "Bu kısır döngü her sabah yatağın üzerine kıyafet fırlatırken tam olarak şöyle çalışıyor.",
-      "start": 6.399,
-      "dur": 6.119
+      "text": "İşte o muhteşem gömleğin dramatik bir sıcak su hatasıyla çöp olma yolculuğu başlıyor.",
+      "start": 5.472,
+      "dur": 5.375
     },
     {
-      "text": "İlk önce yüzlerce liralık yatırımları es geçip o kadrolu siyah kazağını dolaptan çıkarırsın.",
-      "start": 12.518,
-      "dur": 6.397
+      "text": "Mağaza danışmanının tatlı diliyle aldığımız o beyaz gömleği ilk gün hevesle giyiyoruz.",
+      "start": 10.847,
+      "dur": 5.438
     },
     {
-      "text": "Dün de bunu giydiğini saklamak için üstüne yarım şişe ağır parfümü boca edersin.",
-      "start": 18.916,
-      "dur": 5.563
+      "text": "Koltuk altı teri veya fondöten lekesi gibi lekeler aslında tamamen organik birer proteindir.",
+      "start": 16.285,
+      "dur": 5.818
     },
     {
-      "text": "Burnundaki koku reseptörleri sürekli aynı uyaranı alınca kendilerini korumak için hemen istifa ederler.",
-      "start": 24.478,
-      "dur": 7.162
+      "text": "Biz bu lekeyi çıkarmak için sabırsızca gömleği hemen kaynar sıcak suyun altına tutuyoruz.",
+      "start": 22.103,
+      "dur": 5.628
     },
     {
-      "text": "Sen artık kokmadığını sanıp daha çok sıkarsın ama çevredekiler kimyasal gaz saldırısına uğrar.",
-      "start": 31.64,
-      "dur": 6.536
+      "text": "Ancak sıcak su bu organik proteinleri tıpkı tavada pişen yumurta gibi liflere sabitler.",
+      "start": 27.731,
+      "dur": 5.501
     },
     {
-      "text": "Dolabın kıyafet doludur ama senin payına düşen yine tüm mahalleyi parfümle zehirlemektir.",
-      "start": 38.177,
-      "dur": 7.289
+      "text": "Kimyasal olarak pişen leke artık o kumaşın kalıcı bir parçası haline gelmiş oluyor.",
+      "start": 33.232,
+      "dur": 5.249
+    },
+    {
+      "text": "Lekeli gömlek çöp olduğu için kendimizi yine aynı kabinde yeni kıyafetler denerken buluyoruz.",
+      "start": 38.481,
+      "dur": 6.981
     }
   ]
 }

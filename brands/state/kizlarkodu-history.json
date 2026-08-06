@@ -84,20 +84,20 @@
     "postedAt": "2026-08-05T18:55:49.287Z"
   },
   {
-    "title": "Aynı Kazağı Giymekten Koku Körü Olma Döngüsü",
-    "subject": "koku körlüğü",
-    "twist": "kombin-yalani",
-    "pillar": "koku-korlugu",
-    "layout": "cycle",
+    "title": "Kabin Gazıyla Alınan Gömleği Pişirme Rehberi",
+    "subject": "leke",
+    "twist": "magaza-danismani",
+    "pillar": "leke",
+    "layout": "nodes-flow",
     "kinds": "diagram",
     "motion": "sketch",
     "theme": "#8fd0ff",
     "source": "gemini",
     "footage": [
-      "pexels:wardrobe interior minimal",
-      "pexels:clothing label tag close up"
+      "pexels:clothing label tag close up",
+      "pexels:washing machine drum spinning"
     ],
-    "voice": 7,
+    "voice": 8,
     "voiceName": "Aoede",
     "not": "Daha komik konu olmalı",
     "date": "2026-08-06",
