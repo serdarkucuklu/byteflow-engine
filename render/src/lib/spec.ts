@@ -27,7 +27,14 @@ export const FONTS = {
 // yani en kritik retention öğesi feed'de yarı görünmezdi. Her metin bu banda sığmalı.
 export const SAFE = {x: 430, top: -740, bottom: 545} as const;
 export const CAPTION_Y = 452;      // 1412px — alt arayüzün güvenli üstünde
-export const CLUSTER_Y = -60;      // diyagram kümesinin dikey merkezi
+// Küme merkezi -60 → -96 (2026-08-07): kartlar büyütüldü, blok yukarı kaydırılmadan
+// alttaki altyazı hapına biniyordu. Üstte ilerleme rayı (-524), altta önce KAYDET
+// rozeti (~344) sonra altyazı (~355+) var — blok ikisinin arasına oturur.
+export const CLUSTER_Y = -96;      // diyagram kümesinin dikey merkezi
+// Kaydet rozetinin merkezi: kart bloğunun ALTI (en fazla 305) ile altyazı hapının ÜSTÜ
+// (3 satırlık en kötü hâlde 355) arasındaki 50px'lik şerit. Denetim render'ında
+// (2026-08-07) rozet CAPTION_Y-122'de son kartın İÇİNE giriyordu — bu yüzden sabit.
+export const SAVE_CUE_Y = 330;
 
 // Video başına dönen accent temaları — ardışık videolar aynı görünmesin diye.
 export const THEMES = ['#58a6ff', '#bc8cff', '#39d3c3', '#f778ba', '#e3b341', '#3fb950'];
@@ -94,16 +101,23 @@ export function layoutPositions(layout: string, count: number): Pos[] {
 }
 
 // Kart ölçüleri — kolonda geniş ve okunaklı, halkada derli toplu.
+//
+// 2026-08-07 BÜYÜTME: kare telefonda izleniyor ve eski ölçülerde kartlar 1080x1920'nin
+// ortasında küçük kalıyor, üstte/altta geniş boş siyah bant duruyordu (kontrol kareleri:
+// 45s videonun her anında kadranın ~%40'ı boştu). Dikey bütçe 820→840, kolon genişliği
+// 620→720 / 780→820, yükseklik tavanları 172/178→200/204. Halka düzenlerine (hub-spoke,
+// cycle) DOKUNULMADI: kartlar ±R'de duruyor, genişletmek onları Instagram'ın sağ ikon
+// sütununun altına sokar.
 export function boxSize(layout: string, count: number): {w: number; h: number} {
   if (layout === 'vertical-stack') {
-    const h = Math.max(92, Math.min(172, (820 - (count - 1) * 18) / count));
-    return {w: 780, h: Math.round(h)};
+    const h = Math.max(100, Math.min(196, (800 - (count - 1) * 18) / count));
+    return {w: 820, h: Math.round(h)};
   }
   if (layout === 'hub-spoke' || layout === 'cycle') {
     return count <= 3 ? {w: 340, h: 232} : count <= 4 ? {w: 300, h: 210} : count <= 6 ? {w: 250, h: 190} : {w: 220, h: 174};
   }
-  const h = Math.max(90, Math.min(178, (820 - (count - 1) * 30) / count));
-  return {w: count <= 5 ? 620 : 560, h: Math.round(h)};
+  const h = Math.max(98, Math.min(198, (800 - (count - 1) * 30) / count));
+  return {w: count <= 5 ? 720 : 640, h: Math.round(h)};
 }
 
 export interface SpecNode {id: string; label: string; icon?: string; brand?: string}
@@ -143,7 +157,7 @@ export interface SceneSpec {
   // Sıra: [hook, ...ilk sahnenin her adımı, kapanış].
   beats?: {text: string; start: number; dur: number}[];
   narration?: string[];
-  brand?: {handle?: string; signoff?: string; shareCta?: string};
+  brand?: {handle?: string; signoff?: string; shareCta?: string; saveCue?: string};
   palette?: Partial<Palette>;
   language?: string;
   scenes: SpecScene[];

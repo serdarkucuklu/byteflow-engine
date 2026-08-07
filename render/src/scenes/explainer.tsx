@@ -1,6 +1,6 @@
 import {makeScene2D, Rect, Txt, Layout, Line, Path, Code, LezerHighlighter} from '@motion-canvas/2d';
 import {all, delay, createRef, waitFor, useThread, easeOutCubic, easeInOutCubic, easeOutQuad} from '@motion-canvas/core';
-import {FONTS, CAPTION_Y, CLUSTER_Y, resolvePalette, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
+import {FONTS, CAPTION_Y, CLUSTER_Y, SAVE_CUE_Y, resolvePalette, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
 import {motionTarget, weightOf} from '../lib/motion-registry.mjs';
 import {resolveChoreo, type ChoreoCtx} from './choreo';
@@ -32,6 +32,10 @@ const HANDLE = spec.brand?.handle ?? '@byteflowlabs';
 const SIGNOFF = spec.brand?.signoff ?? 'AI systems, no hype';
 // Paylaşım çağrısı da markanın DİLİNDE olmalı — Türkçe videoda İngilizce satır kalıyordu.
 const SHARE_CTA = spec.brand?.shareCta || '↗  Send this to someone who needs it';
+// Kaydet işareti: videonun ORTASINDA görünen kısa rozet (kapanıştaki çağrıyı görmeyen
+// %90 için). Emoji YOK — render kabında emoji fontu garanti değil, tofu kutusu çıkarsa
+// kadrajın en kritik ânını bozar.
+const SAVE_CUE = spec.brand?.saveCue || 'KAYDET';
 
 // Footage modunda sahne şeffaf render edilir (arka planı ffmpeg dolduruyor).
 const FOOTAGE = spec.footage === true;
@@ -112,33 +116,53 @@ export default makeScene2D(function* (view) {
   if (!FOOTAGE) view.fill(COLORS.bg);
 
   // ── HOOK ──────────────────────────────────────────────────────────────────
+  // ⚠ RETENTION DELİĞİ (ölçüldü 2026-08-07): eski akışta hook 0.5s'de yerine oturuyor,
+  // sonra anlatımın ilk cümlesi bitene kadar 3-4 SANİYE tamamen DONUYORDU. Kontrol
+  // kareleri (0.3s / 1.0s / 2.0s / 3.5s) birbirinin aynıydı. Kaydırma kararı tam o
+  // boşlukta veriliyor: 41-46s'lik videolarda ortalama izlenme 4.9-11.2s'de kalıyordu.
+  // Çözüm: kadraj İLK KAREDEN İTİBAREN hiç donmaz — metin yavaşça yaklaşır (Ken Burns)
+  // ve aksan çizgisi konuşulan hook'un görünür İLERLEME ÇUBUĞU olur.
   const hook = createRef<Txt>();
   const hookRule = createRef<Rect>();
   const hookTag = createRef<Txt>();
   view.add(<Txt ref={hook} text={HOOK} fill={COLORS.text} fontFamily={FONTS.display}
-    fontSize={78} fontWeight={800} letterSpacing={-1.4} lineHeight={90} opacity={0.55} y={-16}
-    width={900} textAlign="center" textWrap {...SHADOW} />);
-  view.add(<Rect ref={hookRule} width={0} height={4} radius={2} fill={ACCENT} y={150} opacity={0.9} />);
+    fontSize={88} fontWeight={800} letterSpacing={-1.6} lineHeight={98} opacity={0.82} y={-16}
+    width={920} textAlign="center" textWrap {...SHADOW} />);
+  view.add(<Rect ref={hookRule} width={0} height={5} radius={3} fill={ACCENT} y={182} opacity={0.9} />);
   view.add(<Txt ref={hookTag} text={HANDLE} fill={COLORS.muted} fontFamily={FONTS.mono}
-    fontSize={30} letterSpacing={4} opacity={0} y={210} {...SHADOW} />);
-  // 0.22sn'de tam görünür: ilk kare zaten okunuyor, sadece "oturuyor".
-  yield* all(hook().opacity(1, 0.22, easeOutCubic), hook().y(-30, 0.5, easeOutCubic));
-  yield* all(hookRule().width(180, 0.45, easeOutCubic), hookTag().opacity(0.85, 0.35));
-  // Hook, anlatımın ilk cümlesi bitene kadar ekranda kalır (konuşma neyse o kadar).
-  const hookOut = beatStart(1);
-  if (hookOut != null) yield* waitFor(Math.max(0.25, hookOut - nowSec() - 0.35));
-  else yield* waitFor(Math.max(0.5, beatDur(0, 1.85) - 1.35));
-  yield* all(hook().opacity(0, 0.35), hookRule().opacity(0, 0.3), hookTag().opacity(0, 0.3));
-  hookRule().remove();
+    fontSize={30} letterSpacing={4} opacity={0} y={240} {...SHADOW} />);
+
+  // Hook penceresi = konuşulan ilk cümlenin süresi. Tüm hareket BU pencereye yayılır,
+  // yani "oturdu ve bekliyor" ânı hiç oluşmaz.
+  const hookWindow = beatStart(1) != null
+    ? Math.max(1.1, (beatStart(1) as number) - 0.30)
+    : Math.max(1.3, beatDur(0, 1.85));
+  yield* all(
+    hook().opacity(1, 0.18, easeOutCubic),
+    hook().y(-34, hookWindow, easeOutQuad),
+    hook().scale(1.04, hookWindow, easeOutQuad),
+    hookTag().opacity(0.85, 0.35),
+    hookRule().width(340, hookWindow, easeOutQuad),
+  );
 
   // ── BAŞLIK (kalıcı) ───────────────────────────────────────────────────────
+  // Başlık, hook SÖNERKEN girer. Eskiden sırayla oynuyordu (0.35 + 0.45 = 0.8s) ve
+  // arada ekranda yalnız minik başlığın olduğu neredeyse boş bir kare kalıyordu —
+  // 6. saniyedeki kontrol karesi tam buydu.
   const title = createRef<Txt>();
   const titleRule = createRef<Rect>();
   view.add(<Txt ref={title} text={spec.title} fill={COLORS.text} fontFamily={FONTS.display}
-    fontSize={50} fontWeight={700} letterSpacing={-0.6} lineHeight={60} y={-712} opacity={0}
-    width={940} textAlign="center" textWrap {...SHADOW} />);
-  view.add(<Rect ref={titleRule} width={0} height={3} radius={2} fill={ACCENT} y={-628} opacity={0.75} />);
-  yield* all(title().opacity(0.97, 0.45, easeOutCubic), titleRule().width(120, 0.5, easeOutCubic));
+    fontSize={54} fontWeight={700} letterSpacing={-0.7} lineHeight={64} y={-712} opacity={0}
+    width={960} textAlign="center" textWrap {...SHADOW} />);
+  view.add(<Rect ref={titleRule} width={0} height={3} radius={2} fill={ACCENT} y={-624} opacity={0.75} />);
+  yield* all(
+    hook().opacity(0, 0.3), hookRule().opacity(0, 0.28), hookTag().opacity(0, 0.28),
+    delay(0.12, all(
+      title().opacity(0.97, 0.38, easeOutCubic),
+      titleRule().width(120, 0.42, easeOutCubic),
+    )),
+  );
+  hookRule().remove();
 
   const ctx = {accent: ACCENT, colors: COLORS, pacing, shadow: SHADOW};
   // Kaçıncı beat'teyiz: sahneler beat'leri sırayla tüketiyor (hook + kurulum = 2 beat).
@@ -164,9 +188,10 @@ export default makeScene2D(function* (view) {
 
     const heading = createRef<Txt>();
     container().add(<Txt ref={heading} text={scene.heading ?? ''} fill={ACCENT}
-      fontFamily={FONTS.display} fontSize={40} fontWeight={600} letterSpacing={-0.2}
+      fontFamily={FONTS.display} fontSize={42} fontWeight={600} letterSpacing={-0.2}
       y={-598} opacity={0} {...SHADOW} />);
-    yield* all(heading().opacity(0.95, 0.4, easeOutCubic), heading().y(-590, 0.4, easeOutCubic));
+    // Başlığın açılışı KART KURULUMUYLA BİRLİKTE oynatılır (aşağıda, CHOREO.enter ile
+    // aynı all() içinde). Arka arkaya oynatmak ekranı 0.4s daha boş bırakıyordu.
 
     const nodes = scene.nodes!;
     const steps = scene.steps!;
@@ -175,9 +200,11 @@ export default makeScene2D(function* (view) {
     const {w, h} = boxSize(scene.layout, count);
     const column = scene.layout === 'nodes-flow' || scene.layout === 'vertical-stack';
     const glyphSize = Math.round(Math.min(h * 0.46, 62));
+    // Etiket tavanları 40/32 → 46/36 (2026-08-07): kartlar büyüdü, yazı onlarla
+    // birlikte büyümezse kart içi boşluk artıyor ve telefonda okunurluk kazanmıyor.
     const labelSize = column
-      ? Math.round(Math.min(40, h * 0.34))
-      : Math.round(Math.min(32, w * 0.145));
+      ? Math.round(Math.min(46, h * 0.34))
+      : Math.round(Math.min(36, w * 0.145));
 
     // Zeminde tek bir yumuşak aksan halesi — dekor değil, odak.
     container().add(<Rect width={760} height={760} radius={380} fill={ACCENT}
@@ -249,12 +276,29 @@ export default makeScene2D(function* (view) {
       <Rect ref={capPill} layout padding={[16, 30]} radius={20} fill="#0a0e13e6"
         stroke="#ffffff14" lineWidth={1.5} y={CAPTION_Y} opacity={0} zIndex={3}
         shadowColor="#000000aa" shadowBlur={28} shadowOffsetY={8}>
-        <Txt ref={capTxt} text="" fill={COLORS.text} fontFamily={FONTS.display} fontSize={40}
-          fontWeight={700} letterSpacing={-0.3} lineHeight={50} width={860}
+        <Txt ref={capTxt} text="" fill={COLORS.text} fontFamily={FONTS.display} fontSize={44}
+          fontWeight={700} letterSpacing={-0.3} lineHeight={54} width={900}
           textAlign="center" textWrap />
       </Rect>,
     );
     const caption = {pill: capPill, txt: capTxt};
+
+    // ── KAYDET İŞARETİ (akışın ORTASINDA) ────────────────────────────────────
+    // Kaydetme çağrısı eskiden yalnız kapanış kartındaydı — 45s videonun 43. saniyesi.
+    // Ortalama izlenme 4.9-11.2s olduğuna göre izleyicinin ~%90'ı orayı hiç görmüyordu
+    // (ölçüm: brands/state/*-history.json insights). Artık ikinci adımda beliriyor ve
+    // sahne sonuna kadar kalıyor: kaydet, en güçlü sıralama sinyallerinden biri.
+    const saveCue = createRef<Rect>();
+    container().add(
+      <Rect ref={saveCue} layout padding={[8, 20]} radius={12} fill="#0a0e13d9"
+        stroke={`${ACCENT}66`} lineWidth={1.5} y={SAVE_CUE_Y} opacity={0} zIndex={3}
+        shadowColor="#000000aa" shadowBlur={20} shadowOffsetY={6}>
+        <Txt text={SAVE_CUE} fill={ACCENT} fontFamily={FONTS.mono} fontSize={23}
+          fontWeight={700} letterSpacing={1.2} />
+      </Rect>,
+    );
+    // 2+ adımlı akışta 2. adımda, tek adımlıda hemen: videonun ~%40'ı.
+    const saveCueStep = steps.length >= 3 ? 1 : 0;
 
     // ── KURULUM: kartlar sırayla aşağıdan süzülür (beat 1 = "kurulum" cümlesi) ──
     // Ses varsa kurulum TAM O CÜMLE kadar sürer; yoksa governor değerleri kullanılır.
@@ -268,7 +312,11 @@ export default makeScene2D(function* (view) {
       stage: stage(), boxes: boxByIndex, pos, lineByTarget, allLines,
       accent: ACCENT, cardStroke: CARD_STROKE, enterT, lineT, rise: RISE, clusterY: CLUSTER_Y,
     };
-    yield* CHOREO.enter(choreoCtx);
+    yield* all(
+      heading().opacity(0.95, 0.35, easeOutCubic),
+      heading().y(-590, 0.35, easeOutCubic),
+      CHOREO.enter(choreoCtx),
+    );
 
     // ── AKIŞ: adım başına TEK YÖNLÜ ışık darbesi + odak ─────────────────────
     for (const [si, step] of steps.entries()) {
@@ -298,7 +346,12 @@ export default makeScene2D(function* (view) {
       yield* CHOREO.emphasize(stepCtx);
 
       // Varış: hedef bir tık yükselir (kart "kabul etti" hissi), sonra okuma molası.
-      yield* all(to.y(to.y() - 6, 0.18, easeOutCubic), to.lineWidth(2.5, 0.18));
+      // Kaydet rozeti bu ânın içinde açılır — akışa AYRI bir bekleme eklemez, yani
+      // ses/görüntü senkronu (syncTo) bozulmaz.
+      yield* all(
+        to.y(to.y() - 6, 0.18, easeOutCubic), to.lineWidth(2.5, 0.18),
+        ...(si === saveCueStep ? [saveCue().opacity(1, 0.3, easeOutCubic)] : []),
+      );
       // Mola: bir sonraki cümle başlayana kadar (geri dönüş animasyonuna 0.3s pay bırakarak).
       const nextAt = beatStart(si + 3) ?? (BEATS ? null : null);
       const holdT = nextAt != null
@@ -315,6 +368,7 @@ export default makeScene2D(function* (view) {
     yield* waitFor(BEATS ? 0.25 : pacing.finalDwell + 0.5);
     yield* all(
       caption.pill().opacity(0, 0.3),
+      saveCue().opacity(0, 0.3),
       CHOREO.exit(choreoCtx),
       heading().opacity(0, 0.3),
     );
@@ -331,6 +385,16 @@ export default makeScene2D(function* (view) {
   const recapSteps = (spec.scenes.find(sc => sc.steps?.length)?.steps ?? []).slice(0, 4);
   const recapNodes = spec.scenes.find(sc => sc.nodes?.length)?.nodes ?? [];
   const labelOf = (id: string) => recapNodes.find(n => n.id === id)?.label ?? id.toUpperCase();
+  // ÖZET SATIRI = adımın KENDİ CÜMLESİ, "ETİKET → ETİKET" oku değil.
+  // Kontrol karesinde (2026-08-07) kapanış kartı şunu yazıyordu: "MAĞAZA GAZI → ORGANİK
+  // LEKE". Bu hiçbir şey öğretmiyor, dolayısıyla ekran görüntüsü de alınmıyor — oysa bu
+  // kartın tek varlık sebebi KAYDEDİLEBİLİR/paylaşılabilir bir özet olmak. step.status
+  // zaten o ânın anlamlı cümlesi (<=40 karakter); baş harfi büyütülüp aynen kullanılır.
+  const recapLine = (st: {from: string; to: string; status?: string}) => {
+    const s = String(st.status ?? '').trim();
+    return s ? s.charAt(0).toLocaleUpperCase('tr-TR') + s.slice(1)
+      : `${labelOf(st.from)} → ${labelOf(st.to)}`;
+  };
 
   // Kart FLEX düzenle kurulur ama çocuklar TEK TEK eklenir: JSX'e dizi çocuk vermek ve
   // ref'i düğüm yerine fonksiyon olarak saklamak sahneyi düşürüyordu (render hiç başlamadı,
@@ -343,8 +407,8 @@ export default makeScene2D(function* (view) {
       shadowColor="#000000b3" shadowBlur={54} shadowOffsetY={20} />,
   );
   card().add(
-    <Txt text={spec.title} fill={COLORS.text} fontFamily={FONTS.display} fontSize={44}
-      fontWeight={800} letterSpacing={-0.8} lineHeight={54} width={840}
+    <Txt text={spec.title} fill={COLORS.text} fontFamily={FONTS.display} fontSize={46}
+      fontWeight={800} letterSpacing={-0.8} lineHeight={56} width={840}
       textAlign="center" textWrap />,
   );
   card().add(<Rect width={90} height={3} radius={2} fill={ACCENT} margin={[4, 0, 12, 0]} />);
@@ -359,8 +423,8 @@ export default makeScene2D(function* (view) {
           <Txt text={String(i + 1).padStart(2, '0')} fill={ACCENT} fontFamily={FONTS.display}
             fontSize={25} fontWeight={800} />
         </Rect>
-        <Txt text={`${labelOf(st.from)} → ${labelOf(st.to)}`} fill={COLORS.text}
-          fontFamily={FONTS.display} fontSize={31} fontWeight={600} letterSpacing={-0.2}
+        <Txt text={recapLine(st)} fill={COLORS.text}
+          fontFamily={FONTS.display} fontSize={33} fontWeight={600} letterSpacing={-0.2}
           width={730} textWrap />
       </Layout>,
     );
@@ -370,16 +434,18 @@ export default makeScene2D(function* (view) {
   card().add(<Rect width={830} height={1} fill="#ffffff1a" margin={[16, 0, 8, 0]} />);
   const takeRef = createRef<Txt>();
   card().add(
-    <Txt ref={takeRef} text={TAKEAWAY} fill={ACCENT} fontFamily={FONTS.display} fontSize={38}
-      fontWeight={700} letterSpacing={-0.4} lineHeight={48} width={830}
+    // TAKEAWAY = videonun punchline'ı; alıntılanan/ekran görüntüsü alınan satır bu.
+    // 38 → 46: kartın en büyük yazısı özet satırları değil, gülünen cümle olmalı.
+    <Txt ref={takeRef} text={TAKEAWAY} fill={ACCENT} fontFamily={FONTS.display} fontSize={46}
+      fontWeight={800} letterSpacing={-0.5} lineHeight={56} width={830}
       textAlign="center" textWrap opacity={0} />,
   );
 
   // Gönderme çağrısı kartın DIŞINDA, altta — okunur boyutta ve parlak (sönük kalıyordu).
   const share = createRef<Txt>();
   view.add(<Txt ref={share} text={SHARE_CTA} fill={COLORS.text}
-    fontFamily={FONTS.display} fontSize={32} fontWeight={700} letterSpacing={-0.2} opacity={0}
-    y={452} width={900} textAlign="center" {...SHADOW} />);
+    fontFamily={FONTS.display} fontSize={36} fontWeight={700} letterSpacing={-0.2} opacity={0}
+    y={452} width={940} textAlign="center" {...SHADOW} />);
   const handleTag = createRef<Txt>();
   view.add(<Txt ref={handleTag} text={`${HANDLE} · ${SIGNOFF}`} fill={ACCENT} fontFamily={FONTS.mono}
     fontSize={26} letterSpacing={1.5} opacity={0} y={512} {...SHADOW} />);
@@ -493,8 +559,8 @@ function* renderVersusScene(view: any, scene: any, ctx: any, beatOffset: number)
     <Rect ref={capPill} layout padding={[16, 30]} radius={20} fill="#0a0e13e6"
       stroke="#ffffff14" lineWidth={1.5} y={CAPTION_Y} opacity={0} zIndex={3}
       shadowColor="#000000aa" shadowBlur={28} shadowOffsetY={8}>
-      <Txt ref={capTxt} text="" fill={COLORS.text} fontFamily={FONTS.display} fontSize={38}
-        fontWeight={700} letterSpacing={-0.3} lineHeight={48} width={860}
+      <Txt ref={capTxt} text="" fill={COLORS.text} fontFamily={FONTS.display} fontSize={44}
+        fontWeight={700} letterSpacing={-0.3} lineHeight={54} width={900}
         textAlign="center" textWrap />
     </Rect>,
   );

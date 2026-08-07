@@ -10,7 +10,8 @@
     "byline": "Yazan: Ece.",
     "signoff": "her şeyin bir sebebi var",
     "tagline": "Takip et: @kizlar.kodu — her şeyin bir sebebi var.",
-    "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
+    "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım"
   },
   "themes": [
     "#7de2d1",
@@ -82,12 +83,12 @@
     "#giyimtüyoları"
   ],
   "video": {
-    "seconds": "40-45",
-    "maxWords": 15,
-    "minSteps": 5,
-    "maxSteps": 5,
-    "targetSec": 44,
-    "minWords": 11
+    "seconds": "28-32",
+    "maxWords": 13,
+    "minSteps": 4,
+    "maxSteps": 4,
+    "targetSec": 30,
+    "minWords": 9
   },
   "tone": {
     "fluff": "Faceless. Funny first, useful second — but never fake-funny: the joke comes from the situation being TRUE, not from adding jokes on top.",

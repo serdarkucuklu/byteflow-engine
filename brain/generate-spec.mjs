@@ -298,6 +298,10 @@ ${brandKeys.length ? `- node.brand is OPTIONAL and PREFERRED whenever a card IS 
   such as "İPLİK", "DİKİM", "REKLAM" instead). If nothing short enough exists, use a single
   emoji or a 2-3 letter symbol. step.color in {accent, good, warn}.
   step.status <= 40 chars, lowercase — the sentence the viewer reads at that moment.
+  ⚠ THESE FOUR LINES ARE ALSO THE CLOSING SUMMARY CARD (2026-08-07): read end to end and
+  out of context, they must teach the whole mechanism on their own, because that card is
+  what gets screenshotted and saved. Each status is therefore a COMPLETE little statement
+  ("sıcak su proteini kumaşa sabitler"), never a fragment or a label ("sıcak su", "aşama 2").
 - Each scene has a "kind": "diagram" (default), "code" or "versus".
   - A "versus" scene compares TWO named options head to head and is the strongest format on
     this platform. It MUST have: left + right (the two names, <= 22 chars each) and 2-4 rows.
@@ -388,6 +392,12 @@ VARIETY & TEACHING RULES (hard requirements):
     the whole script is read aloud and the video is exactly as long as the speech, so writing
     every sentence at the short end makes the video too short for the ${vid.seconds}s target.
     Aim for the middle of the range; never exceed ${vid.maxWords} words.
+  * ⚠ SENTENCE 1 (the hook) IS THE EXCEPTION: it must be the SHORTEST of them all, at most
+    ${Math.max(6, vid.minWords - 1)} words, and it must land its point on the FIRST clause.
+    The opening line is on screen alone while it is spoken; a long hook means the viewer
+    stares at one unchanging frame during the exact seconds she decides whether to scroll.
+    Measured 2026-08-07: the videos averaged 4.9-11.2s watched out of 41-46s, and the drop
+    happens inside the opening line. No sub-clauses, no "yani", no build-up — one punch.
     Plain spoken English, no lists, no markdown, no emoji,
     no "in this video". Say the product name out loud in the first sentence — audio is
     indexed and searched now, so the name has to be SPOKEN, not just drawn.

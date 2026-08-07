@@ -10,7 +10,8 @@
     "signoff": "güzellik, pazarlama değil",
     "tagline": "Takip et: @cilt.kodu — güzellik, pazarlama değil.",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "byline": "Yazan: Derin."
+    "byline": "Yazan: Derin.",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım"
   },
   "themes": [
     "#e8a0a8",
@@ -82,12 +83,12 @@
     "#makyajönerisi"
   ],
   "video": {
-    "seconds": "40-45",
-    "maxWords": 15,
-    "minSteps": 5,
-    "maxSteps": 5,
-    "targetSec": 44,
-    "minWords": 11
+    "seconds": "28-32",
+    "maxWords": 13,
+    "minSteps": 4,
+    "maxSteps": 4,
+    "targetSec": 30,
+    "minWords": 9
   },
   "tone": {
     "fluff": "Faceless. Funny first, useful second — but never fake-funny: the joke comes from the situation being TRUE, not from adding jokes on top.",

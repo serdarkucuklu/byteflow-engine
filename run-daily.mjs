@@ -144,7 +144,10 @@ const motion = process.env.BYTEFLOW_MOTION
        motionsFor(brand.motionSet)).name;
 spec.theme = theme;
 spec.brand = {handle: brand.handle, signoff: brand.persona?.signoff ?? '',
-  shareCta: brand.persona?.shareCta ?? ''};
+  shareCta: brand.persona?.shareCta ?? '',
+  // Videonun ORTASINDA görünen kaydet rozeti (explainer.tsx). Kapanıştaki çağrıyı
+  // izleyicinin ~%90'ı görmüyor — bkz. 2026-08-07 ölçümü.
+  saveCue: brand.persona?.saveCue ?? ''};
 if (brand.palette) spec.palette = brand.palette;
 if (brand.language) spec.language = brand.language;
 spec.motion = motion;
