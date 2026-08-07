@@ -92,5 +92,24 @@
       "ig_reels_video_view_total_time": 391633
     },
     "insightsAt": "2026-08-07T20:43:08.721Z"
+  },
+  {
+    "title": "Yıkama Etiketindeki Kuru Temizleme Tuzağı",
+    "subject": "yıkama etiketi",
+    "twist": "zaman",
+    "pillar": "yikama-etiketi",
+    "layout": "nodes-flow",
+    "kinds": "diagram",
+    "motion": "sketch",
+    "theme": "#8fd0ff",
+    "source": "gemini",
+    "footage": [
+      "pexels:clothing label tag close up",
+      "pexels:washing machine drum spinning"
+    ],
+    "voice": 7,
+    "voiceName": "Kore",
+    "date": "2026-08-07",
+    "durSec": 31.4
   }
 ]

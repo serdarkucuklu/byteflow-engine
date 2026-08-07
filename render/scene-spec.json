@@ -1,104 +1,92 @@
 {
-  "hook": "Kabin görevlisinin o meşhur gazıyla alınan gömlek...",
-  "title": "Kabin Gazıyla Alınan Gömleği Pişirme Rehberi",
+  "hook": "Elde yıkama sepetin ömründen iki yıl çalıyor.",
+  "title": "Yıkama Etiketindeki Kuru Temizleme Tuzağı",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "KABIN",
-          "label": "MAĞAZA GAZI"
+          "id": "n1",
+          "label": "LEĞEN SEMBOLÜ"
         },
         {
-          "id": "LEKE",
-          "label": "ORGANİK LEKE"
+          "id": "n2",
+          "label": "DERECE LİMİTİ"
         },
         {
-          "id": "SICAK",
-          "label": "SICAK SU TUZAĞI"
+          "id": "n3",
+          "label": "KURU TEMİZLEME"
         },
         {
-          "id": "REAKSIYON",
-          "label": "YUMURTA ETKİSİ"
-        },
-        {
-          "id": "SABIT",
-          "label": "EBEDİ DOSYA"
+          "id": "n4",
+          "label": "MARKANIN RİSKİ"
         }
       ],
       "steps": [
         {
-          "from": "KABIN",
-          "to": "LEKE",
-          "packet": "GÖMLEK",
-          "status": "kabin görevlisinin gazıyla kart çekildi",
+          "from": "n1",
+          "to": "n2",
+          "packet": "DERECE",
+          "status": "dereceyi aşınca elyaf büzülüp küçülür",
+          "color": "warn"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "LİFLER",
+          "status": "ıslanan lifler kalıbını tamamen kaybeder",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "ETİKET",
+          "status": "marka korkusundan kuru temizleme yazar",
           "color": "accent"
         },
         {
-          "from": "LEKE",
-          "to": "SICAK",
-          "packet": "TER",
-          "status": "ilk terlemede yaka protein doldu",
-          "color": "warn"
-        },
-        {
-          "from": "SICAK",
-          "to": "REAKSIYON",
-          "packet": "KAYNAR",
-          "status": "temizlensin diye kaynar suya atıldı",
-          "color": "warn"
-        },
-        {
-          "from": "REAKSIYON",
-          "to": "SABIT",
-          "packet": "KİMYA",
-          "status": "sıcak su proteinleri liflere pişirdi",
-          "color": "warn"
-        },
-        {
-          "from": "SABIT",
-          "to": "KABIN",
-          "packet": "TEKRAR",
-          "status": "gömlek çöp oldu, yeni kabine girildi",
+          "from": "n4",
+          "to": "n1",
+          "packet": "SEPET",
+          "status": "elde yıkama sepeti odada dağ gibi büyür",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kabin görevlisinin o meşhur 'size çok yakıştı' büyüsüyle alınan beyaz gömleğin sıcak suyla imtihanı.\n\nProtein lekelerinin kumaşa nasıl kalıcı olarak piştiğini adım adım deşifre ediyoruz:\n\n1. Kabin gazlaması — Mağaza danışmanının 'bu sezonun en hit parçası' övgüsüyle kasaya yönelip bütçeyi aşıyoruz.\n2. Organik leke — Ter, fondöten, süt veya kan gibi lekeler aslında tamamen organik protein moleküllerinden oluşur.\n3. Sıcak temas — Lekeyi hemen yok etmek için yaptığımız en büyük hata, gömleği doğrudan sıcak veya kaynar suya basmaktır.\n4. Pişme reaksiyonu — Sıcak su, protein moleküllerini tıpkı tavaya kırılan bir yumurta gibi katılaştırır ve liflerin arasına kilitler.\n5. Ebedi dosya — Pişen protein artık kumaşın bir parçası olur; gömlek çöp olunca kendimizi yine aynı kabinde yeni bir şeyler denerken buluruz.\n\nLekelerle mücadele ederken ilk kural: Protein lekelerine her zaman soğuk veya ılık suyla müdahale edilir, sıcak su lekeyi sabitler.\n\nKabin ışıkları ve tatlı sözler bizi kandırabilir ama kimya asla yalan söylemez.\n\n📌 Kaydet — bir dahaki leke kazasında hayat kurtaracak.\n\n🔁 Bunu mağazadan planladığından hep fazlasıyla çıkan arkadaşına gönder.\n\nSıcak suyla lekeyi kumaşa sabitleyenlerden misin, dürüst ol?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Elde yıkama sepetinde üç aydır bekleyen o kazak aslında makinede yıkanabilirdi.\n\nYıkama etiketlerinin arkasındaki gerçek mekanizma şöyle işliyor:\n\n1. Leğen Sembolü — İçindeki sayı maksimum yıkama sıcaklığıdır. O dereceyi bir tık geçmek elyafın büzülmesine ve giysinin çekmesine neden olur.\n2. Islak Lif Hassasiyeti — Yün veya viskon gibi lifler suyla birleştiğinde esner. Yanlış sıkma yapılırsa formu bir daha geri gelmez.\n3. Kuru Temizleme Etiketi — Her \"sadece kuru temizleme\" yazan kumaş gerçekten hassas değildir. Çoğu marka iade riski almamak için bunu basar.\n4. Zaman Kaybı — Korkup makineye atamadığımız her şey elde yıkama sepetinde dağ oluşturur ve haftalarca vaktimizi çalar.\n\nBir kıyafetin yıkanma yöntemini kumaşın türü belirler, markanın korkusu değil.\n\nKumaşa hürmetimiz sonsuz ama o sepeti bu hafta eriteceğiz.\n\n📌 Kaydet — bir dahaki çamaşır gününde lazım olacak.\n\n🔁 Bunu elde yıkanacaklar dağını üç aydır erteleyen o arkadaşına gönder.\n\nSen hangisisin: etiketi okuyan mı, direkt 40 dereceye atan mı?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
+    "#giyimtüyoları",
     "#giyim",
     "#moda",
     "#kumaş",
-    "#temizlik",
-    "#gardırop",
-    "#giyimtüyoları",
-    "#leke"
+    "#alışveriş",
+    "#gardırop"
   ],
-  "takeaway": "Lekeye sıcak su dökmek, onu kumaşa ebediyen tapulamaktır.",
+  "takeaway": "Kuru temizleme etiketi genelde kıyafetin değil markanın garantisidir.",
   "footage_queries": [
     "clothing label tag close up",
     "washing machine drum spinning"
   ],
   "narration": [
-    "Kabin görevlisinin size çok yakıştı dediği o gömlek ilk günde ter lekesi oldu mu.",
-    "İşte o muhteşem gömleğin dramatik bir sıcak su hatasıyla çöp olma yolculuğu başlıyor.",
-    "Mağaza danışmanının tatlı diliyle aldığımız o beyaz gömleği ilk gün hevesle giyiyoruz.",
-    "Koltuk altı teri veya fondöten lekesi gibi lekeler aslında tamamen organik birer proteindir.",
-    "Biz bu lekeyi çıkarmak için sabırsızca gömleği hemen kaynar sıcak suyun altına tutuyoruz.",
-    "Ancak sıcak su bu organik proteinleri tıpkı tavada pişen yumurta gibi liflere sabitler.",
-    "Kimyasal olarak pişen leke artık o kumaşın kalıcı bir parçası haline gelmiş oluyor.",
-    "Lekeli gömlek çöp olduğu için kendimizi yine aynı kabinde yeni kıyafetler denerken buluyoruz."
+    "Elde yıkama sepetin ömründen iki yıl çalıyor.",
+    "Etiketteki o karmaşık semboller aslında tam olarak şu sırayla çalışıyor.",
+    "Leğen sembolündeki sayı tavan derecedir, üzerine çıkınca kumaş anında büzülür.",
+    "Suya hassas lifler ıslandıkça yapısını kaybeder ve o kıyafet bir daha oturmaz.",
+    "Markalar riske girmemek için kumaş yıkanabilir olsa bile kuru temizleme yazar.",
+    "Sen de elde yıkayacağım diye o kazağı aylarca sepette bekletip durursun.",
+    "Kuru temizleme yazan her şey hassas değildir, çoğu markanın korkusudur."
   ],
-  "subject": "leke",
-  "sendTo": "mağazadan planladığından hep fazlasıyla çıkan arkadaşına",
-  "soru": "Sıcak suyla lekeyi kumaşa sabitleyenlerden misin, dürüst ol?",
+  "subject": "yıkama etiketi",
+  "sendTo": "elde yıkanacaklar dağını üç aydır erteleyen o arkadaşına",
+  "soru": "Sen hangisisin: etiketi okuyan mı, direkt 40 dereceye atan mı?",
   "theme": "#8fd0ff",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
-    "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
+    "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım"
   },
   "palette": {
     "bg": "#0e0f1a",
@@ -112,44 +100,39 @@
   "footage": true,
   "beats": [
     {
-      "text": "Kabin görevlisinin size çok yakıştı dediği o gömlek ilk günde ter lekesi oldu mu.",
+      "text": "Elde yıkama sepetin ömründen iki yıl çalıyor.",
       "start": 0.35,
-      "dur": 5.122
+      "dur": 2.734
     },
     {
-      "text": "İşte o muhteşem gömleğin dramatik bir sıcak su hatasıyla çöp olma yolculuğu başlıyor.",
-      "start": 5.472,
-      "dur": 5.375
+      "text": "Etiketteki o karmaşık semboller aslında tam olarak şu sırayla çalışıyor.",
+      "start": 3.084,
+      "dur": 4.375
     },
     {
-      "text": "Mağaza danışmanının tatlı diliyle aldığımız o beyaz gömleği ilk gün hevesle giyiyoruz.",
-      "start": 10.847,
-      "dur": 5.438
+      "text": "Leğen sembolündeki sayı tavan derecedir, üzerine çıkınca kumaş anında büzülür.",
+      "start": 7.459,
+      "dur": 4.739
     },
     {
-      "text": "Koltuk altı teri veya fondöten lekesi gibi lekeler aslında tamamen organik birer proteindir.",
-      "start": 16.285,
-      "dur": 5.818
+      "text": "Suya hassas lifler ıslandıkça yapısını kaybeder ve o kıyafet bir daha oturmaz.",
+      "start": 12.198,
+      "dur": 4.739
     },
     {
-      "text": "Biz bu lekeyi çıkarmak için sabırsızca gömleği hemen kaynar sıcak suyun altına tutuyoruz.",
-      "start": 22.103,
-      "dur": 5.628
+      "text": "Markalar riske girmemek için kumaş yıkanabilir olsa bile kuru temizleme yazar.",
+      "start": 16.937,
+      "dur": 4.739
     },
     {
-      "text": "Ancak sıcak su bu organik proteinleri tıpkı tavada pişen yumurta gibi liflere sabitler.",
-      "start": 27.731,
-      "dur": 5.501
+      "text": "Sen de elde yıkayacağım diye o kazağı aylarca sepette bekletip durursun.",
+      "start": 21.677,
+      "dur": 4.375
     },
     {
-      "text": "Kimyasal olarak pişen leke artık o kumaşın kalıcı bir parçası haline gelmiş oluyor.",
-      "start": 33.232,
-      "dur": 5.249
-    },
-    {
-      "text": "Lekeli gömlek çöp olduğu için kendimizi yine aynı kabinde yeni kıyafetler denerken buluyoruz.",
-      "start": 38.481,
-      "dur": 6.981
+      "text": "Kuru temizleme yazan her şey hassas değildir, çoğu markanın korkusudur.",
+      "start": 26.051,
+      "dur": 5.414
     }
   ]
 }
