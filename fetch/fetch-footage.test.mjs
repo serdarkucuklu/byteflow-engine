@@ -132,11 +132,21 @@ test('queryFromTitle strips filler and yields a searchable phrase', () => {
 
 test('people queries are rejected — the page is faceless', async () => {
   const {isPeopleQuery} = await import('./fetch-footage.mjs');
-  for (const q of ['developer typing laptop', 'woman using phone', 'team meeting office', 'close up hands keyboard']) {
+  // YÜZ/KİŞİ/KALABALIK: sayfanın yüzsüz kimliği bunlardan korunuyor.
+  for (const q of ['developer typing laptop', 'woman using phone', 'team meeting office',
+    'portrait of a girl', 'crowd walking street']) {
     assert.ok(isPeopleQuery(q), q);
   }
   for (const q of ['server room data center', 'circuit board macro', 'rain on glass at night']) {
     assert.ok(!isPeopleQuery(q), q);
+  }
+  // ⚠ 2026-08-09 DEĞİŞTİ: "el" artık engellenmiyor. Güzellik/bakım nişinde ürünün
+  // KULLANILDIĞI an (kremi süren el, serumu damlatan el) en çok işleyen çekim ve hâlâ
+  // yüzsüz. Eskiden `hands?|typing|working|sitting|thinking|smiling` de engelliydi;
+  // liste fazla genişti ve nişin ana çekimini kapatıyordu.
+  for (const q of ['close up hands keyboard', 'hands applying cream close up',
+    'hand holding serum dropper']) {
+    assert.equal(isPeopleQuery(q), false, `el çekimi engellenmemeli: ${q}`);
   }
   assert.ok(FALLBACK_QUERIES.every(q => !isPeopleQuery(q)), 'yedek havuzda insan olmamalı');
 });

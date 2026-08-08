@@ -4,6 +4,7 @@ import {join, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {fetchTrends, feedsFor} from './fetch/fetch-trends.mjs';
 import {fetchFootage, queryFromTitle, footageSetFor} from './fetch/fetch-footage.mjs';
+import {tazeSorgular, gecmisSorgulari} from './fetch/broll-tazelik.mjs';
 import {produceSpec} from './brain/produce-spec.mjs';
 import {stripMarkdown, sanitizeHashtags, formatCaption} from './brain/sanitize.mjs';
 import {localizeSpec} from './brain/localize.mjs';
@@ -187,9 +188,19 @@ const FOOTAGE_CLIPS = brand.format === 'kinetik' ? 4 : 2;
 const footageDir = join(root, 'render', 'footage');
 if (existsSync(footageDir)) rmSync(footageDir, {recursive: true, force: true});
 
-const queries = (Array.isArray(spec.footage_queries) ? spec.footage_queries : [])
+let queries = (Array.isArray(spec.footage_queries) ? spec.footage_queries : [])
   .map(q => String(q).trim()).filter(Boolean).slice(0, FOOTAGE_CLIPS);
 if (!queries.length) queries.push(queryFromTitle(spec.title));
+// TEKRAR KESİCİ: son 3 koşunun b-roll sorguları bugün yasak. Ölçüm (2026-08-09):
+// @cilt.kodu'nun 21 videosunda "cream texture macro" 11×, 20 ardışık çiftin 14'ünde aynı
+// sorgu → sayfayı kaydıran aynı görüntüyü tekrar tekrar görüyor.
+{
+  const gecmisB = gecmisSorgulari(history, 3);
+  const taze = tazeSorgular({istenen: queries, gecmis: gecmisB, liste: footageSetFor(brand.footageSet)});
+  const degisen = taze.filter((q, i) => q !== queries[i]);
+  if (degisen.length) console.log(`↻ b-roll tekrarı engellendi: ${degisen.join(', ')}`);
+  queries = taze;
+}
 
 let clips = [];
 if (process.env.BYTEFLOW_FOOTAGE === '0') {

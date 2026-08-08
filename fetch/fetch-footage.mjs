@@ -74,6 +74,15 @@ const SOFT_FOOTAGE = [
   'mascara brush macro',
   'compact powder pressed texture',
   'nail polish drop macro',
+  // EL ÇEKİMLERİ (2026-08-09): `hands` engeli kaldırıldıktan sonra açıldı. Güzellik
+  // nişinde en çok işleyen çekim türü bu — ürünün KULLANILDIĞI an, yüz olmadan.
+  // Hepsi hâlâ yüzsüz: kadraja el ve ürün giriyor, model girmiyor.
+  'hands applying cream close up',
+  'hand holding serum dropper',
+  'hands rubbing lotion macro',
+  'hand pumping bottle close up',
+  'fingers touching cream texture',
+  'hand opening jar macro',
 ];
 
 
@@ -109,6 +118,13 @@ const FABRIC_FOOTAGE = [
   'wardrobe interior minimal',
   'fabric dye in water macro',
   'marble surface texture',
+  // EL ÇEKİMLERİ (2026-08-09) — bkz. SOFT_FOOTAGE'daki not. Kumaşa dokunan el,
+  // etiketi okuyan el: yüzsüz kalırken "biri bunu yaşıyor" hissi veriyor.
+  'hands folding clothes close up',
+  'hand touching fabric texture',
+  'hands sorting laundry close up',
+  'hand holding clothing label',
+  'hands opening parcel box',
 ];
 
 export const FOOTAGE_SETS = {tech: TECH_FOOTAGE, soft: SOFT_FOOTAGE, fabric: FABRIC_FOOTAGE};
@@ -130,7 +146,12 @@ export function toSafeQuery(q, i = 0, list = SAFE_FOOTAGE_QUERIES) {
 }
 
 // Sorguda insan geçiyorsa kullanma (beyin kuralı çiğnerse ikinci savunma hattı).
-const PEOPLE = /\b(people|person|man|men|woman|women|girl|boy|guy|human|face|portrait|hands?|team|developer|programmer|engineer|coder|worker|student|crowd|meeting|typing|working|sitting|thinking|smiling)\b/i;
+// İNSAN ENGELİ — sayfa YÜZSÜZ kalmalı, ama "el" yasak değil.
+// 2026-08-09: liste fazla genişti. `hands|typing|working|sitting|thinking|smiling` de
+// engelleniyordu; oysa güzellik/bakım nişinde EL ve ÜRÜN makro çekimi (kremi süren el,
+// serumu damlatan el) tam da işleyen çekim. Yüz/kişi/kalabalık engeli AYNEN duruyor:
+// sayfanın yüzsüz kimliği ondan geliyor, elden değil.
+const PEOPLE = /\b(people|person|man|men|woman|women|girl|boy|guy|human|face|portrait|team|developer|programmer|engineer|coder|worker|student|crowd|meeting)\b/i;
 
 export function isPeopleQuery(q) {
   return PEOPLE.test(String(q ?? ''));
