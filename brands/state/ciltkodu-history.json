@@ -498,5 +498,24 @@
       "ig_reels_video_view_total_time": 253895
     },
     "insightsAt": "2026-08-08T15:30:06.265Z"
+  },
+  {
+    "title": "Sivilce Neden Hep Önemli Günden Önce Çıkar?",
+    "subject": "salisilik asit",
+    "twist": "kotu-zamanlama",
+    "pillar": "karsilastirma",
+    "layout": "nodes-flow",
+    "kinds": "diagram",
+    "motion": "ripple",
+    "theme": "#8fa8c8",
+    "source": "gemini",
+    "footage": [
+      "pexels:oil and water macro",
+      "pexels:cosmetic bottles soft light"
+    ],
+    "voice": 7,
+    "voiceName": "Puck",
+    "date": "2026-08-08",
+    "durSec": 31.4
   }
 ]

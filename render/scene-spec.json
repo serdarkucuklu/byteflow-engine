@@ -1,138 +1,138 @@
 {
-  "hook": "Elde yıkama sepetin ömründen iki yıl çalıyor.",
-  "title": "Yıkama Etiketindeki Kuru Temizleme Tuzağı",
+  "hook": "Sivilce tam önemli etkinlikten önceki gece mi çıkar?",
+  "title": "Sivilce Neden Hep Önemli Günden Önce Çıkar?",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "kind": "diagram",
       "nodes": [
         {
           "id": "n1",
-          "label": "LEĞEN SEMBOLÜ"
+          "label": "STRES VE KORTİZOL"
         },
         {
           "id": "n2",
-          "label": "DERECE LİMİTİ"
+          "label": "SEBUM PATLAMASI"
         },
         {
           "id": "n3",
-          "label": "KURU TEMİZLEME"
+          "label": "PANİK MÜDAHALESİ"
         },
         {
           "id": "n4",
-          "label": "MARKANIN RİSKİ"
+          "label": "SALİSİLİK ASİT"
         }
       ],
       "steps": [
         {
           "from": "n1",
           "to": "n2",
-          "packet": "DERECE",
-          "status": "dereceyi aşınca elyaf büzülüp küçülür",
+          "packet": "STRES",
+          "status": "stres hormonu yağı anında coşturur",
           "color": "warn"
         },
         {
           "from": "n2",
           "to": "n3",
-          "packet": "LİFLER",
-          "status": "ıslanan lifler kalıbını tamamen kaybeder",
+          "packet": "SEBUM",
+          "status": "tıkanan gözenekte bakteri parti verir",
           "color": "warn"
         },
         {
           "from": "n3",
           "to": "n4",
-          "packet": "ETİKET",
-          "status": "marka korkusundan kuru temizleme yazar",
-          "color": "accent"
+          "packet": "PANİK",
+          "status": "diş macunu iltihaba benzin döker",
+          "color": "warn"
         },
         {
           "from": "n4",
           "to": "n1",
-          "packet": "SEPET",
-          "status": "elde yıkama sepeti odada dağ gibi büyür",
+          "packet": "BHA",
+          "status": "salisilik asit yağı çözer paniği bitirir",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Elde yıkama sepetinde üç aydır bekleyen o kazak aslında makinede yıkanabilirdi.\n\nYıkama etiketlerinin arkasındaki gerçek mekanizma şöyle işliyor:\n\n1. Leğen Sembolü — İçindeki sayı maksimum yıkama sıcaklığıdır. O dereceyi bir tık geçmek elyafın büzülmesine ve giysinin çekmesine neden olur.\n2. Islak Lif Hassasiyeti — Yün veya viskon gibi lifler suyla birleştiğinde esner. Yanlış sıkma yapılırsa formu bir daha geri gelmez.\n3. Kuru Temizleme Etiketi — Her \"sadece kuru temizleme\" yazan kumaş gerçekten hassas değildir. Çoğu marka iade riski almamak için bunu basar.\n4. Zaman Kaybı — Korkup makineye atamadığımız her şey elde yıkama sepetinde dağ oluşturur ve haftalarca vaktimizi çalar.\n\nBir kıyafetin yıkanma yöntemini kumaşın türü belirler, markanın korkusu değil.\n\nKumaşa hürmetimiz sonsuz ama o sepeti bu hafta eriteceğiz.\n\n📌 Kaydet — bir dahaki çamaşır gününde lazım olacak.\n\n🔁 Bunu elde yıkanacaklar dağını üç aydır erteleyen o arkadaşına gönder.\n\nSen hangisisin: etiketi okuyan mı, direkt 40 dereceye atan mı?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Sivilce tam önemli etkinlikten bir gece önce neden çıkar?\n\nStres anında cildinde gerçekleşen ziyafet, adım adım:\n\n1. STRES VE KORTİZOL — Önemli gün öncesi yükselen stres hormonu (kortizol), sebase bezleri uyararak aşırı sebum üretimine yol açar.\n2. SEBUM PATLAMASI — Aşırı yağ gözenek kanalını tıkar ve oksijensiz ortamda C. acnes bakterileri hızla çoğalmaya başlar.\n3. PANİK MÜDAHALESİ — Diş macunu, alkol veya kurutucu hamleler bariyeri tahriş ederek iltihabı daha da büyütür.\n4. SALİSİLİK ASİT — BHA grubu olan salisilik asit yağda çözündüğü için gözenek içine nüfuz eder, birikmiş yağı çözer ve iltihabı sakinleştirir.\n\nO gece yapılacak tek mantıklı şey sivilceye dokunmayıp salisilik asitli nokta bant yapıştırmaktır.\n\nCilt stresi bilir ama panik müdahalesini affetmez.\n\n📌 Kaydet — bir dahaki acil sivilce krizinde lazım olacak.\n🔁 Bunu önemli bir etkinlikten bir gece önce sivilce çıkartan arkadaşına gönder.\nSivilce çıkınca ne yapıyorsun: Patlatmak mı, sivilce bandı mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyimtüyoları",
-    "#giyim",
-    "#moda",
-    "#kumaş",
-    "#alışveriş",
-    "#gardırop"
+    "#ciltbakimi",
+    "#güzellik",
+    "#sivilce",
+    "#salisilikasit",
+    "#skincare",
+    "#sivilcetedavisi",
+    "#ciltbakımrutini"
   ],
-  "takeaway": "Kuru temizleme etiketi genelde kıyafetin değil markanın garantisidir.",
+  "takeaway": "Panikleyip diş macunu sürme, salisilik asit bandı yapıştır ve yat.",
   "footage_queries": [
-    "clothing label tag close up",
-    "washing machine drum spinning"
+    "oil and water macro",
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Elde yıkama sepetin ömründen iki yıl çalıyor.",
-    "Etiketteki o karmaşık semboller aslında tam olarak şu sırayla çalışıyor.",
-    "Leğen sembolündeki sayı tavan derecedir, üzerine çıkınca kumaş anında büzülür.",
-    "Suya hassas lifler ıslandıkça yapısını kaybeder ve o kıyafet bir daha oturmaz.",
-    "Markalar riske girmemek için kumaş yıkanabilir olsa bile kuru temizleme yazar.",
-    "Sen de elde yıkayacağım diye o kazağı aylarca sepette bekletip durursun.",
-    "Kuru temizleme yazan her şey hassas değildir, çoğu markanın korkusudur."
+    "Sivilce önemli günden önceki gece neden çıkar?",
+    "Cildiniz stres anında dört farklı panik tepkisi vermeye başlar.",
+    "Kortizol yükselince cilt o önemli geceyi sezip yağı pompalar.",
+    "Tıkanan kanalda oksijensiz kalan bakteriler hızla çoğalarak iltihap oluşturur.",
+    "Diş macunu sürmek sivilceyi kurutmaz, sadece naneli acı çektirir.",
+    "Yağda çözünen salisilik asit ise gözeneğe nüfuz edip iltihabı yatıştırır.",
+    "Panik yapıp patlatmak yerine salisilik asitli küçük sivilce bandı yapıştırın."
   ],
-  "subject": "yıkama etiketi",
-  "sendTo": "elde yıkanacaklar dağını üç aydır erteleyen o arkadaşına",
-  "soru": "Sen hangisisin: etiketi okuyan mı, direkt 40 dereceye atan mı?",
-  "theme": "#8fd0ff",
+  "subject": "salisilik asit",
+  "sendTo": "önemli bir etkinlikten bir gece önce sivilce çıkartan arkadaşına",
+  "soru": "Sivilce çıkınca ne yapıyorsun: Patlatmak mı, sivilce bandı mı?",
+  "theme": "#8fa8c8",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım"
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım"
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "ripple",
   "footage": true,
   "beats": [
     {
-      "text": "Elde yıkama sepetin ömründen iki yıl çalıyor.",
+      "text": "Sivilce önemli günden önceki gece neden çıkar?",
       "start": 0.35,
-      "dur": 2.734
+      "dur": 2.983
     },
     {
-      "text": "Etiketteki o karmaşık semboller aslında tam olarak şu sırayla çalışıyor.",
-      "start": 3.084,
-      "dur": 4.375
+      "text": "Cildiniz stres anında dört farklı panik tepkisi vermeye başlar.",
+      "start": 3.333,
+      "dur": 4.085
     },
     {
-      "text": "Leğen sembolündeki sayı tavan derecedir, üzerine çıkınca kumaş anında büzülür.",
-      "start": 7.459,
-      "dur": 4.739
+      "text": "Kortizol yükselince cilt o önemli geceyi sezip yağı pompalar.",
+      "start": 7.417,
+      "dur": 3.955
     },
     {
-      "text": "Suya hassas lifler ıslandıkça yapısını kaybeder ve o kıyafet bir daha oturmaz.",
-      "start": 12.198,
-      "dur": 4.739
+      "text": "Tıkanan kanalda oksijensiz kalan bakteriler hızla çoğalarak iltihap oluşturur.",
+      "start": 11.372,
+      "dur": 5.057
     },
     {
-      "text": "Markalar riske girmemek için kumaş yıkanabilir olsa bile kuru temizleme yazar.",
-      "start": 16.937,
-      "dur": 4.739
+      "text": "Diş macunu sürmek sivilceyi kurutmaz, sadece naneli acı çektirir.",
+      "start": 16.43,
+      "dur": 4.214
     },
     {
-      "text": "Sen de elde yıkayacağım diye o kazağı aylarca sepette bekletip durursun.",
-      "start": 21.677,
-      "dur": 4.375
+      "text": "Yağda çözünen salisilik asit ise gözeneğe nüfuz edip iltihabı yatıştırır.",
+      "start": 20.644,
+      "dur": 4.733
     },
     {
-      "text": "Kuru temizleme yazan her şey hassas değildir, çoğu markanın korkusudur.",
-      "start": 26.051,
-      "dur": 5.414
+      "text": "Panik yapıp patlatmak yerine salisilik asitli küçük sivilce bandı yapıştırın.",
+      "start": 25.377,
+      "dur": 6.092
     }
   ]
 }

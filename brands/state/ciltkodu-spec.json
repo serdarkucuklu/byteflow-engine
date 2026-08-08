@@ -1,71 +1,92 @@
 {
-  "hook": "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklı",
-  "title": "Makyaj Temizleme Mendili vs Çift Aşama",
+  "hook": "Sivilce tam önemli etkinlikten önceki gece mi çıkar?",
+  "title": "Sivilce Neden Hep Önemli Günden Önce Çıkar?",
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "kind": "versus",
-      "left": "TEMİZLEME MENDİLİ",
-      "right": "ÇİFT AŞAMALI TEMİZLİK",
-      "rows": [
+      "layout": "nodes-flow",
+      "nodes": [
         {
-          "label": "KİRİ ÇÖZME GÜCÜ",
-          "left": "Sadece yüzeye yayar",
-          "right": "Yağ gözenekten çeker",
-          "winner": "right"
+          "id": "n1",
+          "label": "STRES VE KORTİZOL"
         },
         {
-          "label": "TAHRİŞ ETME ORANI",
-          "left": "Sürtünmeyle kızarıklık",
-          "right": "Sıfır sürtünme konforu",
-          "winner": "right"
+          "id": "n2",
+          "label": "SEBUM PATLAMASI"
         },
         {
-          "label": "FOTOĞRAF FLAŞI ETKİSİ",
-          "left": "Kalan artıklar parlar",
-          "right": "Temiz ve mat görünüm",
-          "winner": "right"
+          "id": "n3",
+          "label": "PANİK MÜDAHALESİ"
         },
         {
-          "label": "ÜŞENGEÇLİK SKORU",
-          "left": "Yatakta 10 saniye",
-          "right": "Banyoya gitmek şart",
-          "winner": "left"
+          "id": "n4",
+          "label": "SALİSİLİK ASİT"
+        }
+      ],
+      "steps": [
+        {
+          "from": "n1",
+          "to": "n2",
+          "packet": "STRES",
+          "status": "stres hormonu yağı anında coşturur",
+          "color": "warn"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "SEBUM",
+          "status": "tıkanan gözenekte bakteri parti verir",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "PANİK",
+          "status": "diş macunu iltihaba benzin döker",
+          "color": "warn"
+        },
+        {
+          "from": "n4",
+          "to": "n1",
+          "packet": "BHA",
+          "status": "salisilik asit yağı çözer paniği bitirir",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Filtresiz gece fotoğraflarında hortlak gibi parlamaktan bıktıysanız, aradığınız suçlu başucunuzda duruyor.\n\nMakyaj temizleme mendili vs Çift aşamalı temizlik savaşı başlıyor:\n\n1. Kiri Çözme Gücü: Temizleme mendilleri makyajı çözmez, sadece yüzeyde sağa sola sıvar. Yağ bazlı temizleyici ise gözeneklerin içine girerek sebumu ve makyajı kelimenin tam anlamıyla eritir.\n2. Tahriş Etme Oranı: Mendilin o pürüzlü liflerini yüzünüze hunharca sürtmek cildinizi zımparalamaktan farksızdır. Temizleme yağı ise sürtünmesizce kayar, cildi hırpalamaz.\n3. Flaş Etkisi: Mendilin geride bıraktığı yapışkan temizleyici artıkları, gece flaşlı bir fotoğraf çekildiğinde ışığı yansıtıp sizi parıl parıl parlatır. Çift temizlik ise pürüzsüz ve doğal bir matlık bırakır.\n4. Üşengeçlik Skoru: Evet, yatakta 10 saniyede mendille silmek aşırı pratik görünüyor ama banyoya gidip o yağı suyla arındırmak ertesi gün temiz bir ciltle uyanmanın tek yoludur.\n\nMakyaj temizliğinde önemli olan hız değil, formülün gözenekteki yağı çözebilme yeteneğidir.\n\nMendille silip yatıp sonra o flaşlı fotoğrafta beni niye böyle çektin diye arkadaşına trip atma.\n\n📌 Kaydet — üşendiğin o gece bu gerçekleri hatırla.\n\n🔁 Bunu seni her filtresiz fotoğrafta acımadan etiketleyen o arkadaşına gönder.\n\nSen hangisisin: Yatakta mendille silen mi, banyoya üşenmeyen mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Sivilce tam önemli etkinlikten bir gece önce neden çıkar?\n\nStres anında cildinde gerçekleşen ziyafet, adım adım:\n\n1. STRES VE KORTİZOL — Önemli gün öncesi yükselen stres hormonu (kortizol), sebase bezleri uyararak aşırı sebum üretimine yol açar.\n2. SEBUM PATLAMASI — Aşırı yağ gözenek kanalını tıkar ve oksijensiz ortamda C. acnes bakterileri hızla çoğalmaya başlar.\n3. PANİK MÜDAHALESİ — Diş macunu, alkol veya kurutucu hamleler bariyeri tahriş ederek iltihabı daha da büyütür.\n4. SALİSİLİK ASİT — BHA grubu olan salisilik asit yağda çözündüğü için gözenek içine nüfuz eder, birikmiş yağı çözer ve iltihabı sakinleştirir.\n\nO gece yapılacak tek mantıklı şey sivilceye dokunmayıp salisilik asitli nokta bant yapıştırmaktır.\n\nCilt stresi bilir ama panik müdahalesini affetmez.\n\n📌 Kaydet — bir dahaki acil sivilce krizinde lazım olacak.\n🔁 Bunu önemli bir etkinlikten bir gece önce sivilce çıkartan arkadaşına gönder.\nSivilce çıkınca ne yapıyorsun: Patlatmak mı, sivilce bandı mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#guzellik",
-    "#makyajtemizleme",
-    "#ciftasamalitemizlik",
-    "#makyajonerileri",
-    "#temizlemeyagi"
+    "#güzellik",
+    "#sivilce",
+    "#salisilikasit",
+    "#skincare",
+    "#sivilcetedavisi",
+    "#ciltbakımrutini"
   ],
-  "takeaway": "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her z",
+  "takeaway": "Panikleyip diş macunu sürme, salisilik asit bandı yapıştır ve yat.",
   "footage_queries": [
     "oil and water macro",
-    "clean bathroom tiles light"
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklıyorum, toplanın kızlar.",
-    "Makyajı alelacele temizleme mendiliyle silip yatmakla çift aşamalı temizliği bugün karşılaştırıyoruz.",
-    "Mendil kiri sadece yüzünüze sıvayıp bırakırken, yağ bazlı temizleyici gözeneklerin içine kadar nüfuz eder.",
-    "Sert mendil lifleri cildi zımparalayıp kızartırken, temizleme yağı sıfır sürtünmeyle nazikçe kayıp gider.",
-    "Mendilin bıraktığı o yapışkan tabaka gece flaşında parıldarken, diğeri pürüzsüz ve mat görünüm sağlar.",
-    "Mendil yatakta saniyeler sürse de, banyoya gitmeye üşenmemek sabah pürüzsüz uyanmanın tek sırrıdır.",
-    "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her zaman mahkum olursun."
+    "Sivilce önemli günden önceki gece neden çıkar?",
+    "Cildiniz stres anında dört farklı panik tepkisi vermeye başlar.",
+    "Kortizol yükselince cilt o önemli geceyi sezip yağı pompalar.",
+    "Tıkanan kanalda oksijensiz kalan bakteriler hızla çoğalarak iltihap oluşturur.",
+    "Diş macunu sürmek sivilceyi kurutmaz, sadece naneli acı çektirir.",
+    "Yağda çözünen salisilik asit ise gözeneğe nüfuz edip iltihabı yatıştırır.",
+    "Panik yapıp patlatmak yerine salisilik asitli küçük sivilce bandı yapıştırın."
   ],
-  "subject": "makyaj temizleme",
-  "sendTo": "seni her filtresiz fotoğrafta acımadan etiketleyen o arkadaşına",
-  "soru": "Sen hangisisin: Yatakta mendille silen mi, banyoya üşenmeyen mi?",
-  "theme": "#e8a0a8",
+  "subject": "salisilik asit",
+  "sendTo": "önemli bir etkinlikten bir gece önce sivilce çıkartan arkadaşına",
+  "soru": "Sivilce çıkınca ne yapıyorsun: Patlatmak mı, sivilce bandı mı?",
+  "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
-    "shareCta": "↗  Bunu ihtiyacı olan birine gönder"
+    "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım"
   },
   "palette": {
     "bg": "#17110f",
@@ -75,43 +96,43 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "ripple",
   "footage": true,
   "beats": [
     {
-      "text": "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklıyorum, toplanın kızlar.",
+      "text": "Sivilce önemli günden önceki gece neden çıkar?",
       "start": 0.35,
-      "dur": 5.796
+      "dur": 2.983
     },
     {
-      "text": "Makyajı alelacele temizleme mendiliyle silip yatmakla çift aşamalı temizliği bugün karşılaştırıyoruz.",
-      "start": 6.146,
-      "dur": 6.294
+      "text": "Cildiniz stres anında dört farklı panik tepkisi vermeye başlar.",
+      "start": 3.333,
+      "dur": 4.085
     },
     {
-      "text": "Mendil kiri sadece yüzünüze sıvayıp bırakırken, yağ bazlı temizleyici gözeneklerin içine kadar nüfuz eder.",
-      "start": 12.44,
-      "dur": 6.606
+      "text": "Kortizol yükselince cilt o önemli geceyi sezip yağı pompalar.",
+      "start": 7.417,
+      "dur": 3.955
     },
     {
-      "text": "Sert mendil lifleri cildi zımparalayıp kızartırken, temizleme yağı sıfır sürtünmeyle nazikçe kayıp gider.",
-      "start": 19.046,
-      "dur": 6.544
+      "text": "Tıkanan kanalda oksijensiz kalan bakteriler hızla çoğalarak iltihap oluşturur.",
+      "start": 11.372,
+      "dur": 5.057
     },
     {
-      "text": "Mendilin bıraktığı o yapışkan tabaka gece flaşında parıldarken, diğeri pürüzsüz ve mat görünüm sağlar.",
-      "start": 25.59,
-      "dur": 6.357
+      "text": "Diş macunu sürmek sivilceyi kurutmaz, sadece naneli acı çektirir.",
+      "start": 16.43,
+      "dur": 4.214
     },
     {
-      "text": "Mendil yatakta saniyeler sürse de, banyoya gitmeye üşenmemek sabah pürüzsüz uyanmanın tek sırrıdır.",
-      "start": 31.946,
-      "dur": 6.17
+      "text": "Yağda çözünen salisilik asit ise gözeneğe nüfuz edip iltihabı yatıştırır.",
+      "start": 20.644,
+      "dur": 4.733
     },
     {
-      "text": "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her zaman mahkum olursun.",
-      "start": 38.116,
-      "dur": 7.332
+      "text": "Panik yapıp patlatmak yerine salisilik asitli küçük sivilce bandı yapıştırın.",
+      "start": 25.377,
+      "dur": 6.092
     }
   ],
   "thumbOffset": 1450
