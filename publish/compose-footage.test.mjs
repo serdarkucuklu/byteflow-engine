@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {planSegments, xfadeChain, normalizeClip, composeFootageVideo, adaptDim, measureLuma, XF} from './compose-footage.mjs';
+import {planSegments, planKinetik, kinetikDim, xfadeChain, normalizeClip, composeFootageVideo, adaptDim, measureLuma, XF} from './compose-footage.mjs';
 
 const recorder = () => {
   const calls = [];
@@ -76,7 +76,7 @@ test('xfadeChain copies straight through for a single clip', () => {
 test('composeFootageVideo reuses clips across segments and overlays the alpha frames', () => {
   const {calls, run} = recorder();
   composeFootageVideo({
-    clips: [{path: 'c0.mp4'}, {path: 'c1.mp4'}],
+    clips: [{path: 'c0.mp4'}, {path: 'c1.mp4'}], kinetik: false,
     framesDir: '/frames', frames: 1620, tmpDir: '/tmp/x', outPath: 'out.mp4', run,
   });
   // 2 klip → planSegments 2 segment ister; her segment normalize edilir.
@@ -135,8 +135,105 @@ test('composeFootageVideo applies the adapted scrim to a dark clip', () => {
   composeFootageVideo({
     clips: [{path: 'dark.mp4'}], framesDir: '/f', frames: 600, tmpDir: '/tmp/x',
     outPath: 'out.mp4', run, probe: () => 'lavfi.signalstats.YAVG=15.0\n',
+    writeList: () => {},
   });
   const vf = argOf(calls.find(c => c.args.includes('-stream_loop')), '-vf');
   const dim = Number(vf.match(/black@([\d.]+)/)[1]);
   assert.ok(dim < 0.44, `koyu klipte scrim düşmeliydi, ${dim} kaldı`);
+});
+
+// ─── KİNETİK ZEMİN ───────────────────────────────────────────────────────────
+// Ölçülen sorun: eski düzende gövde tek bir 'surface' segmentiydi → canlı kare %1,
+// en uzun donuk 12,6s. Bu testler o düzenin geri gelmesini engelliyor.
+
+test('planKinetik videonun TAMAMINI kısa segmentlere böler — tek uzun gövde yok', () => {
+  for (const total of [18, 20, 22, 31]) {
+    const {durations} = planKinetik({total, clipCount: 2});
+    const toplam = durations.reduce((a, b) => a + b, 0);
+    assert.ok(Math.abs(toplam - total) < 0.06, `${total}s → ${toplam}`);
+    assert.ok(Math.max(...durations) <= 2.6,
+      `en uzun segment ${Math.max(...durations)}s — gövde yine donuklaşır`);
+    // 20s'de en az 9 segment: ~2s'de bir kesme.
+    assert.ok(durations.length >= Math.floor(total / 2.4), `${total}s için ${durations.length} segment az`);
+  }
+});
+
+test('planKinetik açılışı rampalar — ilk kesme 1,2s sınırının altında', () => {
+  const {durations} = planKinetik({total: 20, clipCount: 2});
+  assert.ok(durations[0] < 1.2,
+    `ilk segment ${durations[0]}s — açılış donukluğu sınırı 1,2s (retansiyon-denetci)`);
+  assert.ok(durations[1] < durations[2], 'ritim rampalı olmalı: hızlı başla, sonra otur');
+});
+
+test('planKinetik aynı klibi tekrar kullanırken YÖN ve BAŞLANGIÇ ANINI değiştirir', () => {
+  const {clipIdx, panDirs, seeks} = planKinetik({total: 20, clipCount: 2});
+  // Aynı klibe düşen ardışık segmentlerin yönü/anı farklı olmalı, yoksa kesme okunmaz.
+  for (let i = 2; i < clipIdx.length; i++) {
+    if (clipIdx[i] === clipIdx[i - 2]) {
+      assert.notEqual(`${panDirs[i]}|${seeks[i]}`, `${panDirs[i - 2]}|${seeks[i - 2]}`,
+        `segment ${i} ile ${i - 2} birebir aynı kadraj`);
+    }
+  }
+});
+
+test('planKinetik kırıntı segment bırakmaz', () => {
+  const {durations} = planKinetik({total: 20.3, clipCount: 3});
+  assert.ok(Math.min(...durations) >= 0.6, `kırıntı segment: ${Math.min(...durations)}s`);
+});
+
+test('kinetik composeFootageVideo SERT kesme kullanır — xfade yok', () => {
+  const {calls, run} = recorder();
+  const yazilan = [];
+  composeFootageVideo({
+    clips: [{path: 'c0.mp4'}, {path: 'c1.mp4'}],
+    framesDir: '/frames', frames: 1200, tmpDir: '/tmp/x', outPath: 'out.mp4', run,
+    writeList: (p, b) => yazilan.push([p, b]),
+  });
+  const normalizes = calls.filter(c => c.args.includes('-stream_loop'));
+  assert.ok(normalizes.length >= 9, `20s için ${normalizes.length} segment az`);
+  // Hiçbir çağrıda xfade olmamalı: 0,8s geçiş kesmeyi sıvayıp olay sinyalini yok ediyor.
+  assert.ok(!calls.some(c => JSON.stringify(c.args).includes('xfade')), 'kinetik düzende xfade olmamalı');
+  assert.ok(calls.some(c => c.args.includes('concat')), 'sert kesme concat ile yapılır');
+  assert.equal(yazilan.length, 1, 'concat listesi yazılmalı');
+  assert.match(yazilan[0][1], /kseg0\.mp4/);
+});
+
+test('kinetik zemin belirgin hareket ve AZ karartma kullanır', () => {
+  const {calls, run} = recorder();
+  composeFootageVideo({
+    clips: [{path: 'c0.mp4'}], framesDir: '/frames', frames: 1200,
+    tmpDir: '/tmp/x', outPath: 'out.mp4', run, writeList: () => {},
+  });
+  const vf = argOf(calls.find(c => c.args.includes('-stream_loop')), '-vf');
+  // Eski gövde: black@0.88 + sigma 26 → ekran neredeyse siyah, hareket görünmüyordu.
+  const dim = Number(/black@([\d.]+)/.exec(vf)[1]);
+  const sigma = Number(/gblur=sigma=([\d.]+)/.exec(vf)[1]);
+  assert.ok(dim <= 0.55, `scrim ${dim} — zemin görüntüyü taşıyamaz`);
+  assert.ok(sigma <= 12, `blur ${sigma} — detay silinirse hareket de silinir`);
+  // Pan payı 1,16'dan büyük olmalı: eski değerde hareket mafd eşiğini geçmiyordu.
+  assert.match(vf, /scale=(\d+):(\d+)/);
+  const [, sw] = /scale=(\d+):/.exec(vf);
+  assert.ok(Number(sw) >= 1080 * 1.25, `pan payı düşük: ${sw}px`);
+});
+
+test('klip yoksa kinetik düzen eski gradient yoluna düşer (akış kırılmaz)', () => {
+  const {calls, run} = recorder();
+  composeFootageVideo({
+    clips: [], framesDir: '/frames', frames: 1200, tmpDir: '/tmp/x',
+    outPath: 'out.mp4', accent: '#bc8cff', run, writeList: () => {},
+  });
+  assert.ok(calls.find(c => c.args.includes('lavfi')), 'klip yoksa üretilmiş arka plan olmalı');
+});
+
+test('kinetikDim İKİ YÖNLÜ: koyu klipte düşer, PARLAK klipte artar', () => {
+  assert.equal(kinetikDim(0.4, null), 0.4, 'ölçüm yoksa dokunma');
+  assert.ok(kinetikDim(0.4, 15) < 0.4, 'koyu klipte scrim hafiflemeli');
+  assert.equal(kinetikDim(0.4, 70), 0.4, 'orta parlaklıkta değişmemeli');
+  // Kinetik biçimde kart yok — beyaz çarşaf kadrajında beyaz yazı kayboluyordu.
+  assert.ok(kinetikDim(0.4, 150) > 0.4, `parlak klipte scrim artmalı: ${kinetikDim(0.4, 150)}`);
+  assert.ok(kinetikDim(0.4, 110) > 0.4 && kinetikDim(0.4, 110) < kinetikDim(0.4, 150));
+  // ⚠ TAVAN DÜŞÜK OLMALI. 0,62'ye kadar çıkabildiğinde (ilk sürüm) gerçek koşuda dört
+  // klibin dördü de en üst basamağa düştü ve b-roll görsel olarak yok oldu.
+  assert.ok(kinetikDim(0.4, 200) <= 0.52, `scrim tavanı aşıldı: ${kinetikDim(0.4, 200)}`);
+  assert.ok(kinetikDim(0.4, 140) < 0.55, 'parlak klip hâlâ görünür kalmalı');
 });

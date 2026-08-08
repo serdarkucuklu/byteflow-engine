@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {repairSpec} from './repair.mjs';
+import {repairSpec, kirp} from './repair.mjs';
 import {validateSpec} from './validate.mjs';
 
 const base = {
@@ -39,9 +39,39 @@ test('over-long labels, packets and statuses are trimmed to the schema limits', 
   }]};
   const fixed = repairSpec(spec);
   assert.equal(validateSpec(fixed).valid, true, validateSpec(fixed).errors?.join('; '));
-  assert.equal(fixed.scenes[0].nodes[0].label.length, 18);
+  // Sınırı aşmamalı AMA kelimenin ortasından da kesmemeli: "A VERY LONG NODE LABEL HERE"
+  // 18 karaktere ham kesilse "A VERY LONG NODE L" olurdu — son tam kelimede durur.
+  assert.ok(fixed.scenes[0].nodes[0].label.length <= 18);
+  assert.equal(fixed.scenes[0].nodes[0].label, 'A VERY LONG NODE');
+  // Boşluksuz tek kelime: kesecek sınır yok, ham kırpma meşru.
   assert.equal(fixed.scenes[0].steps[0].packet, 'TOOLON');
-  assert.equal(fixed.scenes[0].steps[0].status.length, 40);
+  assert.ok(fixed.scenes[0].steps[0].status.length <= 40);
+});
+
+test('hook ve takeaway sınırı aşarsa KIRPILMAZ — yeniden üretilsin diye geçersiz kalır', () => {
+  // Gerçek olay (2026-08-08 @cilt.kodu): ham kesme punchline'ı "…etiketlenmeye her z"
+  // yapmıştı. Artık kırpmak yerine spec geçersiz kalır ve produceSpec yeniden dener.
+  const uzunTakeaway = 'Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her zaman hazırsın';
+  const spec = {...base, takeaway: uzunTakeaway, scenes: [diagram]};
+  const fixed = repairSpec(spec);
+  assert.equal(fixed.takeaway, uzunTakeaway, 'takeaway dokunulmadan bırakılmalı');
+  assert.equal(validateSpec(fixed).valid, false, 'taşan takeaway geçersiz sayılmalı');
+});
+
+test('sınır içindeki hook ve takeaway aynen korunur', () => {
+  const spec = {...base, hook: 'O siyah tişört beşinci yıkamada seni terk ediyor.',
+    takeaway: 'Kumaş suçlu değil, etiketi okumayan biziz.', scenes: [diagram]};
+  const fixed = repairSpec(spec);
+  assert.equal(fixed.hook, spec.hook);
+  assert.equal(fixed.takeaway, spec.takeaway);
+  assert.equal(validateSpec(fixed).valid, true, validateSpec(fixed).errors?.join('; '));
+});
+
+test('kirp: kelime ortasından kesmez, sondaki yarım noktalamayı temizler', () => {
+  assert.equal(kirp('bir iki üç dört', 11), 'bir iki üç');
+  assert.equal(kirp('bir iki, üç', 9), 'bir iki');       // sondaki virgül düşer
+  assert.equal(kirp('kısa', 20), 'kısa');                 // sınır altındaysa dokunmaz
+  assert.equal(kirp('tekcokuzunkelime', 6), 'tekcok');    // boşluk yoksa ham kesme
 });
 
 test('steps pointing at a non-existent node are dropped', () => {

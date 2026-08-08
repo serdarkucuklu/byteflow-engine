@@ -9,6 +9,7 @@ import {stripMarkdown, sanitizeHashtags, formatCaption} from './brain/sanitize.m
 import {localizeSpec} from './brain/localize.mjs';
 import {postProcess} from './publish/post-process.mjs';
 import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose-footage.mjs';
+import {denetle, rapor} from './publish/retansiyon-denetci.mjs';
 import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './publish/voiceover.mjs';
 import {pillarsFor, selectPillar} from './brain/pillars.mjs';
 import {twistsFor, selectTwist} from './brain/twists.mjs';
@@ -151,6 +152,10 @@ spec.brand = {handle: brand.handle, signoff: brand.persona?.signoff ?? '',
 if (brand.palette) spec.palette = brand.palette;
 if (brand.language) spec.language = brand.language;
 spec.motion = motion;
+// BİÇİM (2026-08-08): 'kinetik' = tek büyük cümle + hareketli b-roll; kutulu diyagram YOK.
+// Marka dosyasından gelir (brands/<slug>.json → "format"), böylece tek sayfada denenip
+// geri alınabilir. Ölçüm gerekçesi: publish/retansiyon-denetci.mjs başlığındaki not.
+if (brand.format) spec.format = brand.format;
 // Düzen ARKA ARKAYA tekrar etmesin: prompt zaten farklısını istiyor, burası sert kapı.
 // 'versus' ve 'code' sahneleri kendi şablonlarıyla çizildiği için düzenleri görüntüyü
 // etkilemiyor — onlara dokunma, sadece diyagram sahnelerini döndür.
@@ -173,7 +178,10 @@ console.log(`✓ spec (${source}): ${spec.title} [konu: ${spec.subject ?? '—'}
 // ffmpeg diyagramı footage'ın üstüne bindirir. İnemezse eski düz arka planlı akış aynen sürer.
 // Artık 2 klip yetiyor: b-roll sadece AÇILIŞ ve KAPANIŞ'ta; öğretici gövde
 // tasarlanmış sade zeminde (bkz. publish/compose-footage.mjs planSegments).
-const FOOTAGE_CLIPS = 2;
+// Kinetik biçimde zemin ~2s'lik segmentlere bölünüyor (20s → ~11 segment). 2 klip o
+// segmentlere 5-6 kez dağılır ve tekrar hissedilir; 4 klip her segmenti taze tutar.
+// Eski biçimde b-roll yalnız açılış/kapanıştaydı, 2 klip yetiyordu.
+const FOOTAGE_CLIPS = brand.format === 'kinetik' ? 4 : 2;
 const footageDir = join(root, 'render', 'footage');
 if (existsSync(footageDir)) rmSync(footageDir, {recursive: true, force: true});
 
@@ -321,6 +329,25 @@ try {
   console.log(`✓ kapak: ${spec.thumbOffset}ms (hook anı — ${durSec.toFixed(1)}s videoda)`);
 } catch (e) {
   console.error('⚠ thumb_offset hesaplanamadı (kapak varsayılan kalır):', e.message);
+}
+
+// ---- RETANSİYON DENETİMİ: donuk video yayına çıkmasın ----
+// 2026-08-08'e kadar bu kapı yoktu ve 13 yayının 13'ü de ekranı %97-99 donuk videolardı
+// (ölçüm: publish/retansiyon-denetci.mjs başlığı). Gözle bakınca fark edilmiyor — iki kare
+// karşılaştırıldığında "hareket var" görünüyor ama hareket mafd eşiğini hiç geçmiyor.
+// Bu yüzden karar ÖLÇÜME bırakıldı. Kapı UYARIR, yayını durdurmaz: bir gün içerik hattını
+// tamamen kilitlemek, donuk bir video yayınlamaktan daha pahalı. BYTEFLOW_RETANSIYON_KATI=1
+// ile sert kapıya çevrilir.
+try {
+  const denetim = await denetle(out);
+  console.log(rapor(denetim));
+  if (!denetim.gecti) {
+    const kati = process.env.BYTEFLOW_RETANSIYON_KATI === '1';
+    console.error(`${kati ? '✗' : '⚠'} retansiyon denetimi düştü: ${denetim.bulgular.join(' · ')}`);
+    if (kati) process.exit(1);
+  }
+} catch (e) {
+  console.error(`⚠ retansiyon denetimi koşturulamadı: ${e.message}`);
 }
 
 console.log(`✓ done (${source}): ${out}`);

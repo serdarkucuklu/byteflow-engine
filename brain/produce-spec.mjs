@@ -35,7 +35,7 @@ export async function produceSpec({candidates, apiKey, recentTitles = [], pillar
         bannedSubjects, twist, bannedLayouts, recentKinds, not});
       // Küçük kusurları (kodsuz kod sahnesi, taşan label/packet) onar — denemeyi harcamak
       // yerine düzelt; her başarısız deneme bizi seed'e (jenerik videoya) yaklaştırıyor.
-      const spec = repairSpec(raw, {defaultHashtags: brand.defaultHashtags, maxSteps: brand.video?.maxSteps});
+      const spec = repairSpec(raw, {defaultHashtags: brand.defaultHashtags, maxSteps: brand.video?.maxSteps, format: brand.format});
       const {valid, errors} = validateSpec(spec);
       if (valid) {
         // KONU TEKRARI = GEÇERSİZ ÜRETİM. Prompt'taki soğuma kuralı yumuşak bir istek;

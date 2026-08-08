@@ -83,12 +83,12 @@
     "#makyajönerisi"
   ],
   "video": {
-    "seconds": "28-32",
-    "maxWords": 13,
-    "minSteps": 4,
-    "maxSteps": 4,
-    "targetSec": 30,
-    "minWords": 9
+    "seconds": "18-22",
+    "targetSec": 20,
+    "minWords": 7,
+    "maxWords": 11,
+    "minSteps": 3,
+    "maxSteps": 3
   },
   "tone": {
     "fluff": "Faceless. Funny first, useful second — but never fake-funny: the joke comes from the situation being TRUE, not from adding jokes on top.",
@@ -98,5 +98,6 @@
     "takeawayRule": "The closing line is the PUNCHLINE (<= 70 chars) and it must LAND TODAY'S GAF — the same angle the hook opened with, now with the twist of the knife. A cheeky rule of thumb or a self-aware confession, never a summary, never a flat sign-off, never \"umarım faydalı olmuştur\".",
     "captionClosing": "A funny, self-aware closing line that lands today's gaf (the same angle as the hook), not a generic sign-off",
     "doorRule": "GÖRÜNÜR KAPI: video gözle görülmüş bir durumdan açılır, mekanizma adından ASLA. \"Cilt bariyeri\" kapı değildir; \"su değince yanan yüz\" kapıdır. \"Transepidermal su kaybı\" kapı değildir; \"nemlendirici sürüyorum yine kuru\" kapıdır. Mekanizma kapıdan SONRA gelen açıklamadır. Ölçüldü (2026-08-03): soyut biyolojiyle açılan videolar 32-36 izlenmede kaldı, somut bir satın almayla açılan 1349 yaptı."
-  }
+  },
+  "format": "kinetik"
 }

@@ -150,6 +150,9 @@ const tone = {...DEFAULT_TONE, ...(brand.tone ?? {})};
 // video isteniyor (konu anlatımı 25s'ye sığmıyor, izleyici de daha uzun kalıyor).
 // Süreyi anlatım belirliyor: cümle sayısı = 3 + adım sayısı, cümle başına ~2.2s.
 const vid = {seconds: '25-30', minWords: 5, maxWords: 9, minSteps: 2, maxSteps: 3, ...(brand.video ?? {})};
+// KİNETİK BİÇİM: ekranda kutu/diyagram yok, aynı anda TEK cümle var. Anlatım kuralları
+// buna göre değişiyor (kurulum cümlesi kalkıyor — anlatacak "ekrandaki parçalar" yok).
+const kinetik = brand.format === 'kinetik';
 const langBlock = lang ? `
 LANGUAGE — HARD RULE: every viewer-facing string MUST be written in ${lang}, not English:
 hook, title, scene headings, node labels, step statuses, narration sentences, takeaway and the
@@ -382,12 +385,19 @@ VARIETY & TEACHING RULES (hard requirements):
 - narration${lang ? ` (IN ${lang.toUpperCase()})` : ''}: the SPOKEN script, as an ordered list of short sentences. This is read aloud by a
   synthetic narrator AND shown as on-screen captions, and it drives the video's timing — so it
   is the backbone of the whole video, not an afterthought. Rules:
-  * EXACTLY 3 + (number of steps in scene 1) sentences, in this order:
+${kinetik ? `  * EXACTLY 2 + (number of steps in scene 1) sentences, in this order:
+    1. the HOOK sentence (same idea as the hook line, spoken naturally),
+    2..N-1. one sentence per step, in step order, saying what happens at that moment,
+    N. the closing sentence (the takeaway, spoken).
+  * ⚠ THERE IS NO SETUP SENTENCE. Nothing is "on screen" to introduce: this video shows ONE
+    SENTENCE AT A TIME over moving footage, never a diagram. A sentence like "here is what
+    happens, in three steps" describes a diagram that does not exist and burns 4 of the 20
+    seconds saying nothing. Go straight from the hook into the first real mechanism beat.` : `  * EXACTLY 3 + (number of steps in scene 1) sentences, in this order:
     1. the HOOK sentence (same idea as the hook line, spoken naturally),
     2. the SETUP sentence — names the pieces on screen in one breath
        (${ex.narrationSetup}),
     3..N-1. one sentence per step, in step order, saying what happens at that moment,
-    N. the closing sentence (the takeaway, spoken).
+    N. the closing sentence (the takeaway, spoken).`}
   * Each sentence ${vid.minWords}-${vid.maxWords} words. This is a RANGE, not just a ceiling:
     the whole script is read aloud and the video is exactly as long as the speech, so writing
     every sentence at the short end makes the video too short for the ${vid.seconds}s target.

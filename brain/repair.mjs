@@ -8,7 +8,36 @@
 // düzelt: yayın kalitesi denemenin şansına bağlı kalmasın.
 const LIMITS = {nodes: 5, steps: 4, label: 18, packet: 6, status: 40, heading: 48, annotation: 80, title: 60, hook: 70, takeaway: 80};
 
-const cut = (s, n) => (typeof s === 'string' && s.length > n ? s.slice(0, n).trim() : s);
+// KELİMENİN ORTASINDAN KESME. 2026-08-08'de yayınlanan @cilt.kodu videosunda hem hook hem
+// kapanış cümlesi kelime ortasında kopmuştu:
+//   hook     : "Filtresiz o gece fotoğrafında hortlak gibi parlamanın suçlusunu açıklı"
+//   takeaway : "Mendille silip yatarsan, o flaşlı fotoğrafta mum gibi eriyip etiketlenmeye her z"
+// Sebep: `s.slice(0, n)` ham karakter kesiyordu. Videonun ilk 2 saniyesi ve punchline'ı —
+// yani izlenmeyi belirleyen İKİ cümle — böyle sakatlanıyor.
+export const kirp = (s, n) => {
+  if (typeof s !== 'string' || s.length <= n) return s;
+  const ham = s.slice(0, n);
+  const bosluk = ham.lastIndexOf(' ');
+  // Boşluk yoksa (tek uzun kelime) ham kesmeye mecburuz; varsa son tam kelimede dur.
+  const kesik = (bosluk > 0 ? ham.slice(0, bosluk) : ham).trim();
+  // Sondaki yarım noktalama/bağlaç izini temizle: "… eriyip," → "… eriyip"
+  return kesik.replace(/[,;:\-–—]+$/, '').trim();
+};
+
+const cut = kirp;
+
+/**
+ * Hook ve takeaway VİDEONUN KENDİSİ: biri ilk 2 saniyeyi, diğeri punchline'ı taşıyor.
+ * Bunlar sınırı aşarsa SESSİZCE KIRPILMAZ — kırpılmış bir punchline, punchline değildir.
+ * Uzunsa alan olduğu gibi bırakılır, validateSpec düşer ve produceSpec yeniden üretir
+ * (5 deneme var; tek alan taşması nadir). Kırpma yalnızca ekrandaki yardımcı yazılarda
+ * (label, packet, status, heading) meşru.
+ */
+export function tasanKilitAlanlar(spec) {
+  return ['hook', 'takeaway'].filter(
+    k => typeof spec?.[k] === 'string' && spec[k].length > LIMITS[k],
+  );
+}
 
 function repairScene(scene, maxSteps = LIMITS.steps) {
   const s = {...scene};
@@ -90,33 +119,46 @@ function normalizeHashtags(list, defaults = DEFAULT_HASHTAGS) {
  * Model sayıyı tutturamazsa eksikleri adımların status metninden üretir — seslendirme ve
  * altyazı sessizce desenkron olmaktansa biraz düz bir cümle söylesin.
  */
-function repairNarration(out) {
+function repairNarration(out, kinetik = false) {
   // Beat sayısı sahne tipine göre: diyagramda adım başına, versus'ta SATIR başına bir cümle.
   const first = (out.scenes ?? []).find(s => (s.steps?.length ?? 0) || (s.rows?.length ?? 0));
   const steps = first?.kind === 'versus' ? (first.rows ?? []) : (first?.steps ?? []);
-  const want = steps.length + 3;   // hook + kurulum + adımlar/satırlar + kapanış
+  // KİNETİK BİÇİMDE KURULUM CÜMLESİ YOK: ekranda tanıtılacak "parçalar" (kutular, oklar)
+  // bulunmuyor. "Şimdi üç adımda ne oluyor bakalım" cümlesi 20 saniyelik videonun ~4
+  // saniyesini hiçbir şey söylemeden harcıyor.
+  const ekstra = kinetik ? 2 : 3;      // hook [+ kurulum] + adımlar/satırlar + kapanış
+  const want = steps.length + ekstra;
   let given = (Array.isArray(out.narration) ? out.narration : [])
     .map(t => String(t).replace(/[*`]/g, '').trim()).filter(Boolean);
   // Fazla cümle: baştakileri koru ama KAPANIŞI kaybetme (son cümle kapanıştır).
   if (given.length > want) given = [...given.slice(0, want - 1), given[given.length - 1]];
 
   const sentence = t => (/[.!?]$/.test(t) ? t : `${t}.`);
+  // Adımların anlatımda nereden başladığı: kinetikte 1, klasikte 2 (kurulum bir yer tutuyor).
+  const adimBas = ekstra - 1;
   return Array.from({length: want}, (_, i) => {
     if (given[i]) return sentence(given[i]);
     if (i === 0) return sentence(out.hook ?? out.title ?? 'Here is how it actually works');
-    if (i === 1) return `Here is what actually happens, in ${steps.length} steps.`;
+    if (!kinetik && i === 1) return `Here is what actually happens, in ${steps.length} steps.`;
     if (i === want - 1) return sentence(out.takeaway ?? 'That is the whole mechanism');
-    const b = steps[i - 2];
+    const b = steps[i - adimBas];
     return sentence(cap(b?.status ?? b?.label ?? 'the next step runs'));
   });
 }
 
 const cap = t => String(t).charAt(0).toUpperCase() + String(t).slice(1);
 
-export function repairSpec(spec, {defaultHashtags, maxSteps} = {}) {
+export function repairSpec(spec, {defaultHashtags, maxSteps, format} = {}) {
+  const kinetik = format === 'kinetik';
   const out = {...spec};
   out.hashtags = normalizeHashtags(out.hashtags, defaultHashtags?.length ? defaultHashtags : DEFAULT_HASHTAGS);
-  for (const key of ['title', 'hook', 'takeaway']) if (key in out) out[key] = cut(out[key], LIMITS[key]);
+  // title kırpılabilir (ekranda başlık, anlamı taşımıyor). hook/takeaway kırpılmaz —
+  // taşarlarsa olduğu gibi bırakılır ki validateSpec düşsün ve yeniden üretilsin.
+  if ('title' in out) out.title = cut(out.title, LIMITS.title);
+  const tasan = tasanKilitAlanlar(out);
+  if (tasan.length) {
+    console.error(`[repair] ${tasan.join('+')} sınırı aştı → kırpılmıyor, yeniden üretilecek`);
+  }
 
   const scenes = (spec.scenes ?? []).map(sc => repairScene(sc, maxSteps)).filter(s =>
     s.kind === 'code' ? Boolean(s.code)
@@ -124,6 +166,6 @@ export function repairSpec(spec, {defaultHashtags, maxSteps} = {}) {
       : (s.nodes?.length >= 3 && s.steps?.length >= 1));
   // Hepsi düşerse orijinali bırak: validateSpec kararı versin, sessizce boş spec üretme.
   out.scenes = scenes.length ? scenes.slice(0, 2) : (spec.scenes ?? []);
-  out.narration = repairNarration(out);
+  out.narration = repairNarration(out, kinetik);
   return out;
 }

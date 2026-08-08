@@ -1,4 +1,4 @@
-import {makeScene2D, Rect, Txt, Layout, Line, Path, Code, LezerHighlighter} from '@motion-canvas/2d';
+import {makeScene2D, Rect, Txt, Layout, Line, Path, Code, LezerHighlighter, Gradient} from '@motion-canvas/2d';
 import {all, delay, createRef, waitFor, useThread, easeOutCubic, easeInOutCubic, easeOutQuad} from '@motion-canvas/core';
 import {FONTS, CAPTION_Y, CLUSTER_Y, SAVE_CUE_Y, resolvePalette, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
@@ -112,8 +112,164 @@ function nodeGlyph(node: {icon?: string; brand?: string}, size: number, index: n
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// KİNETİK BİÇİM (2026-08-08) — tek büyük cümle + hareketli b-roll.
+//
+// Neden yeni bir biçim: eski şablon aslında bir YAZILIM MİMARİSİ DİYAGRAMI
+// (kutulu node'lar, kalıcı başlık şeridi, GitHub koyu teması) ve güzellik/moda
+// kitlesine yeniden boyanmış hâliydi. Ölçüm (publish/retansiyon-denetci.mjs):
+//   ciltkodu-latest 45s : canlı kare %1 · en uzun donuk 12,6s · 0,15 olay/sn
+//   kizlarkodu-latest 31s: canlı kare %3 · en uzun donuk  4,2s · 0,35 olay/sn
+// Ekran videonun %97-99'unda donuktu; 13 yayının 13'ünde izlenme oranı %7-25
+// (30 sn altı reel ölçütü: %50 üstü).
+//
+// Kinetik biçimde ekranda AYNI ANDA tek şey var: konuşulan cümle. Cümle KELİME
+// KELİME giriyor (her kelime bir görsel olay), beat değişiminde blok yukarı
+// süzülüp yenisi alttan geliyor. Kalıcı başlık şeridi ve kutu düzeni YOK —
+// zemin (kinetik b-roll, publish/compose-footage.mjs) görüntüyü taşıyor.
+function* renderKinetik(view: any) {
+  // Kinetik yazının GÖLGESİ kartın yerini tutar: kart yok, kontrastı gölge taşıyor.
+  // Standart SHADOW (blur 30) parlak b-roll üstünde yetmiyordu — çift katman:
+  // geniş yumuşak bir karartma + sıkı bir kontur gölgesi.
+  const KIN_SHADOW = {shadowColor: '#000000', shadowBlur: 46, shadowOffsetY: 3};
+  const beats = BEATS ?? [];
+  // Ses yoksa beat'leri anlatım cümlelerinden eşit süreyle üret — akış kırılmasın.
+  const metinler: string[] = beats.length
+    ? beats.map(b => String(b.text ?? '').trim()).filter(Boolean)
+    : (spec.narration ?? [HOOK, TAKEAWAY]).map(t => String(t).trim()).filter(Boolean);
+  const hedefSure = 20;
+  const esitSure = hedefSure / Math.max(metinler.length, 1);
+
+  // OKUNABİLİRLİK YASTIĞI: yazı bandının arkasında merkezden kenara ERİYEN bir karartma.
+  // Beyaz çarşaf/parlak cilt kadrajlarında yazının kaybolmasını engelliyor. Zeminin kendi
+  // scrim'i (kinetikDim) klip ORTALAMASINA göre çalışıyor; parlak bölge kadrajın sadece
+  // ortasındaysa onu yakalamıyor — bu yastık yazının durduğu yeri garantiliyor.
+  //
+  // ⚠ DÜZ RENK DOLGU KULLANMA. İlk denemede (2026-08-08) `fill="#05070ab0"` + radius 300
+  // idi: kadrajın ortasında kenarı belli, siyah bir hap gibi duruyordu — yani kaldırmaya
+  // çalıştığımız KART görüntüsü geri gelmişti. Ayrıca büyük bir alanı sabitlediği için
+  // ölçülen canlı kare oranı %37'den %21'e düşmüştü. Radyal gradyan hem kenarsız hem daha az
+  // alanı tam kapatıyor.
+  const yastik = createRef<Rect>();
+  view.add(
+    <Rect ref={yastik} width={1300} height={900} y={40} zIndex={1}
+      fill={new Gradient({
+        type: 'radial', from: [0, 0], to: [0, 0], fromRadius: 0, toRadius: 640,
+        stops: [
+          {offset: 0, color: '#040609e0'},
+          {offset: 0.55, color: '#040609b8'},
+          {offset: 0.82, color: '#0406094a'},
+          {offset: 1, color: '#04060900'},
+        ],
+      })} />,
+  );
+
+  // Üstte ince ilerleme rayı: "ne kadar kaldı" belirsizliği bırakmadan izleyiciyi tutar.
+  const ray = createRef<Rect>();
+  view.add(<Rect ref={ray} width={0} height={6} radius={3} fill={ACCENT} y={-880}
+    x={0} opacity={0.85} />);
+
+  // KAYDET rozeti videonun ortasında belirir (kapanışı izleyenlerin oranı düşük).
+  const rozet = createRef<Rect>();
+  view.add(
+    <Rect ref={rozet} layout padding={[10, 22]} radius={14} fill="#0a0e13d9"
+      stroke={`${ACCENT}66`} lineWidth={1.5} y={700} opacity={0} zIndex={3}
+      shadowColor="#000000aa" shadowBlur={20} shadowOffsetY={6}>
+      <Txt text={SAVE_CUE} fill={ACCENT} fontFamily={FONTS.mono} fontSize={24}
+        fontWeight={700} letterSpacing={1.2} />
+    </Rect>,
+  );
+
+  const rozetBeat = Math.max(1, Math.floor(metinler.length * 0.4));
+  const toplamSure = beats.length
+    ? (beats[beats.length - 1].start + beats[beats.length - 1].dur)
+    : hedefSure;
+
+  for (const [i, metin] of metinler.entries()) {
+    const bas = beats[i]?.start ?? i * esitSure;
+    const sure = beats[i]?.dur ?? esitSure;
+    yield* syncTo(beats.length ? bas : null);
+
+    const ilk = i === 0;
+    const son = i === metinler.length - 1;
+    // Hook ve kapanış en büyük: ikisi de tek başına ekranı taşımalı.
+    // Uzun cümlede punto düşer, yoksa blok güvenli alandan taşıyor.
+    const temel = ilk || son ? 88 : 72;
+    const punto = metin.length > 72 ? Math.round(temel * 0.84)
+      : metin.length > 56 ? Math.round(temel * 0.92) : temel;
+
+    // Blok FLEX düzenle kurulur ama çocuklar TEK TEK eklenir — bu depoda kanıtlanmış
+    // desen (JSX'e dizi çocuk vermek sahneyi düşürüyordu, bkz. kapanış kartı).
+    const blok = createRef<Rect>();
+    view.add(
+      <Rect ref={blok} layout wrap="wrap" direction="row" justifyContent="center"
+        alignItems="center" gap={[10, 16]} width={940} y={40} opacity={1} zIndex={2} />,
+    );
+
+    const kelimeler = metin.split(/\s+/).filter(Boolean);
+    const kelimeRefs: any[] = [];
+    for (const k of kelimeler) {
+      const kr = createRef<Txt>();
+      blok().add(
+        <Txt ref={kr} text={k} fill={COLORS.text} fontFamily={FONTS.display}
+          fontSize={punto} fontWeight={800} letterSpacing={-1.4} lineHeight={punto * 1.14}
+          opacity={0} y={26} stroke="#00000055" lineWidth={1} {...KIN_SHADOW} />,
+      );
+      kelimeRefs.push(kr());
+    }
+
+    // KELİME KELİME GİRİŞ: cümlenin ~%55'i konuşulurken tüm kelimeler yerine oturur.
+    // Her kelime ayrı bir görsel olay → donukluk fiziksel olarak imkânsız.
+    const girisPenceresi = Math.max(0.45, sure * 0.55);
+    const perKelime = Math.min(0.13, girisPenceresi / Math.max(kelimeRefs.length, 1));
+    for (const kr of kelimeRefs) {
+      yield* all(kr.opacity(1, perKelime * 1.6, easeOutCubic), kr.y(0, perKelime * 1.6, easeOutCubic));
+      yield* waitFor(Math.max(0, perKelime - perKelime * 0.4));
+    }
+
+    if (i === rozetBeat) {
+      yield* all(rozet().opacity(1, 0.25), rozet().y(668, 0.25, easeOutCubic));
+    }
+
+    // Cümlenin kalan süresi: blok yavaşça yakınlaşır (donuk kare bırakmaz).
+    const kalan = beats.length
+      ? Math.max(0.15, (bas + sure) - nowSec() - 0.22)
+      : Math.max(0.15, esitSure * 0.35);
+    yield* all(
+      blok().scale(1.035, kalan + 0.22, easeOutQuad),
+      ray().width(Math.min(1040, 1040 * ((bas + sure) / toplamSure)), kalan + 0.22),
+      waitFor(kalan),
+    );
+
+    if (!son) {
+      // Beat değişimi = SERT görsel olay: blok yukarı süzülüp söner.
+      yield* all(blok().opacity(0, 0.22), blok().y(-60, 0.26, easeOutCubic));
+      blok().remove();
+    } else {
+      // Kapanışta imza: blok kalır, altına tutamak gelir (ekran görüntüsü/paylaşım anı).
+      const tutamak = createRef<Txt>();
+      view.add(<Txt ref={tutamak} text={`${HANDLE} · ${SIGNOFF}`} fill={ACCENT}
+        fontFamily={FONTS.mono} fontSize={28} letterSpacing={1.6} opacity={0} y={430} {...SHADOW} />);
+      const paylas = createRef<Txt>();
+      view.add(<Txt ref={paylas} text={SHARE_CTA} fill={COLORS.text} fontFamily={FONTS.display}
+        fontSize={34} fontWeight={700} opacity={0} y={350} width={940} textAlign="center" {...SHADOW} />);
+      yield* all(paylas().opacity(1, 0.28), tutamak().opacity(0.92, 0.3));
+      yield* waitFor(0.5);
+      // LOOP için kısa kararma — tekrar izleme algoritmanın ödüllendirdiği sinyal.
+      yield* all(blok().opacity(0, 0.3), paylas().opacity(0, 0.3),
+        tutamak().opacity(0, 0.3), rozet().opacity(0, 0.3), ray().opacity(0, 0.3));
+    }
+  }
+}
+
 export default makeScene2D(function* (view) {
   if (!FOOTAGE) view.fill(COLORS.bg);
+
+  // Kinetik biçim: tek büyük cümle + hareketli zemin (yukarıdaki blok yorumuna bak).
+  if ((spec as any).format === 'kinetik') {
+    yield* renderKinetik(view);
+    return;
+  }
 
   // ── HOOK ──────────────────────────────────────────────────────────────────
   // ⚠ RETENTION DELİĞİ (ölçüldü 2026-08-07): eski akışta hook 0.5s'de yerine oturuyor,

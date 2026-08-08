@@ -83,12 +83,12 @@
     "#giyimtüyoları"
   ],
   "video": {
-    "seconds": "28-32",
-    "maxWords": 13,
-    "minSteps": 4,
-    "maxSteps": 4,
-    "targetSec": 30,
-    "minWords": 9
+    "seconds": "18-22",
+    "targetSec": 20,
+    "minWords": 7,
+    "maxWords": 11,
+    "minSteps": 3,
+    "maxSteps": 3
   },
   "tone": {
     "fluff": "Faceless. Funny first, useful second — but never fake-funny: the joke comes from the situation being TRUE, not from adding jokes on top.",
@@ -102,5 +102,6 @@
   "symbol": "soru",
   "timelyPayi": 0.25,
   "kapsamSiniri": "@cilt.kodu = ÜRÜN ve etken madde (kavanozun içi: serum, retinol, INCI, gözenek, sivilce). @kizlar.kodu = ALIŞKANLIK/RİTÜEL ve VÜCUDUN TEPKİSİ (neden yapıyoruz, işe yarıyor mu) + saç, tırnak, uyku, koku, ev, kıyafet, dolap, alışveriş. Aynı konu iki sayfada işlenecekse cilt.kodu üründen, kizlar.kodu davranıştan bakar.",
-  "motionSet": "kizlar"
+  "motionSet": "kizlar",
+  "format": "kinetik"
 }

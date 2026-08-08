@@ -8,7 +8,7 @@
 // güçlü blur + %60 siyah scrim ile "doku" seviyesine indirilir; sadece hook ve outro
 // anlarında footage öne çıkar (sinematik giriş/çıkış hissi).
 import {execFileSync, spawnSync} from 'node:child_process';
-import {readdirSync, existsSync} from 'node:fs';
+import {readdirSync, existsSync, writeFileSync} from 'node:fs';
 
 export const W = 1080;
 export const H = 1920;
@@ -16,6 +16,7 @@ export const XF = 0.8;            // xfade süresi (sn)
 const PAN_HEADROOM = 1.16;        // pan/zoom için fazladan çerçeve payı
 
 const defaultRun = (bin, args) => execFileSync(bin, args, {stdio: 'inherit'});
+const defaultWriteList = (path, body) => writeFileSync(path, body);
 
 // ffmpeg'in metadata=print çıktısı stderr'e INFO seviyesinde yazılır → ayrıca yakalıyoruz.
 const defaultProbe = (bin, args) => {
@@ -73,9 +74,91 @@ export function planSegments({total, clipCount, hook = 3.4, outro = 4.2, xf = XF
   };
 }
 
+// ─── KİNETİK ZEMİN (2026-08-08) ──────────────────────────────────────────────
+// planSegments'in ['clip','surface','clip'] düzeni videonun GÖVDESİNİ — yani süresinin
+// ~%70'ini — %88 karartılmış, sigma 26 blur'lu, "çok yavaş sürüklenen" bir gradyana
+// çeviriyordu. Ölçüm sonucu (publish/retansiyon-denetci.mjs):
+//   ciltkodu-latest: canlı kare %1 · en uzun donuk 12,6s · 0,15 olay/sn
+// Yani ekran videonun neredeyse tamamında DONUKTU. O düzen, önünde yoğun bir diyagram
+// varken doğruydu (footage diyagramla yarışmasın); tek büyük cümleye geçen yeni biçimde
+// zemin görüntüyü TAŞIMAK zorunda.
+//
+// Kinetik düzen: video boyunca ~2s'lik segmentler, aralarında SERT kesme (xfade yok —
+// 0,8s'lik geçiş kesmeyi sıvayıp olay sinyalini yok ediyor), her segmentte hissedilir
+// kamera hareketi. Açılış rampalı: ilk kesmeler hızlı, sonra ritim oturur.
+//
+// Ölçülen (proxy 540x960@30, iki gerçek Pexels klibi, 20s):
+//   seg 2,0 · dim 0,40 · blur 5 · zoom 1,34 → canlı kare %54 · 4,1 olay/sn · en uzun donuk 2,0s
+// Karşılaştırma: eski düzen aynı ölçümde canlı kare %1.
+export const KINETIK = {
+  seg: 2.0,          // oturmuş segment süresi (sn)
+  acilis: [0.9, 1.3], // rampalı açılış — ilk kesme 0,9s'de, ritim hemen görünür
+  dim: 0.4,          // siyah scrim (eski gövde: 0,88)
+  blur: 6,           // 1080p gblur sigma. 9 idi; scrim'le birlikte dokuyu tamamen
+                     // siliyordu (2026-08-09 koşusu). Yazının kontrastı gradyan yastıktan
+                     // geliyor, blur'dan değil.
+  zoom: 1.34,        // pan/zoom çerçeve payı (eski: 1,16 — hareket hissedilmiyordu)
+};
+
+/**
+ * Kinetik zeminde scrim İKİ YÖNLÜ ayarlanır.
+ *
+ * `adaptDim` yalnızca KOYU klipte karartmayı düşürür; parlak klipte hiç dokunmaz — çünkü
+ * eski biçimde yazı zaten opak kartların içindeydi, zemin okunabilirliği belirlemiyordu.
+ * Kinetik biçimde kart YOK: yazı doğrudan görüntünün üstünde duruyor. İlk kinetik denemede
+ * (2026-08-08) beyaz çarşaf kadrajlarında beyaz yazı kayboluyordu. Parlak klipte scrim
+ * ARTMALI. Koyu klip davranışı `adaptDim` ile aynı kalır.
+ */
+export function kinetikDim(base, luma) {
+  if (luma == null) return base;
+  if (luma < 25) return yuvarla2(base * 0.62);
+  if (luma < 45) return yuvarla2(base * 0.84);
+  // ⚠ PARLAK KLİPTE ÖLÇÜLÜ ARTIR. İlk sürümde +0,22/+0,13 idi (scrim 0,62/0,53) ve
+  // 2026-08-09 gerçek koşusunda kadraj neredeyse siyaha döndü: seçilen dört klibin lumaı
+  // 96-142'ydi, hepsi en üst basamağa düştü, blur 9 + vignette ile birleşince b-roll
+  // görsel olarak yok oldu. Okunabilirliği zaten YAZININ ARKASINDAKİ radyal gradyan
+  // (explainer.tsx → yastik) yerel olarak garantiliyor; buradaki scrim'in işi sadece
+  // kadrajın göz almasını engellemek. Bu yüzden artış küçük.
+  if (luma > 135) return yuvarla2(Math.min(0.52, base + 0.1));
+  if (luma > 95) return yuvarla2(Math.min(0.48, base + 0.05));
+  return base;
+}
+const yuvarla2 = v => Math.round(v * 100) / 100;
+
+/**
+ * Kinetik segment planı: rampalı açılış + sabit ritim, hepsi gerçek klip.
+ * SAF. `total` videonun toplam süresi.
+ */
+export function planKinetik({total, clipCount, k = KINETIK}) {
+  const n = Math.max(1, clipCount);
+  const durations = [];
+  let acc = 0;
+  for (const d of k.acilis) {
+    if (acc + d >= total) break;
+    durations.push(d); acc += d;
+  }
+  while (acc < total - 0.05) {
+    const d = Math.min(k.seg, total - acc);
+    // Son kırıntı segmenti kendi başına ayakta duramaz → öncekine ekle.
+    if (d < 0.6 && durations.length) { durations[durations.length - 1] += d; acc += d; break; }
+    durations.push(d); acc += d;
+  }
+  if (!durations.length) durations.push(total);
+  return {
+    durations,
+    // Klipler sırayla döner; klip sayısı azsa aynı klip tekrar gelir ama YÖN ve
+    // kaynak içindeki BAŞLANGIÇ ANI değiştiği için kesme olarak okunur.
+    clipIdx: durations.map((_, i) => i % n),
+    panDirs: durations.map((_, i) => i % 4),
+    seeks: durations.map((_, i) => Math.round(((i * 3.7) % 8) * 100) / 100),
+    dims: durations.map(() => k.dim),
+  };
+}
+
 /** Tek klibi 1080x1920'ye getirir + yavaş kamera hareketi + grade/blur/scrim uygular. */
-export function normalizeClip({src, outPath, seconds, panDir = 0, dim = 0.6, fps = 60, run = defaultRun}) {
-  const sw = Math.round(W * PAN_HEADROOM), sh = Math.round(H * PAN_HEADROOM);
+export function normalizeClip({src, outPath, seconds, panDir = 0, dim = 0.6, fps = 60,
+  zoom = PAN_HEADROOM, blur = null, seek = 0, sat = 0.72, run = defaultRun}) {
+  const sw = Math.round(W * zoom), sh = Math.round(H * zoom);
   const dx = sw - W, dy = sh - H;
   const t = seconds.toFixed(3);
   // 0=sol→sağ, 1=sağ→sol, 2=yukarı→aşağı, 3=çapraz push — klip başına farklı yön (çeşitlilik).
@@ -84,7 +167,8 @@ export function normalizeClip({src, outPath, seconds, panDir = 0, dim = 0.6, fps
     : panDir === 2 ? [`${Math.round(dx / 2)}`, `(${dy})*t/${t}`]
     : [`(${dx})*t/${t}`, `(${dy})*t/${t}`];
   // Karartma ne kadar yüksekse blur o kadar güçlü (metin altındaki detay silinsin).
-  const sigma = (3 + dim * 14).toFixed(1);
+  // Kinetik zeminde blur AÇIKÇA verilir: zemin artık görüntüyü taşıyor, silmiyor.
+  const sigma = (blur == null ? 3 + dim * 14 : blur).toFixed(1);
   const vf = [
     `scale=${sw}:${sh}:force_original_aspect_ratio=increase`,
     `crop=${sw}:${sh}`,
@@ -92,14 +176,30 @@ export function normalizeClip({src, outPath, seconds, panDir = 0, dim = 0.6, fps
     `fps=${fps}`,
     'setsar=1',
     `gblur=sigma=${sigma}`,
-    'eq=saturation=0.72:contrast=1.06',
+    `eq=saturation=${sat}:contrast=1.06`,
     `drawbox=x=0:y=0:w=${W}:h=${H}:color=black@${dim.toFixed(2)}:t=fill`,
     'noise=alls=4:allf=t',
     'vignette',
   ].join(',');
-  run('ffmpeg', ['-y', '-stream_loop', '-1', '-i', src, '-t', String(seconds),
+  // -ss girdiden ÖNCE: kaynağın farklı anından başla ki tekrar eden klip aynı kareyi
+  // göstermesin (kinetik düzende 2-3 klip 10 segmente dağıtılıyor).
+  const seekArgs = seek > 0 ? ['-ss', String(seek)] : [];
+  run('ffmpeg', ['-y', ...seekArgs, '-stream_loop', '-1', '-i', src, '-t', String(seconds),
     '-vf', vf, '-an', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '20',
     '-r', String(fps), outPath]);
+  return outPath;
+}
+
+/** Segmentleri SERT kesmeyle birleştirir (kinetik düzen — geçiş yok, olay sinyali korunur). */
+export function hardCutChain({clips, outPath, fps = 60, run = defaultRun, writeList}) {
+  if (clips.length === 1) {
+    run('ffmpeg', ['-y', '-i', clips[0], '-c', 'copy', outPath]);
+    return outPath;
+  }
+  const listPath = `${outPath}.txt`;
+  writeList(listPath, clips.map(c => `file '${c}'`).join('\n') + '\n');
+  run('ffmpeg', ['-y', '-f', 'concat', '-safe', '0', '-i', listPath,
+    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '20', '-r', String(fps), outPath]);
   return outPath;
 }
 
@@ -196,10 +296,34 @@ export function findFramesDir(root) {
  */
 export function composeFootageVideo({
   clips, framesDir, frames, tmpDir, outPath, fps = 60, accent = '#58a6ff',
-  run = defaultRun, probe = defaultProbe,
+  kinetik = true, run = defaultRun, probe = defaultProbe, writeList = defaultWriteList,
 }) {
   const total = frames / fps;
   const usable = clips.length ? clips : [];
+
+  // KİNETİK DÜZEN (varsayılan): video boyunca kısa segment + sert kesme + belirgin hareket.
+  // Klip yoksa eski gradient yoluna düşer — akış hiçbir koşulda kırılmaz.
+  if (kinetik && usable.length) {
+    const plan = planKinetik({total, clipCount: usable.length});
+    const lumas = usable.map(c => measureLuma(c.path, probe));
+    const segs = plan.durations.map((seconds, i) => {
+      const seg = `${tmpDir}/kseg${i}.mp4`;
+      const idx = plan.clipIdx[i];
+      // İKİ YÖNLÜ scrim: kart olmadığı için okunabilirliği zemin belirliyor.
+      const dim = kinetikDim(plan.dims[i], lumas[idx]);
+      normalizeClip({
+        src: usable[idx].path, outPath: seg, seconds, panDir: plan.panDirs[i],
+        dim, zoom: KINETIK.zoom, blur: KINETIK.blur, seek: plan.seeks[i], sat: 0.9, fps, run,
+      });
+      return seg;
+    });
+    console.log(`  kinetik zemin: ${segs.length} segment · ortalama ` +
+      `${(total / segs.length).toFixed(1)}s · sert kesme`);
+    const bgK = `${tmpDir}/bg.mp4`;
+    hardCutChain({clips: segs, outPath: bgK, fps, run, writeList});
+    return compositeOverlay({bgPath: bgK, framesDir, frames, fps, outPath, run});
+  }
+
   const {durations, dims, kinds} = planSegments({total, clipCount: Math.max(usable.length, 1)});
   // Klip başına parlaklık: koyu klipte scrim hafifler, yoksa footage kaybolur.
   const lumas = usable.map(c => measureLuma(c.path, probe));
