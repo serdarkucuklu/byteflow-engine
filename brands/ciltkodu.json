@@ -46,6 +46,10 @@
     },
     "facebook": {
       "pageId": "NOBLE_FB_PAGE_ID"
+    },
+    "threads": {
+      "userId": "NOBLE_THREADS_USER_ID",
+      "token": "NOBLE_THREADS_TOKEN"
     }
   },
   "onay": {

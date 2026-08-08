@@ -46,6 +46,10 @@
     },
     "facebook": {
       "pageId": "FB_PAGE_ID"
+    },
+    "threads": {
+      "userId": "THREADS_USER_ID",
+      "token": "THREADS_TOKEN"
     }
   },
   "onay": {
