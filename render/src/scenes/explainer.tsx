@@ -160,13 +160,22 @@ function* renderKinetik(view: any) {
   // alanı tam kapatıyor.
   const yastik = createRef<Rect>();
   view.add(
+    // ⚠ toRadius, dikdörtgenin YARI KÖŞEGENİNDEN büyük olmalı (√(650²+450²)≈790).
+    // 640 iken gradyan dikeyde rect sınırına α≈0,48 ile ulaşıp orada SIFIRA atlıyordu:
+    // kadrajın üst/alt hizasında düz yatay bir kenar — yani kaçınmaya çalıştığımız "kart".
+    // Yatayda sorun yoktu (r>640), yalnız dikeyde vardı; gözle fark edilmiyor, geometriyle
+    // görülüyor. 2026-08-09 incelemesinde yakalandı.
+    //
+    // ⚠ Merkez alfası da düşürüldü: zemin scrim'i (kinetikDim 0,45-0,50) ile birleşince
+    // kadrajın ortasındaki bant ~%6 parlaklığa iniyordu — b-roll fiilen yok oluyordu.
+    // Şimdi ~%15; yazı kontrastını zaten kontur + gölge taşıyor.
     <Rect ref={yastik} width={1300} height={900} y={40} zIndex={1}
       fill={new Gradient({
-        type: 'radial', from: [0, 0], to: [0, 0], fromRadius: 0, toRadius: 640,
+        type: 'radial', from: [0, 0], to: [0, 0], fromRadius: 0, toRadius: 800,
         stops: [
-          {offset: 0, color: '#040609e0'},
-          {offset: 0.55, color: '#040609b8'},
-          {offset: 0.82, color: '#0406094a'},
+          {offset: 0, color: '#040609b8'},
+          {offset: 0.45, color: '#04060994'},
+          {offset: 0.75, color: '#04060942'},
           {offset: 1, color: '#04060900'},
         ],
       })} />,
@@ -271,10 +280,15 @@ function* renderKinetik(view: any) {
       // Kapanışta imza: blok kalır, altına tutamak gelir (ekran görüntüsü/paylaşım anı).
       const tutamak = createRef<Txt>();
       view.add(<Txt ref={tutamak} text={`${HANDLE} · ${SIGNOFF}`} fill={ACCENT}
-        fontFamily={FONTS.mono} fontSize={28} letterSpacing={1.6} opacity={0} y={430} {...SHADOW} />);
+        fontFamily={FONTS.mono} fontSize={28} letterSpacing={1.6} opacity={0} y={430}
+        zIndex={3} {...SHADOW} />);
       const paylas = createRef<Txt>();
+      // ⚠ zIndex ŞART: yastık zIndex 1'de; bunlar varsayılan 0'da kalınca karartmanın
+      // ALTINDA çiziliyordu (y=350'de α≈0,74) — videonun paylaşım/takip çağrısı taşıyan
+      // TEK karesi siyaha gömülüydü. 2026-08-09 incelemesinde yakalandı.
       view.add(<Txt ref={paylas} text={SHARE_CTA} fill={COLORS.text} fontFamily={FONTS.display}
-        fontSize={34} fontWeight={700} opacity={0} y={350} width={940} textAlign="center" {...SHADOW} />);
+        fontSize={34} fontWeight={700} opacity={0} y={350} width={940} textAlign="center"
+        zIndex={3} {...SHADOW} />);
       yield* all(paylas().opacity(1, 0.28), tutamak().opacity(0.92, 0.3));
       yield* waitFor(0.5);
       // LOOP için kısa kararma — tekrar izleme algoritmanın ödüllendirdiği sinyal.

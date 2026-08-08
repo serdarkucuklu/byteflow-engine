@@ -314,6 +314,10 @@ if (spec.footage) {
   mkdirSync(tmpDir, {recursive: true});
   renderedVideo = composeFootageVideo({
     clips, framesDir, frames, tmpDir, accent: theme,
+    // GERİ ALMA BÜTÜNLÜĞÜ: marka dosyasından `format` kaldırılınca sahne eski diyagram
+    // düzenine dönüyordu ama zemin kinetik kalıyordu (dim 0,4 · 2sn'de sert kesme) —
+    // kutulu diyagram parlak, hızlı kesen b-roll üstünde okunmuyordu. Zemin de dönmeli.
+    kinetik: spec.format === 'kinetik',
     outPath: join(tmpDir, 'composited.mp4'),
   });
   console.log(`✓ footage kompoziti: ${frames} kare → ${(frames / 60).toFixed(1)}s`);
@@ -384,7 +388,10 @@ try {
     if (kati) process.exit(1);
   }
 } catch (e) {
+  // ⚠ Ölçüm ÇÖKERSE sert kapı da düşmeli. Aksi hâlde kapıyı devre dışı bırakmanın yolu
+  // ffmpeg'i bozmaktan geçiyor: koşu yeşil görünür, kapı "kapalı" değil "yok" olur.
   console.error(`⚠ retansiyon denetimi koşturulamadı: ${e.message}`);
+  if (process.env.BYTEFLOW_RETANSIYON_KATI === '1') process.exit(1);
 }
 
 console.log(`✓ done (${source}): ${out}`);

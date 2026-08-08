@@ -378,9 +378,11 @@ VARIETY & TEACHING RULES (hard requirements):
   Never invent a brand tag for a product the video does not cover.
 - footage_queries: EXACTLY 2 entries, each copied VERBATIM from this list (no other value is
   accepted, no rewording): ${footageList.map(q => `"${q}"`).join(', ')}.
-  These play ONLY behind the opening line and the closing line — the teaching part of the video
-  sits on a clean designed surface — so pick for MOOD, not subject: 1. an opening shot matching
-  the tension of the hook, 2. a calmer closing shot.
+  ⚠ 2026-08-09'da DEĞİŞTİ: bu klipler artık YALNIZ açılış/kapanışta değil, videonun TAMAMI
+  boyunca ~2 saniyelik sert kesmelerle oynuyor (publish/compose-footage.mjs → planKinetik).
+  "Öğretici gövde sade bir zeminde durur" kuralı kalktı — zemin artık görüntüyü taşıyor.
+  Bu yüzden ikisini de sadece ruh haline göre değil, KONUYA da bağlı seç: birincisi hook'un
+  gerilimini, ikincisi anlatılan mekanizmayı gösteren bir çekim olsun.
 
 - narration${lang ? ` (IN ${lang.toUpperCase()})` : ''}: the SPOKEN script, as an ordered list of short sentences. This is read aloud by a
   synthetic narrator AND shown as on-screen captions, and it drives the video's timing — so it

@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {planSegments, planKinetik, kinetikDim, xfadeChain, normalizeClip, composeFootageVideo, adaptDim, measureLuma, XF} from './compose-footage.mjs';
+import {planSegments, planKinetik, kinetikDim, xfadeChain, hardCutChain, normalizeClip, composeFootageVideo, adaptDim, measureLuma, XF} from './compose-footage.mjs';
 
 const recorder = () => {
   const calls = [];
@@ -236,4 +236,30 @@ test('kinetikDim İKİ YÖNLÜ: koyu klipte düşer, PARLAK klipte artar', () =>
   // klibin dördü de en üst basamağa düştü ve b-roll görsel olarak yok oldu.
   assert.ok(kinetikDim(0.4, 200) <= 0.52, `scrim tavanı aşıldı: ${kinetikDim(0.4, 200)}`);
   assert.ok(kinetikDim(0.4, 140) < 0.55, 'parlak klip hâlâ görünür kalmalı');
+});
+
+test('hardCutChain: concat listesinde tek tırnak KAÇIRILIR', () => {
+  const {calls, run} = recorder();
+  const yazilan = [];
+  hardCutChain({clips: ["/tmp/a'b.mp4", '/tmp/c.mp4'], outPath: '/tmp/bg.mp4', run,
+    writeList: (p, b) => yazilan.push(b)});
+  assert.match(yazilan[0], /file '\/tmp\/a'\\''b\.mp4'/, yazilan[0]);
+});
+
+test('hardCutChain: satır sonu içeren yolu REDDEDER', () => {
+  const {run} = recorder();
+  assert.throws(() => hardCutChain({clips: ['/tmp/a\nb.mp4', '/tmp/c.mp4'],
+    outPath: '/tmp/bg.mp4', run, writeList: () => {}}), /satır sonu/);
+});
+
+test('GERİ ALMA: kinetik:false eski xfade zeminine döner', () => {
+  // brands/*.json'dan `format` kaldırılınca sahne eski diyagrama dönüyor; zemin de
+  // dönmeli, yoksa kutulu diyagram hızlı kesen parlak b-roll üstünde okunmaz.
+  const {calls, run} = recorder();
+  composeFootageVideo({clips: [{path: 'c0.mp4'}], kinetik: false, framesDir: '/f',
+    frames: 1200, tmpDir: '/tmp/x', outPath: 'out.mp4', run, writeList: () => {}});
+  assert.ok(!calls.some(c => c.args.includes('concat')), 'kinetik:false iken sert kesme olmamalı');
+  const vf = argOf(calls.find(c => c.args.includes('-stream_loop')), '-vf');
+  const dim = Number(/black@([\d.]+)/.exec(vf)[1]);
+  assert.ok(dim > 0.4, `eski zemin daha koyu olmalı, ${dim}`);
 });

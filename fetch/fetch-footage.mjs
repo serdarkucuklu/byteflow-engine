@@ -303,7 +303,13 @@ export async function fetchFootage({
       if (!res.ok) throw new Error(`download ${res.status}`);
       const buf = Buffer.from(await res.arrayBuffer());
       if (buf.length < MIN_BYTES) throw new Error(`too small (${buf.length}B)`);
-      const path = join(outDir, `clip${clips.length}-${chosen.provider}-${chosen.id}.mp4`);
+      // ⚠ `id` SAĞLAYICI YANITINDAN geliyor ve Coverr'da id yoksa TAM URL'ye düşüyor
+      // (searchClips: `String(hit.id ?? link)`). Ham hâlde dosya adına konursa `../` içeren
+      // bir değer join()'den sonra render/footage DIŞINA yazar — CI o ağacı commit+push
+      // ediyor. Güvenli karakterlere indirgeniyor.
+      const guvenliId = String(chosen.id).replace(/[^A-Za-z0-9_-]/g, '').slice(0, 40)
+        || String(clips.length);
+      const path = join(outDir, `clip${clips.length}-${chosen.provider}-${guvenliId}.mp4`);
       writeFileSync(path, buf);
       seen.add(`${chosen.provider}:${chosen.id}`);
       clips.push({path, provider: chosen.provider, query, credit: chosen.credit});

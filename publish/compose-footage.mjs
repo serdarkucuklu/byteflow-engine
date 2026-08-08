@@ -197,7 +197,13 @@ export function hardCutChain({clips, outPath, fps = 60, run = defaultRun, writeL
     return outPath;
   }
   const listPath = `${outPath}.txt`;
-  writeList(listPath, clips.map(c => `file '${c}'`).join('\n') + '\n');
+  // ffconcat sözdiziminde tek tırnak kaçışı: yol içinde ' olursa satırdan çıkıp ffmpeg'e
+  // ek direktif ekletebilir. Bugün yollar içeride üretiliyor (ulaşılamaz), ama savunma ucuz.
+  const kacir = (c) => String(c).replace(/'/g, "'\\''");
+  for (const c of clips) {
+    if (/[\r\n]/.test(String(c))) throw new Error(`concat yolunda satır sonu: ${c}`);
+  }
+  writeList(listPath, clips.map(c => `file '${kacir(c)}'`).join('\n') + '\n');
   run('ffmpeg', ['-y', '-f', 'concat', '-safe', '0', '-i', listPath,
     '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '20', '-r', String(fps), outPath]);
   return outPath;
