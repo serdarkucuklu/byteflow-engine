@@ -1,5 +1,5 @@
 import {makeScene2D, Rect, Txt, Layout, Line, Path, Code, LezerHighlighter, Gradient} from '@motion-canvas/2d';
-import {all, delay, createRef, waitFor, useThread, easeOutCubic, easeInOutCubic, easeOutQuad} from '@motion-canvas/core';
+import {all, chain, delay, createRef, waitFor, useThread, easeOutCubic, easeInOutCubic, easeOutQuad} from '@motion-canvas/core';
 import {FONTS, CAPTION_Y, CLUSTER_Y, SAVE_CUE_Y, resolvePalette, resolveColor, layoutPositions, boxSize, type SceneSpec} from '../lib/spec';
 import {specShape, computePacing} from '../lib/pacing';
 import {motionTarget, weightOf} from '../lib/motion-registry.mjs';
@@ -37,6 +37,13 @@ const SHARE_CTA = spec.brand?.shareCta || '↗  Send this to someone who needs i
 // %90 için). Emoji YOK — render kabında emoji fontu garanti değil, tofu kutusu çıkarsa
 // kadrajın en kritik ânını bozar.
 const SAVE_CUE = spec.brand?.saveCue || 'KAYDET';
+
+// MARKA TİPOGRAFİSİ (2026-08-09): iki sayfa aynı motordan çıktığı belli olmasın.
+// `spec.brand` zaten kablolu bir kanal — yeni şema alanı açmıyoruz.
+// puntoCarpani: kinetik cümle boyutu · harfAralik: sıkışıklık (marka sesi)
+const TIPO = (spec.brand as any)?.tipografi ?? {};
+const PUNTO_CARPAN = Number(TIPO.puntoCarpani) > 0 ? Number(TIPO.puntoCarpani) : 1;
+const HARF_ARALIK = Number.isFinite(Number(TIPO.harfAralik)) ? Number(TIPO.harfAralik) : -1.4;
 
 // Footage modunda sahne şeffaf render edilir (arka planı ffmpeg dolduruyor).
 const FOOTAGE = spec.footage === true;
@@ -195,9 +202,9 @@ function* renderKinetik(view: any) {
     const son = i === metinler.length - 1;
     // Hook ve kapanış en büyük: ikisi de tek başına ekranı taşımalı.
     // Uzun cümlede punto düşer, yoksa blok güvenli alandan taşıyor.
-    const temel = ilk || son ? 88 : 72;
-    const punto = metin.length > 72 ? Math.round(temel * 0.84)
-      : metin.length > 56 ? Math.round(temel * 0.92) : temel;
+    const temel = (ilk || son ? 88 : 72) * PUNTO_CARPAN;
+    const punto = Math.round(metin.length > 72 ? temel * 0.84
+      : metin.length > 56 ? temel * 0.92 : temel);
 
     // Blok FLEX düzenle kurulur ama çocuklar TEK TEK eklenir — bu depoda kanıtlanmış
     // desen (JSX'e dizi çocuk vermek sahneyi düşürüyordu, bkz. kapanış kartı).
@@ -213,7 +220,7 @@ function* renderKinetik(view: any) {
       const kr = createRef<Txt>();
       blok().add(
         <Txt ref={kr} text={k} fill={COLORS.text} fontFamily={FONTS.display}
-          fontSize={punto} fontWeight={800} letterSpacing={-1.4} lineHeight={punto * 1.14}
+          fontSize={punto} fontWeight={800} letterSpacing={HARF_ARALIK} lineHeight={punto * 1.14}
           opacity={0} y={26} stroke="#00000055" lineWidth={1} {...KIN_SHADOW} />,
       );
       kelimeRefs.push(kr());
@@ -222,9 +229,23 @@ function* renderKinetik(view: any) {
     // KELİME KELİME GİRİŞ: her kelime ayrı bir görsel olay → donukluk imkânsız.
     // Süre `kinetik-zaman.mjs`'ten gelir; kapak anı da AYNI formülden hesaplanıyor
     // (run-daily.mjs). İki yerde ayrı yazılırsa kapak yine yarım cümle gösterir.
+    //
+    // VURGU (karaoke): giren kelime önce AKSAN renginde parlar, sonra normale oturur.
+    // ⚠ ŞEMA ALANI YOK, model karışmıyor. `beats[].vurgu` gibi bir alan eklenseydi model
+    // cümlede geçmeyen bir kelime uydurduğunda render sessizce hiçbir şey vurgulamazdı —
+    // sessiz başarısızlık. Burada vurgulanan şey her zaman O ANDA GİREN kelime.
+    //
+    // ⚠ ZAMAN SÖZLEŞMESİ: kelime başına toplam maliyet `per * 2.2` KALMALI
+    // (kinetik-zaman.mjs → GIRIS_CARPAN). Renk geçişi bu yüzden `chain` ile giriş
+    // tween'inin İÇİNE sığdırılıyor (0.4 + 1.2 = 1.6), ek süre harcamıyor. Aksi hâlde
+    // kapak anı sessizce kayar ve yine yarım cümle gösterir.
     const per = perKelimeSuresi(kelimeRefs.length, sure);
     for (const kr of kelimeRefs) {
-      yield* all(kr.opacity(1, per * 1.6, easeOutCubic), kr.y(0, per * 1.6, easeOutCubic));
+      yield* all(
+        kr.opacity(1, per * 1.6, easeOutCubic),
+        kr.y(0, per * 1.6, easeOutCubic),
+        chain(kr.fill(ACCENT, per * 0.4), kr.fill(COLORS.text, per * 1.2)),
+      );
       yield* waitFor(per * 0.6);
     }
 

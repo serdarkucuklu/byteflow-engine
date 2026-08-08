@@ -107,5 +107,9 @@
   "timelyPayi": 0.25,
   "kapsamSiniri": "@cilt.kodu = ÜRÜN ve etken madde (kavanozun içi: serum, retinol, INCI, gözenek, sivilce). @kizlar.kodu = ALIŞKANLIK/RİTÜEL ve VÜCUDUN TEPKİSİ (neden yapıyoruz, işe yarıyor mu) + saç, tırnak, uyku, koku, ev, kıyafet, dolap, alışveriş. Aynı konu iki sayfada işlenecekse cilt.kodu üründen, kizlar.kodu davranıştan bakar.",
   "motionSet": "kizlar",
-  "format": "kinetik"
+  "format": "kinetik",
+  "tipografi": {
+    "puntoCarpani": 1.06,
+    "harfAralik": -2.1
+  }
 }

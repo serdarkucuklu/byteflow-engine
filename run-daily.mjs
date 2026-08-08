@@ -151,7 +151,9 @@ spec.brand = {handle: brand.handle, signoff: brand.persona?.signoff ?? '',
   shareCta: brand.persona?.shareCta ?? '',
   // Videonun ORTASINDA görünen kaydet rozeti (explainer.tsx). Kapanıştaki çağrıyı
   // izleyicinin ~%90'ı görmüyor — bkz. 2026-08-07 ölçümü.
-  saveCue: brand.persona?.saveCue ?? ''};
+  saveCue: brand.persona?.saveCue ?? '',
+  // Marka tipografisi: iki sayfa aynı motordan çıktığı belli olmasın (explainer.tsx).
+  ...(brand.tipografi ? {tipografi: brand.tipografi} : {})};
 if (brand.palette) spec.palette = brand.palette;
 if (brand.language) spec.language = brand.language;
 spec.motion = motion;

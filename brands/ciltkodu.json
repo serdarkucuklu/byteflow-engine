@@ -103,5 +103,9 @@
     "captionClosing": "A funny, self-aware closing line that lands today's gaf (the same angle as the hook), not a generic sign-off",
     "doorRule": "GÖRÜNÜR KAPI: video gözle görülmüş bir durumdan açılır, mekanizma adından ASLA. \"Cilt bariyeri\" kapı değildir; \"su değince yanan yüz\" kapıdır. \"Transepidermal su kaybı\" kapı değildir; \"nemlendirici sürüyorum yine kuru\" kapıdır. Mekanizma kapıdan SONRA gelen açıklamadır. Ölçüldü (2026-08-03): soyut biyolojiyle açılan videolar 32-36 izlenmede kaldı, somut bir satın almayla açılan 1349 yaptı."
   },
-  "format": "kinetik"
+  "format": "kinetik",
+  "tipografi": {
+    "puntoCarpani": 1,
+    "harfAralik": -1.4
+  }
 }
