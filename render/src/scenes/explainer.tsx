@@ -6,6 +6,7 @@ import {motionTarget, weightOf} from '../lib/motion-registry.mjs';
 import {resolveChoreo, type ChoreoCtx} from './choreo';
 import {byteflowHighlighter} from '../lib/codeHighlighter';
 import {brandOf} from '../lib/brands';
+import {perKelime as perKelimeSuresi} from '../lib/kinetik-zaman.mjs';
 import specJson from '../../scene-spec.json';
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -218,13 +219,13 @@ function* renderKinetik(view: any) {
       kelimeRefs.push(kr());
     }
 
-    // KELİME KELİME GİRİŞ: cümlenin ~%55'i konuşulurken tüm kelimeler yerine oturur.
-    // Her kelime ayrı bir görsel olay → donukluk fiziksel olarak imkânsız.
-    const girisPenceresi = Math.max(0.45, sure * 0.55);
-    const perKelime = Math.min(0.13, girisPenceresi / Math.max(kelimeRefs.length, 1));
+    // KELİME KELİME GİRİŞ: her kelime ayrı bir görsel olay → donukluk imkânsız.
+    // Süre `kinetik-zaman.mjs`'ten gelir; kapak anı da AYNI formülden hesaplanıyor
+    // (run-daily.mjs). İki yerde ayrı yazılırsa kapak yine yarım cümle gösterir.
+    const per = perKelimeSuresi(kelimeRefs.length, sure);
     for (const kr of kelimeRefs) {
-      yield* all(kr.opacity(1, perKelime * 1.6, easeOutCubic), kr.y(0, perKelime * 1.6, easeOutCubic));
-      yield* waitFor(Math.max(0, perKelime - perKelime * 0.4));
+      yield* all(kr.opacity(1, per * 1.6, easeOutCubic), kr.y(0, per * 1.6, easeOutCubic));
+      yield* waitFor(per * 0.6);
     }
 
     if (i === rozetBeat) {

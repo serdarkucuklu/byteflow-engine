@@ -38,7 +38,7 @@
   "feedSet": "kizlar-news",
   "footageSet": "fabric",
   "seedBacklog": "brands/seeds/kizlarkodu.json",
-  "musicDir": "assets/music",
+  "musicDir": "assets/music/kizlarkodu",
   "publish": {
     "instagram": {
       "userId": "IG_USER_ID",

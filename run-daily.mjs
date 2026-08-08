@@ -16,6 +16,8 @@ import {twistsFor, selectTwist} from './brain/twists.mjs';
 import {recentSubjects} from './brain/subjects.mjs';
 import {redOku, bugunkuRedler} from './brain/red-defteri.mjs';
 import {selectMotion, motionsFor} from './render/src/lib/motion-registry.mjs';
+import {kapakAni} from './render/src/lib/kinetik-zaman.mjs';
+import {secMuzik} from './publish/muzik-sec.mjs';
 import {loadBrand} from './brands/load.mjs';
 import {aggregate, pickWeighted, leaderboard} from './brain/scoreboard.mjs';
 
@@ -248,6 +250,25 @@ const specPath = brand.paths.spec;
 writeFileSync(specPath, JSON.stringify(spec, null, 2));
 writeFileSync(join(root, 'render', 'scene-spec.json'), JSON.stringify(spec, null, 2));
 
+// MÜZİK: marka dizini → ortak kök → (yoksa dur). Rotasyon geçmişten sürülür ki aynı
+// parça arka arkaya çalmasın. Seçim mantığı publish/muzik-sec.mjs'te ve testli;
+// eskiden burada tek satırlık `readdirSync().find()` vardı (alfabetik ilk, rotasyon yok).
+const muzikSecim = secMuzik({
+  markaDizin: brand.paths.music,
+  kokDizin: join(root, 'assets', 'music'),
+  fs: {varMi: existsSync, listele: readdirSync},
+  gecmis: history.slice(-3).reverse().map(h => h.muzik).filter(Boolean),
+  sec: (a) => a[Math.floor(Math.random() * a.length)],
+});
+if (muzikSecim.uyari) console.error(`⚠ müzik: ${muzikSecim.uyari}`);
+if (!muzikSecim.dosya) {
+  console.error('✗ hiç kullanılabilir .mp3 yok — telifsiz bir parça ekle (assets/music/)');
+  process.exit(1);
+}
+const musicDir = muzikSecim.dizin;
+const mp3 = muzikSecim.dosya;
+console.log(`♪ müzik: ${mp3}`);
+
 // Geçmişe ekle (workflow posted-history.json'ı commit eder).
 // subject/twist/kinds: bir sonraki koşunun tekrar kilitleri bu üç alandan besleniyor.
 history.push({title: spec.title, subject: spec.subject ?? null, twist: twist?.key ?? null,
@@ -255,20 +276,14 @@ history.push({title: spec.title, subject: spec.subject ?? null, twist: twist?.ke
   footage: spec.footage ? clips.map(c => `${c.provider}:${c.query}`) : null,
   voice: voice ? voice.beats.length : null,
   voiceName,
+  muzik: mp3,
   // Not yazıldıysa geçmişe de düşsün: hangi video hangi siparişten doğdu, sonradan bakılır.
   ...(serdarNotu ? {not: serdarNotu} : {}),
   date: new Date().toISOString().slice(0, 10)});
 writeFileSync(historyPath, JSON.stringify(history, null, 2));
 
 // Fail fast on a missing music asset BEFORE the expensive render step, not after.
-const musicDir = brand.paths.music;
-const mp3 = existsSync(musicDir)
-  ? readdirSync(musicDir).find(f => f.endsWith('.mp3') && !f.startsWith('_'))
-  : undefined;
-if (!mp3) {
-  console.error('✗ no usable .mp3 in assets/music/ — add a royalty-free track');
-  process.exit(1);
-}
+
 
 execFileSync('npm', ['run', 'render'], {cwd: join(root, 'render'), stdio: 'inherit', shell: true});
 
@@ -320,8 +335,17 @@ try {
   // KAPAK: profil ızgarasında ve Keşfet'te görünen kare. Videonun %58'i diyagramın yarısı
   // kurulmuş hâliydi — merak uyandırmıyor. Artık HOOK ANI: büyük, okunur problem cümlesi +
   // sinematik b-roll. İzleyici daha tıklamadan ne vaat ettiğimizi okuyor.
-  const hookPeak = spec.beats?.[0] ? spec.beats[0].start + Math.min(1.1, spec.beats[0].dur * 0.5) : 1.3;
-  spec.thumbOffset = Math.round(Math.min(hookPeak, durSec * 0.25) * 1000);
+  // KİNETİK: hook kelime kelime geliyor → kapak, GİRİŞ BİTTİKTEN sonra alınmalı.
+  // Eski hesap (start + min(1.1, dur*0.5)) hook'un tek seferde geldiği biçime göreydi ve
+  // kinetikte kapağı cümlenin ortasından kesiyordu ("Yumuşatıcı yazlık giysini tek").
+  // Formül render'la ORTAK: render/src/lib/kinetik-zaman.mjs.
+  const kapakSn = spec.format === 'kinetik'
+    ? kapakAni(spec.beats)
+    : (spec.beats?.[0] ? spec.beats[0].start + Math.min(1.1, spec.beats[0].dur * 0.5) : 1.3);
+  // Kinetikte durSec*0.25 tavanı UYGULANMAZ: 20sn videoda 5sn'ye kırpmak kapağı yine
+  // girişin ortasına düşürüyordu. Kapak zaten beat içinde sınırlı.
+  spec.thumbOffset = Math.round(
+    (spec.format === 'kinetik' ? kapakSn : Math.min(kapakSn, durSec * 0.25)) * 1000);
   writeFileSync(specPath, JSON.stringify(spec, null, 2));
   // durSec skor tablosunun PAYDASI (retention = izlenen süre / video süresi) — geçmişe yaz.
   history[history.length - 1].durSec = Math.round(durSec * 10) / 10;

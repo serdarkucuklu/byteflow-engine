@@ -38,7 +38,7 @@
   "feedSet": "skincare-news",
   "footageSet": "soft",
   "seedBacklog": "brands/seeds/ciltkodu.json",
-  "musicDir": "assets/music",
+  "musicDir": "assets/music/ciltkodu",
   "publish": {
     "instagram": {
       "userId": "NOBLE_IG_USER_ID",
