@@ -1,6 +1,6 @@
 {
-  "hook": "Kutudaki süslü vaatlere kandığın o pahalı maskara...",
-  "title": "Maskarada Parayı Neye Ödüyoruz?",
+  "hook": "Kapatıcın asansörde felaket duruyorsa suç cildinde değil.",
+  "title": "Kapatıcı ve Işık İllüzyonu",
   "scenes": [
     {
       "layout": "vertical-stack",
@@ -8,66 +8,67 @@
       "nodes": [
         {
           "id": "n1",
-          "label": "FIRÇA DİZAYNI"
+          "label": "BANYO AYNASI"
         },
         {
           "id": "n2",
-          "label": "FORMÜL VE BALMUMU"
+          "label": "TEPE IŞIĞI"
         },
         {
           "id": "n3",
-          "label": "MARKA VE AMBALAJ"
+          "label": "DİK AÇI"
         }
       ],
       "steps": [
         {
           "from": "n1",
           "to": "n2",
-          "packet": "FIRÇA",
-          "status": "etkinin yüzde sekseni fırçadan gelir",
-          "color": "accent"
+          "packet": "AYNA",
+          "status": "banyo kandırır asansör gerçeği söyler",
+          "color": "warn"
         },
         {
           "from": "n2",
           "to": "n3",
-          "packet": "BALMUM",
-          "status": "maliyetin çoğu pigment değil mumdur",
-          "color": "good"
+          "packet": "IŞIK",
+          "status": "tepe ışığı tüm gölgeleri derinleştirir",
+          "color": "accent"
         },
         {
           "from": "n3",
           "to": "n1",
-          "packet": "KUTU",
-          "status": "fiyatın yarısı ağır kutu ve reklama",
-          "color": "warn"
+          "packet": "AÇI",
+          "status": "gün ışığı kapatıcının asıl tonunu verir",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kutudaki süslü maskara vaatlerine kanıp servet ödemeyi bırakıyoruz.\n\nLüks maskara ile bütçe dostu maskara arasındaki gerçek fark adım adım şöyle:\n\n1. Fırça Dizaynı — Maskarada hacim ve uzunluk veren şey yüzde 80 oranında silikon veya kıl fırçanın mimarisidir, içindeki sihirli sıvı değil.\n2. Formül ve Balmumu — En lüks markadan en uygun fiyatlısına kadar temel taşıyıcı su, pigment ve ucuz balmumudur. Sıvı formül neredeyse aynıdır.\n3. Marka ve Ambalaj — Ödediğin o yüksek tutarın büyük kısmı ürünün kendisine değil, ağır metal ambalaja ve reklam bütçesine gider.\n\nMaskara alırken içeriğe değil, kirpik yapına uygun fırça tipine yatırım yap.\n\nKutudaki klinik vaatler harika ama fırça tık tık kaldırmıyorsa o muma servet ödedin demektir.\n\n📌 Kaydet — bir dahaki maskara krizinde lazım olacak.\n🔁 Bunu kutunun üstündeki her vaade inanıp pahalı maskara alan arkadaşına gönder.\nSen pahalı maskara mı kullanıyorsun yoksa fırçaya mı bakıyorsun?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Evde mükemmel duran kapatıcı asansöre binince neden aniden çöker?\n\nYüzün değişmedi, kapatıcın da bozulmadı. İllüzyonun arkasındaki fizik adımları:\n\n1. Banyo Ayna Yanılsaması — Önden gelen yumuşak ışık yüzdeki tüm gölgeleri doldurur, pürüzsüz görünürsün.\n2. Tepe Işığı Trafosu — Asansördeki tepeden vuran ampuller en ufak göz altı çukurunu iki kat derin gösterir.\n3. Renk Sıcaklığı Darbesi — Sarı ve dik ışıklar kapatıcının pigment yapısını büküp alt tonunu turuncu yansıtır.\n\nKapatıcı seçerken mağaza ışığına değil, mutlaka gün ışığına güvenmek gerekir.\n\nAynalarla barışın, suç cildinizde değil asansör mimarlarında.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu Evden prenses gibi çıkıp asansör aynasında yıkılan arkadaşına gönder.\nSenin makyajını en çok rezil eden ışık hangisi: asansör mü ön kamera mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
+    "#ciltbakimi",
+    "#guzellik",
     "#makyaj",
-    "#güzellik",
-    "#maskara",
-    "#makyajönerisi",
-    "#paradeğeri",
-    "#güzelliksırları"
+    "#makyajonerisi",
+    "#kapatici",
+    "#gozalti",
+    "#kapatıcı"
   ],
-  "takeaway": "Parayı fırçaya öde, ağır metal kutuya değil.",
+  "takeaway": "Suç kapatıcında değil, asansörün acımasız ve dik ampul açısında.",
   "footage_queries": [
-    "mascara brush macro",
-    "cosmetic bottles soft light"
+    "clean bathroom tiles light",
+    "compact powder pressed texture"
   ],
   "narration": [
-    "Süslü maskara vaatlerine kanıp servet ödedik.",
-    "Maskarada kirpiği aslında kaldıran şey formül değil fırçadır.",
-    "Tüm markaların tüpündeki temel madde ucuz balmumudur.",
-    "Ödediğin paranın büyük kısmı ağır kutuya ve reklama gider.",
-    "Fırçası kaliteli olan bütçe dostu maskara her zaman kazanır."
+    "Kapatıcın asansörde felaket mi duruyor?",
+    "Banyo aynasında kusursuz görünen kapatıcı asansörde aniden çöker.",
+    "Tepeden vuran sert ışık göz altındaki gölgeleri dev gibi büyütür.",
+    "Sarı ampuller kapatıcının alt tonunu tamamen turuncuya çevirip yanıltır.",
+    "Suç kapatıcında değil asansörün acımasız ve dik ampul açısında."
   ],
-  "subject": "maskara",
-  "sendTo": "kutunun üstündeki her vaade inanıp pahalı maskara alan arkadaşına",
-  "soru": "Sen pahalı maskara mı kullanıyorsun yoksa fırçaya mı bakıyorsun?",
+  "subject": "kapatıcı",
+  "sendTo": "Evden prenses gibi çıkıp asansör aynasında yıkılan arkadaşına",
+  "soru": "Senin makyajını en çok rezil eden ışık hangisi: asansör mü ön kamera mı?",
   "theme": "#d98c5f",
   "brand": {
     "handle": "@cilt.kodu",
@@ -92,30 +93,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Süslü maskara vaatlerine kanıp servet ödedik.",
+      "text": "Kapatıcın asansörde felaket mi duruyor?",
       "start": 0.35,
-      "dur": 3.153
+      "dur": 2.566
     },
     {
-      "text": "Maskarada kirpiği aslında kaldıran şey formül değil fırçadır.",
-      "start": 3.503,
-      "dur": 4.275
+      "text": "Banyo aynasında kusursuz görünen kapatıcı asansörde aniden çöker.",
+      "start": 2.916,
+      "dur": 4.277
     },
     {
-      "text": "Tüm markaların tüpündeki temel madde ucuz balmumudur.",
-      "start": 7.778,
-      "dur": 3.714
+      "text": "Tepeden vuran sert ışık göz altındaki gölgeleri dev gibi büyütür.",
+      "start": 7.193,
+      "dur": 4.277
     },
     {
-      "text": "Ödediğin paranın büyük kısmı ağır kutuya ve reklama gider.",
-      "start": 11.492,
-      "dur": 4.064
+      "text": "Sarı ampuller kapatıcının alt tonunu tamamen turuncuya çevirip yanıltır.",
+      "start": 11.47,
+      "dur": 4.738
     },
     {
-      "text": "Fırçası kaliteli olan bütçe dostu maskara her zaman kazanır.",
-      "start": 15.556,
-      "dur": 5.305
+      "text": "Suç kapatıcında değil asansörün acımasız ve dik ampul açısında.",
+      "start": 16.208,
+      "dur": 5.245
     }
   ],
-  "thumbOffset": 2177
+  "thumbOffset": 1883
 }

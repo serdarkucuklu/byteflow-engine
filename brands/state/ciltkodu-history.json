@@ -531,25 +531,25 @@
     "insightsAt": "2026-08-09T15:31:54.668Z"
   },
   {
-    "title": "Maskarada Parayı Neye Ödüyoruz?",
-    "subject": "maskara",
-    "twist": "pazarlama-dili",
-    "pillar": "para-degeri",
+    "title": "Kapatıcı ve Işık İllüzyonu",
+    "subject": "kapatıcı",
+    "twist": "ayna-ve-isik",
+    "pillar": "cok-satanlar",
     "layout": "vertical-stack",
     "kinds": "diagram",
     "motion": "buildup",
     "theme": "#d98c5f",
     "source": "gemini",
     "footage": [
-      "pexels:mascara brush macro",
-      "pexels:steam rising slow motion",
+      "pexels:compact powder pressed texture",
+      "pexels:fingers touching cream texture",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Aoede",
+    "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
     "date": "2026-08-09",
-    "durSec": 20.8
+    "durSec": 21.4
   }
 ]
