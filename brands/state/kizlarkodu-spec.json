@@ -1,92 +1,86 @@
 {
-  "hook": "Elde yıkama sepetin ömründen iki yıl çalıyor.",
-  "title": "Yıkama Etiketindeki Kuru Temizleme Tuzağı",
+  "hook": "O suni deri dolapta çürüyor.",
+  "title": "Suni Derinin Dolapta Soyulma Gizemi",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "diagram",
+      "layout": "cycle",
       "nodes": [
         {
-          "id": "n1",
-          "label": "LEĞEN SEMBOLÜ"
+          "id": "ALIS",
+          "label": "SATIN ALMA"
         },
         {
-          "id": "n2",
-          "label": "DERECE LİMİTİ"
+          "id": "DEPO",
+          "label": "DOLAPTA BEKLEME"
         },
         {
-          "id": "n3",
-          "label": "KURU TEMİZLEME"
+          "id": "NEM",
+          "label": "NEM REAKSİYONU"
         },
         {
-          "id": "n4",
-          "label": "MARKANIN RİSKİ"
+          "id": "SOYUL",
+          "label": "SOYULMA EVRESİ"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "DERECE",
-          "status": "dereceyi aşınca elyaf büzülüp küçülür",
-          "color": "warn"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "LİFLER",
-          "status": "ıslanan lifler kalıbını tamamen kaybeder",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "ETİKET",
-          "status": "marka korkusundan kuru temizleme yazar",
+          "from": "ALIS",
+          "to": "DEPO",
+          "packet": "ASKI",
+          "status": "etiketiyle özel bir günü bekler",
           "color": "accent"
         },
         {
-          "from": "n4",
-          "to": "n1",
-          "packet": "SEPET",
-          "status": "elde yıkama sepeti odada dağ gibi büyür",
-          "color": "good"
+          "from": "DEPO",
+          "to": "NEM",
+          "packet": "NEM",
+          "status": "nem poliüretan bağlarını yavaşça koparır",
+          "color": "warn"
+        },
+        {
+          "from": "NEM",
+          "to": "SOYUL",
+          "packet": "PUL",
+          "status": "hiç giyilmeden dökülür maliyet tavan",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Elde yıkama sepetinde üç aydır bekleyen o kazak aslında makinede yıkanabilirdi.\n\nYıkama etiketlerinin arkasındaki gerçek mekanizma şöyle işliyor:\n\n1. Leğen Sembolü — İçindeki sayı maksimum yıkama sıcaklığıdır. O dereceyi bir tık geçmek elyafın büzülmesine ve giysinin çekmesine neden olur.\n2. Islak Lif Hassasiyeti — Yün veya viskon gibi lifler suyla birleştiğinde esner. Yanlış sıkma yapılırsa formu bir daha geri gelmez.\n3. Kuru Temizleme Etiketi — Her \"sadece kuru temizleme\" yazan kumaş gerçekten hassas değildir. Çoğu marka iade riski almamak için bunu basar.\n4. Zaman Kaybı — Korkup makineye atamadığımız her şey elde yıkama sepetinde dağ oluşturur ve haftalarca vaktimizi çalar.\n\nBir kıyafetin yıkanma yöntemini kumaşın türü belirler, markanın korkusu değil.\n\nKumaşa hürmetimiz sonsuz ama o sepeti bu hafta eriteceğiz.\n\n📌 Kaydet — bir dahaki çamaşır gününde lazım olacak.\n\n🔁 Bunu elde yıkanacaklar dağını üç aydır erteleyen o arkadaşına gönder.\n\nSen hangisisin: etiketi okuyan mı, direkt 40 dereceye atan mı?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Dolapta \"bir gün giyerim\" diye beklettiğin o suni deri ceket aslında kendi kendini imha ediyor.\n\nSuni derinin hiç giyilmeden pul pul dökülme mekanizması, adım adım:\n\n1. SATIN ALMA: Ucuz ya da pahalı fark etmez, suni deri yani poliüretan aldığın an onun kimyasal ömrü başlar.\n2. DOLAPTA BEKLEME: \"Özel bir gün\" gelsin diye askıda beklerken, dolabın içindeki mikro nemle temas eder.\n3. NEM REAKSİYONU: Kimyada hidroliz dediğimiz olay gerçekleşir; su molekülleri plastik zincirlerini yavaşça parçalar.\n4. SOYULMA EVRESİ: Sonuçta tek bir kez bile giyemeden omuzları ve yakası dökülmeye başlar, giyilme başına maliyet sonsuzluğa ulaşır.\n\nSuni deri alırken gerçek bir yatırım olmadığını ve ömrünün kısıtlı olduğunu bilerek, dolapta bekletmeden hemen eskitmek gerekir.\n\n\"Bir gün lazım olur\" diye sakladığımız her şeyin dolapta kendi cumhuriyetini kurup çürümesi şaka mı?\n\n📌 Kaydet — dolabı temizlerken bu bilgi çok can yakacak.\n\n🔁 Bunu dolabında etiketi üstünde bekleyen suni deri ceketleri olan arkadaşına gönder.\n\nDolabında hiç giymeden soyulan bir suni deri oldu mu?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#giyimtüyoları",
     "#giyim",
     "#moda",
-    "#kumaş",
+    "#gardırop",
+    "#giyimtüyoları",
     "#alışveriş",
-    "#gardırop"
+    "#sunideri"
   ],
-  "takeaway": "Kuru temizleme etiketi genelde kıyafetin değil markanın garantisidir.",
+  "takeaway": "Giyilmeyen suni deri dolapta kendi kendini imha eder, hemen giyin!",
   "footage_queries": [
-    "clothing label tag close up",
-    "washing machine drum spinning"
+    "leather texture macro",
+    "wardrobe interior minimal"
   ],
   "narration": [
-    "Elde yıkama sepetin ömründen iki yıl çalıyor.",
-    "Etiketteki o karmaşık semboller aslında tam olarak şu sırayla çalışıyor.",
-    "Leğen sembolündeki sayı tavan derecedir, üzerine çıkınca kumaş anında büzülür.",
-    "Suya hassas lifler ıslandıkça yapısını kaybeder ve o kıyafet bir daha oturmaz.",
-    "Markalar riske girmemek için kumaş yıkanabilir olsa bile kuru temizleme yazar.",
-    "Sen de elde yıkayacağım diye o kazağı aylarca sepette bekletip durursun.",
-    "Kuru temizleme yazan her şey hassas değildir, çoğu markanın korkusudur."
+    "O suni deri dolapta çürüyor.",
+    "Büyük hevesle aldığın o ceket dolapta sessizce sırasını bekler.",
+    "Havadaki nem kumaştaki poliüretan zincirlerini kimyasal olarak tek tek koparır.",
+    "Buna hidroliz denir ve ceket giyilmeden pul pul dökülür.",
+    "Giyilme başına maliyeti hesaplayamadan çöp kutusuyla tanışır."
   ],
-  "subject": "yıkama etiketi",
-  "sendTo": "elde yıkanacaklar dağını üç aydır erteleyen o arkadaşına",
-  "soru": "Sen hangisisin: etiketi okuyan mı, direkt 40 dereceye atan mı?",
-  "theme": "#8fd0ff",
+  "subject": "suni deri",
+  "sendTo": "dolabında etiketi üstünde bekleyen suni deri ceketleri olan arkadaşına",
+  "soru": "Dolabında hiç giymeden soyulan bir suni deri oldu mu?",
+  "theme": "#ff8fab",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım"
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "tipografi": {
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
+    }
   },
   "palette": {
     "bg": "#0e0f1a",
@@ -96,44 +90,35 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "orbit",
+  "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Elde yıkama sepetin ömründen iki yıl çalıyor.",
+      "text": "O suni deri dolapta çürüyor.",
       "start": 0.35,
-      "dur": 2.734
+      "dur": 1.952
     },
     {
-      "text": "Etiketteki o karmaşık semboller aslında tam olarak şu sırayla çalışıyor.",
-      "start": 3.084,
-      "dur": 4.375
+      "text": "Büyük hevesle aldığın o ceket dolapta sessizce sırasını bekler.",
+      "start": 2.302,
+      "dur": 4.391
     },
     {
-      "text": "Leğen sembolündeki sayı tavan derecedir, üzerine çıkınca kumaş anında büzülür.",
-      "start": 7.459,
-      "dur": 4.739
+      "text": "Havadaki nem kumaştaki poliüretan zincirlerini kimyasal olarak tek tek koparır.",
+      "start": 6.693,
+      "dur": 5.506
     },
     {
-      "text": "Suya hassas lifler ıslandıkça yapısını kaybeder ve o kıyafet bir daha oturmaz.",
-      "start": 12.198,
-      "dur": 4.739
+      "text": "Buna hidroliz denir ve ceket giyilmeden pul pul dökülür.",
+      "start": 12.199,
+      "dur": 3.903
     },
     {
-      "text": "Markalar riske girmemek için kumaş yıkanabilir olsa bile kuru temizleme yazar.",
-      "start": 16.937,
-      "dur": 4.739
-    },
-    {
-      "text": "Sen de elde yıkayacağım diye o kazağı aylarca sepette bekletip durursun.",
-      "start": 21.677,
-      "dur": 4.375
-    },
-    {
-      "text": "Kuru temizleme yazan her şey hassas değildir, çoğu markanın korkusudur.",
-      "start": 26.051,
-      "dur": 5.414
+      "text": "Giyilme başına maliyeti hesaplayamadan çöp kutusuyla tanışır.",
+      "start": 16.103,
+      "dur": 5.352
     }
   ],
-  "thumbOffset": 1450
+  "thumbOffset": 1576
 }

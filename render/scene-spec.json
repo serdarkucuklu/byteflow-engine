@@ -1,121 +1,123 @@
 {
-  "hook": "Kapatıcın asansörde felaket duruyorsa suç cildinde değil.",
-  "title": "Kapatıcı ve Işık İllüzyonu",
+  "hook": "O suni deri dolapta çürüyor.",
+  "title": "Suni Derinin Dolapta Soyulma Gizemi",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "diagram",
+      "layout": "cycle",
       "nodes": [
         {
-          "id": "n1",
-          "label": "BANYO AYNASI"
+          "id": "ALIS",
+          "label": "SATIN ALMA"
         },
         {
-          "id": "n2",
-          "label": "TEPE IŞIĞI"
+          "id": "DEPO",
+          "label": "DOLAPTA BEKLEME"
         },
         {
-          "id": "n3",
-          "label": "DİK AÇI"
+          "id": "NEM",
+          "label": "NEM REAKSİYONU"
+        },
+        {
+          "id": "SOYUL",
+          "label": "SOYULMA EVRESİ"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "AYNA",
-          "status": "banyo kandırır asansör gerçeği söyler",
-          "color": "warn"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "IŞIK",
-          "status": "tepe ışığı tüm gölgeleri derinleştirir",
+          "from": "ALIS",
+          "to": "DEPO",
+          "packet": "ASKI",
+          "status": "etiketiyle özel bir günü bekler",
           "color": "accent"
         },
         {
-          "from": "n3",
-          "to": "n1",
-          "packet": "AÇI",
-          "status": "gün ışığı kapatıcının asıl tonunu verir",
-          "color": "good"
+          "from": "DEPO",
+          "to": "NEM",
+          "packet": "NEM",
+          "status": "nem poliüretan bağlarını yavaşça koparır",
+          "color": "warn"
+        },
+        {
+          "from": "NEM",
+          "to": "SOYUL",
+          "packet": "PUL",
+          "status": "hiç giyilmeden dökülür maliyet tavan",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Evde mükemmel duran kapatıcı asansöre binince neden aniden çöker?\n\nYüzün değişmedi, kapatıcın da bozulmadı. İllüzyonun arkasındaki fizik adımları:\n\n1. Banyo Ayna Yanılsaması — Önden gelen yumuşak ışık yüzdeki tüm gölgeleri doldurur, pürüzsüz görünürsün.\n2. Tepe Işığı Trafosu — Asansördeki tepeden vuran ampuller en ufak göz altı çukurunu iki kat derin gösterir.\n3. Renk Sıcaklığı Darbesi — Sarı ve dik ışıklar kapatıcının pigment yapısını büküp alt tonunu turuncu yansıtır.\n\nKapatıcı seçerken mağaza ışığına değil, mutlaka gün ışığına güvenmek gerekir.\n\nAynalarla barışın, suç cildinizde değil asansör mimarlarında.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu Evden prenses gibi çıkıp asansör aynasında yıkılan arkadaşına gönder.\nSenin makyajını en çok rezil eden ışık hangisi: asansör mü ön kamera mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Dolapta \"bir gün giyerim\" diye beklettiğin o suni deri ceket aslında kendi kendini imha ediyor.\n\nSuni derinin hiç giyilmeden pul pul dökülme mekanizması, adım adım:\n\n1. SATIN ALMA: Ucuz ya da pahalı fark etmez, suni deri yani poliüretan aldığın an onun kimyasal ömrü başlar.\n2. DOLAPTA BEKLEME: \"Özel bir gün\" gelsin diye askıda beklerken, dolabın içindeki mikro nemle temas eder.\n3. NEM REAKSİYONU: Kimyada hidroliz dediğimiz olay gerçekleşir; su molekülleri plastik zincirlerini yavaşça parçalar.\n4. SOYULMA EVRESİ: Sonuçta tek bir kez bile giyemeden omuzları ve yakası dökülmeye başlar, giyilme başına maliyet sonsuzluğa ulaşır.\n\nSuni deri alırken gerçek bir yatırım olmadığını ve ömrünün kısıtlı olduğunu bilerek, dolapta bekletmeden hemen eskitmek gerekir.\n\n\"Bir gün lazım olur\" diye sakladığımız her şeyin dolapta kendi cumhuriyetini kurup çürümesi şaka mı?\n\n📌 Kaydet — dolabı temizlerken bu bilgi çok can yakacak.\n\n🔁 Bunu dolabında etiketi üstünde bekleyen suni deri ceketleri olan arkadaşına gönder.\n\nDolabında hiç giymeden soyulan bir suni deri oldu mu?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#guzellik",
-    "#makyaj",
-    "#makyajonerisi",
-    "#kapatici",
-    "#gozalti",
-    "#kapatıcı"
+    "#giyim",
+    "#moda",
+    "#gardırop",
+    "#giyimtüyoları",
+    "#alışveriş",
+    "#sunideri"
   ],
-  "takeaway": "Suç kapatıcında değil, asansörün acımasız ve dik ampul açısında.",
+  "takeaway": "Giyilmeyen suni deri dolapta kendi kendini imha eder, hemen giyin!",
   "footage_queries": [
-    "clean bathroom tiles light",
-    "compact powder pressed texture"
+    "leather texture macro",
+    "wardrobe interior minimal"
   ],
   "narration": [
-    "Kapatıcın asansörde felaket mi duruyor?",
-    "Banyo aynasında kusursuz görünen kapatıcı asansörde aniden çöker.",
-    "Tepeden vuran sert ışık göz altındaki gölgeleri dev gibi büyütür.",
-    "Sarı ampuller kapatıcının alt tonunu tamamen turuncuya çevirip yanıltır.",
-    "Suç kapatıcında değil asansörün acımasız ve dik ampul açısında."
+    "O suni deri dolapta çürüyor.",
+    "Büyük hevesle aldığın o ceket dolapta sessizce sırasını bekler.",
+    "Havadaki nem kumaştaki poliüretan zincirlerini kimyasal olarak tek tek koparır.",
+    "Buna hidroliz denir ve ceket giyilmeden pul pul dökülür.",
+    "Giyilme başına maliyeti hesaplayamadan çöp kutusuyla tanışır."
   ],
-  "subject": "kapatıcı",
-  "sendTo": "Evden prenses gibi çıkıp asansör aynasında yıkılan arkadaşına",
-  "soru": "Senin makyajını en çok rezil eden ışık hangisi: asansör mü ön kamera mı?",
-  "theme": "#d98c5f",
+  "subject": "suni deri",
+  "sendTo": "dolabında etiketi üstünde bekleyen suni deri ceketleri olan arkadaşına",
+  "soru": "Dolabında hiç giymeden soyulan bir suni deri oldu mu?",
+  "theme": "#ff8fab",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Kapatıcın asansörde felaket mi duruyor?",
+      "text": "O suni deri dolapta çürüyor.",
       "start": 0.35,
-      "dur": 2.566
+      "dur": 1.952
     },
     {
-      "text": "Banyo aynasında kusursuz görünen kapatıcı asansörde aniden çöker.",
-      "start": 2.916,
-      "dur": 4.277
+      "text": "Büyük hevesle aldığın o ceket dolapta sessizce sırasını bekler.",
+      "start": 2.302,
+      "dur": 4.391
     },
     {
-      "text": "Tepeden vuran sert ışık göz altındaki gölgeleri dev gibi büyütür.",
-      "start": 7.193,
-      "dur": 4.277
+      "text": "Havadaki nem kumaştaki poliüretan zincirlerini kimyasal olarak tek tek koparır.",
+      "start": 6.693,
+      "dur": 5.506
     },
     {
-      "text": "Sarı ampuller kapatıcının alt tonunu tamamen turuncuya çevirip yanıltır.",
-      "start": 11.47,
-      "dur": 4.738
+      "text": "Buna hidroliz denir ve ceket giyilmeden pul pul dökülür.",
+      "start": 12.199,
+      "dur": 3.903
     },
     {
-      "text": "Suç kapatıcında değil asansörün acımasız ve dik ampul açısında.",
-      "start": 16.208,
-      "dur": 5.245
+      "text": "Giyilme başına maliyeti hesaplayamadan çöp kutusuyla tanışır.",
+      "start": 16.103,
+      "dur": 5.352
     }
   ]
 }
