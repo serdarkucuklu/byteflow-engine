@@ -1,92 +1,83 @@
 {
-  "hook": "Sivilce tam önemli etkinlikten önceki gece mi çıkar?",
-  "title": "Sivilce Neden Hep Önemli Günden Önce Çıkar?",
+  "hook": "Kutudaki süslü vaatlere kandığın o pahalı maskara...",
+  "title": "Maskarada Parayı Neye Ödüyoruz?",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "vertical-stack",
+      "kind": "diagram",
       "nodes": [
         {
           "id": "n1",
-          "label": "STRES VE KORTİZOL"
+          "label": "FIRÇA DİZAYNI"
         },
         {
           "id": "n2",
-          "label": "SEBUM PATLAMASI"
+          "label": "FORMÜL VE BALMUMU"
         },
         {
           "id": "n3",
-          "label": "PANİK MÜDAHALESİ"
-        },
-        {
-          "id": "n4",
-          "label": "SALİSİLİK ASİT"
+          "label": "MARKA VE AMBALAJ"
         }
       ],
       "steps": [
         {
           "from": "n1",
           "to": "n2",
-          "packet": "STRES",
-          "status": "stres hormonu yağı anında coşturur",
-          "color": "warn"
+          "packet": "FIRÇA",
+          "status": "etkinin yüzde sekseni fırçadan gelir",
+          "color": "accent"
         },
         {
           "from": "n2",
           "to": "n3",
-          "packet": "SEBUM",
-          "status": "tıkanan gözenekte bakteri parti verir",
-          "color": "warn"
+          "packet": "BALMUM",
+          "status": "maliyetin çoğu pigment değil mumdur",
+          "color": "good"
         },
         {
           "from": "n3",
-          "to": "n4",
-          "packet": "PANİK",
-          "status": "diş macunu iltihaba benzin döker",
-          "color": "warn"
-        },
-        {
-          "from": "n4",
           "to": "n1",
-          "packet": "BHA",
-          "status": "salisilik asit yağı çözer paniği bitirir",
-          "color": "good"
+          "packet": "KUTU",
+          "status": "fiyatın yarısı ağır kutu ve reklama",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Sivilce tam önemli etkinlikten bir gece önce neden çıkar?\n\nStres anında cildinde gerçekleşen ziyafet, adım adım:\n\n1. STRES VE KORTİZOL — Önemli gün öncesi yükselen stres hormonu (kortizol), sebase bezleri uyararak aşırı sebum üretimine yol açar.\n2. SEBUM PATLAMASI — Aşırı yağ gözenek kanalını tıkar ve oksijensiz ortamda C. acnes bakterileri hızla çoğalmaya başlar.\n3. PANİK MÜDAHALESİ — Diş macunu, alkol veya kurutucu hamleler bariyeri tahriş ederek iltihabı daha da büyütür.\n4. SALİSİLİK ASİT — BHA grubu olan salisilik asit yağda çözündüğü için gözenek içine nüfuz eder, birikmiş yağı çözer ve iltihabı sakinleştirir.\n\nO gece yapılacak tek mantıklı şey sivilceye dokunmayıp salisilik asitli nokta bant yapıştırmaktır.\n\nCilt stresi bilir ama panik müdahalesini affetmez.\n\n📌 Kaydet — bir dahaki acil sivilce krizinde lazım olacak.\n🔁 Bunu önemli bir etkinlikten bir gece önce sivilce çıkartan arkadaşına gönder.\nSivilce çıkınca ne yapıyorsun: Patlatmak mı, sivilce bandı mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kutudaki süslü maskara vaatlerine kanıp servet ödemeyi bırakıyoruz.\n\nLüks maskara ile bütçe dostu maskara arasındaki gerçek fark adım adım şöyle:\n\n1. Fırça Dizaynı — Maskarada hacim ve uzunluk veren şey yüzde 80 oranında silikon veya kıl fırçanın mimarisidir, içindeki sihirli sıvı değil.\n2. Formül ve Balmumu — En lüks markadan en uygun fiyatlısına kadar temel taşıyıcı su, pigment ve ucuz balmumudur. Sıvı formül neredeyse aynıdır.\n3. Marka ve Ambalaj — Ödediğin o yüksek tutarın büyük kısmı ürünün kendisine değil, ağır metal ambalaja ve reklam bütçesine gider.\n\nMaskara alırken içeriğe değil, kirpik yapına uygun fırça tipine yatırım yap.\n\nKutudaki klinik vaatler harika ama fırça tık tık kaldırmıyorsa o muma servet ödedin demektir.\n\n📌 Kaydet — bir dahaki maskara krizinde lazım olacak.\n🔁 Bunu kutunun üstündeki her vaade inanıp pahalı maskara alan arkadaşına gönder.\nSen pahalı maskara mı kullanıyorsun yoksa fırçaya mı bakıyorsun?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimi",
+    "#makyaj",
     "#güzellik",
-    "#sivilce",
-    "#salisilikasit",
-    "#skincare",
-    "#sivilcetedavisi",
-    "#ciltbakımrutini"
+    "#maskara",
+    "#makyajönerisi",
+    "#paradeğeri",
+    "#güzelliksırları"
   ],
-  "takeaway": "Panikleyip diş macunu sürme, salisilik asit bandı yapıştır ve yat.",
+  "takeaway": "Parayı fırçaya öde, ağır metal kutuya değil.",
   "footage_queries": [
-    "oil and water macro",
+    "mascara brush macro",
     "cosmetic bottles soft light"
   ],
   "narration": [
-    "Sivilce önemli günden önceki gece neden çıkar?",
-    "Cildiniz stres anında dört farklı panik tepkisi vermeye başlar.",
-    "Kortizol yükselince cilt o önemli geceyi sezip yağı pompalar.",
-    "Tıkanan kanalda oksijensiz kalan bakteriler hızla çoğalarak iltihap oluşturur.",
-    "Diş macunu sürmek sivilceyi kurutmaz, sadece naneli acı çektirir.",
-    "Yağda çözünen salisilik asit ise gözeneğe nüfuz edip iltihabı yatıştırır.",
-    "Panik yapıp patlatmak yerine salisilik asitli küçük sivilce bandı yapıştırın."
+    "Süslü maskara vaatlerine kanıp servet ödedik.",
+    "Maskarada kirpiği aslında kaldıran şey formül değil fırçadır.",
+    "Tüm markaların tüpündeki temel madde ucuz balmumudur.",
+    "Ödediğin paranın büyük kısmı ağır kutuya ve reklama gider.",
+    "Fırçası kaliteli olan bütçe dostu maskara her zaman kazanır."
   ],
-  "subject": "salisilik asit",
-  "sendTo": "önemli bir etkinlikten bir gece önce sivilce çıkartan arkadaşına",
-  "soru": "Sivilce çıkınca ne yapıyorsun: Patlatmak mı, sivilce bandı mı?",
-  "theme": "#8fa8c8",
+  "subject": "maskara",
+  "sendTo": "kutunun üstündeki her vaade inanıp pahalı maskara alan arkadaşına",
+  "soru": "Sen pahalı maskara mı kullanıyorsun yoksa fırçaya mı bakıyorsun?",
+  "theme": "#d98c5f",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım"
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "tipografi": {
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
+    }
   },
   "palette": {
     "bg": "#17110f",
@@ -96,43 +87,34 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "buildup",
+  "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Sivilce önemli günden önceki gece neden çıkar?",
+      "text": "Süslü maskara vaatlerine kanıp servet ödedik.",
       "start": 0.35,
-      "dur": 2.983
+      "dur": 3.153
     },
     {
-      "text": "Cildiniz stres anında dört farklı panik tepkisi vermeye başlar.",
-      "start": 3.333,
-      "dur": 4.085
+      "text": "Maskarada kirpiği aslında kaldıran şey formül değil fırçadır.",
+      "start": 3.503,
+      "dur": 4.275
     },
     {
-      "text": "Kortizol yükselince cilt o önemli geceyi sezip yağı pompalar.",
-      "start": 7.417,
-      "dur": 3.955
+      "text": "Tüm markaların tüpündeki temel madde ucuz balmumudur.",
+      "start": 7.778,
+      "dur": 3.714
     },
     {
-      "text": "Tıkanan kanalda oksijensiz kalan bakteriler hızla çoğalarak iltihap oluşturur.",
-      "start": 11.372,
-      "dur": 5.057
+      "text": "Ödediğin paranın büyük kısmı ağır kutuya ve reklama gider.",
+      "start": 11.492,
+      "dur": 4.064
     },
     {
-      "text": "Diş macunu sürmek sivilceyi kurutmaz, sadece naneli acı çektirir.",
-      "start": 16.43,
-      "dur": 4.214
-    },
-    {
-      "text": "Yağda çözünen salisilik asit ise gözeneğe nüfuz edip iltihabı yatıştırır.",
-      "start": 20.644,
-      "dur": 4.733
-    },
-    {
-      "text": "Panik yapıp patlatmak yerine salisilik asitli küçük sivilce bandı yapıştırın.",
-      "start": 25.377,
-      "dur": 6.092
+      "text": "Fırçası kaliteli olan bütçe dostu maskara her zaman kazanır.",
+      "start": 15.556,
+      "dur": 5.305
     }
   ]
 }
