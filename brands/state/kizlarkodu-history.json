@@ -28,7 +28,7 @@
       "ig_reels_avg_watch_time": 8800,
       "ig_reels_video_view_total_time": 1056110
     },
-    "insightsAt": "2026-08-08T17:34:18.071Z"
+    "insightsAt": "2026-08-09T17:34:59.306Z"
   },
   {
     "title": "Kargo Bedava Takısının 3 Günde Yeşil Olma Rehberi",
@@ -60,7 +60,7 @@
       "ig_reels_avg_watch_time": 4814,
       "ig_reels_video_view_total_time": 582545
     },
-    "insightsAt": "2026-08-08T17:34:19.070Z"
+    "insightsAt": "2026-08-09T17:34:59.980Z"
   },
   {
     "title": "Kışın Kazaklar Neden Saçımızı Elektriklendirir?",
@@ -91,7 +91,7 @@
       "ig_reels_avg_watch_time": 3362,
       "ig_reels_video_view_total_time": 393388
     },
-    "insightsAt": "2026-08-08T17:34:19.712Z"
+    "insightsAt": "2026-08-09T17:35:00.665Z"
   },
   {
     "title": "Yıkama Etiketindeki Kuru Temizleme Tuzağı",
@@ -112,6 +112,16 @@
     "date": "2026-08-07",
     "durSec": 31.4,
     "mediaId": "18122502271837261",
-    "postedAt": "2026-08-08T17:35:10.063Z"
+    "postedAt": "2026-08-08T17:35:10.063Z",
+    "insights": {
+      "views": 165,
+      "reach": 140,
+      "saved": 1,
+      "shares": 0,
+      "total_interactions": 4,
+      "ig_reels_avg_watch_time": 5133,
+      "ig_reels_video_view_total_time": 723844
+    },
+    "insightsAt": "2026-08-09T17:35:01.291Z"
   }
 ]
