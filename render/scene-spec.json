@@ -1,123 +1,105 @@
 {
-  "hook": "O suni deri dolapta çürüyor.",
-  "title": "Suni Derinin Dolapta Soyulma Gizemi",
+  "hook": "Kutudaki dermatolog onaylı yazısına inanan o arkadaşın.",
+  "title": "SPF 50 Stick vs Likit Güneş Kremi",
   "scenes": [
     {
-      "layout": "cycle",
-      "nodes": [
+      "layout": "hub-spoke",
+      "kind": "versus",
+      "left": "SPF 50 STİCK",
+      "right": "SPF 50 LİKİT KREM",
+      "rows": [
         {
-          "id": "ALIS",
-          "label": "SATIN ALMA"
+          "label": "TAM KORUMA MİKTARI",
+          "left": "14 KAT SÜRMEK GEREKİR",
+          "right": "İKİ PARMAK YETERLİDİR",
+          "winner": "right"
         },
         {
-          "id": "DEPO",
-          "label": "DOLAPTA BEKLEME"
+          "label": "KLİNİK TEST ŞARTI",
+          "left": "SADECE 2 CM2 ALAN İÇİN",
+          "right": "STANDART SANTİMETREKARE",
+          "winner": "right"
         },
         {
-          "id": "NEM",
-          "label": "NEM REAKSİYONU"
-        },
-        {
-          "id": "SOYUL",
-          "label": "SOYULMA EVRESİ"
-        }
-      ],
-      "steps": [
-        {
-          "from": "ALIS",
-          "to": "DEPO",
-          "packet": "ASKI",
-          "status": "etiketiyle özel bir günü bekler",
-          "color": "accent"
-        },
-        {
-          "from": "DEPO",
-          "to": "NEM",
-          "packet": "NEM",
-          "status": "nem poliüretan bağlarını yavaşça koparır",
-          "color": "warn"
-        },
-        {
-          "from": "NEM",
-          "to": "SOYUL",
-          "packet": "PUL",
-          "status": "hiç giyilmeden dökülür maliyet tavan",
-          "color": "warn"
+          "label": "MAKYAJ ÜSTÜ UYGULAMA",
+          "left": "FONDÖTENİ SÜRÜKLER",
+          "right": "PISPISLA VEYA BANTLA",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Dolapta \"bir gün giyerim\" diye beklettiğin o suni deri ceket aslında kendi kendini imha ediyor.\n\nSuni derinin hiç giyilmeden pul pul dökülme mekanizması, adım adım:\n\n1. SATIN ALMA: Ucuz ya da pahalı fark etmez, suni deri yani poliüretan aldığın an onun kimyasal ömrü başlar.\n2. DOLAPTA BEKLEME: \"Özel bir gün\" gelsin diye askıda beklerken, dolabın içindeki mikro nemle temas eder.\n3. NEM REAKSİYONU: Kimyada hidroliz dediğimiz olay gerçekleşir; su molekülleri plastik zincirlerini yavaşça parçalar.\n4. SOYULMA EVRESİ: Sonuçta tek bir kez bile giyemeden omuzları ve yakası dökülmeye başlar, giyilme başına maliyet sonsuzluğa ulaşır.\n\nSuni deri alırken gerçek bir yatırım olmadığını ve ömrünün kısıtlı olduğunu bilerek, dolapta bekletmeden hemen eskitmek gerekir.\n\n\"Bir gün lazım olur\" diye sakladığımız her şeyin dolapta kendi cumhuriyetini kurup çürümesi şaka mı?\n\n📌 Kaydet — dolabı temizlerken bu bilgi çok can yakacak.\n\n🔁 Bunu dolabında etiketi üstünde bekleyen suni deri ceketleri olan arkadaşına gönder.\n\nDolabında hiç giymeden soyulan bir suni deri oldu mu?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kutudaki klinik test vaatleri gerçekte ne anlama geliyor, adım adım inceleyelim:\n\n1. Kat Sayısı Tuzağı — Stick güneş kremleri pratik görünür ama SPF 50 korumasını almak için cildinize tam 14 kat sürmeniz gerekir.\n2. Klinik Test Standartı — Kutuda gördüğünüz dermatolog onaylı ibaresi, laboratuvarda santimetre kareye 2 miligram ürün sürülerek ölçülür.\n3. Makyaj Performansı — Stick formüller katı yapısı nedeniyle alttaki fondöteni sürükler, likit kremi tampon hareketle uygulamak korumayı bozmaz.\n\nNe ödediğinize dikkat edin: Pazarlama ambalajına değil, cildinize ulaşan gerçek aktif koruma miktarına paranızı yatırın.\n\nKutudaki onay yazısını görüp vicdan rahatlatan o arkadaş, 14 kat sürmediği için hâlâ kızarıyor.\n\n📌 Kaydet — güneş kremi alırken ambalaj masallarına kanma.\n🔁 Bunu kutunun üstündeki her vaat cümlesine hemen inanan arkadaşına gönder.\nSen hangisisin: Stick pratikliği mi, likit garantisi mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#moda",
-    "#gardırop",
-    "#giyimtüyoları",
-    "#alışveriş",
-    "#sunideri"
+    "#ciltbakimimegüzellikmeguneskremimespf50memakyajmeciltbariyerimekozmetik",
+    "#ciltbakimi",
+    "#makyaj",
+    "#güzellik",
+    "#skincare",
+    "#cilt"
   ],
-  "takeaway": "Giyilmeyen suni deri dolapta kendi kendini imha eder, hemen giyin!",
+  "takeaway": "Dermatolog onayladı ama vaat edilen koruma için 14 kat sürmen lazım.",
   "footage_queries": [
-    "leather texture macro",
-    "wardrobe interior minimal"
+    "sunlight through curtain",
+    "hands applying cream close up"
   ],
   "narration": [
-    "O suni deri dolapta çürüyor.",
-    "Büyük hevesle aldığın o ceket dolapta sessizce sırasını bekler.",
-    "Havadaki nem kumaştaki poliüretan zincirlerini kimyasal olarak tek tek koparır.",
-    "Buna hidroliz denir ve ceket giyilmeden pul pul dökülür.",
-    "Giyilme başına maliyeti hesaplayamadan çöp kutusuyla tanışır."
+    "Kutudaki her söze inanan arkadaşın.",
+    "SPF 50 stick vaad edilen korumayı ancak ondört katta verir.",
+    "Klinik testlerde santimetrekareye tam iki miligram krem sürülerek ölçüm yapılır.",
+    "Stick ürün makyajı sürüklerken likit kremi tampon hareketle yenilemek gerekir.",
+    "Dermatolog onayladı derler ama o korumayı almak için maske takmalısın."
   ],
-  "subject": "suni deri",
-  "sendTo": "dolabında etiketi üstünde bekleyen suni deri ceketleri olan arkadaşına",
-  "soru": "Dolabında hiç giymeden soyulan bir suni deri oldu mu?",
-  "theme": "#ff8fab",
+  "subject": "spf 50",
+  "sendTo": "kutunun üstündeki her vaat cümlesine hemen inanan arkadaşına",
+  "soru": "Sen hangisisin: Stick pratikliği mi, likit garantisi mi?",
+  "theme": "#b08bbb",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "camera",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "O suni deri dolapta çürüyor.",
+      "text": "Kutudaki her söze inanan arkadaşın.",
       "start": 0.35,
-      "dur": 1.952
+      "dur": 2.173
     },
     {
-      "text": "Büyük hevesle aldığın o ceket dolapta sessizce sırasını bekler.",
-      "start": 2.302,
-      "dur": 4.391
+      "text": "SPF 50 stick vaad edilen korumayı ancak ondört katta verir.",
+      "start": 2.523,
+      "dur": 3.663
     },
     {
-      "text": "Havadaki nem kumaştaki poliüretan zincirlerini kimyasal olarak tek tek koparır.",
-      "start": 6.693,
-      "dur": 5.506
+      "text": "Klinik testlerde santimetrekareye tam iki miligram krem sürülerek ölçüm yapılır.",
+      "start": 6.186,
+      "dur": 4.967
     },
     {
-      "text": "Buna hidroliz denir ve ceket giyilmeden pul pul dökülür.",
-      "start": 12.199,
-      "dur": 3.903
+      "text": "Stick ürün makyajı sürüklerken likit kremi tampon hareketle yenilemek gerekir.",
+      "start": 11.153,
+      "dur": 4.843
     },
     {
-      "text": "Giyilme başına maliyeti hesaplayamadan çöp kutusuyla tanışır.",
-      "start": 16.103,
-      "dur": 5.352
+      "text": "Dermatolog onayladı derler ama o korumayı almak için maske takmalısın.",
+      "start": 15.995,
+      "dur": 5.446
     }
   ]
 }

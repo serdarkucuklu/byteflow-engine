@@ -563,5 +563,27 @@
       "ig_reels_video_view_total_time": 5458227
     },
     "insightsAt": "2026-08-10T16:00:06.971Z"
+  },
+  {
+    "title": "SPF 50 Stick vs Likit Güneş Kremi",
+    "subject": "spf 50",
+    "twist": "pazarlama-dili",
+    "pillar": "karsilastirma",
+    "layout": "hub-spoke",
+    "kinds": "versus",
+    "motion": "camera",
+    "theme": "#b08bbb",
+    "source": "gemini",
+    "footage": [
+      "pexels:nail polish drop macro",
+      "pexels:hands applying cream close up",
+      "pexels:water droplets on glass",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": 5,
+    "voiceName": "Aoede",
+    "muzik": "byteflow-ambient.mp3",
+    "date": "2026-08-10",
+    "durSec": 21.4
   }
 ]

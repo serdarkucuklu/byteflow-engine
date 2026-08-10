@@ -1,75 +1,59 @@
 {
-  "hook": "Kapatıcın asansörde felaket duruyorsa suç cildinde değil.",
-  "title": "Kapatıcı ve Işık İllüzyonu",
+  "hook": "Kutudaki dermatolog onaylı yazısına inanan o arkadaşın.",
+  "title": "SPF 50 Stick vs Likit Güneş Kremi",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "hub-spoke",
+      "kind": "versus",
+      "left": "SPF 50 STİCK",
+      "right": "SPF 50 LİKİT KREM",
+      "rows": [
         {
-          "id": "n1",
-          "label": "BANYO AYNASI"
+          "label": "TAM KORUMA MİKTARI",
+          "left": "14 KAT SÜRMEK GEREKİR",
+          "right": "İKİ PARMAK YETERLİDİR",
+          "winner": "right"
         },
         {
-          "id": "n2",
-          "label": "TEPE IŞIĞI"
+          "label": "KLİNİK TEST ŞARTI",
+          "left": "SADECE 2 CM2 ALAN İÇİN",
+          "right": "STANDART SANTİMETREKARE",
+          "winner": "right"
         },
         {
-          "id": "n3",
-          "label": "DİK AÇI"
-        }
-      ],
-      "steps": [
-        {
-          "from": "n1",
-          "to": "n2",
-          "packet": "AYNA",
-          "status": "banyo kandırır asansör gerçeği söyler",
-          "color": "warn"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "IŞIK",
-          "status": "tepe ışığı tüm gölgeleri derinleştirir",
-          "color": "accent"
-        },
-        {
-          "from": "n3",
-          "to": "n1",
-          "packet": "AÇI",
-          "status": "gün ışığı kapatıcının asıl tonunu verir",
-          "color": "good"
+          "label": "MAKYAJ ÜSTÜ UYGULAMA",
+          "left": "FONDÖTENİ SÜRÜKLER",
+          "right": "PISPISLA VEYA BANTLA",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Evde mükemmel duran kapatıcı asansöre binince neden aniden çöker?\n\nYüzün değişmedi, kapatıcın da bozulmadı. İllüzyonun arkasındaki fizik adımları:\n\n1. Banyo Ayna Yanılsaması — Önden gelen yumuşak ışık yüzdeki tüm gölgeleri doldurur, pürüzsüz görünürsün.\n2. Tepe Işığı Trafosu — Asansördeki tepeden vuran ampuller en ufak göz altı çukurunu iki kat derin gösterir.\n3. Renk Sıcaklığı Darbesi — Sarı ve dik ışıklar kapatıcının pigment yapısını büküp alt tonunu turuncu yansıtır.\n\nKapatıcı seçerken mağaza ışığına değil, mutlaka gün ışığına güvenmek gerekir.\n\nAynalarla barışın, suç cildinizde değil asansör mimarlarında.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu Evden prenses gibi çıkıp asansör aynasında yıkılan arkadaşına gönder.\nSenin makyajını en çok rezil eden ışık hangisi: asansör mü ön kamera mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kutudaki klinik test vaatleri gerçekte ne anlama geliyor, adım adım inceleyelim:\n\n1. Kat Sayısı Tuzağı — Stick güneş kremleri pratik görünür ama SPF 50 korumasını almak için cildinize tam 14 kat sürmeniz gerekir.\n2. Klinik Test Standartı — Kutuda gördüğünüz dermatolog onaylı ibaresi, laboratuvarda santimetre kareye 2 miligram ürün sürülerek ölçülür.\n3. Makyaj Performansı — Stick formüller katı yapısı nedeniyle alttaki fondöteni sürükler, likit kremi tampon hareketle uygulamak korumayı bozmaz.\n\nNe ödediğinize dikkat edin: Pazarlama ambalajına değil, cildinize ulaşan gerçek aktif koruma miktarına paranızı yatırın.\n\nKutudaki onay yazısını görüp vicdan rahatlatan o arkadaş, 14 kat sürmediği için hâlâ kızarıyor.\n\n📌 Kaydet — güneş kremi alırken ambalaj masallarına kanma.\n🔁 Bunu kutunun üstündeki her vaat cümlesine hemen inanan arkadaşına gönder.\nSen hangisisin: Stick pratikliği mi, likit garantisi mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
+    "#ciltbakimimegüzellikmeguneskremimespf50memakyajmeciltbariyerimekozmetik",
     "#ciltbakimi",
-    "#guzellik",
     "#makyaj",
-    "#makyajonerisi",
-    "#kapatici",
-    "#gozalti",
-    "#kapatıcı"
+    "#güzellik",
+    "#skincare",
+    "#cilt"
   ],
-  "takeaway": "Suç kapatıcında değil, asansörün acımasız ve dik ampul açısında.",
+  "takeaway": "Dermatolog onayladı ama vaat edilen koruma için 14 kat sürmen lazım.",
   "footage_queries": [
-    "clean bathroom tiles light",
-    "compact powder pressed texture"
+    "sunlight through curtain",
+    "hands applying cream close up"
   ],
   "narration": [
-    "Kapatıcın asansörde felaket mi duruyor?",
-    "Banyo aynasında kusursuz görünen kapatıcı asansörde aniden çöker.",
-    "Tepeden vuran sert ışık göz altındaki gölgeleri dev gibi büyütür.",
-    "Sarı ampuller kapatıcının alt tonunu tamamen turuncuya çevirip yanıltır.",
-    "Suç kapatıcında değil asansörün acımasız ve dik ampul açısında."
+    "Kutudaki her söze inanan arkadaşın.",
+    "SPF 50 stick vaad edilen korumayı ancak ondört katta verir.",
+    "Klinik testlerde santimetrekareye tam iki miligram krem sürülerek ölçüm yapılır.",
+    "Stick ürün makyajı sürüklerken likit kremi tampon hareketle yenilemek gerekir.",
+    "Dermatolog onayladı derler ama o korumayı almak için maske takmalısın."
   ],
-  "subject": "kapatıcı",
-  "sendTo": "Evden prenses gibi çıkıp asansör aynasında yıkılan arkadaşına",
-  "soru": "Senin makyajını en çok rezil eden ışık hangisi: asansör mü ön kamera mı?",
-  "theme": "#d98c5f",
+  "subject": "spf 50",
+  "sendTo": "kutunun üstündeki her vaat cümlesine hemen inanan arkadaşına",
+  "soru": "Sen hangisisin: Stick pratikliği mi, likit garantisi mi?",
+  "theme": "#b08bbb",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -88,35 +72,35 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "camera",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Kapatıcın asansörde felaket mi duruyor?",
+      "text": "Kutudaki her söze inanan arkadaşın.",
       "start": 0.35,
-      "dur": 2.566
+      "dur": 2.173
     },
     {
-      "text": "Banyo aynasında kusursuz görünen kapatıcı asansörde aniden çöker.",
-      "start": 2.916,
-      "dur": 4.277
+      "text": "SPF 50 stick vaad edilen korumayı ancak ondört katta verir.",
+      "start": 2.523,
+      "dur": 3.663
     },
     {
-      "text": "Tepeden vuran sert ışık göz altındaki gölgeleri dev gibi büyütür.",
-      "start": 7.193,
-      "dur": 4.277
+      "text": "Klinik testlerde santimetrekareye tam iki miligram krem sürülerek ölçüm yapılır.",
+      "start": 6.186,
+      "dur": 4.967
     },
     {
-      "text": "Sarı ampuller kapatıcının alt tonunu tamamen turuncuya çevirip yanıltır.",
-      "start": 11.47,
-      "dur": 4.738
+      "text": "Stick ürün makyajı sürüklerken likit kremi tampon hareketle yenilemek gerekir.",
+      "start": 11.153,
+      "dur": 4.843
     },
     {
-      "text": "Suç kapatıcında değil asansörün acımasız ve dik ampul açısında.",
-      "start": 16.208,
-      "dur": 5.245
+      "text": "Dermatolog onayladı derler ama o korumayı almak için maske takmalısın.",
+      "start": 15.995,
+      "dur": 5.446
     }
   ],
-  "thumbOffset": 1883
+  "thumbOffset": 1687
 }
