@@ -1,77 +1,60 @@
 {
-  "hook": "O suni deri dolapta çürüyor.",
-  "title": "Suni Derinin Dolapta Soyulma Gizemi",
+  "hook": "Kutup gibi ofiste 200 liralık hırkayla ısınmayı beklemek.",
+  "title": "Neden Aynı Odada Sadece Sen Üşüyorsun?",
   "scenes": [
     {
-      "layout": "cycle",
-      "nodes": [
+      "layout": "vertical-stack",
+      "kind": "versus",
+      "left": "UCUZ SENTETİK HIRKA",
+      "right": "%100 DOĞAL YÜN HIRKA",
+      "rows": [
         {
-          "id": "ALIS",
-          "label": "SATIN ALMA"
+          "label": "ISI YALITIMI",
+          "left": "Terletip buz kestirir",
+          "right": "Vücut ısısını hapseder",
+          "winner": "right"
         },
         {
-          "id": "DEPO",
-          "label": "DOLAPTA BEKLEME"
+          "label": "KAN AKIŞI ETKİSİ",
+          "left": "Eller ayaklar yine buz",
+          "right": "Damarları gevşetir",
+          "winner": "right"
         },
         {
-          "id": "NEM",
-          "label": "NEM REAKSİYONU"
-        },
-        {
-          "id": "SOYUL",
-          "label": "SOYULMA EVRESİ"
-        }
-      ],
-      "steps": [
-        {
-          "from": "ALIS",
-          "to": "DEPO",
-          "packet": "ASKI",
-          "status": "etiketiyle özel bir günü bekler",
-          "color": "accent"
-        },
-        {
-          "from": "DEPO",
-          "to": "NEM",
-          "packet": "NEM",
-          "status": "nem poliüretan bağlarını yavaşça koparır",
-          "color": "warn"
-        },
-        {
-          "from": "NEM",
-          "to": "SOYUL",
-          "packet": "PUL",
-          "status": "hiç giyilmeden dökülür maliyet tavan",
-          "color": "warn"
+          "label": "ÖMÜR BEKLENTİSİ",
+          "left": "İlk yıkamada tiftik olur",
+          "right": "Doğru bakımla ömürlük",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Dolapta \"bir gün giyerim\" diye beklettiğin o suni deri ceket aslında kendi kendini imha ediyor.\n\nSuni derinin hiç giyilmeden pul pul dökülme mekanizması, adım adım:\n\n1. SATIN ALMA: Ucuz ya da pahalı fark etmez, suni deri yani poliüretan aldığın an onun kimyasal ömrü başlar.\n2. DOLAPTA BEKLEME: \"Özel bir gün\" gelsin diye askıda beklerken, dolabın içindeki mikro nemle temas eder.\n3. NEM REAKSİYONU: Kimyada hidroliz dediğimiz olay gerçekleşir; su molekülleri plastik zincirlerini yavaşça parçalar.\n4. SOYULMA EVRESİ: Sonuçta tek bir kez bile giyemeden omuzları ve yakası dökülmeye başlar, giyilme başına maliyet sonsuzluğa ulaşır.\n\nSuni deri alırken gerçek bir yatırım olmadığını ve ömrünün kısıtlı olduğunu bilerek, dolapta bekletmeden hemen eskitmek gerekir.\n\n\"Bir gün lazım olur\" diye sakladığımız her şeyin dolapta kendi cumhuriyetini kurup çürümesi şaka mı?\n\n📌 Kaydet — dolabı temizlerken bu bilgi çok can yakacak.\n\n🔁 Bunu dolabında etiketi üstünde bekleyen suni deri ceketleri olan arkadaşına gönder.\n\nDolabında hiç giymeden soyulan bir suni deri oldu mu?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kutup gibi ofiste neden sadece sen üşüyorsun?\n\nAynı odada birinin terleyip diğerinin donmasının arkasındaki bilim:\n\n1. Kas ve metabolizma hızı — Kas kütlesi daha az olanların vücudu daha az ısı üretir, bu yüzden erkeklerin terlediği odada donmamız normaldir.\n2. Kan akışının yönü — Üşüdüğümüzde vücut ısıyı korumak için kanı hayati organlara çeker, ellerimiz ve ayaklarımız ilk feda edilen yerler olur.\n3. Yanlış kumaş beklentisi — İki yüz liralık sentetik akrilik hırkalar nefes almaz; teri hapsedip saniyeler içinde buz kesmemize neden olur.\n4. Temizlik hatası — Yün görünümlü bu sentetikleri yüksek derecede yıkayınca lifler anında bozulur ve ilk yıkamada tiftik yumağına döner.\n\nIsınmak istiyorsan plastik yığınlarına değil, gerçek yün veya pamuk oranına bakmalısın.\n\nEtiketine bakmadan aldığımız o ucuz hırkadan üç sezon performans beklemeyi bırakıyoruz.\n\n📌 Kaydet — bir dahaki kışlık alışverişinde etiket okurken lazım olacak.\n\n🔁 Bunu kutup gibi ofiste incecik hırkayla tir tir titreyen arkadaşına gönder.\n\nSen de yazın bile elleri ayakları buz kesenlerden misin?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#giyim",
     "#moda",
+    "#kumaş",
+    "#yün",
     "#gardırop",
     "#giyimtüyoları",
-    "#alışveriş",
-    "#sunideri"
+    "#akrilik"
   ],
-  "takeaway": "Giyilmeyen suni deri dolapta kendi kendini imha eder, hemen giyin!",
+  "takeaway": "Etiketine bakmadığımız o hırka ilk yıkamada emekli oluyor.",
   "footage_queries": [
-    "leather texture macro",
-    "wardrobe interior minimal"
+    "knitted wool texture macro",
+    "clothing label tag close up"
   ],
   "narration": [
-    "O suni deri dolapta çürüyor.",
-    "Büyük hevesle aldığın o ceket dolapta sessizce sırasını bekler.",
-    "Havadaki nem kumaştaki poliüretan zincirlerini kimyasal olarak tek tek koparır.",
-    "Buna hidroliz denir ve ceket giyilmeden pul pul dökülür.",
-    "Giyilme başına maliyeti hesaplayamadan çöp kutusuyla tanışır."
+    "O odada sadece sen üşüyorsun.",
+    "Kas oranımız azsa vücut hemen hayati organları korumaya çalışır.",
+    "Kan ellerden çekilince akrilik hırka bizi sadece terletip üşütür.",
+    "İki yüz liralık naylondan üç sezon performans beklemek hayalperestliktir.",
+    "Doğru bakmadığımız o hırka ilk yıkamada tiftik yumağı olacak."
   ],
-  "subject": "suni deri",
-  "sendTo": "dolabında etiketi üstünde bekleyen suni deri ceketleri olan arkadaşına",
-  "soru": "Dolabında hiç giymeden soyulan bir suni deri oldu mu?",
-  "theme": "#ff8fab",
+  "subject": "akrilik",
+  "sendTo": "kutup gibi ofiste incecik hırkayla tir tir titreyen arkadaşına",
+  "soru": "Sen de yazın bile elleri ayakları buz kesenlerden misin?",
+  "theme": "#ffb37d",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -90,35 +73,35 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "cascade",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "O suni deri dolapta çürüyor.",
+      "text": "O odada sadece sen üşüyorsun.",
       "start": 0.35,
-      "dur": 1.952
+      "dur": 1.987
     },
     {
-      "text": "Büyük hevesle aldığın o ceket dolapta sessizce sırasını bekler.",
-      "start": 2.302,
-      "dur": 4.391
+      "text": "Kas oranımız azsa vücut hemen hayati organları korumaya çalışır.",
+      "start": 2.337,
+      "dur": 4.386
     },
     {
-      "text": "Havadaki nem kumaştaki poliüretan zincirlerini kimyasal olarak tek tek koparır.",
-      "start": 6.693,
-      "dur": 5.506
+      "text": "Kan ellerden çekilince akrilik hırka bizi sadece terletip üşütür.",
+      "start": 6.723,
+      "dur": 4.454
     },
     {
-      "text": "Buna hidroliz denir ve ceket giyilmeden pul pul dökülür.",
-      "start": 12.199,
-      "dur": 3.903
+      "text": "İki yüz liralık naylondan üç sezon performans beklemek hayalperestliktir.",
+      "start": 11.177,
+      "dur": 5.002
     },
     {
-      "text": "Giyilme başına maliyeti hesaplayamadan çöp kutusuyla tanışır.",
-      "start": 16.103,
-      "dur": 5.352
+      "text": "Doğru bakmadığımız o hırka ilk yıkamada tiftik yumağı olacak.",
+      "start": 16.18,
+      "dur": 5.28
     }
   ],
-  "thumbOffset": 1576
+  "thumbOffset": 1594
 }

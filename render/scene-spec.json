@@ -1,105 +1,106 @@
 {
-  "hook": "Kutudaki dermatolog onaylı yazısına inanan o arkadaşın.",
-  "title": "SPF 50 Stick vs Likit Güneş Kremi",
+  "hook": "Kutup gibi ofiste 200 liralık hırkayla ısınmayı beklemek.",
+  "title": "Neden Aynı Odada Sadece Sen Üşüyorsun?",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "vertical-stack",
       "kind": "versus",
-      "left": "SPF 50 STİCK",
-      "right": "SPF 50 LİKİT KREM",
+      "left": "UCUZ SENTETİK HIRKA",
+      "right": "%100 DOĞAL YÜN HIRKA",
       "rows": [
         {
-          "label": "TAM KORUMA MİKTARI",
-          "left": "14 KAT SÜRMEK GEREKİR",
-          "right": "İKİ PARMAK YETERLİDİR",
+          "label": "ISI YALITIMI",
+          "left": "Terletip buz kestirir",
+          "right": "Vücut ısısını hapseder",
           "winner": "right"
         },
         {
-          "label": "KLİNİK TEST ŞARTI",
-          "left": "SADECE 2 CM2 ALAN İÇİN",
-          "right": "STANDART SANTİMETREKARE",
+          "label": "KAN AKIŞI ETKİSİ",
+          "left": "Eller ayaklar yine buz",
+          "right": "Damarları gevşetir",
           "winner": "right"
         },
         {
-          "label": "MAKYAJ ÜSTÜ UYGULAMA",
-          "left": "FONDÖTENİ SÜRÜKLER",
-          "right": "PISPISLA VEYA BANTLA",
+          "label": "ÖMÜR BEKLENTİSİ",
+          "left": "İlk yıkamada tiftik olur",
+          "right": "Doğru bakımla ömürlük",
           "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Kutudaki klinik test vaatleri gerçekte ne anlama geliyor, adım adım inceleyelim:\n\n1. Kat Sayısı Tuzağı — Stick güneş kremleri pratik görünür ama SPF 50 korumasını almak için cildinize tam 14 kat sürmeniz gerekir.\n2. Klinik Test Standartı — Kutuda gördüğünüz dermatolog onaylı ibaresi, laboratuvarda santimetre kareye 2 miligram ürün sürülerek ölçülür.\n3. Makyaj Performansı — Stick formüller katı yapısı nedeniyle alttaki fondöteni sürükler, likit kremi tampon hareketle uygulamak korumayı bozmaz.\n\nNe ödediğinize dikkat edin: Pazarlama ambalajına değil, cildinize ulaşan gerçek aktif koruma miktarına paranızı yatırın.\n\nKutudaki onay yazısını görüp vicdan rahatlatan o arkadaş, 14 kat sürmediği için hâlâ kızarıyor.\n\n📌 Kaydet — güneş kremi alırken ambalaj masallarına kanma.\n🔁 Bunu kutunun üstündeki her vaat cümlesine hemen inanan arkadaşına gönder.\nSen hangisisin: Stick pratikliği mi, likit garantisi mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kutup gibi ofiste neden sadece sen üşüyorsun?\n\nAynı odada birinin terleyip diğerinin donmasının arkasındaki bilim:\n\n1. Kas ve metabolizma hızı — Kas kütlesi daha az olanların vücudu daha az ısı üretir, bu yüzden erkeklerin terlediği odada donmamız normaldir.\n2. Kan akışının yönü — Üşüdüğümüzde vücut ısıyı korumak için kanı hayati organlara çeker, ellerimiz ve ayaklarımız ilk feda edilen yerler olur.\n3. Yanlış kumaş beklentisi — İki yüz liralık sentetik akrilik hırkalar nefes almaz; teri hapsedip saniyeler içinde buz kesmemize neden olur.\n4. Temizlik hatası — Yün görünümlü bu sentetikleri yüksek derecede yıkayınca lifler anında bozulur ve ilk yıkamada tiftik yumağına döner.\n\nIsınmak istiyorsan plastik yığınlarına değil, gerçek yün veya pamuk oranına bakmalısın.\n\nEtiketine bakmadan aldığımız o ucuz hırkadan üç sezon performans beklemeyi bırakıyoruz.\n\n📌 Kaydet — bir dahaki kışlık alışverişinde etiket okurken lazım olacak.\n\n🔁 Bunu kutup gibi ofiste incecik hırkayla tir tir titreyen arkadaşına gönder.\n\nSen de yazın bile elleri ayakları buz kesenlerden misin?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimimegüzellikmeguneskremimespf50memakyajmeciltbariyerimekozmetik",
-    "#ciltbakimi",
-    "#makyaj",
-    "#güzellik",
-    "#skincare",
-    "#cilt"
+    "#giyim",
+    "#moda",
+    "#kumaş",
+    "#yün",
+    "#gardırop",
+    "#giyimtüyoları",
+    "#akrilik"
   ],
-  "takeaway": "Dermatolog onayladı ama vaat edilen koruma için 14 kat sürmen lazım.",
+  "takeaway": "Etiketine bakmadığımız o hırka ilk yıkamada emekli oluyor.",
   "footage_queries": [
-    "sunlight through curtain",
-    "hands applying cream close up"
+    "knitted wool texture macro",
+    "clothing label tag close up"
   ],
   "narration": [
-    "Kutudaki her söze inanan arkadaşın.",
-    "SPF 50 stick vaad edilen korumayı ancak ondört katta verir.",
-    "Klinik testlerde santimetrekareye tam iki miligram krem sürülerek ölçüm yapılır.",
-    "Stick ürün makyajı sürüklerken likit kremi tampon hareketle yenilemek gerekir.",
-    "Dermatolog onayladı derler ama o korumayı almak için maske takmalısın."
+    "O odada sadece sen üşüyorsun.",
+    "Kas oranımız azsa vücut hemen hayati organları korumaya çalışır.",
+    "Kan ellerden çekilince akrilik hırka bizi sadece terletip üşütür.",
+    "İki yüz liralık naylondan üç sezon performans beklemek hayalperestliktir.",
+    "Doğru bakmadığımız o hırka ilk yıkamada tiftik yumağı olacak."
   ],
-  "subject": "spf 50",
-  "sendTo": "kutunun üstündeki her vaat cümlesine hemen inanan arkadaşına",
-  "soru": "Sen hangisisin: Stick pratikliği mi, likit garantisi mi?",
-  "theme": "#b08bbb",
+  "subject": "akrilik",
+  "sendTo": "kutup gibi ofiste incecik hırkayla tir tir titreyen arkadaşına",
+  "soru": "Sen de yazın bile elleri ayakları buz kesenlerden misin?",
+  "theme": "#ffb37d",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "cascade",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Kutudaki her söze inanan arkadaşın.",
+      "text": "O odada sadece sen üşüyorsun.",
       "start": 0.35,
-      "dur": 2.173
+      "dur": 1.987
     },
     {
-      "text": "SPF 50 stick vaad edilen korumayı ancak ondört katta verir.",
-      "start": 2.523,
-      "dur": 3.663
+      "text": "Kas oranımız azsa vücut hemen hayati organları korumaya çalışır.",
+      "start": 2.337,
+      "dur": 4.386
     },
     {
-      "text": "Klinik testlerde santimetrekareye tam iki miligram krem sürülerek ölçüm yapılır.",
-      "start": 6.186,
-      "dur": 4.967
+      "text": "Kan ellerden çekilince akrilik hırka bizi sadece terletip üşütür.",
+      "start": 6.723,
+      "dur": 4.454
     },
     {
-      "text": "Stick ürün makyajı sürüklerken likit kremi tampon hareketle yenilemek gerekir.",
-      "start": 11.153,
-      "dur": 4.843
+      "text": "İki yüz liralık naylondan üç sezon performans beklemek hayalperestliktir.",
+      "start": 11.177,
+      "dur": 5.002
     },
     {
-      "text": "Dermatolog onayladı derler ama o korumayı almak için maske takmalısın.",
-      "start": 15.995,
-      "dur": 5.446
+      "text": "Doğru bakmadığımız o hırka ilk yıkamada tiftik yumağı olacak.",
+      "start": 16.18,
+      "dur": 5.28
     }
   ]
 }

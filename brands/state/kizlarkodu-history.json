@@ -157,5 +157,27 @@
       "ig_reels_video_view_total_time": 637364
     },
     "insightsAt": "2026-08-10T17:54:39.602Z"
+  },
+  {
+    "title": "Neden Aynı Odada Sadece Sen Üşüyorsun?",
+    "subject": "akrilik",
+    "twist": "beklenti",
+    "pillar": "usume-farki",
+    "layout": "vertical-stack",
+    "kinds": "versus",
+    "motion": "cascade",
+    "theme": "#ffb37d",
+    "source": "gemini",
+    "footage": [
+      "pexels:hand holding clothing label",
+      "pexels:hands sorting laundry close up",
+      "pexels:denim fabric texture macro",
+      "pexels:cotton fabric weave macro"
+    ],
+    "voice": 5,
+    "voiceName": "Kore",
+    "muzik": "byteflow-ambient.mp3",
+    "date": "2026-08-10",
+    "durSec": 21.4
   }
 ]
