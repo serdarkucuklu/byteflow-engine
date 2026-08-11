@@ -1,59 +1,78 @@
 {
-  "hook": "Kutudaki dermatolog onaylı yazısına inanan o arkadaşın.",
-  "title": "SPF 50 Stick vs Likit Güneş Kremi",
+  "hook": "3'ü 1 arada şampuan kullanan sevgilinin cildi pürüzsüz.",
+  "title": "Saç Kremi Neden Sırt Sivilcesi Yapar?",
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "kind": "versus",
-      "left": "SPF 50 STİCK",
-      "right": "SPF 50 LİKİT KREM",
-      "rows": [
+      "layout": "nodes-flow",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "TAM KORUMA MİKTARI",
-          "left": "14 KAT SÜRMEK GEREKİR",
-          "right": "İKİ PARMAK YETERLİDİR",
-          "winner": "right"
+          "id": "dus",
+          "label": "SİLİKONLU KREM"
         },
         {
-          "label": "KLİNİK TEST ŞARTI",
-          "left": "SADECE 2 CM2 ALAN İÇİN",
-          "right": "STANDART SANTİMETREKARE",
-          "winner": "right"
+          "id": "gozenek",
+          "label": "TIKALI GÖZENEK"
         },
         {
-          "label": "MAKYAJ ÜSTÜ UYGULAMA",
-          "left": "FONDÖTENİ SÜRÜKLER",
-          "right": "PISPISLA VEYA BANTLA",
-          "winner": "right"
+          "id": "akne",
+          "label": "POMAD AKNE"
+        },
+        {
+          "id": "genetik",
+          "label": "GENETİK DÜZEY"
+        }
+      ],
+      "steps": [
+        {
+          "from": "dus",
+          "to": "gozenek",
+          "packet": "FILM",
+          "status": "durulanan saç kremi cilde tutunur",
+          "color": "warn"
+        },
+        {
+          "from": "gozenek",
+          "to": "akne",
+          "packet": "SEBUM",
+          "status": "yağ birikir gözenek hemen iltihaplanır",
+          "color": "warn"
+        },
+        {
+          "from": "akne",
+          "to": "genetik",
+          "packet": "YAPI",
+          "status": "genetik olarak düşük sebum tıkanmayı",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kutudaki klinik test vaatleri gerçekte ne anlama geliyor, adım adım inceleyelim:\n\n1. Kat Sayısı Tuzağı — Stick güneş kremleri pratik görünür ama SPF 50 korumasını almak için cildinize tam 14 kat sürmeniz gerekir.\n2. Klinik Test Standartı — Kutuda gördüğünüz dermatolog onaylı ibaresi, laboratuvarda santimetre kareye 2 miligram ürün sürülerek ölçülür.\n3. Makyaj Performansı — Stick formüller katı yapısı nedeniyle alttaki fondöteni sürükler, likit kremi tampon hareketle uygulamak korumayı bozmaz.\n\nNe ödediğinize dikkat edin: Pazarlama ambalajına değil, cildinize ulaşan gerçek aktif koruma miktarına paranızı yatırın.\n\nKutudaki onay yazısını görüp vicdan rahatlatan o arkadaş, 14 kat sürmediği için hâlâ kızarıyor.\n\n📌 Kaydet — güneş kremi alırken ambalaj masallarına kanma.\n🔁 Bunu kutunun üstündeki her vaat cümlesine hemen inanan arkadaşına gönder.\nSen hangisisin: Stick pratikliği mi, likit garantisi mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "3'ü 1 arada şampuanla yıkanan erkek arkadaşının cildi pürüzsüzken senin sırt sivilcesi çekmen adil değil.\n\nSaç kreminin sırtında bıraktığı izin biyolojisi adım adım şöyle:\n\n1. Silikon Tabakası — Saç kremleri saçı yumuşatmak için ağır silikonlar ve katı yağlar içerir. Duşta durularken bu maddeler sırt ve alın cildine tutunur.\n2. Gözenek Tıkanması — Cilt yüzeyinde biriken bu ince film tabakası gözeneklerin nefes almasını engeller. Sebum ve ölü hücreler içeride birikir.\n3. Pomad Akne — Oksijensiz kalan gözenekte bakteriler çoğalır ve tıkanıklık kırmızı sivilcelere, yani literatürdeki adıyla pomad akneye dönüşür.\n4. Genetik Fark — Sebum üretimi az olan şanslı ciltlerde bu tabaka sivilceye dönmez; genetik piyangosu tam olarak böyledir.\n\nÇözüm pahalı serum almak değil: duşta önce saçını yıkayıp kremini durula, en son vücut şampuanıyla sırtını temizle.\n\n12 adımlı rutinle gurur duymak güzel ama duş sırasını karıştırırsan saç kremi kazanır.\n\n📌 Kaydet — duş rutinini değiştirirken lazım olacak.\n🔁 Bunu tek bir sabunla pürüzsüz ciltle gezen erkek arkadaşına gönder.\nDuşta saç kremini vücudunu yıkamadan önce mi sürersin sonra mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimimegüzellikmeguneskremimespf50memakyajmeciltbariyerimekozmetik",
+    "#ciltbakimimegüzellikmesacbakimimepomadaknemesirtsivilcesimecildinikorumeciltkodu",
     "#ciltbakimi",
     "#makyaj",
     "#güzellik",
     "#skincare",
     "#cilt"
   ],
-  "takeaway": "Dermatolog onayladı ama vaat edilen koruma için 14 kat sürmen lazım.",
+  "takeaway": "Genetik adil değil ama vücudunu en son yıkamak bedavadır.",
   "footage_queries": [
-    "sunlight through curtain",
-    "hands applying cream close up"
+    "hands applying cream close up",
+    "soap bubbles macro"
   ],
   "narration": [
-    "Kutudaki her söze inanan arkadaşın.",
-    "SPF 50 stick vaad edilen korumayı ancak ondört katta verir.",
-    "Klinik testlerde santimetrekareye tam iki miligram krem sürülerek ölçüm yapılır.",
-    "Stick ürün makyajı sürüklerken likit kremi tampon hareketle yenilemek gerekir.",
-    "Dermatolog onayladı derler ama o korumayı almak için maske takmalısın."
+    "Sevgilin tek sabunla pürüzsüz geziyor.",
+    "Saç kreminin silikonları duşta sırttaki gözenekleri tıkar.",
+    "Oksijensiz kalan gözenekte pomad akne dediğimiz sivilce oluşur.",
+    "Düşük sebum üretimi olan ciltlerde ise tıkanma hiç yaşanmaz.",
+    "Genetik adil değil ama vücudunu en son yıkamak bedavadır."
   ],
-  "subject": "spf 50",
-  "sendTo": "kutunun üstündeki her vaat cümlesine hemen inanan arkadaşına",
-  "soru": "Sen hangisisin: Stick pratikliği mi, likit garantisi mi?",
-  "theme": "#b08bbb",
+  "subject": "pomad akne",
+  "sendTo": "tek bir sabunla pürüzsüz ciltle gezen erkek arkadaşına",
+  "soru": "Duşta saç kremini vücudunu yıkamadan önce mi sürersin sonra mı?",
+  "theme": "#7fb3a5",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -72,35 +91,8 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "ripple",
   "format": "kinetik",
   "footage": true,
-  "beats": [
-    {
-      "text": "Kutudaki her söze inanan arkadaşın.",
-      "start": 0.35,
-      "dur": 2.173
-    },
-    {
-      "text": "SPF 50 stick vaad edilen korumayı ancak ondört katta verir.",
-      "start": 2.523,
-      "dur": 3.663
-    },
-    {
-      "text": "Klinik testlerde santimetrekareye tam iki miligram krem sürülerek ölçüm yapılır.",
-      "start": 6.186,
-      "dur": 4.967
-    },
-    {
-      "text": "Stick ürün makyajı sürüklerken likit kremi tampon hareketle yenilemek gerekir.",
-      "start": 11.153,
-      "dur": 4.843
-    },
-    {
-      "text": "Dermatolog onayladı derler ama o korumayı almak için maske takmalısın.",
-      "start": 15.995,
-      "dur": 5.446
-    }
-  ],
-  "thumbOffset": 1687
+  "thumbOffset": 1300
 }

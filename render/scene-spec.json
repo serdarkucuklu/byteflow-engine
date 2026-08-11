@@ -1,106 +1,97 @@
 {
-  "hook": "Kutup gibi ofiste 200 liralık hırkayla ısınmayı beklemek.",
-  "title": "Neden Aynı Odada Sadece Sen Üşüyorsun?",
+  "hook": "3'ü 1 arada şampuan kullanan sevgilinin cildi pürüzsüz.",
+  "title": "Saç Kremi Neden Sırt Sivilcesi Yapar?",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "versus",
-      "left": "UCUZ SENTETİK HIRKA",
-      "right": "%100 DOĞAL YÜN HIRKA",
-      "rows": [
+      "layout": "nodes-flow",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "ISI YALITIMI",
-          "left": "Terletip buz kestirir",
-          "right": "Vücut ısısını hapseder",
-          "winner": "right"
+          "id": "dus",
+          "label": "SİLİKONLU KREM"
         },
         {
-          "label": "KAN AKIŞI ETKİSİ",
-          "left": "Eller ayaklar yine buz",
-          "right": "Damarları gevşetir",
-          "winner": "right"
+          "id": "gozenek",
+          "label": "TIKALI GÖZENEK"
         },
         {
-          "label": "ÖMÜR BEKLENTİSİ",
-          "left": "İlk yıkamada tiftik olur",
-          "right": "Doğru bakımla ömürlük",
-          "winner": "right"
+          "id": "akne",
+          "label": "POMAD AKNE"
+        },
+        {
+          "id": "genetik",
+          "label": "GENETİK DÜZEY"
+        }
+      ],
+      "steps": [
+        {
+          "from": "dus",
+          "to": "gozenek",
+          "packet": "FILM",
+          "status": "durulanan saç kremi cilde tutunur",
+          "color": "warn"
+        },
+        {
+          "from": "gozenek",
+          "to": "akne",
+          "packet": "SEBUM",
+          "status": "yağ birikir gözenek hemen iltihaplanır",
+          "color": "warn"
+        },
+        {
+          "from": "akne",
+          "to": "genetik",
+          "packet": "YAPI",
+          "status": "genetik olarak düşük sebum tıkanmayı",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kutup gibi ofiste neden sadece sen üşüyorsun?\n\nAynı odada birinin terleyip diğerinin donmasının arkasındaki bilim:\n\n1. Kas ve metabolizma hızı — Kas kütlesi daha az olanların vücudu daha az ısı üretir, bu yüzden erkeklerin terlediği odada donmamız normaldir.\n2. Kan akışının yönü — Üşüdüğümüzde vücut ısıyı korumak için kanı hayati organlara çeker, ellerimiz ve ayaklarımız ilk feda edilen yerler olur.\n3. Yanlış kumaş beklentisi — İki yüz liralık sentetik akrilik hırkalar nefes almaz; teri hapsedip saniyeler içinde buz kesmemize neden olur.\n4. Temizlik hatası — Yün görünümlü bu sentetikleri yüksek derecede yıkayınca lifler anında bozulur ve ilk yıkamada tiftik yumağına döner.\n\nIsınmak istiyorsan plastik yığınlarına değil, gerçek yün veya pamuk oranına bakmalısın.\n\nEtiketine bakmadan aldığımız o ucuz hırkadan üç sezon performans beklemeyi bırakıyoruz.\n\n📌 Kaydet — bir dahaki kışlık alışverişinde etiket okurken lazım olacak.\n\n🔁 Bunu kutup gibi ofiste incecik hırkayla tir tir titreyen arkadaşına gönder.\n\nSen de yazın bile elleri ayakları buz kesenlerden misin?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "3'ü 1 arada şampuanla yıkanan erkek arkadaşının cildi pürüzsüzken senin sırt sivilcesi çekmen adil değil.\n\nSaç kreminin sırtında bıraktığı izin biyolojisi adım adım şöyle:\n\n1. Silikon Tabakası — Saç kremleri saçı yumuşatmak için ağır silikonlar ve katı yağlar içerir. Duşta durularken bu maddeler sırt ve alın cildine tutunur.\n2. Gözenek Tıkanması — Cilt yüzeyinde biriken bu ince film tabakası gözeneklerin nefes almasını engeller. Sebum ve ölü hücreler içeride birikir.\n3. Pomad Akne — Oksijensiz kalan gözenekte bakteriler çoğalır ve tıkanıklık kırmızı sivilcelere, yani literatürdeki adıyla pomad akneye dönüşür.\n4. Genetik Fark — Sebum üretimi az olan şanslı ciltlerde bu tabaka sivilceye dönmez; genetik piyangosu tam olarak böyledir.\n\nÇözüm pahalı serum almak değil: duşta önce saçını yıkayıp kremini durula, en son vücut şampuanıyla sırtını temizle.\n\n12 adımlı rutinle gurur duymak güzel ama duş sırasını karıştırırsan saç kremi kazanır.\n\n📌 Kaydet — duş rutinini değiştirirken lazım olacak.\n🔁 Bunu tek bir sabunla pürüzsüz ciltle gezen erkek arkadaşına gönder.\nDuşta saç kremini vücudunu yıkamadan önce mi sürersin sonra mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#moda",
-    "#kumaş",
-    "#yün",
-    "#gardırop",
-    "#giyimtüyoları",
-    "#akrilik"
+    "#ciltbakimimegüzellikmesacbakimimepomadaknemesirtsivilcesimecildinikorumeciltkodu",
+    "#ciltbakimi",
+    "#makyaj",
+    "#güzellik",
+    "#skincare",
+    "#cilt"
   ],
-  "takeaway": "Etiketine bakmadığımız o hırka ilk yıkamada emekli oluyor.",
+  "takeaway": "Genetik adil değil ama vücudunu en son yıkamak bedavadır.",
   "footage_queries": [
-    "knitted wool texture macro",
-    "clothing label tag close up"
+    "hands applying cream close up",
+    "soap bubbles macro"
   ],
   "narration": [
-    "O odada sadece sen üşüyorsun.",
-    "Kas oranımız azsa vücut hemen hayati organları korumaya çalışır.",
-    "Kan ellerden çekilince akrilik hırka bizi sadece terletip üşütür.",
-    "İki yüz liralık naylondan üç sezon performans beklemek hayalperestliktir.",
-    "Doğru bakmadığımız o hırka ilk yıkamada tiftik yumağı olacak."
+    "Sevgilin tek sabunla pürüzsüz geziyor.",
+    "Saç kreminin silikonları duşta sırttaki gözenekleri tıkar.",
+    "Oksijensiz kalan gözenekte pomad akne dediğimiz sivilce oluşur.",
+    "Düşük sebum üretimi olan ciltlerde ise tıkanma hiç yaşanmaz.",
+    "Genetik adil değil ama vücudunu en son yıkamak bedavadır."
   ],
-  "subject": "akrilik",
-  "sendTo": "kutup gibi ofiste incecik hırkayla tir tir titreyen arkadaşına",
-  "soru": "Sen de yazın bile elleri ayakları buz kesenlerden misin?",
-  "theme": "#ffb37d",
+  "subject": "pomad akne",
+  "sendTo": "tek bir sabunla pürüzsüz ciltle gezen erkek arkadaşına",
+  "soru": "Duşta saç kremini vücudunu yıkamadan önce mi sürersin sonra mı?",
+  "theme": "#7fb3a5",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "cascade",
+  "motion": "ripple",
   "format": "kinetik",
-  "footage": true,
-  "beats": [
-    {
-      "text": "O odada sadece sen üşüyorsun.",
-      "start": 0.35,
-      "dur": 1.987
-    },
-    {
-      "text": "Kas oranımız azsa vücut hemen hayati organları korumaya çalışır.",
-      "start": 2.337,
-      "dur": 4.386
-    },
-    {
-      "text": "Kan ellerden çekilince akrilik hırka bizi sadece terletip üşütür.",
-      "start": 6.723,
-      "dur": 4.454
-    },
-    {
-      "text": "İki yüz liralık naylondan üç sezon performans beklemek hayalperestliktir.",
-      "start": 11.177,
-      "dur": 5.002
-    },
-    {
-      "text": "Doğru bakmadığımız o hırka ilk yıkamada tiftik yumağı olacak.",
-      "start": 16.18,
-      "dur": 5.28
-    }
-  ]
+  "footage": true
 }
