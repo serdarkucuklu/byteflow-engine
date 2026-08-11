@@ -191,5 +191,27 @@
       "ig_reels_video_view_total_time": 350144
     },
     "insightsAt": "2026-08-11T18:00:08.942Z"
+  },
+  {
+    "title": "Kendi Parfümünü Neden Duymazsın?",
+    "subject": "koku körlüğü",
+    "twist": "ozel-gun",
+    "pillar": "koku-korlugu",
+    "layout": "nodes-flow",
+    "kinds": "diagram",
+    "motion": "sketch",
+    "theme": "#b39cff",
+    "source": "gemini",
+    "footage": [
+      "pexels:fabric dye in water macro",
+      "pexels:clothing rack hangers minimal",
+      "pexels:denim fabric texture macro",
+      "pexels:cotton fabric weave macro"
+    ],
+    "voice": 5,
+    "voiceName": "Kore",
+    "muzik": "byteflow-ambient.mp3",
+    "date": "2026-08-11",
+    "durSec": 19.9
   }
 ]

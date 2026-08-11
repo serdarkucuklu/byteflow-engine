@@ -1,97 +1,121 @@
 {
-  "hook": "3'ü 1 arada şampuan kullanan sevgilinin cildi pürüzsüz.",
-  "title": "Saç Kremi Neden Sırt Sivilcesi Yapar?",
+  "hook": "Düğün elbisesine yarım şişe parfüm sıkan o arkadaşın...",
+  "title": "Kendi Parfümünü Neden Duymazsın?",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "dus",
-          "label": "SİLİKONLU KREM"
+          "id": "koku-1",
+          "label": "RESEPTÖR DOYUMU"
         },
         {
-          "id": "gozenek",
-          "label": "TIKALI GÖZENEK"
+          "id": "koku-2",
+          "label": "BEYİN ADAPTASYONU"
         },
         {
-          "id": "akne",
-          "label": "POMAD AKNE"
-        },
-        {
-          "id": "genetik",
-          "label": "GENETİK DÜZEY"
+          "id": "koku-3",
+          "label": "FAZLA PARFÜM"
         }
       ],
       "steps": [
         {
-          "from": "dus",
-          "to": "gozenek",
-          "packet": "FILM",
-          "status": "durulanan saç kremi cilde tutunur",
+          "from": "koku-1",
+          "to": "koku-2",
+          "packet": "KOKU",
+          "status": "koku molekülü burnu durmadan uyarır",
           "color": "warn"
         },
         {
-          "from": "gozenek",
-          "to": "akne",
-          "packet": "SEBUM",
-          "status": "yağ birikir gözenek hemen iltihaplanır",
-          "color": "warn"
+          "from": "koku-2",
+          "to": "koku-3",
+          "packet": "FİLTRE",
+          "status": "beyin bunu tehlikesiz bulup sesi kısar",
+          "color": "accent"
         },
         {
-          "from": "akne",
-          "to": "genetik",
-          "packet": "YAPI",
-          "status": "genetik olarak düşük sebum tıkanmayı",
+          "from": "koku-3",
+          "to": "koku-1",
+          "packet": "SPREY",
+          "status": "kokmuyor sanıp yarım şişe daha sıkarsın",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "3'ü 1 arada şampuanla yıkanan erkek arkadaşının cildi pürüzsüzken senin sırt sivilcesi çekmen adil değil.\n\nSaç kreminin sırtında bıraktığı izin biyolojisi adım adım şöyle:\n\n1. Silikon Tabakası — Saç kremleri saçı yumuşatmak için ağır silikonlar ve katı yağlar içerir. Duşta durularken bu maddeler sırt ve alın cildine tutunur.\n2. Gözenek Tıkanması — Cilt yüzeyinde biriken bu ince film tabakası gözeneklerin nefes almasını engeller. Sebum ve ölü hücreler içeride birikir.\n3. Pomad Akne — Oksijensiz kalan gözenekte bakteriler çoğalır ve tıkanıklık kırmızı sivilcelere, yani literatürdeki adıyla pomad akneye dönüşür.\n4. Genetik Fark — Sebum üretimi az olan şanslı ciltlerde bu tabaka sivilceye dönmez; genetik piyangosu tam olarak böyledir.\n\nÇözüm pahalı serum almak değil: duşta önce saçını yıkayıp kremini durula, en son vücut şampuanıyla sırtını temizle.\n\n12 adımlı rutinle gurur duymak güzel ama duş sırasını karıştırırsan saç kremi kazanır.\n\n📌 Kaydet — duş rutinini değiştirirken lazım olacak.\n🔁 Bunu tek bir sabunla pürüzsüz ciltle gezen erkek arkadaşına gönder.\nDuşta saç kremini vücudunu yıkamadan önce mi sürersin sonra mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Parfümünü sıktıktan yirmi dakika sonra kokusunu alamamanın sebebi burnunun bozulması değil, beyninin seni koruması.\n\nKoku körlüğü dediğimiz mekanizma adım adım şöyle çalışıyor:\n\n1. Reseptör doyumu — Burnundaki koku alma hücreleri aynı moleküle sürekli maruz kaldığında elektriksel sinyal üretmeyi yavaşlatır.\n2. Beyin adaptasyonu — Koku merkezimiz hayatta kalmaya odaklıdır. Çevrede değişmeyen kokuları arka plana atar ki yeni ve tehlikeli bir kokuyu anında fark edebilsin.\n3. Fazla kullanım tuzağı — Sen parfümün uçtuğunu sanıp özel gün elbisesine defalarca sıkarsın ama aslında sadece senin burnun o kokuya sağır olmuştur.\n\nTek gece giyilecek elbisenin üzerine banyo yaptırmak yerine kokuya bir gün ara vermek en doğrusu.\n\nKumaş suçlu değil, adaptasyon hızımız yüksek. Ama o şişe yine bitecek.\n\n📌 Kaydet — bir dahaki davet öncesi lazım olacak.\n\n🔁 Bunu düğün için aldığı elbiseyi bir daha hiç giymeyen arkadaşına gönder.\n\nSen düğün elbisesini kaç kez giydin: 1 mi 0 mı?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimimegüzellikmesacbakimimepomadaknemesirtsivilcesimecildinikorumeciltkodu",
-    "#ciltbakimi",
-    "#makyaj",
-    "#güzellik",
-    "#skincare",
-    "#cilt"
+    "#giyim",
+    "#moda",
+    "#koku",
+    "#parfüm",
+    "#gardırop",
+    "#alışveriş",
+    "#stil"
   ],
-  "takeaway": "Genetik adil değil ama vücudunu en son yıkamak bedavadır.",
+  "takeaway": "Burnun kokuya alıştı ama o elbise dolapta hâlâ düğün kokuyor.",
   "footage_queries": [
-    "hands applying cream close up",
-    "soap bubbles macro"
+    "wardrobe interior minimal",
+    "clothing rack hangers minimal"
   ],
   "narration": [
-    "Sevgilin tek sabunla pürüzsüz geziyor.",
-    "Saç kreminin silikonları duşta sırttaki gözenekleri tıkar.",
-    "Oksijensiz kalan gözenekte pomad akne dediğimiz sivilce oluşur.",
-    "Düşük sebum üretimi olan ciltlerde ise tıkanma hiç yaşanmaz.",
-    "Genetik adil değil ama vücudunu en son yıkamak bedavadır."
+    "Parfümün kokusunu bir süre sonra duyamazsın.",
+    "Burnundaki alıcılar aynı koku molekülüne sürekli maruz kalır.",
+    "Beyin bu kokuyu tehlike görmediği için arka plana atar.",
+    "Sen kokmuyor sanıp düğün elbisesine yarım şişe sıkarsın.",
+    "Burnun koku körü oldu ama çevrendekiler bayılmak üzere."
   ],
-  "subject": "pomad akne",
-  "sendTo": "tek bir sabunla pürüzsüz ciltle gezen erkek arkadaşına",
-  "soru": "Duşta saç kremini vücudunu yıkamadan önce mi sürersin sonra mı?",
-  "theme": "#7fb3a5",
+  "subject": "koku körlüğü",
+  "sendTo": "düğün için aldığı elbiseyi bir daha hiç giymeyen arkadaşına",
+  "soru": "Sen düğün elbisesini kaç kez giydin: 1 mi 0 mı?",
+  "theme": "#b39cff",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "sketch",
   "format": "kinetik",
-  "footage": true
+  "footage": true,
+  "beats": [
+    {
+      "text": "Parfümün kokusunu bir süre sonra duyamazsın.",
+      "start": 0.35,
+      "dur": 3.002
+    },
+    {
+      "text": "Burnundaki alıcılar aynı koku molekülüne sürekli maruz kalır.",
+      "start": 3.352,
+      "dur": 4.162
+    },
+    {
+      "text": "Beyin bu kokuyu tehlike görmediği için arka plana atar.",
+      "start": 7.514,
+      "dur": 3.753
+    },
+    {
+      "text": "Sen kokmuyor sanıp düğün elbisesine yarım şişe sıkarsın.",
+      "start": 11.267,
+      "dur": 3.821
+    },
+    {
+      "text": "Burnun koku körü oldu ama çevrendekiler bayılmak üzere.",
+      "start": 15.088,
+      "dur": 4.853
+    }
+  ]
 }

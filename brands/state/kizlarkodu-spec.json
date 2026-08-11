@@ -1,60 +1,75 @@
 {
-  "hook": "Kutup gibi ofiste 200 liralık hırkayla ısınmayı beklemek.",
-  "title": "Neden Aynı Odada Sadece Sen Üşüyorsun?",
+  "hook": "Düğün elbisesine yarım şişe parfüm sıkan o arkadaşın...",
+  "title": "Kendi Parfümünü Neden Duymazsın?",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "versus",
-      "left": "UCUZ SENTETİK HIRKA",
-      "right": "%100 DOĞAL YÜN HIRKA",
-      "rows": [
+      "layout": "nodes-flow",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "ISI YALITIMI",
-          "left": "Terletip buz kestirir",
-          "right": "Vücut ısısını hapseder",
-          "winner": "right"
+          "id": "koku-1",
+          "label": "RESEPTÖR DOYUMU"
         },
         {
-          "label": "KAN AKIŞI ETKİSİ",
-          "left": "Eller ayaklar yine buz",
-          "right": "Damarları gevşetir",
-          "winner": "right"
+          "id": "koku-2",
+          "label": "BEYİN ADAPTASYONU"
         },
         {
-          "label": "ÖMÜR BEKLENTİSİ",
-          "left": "İlk yıkamada tiftik olur",
-          "right": "Doğru bakımla ömürlük",
-          "winner": "right"
+          "id": "koku-3",
+          "label": "FAZLA PARFÜM"
+        }
+      ],
+      "steps": [
+        {
+          "from": "koku-1",
+          "to": "koku-2",
+          "packet": "KOKU",
+          "status": "koku molekülü burnu durmadan uyarır",
+          "color": "warn"
+        },
+        {
+          "from": "koku-2",
+          "to": "koku-3",
+          "packet": "FİLTRE",
+          "status": "beyin bunu tehlikesiz bulup sesi kısar",
+          "color": "accent"
+        },
+        {
+          "from": "koku-3",
+          "to": "koku-1",
+          "packet": "SPREY",
+          "status": "kokmuyor sanıp yarım şişe daha sıkarsın",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kutup gibi ofiste neden sadece sen üşüyorsun?\n\nAynı odada birinin terleyip diğerinin donmasının arkasındaki bilim:\n\n1. Kas ve metabolizma hızı — Kas kütlesi daha az olanların vücudu daha az ısı üretir, bu yüzden erkeklerin terlediği odada donmamız normaldir.\n2. Kan akışının yönü — Üşüdüğümüzde vücut ısıyı korumak için kanı hayati organlara çeker, ellerimiz ve ayaklarımız ilk feda edilen yerler olur.\n3. Yanlış kumaş beklentisi — İki yüz liralık sentetik akrilik hırkalar nefes almaz; teri hapsedip saniyeler içinde buz kesmemize neden olur.\n4. Temizlik hatası — Yün görünümlü bu sentetikleri yüksek derecede yıkayınca lifler anında bozulur ve ilk yıkamada tiftik yumağına döner.\n\nIsınmak istiyorsan plastik yığınlarına değil, gerçek yün veya pamuk oranına bakmalısın.\n\nEtiketine bakmadan aldığımız o ucuz hırkadan üç sezon performans beklemeyi bırakıyoruz.\n\n📌 Kaydet — bir dahaki kışlık alışverişinde etiket okurken lazım olacak.\n\n🔁 Bunu kutup gibi ofiste incecik hırkayla tir tir titreyen arkadaşına gönder.\n\nSen de yazın bile elleri ayakları buz kesenlerden misin?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Parfümünü sıktıktan yirmi dakika sonra kokusunu alamamanın sebebi burnunun bozulması değil, beyninin seni koruması.\n\nKoku körlüğü dediğimiz mekanizma adım adım şöyle çalışıyor:\n\n1. Reseptör doyumu — Burnundaki koku alma hücreleri aynı moleküle sürekli maruz kaldığında elektriksel sinyal üretmeyi yavaşlatır.\n2. Beyin adaptasyonu — Koku merkezimiz hayatta kalmaya odaklıdır. Çevrede değişmeyen kokuları arka plana atar ki yeni ve tehlikeli bir kokuyu anında fark edebilsin.\n3. Fazla kullanım tuzağı — Sen parfümün uçtuğunu sanıp özel gün elbisesine defalarca sıkarsın ama aslında sadece senin burnun o kokuya sağır olmuştur.\n\nTek gece giyilecek elbisenin üzerine banyo yaptırmak yerine kokuya bir gün ara vermek en doğrusu.\n\nKumaş suçlu değil, adaptasyon hızımız yüksek. Ama o şişe yine bitecek.\n\n📌 Kaydet — bir dahaki davet öncesi lazım olacak.\n\n🔁 Bunu düğün için aldığı elbiseyi bir daha hiç giymeyen arkadaşına gönder.\n\nSen düğün elbisesini kaç kez giydin: 1 mi 0 mı?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#giyim",
     "#moda",
-    "#kumaş",
-    "#yün",
+    "#koku",
+    "#parfüm",
     "#gardırop",
-    "#giyimtüyoları",
-    "#akrilik"
+    "#alışveriş",
+    "#stil"
   ],
-  "takeaway": "Etiketine bakmadığımız o hırka ilk yıkamada emekli oluyor.",
+  "takeaway": "Burnun kokuya alıştı ama o elbise dolapta hâlâ düğün kokuyor.",
   "footage_queries": [
-    "knitted wool texture macro",
-    "clothing label tag close up"
+    "wardrobe interior minimal",
+    "clothing rack hangers minimal"
   ],
   "narration": [
-    "O odada sadece sen üşüyorsun.",
-    "Kas oranımız azsa vücut hemen hayati organları korumaya çalışır.",
-    "Kan ellerden çekilince akrilik hırka bizi sadece terletip üşütür.",
-    "İki yüz liralık naylondan üç sezon performans beklemek hayalperestliktir.",
-    "Doğru bakmadığımız o hırka ilk yıkamada tiftik yumağı olacak."
+    "Parfümün kokusunu bir süre sonra duyamazsın.",
+    "Burnundaki alıcılar aynı koku molekülüne sürekli maruz kalır.",
+    "Beyin bu kokuyu tehlike görmediği için arka plana atar.",
+    "Sen kokmuyor sanıp düğün elbisesine yarım şişe sıkarsın.",
+    "Burnun koku körü oldu ama çevrendekiler bayılmak üzere."
   ],
-  "subject": "akrilik",
-  "sendTo": "kutup gibi ofiste incecik hırkayla tir tir titreyen arkadaşına",
-  "soru": "Sen de yazın bile elleri ayakları buz kesenlerden misin?",
-  "theme": "#ffb37d",
+  "subject": "koku körlüğü",
+  "sendTo": "düğün için aldığı elbiseyi bir daha hiç giymeyen arkadaşına",
+  "soru": "Sen düğün elbisesini kaç kez giydin: 1 mi 0 mı?",
+  "theme": "#b39cff",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -73,35 +88,35 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "cascade",
+  "motion": "sketch",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "O odada sadece sen üşüyorsun.",
+      "text": "Parfümün kokusunu bir süre sonra duyamazsın.",
       "start": 0.35,
-      "dur": 1.987
+      "dur": 3.002
     },
     {
-      "text": "Kas oranımız azsa vücut hemen hayati organları korumaya çalışır.",
-      "start": 2.337,
-      "dur": 4.386
+      "text": "Burnundaki alıcılar aynı koku molekülüne sürekli maruz kalır.",
+      "start": 3.352,
+      "dur": 4.162
     },
     {
-      "text": "Kan ellerden çekilince akrilik hırka bizi sadece terletip üşütür.",
-      "start": 6.723,
-      "dur": 4.454
+      "text": "Beyin bu kokuyu tehlike görmediği için arka plana atar.",
+      "start": 7.514,
+      "dur": 3.753
     },
     {
-      "text": "İki yüz liralık naylondan üç sezon performans beklemek hayalperestliktir.",
-      "start": 11.177,
-      "dur": 5.002
+      "text": "Sen kokmuyor sanıp düğün elbisesine yarım şişe sıkarsın.",
+      "start": 11.267,
+      "dur": 3.821
     },
     {
-      "text": "Doğru bakmadığımız o hırka ilk yıkamada tiftik yumağı olacak.",
-      "start": 16.18,
-      "dur": 5.28
+      "text": "Burnun koku körü oldu ama çevrendekiler bayılmak üzere.",
+      "start": 15.088,
+      "dur": 4.853
     }
   ],
-  "thumbOffset": 1594
+  "thumbOffset": 2101
 }
