@@ -1,75 +1,79 @@
 {
-  "hook": "Düğün elbisesine yarım şişe parfüm sıkan o arkadaşın...",
-  "title": "Kendi Parfümünü Neden Duymazsın?",
+  "hook": "Dudaklarını yalayıp daha da çatlatan o arkadaşın...",
+  "title": "Dudak Yalama Tuzağı",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "cycle",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "koku-1",
-          "label": "RESEPTÖR DOYUMU"
+          "id": "yag_yok",
+          "label": "YAĞ BEZİ YOKTUR"
         },
         {
-          "id": "koku-2",
-          "label": "BEYİN ADAPTASYONU"
+          "id": "yalama",
+          "label": "TÜKÜRÜK REFLEKSİ"
         },
         {
-          "id": "koku-3",
-          "label": "FAZLA PARFÜM"
+          "id": "buhar",
+          "label": "NEM BUHARLAŞMASI"
+        },
+        {
+          "id": "catlama",
+          "label": "DERİN ÇATLAMA"
         }
       ],
       "steps": [
         {
-          "from": "koku-1",
-          "to": "koku-2",
-          "packet": "KOKU",
-          "status": "koku molekülü burnu durmadan uyarır",
+          "from": "yag_yok",
+          "to": "yalama",
+          "packet": "NEM",
+          "status": "yağ tabakası yok dudak hemen kurur",
           "color": "warn"
         },
         {
-          "from": "koku-2",
-          "to": "koku-3",
-          "packet": "FİLTRE",
-          "status": "beyin bunu tehlikesiz bulup sesi kısar",
+          "from": "yalama",
+          "to": "buhar",
+          "packet": "ENZİM",
+          "status": "tükürük enzimi hassas deriyi tahriş eder",
           "color": "accent"
         },
         {
-          "from": "koku-3",
-          "to": "koku-1",
-          "packet": "SPREY",
-          "status": "kokmuyor sanıp yarım şişe daha sıkarsın",
-          "color": "good"
+          "from": "buhar",
+          "to": "catlama",
+          "packet": "BUHAR",
+          "status": "buharlaşırken kendi nemini de götürür",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Parfümünü sıktıktan yirmi dakika sonra kokusunu alamamanın sebebi burnunun bozulması değil, beyninin seni koruması.\n\nKoku körlüğü dediğimiz mekanizma adım adım şöyle çalışıyor:\n\n1. Reseptör doyumu — Burnundaki koku alma hücreleri aynı moleküle sürekli maruz kaldığında elektriksel sinyal üretmeyi yavaşlatır.\n2. Beyin adaptasyonu — Koku merkezimiz hayatta kalmaya odaklıdır. Çevrede değişmeyen kokuları arka plana atar ki yeni ve tehlikeli bir kokuyu anında fark edebilsin.\n3. Fazla kullanım tuzağı — Sen parfümün uçtuğunu sanıp özel gün elbisesine defalarca sıkarsın ama aslında sadece senin burnun o kokuya sağır olmuştur.\n\nTek gece giyilecek elbisenin üzerine banyo yaptırmak yerine kokuya bir gün ara vermek en doğrusu.\n\nKumaş suçlu değil, adaptasyon hızımız yüksek. Ama o şişe yine bitecek.\n\n📌 Kaydet — bir dahaki davet öncesi lazım olacak.\n\n🔁 Bunu düğün için aldığı elbiseyi bir daha hiç giymeyen arkadaşına gönder.\n\nSen düğün elbisesini kaç kez giydin: 1 mi 0 mı?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Dudaklarını yalayıp daha da çatlatan o arkadaşın...\n\nDudağı yaladıkça neden daha beter kuruduğunun bilimsel döngüsü:\n\n1. YAĞ BEZİ YOKTUR — Vücudun diğer yerlerindeki gibi koruyucu sebum üretilmez, rüzgarda savunmasızdır.\n2. TÜKÜRÜK REFLEKSİ — Dudak kuruyunca anlık rahatlama için dille ıslatılır ancak tükürükteki sindirim enzimleri ince deriyi tahriş eder.\n3. NEM BUHARLAŞMASI — Tükürük havada uçarken dudağın dokusundaki kendi öz nemini de söküp beraberinde götürür.\n\nSoğuk havada dudak bakımı yaparken kokulu glosslar değil, bariyer kuran balm tabakası korur.\n\nAteşe benzinle koşmak yerine cebinde bir nemlendirici taşı.\n\n📌 Kaydet — rüzgarlı havada lazım olacak.\n\n🔁 Bunu rüzgarlı havada dudaklarını yalayıp çatlatan arkadaşına gönder.\n\nSen de kuruyunca refleksle yalananlardan mısın yoksa balmcı mı?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#giyim",
-    "#moda",
-    "#koku",
-    "#parfüm",
-    "#gardırop",
     "#alışveriş",
-    "#stil"
+    "#dudakbakımı",
+    "#ciltbakımı",
+    "#güzelliksırları",
+    "#kışbakımı",
+    "#soğukhava"
   ],
-  "takeaway": "Burnun kokuya alıştı ama o elbise dolapta hâlâ düğün kokuyor.",
+  "takeaway": "Dudağı yalamak ateşe benzin dökmektir, nem sökülür gider.",
   "footage_queries": [
-    "wardrobe interior minimal",
-    "clothing rack hangers minimal"
+    "hand touching fabric texture",
+    "clothing label tag close up"
   ],
   "narration": [
-    "Parfümün kokusunu bir süre sonra duyamazsın.",
-    "Burnundaki alıcılar aynı koku molekülüne sürekli maruz kalır.",
-    "Beyin bu kokuyu tehlike görmediği için arka plana atar.",
-    "Sen kokmuyor sanıp düğün elbisesine yarım şişe sıkarsın.",
-    "Burnun koku körü oldu ama çevrendekiler bayılmak üzere."
+    "Dudaklarını yaladıkça neden daha çok çatlar?",
+    "Dudak derisinde koruyucu yağ bezi hiç bulunmaz.",
+    "Kuruyunca ıslatırsın ama tükürük enzimi deriyi tahriş eder.",
+    "Buharlaşan tükürük dudaktaki kendi nemini de söküp alır.",
+    "Dudağını yalamak ateşe benzinle koşmak gibidir, nemlendirici sür."
   ],
-  "subject": "koku körlüğü",
-  "sendTo": "düğün için aldığı elbiseyi bir daha hiç giymeyen arkadaşına",
-  "soru": "Sen düğün elbisesini kaç kez giydin: 1 mi 0 mı?",
-  "theme": "#b39cff",
+  "subject": "dudak çatlaması",
+  "sendTo": "rüzgarlı havada dudaklarını yalayıp çatlatan arkadaşına",
+  "soru": "Sen de kuruyunca refleksle yalananlardan mısın yoksa balmcı mı?",
+  "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -88,35 +92,35 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Parfümün kokusunu bir süre sonra duyamazsın.",
+      "text": "Dudaklarını yaladıkça neden daha çok çatlar?",
       "start": 0.35,
-      "dur": 3.002
+      "dur": 2.905
     },
     {
-      "text": "Burnundaki alıcılar aynı koku molekülüne sürekli maruz kalır.",
-      "start": 3.352,
-      "dur": 4.162
+      "text": "Dudak derisinde koruyucu yağ bezi hiç bulunmaz.",
+      "start": 3.255,
+      "dur": 3.103
     },
     {
-      "text": "Beyin bu kokuyu tehlike görmediği için arka plana atar.",
-      "start": 7.514,
-      "dur": 3.753
+      "text": "Kuruyunca ıslatırsın ama tükürük enzimi deriyi tahriş eder.",
+      "start": 6.358,
+      "dur": 3.895
     },
     {
-      "text": "Sen kokmuyor sanıp düğün elbisesine yarım şişe sıkarsın.",
-      "start": 11.267,
-      "dur": 3.821
+      "text": "Buharlaşan tükürük dudaktaki kendi nemini de söküp alır.",
+      "start": 10.253,
+      "dur": 3.697
     },
     {
-      "text": "Burnun koku körü oldu ama çevrendekiler bayılmak üzere.",
-      "start": 15.088,
-      "dur": 4.853
+      "text": "Dudağını yalamak ateşe benzinle koşmak gibidir, nemlendirici sür.",
+      "start": 13.95,
+      "dur": 5.391
     }
   ],
-  "thumbOffset": 2101
+  "thumbOffset": 2052
 }

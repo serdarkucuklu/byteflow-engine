@@ -225,5 +225,27 @@
       "ig_reels_video_view_total_time": 387514
     },
     "insightsAt": "2026-08-12T18:00:00.972Z"
+  },
+  {
+    "title": "Dudak Yalama Tuzağı",
+    "subject": "dudak çatlaması",
+    "twist": "sezon-aldatmacasi",
+    "pillar": "dudak-catlamasi",
+    "layout": "cycle",
+    "kinds": "diagram",
+    "motion": "orbit",
+    "theme": "#7de2d1",
+    "source": "gemini",
+    "footage": [
+      "pexels:hand touching fabric texture",
+      "pexels:clothing label tag close up",
+      "pexels:denim fabric texture macro",
+      "pexels:cotton fabric weave macro"
+    ],
+    "voice": 5,
+    "voiceName": "Aoede",
+    "muzik": "byteflow-ambient.mp3",
+    "date": "2026-08-12",
+    "durSec": 19.3
   }
 ]
