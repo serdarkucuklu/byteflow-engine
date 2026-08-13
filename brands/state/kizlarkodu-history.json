@@ -259,5 +259,27 @@
       "ig_reels_video_view_total_time": 13885
     },
     "insightsAt": "2026-08-13T18:00:20.827Z"
+  },
+  {
+    "title": "Eski Kıyafetlerdeki Yüksek Gramaj Sırrı",
+    "subject": "gramaj",
+    "twist": "sosyal-medya",
+    "pillar": "ikinci-el",
+    "layout": "vertical-stack",
+    "kinds": "diagram",
+    "motion": "cascade",
+    "theme": "#ffe07d",
+    "source": "gemini",
+    "footage": [
+      "pexels:knitted wool texture macro",
+      "pexels:folded clothes stack close up",
+      "pexels:denim fabric texture macro",
+      "pexels:cotton fabric weave macro"
+    ],
+    "voice": 5,
+    "voiceName": "Aoede",
+    "muzik": "byteflow-ambient.mp3",
+    "date": "2026-08-13",
+    "durSec": 21.4
   }
 ]
