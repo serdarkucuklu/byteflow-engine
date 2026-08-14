@@ -1,6 +1,6 @@
 {
-  "hook": "Beden tablosu yarım saatini yine yedi.",
-  "title": "Beden tablosu neden her markada farklı?",
+  "hook": "Kargo takibini ezberleyen arkadaşının viskon hayali patladı.",
+  "title": "Viskon Elbisenin Kargo Kutusu Şoku",
   "scenes": [
     {
       "layout": "vertical-stack",
@@ -8,71 +8,67 @@
       "nodes": [
         {
           "id": "n1",
-          "label": "MARKANIN MODELİ"
+          "label": "FOTOĞRAF IŞIĞI"
         },
         {
           "id": "n2",
-          "label": "TOLERANS PAYI"
+          "label": "İPLİK SIKLIĞI"
         },
         {
           "id": "n3",
-          "label": "PSİKOLOJİK BEDEN"
-        },
-        {
-          "id": "n4",
-          "label": "DOLAPTAKİ KAOS"
+          "label": "LİF ESNEKLİĞİ"
         }
       ],
       "steps": [
         {
           "from": "n1",
           "to": "n2",
-          "packet": "ÖLÇÜ",
-          "status": "marka kendi mankenine göre kesim yapar",
+          "packet": "IŞIK",
+          "status": "ışık parlak gösterir, kumaş ince kalır",
           "color": "accent"
         },
         {
           "from": "n2",
           "to": "n3",
-          "packet": "KUMAŞ",
-          "status": "esneme payı yüzünden santimler sapar",
+          "packet": "PAKET",
+          "status": "kutuya girince lifler nemle büzüşür",
           "color": "warn"
         },
         {
           "from": "n3",
-          "to": "n4",
-          "packet": "BEDEN",
-          "status": "küçük beden hissi satışı artırır",
+          "to": "n1",
+          "packet": "HAYAL",
+          "status": "kombin hayali biter, ev kıyafeti olur",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Beden tablosu yarım saatini yine yedi.\n\nBeden tablosunun her markada değişme sebebi, adım adım:\n\n1. Markanın modeli — Standart beden ölçüsü yoktur; her marka kalıbını kendi seçtiği mankenin vücuduna göre oluşturur.\n2. Tolerans payı — Seri üretimde kesim bıçağı ve kumaşın esneme oranı santimlik sapmalara yol açar.\n3. Psikolojik beden — Markalar müşteriyi iyi hissettirmek için aynı ölçüyü bir küçük beden etiketiyle basabilir.\n4. Dolaptaki kaos — Sonuçta aldığın M beden bir markada bol gelirken diğerinde dar kalır.\n\nOnline alışverişte tabloya değil, kumaşın likra oranına ve kullanıcı yorumlarındaki göğüs-bel ölçülerine bakmak en doğrusudur.\n\nSabah dolabın önünde 'bu niye olmadı' diye kaybettiğin ömre acı ama o sepete yine M ekle.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu her sabah dolabın önünde 20 dakika kaybeden arkadaşına gönder.\nDolabında kaç farklı beden kıyafet var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Fotoğrafta ipek gibi akıp giden o viskon elbise kargodan çıkınca neden kırış kırış bir pazarlık kumaşa dönüşür?\n\nKargo kutusundaki viskon hüsranı adım adım:\n\n1. Stüdyo Işığı: Modelin üzerindeki güçlü çekim ışıkları, düşük kalite viskonun yüzeyini parlatır ve dökümlü algısı yaratır.\n2. İplik Sıklığı: Ucuz viskonda lifler seyrek dokunur; fotoğrafta anlaşılamayan bu seyreklik kumaşa form kazandırmaz.\n3. Nem ve Kutu Baskısı: Kargo paketindeki kapalı ortamda lifler ortam nemini çekip büzüşür, kutu açılınca elde incecik bir bez kalır.\n\nViskon alırken fotoğraftaki duruşa değil, dokuma sıklığına ve kumaş karışımına bakmak gerekir.\n\nFotoğraf satıcıyı, dokuma kalitesi gerçeği gösterir. Ama o kargo takibi yine de saat başı yenilenecek.\n\n📌 Kaydet — kargo hüsranı yaşamadan önce lazım olacak.\n🔁 Bunu kargo takibini saat başı sorgulayıp hayal kuran arkadaşına gönder.\nKargodan gelen viskonu iade mi edersin yoksa pijama mı yaparsın?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.\n\n#giyim #alışveriş #viskon #kumaş #gardırop #kargo #giyimtüyoları",
   "hashtags": [
     "#giyim",
     "#alışveriş",
-    "#bedentablosu",
+    "#viskon",
+    "#kumaş",
     "#gardırop",
-    "#giyimtüyoları",
-    "#kombin",
-    "#beden"
+    "#kargo",
+    "#giyimtüyoları"
   ],
-  "takeaway": "Beden tablosuna inanma, dolap önünde giden dakikalarına acı.",
+  "takeaway": "Viskon dökümü fotoğraftan anlaşılmaz, dokuma sıklığı söyler.",
   "footage_queries": [
-    "measuring tape and fabric",
-    "wardrobe interior minimal"
+    "hands opening parcel box",
+    "clothing label tag close up"
   ],
   "narration": [
-    "Beden tablosu yarım saatini yine yedi.",
-    "Her marka kalıbını kendi seçtiği tek bir mankene göre hazırlar.",
-    "Kumaşın esneme payı ve kesim toleransı ölçüleri birkaç santim kaydırır.",
-    "Etiketteki küçük beden hissi ise müşteri psikolojisini rahatlatıp satışı artırır.",
-    "Sonuçta dolabında beş farklı beden aynı anda yan yana durur."
+    "O viskon kargo hayali böyle patlar.",
+    "Stüdyo ışığı ince viskon kumaşı ipek gibi parlak gösterir.",
+    "Kargo kutusundaki nem ise gevşek dokunmuş lifleri anında kırıştırır.",
+    "Aylardır beklediğin dökümlü elbise paketten çıkınca ev tişörtüne dönüşür.",
+    "Viskonu fotoğraftan değil kumaşın dokuma sıklığından tanımalısın güzelim."
   ],
-  "subject": "beden tablosu",
-  "sendTo": "her sabah dolabın önünde 20 dakika kaybeden arkadaşına",
-  "soru": "Dolabında kaç farklı beden kıyafet var?",
+  "subject": "viskon",
+  "sendTo": "kargo takibini saat başı sorgulayıp hayal kuran arkadaşına",
+  "soru": "Kargodan gelen viskonu iade mi edersin yoksa pijama mı yaparsın?",
   "theme": "#ffe07d",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -97,29 +93,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Beden tablosu yarım saatini yine yedi.",
+      "text": "O viskon kargo hayali böyle patlar.",
       "start": 0.35,
-      "dur": 2.429
+      "dur": 2.281
     },
     {
-      "text": "Her marka kalıbını kendi seçtiği tek bir mankene göre hazırlar.",
-      "start": 2.779,
-      "dur": 4.027
+      "text": "Stüdyo ışığı ince viskon kumaşı ipek gibi parlak gösterir.",
+      "start": 2.631,
+      "dur": 3.78
     },
     {
-      "text": "Kumaşın esneme payı ve kesim toleransı ölçüleri birkaç santim kaydırır.",
-      "start": 6.806,
-      "dur": 4.538
+      "text": "Kargo kutusundaki nem ise gevşek dokunmuş lifleri anında kırıştırır.",
+      "start": 6.412,
+      "dur": 4.432
     },
     {
-      "text": "Etiketteki küçük beden hissi ise müşteri psikolojisini rahatlatıp satışı artırır.",
-      "start": 11.344,
-      "dur": 5.177
+      "text": "Aylardır beklediğin dökümlü elbise paketten çıkınca ev tişörtüne dönüşür.",
+      "start": 10.844,
+      "dur": 4.758
     },
     {
-      "text": "Sonuçta dolabında beş farklı beden aynı anda yan yana durur.",
-      "start": 16.521,
-      "dur": 4.935
+      "text": "Viskonu fotoğraftan değil kumaşın dokuma sıklığından tanımalısın güzelim.",
+      "start": 15.602,
+      "dur": 5.858
     }
   ]
 }
