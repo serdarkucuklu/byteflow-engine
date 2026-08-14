@@ -1,73 +1,78 @@
 {
-  "hook": "Akışta görüp aldığın hırkanın gramajı neden kağıt gibi?",
-  "title": "Eski Kıyafetlerdeki Yüksek Gramaj Sırrı",
+  "hook": "Beden tablosu yarım saatini yine yedi.",
+  "title": "Beden tablosu neden her markada farklı?",
   "scenes": [
     {
       "layout": "vertical-stack",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "eski",
-          "label": "ESKİ ÜRETİM"
+          "id": "n1",
+          "label": "MARKANIN MODELİ"
         },
         {
-          "id": "iplik",
-          "label": "SIKI İPLİK DOKUMA"
+          "id": "n2",
+          "label": "TOLERANS PAYI"
         },
         {
-          "id": "gramaj",
-          "label": "AĞIR GRAMAJ"
+          "id": "n3",
+          "label": "PSİKOLOJİK BEDEN"
+        },
+        {
+          "id": "n4",
+          "label": "DOLAPTAKİ KAOS"
         }
       ],
       "steps": [
         {
-          "from": "eski",
-          "to": "iplik",
-          "packet": "İPLİK",
-          "status": "uzun lifler bükülür, hiç sarkma yapmaz",
-          "color": "good"
-        },
-        {
-          "from": "iplik",
-          "to": "gramaj",
-          "packet": "DOKUMA",
-          "status": "metrekare gramajı artar, tok durur",
+          "from": "n1",
+          "to": "n2",
+          "packet": "ÖLÇÜ",
+          "status": "marka kendi mankenine göre kesim yapar",
           "color": "accent"
         },
         {
-          "from": "gramaj",
-          "to": "eski",
-          "packet": "GRAMAJ",
-          "status": "yıllar geçer, akış değişir, o kalır",
+          "from": "n2",
+          "to": "n3",
+          "packet": "KUMAŞ",
+          "status": "esneme payı yüzünden santimler sapar",
           "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "BEDEN",
+          "status": "küçük beden hissi satışı artırır",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Akışta görüp aldığın hırkanın gramajı neden kağıt gibi?\n\nEski kıyafetlerin elde ağır hissettirmesinin sebebi adım adım:\n\n1. Uzun lifli dokuma — Eski üretimde uzun pamuk lifleri sıkı bükülerek dokunurdu.\n2. Metrekare gramajı — Sıkı dokuma kumaşın metrekare ağırlığını artırarak tok tutar.\n3. Form koruma — Yüksek gramajlı kumaşlar defalarca yıkansa da kolayca deforme olmaz.\n\nİkinci el bakarken kumaşın ağırlığı en somut kalite göstergendir.\n\nAkışta görüp sipariş ettiğimiz hırka incecik çıkınca vintage pazarına koşacağız.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu akışta gördüğü her hırkayı üç gün sonra kapıda bulan arkadaşına gönder.\nDolabındaki en eski parça kaç yıllık, dürüst ol?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Beden tablosu yarım saatini yine yedi.\n\nBeden tablosunun her markada değişme sebebi, adım adım:\n\n1. Markanın modeli — Standart beden ölçüsü yoktur; her marka kalıbını kendi seçtiği mankenin vücuduna göre oluşturur.\n2. Tolerans payı — Seri üretimde kesim bıçağı ve kumaşın esneme oranı santimlik sapmalara yol açar.\n3. Psikolojik beden — Markalar müşteriyi iyi hissettirmek için aynı ölçüyü bir küçük beden etiketiyle basabilir.\n4. Dolaptaki kaos — Sonuçta aldığın M beden bir markada bol gelirken diğerinde dar kalır.\n\nOnline alışverişte tabloya değil, kumaşın likra oranına ve kullanıcı yorumlarındaki göğüs-bel ölçülerine bakmak en doğrusudur.\n\nSabah dolabın önünde 'bu niye olmadı' diye kaybettiğin ömre acı ama o sepete yine M ekle.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu her sabah dolabın önünde 20 dakika kaybeden arkadaşına gönder.\nDolabında kaç farklı beden kıyafet var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#giyim",
-    "#moda",
-    "#ikinciel",
-    "#vintage",
-    "#kumaş",
-    "#gramaj",
-    "#gardırop"
+    "#alışveriş",
+    "#bedentablosu",
+    "#gardırop",
+    "#giyimtüyoları",
+    "#kombin",
+    "#beden"
   ],
-  "takeaway": "Ağır hırka kaliteli dokumadır, akış videosu biter ama o kalır.",
+  "takeaway": "Beden tablosuna inanma, dolap önünde giden dakikalarına acı.",
   "footage_queries": [
-    "knitted wool texture macro",
-    "hands sorting laundry close up"
+    "measuring tape and fabric",
+    "wardrobe interior minimal"
   ],
   "narration": [
-    "Akıştaki hırkanın gramajı neden kağıt gibi?",
-    "Eski kıyafetlerde uzun pamuk lifleri sıkıca bükülerek dokunurdu.",
-    "Bu sıkı dokuma metrekareye düşen gramajı neredeyse ikiye katlar.",
-    "Günümüz hızlı modasında ise az gramajla hacim verilmeye çalışılıyor.",
-    "İkinci elde ağırlık hissettiğin an kaliteli kumaşı buldun demektir."
+    "Beden tablosu yarım saatini yine yedi.",
+    "Her marka kalıbını kendi seçtiği tek bir mankene göre hazırlar.",
+    "Kumaşın esneme payı ve kesim toleransı ölçüleri birkaç santim kaydırır.",
+    "Etiketteki küçük beden hissi ise müşteri psikolojisini rahatlatıp satışı artırır.",
+    "Sonuçta dolabında beş farklı beden aynı anda yan yana durur."
   ],
-  "subject": "gramaj",
-  "sendTo": "akışta gördüğü her hırkayı üç gün sonra kapıda bulan arkadaşına",
-  "soru": "Dolabındaki en eski parça kaç yıllık, dürüst ol?",
+  "subject": "beden tablosu",
+  "sendTo": "her sabah dolabın önünde 20 dakika kaybeden arkadaşına",
+  "soru": "Dolabında kaç farklı beden kıyafet var?",
   "theme": "#ffe07d",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -92,30 +97,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Akıştaki hırkanın gramajı neden kağıt gibi?",
+      "text": "Beden tablosu yarım saatini yine yedi.",
       "start": 0.35,
-      "dur": 2.809
+      "dur": 2.429
     },
     {
-      "text": "Eski kıyafetlerde uzun pamuk lifleri sıkıca bükülerek dokunurdu.",
-      "start": 3.159,
-      "dur": 4.181
+      "text": "Her marka kalıbını kendi seçtiği tek bir mankene göre hazırlar.",
+      "start": 2.779,
+      "dur": 4.027
     },
     {
-      "text": "Bu sıkı dokuma metrekareye düşen gramajı neredeyse ikiye katlar.",
-      "start": 7.34,
-      "dur": 4.181
+      "text": "Kumaşın esneme payı ve kesim toleransı ölçüleri birkaç santim kaydırır.",
+      "start": 6.806,
+      "dur": 4.538
     },
     {
-      "text": "Günümüz hızlı modasında ise az gramajla hacim verilmeye çalışılıyor.",
-      "start": 11.521,
-      "dur": 4.442
+      "text": "Etiketteki küçük beden hissi ise müşteri psikolojisini rahatlatıp satışı artırır.",
+      "start": 11.344,
+      "dur": 5.177
     },
     {
-      "text": "İkinci elde ağırlık hissettiğin an kaliteli kumaşı buldun demektir.",
-      "start": 15.964,
-      "dur": 5.477
+      "text": "Sonuçta dolabında beş farklı beden aynı anda yan yana durur.",
+      "start": 16.521,
+      "dur": 4.935
     }
   ],
-  "thumbOffset": 2005
+  "thumbOffset": 1814
 }

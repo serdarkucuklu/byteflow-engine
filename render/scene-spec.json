@@ -1,120 +1,125 @@
 {
-  "hook": "Kapağı açık kalan fondöten öğlen seni havuç yapıyor.",
-  "title": "Fondöten Neden Koyulaşır?",
+  "hook": "Beden tablosu yarım saatini yine yedi.",
+  "title": "Beden tablosu neden her markada farklı?",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "hava",
-          "label": "OKSİJEN VURUSU"
+          "id": "n1",
+          "label": "MARKANIN MODELİ"
         },
         {
-          "id": "yag",
-          "label": "SEBUM TEPKİMESİ"
+          "id": "n2",
+          "label": "TOLERANS PAYI"
         },
         {
-          "id": "renk",
-          "label": "TURUNCU PİGMENT"
+          "id": "n3",
+          "label": "PSİKOLOJİK BEDEN"
+        },
+        {
+          "id": "n4",
+          "label": "DOLAPTAKİ KAOS"
         }
       ],
       "steps": [
         {
-          "from": "hava",
-          "to": "yag",
-          "packet": "HAVA",
-          "status": "açık kapaktan giren hava yağla buluşur",
-          "color": "warn"
-        },
-        {
-          "from": "yag",
-          "to": "renk",
-          "packet": "KİMYA",
-          "status": "pigmentler havayla temas edip koyulaşır",
-          "color": "warn"
-        },
-        {
-          "from": "renk",
-          "to": "hava",
-          "packet": "TON",
-          "status": "öğlen iki ton koyu havuç olursun",
+          "from": "n1",
+          "to": "n2",
+          "packet": "ÖLÇÜ",
+          "status": "marka kendi mankenine göre kesim yapar",
           "color": "accent"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "KUMAŞ",
+          "status": "esneme payı yüzünden santimler sapar",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "BEDEN",
+          "status": "küçük beden hissi satışı artırır",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kapağı açık kalan fondöten öğlen seni havuç yapıyor.\n\nAmbalajı açık unutulan fondöten nasıl renk değiştirir, adım adım:\n\n1. Oksidasyon — Ambalaj kapağı açık kaldığında şişedeki formül sürekli hava ile temas eder ve yağ molekülleri bozulmaya başlar.\n2. Sebum Tepkimesi — Yüze sürüldüğünde ciltteki doğal yağlar ve hava birleşerek renk pigmentlerinin yapısını kırar.\n3. Ton Kayması — Sabah tam oturan fondöten rengi, gün ortasında 1-2 ton koyulaşarak turuncu bir renge bürünür.\n\nFondöten alırken hava almayan pompalı cam ambalajları tercih etmek oksidasyonu minimuma indirir.\n\nSuç cildinde veya üründe değil, banyoda açık bırakılan kapakta. Ama biz yine yeni ürün alacağız.\n\n📌 Kaydet — bir dahaki fondöten krizinde lazım olacak.\n🔁 Bunu banyoda kapağı açık fondöten unutan arkadaşına gönder.\nSenin fondötenin de gün içinde turunculaşıyor mu: evet mi hayır mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Beden tablosu yarım saatini yine yedi.\n\nBeden tablosunun her markada değişme sebebi, adım adım:\n\n1. Markanın modeli — Standart beden ölçüsü yoktur; her marka kalıbını kendi seçtiği mankenin vücuduna göre oluşturur.\n2. Tolerans payı — Seri üretimde kesim bıçağı ve kumaşın esneme oranı santimlik sapmalara yol açar.\n3. Psikolojik beden — Markalar müşteriyi iyi hissettirmek için aynı ölçüyü bir küçük beden etiketiyle basabilir.\n4. Dolaptaki kaos — Sonuçta aldığın M beden bir markada bol gelirken diğerinde dar kalır.\n\nOnline alışverişte tabloya değil, kumaşın likra oranına ve kullanıcı yorumlarındaki göğüs-bel ölçülerine bakmak en doğrusudur.\n\nSabah dolabın önünde 'bu niye olmadı' diye kaybettiğin ömre acı ama o sepete yine M ekle.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu her sabah dolabın önünde 20 dakika kaybeden arkadaşına gönder.\nDolabında kaç farklı beden kıyafet var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#güzellik",
-    "#makyaj",
-    "#fondöten",
-    "#makyajönerisi",
-    "#oksidasyon",
-    "#tenmakyajı"
+    "#giyim",
+    "#alışveriş",
+    "#bedentablosu",
+    "#gardırop",
+    "#giyimtüyoları",
+    "#kombin",
+    "#beden"
   ],
-  "takeaway": "Hava giren fondöten oksitlenir, suç cildinde değil açık kapakta.",
+  "takeaway": "Beden tablosuna inanma, dolap önünde giden dakikalarına acı.",
   "footage_queries": [
-    "liquid foundation swatch",
-    "hand opening jar macro"
+    "measuring tape and fabric",
+    "wardrobe interior minimal"
   ],
   "narration": [
-    "Fondöten kapağı açık kalırsa ne olur?",
-    "Açık kalan ambalajdan giren oksijen fondötenin yağ dengesini bozar.",
-    "Teninize sürdüğünüz an pigmentler havayla hızlıca kimyasal tepkimeye girer.",
-    "Öğlen aynaya baktığınızda yüzünüz iki ton koyulaşmış turuncuya döner.",
-    "Suç cildinizde değil banyoda kapağı açık unuttuğunuz ambalajdadır."
+    "Beden tablosu yarım saatini yine yedi.",
+    "Her marka kalıbını kendi seçtiği tek bir mankene göre hazırlar.",
+    "Kumaşın esneme payı ve kesim toleransı ölçüleri birkaç santim kaydırır.",
+    "Etiketteki küçük beden hissi ise müşteri psikolojisini rahatlatıp satışı artırır.",
+    "Sonuçta dolabında beş farklı beden aynı anda yan yana durur."
   ],
-  "subject": "fondöten",
-  "sendTo": "banyoda kapağı açık fondöten unutan arkadaşına",
-  "soru": "Senin fondötenin de gün içinde turunculaşıyor mu: evet mi hayır mı?",
-  "theme": "#7fb3a5",
+  "subject": "beden tablosu",
+  "sendTo": "her sabah dolabın önünde 20 dakika kaybeden arkadaşına",
+  "soru": "Dolabında kaç farklı beden kıyafet var?",
+  "theme": "#ffe07d",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "cascade",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Fondöten kapağı açık kalırsa ne olur?",
+      "text": "Beden tablosu yarım saatini yine yedi.",
       "start": 0.35,
-      "dur": 2.357
+      "dur": 2.429
     },
     {
-      "text": "Açık kalan ambalajdan giren oksijen fondötenin yağ dengesini bozar.",
-      "start": 2.707,
-      "dur": 4.268
+      "text": "Her marka kalıbını kendi seçtiği tek bir mankene göre hazırlar.",
+      "start": 2.779,
+      "dur": 4.027
     },
     {
-      "text": "Teninize sürdüğünüz an pigmentler havayla hızlıca kimyasal tepkimeye girer.",
-      "start": 6.975,
-      "dur": 4.778
+      "text": "Kumaşın esneme payı ve kesim toleransı ölçüleri birkaç santim kaydırır.",
+      "start": 6.806,
+      "dur": 4.538
     },
     {
-      "text": "Öğlen aynaya baktığınızda yüzünüz iki ton koyulaşmış turuncuya döner.",
-      "start": 11.753,
-      "dur": 4.396
+      "text": "Etiketteki küçük beden hissi ise müşteri psikolojisini rahatlatıp satışı artırır.",
+      "start": 11.344,
+      "dur": 5.177
     },
     {
-      "text": "Suç cildinizde değil banyoda kapağı açık unuttuğunuz ambalajdadır.",
-      "start": 16.149,
-      "dur": 5.305
+      "text": "Sonuçta dolabında beş farklı beden aynı anda yan yana durur.",
+      "start": 16.521,
+      "dur": 4.935
     }
   ]
 }
