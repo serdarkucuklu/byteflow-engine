@@ -1,77 +1,73 @@
 {
-  "hook": "3'ü 1 arada şampuan kullanan sevgilinin cildi pürüzsüz.",
-  "title": "Saç Kremi Neden Sırt Sivilcesi Yapar?",
+  "hook": "Kapağı açık kalan fondöten öğlen seni havuç yapıyor.",
+  "title": "Fondöten Neden Koyulaşır?",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "dus",
-          "label": "SİLİKONLU KREM"
+          "id": "hava",
+          "label": "OKSİJEN VURUSU"
         },
         {
-          "id": "gozenek",
-          "label": "TIKALI GÖZENEK"
+          "id": "yag",
+          "label": "SEBUM TEPKİMESİ"
         },
         {
-          "id": "akne",
-          "label": "POMAD AKNE"
-        },
-        {
-          "id": "genetik",
-          "label": "GENETİK DÜZEY"
+          "id": "renk",
+          "label": "TURUNCU PİGMENT"
         }
       ],
       "steps": [
         {
-          "from": "dus",
-          "to": "gozenek",
-          "packet": "FILM",
-          "status": "durulanan saç kremi cilde tutunur",
+          "from": "hava",
+          "to": "yag",
+          "packet": "HAVA",
+          "status": "açık kapaktan giren hava yağla buluşur",
           "color": "warn"
         },
         {
-          "from": "gozenek",
-          "to": "akne",
-          "packet": "SEBUM",
-          "status": "yağ birikir gözenek hemen iltihaplanır",
+          "from": "yag",
+          "to": "renk",
+          "packet": "KİMYA",
+          "status": "pigmentler havayla temas edip koyulaşır",
           "color": "warn"
         },
         {
-          "from": "akne",
-          "to": "genetik",
-          "packet": "YAPI",
-          "status": "genetik olarak düşük sebum tıkanmayı",
-          "color": "good"
+          "from": "renk",
+          "to": "hava",
+          "packet": "TON",
+          "status": "öğlen iki ton koyu havuç olursun",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "3'ü 1 arada şampuanla yıkanan erkek arkadaşının cildi pürüzsüzken senin sırt sivilcesi çekmen adil değil.\n\nSaç kreminin sırtında bıraktığı izin biyolojisi adım adım şöyle:\n\n1. Silikon Tabakası — Saç kremleri saçı yumuşatmak için ağır silikonlar ve katı yağlar içerir. Duşta durularken bu maddeler sırt ve alın cildine tutunur.\n2. Gözenek Tıkanması — Cilt yüzeyinde biriken bu ince film tabakası gözeneklerin nefes almasını engeller. Sebum ve ölü hücreler içeride birikir.\n3. Pomad Akne — Oksijensiz kalan gözenekte bakteriler çoğalır ve tıkanıklık kırmızı sivilcelere, yani literatürdeki adıyla pomad akneye dönüşür.\n4. Genetik Fark — Sebum üretimi az olan şanslı ciltlerde bu tabaka sivilceye dönmez; genetik piyangosu tam olarak böyledir.\n\nÇözüm pahalı serum almak değil: duşta önce saçını yıkayıp kremini durula, en son vücut şampuanıyla sırtını temizle.\n\n12 adımlı rutinle gurur duymak güzel ama duş sırasını karıştırırsan saç kremi kazanır.\n\n📌 Kaydet — duş rutinini değiştirirken lazım olacak.\n🔁 Bunu tek bir sabunla pürüzsüz ciltle gezen erkek arkadaşına gönder.\nDuşta saç kremini vücudunu yıkamadan önce mi sürersin sonra mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kapağı açık kalan fondöten öğlen seni havuç yapıyor.\n\nAmbalajı açık unutulan fondöten nasıl renk değiştirir, adım adım:\n\n1. Oksidasyon — Ambalaj kapağı açık kaldığında şişedeki formül sürekli hava ile temas eder ve yağ molekülleri bozulmaya başlar.\n2. Sebum Tepkimesi — Yüze sürüldüğünde ciltteki doğal yağlar ve hava birleşerek renk pigmentlerinin yapısını kırar.\n3. Ton Kayması — Sabah tam oturan fondöten rengi, gün ortasında 1-2 ton koyulaşarak turuncu bir renge bürünür.\n\nFondöten alırken hava almayan pompalı cam ambalajları tercih etmek oksidasyonu minimuma indirir.\n\nSuç cildinde veya üründe değil, banyoda açık bırakılan kapakta. Ama biz yine yeni ürün alacağız.\n\n📌 Kaydet — bir dahaki fondöten krizinde lazım olacak.\n🔁 Bunu banyoda kapağı açık fondöten unutan arkadaşına gönder.\nSenin fondötenin de gün içinde turunculaşıyor mu: evet mi hayır mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimimegüzellikmesacbakimimepomadaknemesirtsivilcesimecildinikorumeciltkodu",
-    "#ciltbakimi",
-    "#makyaj",
     "#güzellik",
-    "#skincare",
-    "#cilt"
+    "#makyaj",
+    "#fondöten",
+    "#makyajönerisi",
+    "#oksidasyon",
+    "#tenmakyajı"
   ],
-  "takeaway": "Genetik adil değil ama vücudunu en son yıkamak bedavadır.",
+  "takeaway": "Hava giren fondöten oksitlenir, suç cildinde değil açık kapakta.",
   "footage_queries": [
-    "hands applying cream close up",
-    "soap bubbles macro"
+    "liquid foundation swatch",
+    "hand opening jar macro"
   ],
   "narration": [
-    "Sevgilin tek sabunla pürüzsüz geziyor.",
-    "Saç kreminin silikonları duşta sırttaki gözenekleri tıkar.",
-    "Oksijensiz kalan gözenekte pomad akne dediğimiz sivilce oluşur.",
-    "Düşük sebum üretimi olan ciltlerde ise tıkanma hiç yaşanmaz.",
-    "Genetik adil değil ama vücudunu en son yıkamak bedavadır."
+    "Fondöten kapağı açık kalırsa ne olur?",
+    "Açık kalan ambalajdan giren oksijen fondötenin yağ dengesini bozar.",
+    "Teninize sürdüğünüz an pigmentler havayla hızlıca kimyasal tepkimeye girer.",
+    "Öğlen aynaya baktığınızda yüzünüz iki ton koyulaşmış turuncuya döner.",
+    "Suç cildinizde değil banyoda kapağı açık unuttuğunuz ambalajdadır."
   ],
-  "subject": "pomad akne",
-  "sendTo": "tek bir sabunla pürüzsüz ciltle gezen erkek arkadaşına",
-  "soru": "Duşta saç kremini vücudunu yıkamadan önce mi sürersin sonra mı?",
+  "subject": "fondöten",
+  "sendTo": "banyoda kapağı açık fondöten unutan arkadaşına",
+  "soru": "Senin fondötenin de gün içinde turunculaşıyor mu: evet mi hayır mı?",
   "theme": "#7fb3a5",
   "brand": {
     "handle": "@cilt.kodu",
@@ -94,5 +90,32 @@
   "motion": "ripple",
   "format": "kinetik",
   "footage": true,
-  "thumbOffset": 1300
+  "beats": [
+    {
+      "text": "Fondöten kapağı açık kalırsa ne olur?",
+      "start": 0.35,
+      "dur": 2.357
+    },
+    {
+      "text": "Açık kalan ambalajdan giren oksijen fondötenin yağ dengesini bozar.",
+      "start": 2.707,
+      "dur": 4.268
+    },
+    {
+      "text": "Teninize sürdüğünüz an pigmentler havayla hızlıca kimyasal tepkimeye girer.",
+      "start": 6.975,
+      "dur": 4.778
+    },
+    {
+      "text": "Öğlen aynaya baktığınızda yüzünüz iki ton koyulaşmış turuncuya döner.",
+      "start": 11.753,
+      "dur": 4.396
+    },
+    {
+      "text": "Suç cildinizde değil banyoda kapağı açık unuttuğunuz ambalajdadır.",
+      "start": 16.149,
+      "dur": 5.305
+    }
+  ],
+  "thumbOffset": 1779
 }

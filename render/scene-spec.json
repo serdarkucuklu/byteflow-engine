@@ -1,120 +1,120 @@
 {
-  "hook": "Akışta görüp aldığın hırkanın gramajı neden kağıt gibi?",
-  "title": "Eski Kıyafetlerdeki Yüksek Gramaj Sırrı",
+  "hook": "Kapağı açık kalan fondöten öğlen seni havuç yapıyor.",
+  "title": "Fondöten Neden Koyulaşır?",
   "scenes": [
     {
-      "layout": "vertical-stack",
+      "layout": "nodes-flow",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "eski",
-          "label": "ESKİ ÜRETİM"
+          "id": "hava",
+          "label": "OKSİJEN VURUSU"
         },
         {
-          "id": "iplik",
-          "label": "SIKI İPLİK DOKUMA"
+          "id": "yag",
+          "label": "SEBUM TEPKİMESİ"
         },
         {
-          "id": "gramaj",
-          "label": "AĞIR GRAMAJ"
+          "id": "renk",
+          "label": "TURUNCU PİGMENT"
         }
       ],
       "steps": [
         {
-          "from": "eski",
-          "to": "iplik",
-          "packet": "İPLİK",
-          "status": "uzun lifler bükülür, hiç sarkma yapmaz",
-          "color": "good"
-        },
-        {
-          "from": "iplik",
-          "to": "gramaj",
-          "packet": "DOKUMA",
-          "status": "metrekare gramajı artar, tok durur",
-          "color": "accent"
-        },
-        {
-          "from": "gramaj",
-          "to": "eski",
-          "packet": "GRAMAJ",
-          "status": "yıllar geçer, akış değişir, o kalır",
+          "from": "hava",
+          "to": "yag",
+          "packet": "HAVA",
+          "status": "açık kapaktan giren hava yağla buluşur",
           "color": "warn"
+        },
+        {
+          "from": "yag",
+          "to": "renk",
+          "packet": "KİMYA",
+          "status": "pigmentler havayla temas edip koyulaşır",
+          "color": "warn"
+        },
+        {
+          "from": "renk",
+          "to": "hava",
+          "packet": "TON",
+          "status": "öğlen iki ton koyu havuç olursun",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Akışta görüp aldığın hırkanın gramajı neden kağıt gibi?\n\nEski kıyafetlerin elde ağır hissettirmesinin sebebi adım adım:\n\n1. Uzun lifli dokuma — Eski üretimde uzun pamuk lifleri sıkı bükülerek dokunurdu.\n2. Metrekare gramajı — Sıkı dokuma kumaşın metrekare ağırlığını artırarak tok tutar.\n3. Form koruma — Yüksek gramajlı kumaşlar defalarca yıkansa da kolayca deforme olmaz.\n\nİkinci el bakarken kumaşın ağırlığı en somut kalite göstergendir.\n\nAkışta görüp sipariş ettiğimiz hırka incecik çıkınca vintage pazarına koşacağız.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu akışta gördüğü her hırkayı üç gün sonra kapıda bulan arkadaşına gönder.\nDolabındaki en eski parça kaç yıllık, dürüst ol?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kapağı açık kalan fondöten öğlen seni havuç yapıyor.\n\nAmbalajı açık unutulan fondöten nasıl renk değiştirir, adım adım:\n\n1. Oksidasyon — Ambalaj kapağı açık kaldığında şişedeki formül sürekli hava ile temas eder ve yağ molekülleri bozulmaya başlar.\n2. Sebum Tepkimesi — Yüze sürüldüğünde ciltteki doğal yağlar ve hava birleşerek renk pigmentlerinin yapısını kırar.\n3. Ton Kayması — Sabah tam oturan fondöten rengi, gün ortasında 1-2 ton koyulaşarak turuncu bir renge bürünür.\n\nFondöten alırken hava almayan pompalı cam ambalajları tercih etmek oksidasyonu minimuma indirir.\n\nSuç cildinde veya üründe değil, banyoda açık bırakılan kapakta. Ama biz yine yeni ürün alacağız.\n\n📌 Kaydet — bir dahaki fondöten krizinde lazım olacak.\n🔁 Bunu banyoda kapağı açık fondöten unutan arkadaşına gönder.\nSenin fondötenin de gün içinde turunculaşıyor mu: evet mi hayır mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#moda",
-    "#ikinciel",
-    "#vintage",
-    "#kumaş",
-    "#gramaj",
-    "#gardırop"
+    "#güzellik",
+    "#makyaj",
+    "#fondöten",
+    "#makyajönerisi",
+    "#oksidasyon",
+    "#tenmakyajı"
   ],
-  "takeaway": "Ağır hırka kaliteli dokumadır, akış videosu biter ama o kalır.",
+  "takeaway": "Hava giren fondöten oksitlenir, suç cildinde değil açık kapakta.",
   "footage_queries": [
-    "knitted wool texture macro",
-    "hands sorting laundry close up"
+    "liquid foundation swatch",
+    "hand opening jar macro"
   ],
   "narration": [
-    "Akıştaki hırkanın gramajı neden kağıt gibi?",
-    "Eski kıyafetlerde uzun pamuk lifleri sıkıca bükülerek dokunurdu.",
-    "Bu sıkı dokuma metrekareye düşen gramajı neredeyse ikiye katlar.",
-    "Günümüz hızlı modasında ise az gramajla hacim verilmeye çalışılıyor.",
-    "İkinci elde ağırlık hissettiğin an kaliteli kumaşı buldun demektir."
+    "Fondöten kapağı açık kalırsa ne olur?",
+    "Açık kalan ambalajdan giren oksijen fondötenin yağ dengesini bozar.",
+    "Teninize sürdüğünüz an pigmentler havayla hızlıca kimyasal tepkimeye girer.",
+    "Öğlen aynaya baktığınızda yüzünüz iki ton koyulaşmış turuncuya döner.",
+    "Suç cildinizde değil banyoda kapağı açık unuttuğunuz ambalajdadır."
   ],
-  "subject": "gramaj",
-  "sendTo": "akışta gördüğü her hırkayı üç gün sonra kapıda bulan arkadaşına",
-  "soru": "Dolabındaki en eski parça kaç yıllık, dürüst ol?",
-  "theme": "#ffe07d",
+  "subject": "fondöten",
+  "sendTo": "banyoda kapağı açık fondöten unutan arkadaşına",
+  "soru": "Senin fondötenin de gün içinde turunculaşıyor mu: evet mi hayır mı?",
+  "theme": "#7fb3a5",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "cascade",
+  "motion": "ripple",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Akıştaki hırkanın gramajı neden kağıt gibi?",
+      "text": "Fondöten kapağı açık kalırsa ne olur?",
       "start": 0.35,
-      "dur": 2.809
+      "dur": 2.357
     },
     {
-      "text": "Eski kıyafetlerde uzun pamuk lifleri sıkıca bükülerek dokunurdu.",
-      "start": 3.159,
-      "dur": 4.181
+      "text": "Açık kalan ambalajdan giren oksijen fondötenin yağ dengesini bozar.",
+      "start": 2.707,
+      "dur": 4.268
     },
     {
-      "text": "Bu sıkı dokuma metrekareye düşen gramajı neredeyse ikiye katlar.",
-      "start": 7.34,
-      "dur": 4.181
+      "text": "Teninize sürdüğünüz an pigmentler havayla hızlıca kimyasal tepkimeye girer.",
+      "start": 6.975,
+      "dur": 4.778
     },
     {
-      "text": "Günümüz hızlı modasında ise az gramajla hacim verilmeye çalışılıyor.",
-      "start": 11.521,
-      "dur": 4.442
+      "text": "Öğlen aynaya baktığınızda yüzünüz iki ton koyulaşmış turuncuya döner.",
+      "start": 11.753,
+      "dur": 4.396
     },
     {
-      "text": "İkinci elde ağırlık hissettiğin an kaliteli kumaşı buldun demektir.",
-      "start": 15.964,
-      "dur": 5.477
+      "text": "Suç cildinizde değil banyoda kapağı açık unuttuğunuz ambalajdadır.",
+      "start": 16.149,
+      "dur": 5.305
     }
   ]
 }
