@@ -261,25 +261,24 @@
     "insightsAt": "2026-08-13T18:00:20.827Z"
   },
   {
-    "title": "Viskon Elbisenin Kargo Kutusu Şoku",
-    "subject": "viskon",
-    "twist": "kargo-hayali",
-    "pillar": "sehir-efsanesi",
+    "title": "Beden Tablosu Neden Asla Tutmaz?",
+    "subject": "beden tablosu",
+    "twist": "zaman",
+    "pillar": "marka-primi",
     "layout": "vertical-stack",
     "kinds": "diagram",
     "motion": "cascade",
     "theme": "#ffe07d",
     "source": "gemini",
     "footage": [
-      "pexels:hands opening parcel box",
-      "pexels:clothes drying on line",
+      "pexels:wardrobe interior minimal",
+      "pexels:folded clothes stack close up",
       "pexels:denim fabric texture macro",
       "pexels:cotton fabric weave macro"
     ],
     "voice": 5,
     "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Daha komik gaf lı ve öğretici bir şey olmalı",
     "date": "2026-08-14",
     "durSec": 21.4
   }

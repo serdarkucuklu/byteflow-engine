@@ -1,74 +1,73 @@
 {
-  "hook": "Kargo takibini ezberleyen arkadaşının viskon hayali patladı.",
-  "title": "Viskon Elbisenin Kargo Kutusu Şoku",
+  "hook": "Beden tablosu yalanları yüzünden dolap önünde yaşlandın.",
+  "title": "Beden Tablosu Neden Asla Tutmaz?",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "FOTOĞRAF IŞIĞI"
+          "id": "ureti",
+          "label": "ORTAK ÜRETİCİ"
         },
         {
-          "id": "n2",
-          "label": "İPLİK SIKLIĞI"
+          "id": "marka",
+          "label": "MARKA ETİKETİ"
         },
         {
-          "id": "n3",
-          "label": "LİF ESNEKLİĞİ"
+          "id": "tuket",
+          "label": "SABAH KAOSU"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "IŞIK",
-          "status": "ışık parlak gösterir, kumaş ince kalır",
+          "from": "ureti",
+          "to": "marka",
+          "packet": "KALIP",
+          "status": "standart kalıp fason fabrikadan çıkar",
           "color": "accent"
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "PAKET",
-          "status": "kutuya girince lifler nemle büzüşür",
+          "from": "marka",
+          "to": "tuket",
+          "packet": "LOGO",
+          "status": "marka kendi hayali bedenini basar",
           "color": "warn"
         },
         {
-          "from": "n3",
-          "to": "n1",
-          "packet": "HAYAL",
-          "status": "kombin hayali biter, ev kıyafeti olur",
-          "color": "good"
+          "from": "tuket",
+          "to": "ureti",
+          "packet": "İADE",
+          "status": "iade kuyruğunda gençliğin solar",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Fotoğrafta ipek gibi akıp giden o viskon elbise kargodan çıkınca neden kırış kırış bir pazarlık kumaşa dönüşür?\n\nKargo kutusundaki viskon hüsranı adım adım:\n\n1. Stüdyo Işığı: Modelin üzerindeki güçlü çekim ışıkları, düşük kalite viskonun yüzeyini parlatır ve dökümlü algısı yaratır.\n2. İplik Sıklığı: Ucuz viskonda lifler seyrek dokunur; fotoğrafta anlaşılamayan bu seyreklik kumaşa form kazandırmaz.\n3. Nem ve Kutu Baskısı: Kargo paketindeki kapalı ortamda lifler ortam nemini çekip büzüşür, kutu açılınca elde incecik bir bez kalır.\n\nViskon alırken fotoğraftaki duruşa değil, dokuma sıklığına ve kumaş karışımına bakmak gerekir.\n\nFotoğraf satıcıyı, dokuma kalitesi gerçeği gösterir. Ama o kargo takibi yine de saat başı yenilenecek.\n\n📌 Kaydet — kargo hüsranı yaşamadan önce lazım olacak.\n🔁 Bunu kargo takibini saat başı sorgulayıp hayal kuran arkadaşına gönder.\nKargodan gelen viskonu iade mi edersin yoksa pijama mı yaparsın?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.\n\n#giyim #alışveriş #viskon #kumaş #gardırop #kargo #giyimtüyoları",
+  "caption": "Beden tablosu yalanları yüzünden dolap önünde yaşlandık!\n\nAynı fabrikadan çıkan iki jean pantolonun nasıl farklı bedenlerde hayatımızı kararttığının özeti:\n\n1. Ortak Üretici — Çoğu marka aynı fason üreticiden ham kumaş ve kalıp alır.\n2. Marka Etiketi — Markalar kendi müşteri kitlesinin egosuna göre beden tablosunu manipüle eder, yani S bedeni aslında M yapar.\n3. Sabah Kaosu — Biz de evde 'bana ne oldu böyle' diye ağlarken kargo iade sırasında gençliğimizi bırakırız.\n\nAlışveriş yaparken harflere değil, markanın santim cinsinden gerçek ölçülerine güvenmek tek çaredir.\n\nÇünkü sığamadığımız o pantolon değil, markanın hayal gücüdür.\n\n📌 Kaydet — bir dahaki alışverişte hüsrana uğramamak için lazım olacak.\n\n🔁 Bunu her sabah dolabın önünde 20 dakika kaybeden arkadaşına gönder.\n\nSen en son hangi beden aldın ve sığamadın?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#giyim",
+    "#moda",
     "#alışveriş",
-    "#viskon",
     "#kumaş",
     "#gardırop",
-    "#kargo",
-    "#giyimtüyoları"
+    "#bedentablosu"
   ],
-  "takeaway": "Viskon dökümü fotoğraftan anlaşılmaz, dokuma sıklığı söyler.",
+  "takeaway": "Metreyle ölçmeyen dolap önünde yaşlanmaya mahkumdur.",
   "footage_queries": [
-    "hands opening parcel box",
+    "wardrobe interior minimal",
     "clothing label tag close up"
   ],
   "narration": [
-    "O viskon kargo hayali böyle patlar.",
-    "Stüdyo ışığı ince viskon kumaşı ipek gibi parlak gösterir.",
-    "Kargo kutusundaki nem ise gevşek dokunmuş lifleri anında kırıştırır.",
-    "Aylardır beklediğin dökümlü elbise paketten çıkınca ev tişörtüne dönüşür.",
-    "Viskonu fotoğraftan değil kumaşın dokuma sıklığından tanımalısın güzelim."
+    "Beden tablosu ömrümüzden seneleri çalıyor.",
+    "Aynı fabrikadan çıkan kumaşlar farklı etiketlerle süslenir.",
+    "Markalar egomuzu okşamak için bedenleri kafasına göre küçültür.",
+    "Biz de sabah dolap önünde ağlayarak ömür çürütürüz.",
+    "Metreyle ölçmeyen dolap önünde yaşlanmaya mahkumdur."
   ],
-  "subject": "viskon",
-  "sendTo": "kargo takibini saat başı sorgulayıp hayal kuran arkadaşına",
-  "soru": "Kargodan gelen viskonu iade mi edersin yoksa pijama mı yaparsın?",
+  "subject": "beden tablosu",
+  "sendTo": "her sabah dolabın önünde 20 dakika kaybeden arkadaşına",
+  "soru": "Sen en son hangi beden aldın ve sığamadın?",
   "theme": "#ffe07d",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -93,30 +92,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "O viskon kargo hayali böyle patlar.",
+      "text": "Beden tablosu ömrümüzden seneleri çalıyor.",
       "start": 0.35,
-      "dur": 2.281
+      "dur": 3.147
     },
     {
-      "text": "Stüdyo ışığı ince viskon kumaşı ipek gibi parlak gösterir.",
-      "start": 2.631,
-      "dur": 3.78
+      "text": "Aynı fabrikadan çıkan kumaşlar farklı etiketlerle süslenir.",
+      "start": 3.497,
+      "dur": 4.421
     },
     {
-      "text": "Kargo kutusundaki nem ise gevşek dokunmuş lifleri anında kırıştırır.",
-      "start": 6.412,
-      "dur": 4.432
+      "text": "Markalar egomuzu okşamak için bedenleri kafasına göre küçültür.",
+      "start": 7.918,
+      "dur": 4.721
     },
     {
-      "text": "Aylardır beklediğin dökümlü elbise paketten çıkınca ev tişörtüne dönüşür.",
-      "start": 10.844,
-      "dur": 4.758
+      "text": "Biz de sabah dolap önünde ağlayarak ömür çürütürüz.",
+      "start": 12.638,
+      "dur": 3.821
     },
     {
-      "text": "Viskonu fotoğraftan değil kumaşın dokuma sıklığından tanımalısın güzelim.",
-      "start": 15.602,
-      "dur": 5.858
+      "text": "Metreyle ölçmeyen dolap önünde yaşlanmaya mahkumdur.",
+      "start": 16.46,
+      "dur": 4.996
     }
   ],
-  "thumbOffset": 1741
+  "thumbOffset": 2030
 }
