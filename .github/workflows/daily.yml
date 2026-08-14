@@ -272,6 +272,10 @@ jobs:
       - name: Token expiry guard
         if: always()
         env:
+          # Bekçi HANGİ markaların token'ına bakacağını brands/*.json'dan türetiyor; burada
+          # yalnız secret'ları geçiyoruz. Yeni marka eklerken token secret'ını buraya da ekle
+          # (yoksa bekçi "tanımlı değil" uyarısı basar — sessiz kalmaz).
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node publish/check-token-expiry.mjs

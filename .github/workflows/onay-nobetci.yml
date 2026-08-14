@@ -6,6 +6,11 @@ name: Onay Nöbetçisi
 # gelirse ANINDA (15 sn içinde) uygulanır ve bu iş hiç devreye girmez. Karar gece yarısı
 # ya da ertesi sabah gelirse pencere kapanmış olur — işte o zaman bu cron devralır.
 #
+# ⚠ 2026-08-14: bu iş ELLE YAZILMIŞ tek markaya (ciltkodu) bakıyordu. @kizlar.kodu'nun
+# onay kapısı da açık olduğu hâlde nöbetçi onu HİÇ yoklamıyordu: o markada nöbet penceresi
+# dışında verilen bir karar sonsuza dek uygulanmadan kalırdı. Marka listesi artık
+# KANONİK kaynaktan geliyor (brands/*.json → onay.aktif), yeni markaya kör doğmaz.
+#
 # Maliyet: repo public → Actions dakikaları ücretsiz. Karar yoksa iş ~20 saniyede biter
 # (kurulum adımları YALNIZCA iş varken çalışır).
 on:
@@ -14,9 +19,9 @@ on:
   workflow_dispatch:
     inputs:
       brand:
-        description: 'Marka (varsayılan: ciltkodu)'
+        description: 'Yalnız bu marka (boş = onay kapısı açık tüm markalar)'
         type: string
-        default: 'ciltkodu'
+        default: ''
 
 permissions:
   contents: write
@@ -24,15 +29,16 @@ permissions:
 concurrency:
   # Günlük iş nöbetteyken nöbetçi de aynı kararı kapmaya çalışmasın diye SUNUCU tarafında
   # kiralama var; buradaki grup ise nöbetçinin kendi kopyalarını sıraya sokar.
-  group: onay-nobetci-${{ github.event.inputs.brand || 'ciltkodu' }}
+  group: onay-nobetci
   cancel-in-progress: false
 
 jobs:
   nobet:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # İki marka birden "tekrar dene" kararı almış olabilir: her biri tam bir video üretimi
+    # (~10 dk) + kısa nöbet (25 dk) demek. 60 dakika bunu kaldırmıyordu.
+    timeout-minutes: 150
     env:
-      BYTEFLOW_BRAND: ${{ github.event.inputs.brand || 'ciltkodu' }}
       ONAY_BASE_URL: ${{ secrets.ONAY_BASE_URL }}
       ONAY_INGEST_KEY: ${{ secrets.ONAY_INGEST_KEY }}
     steps:
@@ -40,16 +46,32 @@ jobs:
 
       - name: Uygulanacak karar var mı?
         id: bak
+        env:
+          ELLE_MARKA: ${{ github.event.inputs.brand }}
         run: |
           if [ -z "$ONAY_BASE_URL" ] || [ -z "$ONAY_INGEST_KEY" ]; then
             echo "· onay secret'ları yok, atlanıyor"; exit 0
           fi
-          DURUM=$(curl -fsS --max-time 20 -H "x-onay-key: $ONAY_INGEST_KEY" \
-            "$ONAY_BASE_URL/api/durum?marka=$BYTEFLOW_BRAND") || { echo "· onay kutusuna ulaşılamadı"; exit 0; }
-          echo "$DURUM" | jq -c '{bekleyenVar, durum: .kalem.durum, karar: .kalem.karar}'
-          if [ "$(echo "$DURUM" | jq -r '.kalem.durum // ""')" = "karar-verildi" ]; then
+          if [ -n "$ELLE_MARKA" ]; then
+            MARKALAR="$ELLE_MARKA"
+          else
+            MARKALAR=$(jq -r 'select(.onay.aktif == true) | .slug' brands/*.json | sort -u | tr '\n' ' ')
+          fi
+          echo "· nöbet listesi: ${MARKALAR:-yok}"
+          BEKLEYEN=""
+          for M in $MARKALAR; do
+            DURUM=$(curl -fsS --max-time 20 -H "x-onay-key: $ONAY_INGEST_KEY" \
+              "$ONAY_BASE_URL/api/durum?marka=$M") || { echo "· $M: onay kutusuna ulaşılamadı"; continue; }
+            echo "· $M → $(echo "$DURUM" | jq -c '{bekleyenVar, durum: .kalem.durum, karar: .kalem.karar}')"
+            if [ "$(echo "$DURUM" | jq -r '.kalem.durum // ""')" = "karar-verildi" ]; then
+              BEKLEYEN="$BEKLEYEN $M"
+            fi
+          done
+          BEKLEYEN=$(echo $BEKLEYEN)
+          echo "markalar=$BEKLEYEN" >> "$GITHUB_OUTPUT"
+          if [ -n "$BEKLEYEN" ]; then
             echo "is=1" >> "$GITHUB_OUTPUT"
-            echo "::notice::Bekleyen karar var → uygulanıyor."
+            echo "::notice::Bekleyen karar var → uygulanıyor: $BEKLEYEN"
           fi
 
       # Bundan sonrası YALNIZCA iş varken: 15 dakikada bir boş yere Chromium kurulmaz.
@@ -76,6 +98,9 @@ jobs:
       - name: Kararı uygula
         if: steps.bak.outputs.is == '1'
         env:
+          # ⚠ Marka listesi kabuğa ${{ }} ile GÖMÜLMEZ, ortam değişkeniyle geçer (komut
+          # enjeksiyonu yüzeyi bırakmayalım).
+          MARKALAR: ${{ steps.bak.outputs.markalar }}
           # "Tekrar dene" gelirse burada da tam bir video üretimi koşuyor.
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
@@ -91,4 +116,12 @@ jobs:
           NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
           NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
           NOBLE_FB_PAGE_ID: ${{ secrets.NOBLE_FB_PAGE_ID }}
-        run: xvfb-run -a node publish/onay-akisi.mjs --nobet
+        run: |
+          # Bir markanın kararı patlarsa DİĞERİ yine uygulansın: hata biriktirilir, hüküm sonda.
+          HATA=0
+          for M in $MARKALAR; do
+            echo "::group::$M — karar uygulanıyor"
+            BYTEFLOW_BRAND="$M" xvfb-run -a node publish/onay-akisi.mjs --nobet || HATA=1
+            echo "::endgroup::"
+          done
+          exit $HATA
