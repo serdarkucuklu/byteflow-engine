@@ -1,78 +1,75 @@
 {
-  "hook": "'Üstünüzde harika durdu' deyip referans fiyatı yedirdiler.",
-  "title": "'Üstünüzde Harika Durdu' Denen Referans Fiyat Oyunu",
+  "hook": "Akışta gördüğün sweatshirt sende neden durmuyor?",
+  "title": "Marka İşbirliği Sweatshirt'ü Gafları",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "REFERANS FİYAT"
+          "id": "temel_uretim",
+          "label": "TEMEL ÜRETİM"
         },
         {
-          "id": "n2",
-          "label": "KABİN ÖVGÜSÜ"
+          "id": "marka_ustu",
+          "label": "MARKA ÜSTÜ"
         },
         {
-          "id": "n3",
-          "label": "ÇİZİLİ İNDİRİM"
+          "id": "isbirligi",
+          "label": "İŞBİRLİĞİ"
         },
         {
-          "id": "n4",
-          "label": "KASA YAN SATIŞ"
+          "id": "influencer",
+          "label": "İNFLUENSER KOM."
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "ETİKET",
-          "status": "referans fiyat şişirilir, algı kurulur",
-          "color": "accent"
+          "from": "temel_uretim",
+          "to": "marka_ustu",
+          "packet": "MALİYE",
+          "status": "kumaş, dikiş, ah o basit maliyet."
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "AYNA",
-          "status": "üstünüzde harika durdu dendi, gard düştü",
-          "color": "good"
+          "from": "marka_ustu",
+          "to": "isbirligi",
+          "packet": "İSİM",
+          "status": "oysa logoyla fiyat ikiye katlanır."
         },
         {
-          "from": "n3",
-          "to": "n4",
-          "packet": "KASA",
-          "status": "çizili fiyata kanıp kasada ikinciyi",
-          "color": "warn"
+          "from": "isbirligi",
+          "to": "influencer",
+          "packet": "PRİM",
+          "status": "sonra sana \"linki attım\" derler."
         }
       ]
     }
   ],
-  "caption": "'Üstünüzde çok güzel durdu' cümlesi bir iltifat değil, psikolojik fiyatlandırma stratejisidir.\n\nKabin önünde sepet büyüten referans fiyat mekanizması böyle çalışıyor:\n\n1. Referans Fiyat — Mağaza ilk etiketi bilinçli olarak yüksek tutar. Amac ürünün değerini zihninde o rakama çakmaktır.\n2. Kabin Övgüsü — 'Çok yakıştı' denildiği an savunma mekanizman düşer ve referans fiyatı zihninde meşrulaştırırsın.\n3. Çizili İndirim — Üstü çizilen yüksek fiyat sana tasarruf ettiğin hissini verir, bütçe algını tamamen esnetir.\n4. Kasa Yan Satış — Gardın düşünce kasada 'yanına bu da çok yakışır' denilerek sepet tutarı ikiye katlanır.\n\nBir dahaki sefere kabinde iltifat aldığında kıyafete değil, üstü çizilen ilk fiyata bak.\n\nDanışman kötü değil, sadece işini yapıyor; ama o ikinci parçayı yine de kasada bırakacağız.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu kabin kapısından her çıkan kıyafeti alıp kasada şok olan arkadaşına gönder.\nSen hangisisin: kabindeki övgüye kanan mı, fiyata bakıp kaçan mı?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Akışta gördüğün o 'harika' sweatshirt, neden sende aynı durmuyor? İşte o meşhur sweatshirt'ün fiyatının katmanları ve gerçekleri:1. Temel Üretim: Kumaşın maliyeti, kesim ve dikim işçiliği çoğu marka için aslında çok benzerdir. Yani sweatshirt'ün fiziksel olarak üretilmesi, fiyatın küçük bir kısmını oluşturur.2. Marka Üstü: Ürüne eklenen marka adı, tasarım (eğer varsa özel bir tasarım), markanın genel pazarlama giderleri ve şirket kâr marjı bu katmanda yer alır. Bu kısım, ürünün 'değerini' artırır.3. İşbirliği: Eğer bu bir 'influencer' veya 'tasarımcı' işbirliği ise, bu işbirliğinin maliyeti de fiyatın üzerine eklenir. Yani aslında logonun veya özel etiketin kendisi için ödeme yaparsınız.4. Influencer Komisyonu: Son olarak, ürünü sana tanıtan influencer'a ödenen komisyon da nihai satış fiyatına yansır. Bu, sosyal medyada gördüğün o 'mükemmel' görüntünün bir bedeli vardır demek. Alışveriş yaparken, gördüğünüz ürünün temel maliyeti ile marka ve pazarlama primini iyi ayırt etmek, gerçek değerini anlamanı sağlar. O 'linki attım' dediği sweatshirt aslında sadece sana pazarlanıyor, kalitesinden değil influencer'dan kazanılıyor.\n\n📌 Kaydet — bir dahaki alışverişte 'neden böyle oldu' dememek için.\n\n🔁 Bunu akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına gönder. Sen kaç kez 'linki attım' tuzağına düştün, dürüst ol? Yazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#alışveriş",
     "#giyim",
-    "#indirim",
-    "#referansfiyat",
-    "#mağazacılık",
+    "#alışveriş",
     "#moda",
-    "#gardırop"
+    "#gardırop",
+    "#marka",
+    "#gerçekler",
+    "#sweatshirt"
   ],
-  "takeaway": "'Çok yakıştı' cümlesi aslında sepeti ikiye katlama ilüzyonudur.",
+  "takeaway": "O \"linki attım\" dediği sweatshirt aslında sadece sana pazarlanıyor.",
   "footage_queries": [
-    "price tag close up macro",
-    "shopping bags flat lay"
+    "cardboard parcel box close up",
+    "cotton fabric weave macro"
   ],
   "narration": [
-    "'Üstünüzde harika durdu' lafı referans fiyattır.",
-    "Mağaza önce etiket fiyatını yüksek tutarak zihninde sahte referans oluşturur.",
-    "Kabindeki danışman harika durdu deyince savunma mekanizman tamamen çöker.",
-    "Üstü çizilen hayali indirimle kasada yanına ikinci parçayı da eklersin.",
-    "O övgü kıyafete değil, sepet tutarını ikiye katlayan pazarlama taktiğinizedir."
+    "Akışta gördüğün sweatshirt sende neden durmuyor?",
+    "Çünkü temel üretim maliyeti genelde her yerde hemen hemen aynıdır.",
+    "Fakat üstüne marka değeri, tasarım ve 'özel seri' etiketi eklenir.",
+    "Ve tabii ki, o influencer'a giden komisyon da cebinden çıkar.",
+    "O \"linki attım\" dediği sweatshirt aslında sadece sana pazarlanıyor."
   ],
-  "subject": "referans fiyat",
-  "sendTo": "kabin kapısından her çıkan kıyafeti alıp kasada şok olan arkadaşına",
-  "soru": "Sen hangisisin: kabindeki övgüye kanan mı, fiyata bakıp kaçan mı?",
+  "subject": "sweatshirt",
+  "sendTo": "akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına",
+  "soru": "Sen kaç kez 'linki attım' tuzağına düştün, dürüst ol?",
   "theme": "#ffe07d",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -97,29 +94,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "'Üstünüzde harika durdu' lafı referans fiyattır.",
+      "text": "Akışta gördüğün sweatshirt sende neden durmuyor?",
       "start": 0.35,
-      "dur": 3.264
+      "dur": 3.117
     },
     {
-      "text": "Mağaza önce etiket fiyatını yüksek tutarak zihninde sahte referans oluşturur.",
-      "start": 3.614,
-      "dur": 5.236
+      "text": "Çünkü temel üretim maliyeti genelde her yerde hemen hemen aynıdır.",
+      "start": 3.467,
+      "dur": 4.286
     },
     {
-      "text": "Kabindeki danışman harika durdu deyince savunma mekanizman tamamen çöker.",
-      "start": 8.85,
-      "dur": 4.964
+      "text": "Fakat üstüne marka değeri, tasarım ve 'özel seri' etiketi eklenir.",
+      "start": 7.753,
+      "dur": 4.286
     },
     {
-      "text": "Üstü çizilen hayali indirimle kasada yanına ikinci parçayı da eklersin.",
-      "start": 13.815,
-      "dur": 4.828
+      "text": "Ve tabii ki, o influencer'a giden komisyon da cebinden çıkar.",
+      "start": 12.039,
+      "dur": 3.961
     },
     {
-      "text": "O övgü kıyafete değil, sepet tutarını ikiye katlayan pazarlama taktiğinizedir.",
-      "start": 18.643,
-      "dur": 6.404
+      "text": "O \"linki attım\" dediği sweatshirt aslında sadece sana pazarlanıyor.",
+      "start": 16.001,
+      "dur": 5.451
     }
   ]
 }

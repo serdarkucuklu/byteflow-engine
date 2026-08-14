@@ -261,26 +261,26 @@
     "insightsAt": "2026-08-13T18:00:20.827Z"
   },
   {
-    "title": "'Üstünüzde Harika Durdu' Denen Referans Fiyat Oyunu",
-    "subject": "referans fiyat",
-    "twist": "magaza-danismani",
-    "pillar": "indirim-mekanigi",
+    "title": "Marka İşbirliği Sweatshirt'ü Gafları",
+    "subject": "sweatshirt",
+    "twist": "sosyal-medya",
+    "pillar": "marka-primi",
     "layout": "vertical-stack",
     "kinds": "diagram",
     "motion": "cascade",
     "theme": "#ffe07d",
     "source": "gemini",
     "footage": [
-      "pexels:price tag close up macro",
-      "pexels:shopping bags flat lay",
+      "pexels:cardboard parcel box close up",
+      "pexels:washing machine drum spinning",
       "pexels:denim fabric texture macro",
       "pexels:cotton fabric weave macro"
     ],
     "voice": 5,
-    "voiceName": "Aoede",
+    "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Daha komik, öğretici ve gaf lı olmalı",
+    "not": "Daha komik gaflı olmalı",
     "date": "2026-08-14",
-    "durSec": 25
+    "durSec": 21.4
   }
 ]
