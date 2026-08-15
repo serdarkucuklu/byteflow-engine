@@ -1,78 +1,78 @@
 {
-  "hook": "Abla bu cildine birebir lafıyla retinol alan o arkadaşın.",
-  "title": "Pahalı Retinol vs Uygun Fiyatlı Retinol",
+  "hook": "Yarım kalan retinol serumun seni izliyor.",
+  "title": "Yarım Kalan Retinol Mezarlığı ve Soyulma Korkusu",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "SAF ETKEN MADDE"
+          "id": "N1",
+          "label": "RETİNOL DOLAPTA"
         },
         {
-          "id": "n2",
-          "label": "KAPSÜLE FORMÜL"
+          "id": "N2",
+          "label": "HÜCRE YENİLEME"
         },
         {
-          "id": "n3",
-          "label": "AMBALAJ VE MARKA"
+          "id": "N3",
+          "label": "OKSİDASYON ETKİSİ"
         },
         {
-          "id": "n4",
-          "label": "CİLT TOLERANSI"
+          "id": "N4",
+          "label": "SERUM MEZARLIĞI"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "AKTİF",
-          "status": "aktif molekül aynı, reyon iknası başladı",
-          "color": "good"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "TAŞIMA",
-          "status": "kapsüllü retinol yavaş salınır yakmaz",
-          "color": "accent"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "ETKİ",
-          "status": "ucuz olan soyar lüks olan hissettirmez",
+          "from": "N1",
+          "to": "N2",
+          "packet": "TOLER",
+          "status": "korkup dolaba atılır taksit devam eder",
           "color": "warn"
+        },
+        {
+          "from": "N2",
+          "to": "N3",
+          "packet": "OKSİJ",
+          "status": "hava alan serum rafta sessizce bozulur",
+          "color": "warn"
+        },
+        {
+          "from": "N3",
+          "to": "N4",
+          "packet": "ATIK",
+          "status": "tarihi geçince bile çöpe atılamaz",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Reyon danışmanının ikna gücüyle alınan o retinol serum aslında nasıl çalışıyor?\n\nPahalı retinol ile ucuz muadili arasındaki gerçek fark adım adım:\n\n1. SAF ETKEN MADDE — Tüpteki saf retinol molekülü fiyattan bağımsız olarak kimyasal açıdan tamamen aynıdır.\n2. KAPSÜLE FORMÜL — Yüksek fiyatlı ürünler aktif maddeyi mikroskobik kapsüllere sarar. Bu sayede retinol cilde yavaş salınır ve soyulma yapmaz.\n3. CİLT TOLERANSI — Ucuz formüllerde retinol birden salındığı için kızarıklık yapabilir. Aradaki fiyat farkı moleküle değil taşıyıcı teknolojiye gider.\n\nAlışveriş yaparken sadece yüzde oranına değil, cildinizin hassasiyetine göre taşıyıcı teknolojiye de bakın.\n\nYani reyon danışmanı haklıydı ama bunu kabullenmek zor.\n\n📌 Kaydet — bir dahaki kozmetik alışverişinde lazım olacak.\n🔁 Bunu reyondan tek pamuk alacakken retinol serumla çıkan arkadaşına gönder.\nSen hangisisin: Marka retinol mu yoksa eczane muadili mi?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Yarım kalan retinol serumun banyoda seni izliyor.\n\nRetinol serumunun rafta unutulma anatomisi adım adım:\n\n1. Tolerans Dönemi — Retinol hücresel döngüyü hızlandırır; ilk haftalarda soyulma yapması normaldir ama panikleyip bırakılınca süreç yarıda kalır.\n2. Oksidasyon Risk — Kapağı bir kez açılan aktif içerik, hava ve ışıkla temas ettikçe zamanla gücünü kaybedip etkisizleşir.\n3. Raf Mezarlığı — Etkisi bitse de parası ödendiği için çöpe atılamaz, banyo rafında dekorasyon objesine dönüşür.\n\nRetinole yüksek oranla değil, haftada iki gece sandviç yöntemiyle düşük oranla alışarak başlamak işe yarar.\n\nÜrün suçlu değil, sabırsızlığımız suçlu. Ama o yeni serum yine alınacak.\n\n📌 Kaydet — bir dahaki retinol krizinde lazım olacak.\n\n🔁 Bunu banyosu yarım kalmış serum mezarlığına dönen arkadaşına gönder.\n\nDolabında kaç tane yarım kalmış serum var, dürüst ol?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
     "#retinol",
+    "#ciltserumu",
+    "#skincaretr",
     "#ciltbariyeri",
-    "#muadil",
-    "#retinolserum",
-    "#ciltbakımönerileri"
+    "#retinolserum"
   ],
-  "takeaway": "Moleküle değil formüle para ödersin, reyon ablası yine haklı çıktı.",
+  "takeaway": "Alıştırarak sürmediğin her retinol dolapta mezar taşına dönüşür.",
   "footage_queries": [
     "serum drop close up",
-    "hands applying cream close up"
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Reyonda retinol iknası yine tamamlandı.",
-    "Pahalı ve ucuz retinoldaki etken molekül birebir aynıdır.",
-    "Farkı yaratan şey aktif maddenin kapsüllenme teknolojisidir.",
-    "Kapsüllü retinol cildinizi yakmadan alt katmana yavaşça ulaşır.",
-    "Moleküle değil formüle para ödersin reyon ablası haklı çıktı."
+    "Yarım kalan retinol serumun seni izliyor.",
+    "İlk soymada korkup retinolü dolabın en arkasına saklıyorsun.",
+    "Kapağı açılan serum hava aldıkça gücünü yavaşça kaybediyor.",
+    "Bozulsa bile kıyamayıp aylarca rafta tutmaya devam ediyorsun.",
+    "Cilt bariyerini alıştırmadan alınan her retinol mezarlıkta biter."
   ],
   "subject": "retinol",
-  "sendTo": "reyondan tek pamuk alacakken retinol serumla çıkan arkadaşına",
-  "soru": "Sen hangisisin: Marka retinol mu yoksa eczane muadili mi?",
+  "sendTo": "banyosu yarım kalmış serum mezarlığına dönen arkadaşına",
+  "soru": "Dolabında kaç tane yarım kalmış serum var, dürüst ol?",
   "theme": "#c9a227",
   "brand": {
     "handle": "@cilt.kodu",
@@ -97,29 +97,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Reyonda retinol iknası yine tamamlandı.",
+      "text": "Yarım kalan retinol serumun seni izliyor.",
       "start": 0.35,
-      "dur": 2.784
+      "dur": 2.866
     },
     {
-      "text": "Pahalı ve ucuz retinoldaki etken molekül birebir aynıdır.",
-      "start": 3.134,
-      "dur": 4.069
+      "text": "İlk soymada korkup retinolü dolabın en arkasına saklıyorsun.",
+      "start": 3.216,
+      "dur": 4.194
     },
     {
-      "text": "Farkı yaratan şey aktif maddenin kapsüllenme teknolojisidir.",
-      "start": 7.203,
-      "dur": 4.283
+      "text": "Kapağı açılan serum hava aldıkça gücünü yavaşça kaybediyor.",
+      "start": 7.41,
+      "dur": 4.124
     },
     {
-      "text": "Kapsüllü retinol cildinizi yakmadan alt katmana yavaşça ulaşır.",
-      "start": 11.486,
-      "dur": 4.497
+      "text": "Bozulsa bile kıyamayıp aylarca rafta tutmaya devam ediyorsun.",
+      "start": 11.535,
+      "dur": 4.264
     },
     {
-      "text": "Moleküle değil formüle para ödersin reyon ablası haklı çıktı.",
-      "start": 15.984,
-      "dur": 5.455
+      "text": "Cilt bariyerini alıştırmadan alınan her retinol mezarlıkta biter.",
+      "start": 15.799,
+      "dur": 5.644
     }
   ]
 }

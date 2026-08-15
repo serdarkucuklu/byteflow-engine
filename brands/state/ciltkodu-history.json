@@ -633,10 +633,10 @@
     "insightsAt": "2026-08-15T15:20:31.724Z"
   },
   {
-    "title": "Pahalı Retinol vs Uygun Fiyatlı Retinol",
+    "title": "Yarım Kalan Retinol Mezarlığı ve Soyulma Korkusu",
     "subject": "retinol",
-    "twist": "magaza-danismani",
-    "pillar": "muadil",
+    "twist": "dolap-mezarligi",
+    "pillar": "trend-mekanik",
     "layout": "vertical-stack",
     "kinds": "diagram",
     "motion": "buildup",
@@ -644,13 +644,14 @@
     "source": "gemini",
     "footage": [
       "pexels:serum drop close up",
-      "pexels:loose powder texture macro",
+      "pexels:cosmetic bottles soft light",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
     "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
+    "not": "Daha kpmik ve öğretici bir konu madde olmalı , daha iyi gaf olmalı",
     "date": "2026-08-15",
     "durSec": 21.4
   }
