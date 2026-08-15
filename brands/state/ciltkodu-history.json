@@ -320,7 +320,7 @@
       "ig_reels_avg_watch_time": 11278,
       "ig_reels_video_view_total_time": 13229976
     },
-    "insightsAt": "2026-08-14T15:52:03.085Z"
+    "insightsAt": "2026-08-15T15:20:16.881Z"
   },
   {
     "title": "Mikroakım Cihazı vs Retinol",
@@ -364,15 +364,15 @@
     "mediaId": "18544905898073222",
     "postedAt": "2026-08-02T19:42:26.780Z",
     "insights": {
-      "views": 1191,
-      "reach": 1058,
+      "views": 1193,
+      "reach": 1060,
       "saved": 7,
       "shares": 8,
       "total_interactions": 25,
-      "ig_reels_avg_watch_time": 7571,
-      "ig_reels_video_view_total_time": 8018146
+      "ig_reels_avg_watch_time": 7558,
+      "ig_reels_video_view_total_time": 8019659
     },
-    "insightsAt": "2026-08-14T15:52:05.287Z"
+    "insightsAt": "2026-08-15T15:20:18.415Z"
   },
   {
     "title": "Niasinamid: Gerçekten İşe Yarıyor mu?",
@@ -404,7 +404,7 @@
       "ig_reels_avg_watch_time": 7205,
       "ig_reels_video_view_total_time": 641327
     },
-    "insightsAt": "2026-08-14T15:52:06.187Z"
+    "insightsAt": "2026-08-15T15:20:19.817Z"
   },
   {
     "title": "Dermaroller Paylaşılmaz: Evde İğneli Hijyen Riski",
@@ -435,7 +435,7 @@
       "ig_reels_avg_watch_time": 4887,
       "ig_reels_video_view_total_time": 347032
     },
-    "insightsAt": "2026-08-14T15:52:07.080Z"
+    "insightsAt": "2026-08-15T15:20:20.852Z"
   },
   {
     "title": "Silikonlu Primer vs Su Bazlı Primer",
@@ -466,7 +466,7 @@
       "ig_reels_avg_watch_time": 6583,
       "ig_reels_video_view_total_time": 770304
     },
-    "insightsAt": "2026-08-14T15:52:07.932Z"
+    "insightsAt": "2026-08-15T15:20:22.147Z"
   },
   {
     "title": "Makyaj Temizleme Mendili vs Çift Aşama",
@@ -497,7 +497,7 @@
       "ig_reels_avg_watch_time": 11575,
       "ig_reels_video_view_total_time": 266247
     },
-    "insightsAt": "2026-08-14T15:52:10.128Z"
+    "insightsAt": "2026-08-15T15:20:23.880Z"
   },
   {
     "title": "Sivilce Neden Hep Önemli Günden Önce Çıkar?",
@@ -528,7 +528,7 @@
       "ig_reels_avg_watch_time": 3228,
       "ig_reels_video_view_total_time": 345457
     },
-    "insightsAt": "2026-08-14T15:52:11.147Z"
+    "insightsAt": "2026-08-15T15:20:25.950Z"
   },
   {
     "title": "Kapatıcı ve Işık İllüzyonu",
@@ -562,7 +562,7 @@
       "ig_reels_avg_watch_time": 10973,
       "ig_reels_video_view_total_time": 5464555
     },
-    "insightsAt": "2026-08-14T15:52:11.983Z"
+    "insightsAt": "2026-08-15T15:20:27.412Z"
   },
   {
     "title": "SPF 50 Stick vs Likit Güneş Kremi",
@@ -596,7 +596,7 @@
       "ig_reels_avg_watch_time": 3885,
       "ig_reels_video_view_total_time": 73830
     },
-    "insightsAt": "2026-08-14T15:52:13.695Z"
+    "insightsAt": "2026-08-15T15:20:28.992Z"
   },
   {
     "title": "Fondöten Neden Koyulaşır?",
@@ -620,6 +620,16 @@
     "date": "2026-08-14",
     "durSec": 21.4,
     "mediaId": "18102512246239942",
-    "postedAt": "2026-08-14T14:40:05.788Z"
+    "postedAt": "2026-08-14T14:40:05.788Z",
+    "insights": {
+      "views": 121,
+      "reach": 119,
+      "saved": 0,
+      "shares": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 2114,
+      "ig_reels_video_view_total_time": 249522
+    },
+    "insightsAt": "2026-08-15T15:20:31.724Z"
   }
 ]
