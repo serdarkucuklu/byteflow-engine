@@ -1,78 +1,74 @@
 {
-  "hook": "Yarım kalan retinol serumun seni izliyor.",
-  "title": "Yarım Kalan Retinol Mezarlığı ve Soyulma Korkusu",
+  "hook": "Sen retinol sürerken tek sabunla gezen o sevgilin.",
+  "title": "Retinol vs Tek Sabun Mucizesi",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "N1",
-          "label": "RETİNOL DOLAPTA"
+          "id": "kalin-deri",
+          "label": "KALIN EPİDERMİS"
         },
         {
-          "id": "N2",
-          "label": "HÜCRE YENİLEME"
+          "id": "sebum-dengesi",
+          "label": "DOĞAL SEBUM"
         },
         {
-          "id": "N3",
-          "label": "OKSİDASYON ETKİSİ"
-        },
-        {
-          "id": "N4",
-          "label": "SERUM MEZARLIĞI"
+          "id": "düşük-hassasiyet",
+          "label": "SIFIR ENFLAMASYON"
         }
       ],
       "steps": [
         {
-          "from": "N1",
-          "to": "N2",
-          "packet": "TOLER",
-          "status": "korkup dolaba atılır taksit devam eder",
-          "color": "warn"
-        },
-        {
-          "from": "N2",
-          "to": "N3",
-          "packet": "OKSİJ",
-          "status": "hava alan serum rafta sessizce bozulur",
-          "color": "warn"
-        },
-        {
-          "from": "N3",
-          "to": "N4",
-          "packet": "ATIK",
-          "status": "tarihi geçince bile çöpe atılamaz",
+          "from": "kalin-deri",
+          "to": "sebum-dengesi",
+          "packet": "DİRENÇ",
+          "status": "kalın epidermis dış darbeyi rahatça",
           "color": "accent"
+        },
+        {
+          "from": "sebum-dengesi",
+          "to": "düşük-hassasiyet",
+          "packet": "SEBUM",
+          "status": "doğal yağlar nemi kilitlerken gözenek",
+          "color": "good"
+        },
+        {
+          "from": "düşük-hassasiyet",
+          "to": "kalin-deri",
+          "packet": "GENETİ",
+          "status": "asit veya retinol gerektirmeden",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Yarım kalan retinol serumun banyoda seni izliyor.\n\nRetinol serumunun rafta unutulma anatomisi adım adım:\n\n1. Tolerans Dönemi — Retinol hücresel döngüyü hızlandırır; ilk haftalarda soyulma yapması normaldir ama panikleyip bırakılınca süreç yarıda kalır.\n2. Oksidasyon Risk — Kapağı bir kez açılan aktif içerik, hava ve ışıkla temas ettikçe zamanla gücünü kaybedip etkisizleşir.\n3. Raf Mezarlığı — Etkisi bitse de parası ödendiği için çöpe atılamaz, banyo rafında dekorasyon objesine dönüşür.\n\nRetinole yüksek oranla değil, haftada iki gece sandviç yöntemiyle düşük oranla alışarak başlamak işe yarar.\n\nÜrün suçlu değil, sabırsızlığımız suçlu. Ama o yeni serum yine alınacak.\n\n📌 Kaydet — bir dahaki retinol krizinde lazım olacak.\n\n🔁 Bunu banyosu yarım kalmış serum mezarlığına dönen arkadaşına gönder.\n\nDolabında kaç tane yarım kalmış serum var, dürüst ol?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Sen her gece beş farklı şişeyle kimya laboratuvarı kurarken o el sabunuyla yıkanıp parlıyorsa suç sende değil, androjen hormonlarında.\n\n12 adımlı serum rutinine rağmen onun tek sabunla cam gibi gezmesinin biyolojisi:\n\n1. Kalın Epidermis — Erkek cildi dermis seviyesinde yaklaşık %20 daha kalındır. Dış etkenler, soyucu asitler veya bariyer bozulması onlara teğet geçer.\n2. Sebum Dengesi — Doğal yağ üretimi yüksek ama gözenek yapısı geniş ve dirençlidir. Nem kaybetmezler, bariyerleri kendiliğinden kilitli kalır.\n3. Düşük Enflamasyon — Ağır kokulu banyo sabunu bile sürseler reaktif kızarıklık veya hassasiyet tepkisi vermezler.\n\nSen retinol toleransı geliştirmek için aylarını harcarsın, o genetik piyangoyu doğuştan kazanmıştır.\n\nBiz yine de nemlendiricimizi sürüp kendimizi seveceğiz.\n\n📌 Kaydet — bir dahaki krem krizinde kendini teselli edersin.\n\n🔁 Bunu yüzünü tek sabunla yıkayıp cam gibi cilde sahip olan sevgiline gönder.\n\nSenin rutinin kaç adımdan oluşuyor, onunki kaç?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#güzellik",
+    "#guzellik",
     "#retinol",
-    "#ciltserumu",
-    "#skincaretr",
+    "#ciltrutini",
     "#ciltbariyeri",
-    "#retinolserum"
+    "#skincare",
+    "#sebum"
   ],
-  "takeaway": "Alıştırarak sürmediğin her retinol dolapta mezar taşına dönüşür.",
+  "takeaway": "Ona altı serum değil, sadece genetik piyango vurmuş.",
   "footage_queries": [
-    "serum drop close up",
-    "cosmetic bottles soft light"
+    "soap bubbles macro",
+    "serum drop close up"
   ],
   "narration": [
-    "Yarım kalan retinol serumun seni izliyor.",
-    "İlk soymada korkup retinolü dolabın en arkasına saklıyorsun.",
-    "Kapağı açılan serum hava aldıkça gücünü yavaşça kaybediyor.",
-    "Bozulsa bile kıyamayıp aylarca rafta tutmaya devam ediyorsun.",
-    "Cilt bariyerini alıştırmadan alınan her retinol mezarlıkta biter."
+    "Sen retinol sürerken o sabunla parlıyor.",
+    "Kalın erkek cildinde dış bariyer çizilmeden sağlam kalıyor.",
+    "Doğal sebum üretimi nemi içeride kendiliğinden hapsedip koruyor.",
+    "Sıfır enflamasyon sayesinde cilt kendi kendine pürüzsüzleşiyor.",
+    "Ona retinol değil sadece yüksek genetik piyango vurmuş."
   ],
   "subject": "retinol",
-  "sendTo": "banyosu yarım kalmış serum mezarlığına dönen arkadaşına",
-  "soru": "Dolabında kaç tane yarım kalmış serum var, dürüst ol?",
+  "sendTo": "yüzünü tek sabunla yıkayıp cam gibi cilde sahip olan sevgiline",
+  "soru": "Senin rutinin kaç adımdan oluşuyor, onunki kaç?",
   "theme": "#c9a227",
   "brand": {
     "handle": "@cilt.kodu",
@@ -97,29 +93,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Yarım kalan retinol serumun seni izliyor.",
+      "text": "Sen retinol sürerken o sabunla parlıyor.",
       "start": 0.35,
-      "dur": 2.866
+      "dur": 2.847
     },
     {
-      "text": "İlk soymada korkup retinolü dolabın en arkasına saklıyorsun.",
-      "start": 3.216,
-      "dur": 4.194
+      "text": "Kalın erkek cildinde dış bariyer çizilmeden sağlam kalıyor.",
+      "start": 3.197,
+      "dur": 4.2
     },
     {
-      "text": "Kapağı açılan serum hava aldıkça gücünü yavaşça kaybediyor.",
-      "start": 7.41,
-      "dur": 4.124
+      "text": "Doğal sebum üretimi nemi içeride kendiliğinden hapsedip koruyor.",
+      "start": 7.397,
+      "dur": 4.555
     },
     {
-      "text": "Bozulsa bile kıyamayıp aylarca rafta tutmaya devam ediyorsun.",
-      "start": 11.535,
-      "dur": 4.264
+      "text": "Sıfır enflamasyon sayesinde cilt kendi kendine pürüzsüzleşiyor.",
+      "start": 11.952,
+      "dur": 4.484
     },
     {
-      "text": "Cilt bariyerini alıştırmadan alınan her retinol mezarlıkta biter.",
-      "start": 15.799,
-      "dur": 5.644
+      "text": "Ona retinol değil sadece yüksek genetik piyango vurmuş.",
+      "start": 16.436,
+      "dur": 5.015
     }
   ]
 }

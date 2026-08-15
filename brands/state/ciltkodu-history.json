@@ -633,9 +633,9 @@
     "insightsAt": "2026-08-15T15:20:31.724Z"
   },
   {
-    "title": "Yarım Kalan Retinol Mezarlığı ve Soyulma Korkusu",
+    "title": "Retinol vs Tek Sabun Mucizesi",
     "subject": "retinol",
-    "twist": "dolap-mezarligi",
+    "twist": "sevgili-farki",
     "pillar": "trend-mekanik",
     "layout": "vertical-stack",
     "kinds": "diagram",
@@ -643,15 +643,15 @@
     "theme": "#c9a227",
     "source": "gemini",
     "footage": [
+      "pexels:soap bubbles macro",
       "pexels:serum drop close up",
-      "pexels:cosmetic bottles soft light",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Puck",
+    "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Daha kpmik ve öğretici bir konu madde olmalı , daha iyi gaf olmalı",
+    "not": "Daha da komik olmalı farklı konu ilr",
     "date": "2026-08-15",
     "durSec": 21.4
   }
