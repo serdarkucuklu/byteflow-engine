@@ -1,74 +1,79 @@
 {
-  "hook": "Kapağı açık kalan fondöten öğlen seni havuç yapıyor.",
-  "title": "Fondöten Neden Koyulaşır?",
+  "hook": "Abla bu cildine birebir lafıyla retinol alan o arkadaşın.",
+  "title": "Pahalı Retinol vs Uygun Fiyatlı Retinol",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "hava",
-          "label": "OKSİJEN VURUSU"
+          "id": "n1",
+          "label": "SAF ETKEN MADDE"
         },
         {
-          "id": "yag",
-          "label": "SEBUM TEPKİMESİ"
+          "id": "n2",
+          "label": "KAPSÜLE FORMÜL"
         },
         {
-          "id": "renk",
-          "label": "TURUNCU PİGMENT"
+          "id": "n3",
+          "label": "AMBALAJ VE MARKA"
+        },
+        {
+          "id": "n4",
+          "label": "CİLT TOLERANSI"
         }
       ],
       "steps": [
         {
-          "from": "hava",
-          "to": "yag",
-          "packet": "HAVA",
-          "status": "açık kapaktan giren hava yağla buluşur",
-          "color": "warn"
+          "from": "n1",
+          "to": "n2",
+          "packet": "AKTİF",
+          "status": "aktif molekül aynı, reyon iknası başladı",
+          "color": "good"
         },
         {
-          "from": "yag",
-          "to": "renk",
-          "packet": "KİMYA",
-          "status": "pigmentler havayla temas edip koyulaşır",
-          "color": "warn"
-        },
-        {
-          "from": "renk",
-          "to": "hava",
-          "packet": "TON",
-          "status": "öğlen iki ton koyu havuç olursun",
+          "from": "n2",
+          "to": "n3",
+          "packet": "TAŞIMA",
+          "status": "kapsüllü retinol yavaş salınır yakmaz",
           "color": "accent"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "ETKİ",
+          "status": "ucuz olan soyar lüks olan hissettirmez",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Kapağı açık kalan fondöten öğlen seni havuç yapıyor.\n\nAmbalajı açık unutulan fondöten nasıl renk değiştirir, adım adım:\n\n1. Oksidasyon — Ambalaj kapağı açık kaldığında şişedeki formül sürekli hava ile temas eder ve yağ molekülleri bozulmaya başlar.\n2. Sebum Tepkimesi — Yüze sürüldüğünde ciltteki doğal yağlar ve hava birleşerek renk pigmentlerinin yapısını kırar.\n3. Ton Kayması — Sabah tam oturan fondöten rengi, gün ortasında 1-2 ton koyulaşarak turuncu bir renge bürünür.\n\nFondöten alırken hava almayan pompalı cam ambalajları tercih etmek oksidasyonu minimuma indirir.\n\nSuç cildinde veya üründe değil, banyoda açık bırakılan kapakta. Ama biz yine yeni ürün alacağız.\n\n📌 Kaydet — bir dahaki fondöten krizinde lazım olacak.\n🔁 Bunu banyoda kapağı açık fondöten unutan arkadaşına gönder.\nSenin fondötenin de gün içinde turunculaşıyor mu: evet mi hayır mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Reyon danışmanının ikna gücüyle alınan o retinol serum aslında nasıl çalışıyor?\n\nPahalı retinol ile ucuz muadili arasındaki gerçek fark adım adım:\n\n1. SAF ETKEN MADDE — Tüpteki saf retinol molekülü fiyattan bağımsız olarak kimyasal açıdan tamamen aynıdır.\n2. KAPSÜLE FORMÜL — Yüksek fiyatlı ürünler aktif maddeyi mikroskobik kapsüllere sarar. Bu sayede retinol cilde yavaş salınır ve soyulma yapmaz.\n3. CİLT TOLERANSI — Ucuz formüllerde retinol birden salındığı için kızarıklık yapabilir. Aradaki fiyat farkı moleküle değil taşıyıcı teknolojiye gider.\n\nAlışveriş yaparken sadece yüzde oranına değil, cildinizin hassasiyetine göre taşıyıcı teknolojiye de bakın.\n\nYani reyon danışmanı haklıydı ama bunu kabullenmek zor.\n\n📌 Kaydet — bir dahaki kozmetik alışverişinde lazım olacak.\n🔁 Bunu reyondan tek pamuk alacakken retinol serumla çıkan arkadaşına gönder.\nSen hangisisin: Marka retinol mu yoksa eczane muadili mi?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
+    "#ciltbakimi",
     "#güzellik",
-    "#makyaj",
-    "#fondöten",
-    "#makyajönerisi",
-    "#oksidasyon",
-    "#tenmakyajı"
+    "#retinol",
+    "#ciltbariyeri",
+    "#muadil",
+    "#retinolserum",
+    "#ciltbakımönerileri"
   ],
-  "takeaway": "Hava giren fondöten oksitlenir, suç cildinde değil açık kapakta.",
+  "takeaway": "Moleküle değil formüle para ödersin, reyon ablası yine haklı çıktı.",
   "footage_queries": [
-    "liquid foundation swatch",
-    "hand opening jar macro"
+    "serum drop close up",
+    "hands applying cream close up"
   ],
   "narration": [
-    "Fondöten kapağı açık kalırsa ne olur?",
-    "Açık kalan ambalajdan giren oksijen fondötenin yağ dengesini bozar.",
-    "Teninize sürdüğünüz an pigmentler havayla hızlıca kimyasal tepkimeye girer.",
-    "Öğlen aynaya baktığınızda yüzünüz iki ton koyulaşmış turuncuya döner.",
-    "Suç cildinizde değil banyoda kapağı açık unuttuğunuz ambalajdadır."
+    "Reyonda retinol iknası yine tamamlandı.",
+    "Pahalı ve ucuz retinoldaki etken molekül birebir aynıdır.",
+    "Farkı yaratan şey aktif maddenin kapsüllenme teknolojisidir.",
+    "Kapsüllü retinol cildinizi yakmadan alt katmana yavaşça ulaşır.",
+    "Moleküle değil formüle para ödersin reyon ablası haklı çıktı."
   ],
-  "subject": "fondöten",
-  "sendTo": "banyoda kapağı açık fondöten unutan arkadaşına",
-  "soru": "Senin fondötenin de gün içinde turunculaşıyor mu: evet mi hayır mı?",
-  "theme": "#7fb3a5",
+  "subject": "retinol",
+  "sendTo": "reyondan tek pamuk alacakken retinol serumla çıkan arkadaşına",
+  "soru": "Sen hangisisin: Marka retinol mu yoksa eczane muadili mi?",
+  "theme": "#c9a227",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -87,35 +92,35 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "buildup",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Fondöten kapağı açık kalırsa ne olur?",
+      "text": "Reyonda retinol iknası yine tamamlandı.",
       "start": 0.35,
-      "dur": 2.357
+      "dur": 2.784
     },
     {
-      "text": "Açık kalan ambalajdan giren oksijen fondötenin yağ dengesini bozar.",
-      "start": 2.707,
-      "dur": 4.268
+      "text": "Pahalı ve ucuz retinoldaki etken molekül birebir aynıdır.",
+      "start": 3.134,
+      "dur": 4.069
     },
     {
-      "text": "Teninize sürdüğünüz an pigmentler havayla hızlıca kimyasal tepkimeye girer.",
-      "start": 6.975,
-      "dur": 4.778
+      "text": "Farkı yaratan şey aktif maddenin kapsüllenme teknolojisidir.",
+      "start": 7.203,
+      "dur": 4.283
     },
     {
-      "text": "Öğlen aynaya baktığınızda yüzünüz iki ton koyulaşmış turuncuya döner.",
-      "start": 11.753,
-      "dur": 4.396
+      "text": "Kapsüllü retinol cildinizi yakmadan alt katmana yavaşça ulaşır.",
+      "start": 11.486,
+      "dur": 4.497
     },
     {
-      "text": "Suç cildinizde değil banyoda kapağı açık unuttuğunuz ambalajdadır.",
-      "start": 16.149,
-      "dur": 5.305
+      "text": "Moleküle değil formüle para ödersin reyon ablası haklı çıktı.",
+      "start": 15.984,
+      "dur": 5.455
     }
   ],
-  "thumbOffset": 1779
+  "thumbOffset": 1992
 }

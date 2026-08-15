@@ -631,5 +631,27 @@
       "ig_reels_video_view_total_time": 249522
     },
     "insightsAt": "2026-08-15T15:20:31.724Z"
+  },
+  {
+    "title": "Pahalı Retinol vs Uygun Fiyatlı Retinol",
+    "subject": "retinol",
+    "twist": "magaza-danismani",
+    "pillar": "muadil",
+    "layout": "vertical-stack",
+    "kinds": "diagram",
+    "motion": "buildup",
+    "theme": "#c9a227",
+    "source": "gemini",
+    "footage": [
+      "pexels:serum drop close up",
+      "pexels:loose powder texture macro",
+      "pexels:water droplets on glass",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": 5,
+    "voiceName": "Puck",
+    "muzik": "byteflow-ambient.mp3",
+    "date": "2026-08-15",
+    "durSec": 21.4
   }
 ]

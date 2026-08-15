@@ -1,122 +1,125 @@
 {
-  "hook": "Akışta gördüğün sweatshirt sende neden durmuyor?",
-  "title": "Marka İşbirliği Sweatshirt'ü Gafları",
+  "hook": "Abla bu cildine birebir lafıyla retinol alan o arkadaşın.",
+  "title": "Pahalı Retinol vs Uygun Fiyatlı Retinol",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "temel_uretim",
-          "label": "TEMEL ÜRETİM"
+          "id": "n1",
+          "label": "SAF ETKEN MADDE"
         },
         {
-          "id": "marka_ustu",
-          "label": "MARKA ÜSTÜ"
+          "id": "n2",
+          "label": "KAPSÜLE FORMÜL"
         },
         {
-          "id": "isbirligi",
-          "label": "İŞBİRLİĞİ"
+          "id": "n3",
+          "label": "AMBALAJ VE MARKA"
         },
         {
-          "id": "influencer",
-          "label": "İNFLUENSER KOM."
+          "id": "n4",
+          "label": "CİLT TOLERANSI"
         }
       ],
       "steps": [
         {
-          "from": "temel_uretim",
-          "to": "marka_ustu",
-          "packet": "MALİYE",
-          "status": "kumaş, dikiş, ah o basit maliyet."
+          "from": "n1",
+          "to": "n2",
+          "packet": "AKTİF",
+          "status": "aktif molekül aynı, reyon iknası başladı",
+          "color": "good"
         },
         {
-          "from": "marka_ustu",
-          "to": "isbirligi",
-          "packet": "İSİM",
-          "status": "oysa logoyla fiyat ikiye katlanır."
+          "from": "n2",
+          "to": "n3",
+          "packet": "TAŞIMA",
+          "status": "kapsüllü retinol yavaş salınır yakmaz",
+          "color": "accent"
         },
         {
-          "from": "isbirligi",
-          "to": "influencer",
-          "packet": "PRİM",
-          "status": "sonra sana \"linki attım\" derler."
+          "from": "n3",
+          "to": "n4",
+          "packet": "ETKİ",
+          "status": "ucuz olan soyar lüks olan hissettirmez",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Akışta gördüğün o 'harika' sweatshirt, neden sende aynı durmuyor? İşte o meşhur sweatshirt'ün fiyatının katmanları ve gerçekleri:1. Temel Üretim: Kumaşın maliyeti, kesim ve dikim işçiliği çoğu marka için aslında çok benzerdir. Yani sweatshirt'ün fiziksel olarak üretilmesi, fiyatın küçük bir kısmını oluşturur.2. Marka Üstü: Ürüne eklenen marka adı, tasarım (eğer varsa özel bir tasarım), markanın genel pazarlama giderleri ve şirket kâr marjı bu katmanda yer alır. Bu kısım, ürünün 'değerini' artırır.3. İşbirliği: Eğer bu bir 'influencer' veya 'tasarımcı' işbirliği ise, bu işbirliğinin maliyeti de fiyatın üzerine eklenir. Yani aslında logonun veya özel etiketin kendisi için ödeme yaparsınız.4. Influencer Komisyonu: Son olarak, ürünü sana tanıtan influencer'a ödenen komisyon da nihai satış fiyatına yansır. Bu, sosyal medyada gördüğün o 'mükemmel' görüntünün bir bedeli vardır demek. Alışveriş yaparken, gördüğünüz ürünün temel maliyeti ile marka ve pazarlama primini iyi ayırt etmek, gerçek değerini anlamanı sağlar. O 'linki attım' dediği sweatshirt aslında sadece sana pazarlanıyor, kalitesinden değil influencer'dan kazanılıyor.\n\n📌 Kaydet — bir dahaki alışverişte 'neden böyle oldu' dememek için.\n\n🔁 Bunu akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına gönder. Sen kaç kez 'linki attım' tuzağına düştün, dürüst ol? Yazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Reyon danışmanının ikna gücüyle alınan o retinol serum aslında nasıl çalışıyor?\n\nPahalı retinol ile ucuz muadili arasındaki gerçek fark adım adım:\n\n1. SAF ETKEN MADDE — Tüpteki saf retinol molekülü fiyattan bağımsız olarak kimyasal açıdan tamamen aynıdır.\n2. KAPSÜLE FORMÜL — Yüksek fiyatlı ürünler aktif maddeyi mikroskobik kapsüllere sarar. Bu sayede retinol cilde yavaş salınır ve soyulma yapmaz.\n3. CİLT TOLERANSI — Ucuz formüllerde retinol birden salındığı için kızarıklık yapabilir. Aradaki fiyat farkı moleküle değil taşıyıcı teknolojiye gider.\n\nAlışveriş yaparken sadece yüzde oranına değil, cildinizin hassasiyetine göre taşıyıcı teknolojiye de bakın.\n\nYani reyon danışmanı haklıydı ama bunu kabullenmek zor.\n\n📌 Kaydet — bir dahaki kozmetik alışverişinde lazım olacak.\n🔁 Bunu reyondan tek pamuk alacakken retinol serumla çıkan arkadaşına gönder.\nSen hangisisin: Marka retinol mu yoksa eczane muadili mi?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#alışveriş",
-    "#moda",
-    "#gardırop",
-    "#marka",
-    "#gerçekler",
-    "#sweatshirt"
+    "#ciltbakimi",
+    "#güzellik",
+    "#retinol",
+    "#ciltbariyeri",
+    "#muadil",
+    "#retinolserum",
+    "#ciltbakımönerileri"
   ],
-  "takeaway": "O \"linki attım\" dediği sweatshirt aslında sadece sana pazarlanıyor.",
+  "takeaway": "Moleküle değil formüle para ödersin, reyon ablası yine haklı çıktı.",
   "footage_queries": [
-    "cardboard parcel box close up",
-    "cotton fabric weave macro"
+    "serum drop close up",
+    "hands applying cream close up"
   ],
   "narration": [
-    "Akışta gördüğün sweatshirt sende neden durmuyor?",
-    "Çünkü temel üretim maliyeti genelde her yerde hemen hemen aynıdır.",
-    "Fakat üstüne marka değeri, tasarım ve 'özel seri' etiketi eklenir.",
-    "Ve tabii ki, o influencer'a giden komisyon da cebinden çıkar.",
-    "O \"linki attım\" dediği sweatshirt aslında sadece sana pazarlanıyor."
+    "Reyonda retinol iknası yine tamamlandı.",
+    "Pahalı ve ucuz retinoldaki etken molekül birebir aynıdır.",
+    "Farkı yaratan şey aktif maddenin kapsüllenme teknolojisidir.",
+    "Kapsüllü retinol cildinizi yakmadan alt katmana yavaşça ulaşır.",
+    "Moleküle değil formüle para ödersin reyon ablası haklı çıktı."
   ],
-  "subject": "sweatshirt",
-  "sendTo": "akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına",
-  "soru": "Sen kaç kez 'linki attım' tuzağına düştün, dürüst ol?",
-  "theme": "#ffe07d",
+  "subject": "retinol",
+  "sendTo": "reyondan tek pamuk alacakken retinol serumla çıkan arkadaşına",
+  "soru": "Sen hangisisin: Marka retinol mu yoksa eczane muadili mi?",
+  "theme": "#c9a227",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "cascade",
+  "motion": "buildup",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Akışta gördüğün sweatshirt sende neden durmuyor?",
+      "text": "Reyonda retinol iknası yine tamamlandı.",
       "start": 0.35,
-      "dur": 3.117
+      "dur": 2.784
     },
     {
-      "text": "Çünkü temel üretim maliyeti genelde her yerde hemen hemen aynıdır.",
-      "start": 3.467,
-      "dur": 4.286
+      "text": "Pahalı ve ucuz retinoldaki etken molekül birebir aynıdır.",
+      "start": 3.134,
+      "dur": 4.069
     },
     {
-      "text": "Fakat üstüne marka değeri, tasarım ve 'özel seri' etiketi eklenir.",
-      "start": 7.753,
-      "dur": 4.286
+      "text": "Farkı yaratan şey aktif maddenin kapsüllenme teknolojisidir.",
+      "start": 7.203,
+      "dur": 4.283
     },
     {
-      "text": "Ve tabii ki, o influencer'a giden komisyon da cebinden çıkar.",
-      "start": 12.039,
-      "dur": 3.961
+      "text": "Kapsüllü retinol cildinizi yakmadan alt katmana yavaşça ulaşır.",
+      "start": 11.486,
+      "dur": 4.497
     },
     {
-      "text": "O \"linki attım\" dediği sweatshirt aslında sadece sana pazarlanıyor.",
-      "start": 16.001,
-      "dur": 5.451
+      "text": "Moleküle değil formüle para ödersin reyon ablası haklı çıktı.",
+      "start": 15.984,
+      "dur": 5.455
     }
   ]
 }
