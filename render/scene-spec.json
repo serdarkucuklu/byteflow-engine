@@ -1,75 +1,79 @@
 {
-  "hook": "Sen retinol sürerken tek sabunla gezen o sevgilin.",
-  "title": "Retinol vs Tek Sabun Mucizesi",
+  "hook": "Dolabın yarım C vitamini mezarlığı mı?",
+  "title": "C Vitamini Serumu: İçindekiler Listesi Neyi Saklıyor?",
   "scenes": [
     {
-      "layout": "vertical-stack",
+      "layout": "hub-spoke",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "kalin-deri",
-          "label": "KALIN EPİDERMİS"
+          "id": "n1",
+          "label": "C VİTAMİNİ SERUMU"
         },
         {
-          "id": "sebum-dengesi",
-          "label": "DOĞAL SEBUM"
+          "id": "n2",
+          "label": "SU VE BAZ"
         },
         {
-          "id": "düşük-hassasiyet",
-          "label": "SIFIR ENFLAMASYON"
+          "id": "n3",
+          "label": "L-ASKORBİK ASİT"
+        },
+        {
+          "id": "n4",
+          "label": "OKSİDASYON RİSKİ"
         }
       ],
       "steps": [
         {
-          "from": "kalin-deri",
-          "to": "sebum-dengesi",
-          "packet": "DİRENÇ",
-          "status": "kalın epidermis dış darbeyi rahatça",
+          "from": "n1",
+          "to": "n2",
+          "packet": "SU",
+          "status": "listenin başında su var, aktif az kalır",
           "color": "accent"
         },
         {
-          "from": "sebum-dengesi",
-          "to": "düşük-hassasiyet",
-          "packet": "SEBUM",
-          "status": "doğal yağlar nemi kilitlerken gözenek",
+          "from": "n1",
+          "to": "n3",
+          "packet": "AKTİF",
+          "status": "askorbik asit ortalarda, etki yavaşlar",
           "color": "good"
         },
         {
-          "from": "düşük-hassasiyet",
-          "to": "kalin-deri",
-          "packet": "GENETİ",
-          "status": "asit veya retinol gerektirmeden",
+          "from": "n1",
+          "to": "n4",
+          "packet": "HAVA",
+          "status": "açılan şişe sararır, dolapta bekler",
           "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Sen her gece beş farklı şişeyle kimya laboratuvarı kurarken o el sabunuyla yıkanıp parlıyorsa suç sende değil, androjen hormonlarında.\n\n12 adımlı serum rutinine rağmen onun tek sabunla cam gibi gezmesinin biyolojisi:\n\n1. Kalın Epidermis — Erkek cildi dermis seviyesinde yaklaşık %20 daha kalındır. Dış etkenler, soyucu asitler veya bariyer bozulması onlara teğet geçer.\n2. Sebum Dengesi — Doğal yağ üretimi yüksek ama gözenek yapısı geniş ve dirençlidir. Nem kaybetmezler, bariyerleri kendiliğinden kilitli kalır.\n3. Düşük Enflamasyon — Ağır kokulu banyo sabunu bile sürseler reaktif kızarıklık veya hassasiyet tepkisi vermezler.\n\nSen retinol toleransı geliştirmek için aylarını harcarsın, o genetik piyangoyu doğuştan kazanmıştır.\n\nBiz yine de nemlendiricimizi sürüp kendimizi seveceğiz.\n\n📌 Kaydet — bir dahaki krem krizinde kendini teselli edersin.\n\n🔁 Bunu yüzünü tek sabunla yıkayıp cam gibi cilde sahip olan sevgiline gönder.\n\nSenin rutinin kaç adımdan oluşuyor, onunki kaç?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Yarım kalan C vitamini serumları banyo dolabında müze oluşturdu bile.\n\nC vitamini serumu alırken içindekiler listesinde neye bakıyoruz, adım adım:\n\n1. Su ve Baz — İçindekiler listesinin ilk 3 sırasında su varsa, ürünün büyük kısmı nemlendirici taşıyıcıdır. Etken maddenin yüzdesi düşüktür.\n2. L-Askorbik Asit — C vitamininin en saf ve etkili formudur. Listenin ortalarında veya sonundaysa leke açıcı etkisi zayıf kalır.\n3. Oksidasyon — C vitamini hava ve ışıkla çabuk bozulur. Şişe açıldıktan sonra sararıyorsa aktifliğini kaybetmiş demektir.\n\nAlırken şişenin koyu renkli ve hava almayan pompalı tasarımda olmasına dikkat edin.\n\nBozulacağını bile bile o dördüncü serumu da alacağız ama olsun.\n\n📌 Kaydet — bir dahaki serum krizinde lazım olacak.\n\n🔁 Bunu banyosunda sekiz tane yarım C vitamini serumu saklayan arkadaşına gönder.\n\nBanyonda açılmış kaç tane yarım serum var, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#guzellik",
-    "#retinol",
-    "#ciltrutini",
-    "#ciltbariyeri",
+    "#güzellik",
+    "#cvitamini",
+    "#cvitaminiserumu",
     "#skincare",
-    "#sebum"
+    "#ciltbakimrutini",
+    "#içindekiler"
   ],
-  "takeaway": "Ona altı serum değil, sadece genetik piyango vurmuş.",
+  "takeaway": "Oksitlenen C vitamini cildi değil, banyo dolabını süsler.",
   "footage_queries": [
-    "soap bubbles macro",
-    "serum drop close up"
+    "serum drop close up",
+    "hand holding serum dropper"
   ],
   "narration": [
-    "Sen retinol sürerken o sabunla parlıyor.",
-    "Kalın erkek cildinde dış bariyer çizilmeden sağlam kalıyor.",
-    "Doğal sebum üretimi nemi içeride kendiliğinden hapsedip koruyor.",
-    "Sıfır enflamasyon sayesinde cilt kendi kendine pürüzsüzleşiyor.",
-    "Ona retinol değil sadece yüksek genetik piyango vurmuş."
+    "Dolabın yarım C vitamini mezarlığı mı?",
+    "İçindekiler listesinde su ilk sırada olunca etken madde geride kalıyor.",
+    "Askorbik asit alt sıralardaysa leke açma vaadi biraz hayal oluyor.",
+    "Kapağı açılan serum hava aldıkça sararıp rafta kaderine terk ediliyor.",
+    "Oksitlenen C vitamini cildi değil, sadece banyo dolabını süslemeye yarıyor."
   ],
-  "subject": "retinol",
-  "sendTo": "yüzünü tek sabunla yıkayıp cam gibi cilde sahip olan sevgiline",
-  "soru": "Senin rutinin kaç adımdan oluşuyor, onunki kaç?",
-  "theme": "#c9a227",
+  "subject": "c vitamini",
+  "sendTo": "banyosunda sekiz tane yarım C vitamini serumu saklayan arkadaşına",
+  "soru": "Banyonda açılmış kaç tane yarım serum var, dürüst ol?",
+  "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -88,34 +92,34 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "camera",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Sen retinol sürerken o sabunla parlıyor.",
+      "text": "Dolabın yarım C vitamini mezarlığı mı?",
       "start": 0.35,
-      "dur": 2.847
+      "dur": 2.375
     },
     {
-      "text": "Kalın erkek cildinde dış bariyer çizilmeden sağlam kalıyor.",
-      "start": 3.197,
-      "dur": 4.2
+      "text": "İçindekiler listesinde su ilk sırada olunca etken madde geride kalıyor.",
+      "start": 2.725,
+      "dur": 4.438
     },
     {
-      "text": "Doğal sebum üretimi nemi içeride kendiliğinden hapsedip koruyor.",
-      "start": 7.397,
-      "dur": 4.555
+      "text": "Askorbik asit alt sıralardaysa leke açma vaadi biraz hayal oluyor.",
+      "start": 7.163,
+      "dur": 4.125
     },
     {
-      "text": "Sıfır enflamasyon sayesinde cilt kendi kendine pürüzsüzleşiyor.",
-      "start": 11.952,
-      "dur": 4.484
+      "text": "Kapağı açılan serum hava aldıkça sararıp rafta kaderine terk ediliyor.",
+      "start": 11.289,
+      "dur": 4.376
     },
     {
-      "text": "Ona retinol değil sadece yüksek genetik piyango vurmuş.",
-      "start": 16.436,
-      "dur": 5.015
+      "text": "Oksitlenen C vitamini cildi değil, sadece banyo dolabını süslemeye yarıyor.",
+      "start": 15.664,
+      "dur": 5.788
     }
   ]
 }
