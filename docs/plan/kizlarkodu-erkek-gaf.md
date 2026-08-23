@@ -23,6 +23,14 @@
 >    İYİ bir twist'i yanlış gerekçeyle silebilirdi. 1.6 artık harf-sınırlı (lookaround) desen kullanıyor.
 > 7. Twist `focus` metnine ucuz bir kazanç: pozitif/negatif örnek ÇİFTİ gömülüyor (model kuralı değil
 >    örneği taklit eder — `generate-spec.mjs:85-89` deposunun kendi dersi).
+>
+> **REVİZYON NOTU 3 (2026-08-23, `/kalite` sonrası — SONUÇ):** `gozden-gecirici` sızıntı kapısında
+> 2 KRİTİK açık buldu: regex Türkçe eklere kördü (`adamın/kocası/adamlar` kaçıyordu), versus sahnesi
+> (`heading/left/right/rows`) hiç taranmıyordu. İkisi düzeltildi (881bf55). Düzeltilmiş kapıyla 3
+> twist YENİDEN ölçüldü: `yon-inadi` 2 pillar ailesinden birinde (beden-tablosu) gerçek sızıntı verdi
+> ("...adama değil mezuranın santimine güvenin") → 2/2 tutarlılık şartını sağlamadı → **havuzdan
+> silindi**. **NİHAİ HAVUZ (2 twist): `erkek-dolabi`, `yikama-cesareti`.** `kumanda-imparatorlugu`
+> ve `yon-inadi` — ikisi de silindi.
 
 **Tarih:** 2026-08-23 · **Boy:** M (tek geliştirici, sıralı) · revizyon 2
 
