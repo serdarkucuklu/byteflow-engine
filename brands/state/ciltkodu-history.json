@@ -666,27 +666,5 @@
       "ig_reels_video_view_total_time": 195015
     },
     "insightsAt": "2026-08-23T15:22:12.049Z"
-  },
-  {
-    "title": "C Vitamini Serumu: İçindekiler Listesi Neyi Saklıyor?",
-    "subject": "c vitamini",
-    "twist": "dolap-mezarligi",
-    "pillar": "icindekiler",
-    "layout": "hub-spoke",
-    "kinds": "diagram",
-    "motion": "camera",
-    "theme": "#e8a0a8",
-    "source": "gemini",
-    "footage": [
-      "pexels:hand holding serum dropper",
-      "pexels:lipstick close up macro",
-      "pexels:water droplets on glass",
-      "pexels:sunlight through curtain"
-    ],
-    "voice": 5,
-    "voiceName": "Aoede",
-    "muzik": "byteflow-ambient.mp3",
-    "date": "2026-08-16",
-    "durSec": 21.4
   }
 ]
