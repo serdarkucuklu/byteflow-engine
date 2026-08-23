@@ -261,25 +261,26 @@
     "insightsAt": "2026-08-23T16:58:44.305Z"
   },
   {
-    "title": "Beden Tablosu Aynı Ama İade Kargosu Kaçınılmaz",
-    "subject": "beden tablosu",
-    "twist": "arkadas-kopyasi",
-    "pillar": "kargo-ve-iade",
+    "title": "Gece Sepetindeki Modal Tişört Hilesi",
+    "subject": "modal",
+    "twist": "gece-sepeti",
+    "pillar": "marka-primi",
     "layout": "vertical-stack",
     "kinds": "diagram",
     "motion": "cascade",
     "theme": "#ffe07d",
     "source": "gemini",
     "footage": [
-      "pexels:measuring tape and fabric",
-      "pexels:cardboard parcel box close up",
+      "pexels:shopping bags flat lay",
+      "pexels:laundry detergent pouring close up",
       "pexels:denim fabric texture macro",
       "pexels:cotton fabric weave macro"
     ],
     "voice": 5,
-    "voiceName": "Kore",
+    "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
+    "not": "Daha öğretici ve komik olsun, konu da farklı olsun",
     "date": "2026-08-23",
-    "durSec": 19.9
+    "durSec": 21.4
   }
 ]

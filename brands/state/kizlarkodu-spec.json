@@ -1,77 +1,74 @@
 {
-  "hook": "Sende efsane duran elbise arkadaşında iade kargosu oldu.",
-  "title": "Beden Tablosu Aynı Ama İade Kargosu Kaçınılmaz",
+  "hook": "Gece sepete giren modal tişört şaşırtır.",
+  "title": "Gece Sepetindeki Modal Tişört Hilesi",
   "scenes": [
     {
       "layout": "vertical-stack",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "omuz",
-          "label": "OMUZ GENİŞLİĞİ"
+          "id": "elyaf",
+          "label": "MODAL İPLİK"
         },
         {
-          "id": "dokum",
-          "label": "KUMAŞ DÖKÜMÜ"
+          "id": "lisans",
+          "label": "MARKA LİSANSI"
         },
         {
-          "id": "ag",
-          "label": "BEDEN KALIBI"
-        },
-        {
-          "id": "iade",
-          "label": "İADE KARGOSU"
+          "id": "kargo",
+          "label": "SEPET BARAJ YÜKÜ"
         }
       ],
       "steps": [
         {
-          "from": "omuz",
-          "to": "dokum",
-          "packet": "KALIP",
-          "status": "omuz çizgisi düşerse kumaş pot yapar",
-          "color": "warn"
+          "from": "elyaf",
+          "to": "lisans",
+          "packet": "İPLİK",
+          "status": "modal lif kayın ağacından elde edilir",
+          "color": "good"
         },
         {
-          "from": "dokum",
-          "to": "ag",
-          "packet": "AĞIRLI",
-          "status": "dökümsüz sert kumaş vücudu sarmaz",
+          "from": "lisans",
+          "to": "kargo",
+          "packet": "ETİKET",
+          "status": "aynı kumaşa logo basıp fiyatı katlarlar",
           "color": "accent"
         },
         {
-          "from": "ag",
-          "to": "iade",
-          "packet": "KARGO",
-          "status": "suç bedeninde değil yanlış kalıptadır",
-          "color": "good"
+          "from": "kargo",
+          "to": "elyaf",
+          "packet": "SEPET",
+          "status": "kargo bedava olsun diye gece eklenir",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Sende efsane duran elbisenin arkadaşında iade kargosuna dönüşme sebebi:\n\nAynı beden tablosu yazsa bile kıyafetin düşüşünü belirleyen 3 gizli detay var:\n\n1. Omuz Genişliği — Omuz dikişi yarım santim bile aşağı kayarsa, kumaş göğüs ve kol oyuntusunda pot yapıp çuval görüntüsü oluşturur.\n2. Kumaş Dökümü — Sentetik ve sert kumaşlar vücudun doğal kıvrımlarını sarmak yerine havada kalır.\n3. Beden Kalıbı — Beden tablosu göğüs ölçüsünü tutturabilir ama sırt ve bel oyuntusu uymazsa elbise durmaz.\n\nAlışveriş yaparken sadece beden harfine değil, kumaşın gramajına ve dökümüne bakın.\n\nKalıp oturmadıysa sorun senin fiziğinde değil, seri üretim kalıbında.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu senin üstünde görüp aldığı elbiseyi iade eden arkadaşına gönder.\n\nSen hiç arkadaşında görüp aldığın elbiseyi iade ettin mi?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Gece 2'de sepete atılan o modal tişörtün arkasındaki marka oyunu.\n\nBedava kargo eşiğini geçerken ödediğin marka priminin adım adım anatomisi:\n\n1. Modal İplik — Kayın ağacı selülozundan üretilen son derece yumuşak ve dökümlü bir elyaftır; standart kumaş maliyeti markadan markaya radikal biçimde değişmez.\n2. Marka Lisansı — Aynı modal tişörte basılan tek bir amblem veya etiket, kumaş kalitesini değiştirmeden fiyata katlarca logo primi ekler.\n3. Sepet Baraj Yükü — Ücretsiz kargo limitini doldurmak için gece yarısı sepete eklenen o parça, aslında ucuz kargo için ödenen yüksek marka bedelidir.\n\nAlışveriş yaparken etiketteki markaya değil, kumaş karışımındaki modal ve pamuk oranına bakın.\n\nKargo bedava geldi ama tişörte logo parası ödedik. Yine de o sepet onaylanacak.\n\n📌 Kaydet — bir dahaki gece alışverişinde lazım olacak.\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına gönder.\nGece sepetini dolduran o 3. parça neydi: basic tişört mü çorap mı?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#giyim",
     "#alışveriş",
-    "#bedentablosu",
-    "#kumaşdökümü",
+    "#kumaş",
+    "#modal",
+    "#gardırop",
     "#giyimtüyoları",
-    "#kombin",
-    "#beden"
+    "#marka"
   ],
-  "takeaway": "Kalıp uymadıysa suç bedeninde değil, kumaşın dökümündedir.",
+  "takeaway": "Bedava kargo kazanırken kumaşa değil sadece logoya para ödedin.",
   "footage_queries": [
-    "measuring tape and fabric",
-    "cardboard parcel box close up"
+    "shopping bags flat lay",
+    "cotton fabric weave macro"
   ],
   "narration": [
-    "Arkadaşında o elbise neden durmadı?",
-    "Omuz genişliği milim kayınca kumaş çuval gibi toplanır.",
-    "Sert kumaş vücuda oturmayınca elbise sana tepki gösterir.",
-    "Aynı beden tablosu bile kalıp farkını asla kurtaramaz.",
-    "Suç bedeninde değil yanlış kesilmiş o kalıp dökümündedir."
+    "Gece sepete giren modal tişört şaşırtır.",
+    "Modal kumaş kayın ağacından yapılan oldukça yumuşak ve doğal bir liftir.",
+    "Üzerine ünlü logonun basılması kumaşın üretim maliyetini hiç değiştirmeden fiyatı katlar.",
+    "Gece kargo sınırını geçmek için o yüksek etiketli parça sepete atılır.",
+    "Bedava kargo kazanırken elyaf yerine ambalajdaki havalı logoyu satın alırsın."
   ],
-  "subject": "beden tablosu",
-  "sendTo": "senin üstünde görüp aldığı elbiseyi iade eden arkadaşına",
-  "soru": "Sen hiç arkadaşında görüp aldığın elbiseyi iade ettin mi?",
+  "subject": "modal",
+  "sendTo": "gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına",
+  "soru": "Gece sepetini dolduran o 3. parça neydi: basic tişört mü çorap mı?",
   "theme": "#ffe07d",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -96,30 +93,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Arkadaşında o elbise neden durmadı?",
+      "text": "Gece sepete giren modal tişört şaşırtır.",
       "start": 0.35,
-      "dur": 2.508
+      "dur": 2.299
     },
     {
-      "text": "Omuz genişliği milim kayınca kumaş çuval gibi toplanır.",
-      "start": 2.858,
-      "dur": 3.942
+      "text": "Modal kumaş kayın ağacından yapılan oldukça yumuşak ve doğal bir liftir.",
+      "start": 2.649,
+      "dur": 4.138
     },
     {
-      "text": "Sert kumaş vücuda oturmayınca elbise sana tepki gösterir.",
-      "start": 6.8,
-      "dur": 4.085
+      "text": "Üzerine ünlü logonun basılması kumaşın üretim maliyetini hiç değiştirmeden fiyatı katlar.",
+      "start": 6.786,
+      "dur": 5.115
     },
     {
-      "text": "Aynı beden tablosu bile kalıp farkını asla kurtaramaz.",
-      "start": 10.886,
-      "dur": 3.87
+      "text": "Gece kargo sınırını geçmek için o yüksek etiketli parça sepete atılır.",
+      "start": 11.901,
+      "dur": 4.023
     },
     {
-      "text": "Suç bedeninde değil yanlış kesilmiş o kalıp dökümündedir.",
-      "start": 14.756,
-      "dur": 5.185
+      "text": "Bedava kargo kazanırken elyaf yerine ambalajdaki havalı logoyu satın alırsın.",
+      "start": 15.924,
+      "dur": 5.525
     }
   ],
-  "thumbOffset": 1854
+  "thumbOffset": 1749
 }

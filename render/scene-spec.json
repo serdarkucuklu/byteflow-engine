@@ -1,78 +1,75 @@
 {
-  "hook": "Mat ruj kurutuyor diye altına nemlendirici süren arkadaşın.",
-  "title": "Mat Ruj Dudakta Neden Çatlamalı Dökülür?",
+  "hook": "Gece sepete giren modal tişört şaşırtır.",
+  "title": "Gece Sepetindeki Modal Tişört Hilesi",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "node1",
-          "label": "UÇUCU YAĞLAR"
+          "id": "elyaf",
+          "label": "MODAL İPLİK"
         },
         {
-          "id": "node2",
-          "label": "MAT POLİMER"
+          "id": "lisans",
+          "label": "MARKA LİSANSI"
         },
         {
-          "id": "node3",
-          "label": "ALT BALM KATMANI"
-        },
-        {
-          "id": "node4",
-          "label": "PİGMENT KOPMASI"
+          "id": "kargo",
+          "label": "SEPET BARAJ YÜKÜ"
         }
       ],
       "steps": [
         {
-          "from": "node1",
-          "to": "node2",
-          "packet": "BUHAR",
-          "status": "uçucu yağ buharlaşır, polimer kilitlenir",
+          "from": "elyaf",
+          "to": "lisans",
+          "packet": "İPLİK",
+          "status": "modal lif kayın ağacından elde edilir",
+          "color": "good"
+        },
+        {
+          "from": "lisans",
+          "to": "kargo",
+          "packet": "ETİKET",
+          "status": "aynı kumaşa logo basıp fiyatı katlarlar",
           "color": "accent"
         },
         {
-          "from": "node2",
-          "to": "node3",
-          "packet": "KAYMA",
-          "status": "alttaki nemlendirici filmi kaydırır",
+          "from": "kargo",
+          "to": "elyaf",
+          "packet": "SEPET",
+          "status": "kargo bedava olsun diye gece eklenir",
           "color": "warn"
-        },
-        {
-          "from": "node3",
-          "to": "node4",
-          "packet": "KIRILM",
-          "status": "tutunamayan sert renk tabakası",
-          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Mat rujun kurutmasın diye nemlendirici sürmek dökülmeyi garanti eder.\n\nDudağındaki mat ruj neden sahra çölüne dönüyor, adım adım:\n\n1. UÇUCU YAĞLAR — Mat rujun içindeki hafif formül sürüldüğü an buharlaşmaya başlar.\n2. MAT POLİMER — Sıvı buharlaşınca geriye kalan polimer film dudağın dokusuna kilitlenir.\n3. ALT BALM KATMANI — Tavsiyelere kanıp alta sürdüğün nemlendirici bu filmin tutunmasını imkansız kılar.\n4. PİGMENT KOPMASI — Yapışamayan sert film ilk konuşmanda çatlayarak parça parça dökülür.\n\nMat rujun başarısı altına sürdüğün kreme değil, nemlendirmeyi bir gece önceden yapmış olmana bağlıdır.\n\nTüyocu arkadaşına inanmayı bırak, nemlendiriciyi rujdan hemen önce sürme.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n\n🔁 Bunu her mat ruj sürdüğünde dudağı pul pul olan arkadaşına gönder.\n\nSen mat rujun altına nemlendirici sürüyor musun, sürmüyor musun?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Gece 2'de sepete atılan o modal tişörtün arkasındaki marka oyunu.\n\nBedava kargo eşiğini geçerken ödediğin marka priminin adım adım anatomisi:\n\n1. Modal İplik — Kayın ağacı selülozundan üretilen son derece yumuşak ve dökümlü bir elyaftır; standart kumaş maliyeti markadan markaya radikal biçimde değişmez.\n2. Marka Lisansı — Aynı modal tişörte basılan tek bir amblem veya etiket, kumaş kalitesini değiştirmeden fiyata katlarca logo primi ekler.\n3. Sepet Baraj Yükü — Ücretsiz kargo limitini doldurmak için gece yarısı sepete eklenen o parça, aslında ucuz kargo için ödenen yüksek marka bedelidir.\n\nAlışveriş yaparken etiketteki markaya değil, kumaş karışımındaki modal ve pamuk oranına bakın.\n\nKargo bedava geldi ama tişörte logo parası ödedik. Yine de o sepet onaylanacak.\n\n📌 Kaydet — bir dahaki gece alışverişinde lazım olacak.\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına gönder.\nGece sepetini dolduran o 3. parça neydi: basic tişört mü çorap mı?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#guzellik",
-    "#makyaj",
-    "#matruj",
-    "#makyajonerisi",
-    "#dudakbakimi",
-    "#ciltkodu"
+    "#giyim",
+    "#alışveriş",
+    "#kumaş",
+    "#modal",
+    "#gardırop",
+    "#giyimtüyoları",
+    "#marka"
   ],
-  "takeaway": "Nemlendiriciyi rujdan hemen önce değil, bir gece önce sür.",
+  "takeaway": "Bedava kargo kazanırken kumaşa değil sadece logoya para ödedin.",
   "footage_queries": [
-    "lipstick close up macro",
-    "hands applying cream close up"
+    "shopping bags flat lay",
+    "cotton fabric weave macro"
   ],
   "narration": [
-    "Mat rujun altına nemlendirici sürülmez.",
-    "Mat ruj sürülünce içindeki sıvı yağlar hızla buharlaşır.",
-    "Ancak alttaki krem polimerin dudağa yapışmasını tamamen engeller.",
-    "Esneyemeyen kurutucu renk tabakası çatlayarak pul pul dökülür.",
-    "Nemlendiriciyi rujdan önce değil, geceden dudağına sürmelisin."
+    "Gece sepete giren modal tişört şaşırtır.",
+    "Modal kumaş kayın ağacından yapılan oldukça yumuşak ve doğal bir liftir.",
+    "Üzerine ünlü logonun basılması kumaşın üretim maliyetini hiç değiştirmeden fiyatı katlar.",
+    "Gece kargo sınırını geçmek için o yüksek etiketli parça sepete atılır.",
+    "Bedava kargo kazanırken elyaf yerine ambalajdaki havalı logoyu satın alırsın."
   ],
-  "subject": "mat ruj",
-  "sendTo": "her mat ruj sürdüğünde dudağı pul pul olan arkadaşına",
-  "soru": "Sen mat rujun altına nemlendirici sürüyor musun, sürmüyor musun?",
-  "theme": "#e8a0a8",
+  "subject": "modal",
+  "sendTo": "gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına",
+  "soru": "Gece sepetini dolduran o 3. parça neydi: basic tişört mü çorap mı?",
+  "theme": "#ffe07d",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -96,29 +93,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Mat rujun altına nemlendirici sürülmez.",
+      "text": "Gece sepete giren modal tişört şaşırtır.",
       "start": 0.35,
-      "dur": 2.616
+      "dur": 2.299
     },
     {
-      "text": "Mat ruj sürülünce içindeki sıvı yağlar hızla buharlaşır.",
-      "start": 2.966,
-      "dur": 3.757
+      "text": "Modal kumaş kayın ağacından yapılan oldukça yumuşak ve doğal bir liftir.",
+      "start": 2.649,
+      "dur": 4.138
     },
     {
-      "text": "Ancak alttaki krem polimerin dudağa yapışmasını tamamen engeller.",
-      "start": 6.723,
-      "dur": 4.36
+      "text": "Üzerine ünlü logonun basılması kumaşın üretim maliyetini hiç değiştirmeden fiyatı katlar.",
+      "start": 6.786,
+      "dur": 5.115
     },
     {
-      "text": "Esneyemeyen kurutucu renk tabakası çatlayarak pul pul dökülür.",
-      "start": 11.083,
-      "dur": 4.159
+      "text": "Gece kargo sınırını geçmek için o yüksek etiketli parça sepete atılır.",
+      "start": 11.901,
+      "dur": 4.023
     },
     {
-      "text": "Nemlendiriciyi rujdan önce değil, geceden dudağına sürmelisin.",
-      "start": 15.242,
-      "dur": 5.259
+      "text": "Bedava kargo kazanırken elyaf yerine ambalajdaki havalı logoyu satın alırsın.",
+      "start": 15.924,
+      "dur": 5.525
     }
   ]
 }
