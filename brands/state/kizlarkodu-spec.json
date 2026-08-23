@@ -1,74 +1,78 @@
 {
-  "hook": "Erkekler çaktırmadan baktığını sanırken boyun kırıyor.",
-  "title": "Erkeklerin Kızlara Bakma Refleksi",
+  "hook": "Ücretsiz kargo için aldığın tişört asla iadeye gitmeyecek.",
+  "title": "Ücretsiz Kargo ve Biten İade Süresi",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "GÖRSEL UYARAN"
+          "id": "kargo",
+          "label": "ÜCRETSİZ KARGO"
         },
         {
-          "id": "n2",
-          "label": "REFLEKS MOTORU"
+          "id": "sepet",
+          "label": "TAMAMLAYICI PARÇA"
         },
         {
-          "id": "n3",
-          "label": "180 DERECE BAKIŞ"
+          "id": "bekleme",
+          "label": "KUTUDA BEKLEYİŞ"
+        },
+        {
+          "id": "kapanis",
+          "label": "DOLAN İADE SÜRESİ"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "SİNYAL",
-          "status": "beyin yakındaki kadını anında algılar",
+          "from": "kargo",
+          "to": "sepet",
+          "packet": "SEPET",
+          "status": "elli lira kargo ödememek için iki yüz",
           "color": "accent"
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "BOYUN",
-          "status": "boyun kasları istemsizce komut alır",
+          "from": "sepet",
+          "to": "bekleme",
+          "packet": "KUTU",
+          "status": "kutu evde açılır ama kargo şubesine",
           "color": "warn"
         },
         {
-          "from": "n3",
-          "to": "n1",
-          "packet": "YAKALA",
-          "status": "çaktırmama çabası fiyaskoyla biter",
+          "from": "bekleme",
+          "to": "kapanis",
+          "packet": "SÜRE",
+          "status": "on dört günlük iade penceresi sessizce",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Erkekler çaktırmadan baktığını sanırken boyun kırıyor.\n\nErkeklerin sokakta kızlara bakış mekanizması, adım adım:\n1. Görsel uyaran — Kadın çevre görüş alanına girdiği an beyin uyarılır.\n2. Refleks motoru — Çevresel görüş yetersiz kalınca boyun kasları istemsizce komut alır.\n3. 180 derece bakış — Çaktırmama çabasıyla yapılan hızlı baş hareketi aslında fiyaskoyla biter.\n\nErkeklerin çaktırmadan bakma yeteneği sıfırdır, açı kaç olursa olsun anında yakalanırlar.\nBoyun döner, göz kayar, ama suçlu her zaman refleks olur.\n📌 Kaydet — erkeklerin tahlilinde lazım olacak.\n🔁 Bunu sevgilisi yanındayken gözü kayan erkek arkadaşına gönder.\nSenin erkek arkadaşın çaktırmadan baktığını sanıyor mu?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Ücretsiz kargo için sepete eklenen o tişörtün hazin öyküsü:\n\nSistem o kargo şubesine gitmeyeceğini nasıl biliyor, adım adım:\n\n1. Ücretsiz kargo eşiği — 50 TL kargo ödememek için sepete 200 TL'lik üçüncü parça eklenir.\n2. Tamamlayıcı parça — 'Beğenmezsem iade ederim' rahatlığıyla sipariş tamamlanır.\n3. Kutuda bekleme — Kutu eve gelir, denenir ama iade kargosuna gitmek haftalarca ertelenir.\n4. Dolan iade süresi — 14 günlük iade penceresi kapanır ve ürün kalıcı olarak gardıroba yerleşir.\n\nMarkalar ücretsiz kargo eşiğini belirlerken tüketicinin iade süresindeki üşengeçlik oranını hesaba katar.\n\nElli lira kargo vermeyip iki yüz lirayı kutuda unuttuk ama en azından kargo bedavaydı.\n\n📌 Kaydet — bir dahaki alışverişte sepete dördüncü tişörtü atmadan önce oku.\n🔁 Bunu iade süresi dolduğu için o tişörtü hâlâ kutusunda saklayan arkadaşına gönder.\nSen hangisisin: Zamanında iade eden mi, kutuyla yaşayan mı?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#erkekler",
-    "#ilişkiler",
-    "#komedi",
-    "#komikvideolar",
-    "#psikoloji",
-    "#gerçekler",
-    "#kızlarkodu"
+    "#giyim",
+    "#alışveriş",
+    "#iade",
+    "#kargo",
+    "#gardırop",
+    "#onlinealışveriş",
+    "#kombin"
   ],
-  "takeaway": "Boyun döner ama çaktırmadım zannetmek saf iyimserliktir.",
+  "takeaway": "Elli lira kargo vermemek için iki yüz lirayı kutuda unuttuk.",
   "footage_queries": [
-    "marble surface texture",
-    "jewelry on dark surface macro"
+    "hands opening parcel box",
+    "cardboard parcel box close up"
   ],
   "narration": [
-    "Erkekler çaktırmadan baktığını zanneder.",
-    "Çevrede güzel bir kadın görünce beyin sinyali tetiklenir.",
-    "Çevre görüşü yetmeyince boyun refleksle tam yüz derece döner.",
-    "Çaktırmadım zannederken yakalanma oranı yüzde yüze ulaşır.",
-    "O boyun döner ama kimse bu numarayı yemez."
+    "Ücretsiz kargo için alınan tişört iade edilmez.",
+    "Elli lira kargo vermemek için sepet iki yüz lirayla tamamlanır.",
+    "Kutu eve gelir ama kargo şubesine gitmek hep ertelenir.",
+    "On dört günlük iade süresi dolunca tişört dolapta kalır.",
+    "Sistem senin o kargo şubesine üşenip gitmeyeceğini çok iyi biliyor."
   ],
-  "subject": "bakış refleksi",
-  "sendTo": "sevgilisi yanındayken gözü kayan erkek arkadaşına",
-  "soru": "Senin erkek arkadaşın çaktırmadan baktığını sanıyor mu?",
+  "subject": "iade süresi",
+  "sendTo": "iade süresi dolduğu için o tişörtü hâlâ kutusunda saklayan arkadaşına",
+  "soru": "Sen hangisisin: Zamanında iade eden mi, kutuyla yaşayan mı?",
   "theme": "#8fd0ff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -93,30 +97,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Erkekler çaktırmadan baktığını zanneder.",
+      "text": "Ücretsiz kargo için alınan tişört iade edilmez.",
       "start": 0.35,
-      "dur": 2.91
+      "dur": 3.24
     },
     {
-      "text": "Çevrede güzel bir kadın görünce beyin sinyali tetiklenir.",
-      "start": 3.26,
-      "dur": 4.147
+      "text": "Elli lira kargo vermemek için sepet iki yüz lirayla tamamlanır.",
+      "start": 3.59,
+      "dur": 4.342
     },
     {
-      "text": "Çevre görüşü yetmeyince boyun refleksle tam yüz derece döner.",
-      "start": 7.407,
-      "dur": 4.438
+      "text": "Kutu eve gelir ama kargo şubesine gitmek hep ertelenir.",
+      "start": 7.932,
+      "dur": 3.791
     },
     {
-      "text": "Çaktırmadım zannederken yakalanma oranı yüzde yüze ulaşır.",
-      "start": 11.845,
-      "dur": 4.22
+      "text": "On dört günlük iade süresi dolunca tişört dolapta kalır.",
+      "start": 11.723,
+      "dur": 3.86
     },
     {
-      "text": "O boyun döner ama kimse bu numarayı yemez.",
-      "start": 16.065,
-      "dur": 4.156
+      "text": "Sistem senin o kargo şubesine üşenip gitmeyeceğini çok iyi biliyor.",
+      "start": 15.583,
+      "dur": 5.718
     }
   ],
-  "thumbOffset": 1744
+  "thumbOffset": 2220
 }

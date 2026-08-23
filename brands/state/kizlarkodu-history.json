@@ -286,26 +286,25 @@
     "postedAt": "2026-08-23T17:47:27.474Z"
   },
   {
-    "title": "Erkeklerin Kızlara Bakma Refleksi",
-    "subject": "bakış refleksi",
-    "twist": "magaza-danismani",
-    "pillar": "online-alisveris",
+    "title": "Ücretsiz Kargo ve Biten İade Süresi",
+    "subject": "iade süresi",
+    "twist": "iade-tembelligi",
+    "pillar": "kargo-ve-iade",
     "layout": "nodes-flow",
     "kinds": "diagram",
     "motion": "sketch",
     "theme": "#8fd0ff",
     "source": "gemini",
     "footage": [
-      "pexels:marble surface texture",
-      "pexels:jewelry on dark surface macro",
+      "pexels:hands opening parcel box",
+      "pexels:cardboard parcel box close up",
       "pexels:denim fabric texture macro",
       "pexels:cotton fabric weave macro"
     ],
     "voice": 5,
     "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Bence elbiseler olmasın konu, komik olsun erkekler hakkında gaf vursun, onların kızlaea bakması hakkında gaf vursun komik olsun",
     "date": "2026-08-23",
-    "durSec": 20.1
+    "durSec": 21.2
   }
 ]
