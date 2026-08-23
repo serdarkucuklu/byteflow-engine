@@ -1,6 +1,6 @@
 {
-  "hook": "Dolabın yarım C vitamini mezarlığı mı?",
-  "title": "C Vitamini Serumu: İçindekiler Listesi Neyi Saklıyor?",
+  "hook": "Pahalı micellar su alan arkadaşın yine yakalandı.",
+  "title": "Micellar Su: Pahalı vs Muadil Gerçeği",
   "scenes": [
     {
       "layout": "hub-spoke",
@@ -8,71 +8,71 @@
       "nodes": [
         {
           "id": "n1",
-          "label": "C VİTAMİNİ SERUMU"
+          "label": "MİCELLAR SU"
         },
         {
           "id": "n2",
-          "label": "SU VE BAZ"
+          "label": "YÜZEY AKTİF"
         },
         {
           "id": "n3",
-          "label": "L-ASKORBİK ASİT"
+          "label": "SAFLAŞTIRILMIŞ SU"
         },
         {
           "id": "n4",
-          "label": "OKSİDASYON RİSKİ"
+          "label": "AMBALAJ VE REKLAM"
         }
       ],
       "steps": [
         {
           "from": "n1",
           "to": "n2",
-          "packet": "SU",
-          "status": "listenin başında su var, aktif az kalır",
-          "color": "accent"
+          "packet": "MİSEL",
+          "status": "yağı çeken miseller iki üründe aynı",
+          "color": "good"
         },
         {
           "from": "n1",
           "to": "n3",
-          "packet": "AKTİF",
-          "status": "askorbik asit ortalarda, etki yavaşlar",
+          "packet": "SU",
+          "status": "şişenin yüzde doksan dokuzu sadece su",
           "color": "good"
         },
         {
           "from": "n1",
           "to": "n4",
-          "packet": "HAVA",
-          "status": "açılan şişe sararır, dolapta bekler",
+          "packet": "ETİKET",
+          "status": "beş katı fiyat farkı kutuya gidiyor",
           "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Yarım kalan C vitamini serumları banyo dolabında müze oluşturdu bile.\n\nC vitamini serumu alırken içindekiler listesinde neye bakıyoruz, adım adım:\n\n1. Su ve Baz — İçindekiler listesinin ilk 3 sırasında su varsa, ürünün büyük kısmı nemlendirici taşıyıcıdır. Etken maddenin yüzdesi düşüktür.\n2. L-Askorbik Asit — C vitamininin en saf ve etkili formudur. Listenin ortalarında veya sonundaysa leke açıcı etkisi zayıf kalır.\n3. Oksidasyon — C vitamini hava ve ışıkla çabuk bozulur. Şişe açıldıktan sonra sararıyorsa aktifliğini kaybetmiş demektir.\n\nAlırken şişenin koyu renkli ve hava almayan pompalı tasarımda olmasına dikkat edin.\n\nBozulacağını bile bile o dördüncü serumu da alacağız ama olsun.\n\n📌 Kaydet — bir dahaki serum krizinde lazım olacak.\n\n🔁 Bunu banyosunda sekiz tane yarım C vitamini serumu saklayan arkadaşına gönder.\n\nBanyonda açılmış kaç tane yarım serum var, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Pahalı micellar su alan arkadaşın yine yakalandı.\n\nAkışta her gün övülen pahalı micellar su ile market muadili arasındaki gerçek mekanizma:\n\n1. Yüzey Aktif Miseller — Yağı ve kiri yakalayan misel molekülleri iki formülde de tamamen aynı görevi yapar.\n2. Saflaştırılmış Su — Şişenin yüzde doksan dokuzu bildiğimiz arıtılmış sudan oluşur.\n3. Ambalaj ve Marka Primi — Beş katı fiyat farkı etken maddeye değil, süslü şişeye ve reklam bütçesine gider.\n\nTemizleme suyunda önemli olan içerik sadeliğidir; lüks marka ambalajı cildini daha temiz yapmaz.\n\nÜrün aynı ürün ama biz yine ışıklı kutuda görünce heyecanlanacağız.\n\n📌 Kaydet — bir dahaki alışveriş krizinde lazım olacak.\n🔁 Bunu akışta gördüğü her ürünü sepete atan arkadaşına gönder.\nSen micellar suya ne kadar ödüyorsun, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
-    "#cvitamini",
-    "#cvitaminiserumu",
-    "#skincare",
-    "#ciltbakimrutini",
-    "#içindekiler"
+    "#micellarsu",
+    "#makyajtemizleme",
+    "#muadilürünler",
+    "#ciltkodu",
+    "#skincare"
   ],
-  "takeaway": "Oksitlenen C vitamini cildi değil, banyo dolabını süsler.",
+  "takeaway": "Suya servet ödeme, misel her yerde aynı misel.",
   "footage_queries": [
-    "serum drop close up",
-    "hand holding serum dropper"
+    "cosmetic bottles soft light",
+    "water droplets on glass"
   ],
   "narration": [
-    "Dolabın yarım C vitamini mezarlığı mı?",
-    "İçindekiler listesinde su ilk sırada olunca etken madde geride kalıyor.",
-    "Askorbik asit alt sıralardaysa leke açma vaadi biraz hayal oluyor.",
-    "Kapağı açılan serum hava aldıkça sararıp rafta kaderine terk ediliyor.",
-    "Oksitlenen C vitamini cildi değil, sadece banyo dolabını süslemeye yarıyor."
+    "Pahalı micellar su alan arkadaşın yine yakalandı.",
+    "Yağı ve kiri çeken miseller iki üründe de birebir aynıdır.",
+    "Şişenin yüzde doksan dokuzu zaten bildiğimiz saflaştırılmış sudan ibarettir.",
+    "Aralarındaki devasa fiyat farkı sadece ambalaja ve reklama gidiyor.",
+    "Aynı suyu beş katı fiyata almak tam bir akış tuzağıdır."
   ],
-  "subject": "c vitamini",
-  "sendTo": "banyosunda sekiz tane yarım C vitamini serumu saklayan arkadaşına",
-  "soru": "Banyonda açılmış kaç tane yarım serum var, dürüst ol?",
+  "subject": "micellar su",
+  "sendTo": "akışta gördüğü her ürünü sepete atan arkadaşına",
+  "soru": "Sen micellar suya ne kadar ödüyorsun, dürüst ol?",
   "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -97,29 +97,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Dolabın yarım C vitamini mezarlığı mı?",
+      "text": "Pahalı micellar su alan arkadaşın yine yakalandı.",
       "start": 0.35,
-      "dur": 2.375
+      "dur": 3.212
     },
     {
-      "text": "İçindekiler listesinde su ilk sırada olunca etken madde geride kalıyor.",
-      "start": 2.725,
-      "dur": 4.438
+      "text": "Yağı ve kiri çeken miseller iki üründe de birebir aynıdır.",
+      "start": 3.562,
+      "dur": 3.802
     },
     {
-      "text": "Askorbik asit alt sıralardaysa leke açma vaadi biraz hayal oluyor.",
-      "start": 7.163,
-      "dur": 4.125
+      "text": "Şişenin yüzde doksan dokuzu zaten bildiğimiz saflaştırılmış sudan ibarettir.",
+      "start": 7.365,
+      "dur": 4.983
     },
     {
-      "text": "Kapağı açılan serum hava aldıkça sararıp rafta kaderine terk ediliyor.",
-      "start": 11.289,
-      "dur": 4.376
+      "text": "Aralarındaki devasa fiyat farkı sadece ambalaja ve reklama gidiyor.",
+      "start": 12.347,
+      "dur": 4.392
     },
     {
-      "text": "Oksitlenen C vitamini cildi değil, sadece banyo dolabını süslemeye yarıyor.",
-      "start": 15.664,
-      "dur": 5.788
+      "text": "Aynı suyu beş katı fiyata almak tam bir akış tuzağıdır.",
+      "start": 16.74,
+      "dur": 4.706
     }
   ]
 }
