@@ -284,27 +284,5 @@
     "durSec": 21.4,
     "mediaId": "18125798044752318",
     "postedAt": "2026-08-23T17:47:27.474Z"
-  },
-  {
-    "title": "Ücretsiz Kargo Tuzağı Ve Kutudaki Tişört",
-    "subject": "ücretsiz kargo",
-    "twist": "iade-tembelligi",
-    "pillar": "kargo-ve-iade",
-    "layout": "nodes-flow",
-    "kinds": "diagram",
-    "motion": "sketch",
-    "theme": "#8fd0ff",
-    "source": "gemini",
-    "footage": [
-      "pexels:cardboard parcel box close up",
-      "pexels:hands opening parcel box",
-      "pexels:denim fabric texture macro",
-      "pexels:cotton fabric weave macro"
-    ],
-    "voice": 5,
-    "voiceName": "Kore",
-    "muzik": "byteflow-ambient.mp3",
-    "date": "2026-08-23",
-    "durSec": 21.4
   }
 ]
