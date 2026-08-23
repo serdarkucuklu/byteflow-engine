@@ -259,28 +259,5 @@
       "ig_reels_video_view_total_time": 13885
     },
     "insightsAt": "2026-08-23T16:58:44.305Z"
-  },
-  {
-    "title": "Marka İşbirliği Sweatshirt'ü Gafları",
-    "subject": "sweatshirt",
-    "twist": "sosyal-medya",
-    "pillar": "marka-primi",
-    "layout": "vertical-stack",
-    "kinds": "diagram",
-    "motion": "cascade",
-    "theme": "#ffe07d",
-    "source": "gemini",
-    "footage": [
-      "pexels:cardboard parcel box close up",
-      "pexels:washing machine drum spinning",
-      "pexels:denim fabric texture macro",
-      "pexels:cotton fabric weave macro"
-    ],
-    "voice": 5,
-    "voiceName": "Puck",
-    "muzik": "byteflow-ambient.mp3",
-    "not": "Daha komik gaflı olmalı",
-    "date": "2026-08-14",
-    "durSec": 21.4
   }
 ]
