@@ -2,6 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {generateSpec} from './generate-spec.mjs';
+import {twistsFor} from './twists.mjs';
 
 const fakePillar = {key: 'rag', focus: 'retrieval-augmented generation: chunking, embeddings, reranking'};
 
@@ -463,6 +464,24 @@ test('alıcı YALNIZ hook/sendTo/send CTA\'da geçebilir — mekanizma yuvaları
   assert.match(p, /EXACTLY three places/);
   assert.match(p, /never appear in a node label/i);
   assert.match(p, /step\.status/);
+});
+
+// ── ERKEK GAFI (docs/plan/kizlarkodu-erkek-gaf.md, Faz 2.4) ────────────────────────────────
+test('gerçek kizlarkodu markası + erkek-dolabi twist ile prompt üretimi', async () => {
+  const brand = JSON.parse(readFileSync(new URL('../brands/kizlarkodu.json', import.meta.url), 'utf8'));
+  const twist = twistsFor('moda-tr').find(t => t.key === 'erkek-dolabi');
+  const pillar = {key: 'kurutma-ve-utu', focus: 'kurutma ve ütü — kurutucudan küçülerek çıkan parça'};
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar, brand, twist,
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /TODAY'S GAF/);
+  assert.match(p, /kurutucudan çıkanı kontrol etmeden dolaba atması/, 'twist focus TODAY\'S GAF bloğunda');
+  assert.match(p, /WHO THIS ONE IS FOR/);
+  assert.match(p, /üç tişörtle bütün mevsimi geçiren kardeşine\/eşine/, 'kime WHO THIS ONE IS FOR satırında');
+  assert.match(p, /EXACTLY three places/, 'gerileme kilidi: 3 yer kuralı hâlâ duruyor');
 });
 
 test('uydurma PARA rakamı ayrıca yasaklanır (maliyet/marj/kira payı)', async () => {

@@ -83,3 +83,47 @@ test('erkek-dolabi moda-tr içinde, kime ve focus dolu, focus YASAK satırı iç
   assert.ok(twist.focus?.length > 40, 'focus alanı boş/çok kısa');
   assert.match(twist.focus, /YASAK/);
 });
+
+// ── ERKEK GAFI (docs/plan/kizlarkodu-erkek-gaf.md, Faz 2.3) ────────────────────────────────
+// `kumanda-imparatorlugu` 2.5 ölçümünde SIZINTI kapısını 2/2'de geçemediği için havuzdan
+// silindi (bkz. brain/twists.mjs — "⚠ SİLİNDİ" yorumu). Geriye 3 erkek twist'i kaldı.
+const ERKEK_TWIST_KEYS = ['erkek-dolabi', 'yikama-cesareti', 'yon-inadi'];
+
+test('moda-tr anahtarları tekil ve yeterince geniş', () => {
+  const T = twistsFor('moda-tr');
+  assert.equal(new Set(T.map(t => t.key)).size, T.length, 'anahtarlar tekil olmalı');
+  assert.ok(T.length >= 20, 'az sayıda gaf = birkaç günde tekrar');
+});
+
+test('4 erkek twistinin kime alanı dolu', () => {
+  const T = twistsFor('moda-tr');
+  for (const key of ERKEK_TWIST_KEYS) {
+    const twist = T.find(t => t.key === key);
+    assert.ok(twist, `${key} moda-tr havuzunda bulunamadı`);
+    assert.ok(twist.kime?.length > 10, `${key}: kime alanı boş/çok kısa`);
+  }
+});
+
+test('4 erkek twistinin focus metninde aşağılayıcı kelime ve cinsiyet geneli kalıbı yok', () => {
+  // Kapsam kasıtlı olarak 4 erkek twist'iyle sınırlı: BEAUTY_TR'deki "aile-tavsiyesi" gibi
+  // eski gaflar "Kimseyi aptal yerine koymadan" der — kelimeyi YASAKLAMAK için kullanır,
+  // aşağılamak için değil. Geniş taramada bu yanlış kırmızı üretir (bkz. plan REVİZYON NOTU 2 §6
+  // dersinin aynısı: kelime-eşleşmesi bağlamı ayırt etmez).
+  //
+  // Her 4 erkek twist'i kendi focus'unda ⛔ YASAK satırı + "böyle değil" örneğinde AÇIKÇA
+  // "erkek beyni" / "...zaten anlamaz" gibi kalıpları TIRNAK İÇİNDE gösterir — modelin
+  // KAÇINMASI gereken örnek olarak (aynı Faz 1 deseni, generate-spec.mjs:85-89 dersi: model
+  // kuralı değil örneği taklit eder). Bu yüzden tarama tırnak içindeki demonstratif alıntıları
+  // hariç tutar; asıl kontrol edilen şey focus'un KENDİ SESİYLE (tırnak dışında) bir genelleme
+  // YAPMAMASI / aşağılama İÇERMEMESİ.
+  const stripQuoted = (s) => s.replace(/"[^"]*"/g, '');
+  const AGIR_KELIMELER = /aptal|salak|beceriksiz|ezik|işe yaramaz/i;
+  const GENELLEME_KALIPLARI = /erkek beyni|erkekler hep/i;
+  const T = twistsFor('moda-tr');
+  for (const key of ERKEK_TWIST_KEYS) {
+    const twist = T.find(t => t.key === key);
+    const disiSes = stripQuoted(twist.focus);
+    assert.doesNotMatch(disiSes, AGIR_KELIMELER, `${key}: aşağılayıcı kelime (tırnak dışında)`);
+    assert.doesNotMatch(disiSes, GENELLEME_KALIPLARI, `${key}: genelleme kalıbı (tırnak dışında)`);
+  }
+});
