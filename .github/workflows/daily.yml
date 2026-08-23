@@ -39,6 +39,10 @@ on:
         description: "Seslendirme (ÖNİZLEME için: publish kapalıyken de sesli video üret)"
         type: boolean
         default: false
+      twist:
+        description: "Twist anahtarını zorla (ör. erkek-dolabi). Boş = normal rotasyon."
+        type: string
+        default: ""
 
 
 permissions:
@@ -193,6 +197,7 @@ jobs:
           # hâliyle izlemek mümkün olmuyordu (2026-07-28).
           BYTEFLOW_VOICE: ${{ (github.event_name == 'schedule' || inputs.publish || inputs.voice) && '1' || '0' }}
           BYTEFLOW_SPEC: ${{ inputs.spec }}
+          BYTEFLOW_TWIST: ${{ inputs.twist }}
         run: xvfb-run -a node run-daily.mjs
 
       - name: Videoyu barındır (repo'ya push)
@@ -234,6 +239,7 @@ jobs:
           NOBLE_IG_USER_ID: ${{ secrets.NOBLE_IG_USER_ID }}
           NOBLE_IG_TOKEN: ${{ secrets.NOBLE_IG_TOKEN }}
           NOBLE_FB_PAGE_ID: ${{ secrets.NOBLE_FB_PAGE_ID }}
+          BYTEFLOW_TWIST: ${{ inputs.twist }}
         run: |
           URL=""
           if [ "${{ steps.kapi.outputs.bekleyen }}" != "1" ] && [ "${{ steps.kota.outputs.bekleyen }}" != "1" ]; then
