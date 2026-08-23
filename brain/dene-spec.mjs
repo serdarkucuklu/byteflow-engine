@@ -70,27 +70,49 @@ console.log(`sendTo: ${spec.sendTo}`);
 console.log('step.status:');
 const nodeLabels = [];
 const stepStatuses = [];
+// versus sahnesinin (generate-spec.mjs:66-70) kendi alanları var: nodes/steps YOK.
+const versusMetinleri = [];
 for (const scene of spec.scenes ?? []) {
   for (const node of scene.nodes ?? []) nodeLabels.push(node.label ?? '');
   for (const step of scene.steps ?? []) {
     stepStatuses.push(step.status ?? '');
     console.log(`  - ${step.status}`);
   }
+  if (scene.heading) versusMetinleri.push({alan: 'scene.heading', metin: scene.heading});
+  if (scene.left) versusMetinleri.push({alan: 'scene.left', metin: scene.left});
+  if (scene.right) versusMetinleri.push({alan: 'scene.right', metin: scene.right});
+  for (const row of scene.rows ?? []) {
+    if (row.label) versusMetinleri.push({alan: 'scene.rows[].label', metin: row.label});
+    if (row.left) versusMetinleri.push({alan: 'scene.rows[].left', metin: row.left});
+    if (row.right) versusMetinleri.push({alan: 'scene.rows[].right', metin: row.right});
+  }
 }
 console.log('narration:');
 for (const line of spec.narration ?? []) console.log(`  - ${line}`);
 console.log(`caption: ${spec.caption}`);
 
-// 1.6(b): SIZINTI taraması. Kişi kelimeleri node label / step.status / narration'da YASAK —
-// hook, sendTo, caption CTA'da kişi SERBEST (generate-spec.mjs:231-236 HARD RULE).
-// Harf-sınırlı (lookaround) desen: "sabit/kabin/abiye"deki abi, "kocaman"daki koca,
-// "adamakıllı"daki adam gibi alt-dizeleri YANLIŞ kırmızı üretmez (plan REVİZYON NOTU 2 §6).
-const SIZINTI_DESENI = /(?<![a-zA-ZçğıöşüÇĞİÖŞÜ])(erkek|adam|koca|kardeş|abi)(?![a-zA-ZçğıöşüÇĞİÖŞÜ])/i;
+// 1.6(b): SIZINTI taraması. Kişi kelimeleri node label / step.status / narration / versus
+// alanları / title'da YASAK — hook, sendTo, caption CTA'da kişi SERBEST
+// (generate-spec.mjs:231-236 HARD RULE: "EXACTLY three places ... NOWHERE ELSE").
+//
+// Kök + BİLİNEN Türkçe ek(ler) eşleşir ("adamın", "kocası", "kardeşine", "erkeklerin",
+// "adamlar" YAKALANIR), ama kökten sonra BİLİNMEYEN harflerle devam eden başka bir kelime
+// eşleşmez ("sabit/kabin/abiye"deki abi, "kocaman"daki koca, "adamakıllı"daki adam YANLIŞ
+// kırmızı üretmez — soldaki lookbehind zaten "sabit/kabin"i harf bitişikliğinden eler, sağdaki
+// ek listesi de "kocaman/adamakıllı/abiye"yi eler). REVİZYON: eski sağ lookahead HER ekli hâli
+// (gerçek sızıntıyı) de reddediyordu — bkz. gözden-gecirici bulgusu 2026-08-23.
+const TR_HARF = 'a-zA-ZçğıöşüÇĞİÖŞÜ';
+const BILINEN_EKLER = 'ı|i|u|ü|a|e|ın|in|un|ün|lar|ler|ları|leri|ların|lerin|sı|si|su|sü|sına|sine|' +
+  'ına|ine|dan|den|tan|ten|da|de|ta|te|la|le|yla|yle|ıyla|iyle|';
+const SIZINTI_DESENI = new RegExp(
+  `(?<![${TR_HARF}])(erkek|adam|koca|kardeş|abi)(?:${BILINEN_EKLER})(?![${TR_HARF}])`, 'i');
 
 const sizinti = [];
 for (const l of nodeLabels) if (SIZINTI_DESENI.test(l)) sizinti.push(`node label: "${l}"`);
 for (const s of stepStatuses) if (SIZINTI_DESENI.test(s)) sizinti.push(`step.status: "${s}"`);
 for (const n of spec.narration ?? []) if (SIZINTI_DESENI.test(n)) sizinti.push(`narration: "${n}"`);
+for (const {alan, metin} of versusMetinleri) if (SIZINTI_DESENI.test(metin)) sizinti.push(`${alan}: "${metin}"`);
+if (spec.title && SIZINTI_DESENI.test(spec.title)) sizinti.push(`title: "${spec.title}"`);
 
 if (sizinti.length) {
   console.error('✗ SIZINTI — kişi mekanizma alanına sızmış (node label / step.status / narration):');

@@ -85,9 +85,12 @@ test('erkek-dolabi moda-tr içinde, kime ve focus dolu, focus YASAK satırı iç
 });
 
 // ── ERKEK GAFI (docs/plan/kizlarkodu-erkek-gaf.md, Faz 2.3) ────────────────────────────────
-// `kumanda-imparatorlugu` 2.5 ölçümünde SIZINTI kapısını 2/2'de geçemediği için havuzdan
-// silindi (bkz. brain/twists.mjs — "⚠ SİLİNDİ" yorumu). Geriye 3 erkek twist'i kaldı.
-const ERKEK_TWIST_KEYS = ['erkek-dolabi', 'yikama-cesareti', 'yon-inadi'];
+// `kumanda-imparatorlugu` VE `yon-inadi` 2.5/yeniden-ölçümde SIZINTI kapısını 2/2'de
+// geçemediği için havuzdan silindi (bkz. brain/twists.mjs — "⚠ SİLİNDİ" yorumları). Geriye 2
+// erkek twist'i kaldı. ERKEK_TWIST_KEYS elle tutulan liste DEĞİL — twists.mjs'teki
+// `aile: 'erkek-gaf'` alanından türetiliyor (gözden-gecirici bulgusu 2026-08-23: elle liste
+// yeni twist eklenince/silinince bayatlar).
+const ERKEK_TWIST_KEYS = twistsFor('moda-tr').filter(t => t.aile === 'erkek-gaf').map(t => t.key);
 
 test('moda-tr anahtarları tekil ve yeterince geniş', () => {
   const T = twistsFor('moda-tr');
@@ -95,7 +98,11 @@ test('moda-tr anahtarları tekil ve yeterince geniş', () => {
   assert.ok(T.length >= 20, 'az sayıda gaf = birkaç günde tekrar');
 });
 
-test('4 erkek twistinin kime alanı dolu', () => {
+test('aile alanından türeyen erkek twist listesi 2 twisti kapsıyor', () => {
+  assert.deepEqual(new Set(ERKEK_TWIST_KEYS), new Set(['erkek-dolabi', 'yikama-cesareti']));
+});
+
+test('2 erkek twistinin kime alanı dolu', () => {
   const T = twistsFor('moda-tr');
   for (const key of ERKEK_TWIST_KEYS) {
     const twist = T.find(t => t.key === key);
@@ -104,26 +111,22 @@ test('4 erkek twistinin kime alanı dolu', () => {
   }
 });
 
-test('4 erkek twistinin focus metninde aşağılayıcı kelime ve cinsiyet geneli kalıbı yok', () => {
-  // Kapsam kasıtlı olarak 4 erkek twist'iyle sınırlı: BEAUTY_TR'deki "aile-tavsiyesi" gibi
+test('2 erkek twistinin focus metninde aşağılayıcı kelime ve cinsiyet geneli kalıbı yok', () => {
+  // Kapsam kasıtlı olarak (yon-inadi silindikten sonra kalan) 2 erkek twist'iyle sınırlı: BEAUTY_TR'deki "aile-tavsiyesi" gibi
   // eski gaflar "Kimseyi aptal yerine koymadan" der — kelimeyi YASAKLAMAK için kullanır,
   // aşağılamak için değil. Geniş taramada bu yanlış kırmızı üretir (bkz. plan REVİZYON NOTU 2 §6
   // dersinin aynısı: kelime-eşleşmesi bağlamı ayırt etmez).
   //
-  // Her 4 erkek twist'i kendi focus'unda ⛔ YASAK satırı + "böyle değil" örneğinde AÇIKÇA
-  // "erkek beyni" / "...zaten anlamaz" gibi kalıpları TIRNAK İÇİNDE gösterir — modelin
-  // KAÇINMASI gereken örnek olarak (aynı Faz 1 deseni, generate-spec.mjs:85-89 dersi: model
-  // kuralı değil örneği taklit eder). Bu yüzden tarama tırnak içindeki demonstratif alıntıları
-  // hariç tutar; asıl kontrol edilen şey focus'un KENDİ SESİYLE (tırnak dışında) bir genelleme
-  // YAPMAMASI / aşağılama İÇERMEMESİ.
-  const stripQuoted = (s) => s.replace(/"[^"]*"/g, '');
+  // stripQuoted MUAFİYETİ KALDIRILDI (gözden-gecirici bulgusu 2026-08-23): ✅/⛔ örnek metinleri
+  // de taranıyor — onlar modelin taklit edeceği asıl içerik (generate-spec.mjs:85-89 dersi).
+  // Bu yüzden focus metinlerinin KENDİSİ yasaklı kalıpları TIRNAK İÇİNDE bile içermemeli;
+  // ⛔ YASAK satırı somut kalıbı alıntılamak yerine kategoriyi tarif eder.
   const AGIR_KELIMELER = /aptal|salak|beceriksiz|ezik|işe yaramaz/i;
   const GENELLEME_KALIPLARI = /erkek beyni|erkekler hep/i;
   const T = twistsFor('moda-tr');
   for (const key of ERKEK_TWIST_KEYS) {
     const twist = T.find(t => t.key === key);
-    const disiSes = stripQuoted(twist.focus);
-    assert.doesNotMatch(disiSes, AGIR_KELIMELER, `${key}: aşağılayıcı kelime (tırnak dışında)`);
-    assert.doesNotMatch(disiSes, GENELLEME_KALIPLARI, `${key}: genelleme kalıbı (tırnak dışında)`);
+    assert.doesNotMatch(twist.focus, AGIR_KELIMELER, `${key}: aşağılayıcı kelime`);
+    assert.doesNotMatch(twist.focus, GENELLEME_KALIPLARI, `${key}: genelleme kalıbı`);
   }
 });

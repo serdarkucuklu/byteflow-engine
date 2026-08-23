@@ -104,10 +104,10 @@ const MODA_TR = [
   // "erkek beyni / erkekler böyledir" tipi genellemeyi açıkça yasaklıyor (kaynaksız klişe riski,
   // bkz. plan Riskler tablosu). ✅/⛔ örnek çifti modelin kuralı değil örneği taklit etmesinden
   // yararlanıyor (generate-spec.mjs:85-89 dersi).
-  {key: 'erkek-dolabi', kime: 'üç tişörtle bütün mevsimi geçiren kardeşine/eşine',
-    focus: 'ERKEK DOLABI GAFI: kapı onun davranışı — üç tişörtle bütün mevsimi geçirmesi, aynı beş parçanın dönüp durması, kurutucudan çıkanı kontrol etmeden dolaba atması, "bu da olur" deyip hiç ütülemeden giymesi. Anlatılan mekanizma bugünkü konudan gelir (kumaş/dolap/bakım) — twist yeni bir mekanizma İDDİA ETMEZ, sadece bu mekanizmayı KİME anlattığını değiştirir. ⛔ YASAK: "erkek beyni", "erkekler böyledir/hiç anlamaz" gibi cinsiyet geneli — bu bir DAVRANIŞ gözlemidir, biyoloji/karakter iddiası değildir; kaynaklanamayan bir klişe modele "gerçek" gibi yazdırılmaz. ✅ böyle: "üç tişörtle kışı geçiren o adam, kurutucunun kazağını nasıl küçülttüğünü hiç sormaz" (davranış + bugünkü mekanizma). ⛔ böyle değil: "erkekler bakımdan zaten anlamaz" (genelleme, mekanizma yok, kaynaksız).'},
-  {key: 'yikama-cesareti', kime: 'her şeyi tek makinede 60 derecede yıkayan kardeşine/eşine',
-    focus: 'YIKAMA CESARETİ GAFI: kapı onun davranışı — beyazı, rengliyi, kazağı tek makinede 60 derecede yıkaması, etikete hiç bakmadan "olur nasılsa" demesi, sonucu görene kadar hiç şüphelenmemesi. Anlatılan mekanizma bugünkü konudan gelir (ısı/su/kumaş) — twist yeni bir mekanizma İDDİA ETMEZ, sadece bu mekanizmayı KİME anlattığını değiştirir. ⛔ YASAK: "erkek beyni", "erkekler böyledir/hiç anlamaz" gibi cinsiyet geneli — bu bir DAVRANIŞ gözlemidir, biyoloji/karakter iddiası değildir. ✅ böyle: "her şeyi 60 derecede tek makineye atan o adam, kazağın neden çocuk bedenine döndüğünü hiç sormaz" (davranış + bugünkü mekanizma). ⛔ böyle değil: "erkekler zaten yıkamadan anlamaz" (genelleme, mekanizma yok, kaynaksız).'},
+  {key: 'erkek-dolabi', kime: 'üç tişörtle bütün mevsimi geçiren kardeşine/eşine', aile: 'erkek-gaf',
+    focus: 'ERKEK DOLABI GAFI: kapı onun davranışı — üç tişörtle bütün mevsimi geçirmesi, aynı beş parçanın dönüp durması, kurutucudan çıkanı kontrol etmeden dolaba atması, "bu da olur" deyip hiç ütülemeden giymesi. Anlatılan mekanizma bugünkü konudan gelir (kumaş/dolap/bakım) — twist yeni bir mekanizma İDDİA ETMEZ, sadece bu mekanizmayı KİME anlattığını değiştirir. ⛔ YASAK: cinsiyete dayalı biyoloji/zihniyet genellemesi ("hepsi böyledir/hiç anlamaz" tarzı ifadeler) — bu bir DAVRANIŞ gözlemidir, biyoloji/karakter iddiası değildir; kaynaklanamayan bir klişe modele "gerçek" gibi yazdırılmaz. ✅ böyle: "üç tişörtle kışı geçiren o adam, kurutucunun kazağını nasıl küçülttüğünü hiç sormaz" (davranış + bugünkü mekanizma). ⛔ böyle değil: "erkekler bakımdan zaten anlamaz" (genelleme, mekanizma yok, kaynaksız).'},
+  {key: 'yikama-cesareti', kime: 'her şeyi tek makinede 60 derecede yıkayan kardeşine/eşine', aile: 'erkek-gaf',
+    focus: 'YIKAMA CESARETİ GAFI: kapı onun davranışı — beyazı, rengliyi, kazağı tek makinede 60 derecede yıkaması, etikete hiç bakmadan "olur nasılsa" demesi, sonucu görene kadar hiç şüphelenmemesi. Anlatılan mekanizma bugünkü konudan gelir (ısı/su/kumaş) — twist yeni bir mekanizma İDDİA ETMEZ, sadece bu mekanizmayı KİME anlattığını değiştirir. ⛔ YASAK: cinsiyete dayalı biyoloji/zihniyet genellemesi ("hepsi böyledir/hiç anlamaz" tarzı ifadeler) — bu bir DAVRANIŞ gözlemidir, biyoloji/karakter iddiası değildir. ✅ böyle: "her şeyi 60 derecede tek makineye atan o adam, kazağın neden çocuk bedenine döndüğünü hiç sormaz" (davranış + bugünkü mekanizma). ⛔ böyle değil: "erkekler zaten yıkamadan anlamaz" (genelleme, mekanizma yok, kaynaksız).'},
 
   // ── SINIR AÇILARI (2026-08-23, plan Faz 2.2 — REVİZYON NOTU 2) ──────────────────────────
   // Bu ikisi içeriden DEĞİL: davranış (kumanda, yol sorma) bugünkü pillar'ın kumaş/vücut
@@ -121,8 +121,15 @@ const MODA_TR = [
   // uyanamıyor.") ve kime alanındaki "adam" kelimesi mekanizma alanına sızdı. 1. koşu (kumaş
   // pillar'ı) hem sızıntısız hem hook↔gövde bağı sağlamdı, ama 2/2 tutarlılık şartını
   // sağlamadı — "belki tutar" diye havuzda bırakılmadı (plan Riskler tablosu).
-  {key: 'yon-inadi', kime: 'navigasyon açıkken bile yoldan sormaya ısrar eden kardeşine/eşine',
-    focus: 'YOL GAFI: KAPI bu davranış — navigasyon açıkken bile camdan yol sorması, "ben bilirim" deyip uygulamayı görmezden gelmesi, ısrarla yanlış sokağa girmesi. ANLATILAN KONU bugünkü pillar\'ın konusudur (kumaş/dolap/bakım/vücut) — twist yeni bir konu İDDİA ETMEZ, sadece kapıyı bu davranışla açar; gövde bugünkü mekanizmaya gerçekten bağlanmak ZORUNDA, konu navigasyona kaymaz. ⛔ YASAK: "erkek beyni", "erkekler böyledir/hiç anlamaz" gibi cinsiyet geneli. ✅ böyle: "navigasyon açıkken bile yoldan soran o adam, etiketi okumadan kazağı da 60 derecede yıkar" (davranışla açar, konuyu bugünkü mekanizmaya bağlar). ⛔ böyle değil: "erkekler yol sormaz zaten, hepsi inatçı" (genelleme, konu navigasyonda kalır, mekanizmaya hiç bağlanmaz).'},
+  //
+  // ⚠ SİLİNDİ (gözden-gecirici yeniden-ölçümü, 2026-08-23): `yon-inadi` de aynı desenle
+  // düştü. `beden-tablosu` pillar'ıyla 1. koşuda 1.6 SIZINTI kapısı kırmızı yaktı — model
+  // narration[0]/narration[4]'e "adam" kelimesini yazdı ("Navigasyonu dinlemeyen adam beden
+  // tablosu okumaz.", "Yoldan adres soran adama değil mezuranın santimine güvenin."). 2. koşu
+  // (aynı pillar) sızıntısız geçti — 1/2, 2/2 tutarlılık şartını sağlamadı. `sac-yikama-sikligi`
+  // pillar'ıyla (vücut/günlük-hayat ailesi) 1. koşuda sızıntısız geçti ama bu tek pillar'ın
+  // temizliği `beden-tablosu`'ndaki tutarsızlığı telafi etmez — "belki tutar" diye havuzda
+  // bırakılmadı (aynı plan Riskler tablosu kuralı).
 ];
 
 export const TWIST_SETS = {'beauty-tr': BEAUTY_TR, 'moda-tr': MODA_TR};
