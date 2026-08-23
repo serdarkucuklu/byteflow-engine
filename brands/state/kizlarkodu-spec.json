@@ -1,59 +1,59 @@
 {
-  "hook": "Beden tablosu yüzünden dolap önünde 20 dakikan kayıp.",
-  "title": "Beden Tablosu Yalanı ve Beden Karmaşası",
+  "hook": "Dolap doluyken kurtarıcın neden hep viskon?",
+  "title": "Dolap Doluyken Neden Sadece Viskon Giyiyoruz?",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "nodes-flow",
       "kind": "versus",
-      "left": "ESKİ BEDEN TABLOSU",
-      "right": "BUGÜNKÜ BEDEN TABLOSU",
+      "left": "VİSKON BLUZ",
+      "right": "POLYESTER BLUZ",
       "rows": [
         {
-          "label": "M BEDEN ÖLÇÜSÜ",
-          "left": "SABİT 38 BEDEN",
-          "right": "36 İLE 42 ARASI",
+          "label": "HAVA GEÇİRGENLİĞİ",
+          "left": "Doğal lif, nefes alır",
+          "right": "Plastik poşet etkisi",
           "winner": "left"
         },
         {
-          "label": "SABAH AYNA SÜRESİ",
-          "left": "2 DAKİKA",
-          "right": "20 DAKİKA DOLAP ÖNÜ",
+          "label": "DURUŞ VE KONFOR",
+          "left": "Yumuşak ve dökümlü",
+          "right": "Sert ve elektriklenir",
           "winner": "left"
         },
         {
-          "label": "BEDENLEME AMACI",
-          "left": "GERÇEK ÖLÇÜ",
-          "right": "PSİKOLOJİK SATIŞ",
+          "label": "GÜNLÜK KULLANIM",
+          "left": "Yataktan kapıp giyilmeli",
+          "right": "Dolapta bekleyen kalabalık",
           "winner": "left"
         }
       ]
     }
   ],
-  "caption": "Beden tablosu neden her mağazada farklı ve sabah dolap önünde zamanımızı çalıyor?\n\nBeden karmaşasının gerçek sebebi adım adım:\n\n1. Kibir bedenlemesi — Markalar müşteriyi psikolojik olarak iyi hissettirmek için kalıpları büyütüp etikete küçük beden yazarlar.\n2. Standart eksikliği — Tekstil sektöründe küresel tek bir beden tablosu zorunluluğu yoktur; her marka kendi hedef kitlesine göre ölçü belirler.\n3. Sabah zaman kaybı — Dolabındaki üç farklı M beden tişörtün hepsi farklı kesimde olduğu için her sabah deneme turları başlar.\n\nAlışveriş yaparken etiketteki harfe değil, santimetre cinsinden dürüst ölçülere güvenmek gerekiyor.\n\nKabinlerde geçen ömrümüz geri gelmeyecek ama yine de o tişörtü alacağız.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu her sabah dolabın önünde 20 dakika kaybeden arkadaşına gönder.\nDolabında kaç farklı beden kıyafet var, dürüst ol?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Dolabın ağzına kadar doluyken her sabah neden giyecek hiçbir şey bulamazsın?\n\nSürekli giydiğin o üç parça ile dolapta bekleyenler arasındaki fark:\n\n1. Hava geçirgenliği: Viskon doğal ahşap liflerinden üretilir, cildine nefes aldırır ve terletmez. Polyester ise petrolden yapılır, bildiğin plastik poşet etkisidir.\n2. Duruş ve konfor: Viskon dökümlü ve yumuşak yapısıyla üzerine tam oturur. Polyester ise statik elektrik üretir, saçını başını bozar ve kaskatı kalır.\n3. Kombin ömrü: Sabah yataktan fırlattığın o üç parça hep viskon veya pamukludur. Polyester bluzlar ise dolapta kalabalık yapmaktan başka işe yaramaz.\n\nAlışveriş yaparken kumaş içeriğinde polyester oranına değil, viskon ve pamuk miktarına bakın.\n\nDolapta elli kıyafet var ama yine aynı viskon tişörte sarılıyoruz.\n\n📌 Kaydet — dolap detoksu yaparken hangilerini eleyeceğini hatırla.\n\n🔁 Bunu dolabı dolu olduğu hâlde her sabah giyecek bir şey bulamayan arkadaşına gönder.\n\nSenin de dolabında asla giymediğin o polyester yığını duruyor mu?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#giyim",
+    "#moda",
     "#alışveriş",
+    "#kumaş",
     "#gardırop",
     "#kombin",
-    "#stil",
-    "#giyimtüyoları",
-    "#bedentablosu"
+    "#viskon"
   ],
-  "takeaway": "Etiketteki M harfi yalan söyleyebilir ama mezura asla yalan söylemez.",
+  "takeaway": "Dolabı dolduran polyesterler değil, nefes alan viskon seni kurtarır.",
   "footage_queries": [
     "wardrobe interior minimal",
-    "measuring tape and fabric"
+    "cotton fabric weave macro"
   ],
   "narration": [
-    "Beden tablosu sabah ömrünü çalıyor.",
-    "Markalar sizi mutlu etmek için beden numaralarını zamanla küçülttü.",
-    "Bu yüzden bir mağazanın S bedeni diğerinin L bedenine denk geliyor.",
-    "Sonuçta her sabah dolap önünde deneme yanılmayla yirmi dakika kaybediyoruz.",
-    "Üstündeki etiket değil, kumaşın üzerindeki dürüst metre ölçüsü gerçektir."
+    "Dolap doluyken kurtarıcın neden hep viskon?",
+    "Viskon cildine nefes aldırırken polyester bluz sera etkisi yaratır.",
+    "Viskon vücudundan dökülürken ucuz polyester kaskatı durup elektriklenir.",
+    "Yatağa fırlatılan o üç kıyafet hep viskondur diğeri bekler.",
+    "Dolabı dolduran polyesterler değil, nefes alan viskon seni kurtarır."
   ],
-  "subject": "beden tablosu",
-  "sendTo": "her sabah dolabın önünde 20 dakika kaybeden arkadaşına",
-  "soru": "Dolabında kaç farklı beden kıyafet var, dürüst ol?",
+  "subject": "viskon",
+  "sendTo": "dolabı dolu olduğu hâlde her sabah giyecek bir şey bulamayan arkadaşına",
+  "soru": "Senin de dolabında asla giymediğin o polyester yığını duruyor mu?",
   "theme": "#8fd0ff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -78,30 +78,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Beden tablosu sabah ömrünü çalıyor.",
+      "text": "Dolap doluyken kurtarıcın neden hep viskon?",
       "start": 0.35,
-      "dur": 2.209
+      "dur": 2.784
     },
     {
-      "text": "Markalar sizi mutlu etmek için beden numaralarını zamanla küçülttü.",
-      "start": 2.559,
-      "dur": 4.229
+      "text": "Viskon cildine nefes aldırırken polyester bluz sera etkisi yaratır.",
+      "start": 3.134,
+      "dur": 4.337
     },
     {
-      "text": "Bu yüzden bir mağazanın S bedeni diğerinin L bedenine denk geliyor.",
-      "start": 6.788,
-      "dur": 4.229
+      "text": "Viskon vücudundan dökülürken ucuz polyester kaskatı durup elektriklenir.",
+      "start": 7.471,
+      "dur": 4.661
     },
     {
-      "text": "Sonuçta her sabah dolap önünde deneme yanılmayla yirmi dakika kaybediyoruz.",
-      "start": 11.016,
-      "dur": 4.734
+      "text": "Yatağa fırlatılan o üç kıyafet hep viskondur diğeri bekler.",
+      "start": 12.132,
+      "dur": 3.82
     },
     {
-      "text": "Üstündeki etiket değil, kumaşın üzerindeki dürüst metre ölçüsü gerçektir.",
-      "start": 15.75,
-      "dur": 5.707
+      "text": "Dolabı dolduran polyesterler değil, nefes alan viskon seni kurtarır.",
+      "start": 15.952,
+      "dur": 5.502
     }
   ],
-  "thumbOffset": 1705
+  "thumbOffset": 1992
 }

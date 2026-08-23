@@ -286,24 +286,25 @@
     "postedAt": "2026-08-23T17:47:27.474Z"
   },
   {
-    "title": "Beden Tablosu Yalanı ve Beden Karmaşası",
-    "subject": "beden tablosu",
-    "twist": "zaman",
-    "pillar": "sehir-efsanesi",
-    "layout": "hub-spoke",
+    "title": "Dolap Doluyken Neden Sadece Viskon Giyiyoruz?",
+    "subject": "viskon",
+    "twist": "kombin-yalani",
+    "pillar": "pahali-mi-degeri",
+    "layout": "nodes-flow",
     "kinds": "versus",
     "motion": "sketch",
     "theme": "#8fd0ff",
     "source": "gemini",
     "footage": [
       "pexels:wardrobe interior minimal",
-      "pexels:measuring tape and fabric",
+      "pexels:knitted wool texture macro",
       "pexels:denim fabric texture macro",
       "pexels:cotton fabric weave macro"
     ],
     "voice": 5,
-    "voiceName": "Kore",
+    "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
+    "not": "Daha öğretici ve komik olsun, konu da farklı olsun",
     "date": "2026-08-23",
     "durSec": 21.4
   }
