@@ -1,78 +1,77 @@
 {
-  "hook": "Pahalı micellar su alan arkadaşın yine yakalandı.",
-  "title": "Micellar Su: Pahalı vs Muadil Gerçeği",
+  "hook": "Mat ruj kurutuyor diye altına nemlendirici süren arkadaşın.",
+  "title": "Mat Ruj Dudakta Neden Çatlamalı Dökülür?",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "cycle",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "MİCELLAR SU"
+          "id": "node1",
+          "label": "UÇUCU YAĞLAR"
         },
         {
-          "id": "n2",
-          "label": "YÜZEY AKTİF"
+          "id": "node2",
+          "label": "MAT POLİMER"
         },
         {
-          "id": "n3",
-          "label": "SAFLAŞTIRILMIŞ SU"
+          "id": "node3",
+          "label": "ALT BALM KATMANI"
         },
         {
-          "id": "n4",
-          "label": "AMBALAJ VE REKLAM"
+          "id": "node4",
+          "label": "PİGMENT KOPMASI"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "MİSEL",
-          "status": "yağı çeken miseller iki üründe aynı",
-          "color": "good"
+          "from": "node1",
+          "to": "node2",
+          "packet": "BUHAR",
+          "status": "uçucu yağ buharlaşır, polimer kilitlenir",
+          "color": "accent"
         },
         {
-          "from": "n1",
-          "to": "n3",
-          "packet": "SU",
-          "status": "şişenin yüzde doksan dokuzu sadece su",
-          "color": "good"
-        },
-        {
-          "from": "n1",
-          "to": "n4",
-          "packet": "ETİKET",
-          "status": "beş katı fiyat farkı kutuya gidiyor",
+          "from": "node2",
+          "to": "node3",
+          "packet": "KAYMA",
+          "status": "alttaki nemlendirici filmi kaydırır",
           "color": "warn"
+        },
+        {
+          "from": "node3",
+          "to": "node4",
+          "packet": "KIRILM",
+          "status": "tutunamayan sert renk tabakası",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Pahalı micellar su alan arkadaşın yine yakalandı.\n\nAkışta her gün övülen pahalı micellar su ile market muadili arasındaki gerçek mekanizma:\n\n1. Yüzey Aktif Miseller — Yağı ve kiri yakalayan misel molekülleri iki formülde de tamamen aynı görevi yapar.\n2. Saflaştırılmış Su — Şişenin yüzde doksan dokuzu bildiğimiz arıtılmış sudan oluşur.\n3. Ambalaj ve Marka Primi — Beş katı fiyat farkı etken maddeye değil, süslü şişeye ve reklam bütçesine gider.\n\nTemizleme suyunda önemli olan içerik sadeliğidir; lüks marka ambalajı cildini daha temiz yapmaz.\n\nÜrün aynı ürün ama biz yine ışıklı kutuda görünce heyecanlanacağız.\n\n📌 Kaydet — bir dahaki alışveriş krizinde lazım olacak.\n🔁 Bunu akışta gördüğü her ürünü sepete atan arkadaşına gönder.\nSen micellar suya ne kadar ödüyorsun, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Mat rujun kurutmasın diye nemlendirici sürmek dökülmeyi garanti eder.\n\nDudağındaki mat ruj neden sahra çölüne dönüyor, adım adım:\n\n1. UÇUCU YAĞLAR — Mat rujun içindeki hafif formül sürüldüğü an buharlaşmaya başlar.\n2. MAT POLİMER — Sıvı buharlaşınca geriye kalan polimer film dudağın dokusuna kilitlenir.\n3. ALT BALM KATMANI — Tavsiyelere kanıp alta sürdüğün nemlendirici bu filmin tutunmasını imkansız kılar.\n4. PİGMENT KOPMASI — Yapışamayan sert film ilk konuşmanda çatlayarak parça parça dökülür.\n\nMat rujun başarısı altına sürdüğün kreme değil, nemlendirmeyi bir gece önceden yapmış olmana bağlıdır.\n\nTüyocu arkadaşına inanmayı bırak, nemlendiriciyi rujdan hemen önce sürme.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n\n🔁 Bunu her mat ruj sürdüğünde dudağı pul pul olan arkadaşına gönder.\n\nSen mat rujun altına nemlendirici sürüyor musun, sürmüyor musun?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#micellarsu",
-    "#makyajtemizleme",
-    "#muadilürünler",
-    "#ciltkodu",
-    "#skincare"
+    "#guzellik",
+    "#makyaj",
+    "#matruj",
+    "#makyajonerisi",
+    "#dudakbakimi",
+    "#ciltkodu"
   ],
-  "takeaway": "Suya servet ödeme, misel her yerde aynı misel.",
+  "takeaway": "Nemlendiriciyi rujdan hemen önce değil, bir gece önce sür.",
   "footage_queries": [
-    "cosmetic bottles soft light",
-    "water droplets on glass"
+    "lipstick close up macro",
+    "hands applying cream close up"
   ],
   "narration": [
-    "Pahalı micellar su alan arkadaşın yine yakalandı.",
-    "Yağı ve kiri çeken miseller iki üründe de birebir aynıdır.",
-    "Şişenin yüzde doksan dokuzu zaten bildiğimiz saflaştırılmış sudan ibarettir.",
-    "Aralarındaki devasa fiyat farkı sadece ambalaja ve reklama gidiyor.",
-    "Aynı suyu beş katı fiyata almak tam bir akış tuzağıdır."
+    "Mat rujun altına nemlendirici sürülmez.",
+    "Mat ruj sürülünce içindeki sıvı yağlar hızla buharlaşır.",
+    "Ancak alttaki krem polimerin dudağa yapışmasını tamamen engeller.",
+    "Esneyemeyen kurutucu renk tabakası çatlayarak pul pul dökülür.",
+    "Nemlendiriciyi rujdan önce değil, geceden dudağına sürmelisin."
   ],
-  "subject": "micellar su",
-  "sendTo": "akışta gördüğü her ürünü sepete atan arkadaşına",
-  "soru": "Sen micellar suya ne kadar ödüyorsun, dürüst ol?",
+  "subject": "mat ruj",
+  "sendTo": "her mat ruj sürdüğünde dudağı pul pul olan arkadaşına",
+  "soru": "Sen mat rujun altına nemlendirici sürüyor musun, sürmüyor musun?",
   "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -97,30 +96,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Pahalı micellar su alan arkadaşın yine yakalandı.",
+      "text": "Mat rujun altına nemlendirici sürülmez.",
       "start": 0.35,
-      "dur": 3.212
+      "dur": 2.616
     },
     {
-      "text": "Yağı ve kiri çeken miseller iki üründe de birebir aynıdır.",
-      "start": 3.562,
-      "dur": 3.802
+      "text": "Mat ruj sürülünce içindeki sıvı yağlar hızla buharlaşır.",
+      "start": 2.966,
+      "dur": 3.757
     },
     {
-      "text": "Şişenin yüzde doksan dokuzu zaten bildiğimiz saflaştırılmış sudan ibarettir.",
-      "start": 7.365,
-      "dur": 4.983
+      "text": "Ancak alttaki krem polimerin dudağa yapışmasını tamamen engeller.",
+      "start": 6.723,
+      "dur": 4.36
     },
     {
-      "text": "Aralarındaki devasa fiyat farkı sadece ambalaja ve reklama gidiyor.",
-      "start": 12.347,
-      "dur": 4.392
+      "text": "Esneyemeyen kurutucu renk tabakası çatlayarak pul pul dökülür.",
+      "start": 11.083,
+      "dur": 4.159
     },
     {
-      "text": "Aynı suyu beş katı fiyata almak tam bir akış tuzağıdır.",
-      "start": 16.74,
-      "dur": 4.706
+      "text": "Nemlendiriciyi rujdan önce değil, geceden dudağına sürmelisin.",
+      "start": 15.242,
+      "dur": 5.259
     }
   ],
-  "thumbOffset": 2206
+  "thumbOffset": 1908
 }

@@ -1,78 +1,78 @@
 {
-  "hook": "Sende efsane duran elbise arkadaşında iade kargosu oldu.",
-  "title": "Beden Tablosu Aynı Ama İade Kargosu Kaçınılmaz",
+  "hook": "Mat ruj kurutuyor diye altına nemlendirici süren arkadaşın.",
+  "title": "Mat Ruj Dudakta Neden Çatlamalı Dökülür?",
   "scenes": [
     {
-      "layout": "vertical-stack",
+      "layout": "cycle",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "omuz",
-          "label": "OMUZ GENİŞLİĞİ"
+          "id": "node1",
+          "label": "UÇUCU YAĞLAR"
         },
         {
-          "id": "dokum",
-          "label": "KUMAŞ DÖKÜMÜ"
+          "id": "node2",
+          "label": "MAT POLİMER"
         },
         {
-          "id": "ag",
-          "label": "BEDEN KALIBI"
+          "id": "node3",
+          "label": "ALT BALM KATMANI"
         },
         {
-          "id": "iade",
-          "label": "İADE KARGOSU"
+          "id": "node4",
+          "label": "PİGMENT KOPMASI"
         }
       ],
       "steps": [
         {
-          "from": "omuz",
-          "to": "dokum",
-          "packet": "KALIP",
-          "status": "omuz çizgisi düşerse kumaş pot yapar",
-          "color": "warn"
-        },
-        {
-          "from": "dokum",
-          "to": "ag",
-          "packet": "AĞIRLI",
-          "status": "dökümsüz sert kumaş vücudu sarmaz",
+          "from": "node1",
+          "to": "node2",
+          "packet": "BUHAR",
+          "status": "uçucu yağ buharlaşır, polimer kilitlenir",
           "color": "accent"
         },
         {
-          "from": "ag",
-          "to": "iade",
-          "packet": "KARGO",
-          "status": "suç bedeninde değil yanlış kalıptadır",
+          "from": "node2",
+          "to": "node3",
+          "packet": "KAYMA",
+          "status": "alttaki nemlendirici filmi kaydırır",
+          "color": "warn"
+        },
+        {
+          "from": "node3",
+          "to": "node4",
+          "packet": "KIRILM",
+          "status": "tutunamayan sert renk tabakası",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Sende efsane duran elbisenin arkadaşında iade kargosuna dönüşme sebebi:\n\nAynı beden tablosu yazsa bile kıyafetin düşüşünü belirleyen 3 gizli detay var:\n\n1. Omuz Genişliği — Omuz dikişi yarım santim bile aşağı kayarsa, kumaş göğüs ve kol oyuntusunda pot yapıp çuval görüntüsü oluşturur.\n2. Kumaş Dökümü — Sentetik ve sert kumaşlar vücudun doğal kıvrımlarını sarmak yerine havada kalır.\n3. Beden Kalıbı — Beden tablosu göğüs ölçüsünü tutturabilir ama sırt ve bel oyuntusu uymazsa elbise durmaz.\n\nAlışveriş yaparken sadece beden harfine değil, kumaşın gramajına ve dökümüne bakın.\n\nKalıp oturmadıysa sorun senin fiziğinde değil, seri üretim kalıbında.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu senin üstünde görüp aldığı elbiseyi iade eden arkadaşına gönder.\n\nSen hiç arkadaşında görüp aldığın elbiseyi iade ettin mi?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Mat rujun kurutmasın diye nemlendirici sürmek dökülmeyi garanti eder.\n\nDudağındaki mat ruj neden sahra çölüne dönüyor, adım adım:\n\n1. UÇUCU YAĞLAR — Mat rujun içindeki hafif formül sürüldüğü an buharlaşmaya başlar.\n2. MAT POLİMER — Sıvı buharlaşınca geriye kalan polimer film dudağın dokusuna kilitlenir.\n3. ALT BALM KATMANI — Tavsiyelere kanıp alta sürdüğün nemlendirici bu filmin tutunmasını imkansız kılar.\n4. PİGMENT KOPMASI — Yapışamayan sert film ilk konuşmanda çatlayarak parça parça dökülür.\n\nMat rujun başarısı altına sürdüğün kreme değil, nemlendirmeyi bir gece önceden yapmış olmana bağlıdır.\n\nTüyocu arkadaşına inanmayı bırak, nemlendiriciyi rujdan hemen önce sürme.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n\n🔁 Bunu her mat ruj sürdüğünde dudağı pul pul olan arkadaşına gönder.\n\nSen mat rujun altına nemlendirici sürüyor musun, sürmüyor musun?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#alışveriş",
-    "#bedentablosu",
-    "#kumaşdökümü",
-    "#giyimtüyoları",
-    "#kombin",
-    "#beden"
+    "#guzellik",
+    "#makyaj",
+    "#matruj",
+    "#makyajonerisi",
+    "#dudakbakimi",
+    "#ciltkodu"
   ],
-  "takeaway": "Kalıp uymadıysa suç bedeninde değil, kumaşın dökümündedir.",
+  "takeaway": "Nemlendiriciyi rujdan hemen önce değil, bir gece önce sür.",
   "footage_queries": [
-    "measuring tape and fabric",
-    "cardboard parcel box close up"
+    "lipstick close up macro",
+    "hands applying cream close up"
   ],
   "narration": [
-    "Arkadaşında o elbise neden durmadı?",
-    "Omuz genişliği milim kayınca kumaş çuval gibi toplanır.",
-    "Sert kumaş vücuda oturmayınca elbise sana tepki gösterir.",
-    "Aynı beden tablosu bile kalıp farkını asla kurtaramaz.",
-    "Suç bedeninde değil yanlış kesilmiş o kalıp dökümündedir."
+    "Mat rujun altına nemlendirici sürülmez.",
+    "Mat ruj sürülünce içindeki sıvı yağlar hızla buharlaşır.",
+    "Ancak alttaki krem polimerin dudağa yapışmasını tamamen engeller.",
+    "Esneyemeyen kurutucu renk tabakası çatlayarak pul pul dökülür.",
+    "Nemlendiriciyi rujdan önce değil, geceden dudağına sürmelisin."
   ],
-  "subject": "beden tablosu",
-  "sendTo": "senin üstünde görüp aldığı elbiseyi iade eden arkadaşına",
-  "soru": "Sen hiç arkadaşında görüp aldığın elbiseyi iade ettin mi?",
-  "theme": "#ffe07d",
+  "subject": "mat ruj",
+  "sendTo": "her mat ruj sürdüğünde dudağı pul pul olan arkadaşına",
+  "soru": "Sen mat rujun altına nemlendirici sürüyor musun, sürmüyor musun?",
+  "theme": "#e8a0a8",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -96,29 +96,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Arkadaşında o elbise neden durmadı?",
+      "text": "Mat rujun altına nemlendirici sürülmez.",
       "start": 0.35,
-      "dur": 2.508
+      "dur": 2.616
     },
     {
-      "text": "Omuz genişliği milim kayınca kumaş çuval gibi toplanır.",
-      "start": 2.858,
-      "dur": 3.942
+      "text": "Mat ruj sürülünce içindeki sıvı yağlar hızla buharlaşır.",
+      "start": 2.966,
+      "dur": 3.757
     },
     {
-      "text": "Sert kumaş vücuda oturmayınca elbise sana tepki gösterir.",
-      "start": 6.8,
-      "dur": 4.085
+      "text": "Ancak alttaki krem polimerin dudağa yapışmasını tamamen engeller.",
+      "start": 6.723,
+      "dur": 4.36
     },
     {
-      "text": "Aynı beden tablosu bile kalıp farkını asla kurtaramaz.",
-      "start": 10.886,
-      "dur": 3.87
+      "text": "Esneyemeyen kurutucu renk tabakası çatlayarak pul pul dökülür.",
+      "start": 11.083,
+      "dur": 4.159
     },
     {
-      "text": "Suç bedeninde değil yanlış kesilmiş o kalıp dökümündedir.",
-      "start": 14.756,
-      "dur": 5.185
+      "text": "Nemlendiriciyi rujdan önce değil, geceden dudağına sürmelisin.",
+      "start": 15.242,
+      "dur": 5.259
     }
   ]
 }

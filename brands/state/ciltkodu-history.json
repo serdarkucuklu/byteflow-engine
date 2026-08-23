@@ -668,25 +668,26 @@
     "insightsAt": "2026-08-23T15:22:12.049Z"
   },
   {
-    "title": "Micellar Su: Pahalı vs Muadil Gerçeği",
-    "subject": "micellar su",
-    "twist": "sosyal-medya",
-    "pillar": "muadil",
-    "layout": "hub-spoke",
+    "title": "Mat Ruj Dudakta Neden Çatlamalı Dökülür?",
+    "subject": "mat ruj",
+    "twist": "aile-tavsiyesi",
+    "pillar": "trend-mekanik",
+    "layout": "cycle",
     "kinds": "diagram",
     "motion": "camera",
     "theme": "#e8a0a8",
     "source": "gemini",
     "footage": [
-      "pexels:cosmetic bottles soft light",
-      "pexels:marble surface texture",
+      "pexels:lipstick close up macro",
+      "pexels:hands rubbing lotion macro",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
     "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
+    "not": "Daha öğretici ve komik olsun, konu da farklı olsun",
     "date": "2026-08-23",
-    "durSec": 21.4
+    "durSec": 20.4
   }
 ]
