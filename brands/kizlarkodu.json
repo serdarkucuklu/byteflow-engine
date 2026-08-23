@@ -104,7 +104,7 @@
     "captionClosing": "A funny, self-aware closing line that lands today's gaf (the same angle as the hook), not a generic sign-off"
   },
   "symbol": "soru",
-  "timelyPayi": 0.25,
+  "timelyPayi": 0.5,
   "kapsamSiniri": "@cilt.kodu = ÜRÜN ve etken madde (kavanozun içi: serum, retinol, INCI, gözenek, sivilce). @kizlar.kodu = ALIŞKANLIK/RİTÜEL ve VÜCUDUN TEPKİSİ (neden yapıyoruz, işe yarıyor mu) + saç, tırnak, uyku, koku, ev, kıyafet, dolap, alışveriş. Aynı konu iki sayfada işlenecekse cilt.kodu üründen, kizlar.kodu davranıştan bakar.",
   "motionSet": "kizlar",
   "format": "kinetik",
