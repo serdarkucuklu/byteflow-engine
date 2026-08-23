@@ -1,59 +1,74 @@
 {
-  "hook": "Dolap doluyken kurtarıcın neden hep viskon?",
-  "title": "Dolap Doluyken Neden Sadece Viskon Giyiyoruz?",
+  "hook": "Erkekler çaktırmadan baktığını sanırken boyun kırıyor.",
+  "title": "Erkeklerin Kızlara Bakma Refleksi",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "kind": "versus",
-      "left": "VİSKON BLUZ",
-      "right": "POLYESTER BLUZ",
-      "rows": [
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "HAVA GEÇİRGENLİĞİ",
-          "left": "Doğal lif, nefes alır",
-          "right": "Plastik poşet etkisi",
-          "winner": "left"
+          "id": "n1",
+          "label": "GÖRSEL UYARAN"
         },
         {
-          "label": "DURUŞ VE KONFOR",
-          "left": "Yumuşak ve dökümlü",
-          "right": "Sert ve elektriklenir",
-          "winner": "left"
+          "id": "n2",
+          "label": "REFLEKS MOTORU"
         },
         {
-          "label": "GÜNLÜK KULLANIM",
-          "left": "Yataktan kapıp giyilmeli",
-          "right": "Dolapta bekleyen kalabalık",
-          "winner": "left"
+          "id": "n3",
+          "label": "180 DERECE BAKIŞ"
+        }
+      ],
+      "steps": [
+        {
+          "from": "n1",
+          "to": "n2",
+          "packet": "SİNYAL",
+          "status": "beyin yakındaki kadını anında algılar",
+          "color": "accent"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "BOYUN",
+          "status": "boyun kasları istemsizce komut alır",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n1",
+          "packet": "YAKALA",
+          "status": "çaktırmama çabası fiyaskoyla biter",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Dolabın ağzına kadar doluyken her sabah neden giyecek hiçbir şey bulamazsın?\n\nSürekli giydiğin o üç parça ile dolapta bekleyenler arasındaki fark:\n\n1. Hava geçirgenliği: Viskon doğal ahşap liflerinden üretilir, cildine nefes aldırır ve terletmez. Polyester ise petrolden yapılır, bildiğin plastik poşet etkisidir.\n2. Duruş ve konfor: Viskon dökümlü ve yumuşak yapısıyla üzerine tam oturur. Polyester ise statik elektrik üretir, saçını başını bozar ve kaskatı kalır.\n3. Kombin ömrü: Sabah yataktan fırlattığın o üç parça hep viskon veya pamukludur. Polyester bluzlar ise dolapta kalabalık yapmaktan başka işe yaramaz.\n\nAlışveriş yaparken kumaş içeriğinde polyester oranına değil, viskon ve pamuk miktarına bakın.\n\nDolapta elli kıyafet var ama yine aynı viskon tişörte sarılıyoruz.\n\n📌 Kaydet — dolap detoksu yaparken hangilerini eleyeceğini hatırla.\n\n🔁 Bunu dolabı dolu olduğu hâlde her sabah giyecek bir şey bulamayan arkadaşına gönder.\n\nSenin de dolabında asla giymediğin o polyester yığını duruyor mu?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Erkekler çaktırmadan baktığını sanırken boyun kırıyor.\n\nErkeklerin sokakta kızlara bakış mekanizması, adım adım:\n1. Görsel uyaran — Kadın çevre görüş alanına girdiği an beyin uyarılır.\n2. Refleks motoru — Çevresel görüş yetersiz kalınca boyun kasları istemsizce komut alır.\n3. 180 derece bakış — Çaktırmama çabasıyla yapılan hızlı baş hareketi aslında fiyaskoyla biter.\n\nErkeklerin çaktırmadan bakma yeteneği sıfırdır, açı kaç olursa olsun anında yakalanırlar.\nBoyun döner, göz kayar, ama suçlu her zaman refleks olur.\n📌 Kaydet — erkeklerin tahlilinde lazım olacak.\n🔁 Bunu sevgilisi yanındayken gözü kayan erkek arkadaşına gönder.\nSenin erkek arkadaşın çaktırmadan baktığını sanıyor mu?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#giyim",
-    "#moda",
-    "#alışveriş",
-    "#kumaş",
-    "#gardırop",
-    "#kombin",
-    "#viskon"
+    "#erkekler",
+    "#ilişkiler",
+    "#komedi",
+    "#komikvideolar",
+    "#psikoloji",
+    "#gerçekler",
+    "#kızlarkodu"
   ],
-  "takeaway": "Dolabı dolduran polyesterler değil, nefes alan viskon seni kurtarır.",
+  "takeaway": "Boyun döner ama çaktırmadım zannetmek saf iyimserliktir.",
   "footage_queries": [
-    "wardrobe interior minimal",
-    "cotton fabric weave macro"
+    "marble surface texture",
+    "jewelry on dark surface macro"
   ],
   "narration": [
-    "Dolap doluyken kurtarıcın neden hep viskon?",
-    "Viskon cildine nefes aldırırken polyester bluz sera etkisi yaratır.",
-    "Viskon vücudundan dökülürken ucuz polyester kaskatı durup elektriklenir.",
-    "Yatağa fırlatılan o üç kıyafet hep viskondur diğeri bekler.",
-    "Dolabı dolduran polyesterler değil, nefes alan viskon seni kurtarır."
+    "Erkekler çaktırmadan baktığını zanneder.",
+    "Çevrede güzel bir kadın görünce beyin sinyali tetiklenir.",
+    "Çevre görüşü yetmeyince boyun refleksle tam yüz derece döner.",
+    "Çaktırmadım zannederken yakalanma oranı yüzde yüze ulaşır.",
+    "O boyun döner ama kimse bu numarayı yemez."
   ],
-  "subject": "viskon",
-  "sendTo": "dolabı dolu olduğu hâlde her sabah giyecek bir şey bulamayan arkadaşına",
-  "soru": "Senin de dolabında asla giymediğin o polyester yığını duruyor mu?",
+  "subject": "bakış refleksi",
+  "sendTo": "sevgilisi yanındayken gözü kayan erkek arkadaşına",
+  "soru": "Senin erkek arkadaşın çaktırmadan baktığını sanıyor mu?",
   "theme": "#8fd0ff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -78,30 +93,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Dolap doluyken kurtarıcın neden hep viskon?",
+      "text": "Erkekler çaktırmadan baktığını zanneder.",
       "start": 0.35,
-      "dur": 2.784
+      "dur": 2.91
     },
     {
-      "text": "Viskon cildine nefes aldırırken polyester bluz sera etkisi yaratır.",
-      "start": 3.134,
-      "dur": 4.337
+      "text": "Çevrede güzel bir kadın görünce beyin sinyali tetiklenir.",
+      "start": 3.26,
+      "dur": 4.147
     },
     {
-      "text": "Viskon vücudundan dökülürken ucuz polyester kaskatı durup elektriklenir.",
-      "start": 7.471,
-      "dur": 4.661
+      "text": "Çevre görüşü yetmeyince boyun refleksle tam yüz derece döner.",
+      "start": 7.407,
+      "dur": 4.438
     },
     {
-      "text": "Yatağa fırlatılan o üç kıyafet hep viskondur diğeri bekler.",
-      "start": 12.132,
-      "dur": 3.82
+      "text": "Çaktırmadım zannederken yakalanma oranı yüzde yüze ulaşır.",
+      "start": 11.845,
+      "dur": 4.22
     },
     {
-      "text": "Dolabı dolduran polyesterler değil, nefes alan viskon seni kurtarır.",
-      "start": 15.952,
-      "dur": 5.502
+      "text": "O boyun döner ama kimse bu numarayı yemez.",
+      "start": 16.065,
+      "dur": 4.156
     }
   ],
-  "thumbOffset": 1992
+  "thumbOffset": 1744
 }

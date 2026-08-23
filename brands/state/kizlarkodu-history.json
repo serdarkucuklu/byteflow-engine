@@ -286,26 +286,26 @@
     "postedAt": "2026-08-23T17:47:27.474Z"
   },
   {
-    "title": "Dolap Doluyken Neden Sadece Viskon Giyiyoruz?",
-    "subject": "viskon",
-    "twist": "kombin-yalani",
-    "pillar": "pahali-mi-degeri",
+    "title": "Erkeklerin Kızlara Bakma Refleksi",
+    "subject": "bakış refleksi",
+    "twist": "magaza-danismani",
+    "pillar": "online-alisveris",
     "layout": "nodes-flow",
-    "kinds": "versus",
+    "kinds": "diagram",
     "motion": "sketch",
     "theme": "#8fd0ff",
     "source": "gemini",
     "footage": [
-      "pexels:wardrobe interior minimal",
-      "pexels:knitted wool texture macro",
+      "pexels:marble surface texture",
+      "pexels:jewelry on dark surface macro",
       "pexels:denim fabric texture macro",
       "pexels:cotton fabric weave macro"
     ],
     "voice": 5,
-    "voiceName": "Puck",
+    "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Daha öğretici ve komik olsun, konu da farklı olsun",
+    "not": "Bence elbiseler olmasın konu, komik olsun erkekler hakkında gaf vursun, onların kızlaea bakması hakkında gaf vursun komik olsun",
     "date": "2026-08-23",
-    "durSec": 21.4
+    "durSec": 20.1
   }
 ]
