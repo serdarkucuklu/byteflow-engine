@@ -1,75 +1,60 @@
 {
-  "hook": "Gece sepete giren modal tişört şaşırtır.",
-  "title": "Gece Sepetindeki Modal Tişört Hilesi",
+  "hook": "Beden tablosu yüzünden dolap önünde 20 dakikan kayıp.",
+  "title": "Beden Tablosu Yalanı ve Beden Karmaşası",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "hub-spoke",
+      "kind": "versus",
+      "left": "ESKİ BEDEN TABLOSU",
+      "right": "BUGÜNKÜ BEDEN TABLOSU",
+      "rows": [
         {
-          "id": "elyaf",
-          "label": "MODAL İPLİK"
+          "label": "M BEDEN ÖLÇÜSÜ",
+          "left": "SABİT 38 BEDEN",
+          "right": "36 İLE 42 ARASI",
+          "winner": "left"
         },
         {
-          "id": "lisans",
-          "label": "MARKA LİSANSI"
+          "label": "SABAH AYNA SÜRESİ",
+          "left": "2 DAKİKA",
+          "right": "20 DAKİKA DOLAP ÖNÜ",
+          "winner": "left"
         },
         {
-          "id": "kargo",
-          "label": "SEPET BARAJ YÜKÜ"
-        }
-      ],
-      "steps": [
-        {
-          "from": "elyaf",
-          "to": "lisans",
-          "packet": "İPLİK",
-          "status": "modal lif kayın ağacından elde edilir",
-          "color": "good"
-        },
-        {
-          "from": "lisans",
-          "to": "kargo",
-          "packet": "ETİKET",
-          "status": "aynı kumaşa logo basıp fiyatı katlarlar",
-          "color": "accent"
-        },
-        {
-          "from": "kargo",
-          "to": "elyaf",
-          "packet": "SEPET",
-          "status": "kargo bedava olsun diye gece eklenir",
-          "color": "warn"
+          "label": "BEDENLEME AMACI",
+          "left": "GERÇEK ÖLÇÜ",
+          "right": "PSİKOLOJİK SATIŞ",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "Gece 2'de sepete atılan o modal tişörtün arkasındaki marka oyunu.\n\nBedava kargo eşiğini geçerken ödediğin marka priminin adım adım anatomisi:\n\n1. Modal İplik — Kayın ağacı selülozundan üretilen son derece yumuşak ve dökümlü bir elyaftır; standart kumaş maliyeti markadan markaya radikal biçimde değişmez.\n2. Marka Lisansı — Aynı modal tişörte basılan tek bir amblem veya etiket, kumaş kalitesini değiştirmeden fiyata katlarca logo primi ekler.\n3. Sepet Baraj Yükü — Ücretsiz kargo limitini doldurmak için gece yarısı sepete eklenen o parça, aslında ucuz kargo için ödenen yüksek marka bedelidir.\n\nAlışveriş yaparken etiketteki markaya değil, kumaş karışımındaki modal ve pamuk oranına bakın.\n\nKargo bedava geldi ama tişörte logo parası ödedik. Yine de o sepet onaylanacak.\n\n📌 Kaydet — bir dahaki gece alışverişinde lazım olacak.\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına gönder.\nGece sepetini dolduran o 3. parça neydi: basic tişört mü çorap mı?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Beden tablosu neden her mağazada farklı ve sabah dolap önünde zamanımızı çalıyor?\n\nBeden karmaşasının gerçek sebebi adım adım:\n\n1. Kibir bedenlemesi — Markalar müşteriyi psikolojik olarak iyi hissettirmek için kalıpları büyütüp etikete küçük beden yazarlar.\n2. Standart eksikliği — Tekstil sektöründe küresel tek bir beden tablosu zorunluluğu yoktur; her marka kendi hedef kitlesine göre ölçü belirler.\n3. Sabah zaman kaybı — Dolabındaki üç farklı M beden tişörtün hepsi farklı kesimde olduğu için her sabah deneme turları başlar.\n\nAlışveriş yaparken etiketteki harfe değil, santimetre cinsinden dürüst ölçülere güvenmek gerekiyor.\n\nKabinlerde geçen ömrümüz geri gelmeyecek ama yine de o tişörtü alacağız.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu her sabah dolabın önünde 20 dakika kaybeden arkadaşına gönder.\nDolabında kaç farklı beden kıyafet var, dürüst ol?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#giyim",
     "#alışveriş",
-    "#kumaş",
-    "#modal",
     "#gardırop",
+    "#kombin",
+    "#stil",
     "#giyimtüyoları",
-    "#marka"
+    "#bedentablosu"
   ],
-  "takeaway": "Bedava kargo kazanırken kumaşa değil sadece logoya para ödedin.",
+  "takeaway": "Etiketteki M harfi yalan söyleyebilir ama mezura asla yalan söylemez.",
   "footage_queries": [
-    "shopping bags flat lay",
-    "cotton fabric weave macro"
+    "wardrobe interior minimal",
+    "measuring tape and fabric"
   ],
   "narration": [
-    "Gece sepete giren modal tişört şaşırtır.",
-    "Modal kumaş kayın ağacından yapılan oldukça yumuşak ve doğal bir liftir.",
-    "Üzerine ünlü logonun basılması kumaşın üretim maliyetini hiç değiştirmeden fiyatı katlar.",
-    "Gece kargo sınırını geçmek için o yüksek etiketli parça sepete atılır.",
-    "Bedava kargo kazanırken elyaf yerine ambalajdaki havalı logoyu satın alırsın."
+    "Beden tablosu sabah ömrünü çalıyor.",
+    "Markalar sizi mutlu etmek için beden numaralarını zamanla küçülttü.",
+    "Bu yüzden bir mağazanın S bedeni diğerinin L bedenine denk geliyor.",
+    "Sonuçta her sabah dolap önünde deneme yanılmayla yirmi dakika kaybediyoruz.",
+    "Üstündeki etiket değil, kumaşın üzerindeki dürüst metre ölçüsü gerçektir."
   ],
-  "subject": "modal",
-  "sendTo": "gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına",
-  "soru": "Gece sepetini dolduran o 3. parça neydi: basic tişört mü çorap mı?",
-  "theme": "#ffe07d",
+  "subject": "beden tablosu",
+  "sendTo": "her sabah dolabın önünde 20 dakika kaybeden arkadaşına",
+  "soru": "Dolabında kaç farklı beden kıyafet var, dürüst ol?",
+  "theme": "#8fd0ff",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -88,35 +73,35 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "cascade",
+  "motion": "sketch",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Gece sepete giren modal tişört şaşırtır.",
+      "text": "Beden tablosu sabah ömrünü çalıyor.",
       "start": 0.35,
-      "dur": 2.299
+      "dur": 2.209
     },
     {
-      "text": "Modal kumaş kayın ağacından yapılan oldukça yumuşak ve doğal bir liftir.",
-      "start": 2.649,
-      "dur": 4.138
+      "text": "Markalar sizi mutlu etmek için beden numaralarını zamanla küçülttü.",
+      "start": 2.559,
+      "dur": 4.229
     },
     {
-      "text": "Üzerine ünlü logonun basılması kumaşın üretim maliyetini hiç değiştirmeden fiyatı katlar.",
-      "start": 6.786,
-      "dur": 5.115
+      "text": "Bu yüzden bir mağazanın S bedeni diğerinin L bedenine denk geliyor.",
+      "start": 6.788,
+      "dur": 4.229
     },
     {
-      "text": "Gece kargo sınırını geçmek için o yüksek etiketli parça sepete atılır.",
-      "start": 11.901,
-      "dur": 4.023
+      "text": "Sonuçta her sabah dolap önünde deneme yanılmayla yirmi dakika kaybediyoruz.",
+      "start": 11.016,
+      "dur": 4.734
     },
     {
-      "text": "Bedava kargo kazanırken elyaf yerine ambalajdaki havalı logoyu satın alırsın.",
-      "start": 15.924,
-      "dur": 5.525
+      "text": "Üstündeki etiket değil, kumaşın üzerindeki dürüst metre ölçüsü gerçektir.",
+      "start": 15.75,
+      "dur": 5.707
     }
   ],
-  "thumbOffset": 1749
+  "thumbOffset": 1705
 }

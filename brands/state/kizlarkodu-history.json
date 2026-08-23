@@ -284,5 +284,27 @@
     "durSec": 21.4,
     "mediaId": "18125798044752318",
     "postedAt": "2026-08-23T17:47:27.474Z"
+  },
+  {
+    "title": "Beden Tablosu Yalanı ve Beden Karmaşası",
+    "subject": "beden tablosu",
+    "twist": "zaman",
+    "pillar": "sehir-efsanesi",
+    "layout": "hub-spoke",
+    "kinds": "versus",
+    "motion": "sketch",
+    "theme": "#8fd0ff",
+    "source": "gemini",
+    "footage": [
+      "pexels:wardrobe interior minimal",
+      "pexels:measuring tape and fabric",
+      "pexels:denim fabric texture macro",
+      "pexels:cotton fabric weave macro"
+    ],
+    "voice": 5,
+    "voiceName": "Kore",
+    "muzik": "byteflow-ambient.mp3",
+    "date": "2026-08-23",
+    "durSec": 21.4
   }
 ]
