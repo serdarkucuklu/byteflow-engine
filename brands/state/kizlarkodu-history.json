@@ -286,8 +286,8 @@
     "postedAt": "2026-08-23T17:47:27.474Z"
   },
   {
-    "title": "Ücretsiz Kargo ve Biten İade Süresi",
-    "subject": "iade süresi",
+    "title": "Ücretsiz Kargo Tuzağı Ve Kutudaki Tişört",
+    "subject": "ücretsiz kargo",
     "twist": "iade-tembelligi",
     "pillar": "kargo-ve-iade",
     "layout": "nodes-flow",
@@ -296,8 +296,8 @@
     "theme": "#8fd0ff",
     "source": "gemini",
     "footage": [
-      "pexels:hands opening parcel box",
       "pexels:cardboard parcel box close up",
+      "pexels:hands opening parcel box",
       "pexels:denim fabric texture macro",
       "pexels:cotton fabric weave macro"
     ],
@@ -305,6 +305,6 @@
     "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
     "date": "2026-08-23",
-    "durSec": 21.2
+    "durSec": 21.4
   }
 ]
