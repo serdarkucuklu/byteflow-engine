@@ -13,7 +13,7 @@ import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose
 import {denetle, rapor} from './publish/retansiyon-denetci.mjs';
 import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './publish/voiceover.mjs';
 import {pillarsFor, selectPillar} from './brain/pillars.mjs';
-import {twistsFor, selectTwist} from './brain/twists.mjs';
+import {twistsFor, selectTwist, twistByKey} from './brain/twists.mjs';
 import {recentSubjects} from './brain/subjects.mjs';
 import {redOku, bugunkuRedler} from './brain/red-defteri.mjs';
 import {selectMotion, motionsFor} from './render/src/lib/motion-registry.mjs';
@@ -79,10 +79,16 @@ if (bannedSubjects.length) console.log(`⛔ konu soğumada: ${bannedSubjects.joi
 // GAF EKSENİ: her videonun zorunlu esprili açısı, rotasyonla (Serdar 2026-08-01: "para gafı
 // süperdi, ama sadece para değil — farklı gaflar"). Tutan gaf türü zamanla öne çıkar.
 const TWISTS = twistsFor(brand.twistSet);
-const twist = TWISTS
-  ? selectTwist(history.slice(-4).map(h => h.twist).filter(Boolean), TWISTS,
-      aggregate(history, 'twist'), (cands, st) => pickWeighted(cands, st))
-  : null;
+// BYTEFLOW_TWIST (dry-run/ölçüm koşusu): VARSA gaf ekseni ZORLANIR — twistByKey sessiz fallback
+// yapmaz, bilinmeyen anahtar Gemini'ye VARMADAN throw eder (bkz. docs/plan/kizlarkodu-erkek-gaf.md 1.4).
+// YOKSA eski rotasyon yolu aynen çalışır.
+const forcedTwistKey = (process.env.BYTEFLOW_TWIST ?? '').trim();
+const twist = forcedTwistKey
+  ? twistByKey(forcedTwistKey, TWISTS)
+  : TWISTS
+    ? selectTwist(history.slice(-4).map(h => h.twist).filter(Boolean), TWISTS,
+        aggregate(history, 'twist'), (cands, st) => pickWeighted(cands, st))
+    : null;
 if (twist) console.log(`😏 gaf ekseni: ${twist.key}`);
 
 // GÖRSEL ROTASYON: son 2 postun kompozisyonu bugün yasak — iki komşu video aynı animasyonla

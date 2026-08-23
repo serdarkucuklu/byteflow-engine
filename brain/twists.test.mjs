@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {twistsFor, selectTwist, TWIST_SETS} from './twists.mjs';
+import {twistsFor, selectTwist, twistByKey, TWIST_SETS} from './twists.mjs';
 
 const BEAUTY = TWIST_SETS['beauty-tr'];
 
@@ -67,4 +67,19 @@ test('moda-tr para gafı markanın gider tablosunu YASAKLAR', () => {
   assert.match(para.focus, /YASAK/);
   assert.match(para.focus, /gider tablosu/);
   assert.doesNotMatch(para.focus, /kumaşın kilo fiyatı/);
+});
+
+// ── ERKEK GAFI (docs/plan/kizlarkodu-erkek-gaf.md, Faz 1) ──────────────────────────────────
+test('twistByKey bilinmeyen anahtarda throw ediyor — sessiz fallback yasak', () => {
+  const T = twistsFor('moda-tr');
+  assert.throws(() => twistByKey('yok-boyle-bir-sey', T), /bilinmeyen gaf anahtarı/);
+  assert.equal(twistByKey('erkek-dolabi', T).key, 'erkek-dolabi');
+});
+
+test('erkek-dolabi moda-tr içinde, kime ve focus dolu, focus YASAK satırı içeriyor', () => {
+  const twist = twistsFor('moda-tr').find(t => t.key === 'erkek-dolabi');
+  assert.ok(twist, 'erkek-dolabi moda-tr havuzunda bulunamadı');
+  assert.ok(twist.kime?.length > 10, 'kime alanı boş/çok kısa');
+  assert.ok(twist.focus?.length > 40, 'focus alanı boş/çok kısa');
+  assert.match(twist.focus, /YASAK/);
 });

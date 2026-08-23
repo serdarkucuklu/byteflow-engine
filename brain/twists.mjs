@@ -95,6 +95,17 @@ const MODA_TR = [
     focus: 'ÖZEL GÜN GAFI: bir kez giyilen parça — düğün/davet/mezuniyet alışverişi, "aynı elbiseyi iki kere giyemem" baskısı, o gecenin fotoğrafı dışında hiç görünmeyen kıyafet'},
   {key: 'zaman', kime: 'her sabah dolabın önünde 20 dakika kaybeden arkadaşına',
     focus: 'ZAMAN GAFI: bu işe giden ömür — sabah dolap önünde geçen dakikalar, ütü kuyruğu, elde yıkanacaklar sepeti, "sonra bakarım" diye ertelenen leke. Zamanın nereye gittiğini dürüstçe say'},
+
+  // ── ERKEK GAFI (2026-08-23, `docs/plan/kizlarkodu-erkek-gaf.md`) ──────────────────────────
+  // Konu/mekanizma DEĞİŞMİYOR — bugünkü pillar'ın kumaş/dolap/bakım konusu aynen kalıyor.
+  // Değişen tek şey KAPI: gülme noktası kadın izleyicinin çevresindeki erkeğin davranışı.
+  // Mekanizma iddiası (generate-spec.mjs:241 her step.status'tan bunu istiyor) bugünkü pillar'dan
+  // gelir, twist'ten DEĞİL — bu yüzden focus metni kapıyı davranışa açık şekilde bağlıyor ve
+  // "erkek beyni / erkekler böyledir" tipi genellemeyi açıkça yasaklıyor (kaynaksız klişe riski,
+  // bkz. plan Riskler tablosu). ✅/⛔ örnek çifti modelin kuralı değil örneği taklit etmesinden
+  // yararlanıyor (generate-spec.mjs:85-89 dersi).
+  {key: 'erkek-dolabi', kime: 'üç tişörtle bütün mevsimi geçiren kardeşine/eşine',
+    focus: 'ERKEK DOLABI GAFI: kapı onun davranışı — üç tişörtle bütün mevsimi geçirmesi, aynı beş parçanın dönüp durması, kurutucudan çıkanı kontrol etmeden dolaba atması, "bu da olur" deyip hiç ütülemeden giymesi. Anlatılan mekanizma bugünkü konudan gelir (kumaş/dolap/bakım) — twist yeni bir mekanizma İDDİA ETMEZ, sadece bu mekanizmayı KİME anlattığını değiştirir. ⛔ YASAK: "erkek beyni", "erkekler böyledir/hiç anlamaz" gibi cinsiyet geneli — bu bir DAVRANIŞ gözlemidir, biyoloji/karakter iddiası değildir; kaynaklanamayan bir klişe modele "gerçek" gibi yazdırılmaz. ✅ böyle: "üç tişörtle kışı geçiren o adam, kurutucunun kazağını nasıl küçülttüğünü hiç sormaz" (davranış + bugünkü mekanizma). ⛔ böyle değil: "erkekler bakımdan zaten anlamaz" (genelleme, mekanizma yok, kaynaksız).'},
 ];
 
 export const TWIST_SETS = {'beauty-tr': BEAUTY_TR, 'moda-tr': MODA_TR};
@@ -105,6 +116,20 @@ export function twistsFor(setName) {
   const set = TWIST_SETS[setName];
   if (!set) throw new Error(`bilinmeyen gaf kümesi: ${setName} (${Object.keys(TWIST_SETS).join(', ')})`);
   return set;
+}
+
+/**
+ * Anahtardan gaf bulur — SESSİZ FALLBACK YASAK. `BYTEFLOW_TWIST=yok-boyle-bir-sey` gibi bir
+ * yazım hatası varsayılan/ilk twist'e sessizce düşerse üretim yanlış açıyla çıkar ve kimse
+ * fark etmez (bkz. `docs/plan/kizlarkodu-erkek-gaf.md` 1.2). Bilinmeyen anahtar HER ZAMAN throw eder.
+ */
+export function twistByKey(key, twists) {
+  const hit = (twists ?? []).find(t => t.key === key);
+  if (!hit) {
+    const bilinen = (twists ?? []).map(t => t.key).join(', ') || 'twist havuzu boş';
+    throw new Error(`bilinmeyen gaf anahtarı: ${key} (${bilinen})`);
+  }
+  return hit;
 }
 
 /**
