@@ -1,75 +1,77 @@
 {
-  "hook": "Akışta gördüğün sweatshirt sende neden durmuyor?",
-  "title": "Marka İşbirliği Sweatshirt'ü Gafları",
+  "hook": "Sende efsane duran elbise arkadaşında iade kargosu oldu.",
+  "title": "Beden Tablosu Aynı Ama İade Kargosu Kaçınılmaz",
   "scenes": [
     {
       "layout": "vertical-stack",
-      "kind": "diagram",
       "nodes": [
         {
-          "id": "temel_uretim",
-          "label": "TEMEL ÜRETİM"
+          "id": "omuz",
+          "label": "OMUZ GENİŞLİĞİ"
         },
         {
-          "id": "marka_ustu",
-          "label": "MARKA ÜSTÜ"
+          "id": "dokum",
+          "label": "KUMAŞ DÖKÜMÜ"
         },
         {
-          "id": "isbirligi",
-          "label": "İŞBİRLİĞİ"
+          "id": "ag",
+          "label": "BEDEN KALIBI"
         },
         {
-          "id": "influencer",
-          "label": "İNFLUENSER KOM."
+          "id": "iade",
+          "label": "İADE KARGOSU"
         }
       ],
       "steps": [
         {
-          "from": "temel_uretim",
-          "to": "marka_ustu",
-          "packet": "MALİYE",
-          "status": "kumaş, dikiş, ah o basit maliyet."
+          "from": "omuz",
+          "to": "dokum",
+          "packet": "KALIP",
+          "status": "omuz çizgisi düşerse kumaş pot yapar",
+          "color": "warn"
         },
         {
-          "from": "marka_ustu",
-          "to": "isbirligi",
-          "packet": "İSİM",
-          "status": "oysa logoyla fiyat ikiye katlanır."
+          "from": "dokum",
+          "to": "ag",
+          "packet": "AĞIRLI",
+          "status": "dökümsüz sert kumaş vücudu sarmaz",
+          "color": "accent"
         },
         {
-          "from": "isbirligi",
-          "to": "influencer",
-          "packet": "PRİM",
-          "status": "sonra sana \"linki attım\" derler."
+          "from": "ag",
+          "to": "iade",
+          "packet": "KARGO",
+          "status": "suç bedeninde değil yanlış kalıptadır",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Akışta gördüğün o 'harika' sweatshirt, neden sende aynı durmuyor? İşte o meşhur sweatshirt'ün fiyatının katmanları ve gerçekleri:1. Temel Üretim: Kumaşın maliyeti, kesim ve dikim işçiliği çoğu marka için aslında çok benzerdir. Yani sweatshirt'ün fiziksel olarak üretilmesi, fiyatın küçük bir kısmını oluşturur.2. Marka Üstü: Ürüne eklenen marka adı, tasarım (eğer varsa özel bir tasarım), markanın genel pazarlama giderleri ve şirket kâr marjı bu katmanda yer alır. Bu kısım, ürünün 'değerini' artırır.3. İşbirliği: Eğer bu bir 'influencer' veya 'tasarımcı' işbirliği ise, bu işbirliğinin maliyeti de fiyatın üzerine eklenir. Yani aslında logonun veya özel etiketin kendisi için ödeme yaparsınız.4. Influencer Komisyonu: Son olarak, ürünü sana tanıtan influencer'a ödenen komisyon da nihai satış fiyatına yansır. Bu, sosyal medyada gördüğün o 'mükemmel' görüntünün bir bedeli vardır demek. Alışveriş yaparken, gördüğünüz ürünün temel maliyeti ile marka ve pazarlama primini iyi ayırt etmek, gerçek değerini anlamanı sağlar. O 'linki attım' dediği sweatshirt aslında sadece sana pazarlanıyor, kalitesinden değil influencer'dan kazanılıyor.\n\n📌 Kaydet — bir dahaki alışverişte 'neden böyle oldu' dememek için.\n\n🔁 Bunu akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına gönder. Sen kaç kez 'linki attım' tuzağına düştün, dürüst ol? Yazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Sende efsane duran elbisenin arkadaşında iade kargosuna dönüşme sebebi:\n\nAynı beden tablosu yazsa bile kıyafetin düşüşünü belirleyen 3 gizli detay var:\n\n1. Omuz Genişliği — Omuz dikişi yarım santim bile aşağı kayarsa, kumaş göğüs ve kol oyuntusunda pot yapıp çuval görüntüsü oluşturur.\n2. Kumaş Dökümü — Sentetik ve sert kumaşlar vücudun doğal kıvrımlarını sarmak yerine havada kalır.\n3. Beden Kalıbı — Beden tablosu göğüs ölçüsünü tutturabilir ama sırt ve bel oyuntusu uymazsa elbise durmaz.\n\nAlışveriş yaparken sadece beden harfine değil, kumaşın gramajına ve dökümüne bakın.\n\nKalıp oturmadıysa sorun senin fiziğinde değil, seri üretim kalıbında.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu senin üstünde görüp aldığı elbiseyi iade eden arkadaşına gönder.\n\nSen hiç arkadaşında görüp aldığın elbiseyi iade ettin mi?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#giyim",
     "#alışveriş",
-    "#moda",
-    "#gardırop",
-    "#marka",
-    "#gerçekler",
-    "#sweatshirt"
+    "#bedentablosu",
+    "#kumaşdökümü",
+    "#giyimtüyoları",
+    "#kombin",
+    "#beden"
   ],
-  "takeaway": "O \"linki attım\" dediği sweatshirt aslında sadece sana pazarlanıyor.",
+  "takeaway": "Kalıp uymadıysa suç bedeninde değil, kumaşın dökümündedir.",
   "footage_queries": [
-    "cardboard parcel box close up",
-    "cotton fabric weave macro"
+    "measuring tape and fabric",
+    "cardboard parcel box close up"
   ],
   "narration": [
-    "Akışta gördüğün sweatshirt sende neden durmuyor?",
-    "Çünkü temel üretim maliyeti genelde her yerde hemen hemen aynıdır.",
-    "Fakat üstüne marka değeri, tasarım ve 'özel seri' etiketi eklenir.",
-    "Ve tabii ki, o influencer'a giden komisyon da cebinden çıkar.",
-    "O \"linki attım\" dediği sweatshirt aslında sadece sana pazarlanıyor."
+    "Arkadaşında o elbise neden durmadı?",
+    "Omuz genişliği milim kayınca kumaş çuval gibi toplanır.",
+    "Sert kumaş vücuda oturmayınca elbise sana tepki gösterir.",
+    "Aynı beden tablosu bile kalıp farkını asla kurtaramaz.",
+    "Suç bedeninde değil yanlış kesilmiş o kalıp dökümündedir."
   ],
-  "subject": "sweatshirt",
-  "sendTo": "akışta gördüğü parçayı üç gün sonra kapıda bulan arkadaşına",
-  "soru": "Sen kaç kez 'linki attım' tuzağına düştün, dürüst ol?",
+  "subject": "beden tablosu",
+  "sendTo": "senin üstünde görüp aldığı elbiseyi iade eden arkadaşına",
+  "soru": "Sen hiç arkadaşında görüp aldığın elbiseyi iade ettin mi?",
   "theme": "#ffe07d",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -94,30 +96,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Akışta gördüğün sweatshirt sende neden durmuyor?",
+      "text": "Arkadaşında o elbise neden durmadı?",
       "start": 0.35,
-      "dur": 3.117
+      "dur": 2.508
     },
     {
-      "text": "Çünkü temel üretim maliyeti genelde her yerde hemen hemen aynıdır.",
-      "start": 3.467,
-      "dur": 4.286
+      "text": "Omuz genişliği milim kayınca kumaş çuval gibi toplanır.",
+      "start": 2.858,
+      "dur": 3.942
     },
     {
-      "text": "Fakat üstüne marka değeri, tasarım ve 'özel seri' etiketi eklenir.",
-      "start": 7.753,
-      "dur": 4.286
+      "text": "Sert kumaş vücuda oturmayınca elbise sana tepki gösterir.",
+      "start": 6.8,
+      "dur": 4.085
     },
     {
-      "text": "Ve tabii ki, o influencer'a giden komisyon da cebinden çıkar.",
-      "start": 12.039,
-      "dur": 3.961
+      "text": "Aynı beden tablosu bile kalıp farkını asla kurtaramaz.",
+      "start": 10.886,
+      "dur": 3.87
     },
     {
-      "text": "O \"linki attım\" dediği sweatshirt aslında sadece sana pazarlanıyor.",
-      "start": 16.001,
-      "dur": 5.451
+      "text": "Suç bedeninde değil yanlış kesilmiş o kalıp dökümündedir.",
+      "start": 14.756,
+      "dur": 5.185
     }
   ],
-  "thumbOffset": 2159
+  "thumbOffset": 1854
 }

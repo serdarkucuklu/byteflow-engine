@@ -1,125 +1,124 @@
 {
-  "hook": "Pahalı micellar su alan arkadaşın yine yakalandı.",
-  "title": "Micellar Su: Pahalı vs Muadil Gerçeği",
+  "hook": "Sende efsane duran elbise arkadaşında iade kargosu oldu.",
+  "title": "Beden Tablosu Aynı Ama İade Kargosu Kaçınılmaz",
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "kind": "diagram",
+      "layout": "vertical-stack",
       "nodes": [
         {
-          "id": "n1",
-          "label": "MİCELLAR SU"
+          "id": "omuz",
+          "label": "OMUZ GENİŞLİĞİ"
         },
         {
-          "id": "n2",
-          "label": "YÜZEY AKTİF"
+          "id": "dokum",
+          "label": "KUMAŞ DÖKÜMÜ"
         },
         {
-          "id": "n3",
-          "label": "SAFLAŞTIRILMIŞ SU"
+          "id": "ag",
+          "label": "BEDEN KALIBI"
         },
         {
-          "id": "n4",
-          "label": "AMBALAJ VE REKLAM"
+          "id": "iade",
+          "label": "İADE KARGOSU"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "MİSEL",
-          "status": "yağı çeken miseller iki üründe aynı",
-          "color": "good"
-        },
-        {
-          "from": "n1",
-          "to": "n3",
-          "packet": "SU",
-          "status": "şişenin yüzde doksan dokuzu sadece su",
-          "color": "good"
-        },
-        {
-          "from": "n1",
-          "to": "n4",
-          "packet": "ETİKET",
-          "status": "beş katı fiyat farkı kutuya gidiyor",
+          "from": "omuz",
+          "to": "dokum",
+          "packet": "KALIP",
+          "status": "omuz çizgisi düşerse kumaş pot yapar",
           "color": "warn"
+        },
+        {
+          "from": "dokum",
+          "to": "ag",
+          "packet": "AĞIRLI",
+          "status": "dökümsüz sert kumaş vücudu sarmaz",
+          "color": "accent"
+        },
+        {
+          "from": "ag",
+          "to": "iade",
+          "packet": "KARGO",
+          "status": "suç bedeninde değil yanlış kalıptadır",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Pahalı micellar su alan arkadaşın yine yakalandı.\n\nAkışta her gün övülen pahalı micellar su ile market muadili arasındaki gerçek mekanizma:\n\n1. Yüzey Aktif Miseller — Yağı ve kiri yakalayan misel molekülleri iki formülde de tamamen aynı görevi yapar.\n2. Saflaştırılmış Su — Şişenin yüzde doksan dokuzu bildiğimiz arıtılmış sudan oluşur.\n3. Ambalaj ve Marka Primi — Beş katı fiyat farkı etken maddeye değil, süslü şişeye ve reklam bütçesine gider.\n\nTemizleme suyunda önemli olan içerik sadeliğidir; lüks marka ambalajı cildini daha temiz yapmaz.\n\nÜrün aynı ürün ama biz yine ışıklı kutuda görünce heyecanlanacağız.\n\n📌 Kaydet — bir dahaki alışveriş krizinde lazım olacak.\n🔁 Bunu akışta gördüğü her ürünü sepete atan arkadaşına gönder.\nSen micellar suya ne kadar ödüyorsun, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Sende efsane duran elbisenin arkadaşında iade kargosuna dönüşme sebebi:\n\nAynı beden tablosu yazsa bile kıyafetin düşüşünü belirleyen 3 gizli detay var:\n\n1. Omuz Genişliği — Omuz dikişi yarım santim bile aşağı kayarsa, kumaş göğüs ve kol oyuntusunda pot yapıp çuval görüntüsü oluşturur.\n2. Kumaş Dökümü — Sentetik ve sert kumaşlar vücudun doğal kıvrımlarını sarmak yerine havada kalır.\n3. Beden Kalıbı — Beden tablosu göğüs ölçüsünü tutturabilir ama sırt ve bel oyuntusu uymazsa elbise durmaz.\n\nAlışveriş yaparken sadece beden harfine değil, kumaşın gramajına ve dökümüne bakın.\n\nKalıp oturmadıysa sorun senin fiziğinde değil, seri üretim kalıbında.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu senin üstünde görüp aldığı elbiseyi iade eden arkadaşına gönder.\n\nSen hiç arkadaşında görüp aldığın elbiseyi iade ettin mi?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#micellarsu",
-    "#makyajtemizleme",
-    "#muadilürünler",
-    "#ciltkodu",
-    "#skincare"
+    "#giyim",
+    "#alışveriş",
+    "#bedentablosu",
+    "#kumaşdökümü",
+    "#giyimtüyoları",
+    "#kombin",
+    "#beden"
   ],
-  "takeaway": "Suya servet ödeme, misel her yerde aynı misel.",
+  "takeaway": "Kalıp uymadıysa suç bedeninde değil, kumaşın dökümündedir.",
   "footage_queries": [
-    "cosmetic bottles soft light",
-    "water droplets on glass"
+    "measuring tape and fabric",
+    "cardboard parcel box close up"
   ],
   "narration": [
-    "Pahalı micellar su alan arkadaşın yine yakalandı.",
-    "Yağı ve kiri çeken miseller iki üründe de birebir aynıdır.",
-    "Şişenin yüzde doksan dokuzu zaten bildiğimiz saflaştırılmış sudan ibarettir.",
-    "Aralarındaki devasa fiyat farkı sadece ambalaja ve reklama gidiyor.",
-    "Aynı suyu beş katı fiyata almak tam bir akış tuzağıdır."
+    "Arkadaşında o elbise neden durmadı?",
+    "Omuz genişliği milim kayınca kumaş çuval gibi toplanır.",
+    "Sert kumaş vücuda oturmayınca elbise sana tepki gösterir.",
+    "Aynı beden tablosu bile kalıp farkını asla kurtaramaz.",
+    "Suç bedeninde değil yanlış kesilmiş o kalıp dökümündedir."
   ],
-  "subject": "micellar su",
-  "sendTo": "akışta gördüğü her ürünü sepete atan arkadaşına",
-  "soru": "Sen micellar suya ne kadar ödüyorsun, dürüst ol?",
-  "theme": "#e8a0a8",
+  "subject": "beden tablosu",
+  "sendTo": "senin üstünde görüp aldığı elbiseyi iade eden arkadaşına",
+  "soru": "Sen hiç arkadaşında görüp aldığın elbiseyi iade ettin mi?",
+  "theme": "#ffe07d",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "cascade",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Pahalı micellar su alan arkadaşın yine yakalandı.",
+      "text": "Arkadaşında o elbise neden durmadı?",
       "start": 0.35,
-      "dur": 3.212
+      "dur": 2.508
     },
     {
-      "text": "Yağı ve kiri çeken miseller iki üründe de birebir aynıdır.",
-      "start": 3.562,
-      "dur": 3.802
+      "text": "Omuz genişliği milim kayınca kumaş çuval gibi toplanır.",
+      "start": 2.858,
+      "dur": 3.942
     },
     {
-      "text": "Şişenin yüzde doksan dokuzu zaten bildiğimiz saflaştırılmış sudan ibarettir.",
-      "start": 7.365,
-      "dur": 4.983
+      "text": "Sert kumaş vücuda oturmayınca elbise sana tepki gösterir.",
+      "start": 6.8,
+      "dur": 4.085
     },
     {
-      "text": "Aralarındaki devasa fiyat farkı sadece ambalaja ve reklama gidiyor.",
-      "start": 12.347,
-      "dur": 4.392
+      "text": "Aynı beden tablosu bile kalıp farkını asla kurtaramaz.",
+      "start": 10.886,
+      "dur": 3.87
     },
     {
-      "text": "Aynı suyu beş katı fiyata almak tam bir akış tuzağıdır.",
-      "start": 16.74,
-      "dur": 4.706
+      "text": "Suç bedeninde değil yanlış kesilmiş o kalıp dökümündedir.",
+      "start": 14.756,
+      "dur": 5.185
     }
   ]
 }
