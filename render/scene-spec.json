@@ -1,58 +1,59 @@
 {
-  "hook": "Bin liralık C vitamini serumu arkadaşını kandırıyor.",
-  "title": "C Vitamini Serumu: Lüks Marka Mı Muadil Mi?",
+  "hook": "Erkek arkadaşın sabunla gezerken sen LED maskeyle uzaylısın.",
+  "title": "Erkek Sabunu vs LED Maske",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "versus",
-      "left": "LÜKS C VİTAMİNİ",
-      "right": "ECZANE MUADİLİ",
+      "left": "ERKEK SABUNU",
+      "right": "LED MASKE",
       "rows": [
         {
-          "label": "ETKEN MADDE",
-          "left": "%15 L-Askorbik Asit",
-          "right": "%15 L-Askorbik Asit",
-          "winner": "tie"
-        },
-        {
-          "label": "FORMÜL STABİLİTESİ",
-          "left": "Sarımsı Cam Şişe",
-          "right": "Koyu Ambalaj & pH 3.5",
-          "winner": "tie"
-        },
-        {
-          "label": "FİYATIN NEYE GİTTİĞİ",
-          "left": "Parfüm Ve Şık Kutular",
-          "right": "Saf Etken Madde",
+          "label": "CİLT BARİYERİ",
+          "left": "Kalın ve yağlı tabaka",
+          "right": "Işık dalgası uyarır",
           "winner": "right"
+        },
+        {
+          "label": "IŞIK VE KOLAJEN",
+          "left": "Sıfır etki kurutur",
+          "right": "Kırmızı ışık yeniler",
+          "winner": "right"
+        },
+        {
+          "label": "PÜRÜZSÜZLÜK",
+          "left": "Testosteron şansı",
+          "right": "Düzenli ışık seansı",
+          "winner": "tie"
         }
       ]
     }
   ],
-  "caption": "Bin liralık C vitamini serumu arkadaşını kandırıyor.\n\nPahalı C vitamini serumu ile ucuz muadili arasındaki fark nereye gidiyor, adım adım:\n\n1. Etken Madde — Her iki serumda da cilde lekeler için ışıltı veren %15 L-Askorbik Asit veya türevi bulunur.\n2. Formül Stabilitesi — C vitamini çabuk oksitlenir; önemli olan marka değil ambalajın ışık ve hava geçirmemesidir.\n3. Fiyatın Gittiği Yer — Ödediğiniz ekstra bin liraların büyük kısmı parfüme, lüks kutuya ve reklama gider.\n\nSatın alırken ağır cam şişeye değil, içeriğin saf C vitamini oranına ve opak ambalajına bakın.\n\nAmbalaja aşık olup yine pahalısını alacağız ama en azından gerçeği biliyoruz.\n\n📌 Kaydet — bir dahaki serum alışverişinde paran cebinde kalsın.\n🔁 Bunu damlalıklı pahalı C vitamini serumuna servet yatıran arkadaşına gönder.\nSen C vitamini serumuna en fazla kaç lira verirsin?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Erkek arkadaşın tek sabunla pürüzsüz gezerken sen LED maskeyle uzaylı gibi ışıldıyorsun.\n\nErkek cildi ile LED maske teknolojisinin bilimsel karşılaştırması:\n\n1. Cilt Bariyeri — Erkek cildi yüksek androjen hormonu nedeniyle ortalama %20 daha kalındır; agresif sabunları bile tolere edebilir. LED maske ise hücresel düzeyde uyarım yapar.\n2. Işık ve Kolajen — Kalıp sabun sadece yüzeydeki yağı çözer ve kurutur; 630 nm kırmızı LED ışığı dermal katmandaki fibroblastları tetikleyip taze kolajen ürettirir.\n3. Pürüzsüzlük — Testosteron salgısı sebum dengesini koruyarak erkeğe haksız bir pürüzsüzlük avantajı verir. Ancak uzun vadeli elastikiyet ve yaşlanma karşıtı bakımda LED maske teknolojisi öne geçer.\n\nİşin özü: Anlık genetik şansa değil, hücresel ışık teknolojisine yatırım yapıyoruz.\n\nO tek sabunla mutlu ama sizin ışığınız geleceğe yatırım.\n\n📌 Kaydet — cihaz almadan önce lazım olacak.\n🔁 Bunu tek bir kalıp sabunla saçını ve yüzünü yıkayan erkek arkadaşına gönder.\nErkek arkadaşının cildi seninkinden daha mı pürüzsüz?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimihandler",
     "#ciltbakimi",
-    "#makyaj",
     "#güzellik",
-    "#skincare",
-    "#cilt"
+    "#ledmaske",
+    "#ciltcihazlari",
+    "#kolajen",
+    "#ciltbariyeri",
+    "#skincare"
   ],
-  "takeaway": "Cildin marka ambalajını değil, içindeki C vitaminini okur.",
+  "takeaway": "O sabunla gezse de LED maske geleceğini kurtarır.",
   "footage_queries": [
-    "serum drop close up",
-    "hand holding serum dropper"
+    "soap bubbles macro",
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Bin liralık C vitamini serumu kandırıyor.",
-    "Pahalı serumla ucuz muadilin içinde aynı etken madde bulunur.",
-    "Cildiniz markanın şık kutusunu değil sadece C vitaminini emer.",
-    "Aradaki devasa fiyat farkı esans ve ambalaj süsüne gider.",
-    "Cildin marka ambalajını değil sadece saf etken maddeyi tanır."
+    "Erkek sabunu vs LED maske yarışı.",
+    "Erkek cildi daha kalın olduğu için sabunu kolayca tolere eder.",
+    "LED maske ise kırmızı ışıkla kolajen üretimini hücrede tetikler.",
+    "Genetik şans erkeği korusa da uzun vadede ışık seansı kazanır.",
+    "Sonuçta o sabunla gezse de LED maske geleceğini kurtarır."
   ],
-  "subject": "c vitamini",
-  "sendTo": "damlalıklı pahalı C vitamini serumuna servet yatıran arkadaşına",
-  "soru": "Sen C vitamini serumuna en fazla kaç lira verirsin?",
+  "subject": "led maske",
+  "sendTo": "tek bir kalıp sabunla saçını ve yüzünü yıkayan erkek arkadaşına",
+  "soru": "Erkek arkadaşının cildi seninkinden daha mı pürüzsüz?",
   "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -77,29 +78,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Bin liralık C vitamini serumu kandırıyor.",
+      "text": "Erkek sabunu vs LED maske yarışı.",
       "start": 0.35,
-      "dur": 2.741
+      "dur": 2.375
     },
     {
-      "text": "Pahalı serumla ucuz muadilin içinde aynı etken madde bulunur.",
-      "start": 3.091,
-      "dur": 4.078
+      "text": "Erkek cildi daha kalın olduğu için sabunu kolayca tolere eder.",
+      "start": 2.725,
+      "dur": 4.462
     },
     {
-      "text": "Cildiniz markanın şık kutusunu değil sadece C vitaminini emer.",
-      "start": 7.168,
-      "dur": 4.145
+      "text": "LED maske ise kırmızı ışıkla kolajen üretimini hücrede tetikler.",
+      "start": 7.187,
+      "dur": 4.606
     },
     {
-      "text": "Aradaki devasa fiyat farkı esans ve ambalaj süsüne gider.",
-      "start": 11.313,
-      "dur": 3.81
+      "text": "Genetik şans erkeği korusa da uzun vadede ışık seansı kazanır.",
+      "start": 11.794,
+      "dur": 4.462
     },
     {
-      "text": "Cildin marka ambalajını değil sadece saf etken maddeyi tanır.",
-      "start": 15.123,
-      "dur": 5.178
+      "text": "Sonuçta o sabunla gezse de LED maske geleceğini kurtarır.",
+      "start": 16.256,
+      "dur": 5.202
     }
   ]
 }

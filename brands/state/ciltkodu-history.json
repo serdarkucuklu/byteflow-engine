@@ -703,25 +703,26 @@
     "insightsAt": "2026-08-24T15:38:58.001Z"
   },
   {
-    "title": "C Vitamini Serumu: Lüks Marka Mı Muadil Mi?",
-    "subject": "c vitamini",
-    "twist": "para",
-    "pillar": "muadil",
+    "title": "Erkek Sabunu vs LED Maske",
+    "subject": "led maske",
+    "twist": "kotu-zamanlama",
+    "pillar": "cihaz-ve-islem",
     "layout": "nodes-flow",
     "kinds": "versus",
     "motion": "ripple",
     "theme": "#8fa8c8",
     "source": "gemini",
     "footage": [
-      "pexels:mascara brush macro",
-      "pexels:hand holding serum dropper",
+      "pexels:cosmetic bottles soft light",
+      "pexels:loose powder texture macro",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Puck",
+    "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
+    "not": "Daha komik ve eğitici erkeklere gaf vuran olsun",
     "date": "2026-08-24",
-    "durSec": 20.2
+    "durSec": 21.4
   }
 ]
