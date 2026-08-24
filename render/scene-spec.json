@@ -1,106 +1,125 @@
 {
-  "hook": "Gramajı yüksek diye erkek tişörtü giyen kızlar haklı.",
-  "title": "Kadın Tişörtündeki Gramaj Hilesi",
+  "hook": "O kargo kutusu iki aydır antrede iade edilmeyi bekliyor.",
+  "title": "Alışverişte İade Penceresi Tuzağı",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "versus",
-      "left": "ERKEK BASİC TİŞÖRT",
-      "right": "KADIN BASİC TİŞÖRT",
-      "rows": [
+      "layout": "cycle",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "KUMAŞ GRAMAJI",
-          "left": "240 gr tok pamuk kumaş",
-          "right": "110 gr ince tül gibi",
-          "winner": "left"
+          "id": "kutulama",
+          "label": "KUTU ANTREDE"
         },
         {
-          "label": "YAKA VE DİKİŞ",
-          "left": "Çift dikiş çelik yaka",
-          "right": "Tek yıkamada sarkan yaka",
-          "winner": "left"
+          "id": "erteleme",
+          "label": "NASILSA GİYERİM"
         },
         {
-          "label": "ETİKET VE FİYAT",
-          "left": "Aynı fiyat tok kumaş",
-          "right": "Aynı fiyat iç gösterir",
-          "winner": "left"
+          "id": "suredolumu",
+          "label": "SÜRE BİTİMİ"
+        },
+        {
+          "id": "dolap",
+          "label": "DOLAP MEZARLIĞI"
+        }
+      ],
+      "steps": [
+        {
+          "from": "kutulama",
+          "to": "erteleme",
+          "packet": "KUTU",
+          "status": "kargo kutusu kapı önünde beklemeye",
+          "color": "accent"
+        },
+        {
+          "from": "erteleme",
+          "to": "suredolumu",
+          "packet": "SÜRE",
+          "status": "iade penceresi sessizce kapanırken süre",
+          "color": "warn"
+        },
+        {
+          "from": "suredolumu",
+          "to": "dolap",
+          "packet": "İADE",
+          "status": "yanlış beden parça dolabın kalıcı",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kadın reyonundaki şeffaf tişört çilesi son buluyor.\n\nErkek tişörtleri neden her zaman daha kaliteli duruyor, adım adım:\n\n1. Kumaş Gramajı — Erkek tişörtlerinde metrekarede 200-240 gram pamuk kullanılırken, kadın tişörtlerinde maliyet düşürmek için 110 grama kadar iniliyor.\n2. Yaka ve Dikiş Yapısı — Erkek basic tişörtlerinde çift kat ribana yaka kullanılır, kadın modellerinde ise tek yıkamada sarkan ince biye tercih edilir.\n3. İç Gösterme Problemi — Düşük gramajlı pamuk lifleri seyrek dokunduğu için kadın tişörtleri ikinci yıkamada tül gibi şeffaflaşır.\n\nAlışveriş yaparken etiketteki gramaj ve doku kalınlığına bakın; aynı paraya erkek reyonundan kalıp gibi duran tişört alabilirsiniz.\n\nKumaştan çalmışlar ama biz oyunu çözdük, artık erkek reyonundayız.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu sevgilisinin tişörtlerini dolabına geçiren arkadaşına gönder.\n\nSen de erkek reyonundan alışveriş yapıyor musun, dürüst ol?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "O kargo kutusunun antrede aylarca beklemesi tesadüf değil.\n\nİade süresinin nasıl sessizce dolduğu, adım adım:\n\n1. Kutu kapı önünde — Deneyip beğenmediğin kıyafet kutusuna konur ama kargo kodu alınmaz.\n2. Ertelenen kararlar — \"Biraz zayıflarsam giyerim\" diyerek iade süreci her gün ertelenir.\n3. Dolap mezarlığı — İade hakkı bittiğinde o parça gardırobun unutulan bir parçasına dönüşür.\n\nOnline alışverişte ölçü tablosuna bakmadan alınan her ürün bu döngüye girer.\n\nKumaş suçlu değil, üşengeçlik bizimki. Ama o kutu yine de orada duracak.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu iade süresi dolduğu için o parçayı hâlâ dolabında saklayan arkadaşına gönder.\nOdanda şu an iade süresi geçmiş kaç kargo kutusu var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#giyimtüyoları",
+    "#giyim",
     "#alışveriş",
-    "#kumaş",
-    "#gramaj",
-    "#tişört",
     "#gardırop",
+    "#onlinealışveriş",
+    "#kargo",
+    "#bedentablosu",
     "#moda"
   ],
-  "takeaway": "Bundan sonra tişörtümüzü erkek reyonundan kapıp çıkıyoruz.",
+  "takeaway": "O kargo kutusu artık senin yeni sehpan, kabullen.",
   "footage_queries": [
-    "folded clothes stack close up",
-    "hand touching fabric texture"
+    "cardboard parcel box close up",
+    "hands opening parcel box"
   ],
   "narration": [
-    "Erkek tişörtündeki gramaj farkı şok ediyor.",
-    "Erkek tişörtü iki yüz gramajla kalıp gibi duruyor.",
-    "Kadın tişörtü ise yüz gramajla iç çamaşırını gösteriyor.",
-    "Aynı paraya erkek reyonu çelik yaka dikiş sunuyor.",
-    "Bundan sonra alışverişi erkek reyonundan yapıp rahat ediyoruz."
+    "O kutu asla kargoya gitmeyecek.",
+    "Markalar iade süresini insan üşengeçliğini hesaba katarak hesaplar.",
+    "Etiketi sökülmeyen kıyafet zamanla gözünün önünde dekorasyona dönüşür.",
+    "Son gün geçince beyin o harcamayı kabullenip iadeyi unutur.",
+    "O açılmayan kutu artık dolabının yeni ve kalıcı bir parçasıdır."
   ],
-  "subject": "gramaj",
-  "sendTo": "sevgilisinin tişörtlerini dolabına geçiren arkadaşına",
-  "soru": "Sen de erkek reyonundan alışveriş yapıyor musun, dürüst ol?",
-  "theme": "#8fd0ff",
+  "subject": "beden tablosu",
+  "sendTo": "iade süresi dolduğu için o parçayı hâlâ dolabında saklayan arkadaşına",
+  "soru": "Odanda şu an iade süresi geçmiş kaç kargo kutusu var?",
+  "theme": "#ff8fab",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Erkek tişörtündeki gramaj farkı şok ediyor.",
+      "text": "O kutu asla kargoya gitmeyecek.",
       "start": 0.35,
-      "dur": 3.125
+      "dur": 2.139
     },
     {
-      "text": "Erkek tişörtü iki yüz gramajla kalıp gibi duruyor.",
-      "start": 3.475,
-      "dur": 3.634
+      "text": "Markalar iade süresini insan üşengeçliğini hesaba katarak hesaplar.",
+      "start": 2.489,
+      "dur": 4.622
     },
     {
-      "text": "Kadın tişörtü ise yüz gramajla iç çamaşırını gösteriyor.",
-      "start": 7.11,
+      "text": "Etiketi sökülmeyen kıyafet zamanla gözünün önünde dekorasyona dönüşür.",
+      "start": 7.111,
+      "dur": 4.829
+    },
+    {
+      "text": "Son gün geçince beyin o harcamayı kabullenip iadeyi unutur.",
+      "start": 11.94,
       "dur": 4.07
     },
     {
-      "text": "Aynı paraya erkek reyonu çelik yaka dikiş sunuyor.",
-      "start": 11.18,
-      "dur": 3.634
-    },
-    {
-      "text": "Bundan sonra alışverişi erkek reyonundan yapıp rahat ediyoruz.",
-      "start": 14.814,
-      "dur": 5.607
+      "text": "O açılmayan kutu artık dolabının yeni ve kalıcı bir parçasıdır.",
+      "start": 16.011,
+      "dur": 5.446
     }
   ]
 }
