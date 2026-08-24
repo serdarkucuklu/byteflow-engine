@@ -1,121 +1,105 @@
 {
-  "hook": "Ücretsiz kargo için eklenen tişört kutuda kargoyu bekliyor.",
-  "title": "Ücretsiz Kargo Tuzağı Ve Kutudaki Tişört",
+  "hook": "Bin liralık C vitamini serumu arkadaşını kandırıyor.",
+  "title": "C Vitamini Serumu: Lüks Marka Mı Muadil Mi?",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "kind": "diagram",
-      "nodes": [
+      "kind": "versus",
+      "left": "LÜKS C VİTAMİNİ",
+      "right": "ECZANE MUADİLİ",
+      "rows": [
         {
-          "id": "esik",
-          "label": "KARGO EŞİĞİ"
+          "label": "ETKEN MADDE",
+          "left": "%15 L-Askorbik Asit",
+          "right": "%15 L-Askorbik Asit",
+          "winner": "tie"
         },
         {
-          "id": "bekleme",
-          "label": "KUTUDA BEKLEME"
+          "label": "FORMÜL STABİLİTESİ",
+          "left": "Sarımsı Cam Şişe",
+          "right": "Koyu Ambalaj & pH 3.5",
+          "winner": "tie"
         },
         {
-          "id": "kabulleniş",
-          "label": "SESSİZ KABULLENİŞ"
-        }
-      ],
-      "steps": [
-        {
-          "from": "esik",
-          "to": "bekleme",
-          "packet": "SEPET",
-          "status": "beleş kargo için sepete tişört eklenir",
-          "color": "accent"
-        },
-        {
-          "from": "bekleme",
-          "to": "kabulleniş",
-          "packet": "KUTU",
-          "status": "yarın kargoya veririm diye kutuda bekler",
-          "color": "warn"
-        },
-        {
-          "from": "kabulleniş",
-          "to": "esik",
-          "packet": "ETİKET",
-          "status": "iade penceresi kapanır ve kabullenilir",
-          "color": "good"
+          "label": "FİYATIN NEYE GİTTİĞİ",
+          "left": "Parfüm Ve Şık Kutular",
+          "right": "Saf Etken Madde",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Ücretsiz kargo için eklenen tişört kutuda kargoyu bekliyor.\n\nÜcretsiz kargo için eklenen parçanın hüzünlü hikayesi:\n\n1. KARGO EŞİĞİ — Kargo ücreti ödememek için sepete hiç planda olmayan 3. bir tişört eklenir.\n2. KUTUDA BEKLEME — Ürün eve gelir, denenir, beğenilmez ama yarın kargolarım denilerek kutusuna konur.\n3. SESSİZ KABULLENİŞ — İade penceresi sessizce kapanır ve o tişört kaderine razı olup pijama çekmecesine geçer.\n\nPerakende iade mekanizması tam olarak bu erteleme psikolojisi üzerine kuruludur.\n\nKargo ücretinden kaçarken evde tişört koleksiyonu yaptık.\n\n📌 Kaydet — bir dahaki alışveriş krizinde lazım olacak.\n🔁 Bunu kargoya götürmeye üşenip kutudaki ürünü dolaba kaldıran arkadaşına gönder.\nKutuda iade edilmeyi bekleyen kaç parçan var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Bin liralık C vitamini serumu arkadaşını kandırıyor.\n\nPahalı C vitamini serumu ile ucuz muadili arasındaki fark nereye gidiyor, adım adım:\n\n1. Etken Madde — Her iki serumda da cilde lekeler için ışıltı veren %15 L-Askorbik Asit veya türevi bulunur.\n2. Formül Stabilitesi — C vitamini çabuk oksitlenir; önemli olan marka değil ambalajın ışık ve hava geçirmemesidir.\n3. Fiyatın Gittiği Yer — Ödediğiniz ekstra bin liraların büyük kısmı parfüme, lüks kutuya ve reklama gider.\n\nSatın alırken ağır cam şişeye değil, içeriğin saf C vitamini oranına ve opak ambalajına bakın.\n\nAmbalaja aşık olup yine pahalısını alacağız ama en azından gerçeği biliyoruz.\n\n📌 Kaydet — bir dahaki serum alışverişinde paran cebinde kalsın.\n🔁 Bunu damlalıklı pahalı C vitamini serumuna servet yatıran arkadaşına gönder.\nSen C vitamini serumuna en fazla kaç lira verirsin?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#alışveriş",
-    "#moda",
-    "#giyim",
-    "#kargo",
-    "#gardırop",
-    "#onlinealışveriş",
-    "#giyimtüyoları"
+    "#ciltbakimihandler",
+    "#ciltbakimi",
+    "#makyaj",
+    "#güzellik",
+    "#skincare",
+    "#cilt"
   ],
-  "takeaway": "Kargo parası vermemek için aldığımız tişört artık yeni pijama.",
+  "takeaway": "Cildin marka ambalajını değil, içindeki C vitaminini okur.",
   "footage_queries": [
-    "cardboard parcel box close up",
-    "hands opening parcel box"
+    "serum drop close up",
+    "hand holding serum dropper"
   ],
   "narration": [
-    "Ücretsiz kargo tişörtü yine kutuda kaldı.",
-    "Sepeti kargo eşiğine tamamlamak için üçüncü tişörtü ekliyoruz.",
-    "Gelen kutuyu açıp denedikten sonra yarın kargolarım diye köşeye koyuyoruz.",
-    "İade penceresi sessizce kapanınca o tişört artık bizim yeni pijamamız oluyor.",
-    "Kargo parası vermemek için aldığımız tişörtle sonsuza dek mutlu yaşıyoruz."
+    "Bin liralık C vitamini serumu kandırıyor.",
+    "Pahalı serumla ucuz muadilin içinde aynı etken madde bulunur.",
+    "Cildiniz markanın şık kutusunu değil sadece C vitaminini emer.",
+    "Aradaki devasa fiyat farkı esans ve ambalaj süsüne gider.",
+    "Cildin marka ambalajını değil sadece saf etken maddeyi tanır."
   ],
-  "subject": "ücretsiz kargo",
-  "sendTo": "kargoya götürmeye üşenip kutudaki ürünü dolaba kaldıran arkadaşına",
-  "soru": "Kutuda iade edilmeyi bekleyen kaç parçan var?",
-  "theme": "#8fd0ff",
+  "subject": "c vitamini",
+  "sendTo": "damlalıklı pahalı C vitamini serumuna servet yatıran arkadaşına",
+  "soru": "Sen C vitamini serumuna en fazla kaç lira verirsin?",
+  "theme": "#8fa8c8",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "ripple",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Ücretsiz kargo tişörtü yine kutuda kaldı.",
+      "text": "Bin liralık C vitamini serumu kandırıyor.",
       "start": 0.35,
-      "dur": 2.501
+      "dur": 2.741
     },
     {
-      "text": "Sepeti kargo eşiğine tamamlamak için üçüncü tişörtü ekliyoruz.",
-      "start": 2.851,
-      "dur": 3.782
+      "text": "Pahalı serumla ucuz muadilin içinde aynı etken madde bulunur.",
+      "start": 3.091,
+      "dur": 4.078
     },
     {
-      "text": "Gelen kutuyu açıp denedikten sonra yarın kargolarım diye köşeye koyuyoruz.",
-      "start": 6.633,
-      "dur": 4.514
+      "text": "Cildiniz markanın şık kutusunu değil sadece C vitaminini emer.",
+      "start": 7.168,
+      "dur": 4.145
     },
     {
-      "text": "İade penceresi sessizce kapanınca o tişört artık bizim yeni pijamamız oluyor.",
-      "start": 11.148,
-      "dur": 4.697
+      "text": "Aradaki devasa fiyat farkı esans ve ambalaj süsüne gider.",
+      "start": 11.313,
+      "dur": 3.81
     },
     {
-      "text": "Kargo parası vermemek için aldığımız tişörtle sonsuza dek mutlu yaşıyoruz.",
-      "start": 15.845,
-      "dur": 5.614
+      "text": "Cildin marka ambalajını değil sadece saf etken maddeyi tanır.",
+      "start": 15.123,
+      "dur": 5.178
     }
   ]
 }
