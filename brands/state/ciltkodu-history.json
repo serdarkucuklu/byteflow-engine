@@ -596,7 +596,7 @@
       "ig_reels_avg_watch_time": 4045,
       "ig_reels_video_view_total_time": 84947
     },
-    "insightsAt": "2026-08-23T15:22:09.711Z"
+    "insightsAt": "2026-08-24T15:38:54.993Z"
   },
   {
     "title": "Fondöten Neden Koyulaşır?",
@@ -630,7 +630,7 @@
       "ig_reels_avg_watch_time": 2101,
       "ig_reels_video_view_total_time": 250026
     },
-    "insightsAt": "2026-08-23T15:22:11.087Z"
+    "insightsAt": "2026-08-24T15:38:55.829Z"
   },
   {
     "title": "Retinol vs Tek Sabun Mucizesi",
@@ -665,7 +665,7 @@
       "ig_reels_avg_watch_time": 5735,
       "ig_reels_video_view_total_time": 195015
     },
-    "insightsAt": "2026-08-23T15:22:12.049Z"
+    "insightsAt": "2026-08-24T15:38:56.611Z"
   },
   {
     "title": "Mat Ruj Dudakta Neden Çatlamalı Dökülür?",
@@ -690,6 +690,16 @@
     "date": "2026-08-23",
     "durSec": 20.4,
     "mediaId": "17869556112650488",
-    "postedAt": "2026-08-23T17:46:02.906Z"
+    "postedAt": "2026-08-23T17:46:02.906Z",
+    "insights": {
+      "views": 30,
+      "reach": 21,
+      "saved": 1,
+      "shares": 0,
+      "total_interactions": 4,
+      "ig_reels_avg_watch_time": 5068,
+      "ig_reels_video_view_total_time": 116567
+    },
+    "insightsAt": "2026-08-24T15:38:58.001Z"
   }
 ]
