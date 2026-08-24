@@ -1,59 +1,59 @@
 {
-  "hook": "Reyonda 'abla buna şart' denip kitleyen LED maske çilesi.",
-  "title": "LED Maske: Reyon Övgüsü mü Gerçek Biyotıbbi Güç mü?",
+  "hook": "Evden prenses çıkıp asansörde hortlağa dönüşen o insan!",
+  "title": "Işık Gafi: Pahalı vs Ucuz Pudra",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "hub-spoke",
       "kind": "versus",
-      "left": "EV TİPİ LED MASKE",
-      "right": "KLİNİK LED SEANSI",
+      "left": "LÜKS SABİTLEME PUDRASI",
+      "right": "UYGUN FİYATLI MUADİL",
       "rows": [
         {
-          "label": "IŞIK GÜCÜ",
-          "left": "Kumanda pili gücünde",
-          "right": "Derine inen tıbbi doz",
-          "winner": "right"
+          "label": "ANA İÇERİK",
+          "left": "Mikronize İnce Mika",
+          "right": "Mikronize Saf Mika",
+          "winner": "tie"
         },
         {
-          "label": "REYON DANIŞMANI",
-          "left": "'Abla bu cilde şart' der",
-          "right": "Dermatolog doz ayarlar",
-          "winner": "right"
+          "label": "FLAŞ REFLEKSİ",
+          "left": "Silika Yansıması Yok",
+          "right": "Silika Yansıması Yok",
+          "winner": "tie"
         },
         {
-          "label": "GERÇEK SONUÇ",
-          "left": "Kırmızı ışıklı selfie",
-          "right": "Kolajen ve leke tedavisi",
-          "winner": "right"
+          "label": "ASANSÖR PERFORMANSI",
+          "left": "Tepeden Işıkta Yıkım",
+          "right": "Tepeden Işıkta Yıkım",
+          "winner": "tie"
         }
       ]
     }
   ],
-  "caption": "Reyonda 3 dakikada ikna olup servet ödediğin LED maskenin hazin hikayesi.\n\nReyondaki o 3 dakikalık büyülü ikna seansı ve acı gerçekler:\n1. Işık Gücü — Klinik cihazlar yüksek joule seviyesinde tıbbi enerji basarken ev tipi LED maskeler güvenlik sebebiyle fener gücündedir.\n2. Dalga Boyu — Kolajen sentezlemek için milimetrik fokal odaklanma gerekir; evdeki plastik maskenin ışığı ancak cilt yüzeyini yalar.\n3. Reyon Büyüsü — Danışmanın 'abla bu cilde şart' demesi biyolojik klinik veri değil, ay sonu prim kotalarıdır.\n\nEv tipi cihazlar zararsızdır ama reyon vaat ettiği gibi kırışıklığı yok etmez.\n\nCihaz suçsuz, reyon danışmanının tatlı dili suçlu. Ama biz haftaya yine o reyondayız.\n\n📌 Kaydet — bir dahaki reyon krizinde lazım olacak.\n🔁 Bunu reyon danışmanının her 'bu sana şart' dediğini alan arkadaşına gönder.\nReyonda gaza gelip evde unuttuğun cihaz sayısı kaç, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Banyoda mükemmel görünen makyaj asansörde neden çöküyor?\n\nPudralar ve asansör ışığı çelişkisi, adım adım:\n\n1. Mika Yapısı — Lüks ve muadil pudrada kullanılan mikronize mika ışığı yumuşatır, ikisi de cilde aynı kadife bitişi verir.\n2. Flaş ve Işık — İki formül de fotoğraf flaşını geri yansıtmayacak şekilde silikayla dengelenmiştir, parlamayı önler.\n3. Tepeden Gelen Açı — Asansördeki dik ışık yüzün çukur alanlarına sert gölge düşürür; dünyadaki en pahalı pudra bile fizik kurallarını ve gölgeyi değiştiremez.\n\nIşık gafi yaşamamak için ürün değiştirmeye değil, asansör aynasına bakmama kararlılığına yatırım yap.\n\nIşık suçlu, ürün değil. Ama biz yine de o asansör aynasına bakıp dertleneceğiz.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n🔁 Bunu evden harika çıkıp asansör aynasında yıkılan arkadaşına gönder.\nSen en çok hangi ışıkta yıkılıyorsun: asansör mü ön kamera mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#güzellik",
-    "#ledmaske",
-    "#ciltcihazları",
-    "#ciltbakımrutini",
-    "#reyongafları",
-    "#dermokozmetik"
+    "#makyaj",
+    "#pudra",
+    "#makyajonerisi",
+    "#guzelliksirlari",
+    "#muadil",
+    "#ciltkodu"
   ],
-  "takeaway": "Reyonda mucize denilen LED maske evde ancak selfie ışığı olur.",
+  "takeaway": "Suç cildinde değil, tepeden vuran o acımasız asansör ışığında!",
   "footage_queries": [
-    "cosmetic bottles soft light",
-    "hands applying cream close up"
+    "loose powder texture macro",
+    "compact powder pressed texture"
   ],
   "narration": [
-    "LED maske reyonda hayatını değiştirmez.",
-    "Ev tipi LED maskeler kumanda pili kadar düşük ışık saçar.",
-    "Reyon danışmanı mucize dese de klinik cihazı derin dokuya ulaşır.",
-    "Evde yapılan ışık sadece selfie fotoğraflarına renk katar.",
-    "Reyonda mucize denilen cihaz evde ancak selfie ışığı olur."
+    "Asansörde hortlağa dönen arkadaşın burada!",
+    "İki pudranın da temel maddesi ışığı büken incecik mikadır.",
+    "Muadil olan da pahalı olan da flaş patlayınca parlamaz.",
+    "Tepeden vuran acımasız asansör ışığında ise ikisi de elenir.",
+    "Suç pudrada değil tepeden vuran o dik açı ışığında."
   ],
-  "subject": "LED maske",
-  "sendTo": "Reyon danışmanının her 'bu sana şart' dediğini alan arkadaşına",
-  "soru": "Reyonda gaza gelip evde unuttuğun cihaz sayısı kaç, dürüst ol?",
+  "subject": "pudra",
+  "sendTo": "evden harika çıkıp asansör aynasında yıkılan arkadaşına",
+  "soru": "Sen en çok hangi ışıkta yıkılıyorsun: asansör mü ön kamera mı?",
   "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -78,30 +78,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "LED maske reyonda hayatını değiştirmez.",
+      "text": "Asansörde hortlağa dönen arkadaşın burada!",
       "start": 0.35,
-      "dur": 2.815
+      "dur": 2.989
     },
     {
-      "text": "Ev tipi LED maskeler kumanda pili kadar düşük ışık saçar.",
-      "start": 3.165,
-      "dur": 4.115
+      "text": "İki pudranın da temel maddesi ışığı büken incecik mikadır.",
+      "start": 3.339,
+      "dur": 4.128
     },
     {
-      "text": "Reyon danışmanı mucize dese de klinik cihazı derin dokuya ulaşır.",
-      "start": 7.28,
-      "dur": 4.692
+      "text": "Muadil olan da pahalı olan da flaş patlayınca parlamaz.",
+      "start": 7.467,
+      "dur": 3.914
     },
     {
-      "text": "Evde yapılan ışık sadece selfie fotoğraflarına renk katar.",
-      "start": 11.972,
-      "dur": 4.187
+      "text": "Tepeden vuran acımasız asansör ışığında ise ikisi de elenir.",
+      "start": 11.381,
+      "dur": 4.27
     },
     {
-      "text": "Reyonda mucize denilen cihaz evde ancak selfie ışığı olur.",
-      "start": 16.159,
-      "dur": 5.287
+      "text": "Suç pudrada değil tepeden vuran o dik açı ışığında.",
+      "start": 15.651,
+      "dur": 4.73
     }
   ],
-  "thumbOffset": 2008
+  "thumbOffset": 2030
 }

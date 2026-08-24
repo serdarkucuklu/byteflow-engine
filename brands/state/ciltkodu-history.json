@@ -703,26 +703,26 @@
     "insightsAt": "2026-08-24T15:38:58.001Z"
   },
   {
-    "title": "LED Maske: Reyon Övgüsü mü Gerçek Biyotıbbi Güç mü?",
-    "subject": "LED maske",
-    "twist": "magaza-danismani",
-    "pillar": "cihaz-ve-islem",
-    "layout": "nodes-flow",
+    "title": "Işık Gafi: Pahalı vs Ucuz Pudra",
+    "subject": "pudra",
+    "twist": "ayna-ve-isik",
+    "pillar": "muadil",
+    "layout": "hub-spoke",
     "kinds": "versus",
     "motion": "ripple",
     "theme": "#8fa8c8",
     "source": "gemini",
     "footage": [
-      "pexels:cosmetic bottles soft light",
-      "pexels:hands applying cream close up",
+      "pexels:loose powder texture macro",
+      "pexels:compact powder pressed texture",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Kore",
+    "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Daha komik kadınları gümdüren birbirine reels i gönderecek bir  video olmalı",
+    "not": "Daha komik olmaluçı kızlar kahkaha atsın izleyince",
     "date": "2026-08-24",
-    "durSec": 21.4
+    "durSec": 20.4
   }
 ]
