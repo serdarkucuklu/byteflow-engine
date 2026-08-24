@@ -190,7 +190,7 @@
       "ig_reels_avg_watch_time": 3098,
       "ig_reels_video_view_total_time": 350144
     },
-    "insightsAt": "2026-08-23T16:58:41.646Z"
+    "insightsAt": "2026-08-24T17:34:22.000Z"
   },
   {
     "title": "Kendi Parfümünü Neden Duymazsın?",
@@ -224,7 +224,7 @@
       "ig_reels_avg_watch_time": 3150,
       "ig_reels_video_view_total_time": 387514
     },
-    "insightsAt": "2026-08-23T16:58:42.907Z"
+    "insightsAt": "2026-08-24T17:34:22.795Z"
   },
   {
     "title": "Dudak Yalama Tuzağı",
@@ -258,7 +258,7 @@
       "ig_reels_avg_watch_time": 2314,
       "ig_reels_video_view_total_time": 13885
     },
-    "insightsAt": "2026-08-23T16:58:44.305Z"
+    "insightsAt": "2026-08-24T17:34:23.343Z"
   },
   {
     "title": "Gece Sepetindeki Modal Tişört Hilesi",
@@ -283,6 +283,16 @@
     "date": "2026-08-23",
     "durSec": 21.4,
     "mediaId": "18125798044752318",
-    "postedAt": "2026-08-23T17:47:27.474Z"
+    "postedAt": "2026-08-23T17:47:27.474Z",
+    "insights": {
+      "views": 181,
+      "reach": 153,
+      "saved": 0,
+      "shares": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 4810,
+      "ig_reels_video_view_total_time": 745558
+    },
+    "insightsAt": "2026-08-24T17:34:24.796Z"
   }
 ]
