@@ -1,75 +1,60 @@
 {
-  "hook": "Sivilce kremine servet yatıran arkadaşına acı haber geldi.",
-  "title": "Pahalı Sivilce Kremi Neye Para Alır?",
+  "hook": "Gramajı yüksek diye erkek tişörtü giyen kızlar haklı.",
+  "title": "Kadın Tişörtündeki Gramaj Hilesi",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "heading": "Kavanozun İçinde Ne Var?",
-      "nodes": [
+      "layout": "nodes-flow",
+      "kind": "versus",
+      "left": "ERKEK BASİC TİŞÖRT",
+      "right": "KADIN BASİC TİŞÖRT",
+      "rows": [
         {
-          "id": "su-gliserin",
-          "label": "SU VE GLİSERİN"
+          "label": "KUMAŞ GRAMAJI",
+          "left": "240 gr tok pamuk kumaş",
+          "right": "110 gr ince tül gibi",
+          "winner": "left"
         },
         {
-          "id": "ambalaj",
-          "label": "AMBALAJ VE KOKU"
+          "label": "YAKA VE DİKİŞ",
+          "left": "Çift dikiş çelik yaka",
+          "right": "Tek yıkamada sarkan yaka",
+          "winner": "left"
         },
         {
-          "id": "aktif",
-          "label": "MİNİCİK AKTİF"
-        }
-      ],
-      "steps": [
-        {
-          "from": "su-gliserin",
-          "to": "ambalaj",
-          "packet": "SU",
-          "status": "kavanozun ilk %90ı sadece ucuz baz",
-          "color": "warn"
-        },
-        {
-          "from": "ambalaj",
-          "to": "aktif",
-          "packet": "MARKA",
-          "status": "ödediğin farkın çoğu cam şişeye gidiyor",
-          "color": "warn"
-        },
-        {
-          "from": "aktif",
-          "to": "su-gliserin",
-          "packet": "AKTİF",
-          "status": "sivilceyi çözen aktif en sonda duruyor",
-          "color": "good"
+          "label": "ETİKET VE FİYAT",
+          "left": "Aynı fiyat tok kumaş",
+          "right": "Aynı fiyat iç gösterir",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "Sivilce kremine harcadığın o dev bütçenin gerçekte nereye gittiğini biliyor musun?\n\nPahalı bir sivilce kreminin kavanozunda gerçekte ne yatıyor, adım adım bakalım:\n\n1. Su ve Gliserin — Formülün ilk %80-90'ı her zaman ucuz nemlendirici bazdan oluşur, sivilceye doğrudan etki etmez.\n2. Ambalaj ve Koku — Ödediğin o yüksek fiyatın büyük kısmı ağır cam kavanoza ve parfüme gider.\n3. Asıl Aktif Madde — Sivilceyi kurutan gerçek etken madde listede en son sırada ufacık bir orandadır.\n\nSivilce kremi seçerken lüks ambalaja değil, arkadaki aktif maddeye ve yüzdesine bakmalısın.\n\nKavanoz ne kadar lüksse sivilce o kadar korkmuyor, sadece cüzdanın zayıflıyor.\n\n📌 Kaydet — bir dahaki sivilce krizinde paran cebinde kalsın.\n\n🔁 Bunu sivilce kremine servet yatıran arkadaşına gönder.\n\nSivilce kremlerine en fazla kaç lira harcadın, dürüst ol?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kadın reyonundaki şeffaf tişört çilesi son buluyor.\n\nErkek tişörtleri neden her zaman daha kaliteli duruyor, adım adım:\n\n1. Kumaş Gramajı — Erkek tişörtlerinde metrekarede 200-240 gram pamuk kullanılırken, kadın tişörtlerinde maliyet düşürmek için 110 grama kadar iniliyor.\n2. Yaka ve Dikiş Yapısı — Erkek basic tişörtlerinde çift kat ribana yaka kullanılır, kadın modellerinde ise tek yıkamada sarkan ince biye tercih edilir.\n3. İç Gösterme Problemi — Düşük gramajlı pamuk lifleri seyrek dokunduğu için kadın tişörtleri ikinci yıkamada tül gibi şeffaflaşır.\n\nAlışveriş yaparken etiketteki gramaj ve doku kalınlığına bakın; aynı paraya erkek reyonundan kalıp gibi duran tişört alabilirsiniz.\n\nKumaştan çalmışlar ama biz oyunu çözdük, artık erkek reyonundayız.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu sevgilisinin tişörtlerini dolabına geçiren arkadaşına gönder.\n\nSen de erkek reyonundan alışveriş yapıyor musun, dürüst ol?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#sivilce",
-    "#akne",
-    "#sivilcekremi",
-    "#ciltbakımrutini",
-    "#aknetedavisi"
+    "#giyimtüyoları",
+    "#alışveriş",
+    "#kumaş",
+    "#gramaj",
+    "#tişört",
+    "#gardırop",
+    "#moda"
   ],
-  "takeaway": "Sivilceyi marka ismi değil, içindeki aktif madde kurutur.",
+  "takeaway": "Bundan sonra tişörtümüzü erkek reyonundan kapıp çıkıyoruz.",
   "footage_queries": [
-    "cream texture macro",
-    "hand opening jar macro"
+    "folded clothes stack close up",
+    "hand touching fabric texture"
   ],
   "narration": [
-    "Sivilce kremine ödediğin para boşa gidiyor.",
-    "Kavanozun ilk üç maddesi her zaman ucuz su ve gliserindir.",
-    "Pahalı ürünlerde ödediğin yüksek fark koku ve ambalaj süsüdür.",
-    "Sivilceyi söndüren gerçek aktif madde ise formülde en sonlardadır.",
-    "Aynı etken maddeye sahip muadil krem sivilceyi aynı hızda kurutur."
+    "Erkek tişörtündeki gramaj farkı şok ediyor.",
+    "Erkek tişörtü iki yüz gramajla kalıp gibi duruyor.",
+    "Kadın tişörtü ise yüz gramajla iç çamaşırını gösteriyor.",
+    "Aynı paraya erkek reyonu çelik yaka dikiş sunuyor.",
+    "Bundan sonra alışverişi erkek reyonundan yapıp rahat ediyoruz."
   ],
-  "subject": "sivilce kremi",
-  "sendTo": "sivilce kremine servet yatıran arkadaşına",
-  "soru": "Sivilce kremlerine en fazla kaç lira harcadın, dürüst ol?",
-  "theme": "#d98c5f",
+  "subject": "gramaj",
+  "sendTo": "sevgilisinin tişörtlerini dolabına geçiren arkadaşına",
+  "soru": "Sen de erkek reyonundan alışveriş yapıyor musun, dürüst ol?",
+  "theme": "#8fd0ff",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -93,29 +78,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Sivilce kremine ödediğin para boşa gidiyor.",
+      "text": "Erkek tişörtündeki gramaj farkı şok ediyor.",
       "start": 0.35,
-      "dur": 2.916
+      "dur": 3.125
     },
     {
-      "text": "Kavanozun ilk üç maddesi her zaman ucuz su ve gliserindir.",
-      "start": 3.266,
-      "dur": 3.934
+      "text": "Erkek tişörtü iki yüz gramajla kalıp gibi duruyor.",
+      "start": 3.475,
+      "dur": 3.634
     },
     {
-      "text": "Pahalı ürünlerde ödediğin yüksek fark koku ve ambalaj süsüdür.",
-      "start": 7.2,
-      "dur": 4.205
+      "text": "Kadın tişörtü ise yüz gramajla iç çamaşırını gösteriyor.",
+      "start": 7.11,
+      "dur": 4.07
     },
     {
-      "text": "Sivilceyi söndüren gerçek aktif madde ise formülde en sonlardadır.",
-      "start": 11.405,
-      "dur": 4.476
+      "text": "Aynı paraya erkek reyonu çelik yaka dikiş sunuyor.",
+      "start": 11.18,
+      "dur": 3.634
     },
     {
-      "text": "Aynı etken maddeye sahip muadil krem sivilceyi aynı hızda kurutur.",
-      "start": 15.881,
-      "dur": 5.576
+      "text": "Bundan sonra alışverişi erkek reyonundan yapıp rahat ediyoruz.",
+      "start": 14.814,
+      "dur": 5.607
     }
   ]
 }

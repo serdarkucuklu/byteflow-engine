@@ -296,26 +296,26 @@
     "insightsAt": "2026-08-24T17:34:24.796Z"
   },
   {
-    "title": "Beden Tablosu Neden Her Markada Farklı?",
-    "subject": "beden tablosu",
-    "twist": "iade-tembelligi",
-    "pillar": "hizli-moda-ekonomisi",
+    "title": "Kadın Tişörtündeki Gramaj Hilesi",
+    "subject": "gramaj",
+    "twist": "itiraf",
+    "pillar": "pahali-mi-degeri",
     "layout": "nodes-flow",
-    "kinds": "diagram",
+    "kinds": "versus",
     "motion": "sketch",
     "theme": "#8fd0ff",
     "source": "gemini",
     "footage": [
-      "pexels:cardboard parcel box close up",
-      "pexels:measuring tape and fabric",
+      "pexels:folded clothes stack close up",
+      "pexels:wardrobe interior minimal",
       "pexels:denim fabric texture macro",
       "pexels:cotton fabric weave macro"
     ],
     "voice": 5,
-    "voiceName": "Kore",
+    "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Erkeklere gaf vuran daha komik kızları güldüren bir video olsun",
+    "not": "Kızları çok daha fazla güldütecek erkekleri utandırabilecek paylaşım yaptıracak nir konu, kahkahalık olmalı",
     "date": "2026-08-24",
-    "durSec": 21.4
+    "durSec": 20.3
   }
 ]
