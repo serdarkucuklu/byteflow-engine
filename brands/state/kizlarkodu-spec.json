@@ -1,74 +1,78 @@
 {
-  "hook": "Ücretsiz kargo için eklenen tişört kutuda kargoyu bekliyor.",
-  "title": "Ücretsiz Kargo Tuzağı Ve Kutudaki Tişört",
+  "hook": "Beden tablosu uymayınca kutu koridorda bekler.",
+  "title": "Beden Tablosu Yanılgısı ve İade Macerası",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "esik",
-          "label": "KARGO EŞİĞİ"
+          "id": "n1",
+          "label": "BEDEN TABLOSU"
         },
         {
-          "id": "bekleme",
-          "label": "KUTUDA BEKLEME"
+          "id": "n2",
+          "label": "SİPARİŞ COŞKUSU"
         },
         {
-          "id": "kabulleniş",
-          "label": "SESSİZ KABULLENİŞ"
+          "id": "n3",
+          "label": "KORİDOR KUTUSU"
+        },
+        {
+          "id": "n4",
+          "label": "DOLAP SÜRGÜNÜ"
         }
       ],
       "steps": [
         {
-          "from": "esik",
-          "to": "bekleme",
-          "packet": "SEPET",
-          "status": "beleş kargo için sepete tişört eklenir",
-          "color": "accent"
+          "from": "n1",
+          "to": "n2",
+          "packet": "BEDEN",
+          "status": "tabloya bakılır, umutla sipariş verilir",
+          "color": "good"
         },
         {
-          "from": "bekleme",
-          "to": "kabulleniş",
-          "packet": "KUTU",
-          "status": "yarın kargoya veririm diye kutuda bekler",
+          "from": "n2",
+          "to": "n3",
+          "packet": "KALIP",
+          "status": "kalıp dar gelir, kutu koridora park eder",
           "color": "warn"
         },
         {
-          "from": "kabulleniş",
-          "to": "esik",
-          "packet": "ETİKET",
-          "status": "iade penceresi kapanır ve kabullenilir",
-          "color": "good"
+          "from": "n3",
+          "to": "n4",
+          "packet": "SÜRE",
+          "status": "iade süresi dolar, parça kadere dönüşür",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Ücretsiz kargo için eklenen tişört kutuda kargoyu bekliyor.\n\nÜcretsiz kargo için eklenen parçanın hüzünlü hikayesi:\n\n1. KARGO EŞİĞİ — Kargo ücreti ödememek için sepete hiç planda olmayan 3. bir tişört eklenir.\n2. KUTUDA BEKLEME — Ürün eve gelir, denenir, beğenilmez ama yarın kargolarım denilerek kutusuna konur.\n3. SESSİZ KABULLENİŞ — İade penceresi sessizce kapanır ve o tişört kaderine razı olup pijama çekmecesine geçer.\n\nPerakende iade mekanizması tam olarak bu erteleme psikolojisi üzerine kuruludur.\n\nKargo ücretinden kaçarken evde tişört koleksiyonu yaptık.\n\n📌 Kaydet — bir dahaki alışveriş krizinde lazım olacak.\n🔁 Bunu kargoya götürmeye üşenip kutudaki ürünü dolaba kaldıran arkadaşına gönder.\nKutuda iade edilmeyi bekleyen kaç parçan var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Beden tablosuna güvenip sipariş verdiğimiz o kutunun hikâyesi.\n\nBeden tablosunun nasıl iade kutusuna dönüştüğü, adım adım:\n\n1. Beden tablosu — Markaların ölçü tabloları evrensel değildir; kesim ve fason üretimlerde 2-3 cm kalıp sapması oluşabilir.\n2. Sipariş coşkusu — Tablodaki santimler tam tutmasa da en yakın beden \"nasılsa olur\" diye sepete atılır.\n3. Koridor kutusu — Paket gelip üstte dar durunca, kargo poşeti yarın götürülmek üzere koridora yerleşir.\n4. Dolap sürgünleri — 14 günlük iade penceresi sessizce kapanır; kıyafet \"zayıflayınca giyerim\" vaadiyle dolaba kalkar.\n\nOnline alışveriş yaparken sadece göğüs veya bel değil, kumaşın esneklik oranına bakmak iade kutularını azaltır.\n\nO kutu koridorda mobilya oldu ama bir dahaki indirimde yine aynı bedeni sipariş edeceğiz.\n\n📌 Kaydet — bir dahaki online alışverişte lazım olacak.\n🔁 Bunu iade süresi dolduğu için o kutuyu hâlâ koridorda saklayan arkadaşına gönder.\nKoridorda kaç gündür bekleyen iade kutun var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#alışveriş",
-    "#moda",
     "#giyim",
-    "#kargo",
-    "#gardırop",
+    "#alışveriş",
+    "#bedentablosu",
     "#onlinealışveriş",
-    "#giyimtüyoları"
+    "#gardırop",
+    "#iade",
+    "#kumaş"
   ],
-  "takeaway": "Kargo parası vermemek için aldığımız tişört artık yeni pijama.",
+  "takeaway": "Nasılsa giyerim denilen o parça aslında hiç giyilmeyecek.",
   "footage_queries": [
     "cardboard parcel box close up",
-    "hands opening parcel box"
+    "measuring tape and fabric"
   ],
   "narration": [
-    "Ücretsiz kargo tişörtü yine kutuda kaldı.",
-    "Sepeti kargo eşiğine tamamlamak için üçüncü tişörtü ekliyoruz.",
-    "Gelen kutuyu açıp denedikten sonra yarın kargolarım diye köşeye koyuyoruz.",
-    "İade penceresi sessizce kapanınca o tişört artık bizim yeni pijamamız oluyor.",
-    "Kargo parası vermemek için aldığımız tişörtle sonsuza dek mutlu yaşıyoruz."
+    "Beden tablosu uymayınca kutu koridorda bekler.",
+    "Markaların beden tablosu standart olmadığı için sipariş sürprizli gelir.",
+    "Olmayan parça kargoya götürülmek yerine iki hafta koridorda bekletilir.",
+    "Sessizce dolan iade süresi sonunda parça artık dolabın kalıcı üyesidir.",
+    "Nasılsa giyerim denilen o kazak aslında hiç giyilmeyecek."
   ],
-  "subject": "ücretsiz kargo",
-  "sendTo": "kargoya götürmeye üşenip kutudaki ürünü dolaba kaldıran arkadaşına",
-  "soru": "Kutuda iade edilmeyi bekleyen kaç parçan var?",
+  "subject": "beden tablosu",
+  "sendTo": "iade süresi dolduğu için o kutuyu hâlâ koridorda saklayan arkadaşına",
+  "soru": "Koridorda kaç gündür bekleyen iade kutun var?",
   "theme": "#8fd0ff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -93,30 +97,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Ücretsiz kargo tişörtü yine kutuda kaldı.",
+      "text": "Beden tablosu uymayınca kutu koridorda bekler.",
       "start": 0.35,
-      "dur": 2.501
+      "dur": 2.903
     },
     {
-      "text": "Sepeti kargo eşiğine tamamlamak için üçüncü tişörtü ekliyoruz.",
-      "start": 2.851,
-      "dur": 3.782
+      "text": "Markaların beden tablosu standart olmadığı için sipariş sürprizli gelir.",
+      "start": 3.253,
+      "dur": 4.544
     },
     {
-      "text": "Gelen kutuyu açıp denedikten sonra yarın kargolarım diye köşeye koyuyoruz.",
-      "start": 6.633,
-      "dur": 4.514
+      "text": "Olmayan parça kargoya götürülmek yerine iki hafta koridorda bekletilir.",
+      "start": 7.797,
+      "dur": 4.481
     },
     {
-      "text": "İade penceresi sessizce kapanınca o tişört artık bizim yeni pijamamız oluyor.",
-      "start": 11.148,
+      "text": "Sessizce dolan iade süresi sonunda parça artık dolabın kalıcı üyesidir.",
+      "start": 12.278,
+      "dur": 4.481
+    },
+    {
+      "text": "Nasılsa giyerim denilen o kazak aslında hiç giyilmeyecek.",
+      "start": 16.758,
       "dur": 4.697
-    },
-    {
-      "text": "Kargo parası vermemek için aldığımız tişörtle sonsuza dek mutlu yaşıyoruz.",
-      "start": 15.845,
-      "dur": 5.614
     }
   ],
-  "thumbOffset": 1850
+  "thumbOffset": 2052
 }

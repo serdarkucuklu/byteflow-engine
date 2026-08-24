@@ -294,5 +294,27 @@
       "ig_reels_video_view_total_time": 745558
     },
     "insightsAt": "2026-08-24T17:34:24.796Z"
+  },
+  {
+    "title": "Beden Tablosu Yanılgısı ve İade Macerası",
+    "subject": "beden tablosu",
+    "twist": "iade-tembelligi",
+    "pillar": "cok-satanlar",
+    "layout": "nodes-flow",
+    "kinds": "diagram",
+    "motion": "sketch",
+    "theme": "#8fd0ff",
+    "source": "gemini",
+    "footage": [
+      "pexels:cardboard parcel box close up",
+      "pexels:measuring tape and fabric",
+      "pexels:denim fabric texture macro",
+      "pexels:cotton fabric weave macro"
+    ],
+    "voice": 5,
+    "voiceName": "Aoede",
+    "muzik": "byteflow-ambient.mp3",
+    "date": "2026-08-24",
+    "durSec": 21.4
   }
 ]

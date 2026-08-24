@@ -1,125 +1,125 @@
 {
-  "hook": "Erkeklerin 'hiç makyaj yok' dediği o cildin sırrı.",
-  "title": "Erkekleri Kandıran Hyalüronik Asit Mucizesi",
+  "hook": "Beden tablosu uymayınca kutu koridorda bekler.",
+  "title": "Beden Tablosu Yanılgısı ve İade Macerası",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "ha",
-          "label": "HYALÜRONİK ASİT"
+          "id": "n1",
+          "label": "BEDEN TABLOSU"
         },
         {
-          "id": "su",
-          "label": "NEM DEPOSU"
+          "id": "n2",
+          "label": "SİPARİŞ COŞKUSU"
         },
         {
-          "id": "isik",
-          "label": "CAM CİLT IŞILTISI"
+          "id": "n3",
+          "label": "KORİDOR KUTUSU"
         },
         {
-          "id": "gaf",
-          "label": "ERKEK İLLÜZYONU"
+          "id": "n4",
+          "label": "DOLAP SÜRGÜNÜ"
         }
       ],
       "steps": [
         {
-          "from": "ha",
-          "to": "su",
-          "packet": "NEM",
-          "status": "kendi ağırlığının bin katı su çeker",
-          "color": "accent"
-        },
-        {
-          "from": "su",
-          "to": "isik",
-          "packet": "IŞIK",
-          "status": "cildi dolgunlaştırıp doğal parlatır",
+          "from": "n1",
+          "to": "n2",
+          "packet": "BEDEN",
+          "status": "tabloya bakılır, umutla sipariş verilir",
           "color": "good"
         },
         {
-          "from": "isik",
-          "to": "gaf",
-          "packet": "GAF",
-          "status": "erkekler bunu makyajsız genetik sanır",
+          "from": "n2",
+          "to": "n3",
+          "packet": "KALIP",
+          "status": "kalıp dar gelir, kutu koridora park eder",
           "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "SÜRE",
+          "status": "iade süresi dolar, parça kadere dönüşür",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Erkeklerin 'makyajsız halin daha güzel' derken kastettiği şey aslında 5 kat hyalüronik asit serumu.\n\nPeki bu molekül cildi nasıl 'doğuştan taze' gösteriyor, adım adım bakıyoruz:\n\n1. Nem Deposu — Hyalüronik asit kendi ağırlığının tam 1000 katı suyu bünyesine çeker ve cilde hapseder.\n2. Cam Cilt Işıltısı — Dolgunlaşan üst deri ışığı pürüzsüz yansıtır, tene doğal bir nemli parlaklık verir.\n3. Erkek İllüzyonu — Bu taze görüntüyü gören erkekler sıfır makyaj ve mucizevi genetik sanıp gafa düşer.\n\nİçerikte farklı molekül boyutları barındıran serumlar nemin tüm katmanlara inmesini sağlar.\n\nOnlar bizim doğuştan böyle olduğumuza inanmaya devam edebilir, bozmayalım.\n\n📌 Kaydet — bir dahaki 'hiç makyaj yapma' öğüdünde açıp okursun.\n🔁 Bunu sevgilisi 'doğal halin daha güzel' diyen arkadaşına gönder.\nErkek arkadaşın hyalüronik asidin ne olduğunu biliyor mu?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Beden tablosuna güvenip sipariş verdiğimiz o kutunun hikâyesi.\n\nBeden tablosunun nasıl iade kutusuna dönüştüğü, adım adım:\n\n1. Beden tablosu — Markaların ölçü tabloları evrensel değildir; kesim ve fason üretimlerde 2-3 cm kalıp sapması oluşabilir.\n2. Sipariş coşkusu — Tablodaki santimler tam tutmasa da en yakın beden \"nasılsa olur\" diye sepete atılır.\n3. Koridor kutusu — Paket gelip üstte dar durunca, kargo poşeti yarın götürülmek üzere koridora yerleşir.\n4. Dolap sürgünleri — 14 günlük iade penceresi sessizce kapanır; kıyafet \"zayıflayınca giyerim\" vaadiyle dolaba kalkar.\n\nOnline alışveriş yaparken sadece göğüs veya bel değil, kumaşın esneklik oranına bakmak iade kutularını azaltır.\n\nO kutu koridorda mobilya oldu ama bir dahaki indirimde yine aynı bedeni sipariş edeceğiz.\n\n📌 Kaydet — bir dahaki online alışverişte lazım olacak.\n🔁 Bunu iade süresi dolduğu için o kutuyu hâlâ koridorda saklayan arkadaşına gönder.\nKoridorda kaç gündür bekleyen iade kutun var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#hyalüronikasit",
-    "#ciltbakımrutini",
-    "#doğalgörünüm",
-    "#ciltkodu",
-    "#erkekler"
+    "#giyim",
+    "#alışveriş",
+    "#bedentablosu",
+    "#onlinealışveriş",
+    "#gardırop",
+    "#iade",
+    "#kumaş"
   ],
-  "takeaway": "Erkekler genetik sanır, biz hyalüronik asit deriz.",
+  "takeaway": "Nasılsa giyerim denilen o parça aslında hiç giyilmeyecek.",
   "footage_queries": [
-    "hand holding serum dropper",
-    "clean bathroom tiles light"
+    "cardboard parcel box close up",
+    "measuring tape and fabric"
   ],
   "narration": [
-    "Erkeklerin doğal sanma gafını çözüyoruz.",
-    "Hyalüronik asit molekülü kendi ağırlığının bin katı su tutar.",
-    "Su dolan hücreler cilde filtreli gibi taze bir ışıltı verir.",
-    "Erkekler de bu dolgunluğu tamamen makyajsız genetik güzellik sanır.",
-    "Onlar genetik sansın, biz serumumuzu sürmeye devam edelim."
+    "Beden tablosu uymayınca kutu koridorda bekler.",
+    "Markaların beden tablosu standart olmadığı için sipariş sürprizli gelir.",
+    "Olmayan parça kargoya götürülmek yerine iki hafta koridorda bekletilir.",
+    "Sessizce dolan iade süresi sonunda parça artık dolabın kalıcı üyesidir.",
+    "Nasılsa giyerim denilen o kazak aslında hiç giyilmeyecek."
   ],
-  "subject": "hyalüronik asit",
-  "sendTo": "sevgilisi 'doğal halin daha güzel' diyen arkadaşına",
-  "soru": "Erkek arkadaşın hyalüronik asidin ne olduğunu biliyor mu?",
-  "theme": "#8fa8c8",
+  "subject": "beden tablosu",
+  "sendTo": "iade süresi dolduğu için o kutuyu hâlâ koridorda saklayan arkadaşına",
+  "soru": "Koridorda kaç gündür bekleyen iade kutun var?",
+  "theme": "#8fd0ff",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "sketch",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Erkeklerin doğal sanma gafını çözüyoruz.",
+      "text": "Beden tablosu uymayınca kutu koridorda bekler.",
       "start": 0.35,
-      "dur": 2.795
+      "dur": 2.903
     },
     {
-      "text": "Hyalüronik asit molekülü kendi ağırlığının bin katı su tutar.",
-      "start": 3.145,
-      "dur": 4.262
+      "text": "Markaların beden tablosu standart olmadığı için sipariş sürprizli gelir.",
+      "start": 3.253,
+      "dur": 4.544
     },
     {
-      "text": "Su dolan hücreler cilde filtreli gibi taze bir ışıltı verir.",
-      "start": 7.407,
-      "dur": 4.192
+      "text": "Olmayan parça kargoya götürülmek yerine iki hafta koridorda bekletilir.",
+      "start": 7.797,
+      "dur": 4.481
     },
     {
-      "text": "Erkekler de bu dolgunluğu tamamen makyajsız genetik güzellik sanır.",
-      "start": 11.599,
-      "dur": 4.681
+      "text": "Sessizce dolan iade süresi sonunda parça artık dolabın kalıcı üyesidir.",
+      "start": 12.278,
+      "dur": 4.481
     },
     {
-      "text": "Onlar genetik sansın, biz serumumuzu sürmeye devam edelim.",
-      "start": 16.28,
-      "dur": 5.152
+      "text": "Nasılsa giyerim denilen o kazak aslında hiç giyilmeyecek.",
+      "start": 16.758,
+      "dur": 4.697
     }
   ]
 }
