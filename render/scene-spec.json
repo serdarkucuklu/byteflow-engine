@@ -1,122 +1,106 @@
 {
-  "hook": "Erkek rahatken beden tablosu evde kutu biriktirir.",
-  "title": "Beden Tablosu Neden Her Markada Farklı?",
+  "hook": "Reyonda 'abla buna şart' denip kitleyen LED maske çilesi.",
+  "title": "LED Maske: Reyon Övgüsü mü Gerçek Biyotıbbi Güç mü?",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "versus",
-      "left": "BANYO AYNASI",
-      "right": "ASANSÖR IŞIĞI",
+      "left": "EV TİPİ LED MASKE",
+      "right": "KLİNİK LED SEANSI",
       "rows": [
         {
-          "id": "erkek",
-          "label": "ERKEK KALIBI"
+          "label": "IŞIK GÜCÜ",
+          "left": "Kumanda pili gücünde",
+          "right": "Derine inen tıbbi doz",
+          "winner": "right"
         },
         {
-          "id": "kadin",
-          "label": "KADIN TABLOSU"
+          "label": "REYON DANIŞMANI",
+          "left": "'Abla bu cilde şart' der",
+          "right": "Dermatolog doz ayarlar",
+          "winner": "right"
         },
         {
-          "id": "kutu",
-          "label": "İADE KUTUSU"
-        }
-      ],
-      "steps": [
-        {
-          "from": "erkek",
-          "to": "kadin",
-          "packet": "KALIP",
-          "status": "erkek kalıbı sabit kadınunki piyangodur",
-          "color": "warn"
-        },
-        {
-          "from": "kadin",
-          "to": "kutu",
-          "packet": "KUMAŞ",
-          "status": "viskon ve likra oranı bedeni oynatır",
-          "color": "accent"
-        },
-        {
-          "from": "kutu",
-          "to": "kutu",
-          "packet": "İADE",
-          "status": "kutu kargoya gitmez evde müze olur",
-          "color": "good"
+          "label": "GERÇEK SONUÇ",
+          "left": "Kırmızı ışıklı selfie",
+          "right": "Kolajen ve leke tedavisi",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Erkekler hayatı boyunca tek bir beden koduyla yaşarken, biz her alışverişte yeni bir harita çözüyoruz.\n\nBeden tablosunun arkasındaki o garip mekanizma:\n\n1. Kalıp Toleransı — Erkek giyiminde göğüs ve omuz ölçüleri sabite yakın standartlarla dikilir. Kadın giyiminde ise markanın hedef kitlesine göre 'vanity sizing' (küçük gösterme) uygulanır; X markasının 36 bedeni Y markasında 40 bedene denk gelir.\n2. Kumaş ve Likra Oranı — Kumaştaki esneklik payı kalıbı doğrudan değiştirir. Yüzde yüz pamuk bir pantolon sıkar, likralı karışım bol gelir. Aynı beden tablosu iki farklı kumaşta tamamen başka durur.\n3. İade Erteleme Psikolojisi — Kutusu açılan kıyafet hemen uymayınca 'nasılsa zayıflarım' veya 'terzide hallederim' diyerek odada bekletilir ve iade penceresi sessizce kapanır.\n\nAlışveriş yaparken etiketteki beden numarasına değil, kumaşın likra oranına ve ürünün göğüs-basen ölçüm cm değerlerine bakın.\n\nErkek sekiz yıl aynı tişörtü giyer, biz kutu biriktiririz. Ama o sipariş yine de verilecek.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu iade süresi dolan kargoyu 'nasılsa giyerim' diye saklayan arkadaşına gönder.\n\nEvde iade süresi dolmuş kaç tane kargon var, dürüst ol?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Reyonda 3 dakikada ikna olup servet ödediğin LED maskenin hazin hikayesi.\n\nReyondaki o 3 dakikalık büyülü ikna seansı ve acı gerçekler:\n1. Işık Gücü — Klinik cihazlar yüksek joule seviyesinde tıbbi enerji basarken ev tipi LED maskeler güvenlik sebebiyle fener gücündedir.\n2. Dalga Boyu — Kolajen sentezlemek için milimetrik fokal odaklanma gerekir; evdeki plastik maskenin ışığı ancak cilt yüzeyini yalar.\n3. Reyon Büyüsü — Danışmanın 'abla bu cilde şart' demesi biyolojik klinik veri değil, ay sonu prim kotalarıdır.\n\nEv tipi cihazlar zararsızdır ama reyon vaat ettiği gibi kırışıklığı yok etmez.\n\nCihaz suçsuz, reyon danışmanının tatlı dili suçlu. Ama biz haftaya yine o reyondayız.\n\n📌 Kaydet — bir dahaki reyon krizinde lazım olacak.\n🔁 Bunu reyon danışmanının her 'bu sana şart' dediğini alan arkadaşına gönder.\nReyonda gaza gelip evde unuttuğun cihaz sayısı kaç, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#alışveriş",
-    "#kumaş",
-    "#gardırop",
-    "#giyimtüyoları",
-    "#bedentablosu"
+    "#ciltbakimi",
+    "#güzellik",
+    "#ledmaske",
+    "#ciltcihazları",
+    "#ciltbakımrutini",
+    "#reyongafları",
+    "#dermokozmetik"
   ],
-  "takeaway": "Erkek sekiz yıl aynı tişörtü giyer, sen iade kutunla barışırsın.",
+  "takeaway": "Reyonda mucize denilen LED maske evde ancak selfie ışığı olur.",
   "footage_queries": [
-    "clean bathroom tiles light",
-    "loose powder texture macro"
+    "cosmetic bottles soft light",
+    "hands applying cream close up"
   ],
   "narration": [
-    "Erkek rahatken beden tablosu kadınlara dert.",
-    "Erkek kalıpları santimle üretilirken kadın bedenleri markaya göre değişir.",
-    "Kumaştaki likra ve gramaj farkı aynı bedeni dar ya da bol yapar.",
-    "Uymayan kıyafet iade edilmeyip nasılsa giyerim diye odada bekletilir.",
-    "Erkek sekiz yıl aynı tişörtü giyer sen iade kutunla barışırsın."
+    "LED maske reyonda hayatını değiştirmez.",
+    "Ev tipi LED maskeler kumanda pili kadar düşük ışık saçar.",
+    "Reyon danışmanı mucize dese de klinik cihazı derin dokuya ulaşır.",
+    "Evde yapılan ışık sadece selfie fotoğraflarına renk katar.",
+    "Reyonda mucize denilen cihaz evde ancak selfie ışığı olur."
   ],
-  "subject": "beden tablosu",
-  "sendTo": "İade süresi dolan kargoyu 'nasılsa giyerim' diye saklayan arkadaşına",
-  "soru": "Evde iade süresi dolmuş kaç tane kargon var, dürüst ol?",
-  "theme": "#8fd0ff",
+  "subject": "LED maske",
+  "sendTo": "Reyon danışmanının her 'bu sana şart' dediğini alan arkadaşına",
+  "soru": "Reyonda gaza gelip evde unuttuğun cihaz sayısı kaç, dürüst ol?",
+  "theme": "#8fa8c8",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "ripple",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Erkek rahatken beden tablosu kadınlara dert.",
+      "text": "LED maske reyonda hayatını değiştirmez.",
       "start": 0.35,
-      "dur": 2.804
+      "dur": 2.815
     },
     {
-      "text": "Erkek kalıpları santimle üretilirken kadın bedenleri markaya göre değişir.",
-      "start": 3.154,
-      "dur": 4.716
+      "text": "Ev tipi LED maskeler kumanda pili kadar düşük ışık saçar.",
+      "start": 3.165,
+      "dur": 4.115
     },
     {
-      "text": "Kumaştaki likra ve gramaj farkı aynı bedeni dar ya da bol yapar.",
-      "start": 7.87,
-      "dur": 4.078
+      "text": "Reyon danışmanı mucize dese de klinik cihazı derin dokuya ulaşır.",
+      "start": 7.28,
+      "dur": 4.692
     },
     {
-      "text": "Uymayan kıyafet iade edilmeyip nasılsa giyerim diye odada bekletilir.",
-      "start": 11.948,
-      "dur": 4.397
+      "text": "Evde yapılan ışık sadece selfie fotoğraflarına renk katar.",
+      "start": 11.972,
+      "dur": 4.187
     },
     {
-      "text": "Erkek sekiz yıl aynı tişörtü giyer sen iade kutunla barışırsın.",
-      "start": 16.345,
-      "dur": 5.115
+      "text": "Reyonda mucize denilen cihaz evde ancak selfie ışığı olur.",
+      "start": 16.159,
+      "dur": 5.287
     }
   ]
 }

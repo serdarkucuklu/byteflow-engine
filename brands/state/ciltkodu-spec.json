@@ -1,59 +1,59 @@
 {
-  "hook": "Erkek arkadaşın asansörde 'yüzün neden parlıyor' der.",
-  "title": "Aydınlatıcı ve Asansör Işığı Gafı",
+  "hook": "Reyonda 'abla buna şart' denip kitleyen LED maske çilesi.",
+  "title": "LED Maske: Reyon Övgüsü mü Gerçek Biyotıbbi Güç mü?",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "versus",
-      "left": "BANYO AYNASI",
-      "right": "ASANSÖR IŞIĞI",
+      "left": "EV TİPİ LED MASKE",
+      "right": "KLİNİK LED SEANSI",
       "rows": [
         {
-          "label": "IŞIK AÇISI",
-          "left": "Önden düz gelen ışık",
-          "right": "Tepeden dik vuran ışık",
-          "winner": "left"
+          "label": "IŞIK GÜCÜ",
+          "left": "Kumanda pili gücünde",
+          "right": "Derine inen tıbbi doz",
+          "winner": "right"
         },
         {
-          "label": "RENK SICAKLIĞI",
-          "left": "Beyaz nötr ışık",
-          "right": "Sarı ve gölgeli ışık",
-          "winner": "left"
+          "label": "REYON DANIŞMANI",
+          "left": "'Abla bu cilde şart' der",
+          "right": "Dermatolog doz ayarlar",
+          "winner": "right"
         },
         {
-          "label": "ERKEK REAKSİYONU",
-          "left": "Makyaj yapmamışsın der",
-          "right": "Yüzün niye simli der",
-          "winner": "left"
+          "label": "GERÇEK SONUÇ",
+          "left": "Kırmızı ışıklı selfie",
+          "right": "Kolajen ve leke tedavisi",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Erkek arkadaşın asansörde yüzüne bakıp panik oluyorsa suç sende değil ışıkta.\n\nErkeklerin 'asansörde yüzün parlıyor' felsefesi ve aydınlatıcı gerçeği:\n\n1. Işık Açısı — Banyoda önden vuran ışık pürüzsüz gösterir; asansörde tepeden dik vuran ışık tüm simleri tek noktaya toplar.\n2. Renk Sıcaklığı — Nötr beyaz ışık aydınlatıcıyı doğal kırarken, sarı ampul ışıltıyı kat kat vurgular.\n3. Erkek Algısı — Işık fiziğini bilmediği için yüzüne fener tutulmuş sanıp panik yapar.\n\nSorun aydınlatıcında değil, ışığın geliş açısında.\n\nErkek arkadaşın anlamayabilir ama asansör aynası her zaman dürüsttür.\n\n📌 Kaydet — bir dahaki asansör şokunda açıp okursun.\n🔁 Bunu asansör aynasında yüzünü görüp şok olan arkadaşına gönder.\nErkek arkadaşın makyajına hiç garip yorum yaptı mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Reyonda 3 dakikada ikna olup servet ödediğin LED maskenin hazin hikayesi.\n\nReyondaki o 3 dakikalık büyülü ikna seansı ve acı gerçekler:\n1. Işık Gücü — Klinik cihazlar yüksek joule seviyesinde tıbbi enerji basarken ev tipi LED maskeler güvenlik sebebiyle fener gücündedir.\n2. Dalga Boyu — Kolajen sentezlemek için milimetrik fokal odaklanma gerekir; evdeki plastik maskenin ışığı ancak cilt yüzeyini yalar.\n3. Reyon Büyüsü — Danışmanın 'abla bu cilde şart' demesi biyolojik klinik veri değil, ay sonu prim kotalarıdır.\n\nEv tipi cihazlar zararsızdır ama reyon vaat ettiği gibi kırışıklığı yok etmez.\n\nCihaz suçsuz, reyon danışmanının tatlı dili suçlu. Ama biz haftaya yine o reyondayız.\n\n📌 Kaydet — bir dahaki reyon krizinde lazım olacak.\n🔁 Bunu reyon danışmanının her 'bu sana şart' dediğini alan arkadaşına gönder.\nReyonda gaza gelip evde unuttuğun cihaz sayısı kaç, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
+    "#ciltbakimi",
     "#güzellik",
-    "#makyaj",
-    "#aydınlatıcı",
-    "#ışıkgafı",
-    "#makyajönerisi",
-    "#ciltbakımı",
-    "#asansörışığı"
+    "#ledmaske",
+    "#ciltcihazları",
+    "#ciltbakımrutini",
+    "#reyongafları",
+    "#dermokozmetik"
   ],
-  "takeaway": "Suç senin aydınlatıcında değil, asansörün sarı ışığında.",
+  "takeaway": "Reyonda mucize denilen LED maske evde ancak selfie ışığı olur.",
   "footage_queries": [
-    "clean bathroom tiles light",
-    "loose powder texture macro"
+    "cosmetic bottles soft light",
+    "hands applying cream close up"
   ],
   "narration": [
-    "Erkekler asansörde yüzüne şaşkın bakar.",
-    "Banyodaki düz ışık aydınlatıcıyı yumuşatır ama tepeden gelen ışık parlatır.",
-    "Beyaz ışık pigmenti doğal gösterirken sarı ampul parıltıyı aşırı belirginleştirir.",
-    "Erkek arkadaşın bunu görünce makyajın bozuldu sanıp dert eder.",
-    "Suç senin aydınlatıcında değil asansörün açısız ve sarı ışığındadır."
+    "LED maske reyonda hayatını değiştirmez.",
+    "Ev tipi LED maskeler kumanda pili kadar düşük ışık saçar.",
+    "Reyon danışmanı mucize dese de klinik cihazı derin dokuya ulaşır.",
+    "Evde yapılan ışık sadece selfie fotoğraflarına renk katar.",
+    "Reyonda mucize denilen cihaz evde ancak selfie ışığı olur."
   ],
-  "subject": "aydınlatıcı",
-  "sendTo": "asansör aynasında yüzünü görüp şok olan arkadaşına",
-  "soru": "Erkek arkadaşın makyajına hiç garip yorum yaptı mı?",
+  "subject": "LED maske",
+  "sendTo": "Reyon danışmanının her 'bu sana şart' dediğini alan arkadaşına",
+  "soru": "Reyonda gaza gelip evde unuttuğun cihaz sayısı kaç, dürüst ol?",
   "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -78,30 +78,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Erkekler asansörde yüzüne şaşkın bakar.",
+      "text": "LED maske reyonda hayatını değiştirmez.",
       "start": 0.35,
-      "dur": 2.393
+      "dur": 2.815
     },
     {
-      "text": "Banyodaki düz ışık aydınlatıcıyı yumuşatır ama tepeden gelen ışık parlatır.",
-      "start": 2.743,
-      "dur": 4.602
+      "text": "Ev tipi LED maskeler kumanda pili kadar düşük ışık saçar.",
+      "start": 3.165,
+      "dur": 4.115
     },
     {
-      "text": "Beyaz ışık pigmenti doğal gösterirken sarı ampul parıltıyı aşırı belirginleştirir.",
-      "start": 7.344,
-      "dur": 5.031
+      "text": "Reyon danışmanı mucize dese de klinik cihazı derin dokuya ulaşır.",
+      "start": 7.28,
+      "dur": 4.692
     },
     {
-      "text": "Erkek arkadaşın bunu görünce makyajın bozuldu sanıp dert eder.",
-      "start": 12.375,
-      "dur": 3.804
+      "text": "Evde yapılan ışık sadece selfie fotoğraflarına renk katar.",
+      "start": 11.972,
+      "dur": 4.187
     },
     {
-      "text": "Suç senin aydınlatıcında değil asansörün açısız ve sarı ışığındadır.",
-      "start": 16.179,
-      "dur": 5.272
+      "text": "Reyonda mucize denilen cihaz evde ancak selfie ışığı olur.",
+      "start": 16.159,
+      "dur": 5.287
     }
   ],
-  "thumbOffset": 1797
+  "thumbOffset": 2008
 }

@@ -703,25 +703,25 @@
     "insightsAt": "2026-08-24T15:38:58.001Z"
   },
   {
-    "title": "Aydınlatıcı ve Asansör Işığı Gafı",
-    "subject": "aydınlatıcı",
-    "twist": "ayna-ve-isik",
-    "pillar": "iddia-kontrol",
+    "title": "LED Maske: Reyon Övgüsü mü Gerçek Biyotıbbi Güç mü?",
+    "subject": "LED maske",
+    "twist": "magaza-danismani",
+    "pillar": "cihaz-ve-islem",
     "layout": "nodes-flow",
     "kinds": "versus",
     "motion": "ripple",
     "theme": "#8fa8c8",
     "source": "gemini",
     "footage": [
-      "pexels:clean bathroom tiles light",
-      "pexels:loose powder texture macro",
+      "pexels:cosmetic bottles soft light",
+      "pexels:hands applying cream close up",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Puck",
+    "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Erkeklere gaf vuran, kızları güldüren daha komik video olsun",
+    "not": "Daha komik kadınları gümdüren birbirine reels i gönderecek bir  video olmalı",
     "date": "2026-08-24",
     "durSec": 21.4
   }
