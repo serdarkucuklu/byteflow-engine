@@ -1,78 +1,73 @@
 {
-  "hook": "Beden tablosu uymayınca kutu koridorda bekler.",
-  "title": "Beden Tablosu Yanılgısı ve İade Macerası",
+  "hook": "Erkek rahatken beden tablosu evde kutu biriktirir.",
+  "title": "Beden Tablosu Neden Her Markada Farklı?",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "BEDEN TABLOSU"
+          "id": "erkek",
+          "label": "ERKEK KALIBI"
         },
         {
-          "id": "n2",
-          "label": "SİPARİŞ COŞKUSU"
+          "id": "kadin",
+          "label": "KADIN TABLOSU"
         },
         {
-          "id": "n3",
-          "label": "KORİDOR KUTUSU"
-        },
-        {
-          "id": "n4",
-          "label": "DOLAP SÜRGÜNÜ"
+          "id": "kutu",
+          "label": "İADE KUTUSU"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "BEDEN",
-          "status": "tabloya bakılır, umutla sipariş verilir",
-          "color": "good"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
+          "from": "erkek",
+          "to": "kadin",
           "packet": "KALIP",
-          "status": "kalıp dar gelir, kutu koridora park eder",
+          "status": "erkek kalıbı sabit kadınunki piyangodur",
           "color": "warn"
         },
         {
-          "from": "n3",
-          "to": "n4",
-          "packet": "SÜRE",
-          "status": "iade süresi dolar, parça kadere dönüşür",
+          "from": "kadin",
+          "to": "kutu",
+          "packet": "KUMAŞ",
+          "status": "viskon ve likra oranı bedeni oynatır",
           "color": "accent"
+        },
+        {
+          "from": "kutu",
+          "to": "kutu",
+          "packet": "İADE",
+          "status": "kutu kargoya gitmez evde müze olur",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Beden tablosuna güvenip sipariş verdiğimiz o kutunun hikâyesi.\n\nBeden tablosunun nasıl iade kutusuna dönüştüğü, adım adım:\n\n1. Beden tablosu — Markaların ölçü tabloları evrensel değildir; kesim ve fason üretimlerde 2-3 cm kalıp sapması oluşabilir.\n2. Sipariş coşkusu — Tablodaki santimler tam tutmasa da en yakın beden \"nasılsa olur\" diye sepete atılır.\n3. Koridor kutusu — Paket gelip üstte dar durunca, kargo poşeti yarın götürülmek üzere koridora yerleşir.\n4. Dolap sürgünleri — 14 günlük iade penceresi sessizce kapanır; kıyafet \"zayıflayınca giyerim\" vaadiyle dolaba kalkar.\n\nOnline alışveriş yaparken sadece göğüs veya bel değil, kumaşın esneklik oranına bakmak iade kutularını azaltır.\n\nO kutu koridorda mobilya oldu ama bir dahaki indirimde yine aynı bedeni sipariş edeceğiz.\n\n📌 Kaydet — bir dahaki online alışverişte lazım olacak.\n🔁 Bunu iade süresi dolduğu için o kutuyu hâlâ koridorda saklayan arkadaşına gönder.\nKoridorda kaç gündür bekleyen iade kutun var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Erkekler hayatı boyunca tek bir beden koduyla yaşarken, biz her alışverişte yeni bir harita çözüyoruz.\n\nBeden tablosunun arkasındaki o garip mekanizma:\n\n1. Kalıp Toleransı — Erkek giyiminde göğüs ve omuz ölçüleri sabite yakın standartlarla dikilir. Kadın giyiminde ise markanın hedef kitlesine göre 'vanity sizing' (küçük gösterme) uygulanır; X markasının 36 bedeni Y markasında 40 bedene denk gelir.\n2. Kumaş ve Likra Oranı — Kumaştaki esneklik payı kalıbı doğrudan değiştirir. Yüzde yüz pamuk bir pantolon sıkar, likralı karışım bol gelir. Aynı beden tablosu iki farklı kumaşta tamamen başka durur.\n3. İade Erteleme Psikolojisi — Kutusu açılan kıyafet hemen uymayınca 'nasılsa zayıflarım' veya 'terzide hallederim' diyerek odada bekletilir ve iade penceresi sessizce kapanır.\n\nAlışveriş yaparken etiketteki beden numarasına değil, kumaşın likra oranına ve ürünün göğüs-basen ölçüm cm değerlerine bakın.\n\nErkek sekiz yıl aynı tişörtü giyer, biz kutu biriktiririz. Ama o sipariş yine de verilecek.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu iade süresi dolan kargoyu 'nasılsa giyerim' diye saklayan arkadaşına gönder.\n\nEvde iade süresi dolmuş kaç tane kargon var, dürüst ol?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#giyim",
     "#alışveriş",
-    "#bedentablosu",
-    "#onlinealışveriş",
+    "#kumaş",
     "#gardırop",
-    "#iade",
-    "#kumaş"
+    "#giyimtüyoları",
+    "#bedentablosu"
   ],
-  "takeaway": "Nasılsa giyerim denilen o parça aslında hiç giyilmeyecek.",
+  "takeaway": "Erkek sekiz yıl aynı tişörtü giyer, sen iade kutunla barışırsın.",
   "footage_queries": [
     "cardboard parcel box close up",
     "measuring tape and fabric"
   ],
   "narration": [
-    "Beden tablosu uymayınca kutu koridorda bekler.",
-    "Markaların beden tablosu standart olmadığı için sipariş sürprizli gelir.",
-    "Olmayan parça kargoya götürülmek yerine iki hafta koridorda bekletilir.",
-    "Sessizce dolan iade süresi sonunda parça artık dolabın kalıcı üyesidir.",
-    "Nasılsa giyerim denilen o kazak aslında hiç giyilmeyecek."
+    "Erkek rahatken beden tablosu kadınlara dert.",
+    "Erkek kalıpları santimle üretilirken kadın bedenleri markaya göre değişir.",
+    "Kumaştaki likra ve gramaj farkı aynı bedeni dar ya da bol yapar.",
+    "Uymayan kıyafet iade edilmeyip nasılsa giyerim diye odada bekletilir.",
+    "Erkek sekiz yıl aynı tişörtü giyer sen iade kutunla barışırsın."
   ],
   "subject": "beden tablosu",
-  "sendTo": "iade süresi dolduğu için o kutuyu hâlâ koridorda saklayan arkadaşına",
-  "soru": "Koridorda kaç gündür bekleyen iade kutun var?",
+  "sendTo": "İade süresi dolan kargoyu 'nasılsa giyerim' diye saklayan arkadaşına",
+  "soru": "Evde iade süresi dolmuş kaç tane kargon var, dürüst ol?",
   "theme": "#8fd0ff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -97,30 +92,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Beden tablosu uymayınca kutu koridorda bekler.",
+      "text": "Erkek rahatken beden tablosu kadınlara dert.",
       "start": 0.35,
-      "dur": 2.903
+      "dur": 2.804
     },
     {
-      "text": "Markaların beden tablosu standart olmadığı için sipariş sürprizli gelir.",
-      "start": 3.253,
-      "dur": 4.544
+      "text": "Erkek kalıpları santimle üretilirken kadın bedenleri markaya göre değişir.",
+      "start": 3.154,
+      "dur": 4.716
     },
     {
-      "text": "Olmayan parça kargoya götürülmek yerine iki hafta koridorda bekletilir.",
-      "start": 7.797,
-      "dur": 4.481
+      "text": "Kumaştaki likra ve gramaj farkı aynı bedeni dar ya da bol yapar.",
+      "start": 7.87,
+      "dur": 4.078
     },
     {
-      "text": "Sessizce dolan iade süresi sonunda parça artık dolabın kalıcı üyesidir.",
-      "start": 12.278,
-      "dur": 4.481
+      "text": "Uymayan kıyafet iade edilmeyip nasılsa giyerim diye odada bekletilir.",
+      "start": 11.948,
+      "dur": 4.397
     },
     {
-      "text": "Nasılsa giyerim denilen o kazak aslında hiç giyilmeyecek.",
-      "start": 16.758,
-      "dur": 4.697
+      "text": "Erkek sekiz yıl aynı tişörtü giyer sen iade kutunla barışırsın.",
+      "start": 16.345,
+      "dur": 5.115
     }
   ],
-  "thumbOffset": 2052
+  "thumbOffset": 2002
 }

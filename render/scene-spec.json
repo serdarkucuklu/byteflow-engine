@@ -1,6 +1,6 @@
 {
-  "hook": "Erkek arkadaşın asansörde 'yüzün neden parlıyor' der.",
-  "title": "Aydınlatıcı ve Asansör Işığı Gafı",
+  "hook": "Erkek rahatken beden tablosu evde kutu biriktirir.",
+  "title": "Beden Tablosu Neden Her Markada Farklı?",
   "scenes": [
     {
       "layout": "nodes-flow",
@@ -9,52 +9,68 @@
       "right": "ASANSÖR IŞIĞI",
       "rows": [
         {
-          "label": "IŞIK AÇISI",
-          "left": "Önden düz gelen ışık",
-          "right": "Tepeden dik vuran ışık",
-          "winner": "left"
+          "id": "erkek",
+          "label": "ERKEK KALIBI"
         },
         {
-          "label": "RENK SICAKLIĞI",
-          "left": "Beyaz nötr ışık",
-          "right": "Sarı ve gölgeli ışık",
-          "winner": "left"
+          "id": "kadin",
+          "label": "KADIN TABLOSU"
         },
         {
-          "label": "ERKEK REAKSİYONU",
-          "left": "Makyaj yapmamışsın der",
-          "right": "Yüzün niye simli der",
-          "winner": "left"
+          "id": "kutu",
+          "label": "İADE KUTUSU"
+        }
+      ],
+      "steps": [
+        {
+          "from": "erkek",
+          "to": "kadin",
+          "packet": "KALIP",
+          "status": "erkek kalıbı sabit kadınunki piyangodur",
+          "color": "warn"
+        },
+        {
+          "from": "kadin",
+          "to": "kutu",
+          "packet": "KUMAŞ",
+          "status": "viskon ve likra oranı bedeni oynatır",
+          "color": "accent"
+        },
+        {
+          "from": "kutu",
+          "to": "kutu",
+          "packet": "İADE",
+          "status": "kutu kargoya gitmez evde müze olur",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Erkek arkadaşın asansörde yüzüne bakıp panik oluyorsa suç sende değil ışıkta.\n\nErkeklerin 'asansörde yüzün parlıyor' felsefesi ve aydınlatıcı gerçeği:\n\n1. Işık Açısı — Banyoda önden vuran ışık pürüzsüz gösterir; asansörde tepeden dik vuran ışık tüm simleri tek noktaya toplar.\n2. Renk Sıcaklığı — Nötr beyaz ışık aydınlatıcıyı doğal kırarken, sarı ampul ışıltıyı kat kat vurgular.\n3. Erkek Algısı — Işık fiziğini bilmediği için yüzüne fener tutulmuş sanıp panik yapar.\n\nSorun aydınlatıcında değil, ışığın geliş açısında.\n\nErkek arkadaşın anlamayabilir ama asansör aynası her zaman dürüsttür.\n\n📌 Kaydet — bir dahaki asansör şokunda açıp okursun.\n🔁 Bunu asansör aynasında yüzünü görüp şok olan arkadaşına gönder.\nErkek arkadaşın makyajına hiç garip yorum yaptı mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Erkekler hayatı boyunca tek bir beden koduyla yaşarken, biz her alışverişte yeni bir harita çözüyoruz.\n\nBeden tablosunun arkasındaki o garip mekanizma:\n\n1. Kalıp Toleransı — Erkek giyiminde göğüs ve omuz ölçüleri sabite yakın standartlarla dikilir. Kadın giyiminde ise markanın hedef kitlesine göre 'vanity sizing' (küçük gösterme) uygulanır; X markasının 36 bedeni Y markasında 40 bedene denk gelir.\n2. Kumaş ve Likra Oranı — Kumaştaki esneklik payı kalıbı doğrudan değiştirir. Yüzde yüz pamuk bir pantolon sıkar, likralı karışım bol gelir. Aynı beden tablosu iki farklı kumaşta tamamen başka durur.\n3. İade Erteleme Psikolojisi — Kutusu açılan kıyafet hemen uymayınca 'nasılsa zayıflarım' veya 'terzide hallederim' diyerek odada bekletilir ve iade penceresi sessizce kapanır.\n\nAlışveriş yaparken etiketteki beden numarasına değil, kumaşın likra oranına ve ürünün göğüs-basen ölçüm cm değerlerine bakın.\n\nErkek sekiz yıl aynı tişörtü giyer, biz kutu biriktiririz. Ama o sipariş yine de verilecek.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n\n🔁 Bunu iade süresi dolan kargoyu 'nasılsa giyerim' diye saklayan arkadaşına gönder.\n\nEvde iade süresi dolmuş kaç tane kargon var, dürüst ol?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#güzellik",
-    "#makyaj",
-    "#aydınlatıcı",
-    "#ışıkgafı",
-    "#makyajönerisi",
-    "#ciltbakımı",
-    "#asansörışığı"
+    "#giyim",
+    "#alışveriş",
+    "#kumaş",
+    "#gardırop",
+    "#giyimtüyoları",
+    "#bedentablosu"
   ],
-  "takeaway": "Suç senin aydınlatıcında değil, asansörün sarı ışığında.",
+  "takeaway": "Erkek sekiz yıl aynı tişörtü giyer, sen iade kutunla barışırsın.",
   "footage_queries": [
     "clean bathroom tiles light",
     "loose powder texture macro"
   ],
   "narration": [
-    "Erkekler asansörde yüzüne şaşkın bakar.",
-    "Banyodaki düz ışık aydınlatıcıyı yumuşatır ama tepeden gelen ışık parlatır.",
-    "Beyaz ışık pigmenti doğal gösterirken sarı ampul parıltıyı aşırı belirginleştirir.",
-    "Erkek arkadaşın bunu görünce makyajın bozuldu sanıp dert eder.",
-    "Suç senin aydınlatıcında değil asansörün açısız ve sarı ışığındadır."
+    "Erkek rahatken beden tablosu kadınlara dert.",
+    "Erkek kalıpları santimle üretilirken kadın bedenleri markaya göre değişir.",
+    "Kumaştaki likra ve gramaj farkı aynı bedeni dar ya da bol yapar.",
+    "Uymayan kıyafet iade edilmeyip nasılsa giyerim diye odada bekletilir.",
+    "Erkek sekiz yıl aynı tişörtü giyer sen iade kutunla barışırsın."
   ],
-  "subject": "aydınlatıcı",
-  "sendTo": "asansör aynasında yüzünü görüp şok olan arkadaşına",
-  "soru": "Erkek arkadaşın makyajına hiç garip yorum yaptı mı?",
-  "theme": "#8fa8c8",
+  "subject": "beden tablosu",
+  "sendTo": "İade süresi dolan kargoyu 'nasılsa giyerim' diye saklayan arkadaşına",
+  "soru": "Evde iade süresi dolmuş kaç tane kargon var, dürüst ol?",
+  "theme": "#8fd0ff",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -78,29 +94,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Erkekler asansörde yüzüne şaşkın bakar.",
+      "text": "Erkek rahatken beden tablosu kadınlara dert.",
       "start": 0.35,
-      "dur": 2.393
+      "dur": 2.804
     },
     {
-      "text": "Banyodaki düz ışık aydınlatıcıyı yumuşatır ama tepeden gelen ışık parlatır.",
-      "start": 2.743,
-      "dur": 4.602
+      "text": "Erkek kalıpları santimle üretilirken kadın bedenleri markaya göre değişir.",
+      "start": 3.154,
+      "dur": 4.716
     },
     {
-      "text": "Beyaz ışık pigmenti doğal gösterirken sarı ampul parıltıyı aşırı belirginleştirir.",
-      "start": 7.344,
-      "dur": 5.031
+      "text": "Kumaştaki likra ve gramaj farkı aynı bedeni dar ya da bol yapar.",
+      "start": 7.87,
+      "dur": 4.078
     },
     {
-      "text": "Erkek arkadaşın bunu görünce makyajın bozuldu sanıp dert eder.",
-      "start": 12.375,
-      "dur": 3.804
+      "text": "Uymayan kıyafet iade edilmeyip nasılsa giyerim diye odada bekletilir.",
+      "start": 11.948,
+      "dur": 4.397
     },
     {
-      "text": "Suç senin aydınlatıcında değil asansörün açısız ve sarı ışığındadır.",
-      "start": 16.179,
-      "dur": 5.272
+      "text": "Erkek sekiz yıl aynı tişörtü giyer sen iade kutunla barışırsın.",
+      "start": 16.345,
+      "dur": 5.115
     }
   ]
 }
