@@ -1,59 +1,78 @@
 {
-  "hook": "Erkek arkadaşın sabunla gezerken sen LED maskeyle uzaylısın.",
-  "title": "Erkek Sabunu vs LED Maske",
+  "hook": "Erkeklerin 'hiç makyaj yok' dediği o cildin sırrı.",
+  "title": "Erkekleri Kandıran Hyalüronik Asit Mucizesi",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "versus",
-      "left": "ERKEK SABUNU",
-      "right": "LED MASKE",
-      "rows": [
+      "layout": "hub-spoke",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "CİLT BARİYERİ",
-          "left": "Kalın ve yağlı tabaka",
-          "right": "Işık dalgası uyarır",
-          "winner": "right"
+          "id": "ha",
+          "label": "HYALÜRONİK ASİT"
         },
         {
-          "label": "IŞIK VE KOLAJEN",
-          "left": "Sıfır etki kurutur",
-          "right": "Kırmızı ışık yeniler",
-          "winner": "right"
+          "id": "su",
+          "label": "NEM DEPOSU"
         },
         {
-          "label": "PÜRÜZSÜZLÜK",
-          "left": "Testosteron şansı",
-          "right": "Düzenli ışık seansı",
-          "winner": "tie"
+          "id": "isik",
+          "label": "CAM CİLT IŞILTISI"
+        },
+        {
+          "id": "gaf",
+          "label": "ERKEK İLLÜZYONU"
+        }
+      ],
+      "steps": [
+        {
+          "from": "ha",
+          "to": "su",
+          "packet": "NEM",
+          "status": "kendi ağırlığının bin katı su çeker",
+          "color": "accent"
+        },
+        {
+          "from": "su",
+          "to": "isik",
+          "packet": "IŞIK",
+          "status": "cildi dolgunlaştırıp doğal parlatır",
+          "color": "good"
+        },
+        {
+          "from": "isik",
+          "to": "gaf",
+          "packet": "GAF",
+          "status": "erkekler bunu makyajsız genetik sanır",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Erkek arkadaşın tek sabunla pürüzsüz gezerken sen LED maskeyle uzaylı gibi ışıldıyorsun.\n\nErkek cildi ile LED maske teknolojisinin bilimsel karşılaştırması:\n\n1. Cilt Bariyeri — Erkek cildi yüksek androjen hormonu nedeniyle ortalama %20 daha kalındır; agresif sabunları bile tolere edebilir. LED maske ise hücresel düzeyde uyarım yapar.\n2. Işık ve Kolajen — Kalıp sabun sadece yüzeydeki yağı çözer ve kurutur; 630 nm kırmızı LED ışığı dermal katmandaki fibroblastları tetikleyip taze kolajen ürettirir.\n3. Pürüzsüzlük — Testosteron salgısı sebum dengesini koruyarak erkeğe haksız bir pürüzsüzlük avantajı verir. Ancak uzun vadeli elastikiyet ve yaşlanma karşıtı bakımda LED maske teknolojisi öne geçer.\n\nİşin özü: Anlık genetik şansa değil, hücresel ışık teknolojisine yatırım yapıyoruz.\n\nO tek sabunla mutlu ama sizin ışığınız geleceğe yatırım.\n\n📌 Kaydet — cihaz almadan önce lazım olacak.\n🔁 Bunu tek bir kalıp sabunla saçını ve yüzünü yıkayan erkek arkadaşına gönder.\nErkek arkadaşının cildi seninkinden daha mı pürüzsüz?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Erkeklerin 'makyajsız halin daha güzel' derken kastettiği şey aslında 5 kat hyalüronik asit serumu.\n\nPeki bu molekül cildi nasıl 'doğuştan taze' gösteriyor, adım adım bakıyoruz:\n\n1. Nem Deposu — Hyalüronik asit kendi ağırlığının tam 1000 katı suyu bünyesine çeker ve cilde hapseder.\n2. Cam Cilt Işıltısı — Dolgunlaşan üst deri ışığı pürüzsüz yansıtır, tene doğal bir nemli parlaklık verir.\n3. Erkek İllüzyonu — Bu taze görüntüyü gören erkekler sıfır makyaj ve mucizevi genetik sanıp gafa düşer.\n\nİçerikte farklı molekül boyutları barındıran serumlar nemin tüm katmanlara inmesini sağlar.\n\nOnlar bizim doğuştan böyle olduğumuza inanmaya devam edebilir, bozmayalım.\n\n📌 Kaydet — bir dahaki 'hiç makyaj yapma' öğüdünde açıp okursun.\n🔁 Bunu sevgilisi 'doğal halin daha güzel' diyen arkadaşına gönder.\nErkek arkadaşın hyalüronik asidin ne olduğunu biliyor mu?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
-    "#ledmaske",
-    "#ciltcihazlari",
-    "#kolajen",
-    "#ciltbariyeri",
-    "#skincare"
+    "#hyalüronikasit",
+    "#ciltbakımrutini",
+    "#doğalgörünüm",
+    "#ciltkodu",
+    "#erkekler"
   ],
-  "takeaway": "O sabunla gezse de LED maske geleceğini kurtarır.",
+  "takeaway": "Erkekler genetik sanır, biz hyalüronik asit deriz.",
   "footage_queries": [
-    "soap bubbles macro",
-    "cosmetic bottles soft light"
+    "hand holding serum dropper",
+    "clean bathroom tiles light"
   ],
   "narration": [
-    "Erkek sabunu vs LED maske yarışı.",
-    "Erkek cildi daha kalın olduğu için sabunu kolayca tolere eder.",
-    "LED maske ise kırmızı ışıkla kolajen üretimini hücrede tetikler.",
-    "Genetik şans erkeği korusa da uzun vadede ışık seansı kazanır.",
-    "Sonuçta o sabunla gezse de LED maske geleceğini kurtarır."
+    "Erkeklerin doğal sanma gafını çözüyoruz.",
+    "Hyalüronik asit molekülü kendi ağırlığının bin katı su tutar.",
+    "Su dolan hücreler cilde filtreli gibi taze bir ışıltı verir.",
+    "Erkekler de bu dolgunluğu tamamen makyajsız genetik güzellik sanır.",
+    "Onlar genetik sansın, biz serumumuzu sürmeye devam edelim."
   ],
-  "subject": "led maske",
-  "sendTo": "tek bir kalıp sabunla saçını ve yüzünü yıkayan erkek arkadaşına",
-  "soru": "Erkek arkadaşının cildi seninkinden daha mı pürüzsüz?",
+  "subject": "hyalüronik asit",
+  "sendTo": "sevgilisi 'doğal halin daha güzel' diyen arkadaşına",
+  "soru": "Erkek arkadaşın hyalüronik asidin ne olduğunu biliyor mu?",
   "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -78,29 +97,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Erkek sabunu vs LED maske yarışı.",
+      "text": "Erkeklerin doğal sanma gafını çözüyoruz.",
       "start": 0.35,
-      "dur": 2.375
+      "dur": 2.795
     },
     {
-      "text": "Erkek cildi daha kalın olduğu için sabunu kolayca tolere eder.",
-      "start": 2.725,
-      "dur": 4.462
+      "text": "Hyalüronik asit molekülü kendi ağırlığının bin katı su tutar.",
+      "start": 3.145,
+      "dur": 4.262
     },
     {
-      "text": "LED maske ise kırmızı ışıkla kolajen üretimini hücrede tetikler.",
-      "start": 7.187,
-      "dur": 4.606
+      "text": "Su dolan hücreler cilde filtreli gibi taze bir ışıltı verir.",
+      "start": 7.407,
+      "dur": 4.192
     },
     {
-      "text": "Genetik şans erkeği korusa da uzun vadede ışık seansı kazanır.",
-      "start": 11.794,
-      "dur": 4.462
+      "text": "Erkekler de bu dolgunluğu tamamen makyajsız genetik güzellik sanır.",
+      "start": 11.599,
+      "dur": 4.681
     },
     {
-      "text": "Sonuçta o sabunla gezse de LED maske geleceğini kurtarır.",
-      "start": 16.256,
-      "dur": 5.202
+      "text": "Onlar genetik sansın, biz serumumuzu sürmeye devam edelim.",
+      "start": 16.28,
+      "dur": 5.152
     }
   ]
 }

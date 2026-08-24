@@ -703,25 +703,25 @@
     "insightsAt": "2026-08-24T15:38:58.001Z"
   },
   {
-    "title": "Erkek Sabunu vs LED Maske",
-    "subject": "led maske",
-    "twist": "kotu-zamanlama",
-    "pillar": "cihaz-ve-islem",
-    "layout": "nodes-flow",
-    "kinds": "versus",
+    "title": "Erkekleri Kandıran Hyalüronik Asit Mucizesi",
+    "subject": "hyalüronik asit",
+    "twist": "ayna-ve-isik",
+    "pillar": "cok-satanlar",
+    "layout": "hub-spoke",
+    "kinds": "diagram",
     "motion": "ripple",
     "theme": "#8fa8c8",
     "source": "gemini",
     "footage": [
-      "pexels:cosmetic bottles soft light",
-      "pexels:loose powder texture macro",
+      "pexels:hand holding serum dropper",
+      "pexels:clean bathroom tiles light",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Aoede",
+    "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Daha komik ve eğitici erkeklere gaf vuran olsun",
+    "not": "Komik olsun, erkeklere gaf vursun, kızları güldürsün",
     "date": "2026-08-24",
     "durSec": 21.4
   }
