@@ -52,6 +52,8 @@ export function loadBrand(slug = resolveBrandSlug(), {root = ROOT} = {}) {
       // Reddedilen denemelerin defteri — geçmişten düşürülen özne buraya yazılır, yoksa
       // bir sonraki koşu aynı konuyu yeniden üretir (bkz. brain/red-defteri.mjs).
       red: join(root, state.red ?? `brands/state/${slug}-red.json`),
+      // İnsider-sır defteri — anlatılmış mekanizmalar buraya birikir (bkz. brain/sir-defteri.mjs).
+      sirlar: join(root, state.sirlar ?? `brands/state/${slug}-sirlar.json`),
       seeds: join(root, brand.seedBacklog ?? 'brain/seed-backlog.json'),
       music: join(root, brand.musicDir ?? 'assets/music'),
     },

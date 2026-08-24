@@ -4,11 +4,12 @@
 // ile aynı (contents[0].parts[0].text gönder, candidates[0].content.parts[0].text'ten JSON al).
 import {fileURLToPath} from 'node:url';
 import {MODELS} from './generate-spec.mjs';
+import {sirBenzerMi} from './sir-defteri.mjs';
 
 const ENDPOINT = (key, model) =>
   `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
 
-function secretPrompt({konu, pillar, brand = {}, brief, previous}) {
+function secretPrompt({konu, pillar, brand = {}, brief, previous, bilinenSirlar = [], tekrarUyarisi = false}) {
   const domain = brand.examples?.domain ?? pillar.focus;
   const namedExamples = brand.namedExamples ?? pillar.focus;
   const lang = brand.language ?? 'en';
@@ -29,10 +30,20 @@ araması yapılınca 10 saniyede bulunur, sıradan bilgidir. Bir mekanizma katma
 turdan daha derin, daha az bilinen, daha spesifik bir detay bul. Aynısını tekrarlama.
 ` : '';
 
+  const bilinenBlock = bilinenSirlar.length ? `
+Bu konuda ("${konu}") daha önce şu mekanizmaları anlattık, BAŞKA bir mekanizma bul, bunları TEKRARLAMA:
+${bilinenSirlar.map(s => `- "${s}"`).join('\n')}
+` : '';
+
+  const tekrarBlock = tekrarUyarisi ? `
+UYARI: bir önceki tur daha önce anlatılmış bir mekanizmayla neredeyse aynıydı. Bu kez GERÇEKTEN
+farklı bir mekanizma bul, yukarıdaki listeyle örtüşmeyen bir açı seç.
+` : '';
+
   return `Sen "${konu}" konusunda ${domain} alanında uzman bir araştırmacısın.
 Konu evreni: ${domain}. Bu evrendeki bilinen örnekler: ${namedExamples}.
 Bugünkü içerik sütunu (pillar) "${pillar.key}": ${pillar.focus}.
-${briefBlock}${previousBlock}
+${briefBlock}${previousBlock}${bilinenBlock}${tekrarBlock}
 Görev: "${konu}" hakkında ortalama bir kullanıcının BİLMEDİĞİ, "insider" bir mekanizma detayı
 bul — genel geçer bir tanım değil, ${domain} alanında gerçekten az bilinen bir gerçek ya da
 mekanizma. Detay "${pillar.focus}" kapsamının İÇİNDE ve ${domain} evreninin İÇİNDE kalmalı;
@@ -77,11 +88,12 @@ export async function sirBul({konu, pillar, brief = null, apiKey, brand = {}, bi
   const start = Date.now();
   let lastGood = null;
   let ardArdaHata = 0;
+  let tekrarUyarisi = false;
 
   for (let tur = 1; tur <= turSayisi; tur++) {
     if (tur > 1 && Date.now() - start >= butceMs) break;
 
-    const prompt = secretPrompt({konu, pillar, brand, brief, previous: lastGood});
+    const prompt = secretPrompt({konu, pillar, brand, brief, previous: lastGood, bilinenSirlar, tekrarUyarisi});
     const sonuc = await callGemini({apiKey, prompt, fetchFn});
 
     if (!sonuc) {
@@ -92,8 +104,9 @@ export async function sirBul({konu, pillar, brief = null, apiKey, brand = {}, bi
     }
 
     ardArdaHata = 0;
+    tekrarUyarisi = bilinenSirlar.some(s => sirBenzerMi(s, sonuc.sir));
     lastGood = {konu, sir: sonuc.sir, neden: sonuc.neden, googleSorgu: sonuc.googleSorgu, tur};
-    console.log(`[sir] tur ${tur}: ${sonuc.sir}`);
+    console.log(`[sir] tur ${tur}: ${sonuc.sir}${tekrarUyarisi ? ' (bilinen sırla benzer)' : ''}`);
   }
 
   return lastGood;
@@ -102,6 +115,8 @@ export async function sirBul({konu, pillar, brief = null, apiKey, brand = {}, bi
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const {loadBrand} = await import('../brands/load.mjs');
   const {pillarsFor} = await import('./pillars.mjs');
+  const {sirOku, sirEkle, bilinenSirlar: bilinenSirlarDeftereGore} = await import('./sir-defteri.mjs');
+  const {trGunu} = await import('./red-defteri.mjs');
 
   const argv = process.argv;
   const arg = name => argv.find(a => a.startsWith(`--${name}=`))?.slice(name.length + 3);
@@ -122,17 +137,32 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const brand = loadBrand();
   const pillar = pillarsFor(brand.pillarSet)[0];
   const cfg = brand.sirDerinlestirme ?? {};
+  const defter = sirOku(brand.paths.sirlar);
+  const bilinen = bilinenSirlarDeftereGore(defter, konu);
 
   const sonuc = await sirBul({
     konu,
     pillar,
     apiKey,
     brand,
+    bilinenSirlar: bilinen,
     turSayisi: cfg.turSayisi ?? 2,
     butceMs: (cfg.butceSn ?? 40) * 1000,
   });
 
   console.log(JSON.stringify(sonuc, null, 2));
-  if (yaz) console.log('[sir] --yaz: sir-defteri.mjs henüz yok (Faz 2), yazılmadı.');
+  if (yaz && sonuc) {
+    sirEkle(brand.paths.sirlar, {
+      gun: trGunu(),
+      konu: sonuc.konu,
+      sir: sonuc.sir,
+      neden: sonuc.neden,
+      kullanildi: true,
+      at: new Date().toISOString(),
+    });
+    console.log(`[sir] deftere yazıldı: ${brand.paths.sirlar}`);
+  } else if (yaz) {
+    console.log('[sir] --yaz: sonuç yok, yazılmadı.');
+  }
   process.exit(sonuc ? 0 : 1);
 }
