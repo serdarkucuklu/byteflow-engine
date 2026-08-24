@@ -703,25 +703,25 @@
     "insightsAt": "2026-08-24T15:38:58.001Z"
   },
   {
-    "title": "Erkekleri Kandıran Hyalüronik Asit Mucizesi",
-    "subject": "hyalüronik asit",
+    "title": "Aydınlatıcı ve Asansör Işığı Gafı",
+    "subject": "aydınlatıcı",
     "twist": "ayna-ve-isik",
-    "pillar": "cok-satanlar",
-    "layout": "hub-spoke",
-    "kinds": "diagram",
+    "pillar": "iddia-kontrol",
+    "layout": "nodes-flow",
+    "kinds": "versus",
     "motion": "ripple",
     "theme": "#8fa8c8",
     "source": "gemini",
     "footage": [
-      "pexels:hand holding serum dropper",
       "pexels:clean bathroom tiles light",
+      "pexels:loose powder texture macro",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
     "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Komik olsun, erkeklere gaf vursun, kızları güldürsün",
+    "not": "Erkeklere gaf vuran, kızları güldüren daha komik video olsun",
     "date": "2026-08-24",
     "durSec": 21.4
   }

@@ -1,79 +1,60 @@
 {
-  "hook": "Beden tablosu uymayınca kutu koridorda bekler.",
-  "title": "Beden Tablosu Yanılgısı ve İade Macerası",
+  "hook": "Erkek arkadaşın asansörde 'yüzün neden parlıyor' der.",
+  "title": "Aydınlatıcı ve Asansör Işığı Gafı",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "kind": "diagram",
-      "nodes": [
+      "kind": "versus",
+      "left": "BANYO AYNASI",
+      "right": "ASANSÖR IŞIĞI",
+      "rows": [
         {
-          "id": "n1",
-          "label": "BEDEN TABLOSU"
+          "label": "IŞIK AÇISI",
+          "left": "Önden düz gelen ışık",
+          "right": "Tepeden dik vuran ışık",
+          "winner": "left"
         },
         {
-          "id": "n2",
-          "label": "SİPARİŞ COŞKUSU"
+          "label": "RENK SICAKLIĞI",
+          "left": "Beyaz nötr ışık",
+          "right": "Sarı ve gölgeli ışık",
+          "winner": "left"
         },
         {
-          "id": "n3",
-          "label": "KORİDOR KUTUSU"
-        },
-        {
-          "id": "n4",
-          "label": "DOLAP SÜRGÜNÜ"
-        }
-      ],
-      "steps": [
-        {
-          "from": "n1",
-          "to": "n2",
-          "packet": "BEDEN",
-          "status": "tabloya bakılır, umutla sipariş verilir",
-          "color": "good"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "KALIP",
-          "status": "kalıp dar gelir, kutu koridora park eder",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "SÜRE",
-          "status": "iade süresi dolar, parça kadere dönüşür",
-          "color": "accent"
+          "label": "ERKEK REAKSİYONU",
+          "left": "Makyaj yapmamışsın der",
+          "right": "Yüzün niye simli der",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "Beden tablosuna güvenip sipariş verdiğimiz o kutunun hikâyesi.\n\nBeden tablosunun nasıl iade kutusuna dönüştüğü, adım adım:\n\n1. Beden tablosu — Markaların ölçü tabloları evrensel değildir; kesim ve fason üretimlerde 2-3 cm kalıp sapması oluşabilir.\n2. Sipariş coşkusu — Tablodaki santimler tam tutmasa da en yakın beden \"nasılsa olur\" diye sepete atılır.\n3. Koridor kutusu — Paket gelip üstte dar durunca, kargo poşeti yarın götürülmek üzere koridora yerleşir.\n4. Dolap sürgünleri — 14 günlük iade penceresi sessizce kapanır; kıyafet \"zayıflayınca giyerim\" vaadiyle dolaba kalkar.\n\nOnline alışveriş yaparken sadece göğüs veya bel değil, kumaşın esneklik oranına bakmak iade kutularını azaltır.\n\nO kutu koridorda mobilya oldu ama bir dahaki indirimde yine aynı bedeni sipariş edeceğiz.\n\n📌 Kaydet — bir dahaki online alışverişte lazım olacak.\n🔁 Bunu iade süresi dolduğu için o kutuyu hâlâ koridorda saklayan arkadaşına gönder.\nKoridorda kaç gündür bekleyen iade kutun var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Erkek arkadaşın asansörde yüzüne bakıp panik oluyorsa suç sende değil ışıkta.\n\nErkeklerin 'asansörde yüzün parlıyor' felsefesi ve aydınlatıcı gerçeği:\n\n1. Işık Açısı — Banyoda önden vuran ışık pürüzsüz gösterir; asansörde tepeden dik vuran ışık tüm simleri tek noktaya toplar.\n2. Renk Sıcaklığı — Nötr beyaz ışık aydınlatıcıyı doğal kırarken, sarı ampul ışıltıyı kat kat vurgular.\n3. Erkek Algısı — Işık fiziğini bilmediği için yüzüne fener tutulmuş sanıp panik yapar.\n\nSorun aydınlatıcında değil, ışığın geliş açısında.\n\nErkek arkadaşın anlamayabilir ama asansör aynası her zaman dürüsttür.\n\n📌 Kaydet — bir dahaki asansör şokunda açıp okursun.\n🔁 Bunu asansör aynasında yüzünü görüp şok olan arkadaşına gönder.\nErkek arkadaşın makyajına hiç garip yorum yaptı mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#alışveriş",
-    "#bedentablosu",
-    "#onlinealışveriş",
-    "#gardırop",
-    "#iade",
-    "#kumaş"
+    "#güzellik",
+    "#makyaj",
+    "#aydınlatıcı",
+    "#ışıkgafı",
+    "#makyajönerisi",
+    "#ciltbakımı",
+    "#asansörışığı"
   ],
-  "takeaway": "Nasılsa giyerim denilen o parça aslında hiç giyilmeyecek.",
+  "takeaway": "Suç senin aydınlatıcında değil, asansörün sarı ışığında.",
   "footage_queries": [
-    "cardboard parcel box close up",
-    "measuring tape and fabric"
+    "clean bathroom tiles light",
+    "loose powder texture macro"
   ],
   "narration": [
-    "Beden tablosu uymayınca kutu koridorda bekler.",
-    "Markaların beden tablosu standart olmadığı için sipariş sürprizli gelir.",
-    "Olmayan parça kargoya götürülmek yerine iki hafta koridorda bekletilir.",
-    "Sessizce dolan iade süresi sonunda parça artık dolabın kalıcı üyesidir.",
-    "Nasılsa giyerim denilen o kazak aslında hiç giyilmeyecek."
+    "Erkekler asansörde yüzüne şaşkın bakar.",
+    "Banyodaki düz ışık aydınlatıcıyı yumuşatır ama tepeden gelen ışık parlatır.",
+    "Beyaz ışık pigmenti doğal gösterirken sarı ampul parıltıyı aşırı belirginleştirir.",
+    "Erkek arkadaşın bunu görünce makyajın bozuldu sanıp dert eder.",
+    "Suç senin aydınlatıcında değil asansörün açısız ve sarı ışığındadır."
   ],
-  "subject": "beden tablosu",
-  "sendTo": "iade süresi dolduğu için o kutuyu hâlâ koridorda saklayan arkadaşına",
-  "soru": "Koridorda kaç gündür bekleyen iade kutun var?",
-  "theme": "#8fd0ff",
+  "subject": "aydınlatıcı",
+  "sendTo": "asansör aynasında yüzünü görüp şok olan arkadaşına",
+  "soru": "Erkek arkadaşın makyajına hiç garip yorum yaptı mı?",
+  "theme": "#8fa8c8",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -97,29 +78,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Beden tablosu uymayınca kutu koridorda bekler.",
+      "text": "Erkekler asansörde yüzüne şaşkın bakar.",
       "start": 0.35,
-      "dur": 2.903
+      "dur": 2.393
     },
     {
-      "text": "Markaların beden tablosu standart olmadığı için sipariş sürprizli gelir.",
-      "start": 3.253,
-      "dur": 4.544
+      "text": "Banyodaki düz ışık aydınlatıcıyı yumuşatır ama tepeden gelen ışık parlatır.",
+      "start": 2.743,
+      "dur": 4.602
     },
     {
-      "text": "Olmayan parça kargoya götürülmek yerine iki hafta koridorda bekletilir.",
-      "start": 7.797,
-      "dur": 4.481
+      "text": "Beyaz ışık pigmenti doğal gösterirken sarı ampul parıltıyı aşırı belirginleştirir.",
+      "start": 7.344,
+      "dur": 5.031
     },
     {
-      "text": "Sessizce dolan iade süresi sonunda parça artık dolabın kalıcı üyesidir.",
-      "start": 12.278,
-      "dur": 4.481
+      "text": "Erkek arkadaşın bunu görünce makyajın bozuldu sanıp dert eder.",
+      "start": 12.375,
+      "dur": 3.804
     },
     {
-      "text": "Nasılsa giyerim denilen o kazak aslında hiç giyilmeyecek.",
-      "start": 16.758,
-      "dur": 4.697
+      "text": "Suç senin aydınlatıcında değil asansörün açısız ve sarı ışığındadır.",
+      "start": 16.179,
+      "dur": 5.272
     }
   ]
 }
