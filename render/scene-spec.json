@@ -1,60 +1,75 @@
 {
-  "hook": "Evden prenses çıkıp asansörde hortlağa dönüşen o insan!",
-  "title": "Işık Gafi: Pahalı vs Ucuz Pudra",
+  "hook": "Sivilce kremine servet yatıran arkadaşına acı haber geldi.",
+  "title": "Pahalı Sivilce Kremi Neye Para Alır?",
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "kind": "versus",
-      "left": "LÜKS SABİTLEME PUDRASI",
-      "right": "UYGUN FİYATLI MUADİL",
-      "rows": [
+      "layout": "vertical-stack",
+      "heading": "Kavanozun İçinde Ne Var?",
+      "nodes": [
         {
-          "label": "ANA İÇERİK",
-          "left": "Mikronize İnce Mika",
-          "right": "Mikronize Saf Mika",
-          "winner": "tie"
+          "id": "su-gliserin",
+          "label": "SU VE GLİSERİN"
         },
         {
-          "label": "FLAŞ REFLEKSİ",
-          "left": "Silika Yansıması Yok",
-          "right": "Silika Yansıması Yok",
-          "winner": "tie"
+          "id": "ambalaj",
+          "label": "AMBALAJ VE KOKU"
         },
         {
-          "label": "ASANSÖR PERFORMANSI",
-          "left": "Tepeden Işıkta Yıkım",
-          "right": "Tepeden Işıkta Yıkım",
-          "winner": "tie"
+          "id": "aktif",
+          "label": "MİNİCİK AKTİF"
+        }
+      ],
+      "steps": [
+        {
+          "from": "su-gliserin",
+          "to": "ambalaj",
+          "packet": "SU",
+          "status": "kavanozun ilk %90ı sadece ucuz baz",
+          "color": "warn"
+        },
+        {
+          "from": "ambalaj",
+          "to": "aktif",
+          "packet": "MARKA",
+          "status": "ödediğin farkın çoğu cam şişeye gidiyor",
+          "color": "warn"
+        },
+        {
+          "from": "aktif",
+          "to": "su-gliserin",
+          "packet": "AKTİF",
+          "status": "sivilceyi çözen aktif en sonda duruyor",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Banyoda mükemmel görünen makyaj asansörde neden çöküyor?\n\nPudralar ve asansör ışığı çelişkisi, adım adım:\n\n1. Mika Yapısı — Lüks ve muadil pudrada kullanılan mikronize mika ışığı yumuşatır, ikisi de cilde aynı kadife bitişi verir.\n2. Flaş ve Işık — İki formül de fotoğraf flaşını geri yansıtmayacak şekilde silikayla dengelenmiştir, parlamayı önler.\n3. Tepeden Gelen Açı — Asansördeki dik ışık yüzün çukur alanlarına sert gölge düşürür; dünyadaki en pahalı pudra bile fizik kurallarını ve gölgeyi değiştiremez.\n\nIşık gafi yaşamamak için ürün değiştirmeye değil, asansör aynasına bakmama kararlılığına yatırım yap.\n\nIşık suçlu, ürün değil. Ama biz yine de o asansör aynasına bakıp dertleneceğiz.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n🔁 Bunu evden harika çıkıp asansör aynasında yıkılan arkadaşına gönder.\nSen en çok hangi ışıkta yıkılıyorsun: asansör mü ön kamera mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Sivilce kremine harcadığın o dev bütçenin gerçekte nereye gittiğini biliyor musun?\n\nPahalı bir sivilce kreminin kavanozunda gerçekte ne yatıyor, adım adım bakalım:\n\n1. Su ve Gliserin — Formülün ilk %80-90'ı her zaman ucuz nemlendirici bazdan oluşur, sivilceye doğrudan etki etmez.\n2. Ambalaj ve Koku — Ödediğin o yüksek fiyatın büyük kısmı ağır cam kavanoza ve parfüme gider.\n3. Asıl Aktif Madde — Sivilceyi kurutan gerçek etken madde listede en son sırada ufacık bir orandadır.\n\nSivilce kremi seçerken lüks ambalaja değil, arkadaki aktif maddeye ve yüzdesine bakmalısın.\n\nKavanoz ne kadar lüksse sivilce o kadar korkmuyor, sadece cüzdanın zayıflıyor.\n\n📌 Kaydet — bir dahaki sivilce krizinde paran cebinde kalsın.\n\n🔁 Bunu sivilce kremine servet yatıran arkadaşına gönder.\n\nSivilce kremlerine en fazla kaç lira harcadın, dürüst ol?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#makyaj",
-    "#pudra",
-    "#makyajonerisi",
-    "#guzelliksirlari",
-    "#muadil",
-    "#ciltkodu"
+    "#güzellik",
+    "#sivilce",
+    "#akne",
+    "#sivilcekremi",
+    "#ciltbakımrutini",
+    "#aknetedavisi"
   ],
-  "takeaway": "Suç cildinde değil, tepeden vuran o acımasız asansör ışığında!",
+  "takeaway": "Sivilceyi marka ismi değil, içindeki aktif madde kurutur.",
   "footage_queries": [
-    "loose powder texture macro",
-    "compact powder pressed texture"
+    "cream texture macro",
+    "hand opening jar macro"
   ],
   "narration": [
-    "Asansörde hortlağa dönen arkadaşın burada!",
-    "İki pudranın da temel maddesi ışığı büken incecik mikadır.",
-    "Muadil olan da pahalı olan da flaş patlayınca parlamaz.",
-    "Tepeden vuran acımasız asansör ışığında ise ikisi de elenir.",
-    "Suç pudrada değil tepeden vuran o dik açı ışığında."
+    "Sivilce kremine ödediğin para boşa gidiyor.",
+    "Kavanozun ilk üç maddesi her zaman ucuz su ve gliserindir.",
+    "Pahalı ürünlerde ödediğin yüksek fark koku ve ambalaj süsüdür.",
+    "Sivilceyi söndüren gerçek aktif madde ise formülde en sonlardadır.",
+    "Aynı etken maddeye sahip muadil krem sivilceyi aynı hızda kurutur."
   ],
-  "subject": "pudra",
-  "sendTo": "evden harika çıkıp asansör aynasında yıkılan arkadaşına",
-  "soru": "Sen en çok hangi ışıkta yıkılıyorsun: asansör mü ön kamera mı?",
-  "theme": "#8fa8c8",
+  "subject": "sivilce kremi",
+  "sendTo": "sivilce kremine servet yatıran arkadaşına",
+  "soru": "Sivilce kremlerine en fazla kaç lira harcadın, dürüst ol?",
+  "theme": "#d98c5f",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -73,34 +88,34 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "buildup",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Asansörde hortlağa dönen arkadaşın burada!",
+      "text": "Sivilce kremine ödediğin para boşa gidiyor.",
       "start": 0.35,
-      "dur": 2.989
+      "dur": 2.916
     },
     {
-      "text": "İki pudranın da temel maddesi ışığı büken incecik mikadır.",
-      "start": 3.339,
-      "dur": 4.128
+      "text": "Kavanozun ilk üç maddesi her zaman ucuz su ve gliserindir.",
+      "start": 3.266,
+      "dur": 3.934
     },
     {
-      "text": "Muadil olan da pahalı olan da flaş patlayınca parlamaz.",
-      "start": 7.467,
-      "dur": 3.914
+      "text": "Pahalı ürünlerde ödediğin yüksek fark koku ve ambalaj süsüdür.",
+      "start": 7.2,
+      "dur": 4.205
     },
     {
-      "text": "Tepeden vuran acımasız asansör ışığında ise ikisi de elenir.",
-      "start": 11.381,
-      "dur": 4.27
+      "text": "Sivilceyi söndüren gerçek aktif madde ise formülde en sonlardadır.",
+      "start": 11.405,
+      "dur": 4.476
     },
     {
-      "text": "Suç pudrada değil tepeden vuran o dik açı ışığında.",
-      "start": 15.651,
-      "dur": 4.73
+      "text": "Aynı etken maddeye sahip muadil krem sivilceyi aynı hızda kurutur.",
+      "start": 15.881,
+      "dur": 5.576
     }
   ]
 }

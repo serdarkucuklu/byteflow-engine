@@ -726,5 +726,27 @@
     "durSec": 20.4,
     "mediaId": "18413103952157830",
     "postedAt": "2026-08-24T18:16:51.089Z"
+  },
+  {
+    "title": "Pahalı Sivilce Kremi Neye Para Alır?",
+    "subject": "sivilce kremi",
+    "twist": "para",
+    "pillar": "akne",
+    "layout": "vertical-stack",
+    "kinds": "diagram",
+    "motion": "buildup",
+    "theme": "#d98c5f",
+    "source": "gemini",
+    "footage": [
+      "pexels:cream texture macro",
+      "pexels:hand opening jar macro",
+      "pexels:water droplets on glass",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": 5,
+    "voiceName": "Aoede",
+    "muzik": "byteflow-ambient.mp3",
+    "date": "2026-08-24",
+    "durSec": 21.4
   }
 ]
