@@ -111,5 +111,10 @@
   "tipografi": {
     "puntoCarpani": 1.06,
     "harfAralik": -2.1
+  },
+  "sirDerinlestirme": {
+    "aktif": true,
+    "turSayisi": 2,
+    "butceSn": 40
   }
 }

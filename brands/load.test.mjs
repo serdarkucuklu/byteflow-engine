@@ -66,3 +66,16 @@ test('avatar simgesi markadan gelir, varsayılanı damla', () => {
   assert.equal(loadBrand('ciltkodu').symbol, undefined, '@cilt.kodu damlada kalmalı');
   assert.equal(loadBrand('kizlarkodu').symbol, 'soru');
 });
+
+// Insider sır katmanı marka-agnostik; bayrak kapalıysa run-daily sessizce atlar
+// (sirAtlandi: bayrak-kapali). İki canlı sayfa da açık kalmalı — kapatmak bilinçli
+// bir karar, sessiz unutma değil.
+test('sir derinlestirme her canli markada acik', () => {
+  for (const slug of ['ciltkodu', 'kizlarkodu']) {
+    const b = loadBrand(slug);
+    assert.equal(b.sirDerinlestirme?.aktif, true, `${slug} sir katmani kapali`);
+    assert.equal(b.sirDerinlestirme?.turSayisi, 2);
+    assert.equal(b.sirDerinlestirme?.butceSn, 40);
+    assert.ok(b.paths.sirlar.endsWith(`${slug}-sirlar.json`));
+  }
+});
