@@ -15,7 +15,10 @@ import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './pub
 import {pillarsFor, selectPillar} from './brain/pillars.mjs';
 import {twistsFor, selectTwist, twistByKey} from './brain/twists.mjs';
 import {recentSubjects} from './brain/subjects.mjs';
-import {redOku, bugunkuRedler} from './brain/red-defteri.mjs';
+import {redOku, bugunkuRedler, trGunu} from './brain/red-defteri.mjs';
+import {sirBul} from './brain/sir-derinlestir.mjs';
+import {enjekteEt} from './brain/sir-enjekte.mjs';
+import {sirOku, sirEkle, bilinenSirlar} from './brain/sir-defteri.mjs';
 import {selectMotion, motionsFor} from './render/src/lib/motion-registry.mjs';
 import {kapakAni} from './render/src/lib/kinetik-zaman.mjs';
 import {secMuzik} from './publish/muzik-sec.mjs';
@@ -132,7 +135,66 @@ const {spec: rawSpec, source} = fixturePath
 // YERELLEŞTİRME: prompt'a "Türkçe yaz" demek yetmedi (model üç koşuda da İngilizce yazdı).
 // Ayrı, dar kapsamlı bir çeviri adımı yapıyı bozmadan metinleri hedef dile çeviriyor.
 const localized = fixturePath ? rawSpec : await localizeSpec({spec: rawSpec, language: brand.language, apiKey});
-const spec = stripMarkdown(localized);
+
+// FAZ 4 (docs/plan/cilt-insider-sirlar.md) — insider-sır derinleştirme: localizeSpec SONRASI,
+// stripMarkdown ÖNCESİ (dikiş burada; bkz. plan Tuzaklar `run-daily.mjs:134`). K1/T3: sirEkle
+// yalnız sır videoya GERÇEKTEN girdiyse ('tam'/'kismi') çağrılır — defter erken büyümez.
+let sirliSpec = localized;
+let sirSonuc = null, sirUygulandi = null, sirAtlandi = null;
+if (!brand.sirDerinlestirme?.aktif) {
+  sirAtlandi = 'bayrak-kapali';
+} else if (fixturePath) {
+  sirAtlandi = 'fixture';
+} else if (serdarNotu) {
+  sirAtlandi = 'not-var';
+} else if (source === 'seed') {
+  sirAtlandi = 'seed';
+} else {
+  try {
+    const cfg = brand.sirDerinlestirme;
+    const sirDefteri = sirOku(brand.paths.sirlar);
+    sirSonuc = await sirBul({
+      konu: localized.subject,
+      pillar,
+      brief: {
+        acilis: localized.narration[0],
+        kapanis: localized.narration.at(-1),
+        status: localized.scenes.flatMap(s => (s.steps ?? []).map(x => x.status)),
+      },
+      apiKey,
+      brand: brandForBrain,
+      bilinenSirlar: bilinenSirlar(sirDefteri, localized.subject),
+      turSayisi: cfg.turSayisi ?? 2,
+      butceMs: (cfg.butceSn ?? 40) * 1000,
+      fetchFn: fetch,
+    });
+    if (sirSonuc) {
+      console.log(`🔍 sır: ${sirSonuc.sir}`);
+      const enjekte = await enjekteEt({spec: localized, sir: sirSonuc, brand: brandForBrain, apiKey, fetchFn: fetch});
+      sirliSpec = enjekte.spec;
+      sirUygulandi = enjekte.uygulandi;
+      if (enjekte.uygulandi === 'geri-alindi') sirAtlandi = enjekte.sebep;
+      if (sirUygulandi === 'tam' || sirUygulandi === 'kismi') {
+        sirEkle(brand.paths.sirlar, {
+          gun: trGunu(),
+          konu: localized.subject,
+          sir: sirSonuc.sir,
+          neden: sirSonuc.neden,
+          kullanildi: true,
+          at: new Date().toISOString(),
+        });
+      }
+    } else {
+      sirAtlandi = 'dongu-null';
+    }
+  } catch (e) {
+    console.error(`⚠ sır derinleştirme hatası: ${e.message}`);
+    sirliSpec = localized;
+    sirUygulandi = null;
+    sirAtlandi = sirAtlandi ?? 'hata';
+  }
+}
+const spec = stripMarkdown(sirliSpec);
 // Etiket/açıklama hijyeni: yabancı alfabe sızıntısı ve tek-paragraf açıklama yayına gitmesin.
 spec.hashtags = sanitizeHashtags(spec.hashtags);
 spec.caption = formatCaption(spec.caption);
@@ -298,6 +360,10 @@ history.push({title: spec.title, subject: spec.subject ?? null, twist: twist?.ke
   muzik: mp3,
   // Not yazıldıysa geçmişe de düşsün: hangi video hangi siparişten doğdu, sonradan bakılır.
   ...(serdarNotu ? {not: serdarNotu} : {}),
+  // FAZ 4 ölçüm alanları (K2+T1): geri-alma oranı ve atlama sıklığı bu dosyadan sayılır.
+  sir: sirSonuc?.sir?.slice(0, 120) ?? null,
+  sirUygulandi: sirUygulandi ?? null,
+  sirAtlandi: sirAtlandi ?? null,
   date: new Date().toISOString().slice(0, 10)});
 writeFileSync(historyPath, JSON.stringify(history, null, 2));
 
