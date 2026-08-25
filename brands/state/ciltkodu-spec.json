@@ -1,74 +1,77 @@
 {
-  "hook": "Sivilce kremine servet yatıran arkadaşına acı haber geldi.",
-  "title": "Pahalı Sivilce Kremi Neye Para Alır?",
+  "hook": "Pahalı C vitaminin el kremi oldu.",
+  "title": "C Vitamini Neden Sararır ve Çöp Olur?",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "heading": "Kavanozun İçinde Ne Var?",
+      "layout": "nodes-flow",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "su-gliserin",
-          "label": "SU VE GLİSERİN"
+          "id": "kapak",
+          "label": "AÇIK KAPAK"
         },
         {
-          "id": "ambalaj",
-          "label": "AMBALAJ VE KOKU"
+          "id": "hava",
+          "label": "OKSİJEN TEMASI"
         },
         {
-          "id": "aktif",
-          "label": "MİNİCİK AKTİF"
+          "id": "asit",
+          "label": "ASİT BOZULMASI"
+        },
+        {
+          "id": "etki",
+          "label": "SIFIR FAYDA"
         }
       ],
       "steps": [
         {
-          "from": "su-gliserin",
-          "to": "ambalaj",
-          "packet": "SU",
-          "status": "kavanozun ilk %90ı sadece ucuz baz",
+          "from": "kapak",
+          "to": "hava",
+          "packet": "HAVA",
+          "status": "kapağı açık kalınca içeri oksijen dolar",
           "color": "warn"
         },
         {
-          "from": "ambalaj",
-          "to": "aktif",
-          "packet": "MARKA",
-          "status": "ödediğin farkın çoğu cam şişeye gidiyor",
+          "from": "hava",
+          "to": "asit",
+          "packet": "TEPKİ",
+          "status": "askorbik asit havayla hemen oksitlenir",
           "color": "warn"
         },
         {
-          "from": "aktif",
-          "to": "su-gliserin",
-          "packet": "AKTİF",
-          "status": "sivilceyi çözen aktif en sonda duruyor",
-          "color": "good"
+          "from": "asit",
+          "to": "etki",
+          "packet": "KAYIP",
+          "status": "turuncu sıvıya dönüşüp etkisini kaybeder",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Sivilce kremine harcadığın o dev bütçenin gerçekte nereye gittiğini biliyor musun?\n\nPahalı bir sivilce kreminin kavanozunda gerçekte ne yatıyor, adım adım bakalım:\n\n1. Su ve Gliserin — Formülün ilk %80-90'ı her zaman ucuz nemlendirici bazdan oluşur, sivilceye doğrudan etki etmez.\n2. Ambalaj ve Koku — Ödediğin o yüksek fiyatın büyük kısmı ağır cam kavanoza ve parfüme gider.\n3. Asıl Aktif Madde — Sivilceyi kurutan gerçek etken madde listede en son sırada ufacık bir orandadır.\n\nSivilce kremi seçerken lüks ambalaja değil, arkadaki aktif maddeye ve yüzdesine bakmalısın.\n\nKavanoz ne kadar lüksse sivilce o kadar korkmuyor, sadece cüzdanın zayıflıyor.\n\n📌 Kaydet — bir dahaki sivilce krizinde paran cebinde kalsın.\n\n🔁 Bunu sivilce kremine servet yatıran arkadaşına gönder.\n\nSivilce kremlerine en fazla kaç lira harcadın, dürüst ol?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Pahalı C vitaminin el kremi oldu. Pahalı C vitamini serumun neden bir haftada turuncuya dönüyor, adım adım:\n\n1. Açık Kapak — Banyoda kapağı tam kapatılmayan şişeden içeriye oksijen sızar.\n\n2. Oksijen Teması — L-askorbik asit formülü havayla temas ettiği an bozulmaya başlar.\n\n3. Asit Bozulması — Oksitlenen etken madde antioksidan gücünü kaybedip sararır.\n\n4. Sıfır Fayda — Koyu turuncu olan serum artık cildini aydınlatmaz, tahriş edebilir. İpucu: C vitamini alırken koyu camlı veya pompalı ambalaj tercih et. Ürün kötü değil, banyodaki ortak kullanımı abartanlar suçlu.\n\n📌 Kaydet — serumun rengi koyulaşınca paniklememek için sakla.\n\n🔁 Bunu senin üç bin liralık serumunu el kremi niyetine süren kardeşine gönder. Senin C vitaminin şu an sarardı mı yoksa berrak mı? Yazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
+    "#ciltbakimigüzellikcvitaminiserumciltbariyeriskincare",
     "#ciltbakimi",
+    "#makyaj",
     "#güzellik",
-    "#sivilce",
-    "#akne",
-    "#sivilcekremi",
-    "#ciltbakımrutini",
-    "#aknetedavisi"
+    "#skincare",
+    "#cilt"
   ],
-  "takeaway": "Sivilceyi marka ismi değil, içindeki aktif madde kurutur.",
+  "takeaway": "Turuncuya dönen C vitaminini banyodan sessizce çıkar ve at.",
   "footage_queries": [
-    "cream texture macro",
-    "hand opening jar macro"
+    "hand holding serum dropper",
+    "serum drop close up"
   ],
   "narration": [
-    "Sivilce kremine ödediğin para boşa gidiyor.",
-    "Kavanozun ilk üç maddesi her zaman ucuz su ve gliserindir.",
-    "Pahalı ürünlerde ödediğin yüksek fark koku ve ambalaj süsüdür.",
-    "Sivilceyi söndüren gerçek aktif madde ise formülde en sonlardadır.",
-    "Aynı etken maddeye sahip muadil krem sivilceyi aynı hızda kurutur."
+    "Pahalı C vitaminin el kremi oldu.",
+    "Banyoda kapağı açık unutulan serum hızla bolca hava solur.",
+    "Hassas askorbik asit oksijenle karşılaşınca anında pes edip oksitlenir.",
+    "Rengi turuncuya dönen o pahalı sıvı artık nemlendirici bile olamaz.",
+    "Bozulmuş C vitamini fayda vermek yerine cilde leke bırakabilir."
   ],
-  "subject": "sivilce kremi",
-  "sendTo": "sivilce kremine servet yatıran arkadaşına",
-  "soru": "Sivilce kremlerine en fazla kaç lira harcadın, dürüst ol?",
+  "subject": "vitamin c",
+  "sendTo": "senin üç bin liralık serumunu el kremi niyetine süren kardeşine",
+  "soru": "Senin C vitaminin şu an sarardı mı yoksa berrak mı?",
   "theme": "#d98c5f",
   "brand": {
     "handle": "@cilt.kodu",
@@ -93,30 +96,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Sivilce kremine ödediğin para boşa gidiyor.",
+      "text": "Pahalı C vitaminin el kremi oldu.",
       "start": 0.35,
-      "dur": 2.916
+      "dur": 2.26
     },
     {
-      "text": "Kavanozun ilk üç maddesi her zaman ucuz su ve gliserindir.",
-      "start": 3.266,
-      "dur": 3.934
+      "text": "Banyoda kapağı açık unutulan serum hızla bolca hava solur.",
+      "start": 2.61,
+      "dur": 3.972
     },
     {
-      "text": "Pahalı ürünlerde ödediğin yüksek fark koku ve ambalaj süsüdür.",
-      "start": 7.2,
-      "dur": 4.205
+      "text": "Hassas askorbik asit oksijenle karşılaşınca anında pes edip oksitlenir.",
+      "start": 6.582,
+      "dur": 4.862
     },
     {
-      "text": "Sivilceyi söndüren gerçek aktif madde ise formülde en sonlardadır.",
-      "start": 11.405,
-      "dur": 4.476
+      "text": "Rengi turuncuya dönen o pahalı sıvı artık nemlendirici bile olamaz.",
+      "start": 11.444,
+      "dur": 4.588
     },
     {
-      "text": "Aynı etken maddeye sahip muadil krem sivilceyi aynı hızda kurutur.",
-      "start": 15.881,
-      "dur": 5.576
+      "text": "Bozulmuş C vitamini fayda vermek yerine cilde leke bırakabilir.",
+      "start": 16.033,
+      "dur": 5.415
     }
   ],
-  "thumbOffset": 2058
+  "thumbOffset": 1730
 }

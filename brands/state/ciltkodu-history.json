@@ -728,25 +728,25 @@
     "postedAt": "2026-08-24T18:16:51.089Z"
   },
   {
-    "title": "Pahalı Sivilce Kremi Neye Para Alır?",
-    "subject": "sivilce kremi",
-    "twist": "para",
-    "pillar": "akne",
-    "layout": "vertical-stack",
+    "title": "C Vitamini Neden Sararır ve Çöp Olur?",
+    "subject": "vitamin c",
+    "twist": "ev-arkadasi",
+    "pillar": "rutin-tasarimi",
+    "layout": "nodes-flow",
     "kinds": "diagram",
     "motion": "buildup",
     "theme": "#d98c5f",
     "source": "gemini",
     "footage": [
-      "pexels:cream texture macro",
-      "pexels:hand opening jar macro",
+      "pexels:hand holding serum dropper",
+      "pexels:flower petals close up",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Aoede",
+    "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "date": "2026-08-24",
+    "date": "2026-08-25",
     "durSec": 21.4
   }
 ]
