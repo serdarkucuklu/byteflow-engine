@@ -1,125 +1,124 @@
 {
-  "hook": "O kargo kutusu iki aydır antrede iade edilmeyi bekliyor.",
-  "title": "Alışverişte İade Penceresi Tuzağı",
+  "hook": "Pahalı C vitaminin el kremi oldu.",
+  "title": "C Vitamini Neden Sararır ve Çöp Olur?",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "kutulama",
-          "label": "KUTU ANTREDE"
+          "id": "kapak",
+          "label": "AÇIK KAPAK"
         },
         {
-          "id": "erteleme",
-          "label": "NASILSA GİYERİM"
+          "id": "hava",
+          "label": "OKSİJEN TEMASI"
         },
         {
-          "id": "suredolumu",
-          "label": "SÜRE BİTİMİ"
+          "id": "asit",
+          "label": "ASİT BOZULMASI"
         },
         {
-          "id": "dolap",
-          "label": "DOLAP MEZARLIĞI"
+          "id": "etki",
+          "label": "SIFIR FAYDA"
         }
       ],
       "steps": [
         {
-          "from": "kutulama",
-          "to": "erteleme",
-          "packet": "KUTU",
-          "status": "kargo kutusu kapı önünde beklemeye",
-          "color": "accent"
-        },
-        {
-          "from": "erteleme",
-          "to": "suredolumu",
-          "packet": "SÜRE",
-          "status": "iade penceresi sessizce kapanırken süre",
+          "from": "kapak",
+          "to": "hava",
+          "packet": "HAVA",
+          "status": "kapağı açık kalınca içeri oksijen dolar",
           "color": "warn"
         },
         {
-          "from": "suredolumu",
-          "to": "dolap",
-          "packet": "İADE",
-          "status": "yanlış beden parça dolabın kalıcı",
-          "color": "good"
+          "from": "hava",
+          "to": "asit",
+          "packet": "TEPKİ",
+          "status": "askorbik asit havayla hemen oksitlenir",
+          "color": "warn"
+        },
+        {
+          "from": "asit",
+          "to": "etki",
+          "packet": "KAYIP",
+          "status": "turuncu sıvıya dönüşüp etkisini kaybeder",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "O kargo kutusunun antrede aylarca beklemesi tesadüf değil.\n\nİade süresinin nasıl sessizce dolduğu, adım adım:\n\n1. Kutu kapı önünde — Deneyip beğenmediğin kıyafet kutusuna konur ama kargo kodu alınmaz.\n2. Ertelenen kararlar — \"Biraz zayıflarsam giyerim\" diyerek iade süreci her gün ertelenir.\n3. Dolap mezarlığı — İade hakkı bittiğinde o parça gardırobun unutulan bir parçasına dönüşür.\n\nOnline alışverişte ölçü tablosuna bakmadan alınan her ürün bu döngüye girer.\n\nKumaş suçlu değil, üşengeçlik bizimki. Ama o kutu yine de orada duracak.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu iade süresi dolduğu için o parçayı hâlâ dolabında saklayan arkadaşına gönder.\nOdanda şu an iade süresi geçmiş kaç kargo kutusu var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Pahalı C vitaminin el kremi oldu. Pahalı C vitamini serumun neden bir haftada turuncuya dönüyor, adım adım:\n\n1. Açık Kapak — Banyoda kapağı tam kapatılmayan şişeden içeriye oksijen sızar.\n\n2. Oksijen Teması — L-askorbik asit formülü havayla temas ettiği an bozulmaya başlar.\n\n3. Asit Bozulması — Oksitlenen etken madde antioksidan gücünü kaybedip sararır.\n\n4. Sıfır Fayda — Koyu turuncu olan serum artık cildini aydınlatmaz, tahriş edebilir. İpucu: C vitamini alırken koyu camlı veya pompalı ambalaj tercih et. Ürün kötü değil, banyodaki ortak kullanımı abartanlar suçlu.\n\n📌 Kaydet — serumun rengi koyulaşınca paniklememek için sakla.\n\n🔁 Bunu senin üç bin liralık serumunu el kremi niyetine süren kardeşine gönder. Senin C vitaminin şu an sarardı mı yoksa berrak mı? Yazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#alışveriş",
-    "#gardırop",
-    "#onlinealışveriş",
-    "#kargo",
-    "#bedentablosu",
-    "#moda"
+    "#ciltbakimigüzellikcvitaminiserumciltbariyeriskincare",
+    "#ciltbakimi",
+    "#makyaj",
+    "#güzellik",
+    "#skincare",
+    "#cilt"
   ],
-  "takeaway": "O kargo kutusu artık senin yeni sehpan, kabullen.",
+  "takeaway": "Turuncuya dönen C vitaminini banyodan sessizce çıkar ve at.",
   "footage_queries": [
-    "cardboard parcel box close up",
-    "hands opening parcel box"
+    "hand holding serum dropper",
+    "serum drop close up"
   ],
   "narration": [
-    "O kutu asla kargoya gitmeyecek.",
-    "Markalar iade süresini insan üşengeçliğini hesaba katarak hesaplar.",
-    "Etiketi sökülmeyen kıyafet zamanla gözünün önünde dekorasyona dönüşür.",
-    "Son gün geçince beyin o harcamayı kabullenip iadeyi unutur.",
-    "O açılmayan kutu artık dolabının yeni ve kalıcı bir parçasıdır."
+    "Pahalı C vitaminin el kremi oldu.",
+    "Banyoda kapağı açık unutulan serum hızla bolca hava solur.",
+    "Hassas askorbik asit oksijenle karşılaşınca anında pes edip oksitlenir.",
+    "Rengi turuncuya dönen o pahalı sıvı artık nemlendirici bile olamaz.",
+    "Bozulmuş C vitamini fayda vermek yerine cilde leke bırakabilir."
   ],
-  "subject": "beden tablosu",
-  "sendTo": "iade süresi dolduğu için o parçayı hâlâ dolabında saklayan arkadaşına",
-  "soru": "Odanda şu an iade süresi geçmiş kaç kargo kutusu var?",
-  "theme": "#ff8fab",
+  "subject": "vitamin c",
+  "sendTo": "senin üç bin liralık serumunu el kremi niyetine süren kardeşine",
+  "soru": "Senin C vitaminin şu an sarardı mı yoksa berrak mı?",
+  "theme": "#d98c5f",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "buildup",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "O kutu asla kargoya gitmeyecek.",
+      "text": "Pahalı C vitaminin el kremi oldu.",
       "start": 0.35,
-      "dur": 2.139
+      "dur": 2.26
     },
     {
-      "text": "Markalar iade süresini insan üşengeçliğini hesaba katarak hesaplar.",
-      "start": 2.489,
-      "dur": 4.622
+      "text": "Banyoda kapağı açık unutulan serum hızla bolca hava solur.",
+      "start": 2.61,
+      "dur": 3.972
     },
     {
-      "text": "Etiketi sökülmeyen kıyafet zamanla gözünün önünde dekorasyona dönüşür.",
-      "start": 7.111,
-      "dur": 4.829
+      "text": "Hassas askorbik asit oksijenle karşılaşınca anında pes edip oksitlenir.",
+      "start": 6.582,
+      "dur": 4.862
     },
     {
-      "text": "Son gün geçince beyin o harcamayı kabullenip iadeyi unutur.",
-      "start": 11.94,
-      "dur": 4.07
+      "text": "Rengi turuncuya dönen o pahalı sıvı artık nemlendirici bile olamaz.",
+      "start": 11.444,
+      "dur": 4.588
     },
     {
-      "text": "O açılmayan kutu artık dolabının yeni ve kalıcı bir parçasıdır.",
-      "start": 16.011,
-      "dur": 5.446
+      "text": "Bozulmuş C vitamini fayda vermek yerine cilde leke bırakabilir.",
+      "start": 16.033,
+      "dur": 5.415
     }
   ]
 }
