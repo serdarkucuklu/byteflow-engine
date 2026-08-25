@@ -224,7 +224,7 @@
       "ig_reels_avg_watch_time": 3150,
       "ig_reels_video_view_total_time": 387514
     },
-    "insightsAt": "2026-08-24T17:34:22.795Z"
+    "insightsAt": "2026-08-25T17:34:58.118Z"
   },
   {
     "title": "Dudak Yalama Tuzağı",
@@ -255,10 +255,10 @@
       "saved": 0,
       "shares": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2314,
-      "ig_reels_video_view_total_time": 13885
+      "ig_reels_avg_watch_time": 2468,
+      "ig_reels_video_view_total_time": 17279
     },
-    "insightsAt": "2026-08-24T17:34:23.343Z"
+    "insightsAt": "2026-08-25T17:34:58.664Z"
   },
   {
     "title": "Gece Sepetindeki Modal Tişört Hilesi",
@@ -293,7 +293,7 @@
       "ig_reels_avg_watch_time": 4810,
       "ig_reels_video_view_total_time": 745558
     },
-    "insightsAt": "2026-08-24T17:34:24.796Z"
+    "insightsAt": "2026-08-25T17:34:59.806Z"
   },
   {
     "title": "Kadın Tişörtündeki Gramaj Hilesi",
@@ -318,7 +318,17 @@
     "date": "2026-08-24",
     "durSec": 20.3,
     "mediaId": "18265269130306114",
-    "postedAt": "2026-08-24T19:44:25.975Z"
+    "postedAt": "2026-08-24T19:44:25.975Z",
+    "insights": {
+      "views": 127,
+      "reach": 111,
+      "saved": 0,
+      "shares": 0,
+      "total_interactions": 6,
+      "ig_reels_avg_watch_time": 5327,
+      "ig_reels_video_view_total_time": 596658
+    },
+    "insightsAt": "2026-08-25T17:35:01.341Z"
   },
   {
     "title": "Alışverişte İade Penceresi Tuzağı",
