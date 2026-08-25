@@ -40,7 +40,7 @@ export function subjectTokens(subject = '') {
 
 // Tek kök eşleşmesi yeter: "niasinamid" ile "niasinamidin faydası" aynı öznedir. Ekleri
 // tam çözmüyoruz (Türkçe için gereksiz karmaşık); önek eşleşmesi pratikte yetiyor.
-function tokensClash(a, b) {
+export function tokensClash(a, b) {
   return a === b || (a.length >= 5 && b.startsWith(a)) || (b.length >= 5 && a.startsWith(b));
 }
 
