@@ -1,75 +1,79 @@
 {
-  "hook": "Ücretsiz kargo için eklenen tişört kutuda kargoyu bekliyor.",
-  "title": "Ücretsiz Kargo Tuzağı Ve Kutudaki Tişört",
+  "hook": "O kargo kutusu iki aydır antrede iade edilmeyi bekliyor.",
+  "title": "Alışverişte İade Penceresi Tuzağı",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "cycle",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "esik",
-          "label": "KARGO EŞİĞİ"
+          "id": "kutulama",
+          "label": "KUTU ANTREDE"
         },
         {
-          "id": "bekleme",
-          "label": "KUTUDA BEKLEME"
+          "id": "erteleme",
+          "label": "NASILSA GİYERİM"
         },
         {
-          "id": "kabulleniş",
-          "label": "SESSİZ KABULLENİŞ"
+          "id": "suredolumu",
+          "label": "SÜRE BİTİMİ"
+        },
+        {
+          "id": "dolap",
+          "label": "DOLAP MEZARLIĞI"
         }
       ],
       "steps": [
         {
-          "from": "esik",
-          "to": "bekleme",
-          "packet": "SEPET",
-          "status": "beleş kargo için sepete tişört eklenir",
+          "from": "kutulama",
+          "to": "erteleme",
+          "packet": "KUTU",
+          "status": "kargo kutusu kapı önünde beklemeye",
           "color": "accent"
         },
         {
-          "from": "bekleme",
-          "to": "kabulleniş",
-          "packet": "KUTU",
-          "status": "yarın kargoya veririm diye kutuda bekler",
+          "from": "erteleme",
+          "to": "suredolumu",
+          "packet": "SÜRE",
+          "status": "iade penceresi sessizce kapanırken süre",
           "color": "warn"
         },
         {
-          "from": "kabulleniş",
-          "to": "esik",
-          "packet": "ETİKET",
-          "status": "iade penceresi kapanır ve kabullenilir",
+          "from": "suredolumu",
+          "to": "dolap",
+          "packet": "İADE",
+          "status": "yanlış beden parça dolabın kalıcı",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Ücretsiz kargo için eklenen tişört kutuda kargoyu bekliyor.\n\nÜcretsiz kargo için eklenen parçanın hüzünlü hikayesi:\n\n1. KARGO EŞİĞİ — Kargo ücreti ödememek için sepete hiç planda olmayan 3. bir tişört eklenir.\n2. KUTUDA BEKLEME — Ürün eve gelir, denenir, beğenilmez ama yarın kargolarım denilerek kutusuna konur.\n3. SESSİZ KABULLENİŞ — İade penceresi sessizce kapanır ve o tişört kaderine razı olup pijama çekmecesine geçer.\n\nPerakende iade mekanizması tam olarak bu erteleme psikolojisi üzerine kuruludur.\n\nKargo ücretinden kaçarken evde tişört koleksiyonu yaptık.\n\n📌 Kaydet — bir dahaki alışveriş krizinde lazım olacak.\n🔁 Bunu kargoya götürmeye üşenip kutudaki ürünü dolaba kaldıran arkadaşına gönder.\nKutuda iade edilmeyi bekleyen kaç parçan var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "O kargo kutusunun antrede aylarca beklemesi tesadüf değil.\n\nİade süresinin nasıl sessizce dolduğu, adım adım:\n\n1. Kutu kapı önünde — Deneyip beğenmediğin kıyafet kutusuna konur ama kargo kodu alınmaz.\n2. Ertelenen kararlar — \"Biraz zayıflarsam giyerim\" diyerek iade süreci her gün ertelenir.\n3. Dolap mezarlığı — İade hakkı bittiğinde o parça gardırobun unutulan bir parçasına dönüşür.\n\nOnline alışverişte ölçü tablosuna bakmadan alınan her ürün bu döngüye girer.\n\nKumaş suçlu değil, üşengeçlik bizimki. Ama o kutu yine de orada duracak.\n\n📌 Kaydet — bir dahaki alışverişte lazım olacak.\n🔁 Bunu iade süresi dolduğu için o parçayı hâlâ dolabında saklayan arkadaşına gönder.\nOdanda şu an iade süresi geçmiş kaç kargo kutusu var?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#alışveriş",
-    "#moda",
     "#giyim",
-    "#kargo",
+    "#alışveriş",
     "#gardırop",
     "#onlinealışveriş",
-    "#giyimtüyoları"
+    "#kargo",
+    "#bedentablosu",
+    "#moda"
   ],
-  "takeaway": "Kargo parası vermemek için aldığımız tişört artık yeni pijama.",
+  "takeaway": "O kargo kutusu artık senin yeni sehpan, kabullen.",
   "footage_queries": [
     "cardboard parcel box close up",
     "hands opening parcel box"
   ],
   "narration": [
-    "Ücretsiz kargo tişörtü yine kutuda kaldı.",
-    "Sepeti kargo eşiğine tamamlamak için üçüncü tişörtü ekliyoruz.",
-    "Gelen kutuyu açıp denedikten sonra yarın kargolarım diye köşeye koyuyoruz.",
-    "İade penceresi sessizce kapanınca o tişört artık bizim yeni pijamamız oluyor.",
-    "Kargo parası vermemek için aldığımız tişörtle sonsuza dek mutlu yaşıyoruz."
+    "O kutu asla kargoya gitmeyecek.",
+    "Markalar iade süresini insan üşengeçliğini hesaba katarak hesaplar.",
+    "Etiketi sökülmeyen kıyafet zamanla gözünün önünde dekorasyona dönüşür.",
+    "Son gün geçince beyin o harcamayı kabullenip iadeyi unutur.",
+    "O açılmayan kutu artık dolabının yeni ve kalıcı bir parçasıdır."
   ],
-  "subject": "ücretsiz kargo",
-  "sendTo": "kargoya götürmeye üşenip kutudaki ürünü dolaba kaldıran arkadaşına",
-  "soru": "Kutuda iade edilmeyi bekleyen kaç parçan var?",
-  "theme": "#8fd0ff",
+  "subject": "beden tablosu",
+  "sendTo": "iade süresi dolduğu için o parçayı hâlâ dolabında saklayan arkadaşına",
+  "soru": "Odanda şu an iade süresi geçmiş kaç kargo kutusu var?",
+  "theme": "#ff8fab",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -88,34 +92,34 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Ücretsiz kargo tişörtü yine kutuda kaldı.",
+      "text": "O kutu asla kargoya gitmeyecek.",
       "start": 0.35,
-      "dur": 2.501
+      "dur": 2.139
     },
     {
-      "text": "Sepeti kargo eşiğine tamamlamak için üçüncü tişörtü ekliyoruz.",
-      "start": 2.851,
-      "dur": 3.782
+      "text": "Markalar iade süresini insan üşengeçliğini hesaba katarak hesaplar.",
+      "start": 2.489,
+      "dur": 4.622
     },
     {
-      "text": "Gelen kutuyu açıp denedikten sonra yarın kargolarım diye köşeye koyuyoruz.",
-      "start": 6.633,
-      "dur": 4.514
+      "text": "Etiketi sökülmeyen kıyafet zamanla gözünün önünde dekorasyona dönüşür.",
+      "start": 7.111,
+      "dur": 4.829
     },
     {
-      "text": "İade penceresi sessizce kapanınca o tişört artık bizim yeni pijamamız oluyor.",
-      "start": 11.148,
-      "dur": 4.697
+      "text": "Son gün geçince beyin o harcamayı kabullenip iadeyi unutur.",
+      "start": 11.94,
+      "dur": 4.07
     },
     {
-      "text": "Kargo parası vermemek için aldığımız tişörtle sonsuza dek mutlu yaşıyoruz.",
-      "start": 15.845,
-      "dur": 5.614
+      "text": "O açılmayan kutu artık dolabının yeni ve kalıcı bir parçasıdır.",
+      "start": 16.011,
+      "dur": 5.446
     }
   ]
 }

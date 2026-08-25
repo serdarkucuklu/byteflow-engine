@@ -1,78 +1,75 @@
 {
-  "hook": "Mat ruj kurutuyor diye altına nemlendirici süren arkadaşın.",
-  "title": "Mat Ruj Dudakta Neden Çatlamalı Dökülür?",
+  "hook": "Sivilce kremine servet yatıran arkadaşına acı haber geldi.",
+  "title": "Pahalı Sivilce Kremi Neye Para Alır?",
   "scenes": [
     {
-      "layout": "cycle",
-      "kind": "diagram",
+      "layout": "vertical-stack",
+      "heading": "Kavanozun İçinde Ne Var?",
       "nodes": [
         {
-          "id": "node1",
-          "label": "UÇUCU YAĞLAR"
+          "id": "su-gliserin",
+          "label": "SU VE GLİSERİN"
         },
         {
-          "id": "node2",
-          "label": "MAT POLİMER"
+          "id": "ambalaj",
+          "label": "AMBALAJ VE KOKU"
         },
         {
-          "id": "node3",
-          "label": "ALT BALM KATMANI"
-        },
-        {
-          "id": "node4",
-          "label": "PİGMENT KOPMASI"
+          "id": "aktif",
+          "label": "MİNİCİK AKTİF"
         }
       ],
       "steps": [
         {
-          "from": "node1",
-          "to": "node2",
-          "packet": "BUHAR",
-          "status": "uçucu yağ buharlaşır, polimer kilitlenir",
-          "color": "accent"
-        },
-        {
-          "from": "node2",
-          "to": "node3",
-          "packet": "KAYMA",
-          "status": "alttaki nemlendirici filmi kaydırır",
+          "from": "su-gliserin",
+          "to": "ambalaj",
+          "packet": "SU",
+          "status": "kavanozun ilk %90ı sadece ucuz baz",
           "color": "warn"
         },
         {
-          "from": "node3",
-          "to": "node4",
-          "packet": "KIRILM",
-          "status": "tutunamayan sert renk tabakası",
+          "from": "ambalaj",
+          "to": "aktif",
+          "packet": "MARKA",
+          "status": "ödediğin farkın çoğu cam şişeye gidiyor",
+          "color": "warn"
+        },
+        {
+          "from": "aktif",
+          "to": "su-gliserin",
+          "packet": "AKTİF",
+          "status": "sivilceyi çözen aktif en sonda duruyor",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Mat rujun kurutmasın diye nemlendirici sürmek dökülmeyi garanti eder.\n\nDudağındaki mat ruj neden sahra çölüne dönüyor, adım adım:\n\n1. UÇUCU YAĞLAR — Mat rujun içindeki hafif formül sürüldüğü an buharlaşmaya başlar.\n2. MAT POLİMER — Sıvı buharlaşınca geriye kalan polimer film dudağın dokusuna kilitlenir.\n3. ALT BALM KATMANI — Tavsiyelere kanıp alta sürdüğün nemlendirici bu filmin tutunmasını imkansız kılar.\n4. PİGMENT KOPMASI — Yapışamayan sert film ilk konuşmanda çatlayarak parça parça dökülür.\n\nMat rujun başarısı altına sürdüğün kreme değil, nemlendirmeyi bir gece önceden yapmış olmana bağlıdır.\n\nTüyocu arkadaşına inanmayı bırak, nemlendiriciyi rujdan hemen önce sürme.\n\n📌 Kaydet — bir dahaki makyaj krizinde lazım olacak.\n\n🔁 Bunu her mat ruj sürdüğünde dudağı pul pul olan arkadaşına gönder.\n\nSen mat rujun altına nemlendirici sürüyor musun, sürmüyor musun?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Sivilce kremine harcadığın o dev bütçenin gerçekte nereye gittiğini biliyor musun?\n\nPahalı bir sivilce kreminin kavanozunda gerçekte ne yatıyor, adım adım bakalım:\n\n1. Su ve Gliserin — Formülün ilk %80-90'ı her zaman ucuz nemlendirici bazdan oluşur, sivilceye doğrudan etki etmez.\n2. Ambalaj ve Koku — Ödediğin o yüksek fiyatın büyük kısmı ağır cam kavanoza ve parfüme gider.\n3. Asıl Aktif Madde — Sivilceyi kurutan gerçek etken madde listede en son sırada ufacık bir orandadır.\n\nSivilce kremi seçerken lüks ambalaja değil, arkadaki aktif maddeye ve yüzdesine bakmalısın.\n\nKavanoz ne kadar lüksse sivilce o kadar korkmuyor, sadece cüzdanın zayıflıyor.\n\n📌 Kaydet — bir dahaki sivilce krizinde paran cebinde kalsın.\n\n🔁 Bunu sivilce kremine servet yatıran arkadaşına gönder.\n\nSivilce kremlerine en fazla kaç lira harcadın, dürüst ol?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#guzellik",
-    "#makyaj",
-    "#matruj",
-    "#makyajonerisi",
-    "#dudakbakimi",
-    "#ciltkodu"
+    "#ciltbakimi",
+    "#güzellik",
+    "#sivilce",
+    "#akne",
+    "#sivilcekremi",
+    "#ciltbakımrutini",
+    "#aknetedavisi"
   ],
-  "takeaway": "Nemlendiriciyi rujdan hemen önce değil, bir gece önce sür.",
+  "takeaway": "Sivilceyi marka ismi değil, içindeki aktif madde kurutur.",
   "footage_queries": [
-    "lipstick close up macro",
-    "hands applying cream close up"
+    "cream texture macro",
+    "hand opening jar macro"
   ],
   "narration": [
-    "Mat rujun altına nemlendirici sürülmez.",
-    "Mat ruj sürülünce içindeki sıvı yağlar hızla buharlaşır.",
-    "Ancak alttaki krem polimerin dudağa yapışmasını tamamen engeller.",
-    "Esneyemeyen kurutucu renk tabakası çatlayarak pul pul dökülür.",
-    "Nemlendiriciyi rujdan önce değil, geceden dudağına sürmelisin."
+    "Sivilce kremine ödediğin para boşa gidiyor.",
+    "Kavanozun ilk üç maddesi her zaman ucuz su ve gliserindir.",
+    "Pahalı ürünlerde ödediğin yüksek fark koku ve ambalaj süsüdür.",
+    "Sivilceyi söndüren gerçek aktif madde ise formülde en sonlardadır.",
+    "Aynı etken maddeye sahip muadil krem sivilceyi aynı hızda kurutur."
   ],
-  "subject": "mat ruj",
-  "sendTo": "her mat ruj sürdüğünde dudağı pul pul olan arkadaşına",
-  "soru": "Sen mat rujun altına nemlendirici sürüyor musun, sürmüyor musun?",
-  "theme": "#e8a0a8",
+  "subject": "sivilce kremi",
+  "sendTo": "sivilce kremine servet yatıran arkadaşına",
+  "soru": "Sivilce kremlerine en fazla kaç lira harcadın, dürüst ol?",
+  "theme": "#d98c5f",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -91,35 +88,35 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "buildup",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Mat rujun altına nemlendirici sürülmez.",
+      "text": "Sivilce kremine ödediğin para boşa gidiyor.",
       "start": 0.35,
-      "dur": 2.616
+      "dur": 2.916
     },
     {
-      "text": "Mat ruj sürülünce içindeki sıvı yağlar hızla buharlaşır.",
-      "start": 2.966,
-      "dur": 3.757
+      "text": "Kavanozun ilk üç maddesi her zaman ucuz su ve gliserindir.",
+      "start": 3.266,
+      "dur": 3.934
     },
     {
-      "text": "Ancak alttaki krem polimerin dudağa yapışmasını tamamen engeller.",
-      "start": 6.723,
-      "dur": 4.36
+      "text": "Pahalı ürünlerde ödediğin yüksek fark koku ve ambalaj süsüdür.",
+      "start": 7.2,
+      "dur": 4.205
     },
     {
-      "text": "Esneyemeyen kurutucu renk tabakası çatlayarak pul pul dökülür.",
-      "start": 11.083,
-      "dur": 4.159
+      "text": "Sivilceyi söndüren gerçek aktif madde ise formülde en sonlardadır.",
+      "start": 11.405,
+      "dur": 4.476
     },
     {
-      "text": "Nemlendiriciyi rujdan önce değil, geceden dudağına sürmelisin.",
-      "start": 15.242,
-      "dur": 5.259
+      "text": "Aynı etken maddeye sahip muadil krem sivilceyi aynı hızda kurutur.",
+      "start": 15.881,
+      "dur": 5.576
     }
   ],
-  "thumbOffset": 1908
+  "thumbOffset": 2058
 }
