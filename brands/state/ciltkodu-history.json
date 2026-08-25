@@ -630,7 +630,7 @@
       "ig_reels_avg_watch_time": 2101,
       "ig_reels_video_view_total_time": 250026
     },
-    "insightsAt": "2026-08-24T15:38:55.829Z"
+    "insightsAt": "2026-08-25T15:41:44.379Z"
   },
   {
     "title": "Retinol vs Tek Sabun Mucizesi",
@@ -665,7 +665,7 @@
       "ig_reels_avg_watch_time": 5735,
       "ig_reels_video_view_total_time": 195015
     },
-    "insightsAt": "2026-08-24T15:38:56.611Z"
+    "insightsAt": "2026-08-25T15:41:45.683Z"
   },
   {
     "title": "Mat Ruj Dudakta Neden Çatlamalı Dökülür?",
@@ -692,15 +692,15 @@
     "mediaId": "17869556112650488",
     "postedAt": "2026-08-23T17:46:02.906Z",
     "insights": {
-      "views": 30,
-      "reach": 21,
+      "views": 31,
+      "reach": 22,
       "saved": 1,
       "shares": 0,
       "total_interactions": 4,
-      "ig_reels_avg_watch_time": 5068,
-      "ig_reels_video_view_total_time": 116567
+      "ig_reels_avg_watch_time": 4918,
+      "ig_reels_video_view_total_time": 118051
     },
-    "insightsAt": "2026-08-24T15:38:58.001Z"
+    "insightsAt": "2026-08-25T15:41:47.074Z"
   },
   {
     "title": "Işık Gafi: Pahalı vs Ucuz Pudra",
@@ -725,7 +725,17 @@
     "date": "2026-08-24",
     "durSec": 20.4,
     "mediaId": "18413103952157830",
-    "postedAt": "2026-08-24T18:16:51.089Z"
+    "postedAt": "2026-08-24T18:16:51.089Z",
+    "insights": {
+      "views": 149,
+      "reach": 142,
+      "saved": 0,
+      "shares": 1,
+      "total_interactions": 4,
+      "ig_reels_avg_watch_time": 3007,
+      "ig_reels_video_view_total_time": 433121
+    },
+    "insightsAt": "2026-08-25T15:41:48.722Z"
   },
   {
     "title": "C Vitamini Neden Sararır ve Çöp Olur?",
