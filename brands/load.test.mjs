@@ -79,3 +79,14 @@ test('sir derinlestirme her canli markada acik', () => {
     assert.ok(b.paths.sirlar.endsWith(`${slug}-sirlar.json`));
   }
 });
+
+// kizlarkodu KENDİ havuzlarına bağlı olmalı — yanlışlıkla varsayılan/başka marka havuzuna
+// (byteflow/ciltkodu) düşerse pillar/twist/footage sessizce yanlış olur, sayfa kendi ekseninden
+// kayar.
+test('kizlarkodu kendi pillar/twist/feed/footage havuzlarina bagli', () => {
+  const b = loadBrand('kizlarkodu');
+  assert.equal(b.pillarSet, 'kizlar-tr');
+  assert.equal(b.feedSet, 'kizlar-news');
+  assert.equal(b.twistSet, 'kizlar-tr');
+  assert.equal(b.footageSet, 'gunluk');
+});

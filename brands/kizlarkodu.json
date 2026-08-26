@@ -64,7 +64,7 @@
   "brandKeys": [],
   "examples": {
     "domain": "18-35 yaş Türk kadınının gerçekten ARADIĞI ama tatmin edici cevabını bulamadığı gündelik 'bu neden herkesin başına geliyor' soruları — vücut (uyku, koku, ter, saç, tırnak, ısı), alışkanlıklar ve eski usul yöntemler, ev, ve kıyafet/alışveriş kararları — hepsi MEKANİZMA düzeyinde. ⛔ yüz cildi/bakım ürünü (kardeş sayfa @cilt.kodu), ilişki-kişilik psikolojisi, tıbbi tavsiye bu evrenin DIŞINDA",
-    "hook": "\"Sekiz saat uyudun ama yine de bitkin uyanıyorsun.\"",
+    "hook": "\"Sekiz saat uyudun, yine bitkinsin — peki neden?\"",
     "hubSpoke": "one fibre affecting several properties at once",
     "cycle": "the daily home-routine cycle, how a habit repeats without you noticing",
     "captionSetup": "\"Kendi kokunu neden alamadığın, adım adım:\"",
@@ -74,9 +74,11 @@
     "shareCta": "\"🔁 Bunu evi hep aynı sırayla toplayan arkadaşına gönder.\"",
     "broadTags": "\"#merak\", \"#kadınlar\", \"#günlükhayat\"",
     "nicheTags": "\"#nedenoluyor\", \"#uykudüzeni\", \"#kokubozukluğu\", \"#saçbakımı\", \"#kombin\"",
-    "versusRow": "\"İNANILAN\", \"OLAN\"",
+    "versusRow": "\"SEBEP\", \"SÜRE\"",
     "narrationSetup": "\"Burada iki şey iş yapıyor.\" / \"Uykun aslında iki evreden geçiyor.\"",
-    "narrationEar": "\"Statik elektriklenme gerçekleşir\" değil, \"kuru hava elektronları saçında biriktirir.\""
+    "narrationEar": "\"Statik elektriklenme gerçekleşir\" değil, \"kuru hava elektronları saçında biriktirir.\"",
+    "sendTo": "\"hafta sonu 12 saat uyuyup yine yorgun kalkan arkadaşına\", not \"arkadaşına\" and not \"uykusunu sevenlere\"",
+    "soru": "\"Sen de mi hafta sonu uyuyup daha yorgun kalkıyorsun?\""
   },
   "defaultHashtags": [
     "#moda",
@@ -97,7 +99,7 @@
   "tone": {
     "fluff": "Faceless. Funny first, useful second — but never fake-funny: the joke comes from the situation being TRUE, not from adding jokes on top.",
     "angle": "Pick the angle that makes the viewer LAUGH IN RECOGNITION — the little everyday drama everyone has lived but nobody says out loud (the sweater that pilled in two wears, the size that fits in one shop and not the next, the parcel that looked nothing like the photo). Comedy comes from being painfully accurate about the situation, never from mocking the viewer. Then, inside that laugh, explain the ONE mechanism that actually matters.",
-    "hookRule": "The first 2 seconds decide everything. It opens TODAY'S GAF — the day's assigned comic angle is stated here, out loud, in the first line. Two things must be true at once: (1) she smiles because it is painfully accurate, (2) a SPECIFIC PERSON SHE KNOWS comes to mind. \"Bu benim\" makes her save; \"bu tam sensin\" makes her SEND — and sending is what grows this page. So name a behaviour, not a topic: the everyday betrayal (\"o siyah tişört beşinci yıkamada seni terk ediyor\"), the shared self-deception (\"…diye kendini kandırıyorsun\"), or the person everyone has in their life. Say the embarrassing part out loud. NOT a topic label, NOT a lecture opener, NOT a material name. İKİNCİ VURUŞ — merak açığı ekseni: hook aranan SORUYU açar (izleyicinin gece telefona yazdığı cümle), cevabı VERMEZ. İki vuruş: tanınan davranış + cevabı olmayan soru. Cevap videonun sonunda.",
+    "hookRule": "The first 2 seconds decide everything. It opens TODAY'S GAF — the day's assigned comic angle is stated here, out loud, in the first line. Two things must be true at once: (1) she smiles because it is painfully accurate, (2) a SPECIFIC PERSON SHE KNOWS comes to mind. \"Bu benim\" makes her save; \"bu tam sensin\" makes her SEND — and sending is what grows this page. So name a behaviour, not a topic: the everyday betrayal (\"o siyah tişört beşinci yıkamada seni terk ediyor\"), the shared self-deception (\"…diye kendini kandırıyorsun\"), or the person everyone has in their life. Say the embarrassing part out loud. NOT a topic label, NOT a lecture opener, NOT a material name. İKİNCİ VURUŞ — merak açığı ekseni: hook aranan SORUYU açar (izleyicinin gece telefona yazdığı cümle), cevabı VERMEZ. İki vuruş: tanınan davranış + cevabı olmayan soru. Cevap videonun sonunda. Naming the subject (e.g. 'uyku borcu') is allowed and required on timely days — what stays hidden until the end is the MECHANISM, never the name. The hook may be a question or a statement that clearly leaves the 'why' open.",
     "doorRule": "GÖRÜNÜR KAPI: video gözle görülmüş bir durumdan açılır, malzeme adından ASLA. \"Polyester\" kapı değildir; \"iki saat sonra sırtın sırılsıklam\" kapıdır. \"Elyaf migrasyonu\" kapı değildir; \"yeni kazağım bilye yaptı\" kapıdır. Mekanizma kapıdan SONRA gelen açıklamadır. Kardeş sayfada ölçüldü (2026-08-03): soyut mekanizmayla açılan videolar 32-36 izlenmede kaldı, somut bir satın almayla açılan 1349 yaptı.",
     "bodyRule": "PLAIN TALK, NOT A TEXTILE LECTURE. Every card and every sentence must be sayable by a friend in a cafe. If a technical term is unavoidable, immediately replace it with an everyday analogy (not \"elyaf migrasyonu\" but \"kısa lifler sürtünmeyle yüzeye çıkıyor, tüy topu oluyor\"). Prefer concrete, visual, slightly cheeky images over precise terminology. Keep one small joke running through the middle so it never turns into homework — the viewer should still learn exactly one thing she can use on her next purchase.",
     "takeawayRule": "The closing line is the PUNCHLINE (<= 70 chars) and it must LAND TODAY'S GAF — the same angle the hook opened with, now with the twist of the knife. A cheeky rule of thumb or a self-aware confession, never a summary, never a flat sign-off.",

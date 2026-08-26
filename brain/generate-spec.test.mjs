@@ -519,3 +519,98 @@ test('kizlarkodu domaini kumaş tekelinde değil, mekanizma şartı ve kardeş s
     assert.doesNotMatch(brand.examples.domain, yasak, `kardeş sayfanın (@cilt.kodu) kelimesi domain'e sızmış: ${yasak}`);
   }
 });
+
+// (d) YUKARIDAKİ test yalnız brand.examples.domain'i tarıyor. Ama prompt'a giren kizlarkodu-özel
+// alanlar bundan ibaret değil: namedExamples (kizlarkodu.json:36) ve brand.examples.{hook,
+// captionItem, closing, narrationEar, sendTo, soru} (generate-spec.mjs:269,272,280,360,364,417)
+// de PROMPT'A DÜŞÜYOR ve hepsi DEFAULT_EXAMPLES'ı (generate-spec.mjs:90-107) ezip yerine geçiyor
+// (ex = {...DEFAULT_EXAMPLES, ...brand.examples}, satır 149). Bu alanlardan biri kardeş sayfanın
+// kelimesini taşırsa yukarıdaki test yakalamaz — kapsamı tüm PROMPT'a genişletiyoruz. 2026-08-26:
+// markadan bağımsız statik "Kaç tane yarım serumun var, dürüst ol." soru-örneği artık ${ex.soru}
+// olarak şablonlaştı ve kizlarkodu kendi soru'sunu veriyor — istisna gereksiz, tüm prompt taranır.
+test('kizlarkodu-özel örnek alanları (namedExamples/hook/captionItem/closing/narrationEar/sendTo/soru) kardeş sayfa kelimesi taşımaz', async () => {
+  const brand = JSON.parse(readFileSync(new URL('../brands/kizlarkodu.json', import.meta.url), 'utf8'));
+  const pillar = {key: 'usume-farki', focus: 'aynı odada bazılarının üşümesi, bazılarının üşümemesi'};
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar, brand,
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+
+  // Sanity: bu alanlar gerçekten prompt'a düşüyor mu — düşmezse test yanlış yeri tarar ve
+  // sessizce hep yeşil kalır (bkz. hafıza: ajan ürünü teste uydurur).
+  const alanlar = {
+    namedExamples: brand.namedExamples,
+    hook: brand.examples.hook,
+    captionItem: brand.examples.captionItem,
+    closing: brand.examples.closing,
+    narrationEar: brand.examples.narrationEar,
+    sendTo: brand.examples.sendTo,
+    soru: brand.examples.soru,
+  };
+  for (const [alan, metin] of Object.entries(alanlar)) {
+    assert.ok(p.includes(metin), `${alan} beklenen metni prompt'ta bulunamadı — kilit boşta çalışıyor olabilir`);
+  }
+
+  for (const yasak of [/gözenek/i, /sivilce/i, /serum/i, /retinol/i, /niasinamid/i, /güneş kremi/i]) {
+    assert.doesNotMatch(p, yasak,
+      `kardeş sayfanın (@cilt.kodu) kelimesi kizlarkodu-özel bir alana (namedExamples/hook/captionItem/closing/narrationEar/sendTo/soru) sızmış: ${yasak}`);
+  }
+});
+
+// versusRow örneği prompt'ta satır LABEL'ına (boyutuna, örn. "SÜRE") örnek olur — "İNANILAN"/
+// "OLAN" bir SÜTUN başlığıdır (versus sahnesinin left/right'ı), boyut değil; yanlış yerde
+// kullanılan örnek modeli sütun başlığını boyutmuş gibi yazmaya yönlendirebilir.
+test('kizlarkodu versusRow örneği bir boyut çifti, sütun başlığı değil', async () => {
+  const brand = JSON.parse(readFileSync(new URL('../brands/kizlarkodu.json', import.meta.url), 'utf8'));
+  const pillar = fakePillar;
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar, brand,
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.doesNotMatch(p, /İNANILAN/, 'eski sütun-başlığı örneği prompt\'ta kalmamalı');
+  assert.match(p, /label \(the dimension,[^)]*SEBEP/, 'yeni boyut örneği "the dimension" açıklamasının yanında geçmeli');
+});
+
+// hookRule ↔ timely çelişkisi: timely kuralı (satır ~197) hook'un konuyu İSİMLENDİRMESİNİ
+// zorunlu kılıyor, "İKİNCİ VURUŞ" ise "cevabı VERMEZ" diyordu — netleştirme olmadan model
+// hangisine uyacağını bilemez.
+test('kizlarkodu hookRule isim/mekanizma çelişkisini netleştirir', () => {
+  const brand = JSON.parse(readFileSync(new URL('../brands/kizlarkodu.json', import.meta.url), 'utf8'));
+  assert.match(brand.tone.hookRule, /Naming the subject.*is allowed and required on timely days/s);
+  assert.match(brand.tone.hookRule, /MECHANISM/);
+});
+
+// sendTo/soru örnekleri artık markadan gelir (DEFAULT_EXAMPLES ezilir) — kizlarkodu kendi
+// örneğini kullanmalı, kardeş sayfanın ("cilt bakımı sevenlere") sabit metni sızmamalı.
+test('kizlarkodu sendTo/soru örnekleri markadan gelir, kardeş sayfanın sabit metni sızmaz', async () => {
+  const brand = JSON.parse(readFileSync(new URL('../brands/kizlarkodu.json', import.meta.url), 'utf8'));
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar, brand,
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /hafta sonu 12 saat uyuyup yine yorgun kalkan arkadaşına/);
+  assert.match(p, /Sen de mi hafta sonu uyuyup daha yorgun kalkıyorsun\?/);
+  assert.doesNotMatch(p, /cilt bakımı sevenlere/, 'kardeş sayfanın (@cilt.kodu) sabit örneği sızmamalı');
+});
+
+// Regresyon: marka kendi sendTo/soru vermezse (ciltkodu, override yok) varsayılan sabit metin
+// AYNEN korunmalı — AI/cilt sayfası bu değişiklikten etkilenmemeli.
+test('ciltkodu (override yok) varsayılan sendTo/soru metnini korur', async () => {
+  const brand = JSON.parse(readFileSync(new URL('../brands/ciltkodu.json', import.meta.url), 'utf8'));
+  assert.equal(brand.examples?.sendTo, undefined, 'ciltkodu.json\'a dokunulmamalı');
+  assert.equal(brand.examples?.soru, undefined, 'ciltkodu.json\'a dokunulmamalı');
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar, brand,
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /cilt bakımı sevenlere/, 'varsayılan sendTo metni bozulmamalı');
+  assert.match(p, /Kaç tane yarım serumun var, dürüst ol\./, 'varsayılan soru metni bozulmamalı');
+});

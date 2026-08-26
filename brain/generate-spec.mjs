@@ -102,6 +102,8 @@ const DEFAULT_EXAMPLES = {
   versusRow: '"CONTEXT", "PRICE"',
   narrationSetup: '"Three things do the work here." / "Your prompt passes through four stages."',
   narrationEar: 'Not "Retrieval augmentation of the prompt occurs" but "Your prompt gets extra context first."',
+  sendTo: '"her gece makyajıyla uyuyan arkadaşına", not "arkadaşına" and not "cilt bakımı sevenlere"',
+  soru: '"Kaç tane yarım serumun var, dürüst ol."',
 };
 
 // TON markadan. 2026-07-28 Serdar direktifi: @cilt.kodu "kimya dersi" gibiydi; giriş, kapanış
@@ -269,15 +271,14 @@ Produce a scene-spec with these fields:
   NOT the same as the title. e.g. ${ex.hook}
 - title: <= 60 chars, the concept name${lang ? `, IN ${lang.toUpperCase()}` : ''}.
 - sendTo${lang ? ` (IN ${lang.toUpperCase()})` : ''}: <= 70 chars. The ONE person the viewer will forward this to, described by what
-  she DOES, never by a name or a label — "her gece makyajıyla uyuyan arkadaşına", not "arkadaşına"
-  and not "cilt bakımı sevenlere". It must be so specific that the viewer instantly thinks of a
+  she DOES, never by a name or a label — ${ex.sendTo}. It must be so specific that the viewer instantly thinks of a
   real person. This is the single most important field for reach: sending a video to one friend
   moves this page further than a hundred likes. The situation it describes MUST actually appear
   in the video — a send CTA that promises a person the video never showed reads as spam.
 - soru${lang ? ` (IN ${lang.toUpperCase()})` : ''}: <= 80 chars. The comment question that closes the caption. Rules that decide whether
   anyone answers: it costs ZERO effort (a choice between two named options, a confession, or a
   number), it has NO right answer, and it is about HER, not about the topic. Good shape:
-  "Sen hangisisin: X mi Y mi?" / "Kaç tane yarım serumun var, dürüst ol." Bad shape: "Siz ne
+  "Sen hangisisin: X mi Y mi?" / ${ex.soru} Bad shape: "Siz ne
   düşünüyorsunuz?" or anything that asks her to explain something.
 - 1 or 2 scenes (1 preferred). Each DIAGRAM scene picks its OWN "layout" — whichever TEACHES best:
   - "nodes-flow": a pipeline / data flow (A feeds B feeds C).

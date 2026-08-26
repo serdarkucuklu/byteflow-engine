@@ -214,6 +214,19 @@ test('footageSetFor("gunluk") en az 12 sorgu döndürür ve kumaş terimi içerm
   for (const q of gunluk) assert.doesNotMatch(q, fabricDeseni, `kumaş terimi sızmış: ${q}`);
 });
 
+// ── İNSAN GUARD'I (2026-08-26 güvenlik incelemesi) ──────────────────────────────────────────
+// Eski gunluk listesindeki "waking up stretching in bed", "hand pulling blanket" gibi sorgular
+// Pexels/Coverr'da safesearch olmadan insanlı klip döndürebiliyordu (dosyanın 18-24. satırındaki
+// "insansız beyaz liste" kuralı: kadraja sadece el/mekân/nesne girer, model/manken/gövde/yüz YOK
+// — soft/fabric'teki BİLİNÇLİ "el" istisnası (2026-08-09) gunluk kümesine uygulanmıyor, bu küme
+// elden de arınık tutuluyor). Liste diskte güncellendi; bu test o güncellemeyi kilitler.
+test('footageSetFor("gunluk") insan/beden/el sorgusu içermez (2026-08-26 güvenlik incelemesi)', async () => {
+  const {footageSetFor} = await import('./fetch-footage.mjs');
+  const gunluk = footageSetFor('gunluk');
+  const insanGuard = /\b(woman|girl|man|person|people|model|face|body|hand|hands|feet|foot|waking|stretching|shower|sweaty|hair)\b/i;
+  for (const q of gunluk) assert.doesNotMatch(q, insanGuard, `insan/beden/el terimi sızmış: ${q}`);
+});
+
 test('footageSetFor bilinmeyen adda hâlâ tech\'e düşer (mevcut davranış kilidi)', async () => {
   const {footageSetFor, SAFE_FOOTAGE_QUERIES} = await import('./fetch-footage.mjs');
   assert.deepEqual(footageSetFor('bilinmeyen-kume'), SAFE_FOOTAGE_QUERIES);

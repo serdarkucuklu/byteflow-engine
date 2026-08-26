@@ -1,5 +1,7 @@
 # Plan: kizlarkodu — "merak açığı" ekseni
 
+**Durum (2026-08-26):** Faz 1 ✅ 9339fcb · Faz 2 ✅ 022e1eb · retention kapısı bekleniyor (3 yayın) · Faz 3-4 ertelendi
+
 **Tarih:** 2026-08-26 · **Boy:** M (tek geliştirici, sıralı) · **Revizyon B** (`karsi-gorus` sonrası)
 
 > **REVİZYON B (2026-08-26, `karsi-gorus` + ana oturum doğrulaması):**

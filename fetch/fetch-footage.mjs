@@ -131,22 +131,25 @@ const FABRIC_FOOTAGE = [
 // makrosu DEĞİL, günlük hayat çekimleri — yastık/yatak, sabah uyanma, ayna, ev içi. Aynı
 // YÜZSÜZ kural: kadraja sadece el/mekân/nesne girer, model/manken YOK.
 const GUNLUK_FOOTAGE = [
-  'pillow and bed sheets morning light',
-  'waking up stretching in bed close up',
-  'hand hitting alarm clock morning',
-  'hairbrush on hair close up',
-  'mirror reflection morning routine',
+  // İnsansız kural burada da geçerli: yalnız nesne, mekân, yüzey — el/ayak/gövde bile YOK
+  // (2026-08-26 güvenlik incelemesi: "waking up stretching", "hand pulling blanket" gibi sorgular
+  // Pexels/Coverr'da safesearch olmadan insanlı klip döndürür).
+  'empty bed pillow morning light',
+  'crumpled bed sheets close up',
+  'alarm clock on nightstand close up',
+  'hairbrush on table close up',
+  'bathroom mirror steam close up',
   'coffee cup steam morning light',
-  'sweaty gym towel close up',
-  'socks and feet on floor close up',
+  'folded towel on bench close up',
+  'socks on wooden floor close up',
   'cozy home interior soft light',
-  'wardrobe door opening close up',
-  'hand washing dishes close up',
+  'wardrobe door open close up',
+  'dish soap bubbles in sink close up',
   'night lamp warm glow bedroom',
   'window fog condensation morning',
-  'hand pulling blanket close up',
+  'blanket folded on sofa close up',
   'slippers on wooden floor close up',
-  'steam from hot shower bathroom',
+  'faucet water drops close up',
 ];
 
 export const FOOTAGE_SETS = {tech: TECH_FOOTAGE, soft: SOFT_FOOTAGE, fabric: FABRIC_FOOTAGE, gunluk: GUNLUK_FOOTAGE};
