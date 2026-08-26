@@ -132,7 +132,25 @@ const MODA_TR = [
   // bırakılmadı (aynı plan Riskler tablosu kuralı).
 ];
 
-export const TWIST_SETS = {'beauty-tr': BEAUTY_TR, 'moda-tr': MODA_TR};
+// ── MERAK AÇIĞI GAF AİLESİ (2026-08-26, docs/plan/kizlarkodu-merak-acigi.md Faz 2) ──────────
+// Bugünkü pillar'ın (VUCUT_GUNLUK veya MODA_TR) mekanizması AYNEN kalıyor — twist yalnız KAPIYI
+// (kime anlatılıyor) değiştiriyor, aynen erkek-gaf ailesinin yaptığı gibi. Plan revizyon B'de
+// 5 twist'ten 2'ye indirildi: kalan 3'ü (`google-cevapsiz`, `yillardir-yanlis`,
+// `sormaya-utandigin`) BİLGİ DURUMU iddia ediyordu ("kimse bilmiyor", "yıllardır yanlış
+// biliniyor") — kaynaklanamaz, "test ettik" yasağının kardeşi, model step.status'a yazarsa
+// sayfa doğrulayamayacağı bir şey söyler. Bu yüzden her focus'ta sabit kilit cümlesi var:
+// "mekanizma bugünkü konudan gelir, twist yeni mekanizma İDDİA ETMEZ".
+const MERAK_TR = [
+  {key: 'herkes-yasiyor', kime: 'bunu yaşayan tek kişi olduğunu sanan arkadaşına', aile: 'merak',
+    focus: 'HERKES YAŞIYOR GAFI: kapı — "sadece bende mi oluyor" diye içinden geçirdiği an, aslında herkesin yaşadığı ama kimsenin yüksek sesle söylemediği bir şey. Anlatılan mekanizma bugünkü konudan gelir — twist yeni bir mekanizma İDDİA ETMEZ, sadece bu mekanizmayı KİME anlattığını değiştirir. ⛔ YASAK: mekanizmayı doğrulamak için bir deney yapıldığı izlenimi vermek, uydurma istatistik ("kadınların yüzde doksanı"), ilişki-kişilik psikolojisi. ✅ böyle: "sekiz saat uyuyup yine de bitkin uyanan o sen değilsin, uyku iki evreden geçiyor ve biri seni hiç dinlendirmiyor" (davranış + bugünkü mekanizma). ⛔ böyle değil: "araştırmalar kadınların çoğunun bunu yaşadığını gösterdi" (uydurma istatistik, kaynaksız iddia).'},
+  {key: 'anneannen-hakliymis', kime: 'anneannesinin yöntemine hâlâ gülen arkadaşına', aile: 'merak',
+    focus: 'ANNEANNEN HAKLIYMIŞ GAFI: kapı — eskiden çocukça/eski usul bulunan bir alışkanlığın aslında bugünkü konunun mekanizmasıyla tam örtüşmesi, "demek boşuna yapmıyormuş" anı. Anlatılan mekanizma bugünkü konudan gelir — twist yeni bir mekanizma İDDİA ETMEZ, sadece bu mekanizmayı KİME anlattığını değiştirir. ⛔ YASAK: mekanizmayı doğrulamak için bir deney yapıldığı izlenimi vermek, uydurma istatistik, ilişki-kişilik psikolojisi. ✅ böyle: "anneannenin yastığı ters çevirmesiyle dalga geçiyordun ama yastık izi de aynı sürtünmeden oluyor" (davranış + bugünkü mekanizma). ⛔ böyle değil: "eski nesil kadınlar bu konuda bizden hep daha akıllıydı" (genelleme/kişilik iddiası, mekanizma yok).'},
+];
+
+// twist kümesi adı ("kizlar-tr") pillar kümesiyle (brands/kizlarkodu.json:36) AYNI ama AYRI
+// sözlükte — kapsamSiniri gibi bu da kod tarafından bağlanmıyor, isim çakışması tesadüfi
+// (bkz. plan Tuzaklar).
+export const TWIST_SETS = {'beauty-tr': BEAUTY_TR, 'moda-tr': MODA_TR, 'kizlar-tr': [...MODA_TR, ...MERAK_TR]};
 
 /** Marka dosyasındaki twistSet adına karşılık gelen havuz (yoksa null → gaf ekseni kapalı). */
 export function twistsFor(setName) {

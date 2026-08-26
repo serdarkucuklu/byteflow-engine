@@ -130,3 +130,41 @@ test('2 erkek twistinin focus metninde aşağılayıcı kelime ve cinsiyet genel
     assert.doesNotMatch(twist.focus, GENELLEME_KALIPLARI, `${key}: genelleme kalıbı`);
   }
 });
+
+// ── MERAK AÇIĞI (docs/plan/kizlarkodu-merak-acigi.md, Faz 2) ───────────────────────────────
+// `kizlar-tr` = moda-tr havuzunun ÜSTÜNE 2 merak twist'i binen AYRI bir sözlük (twist kümesi
+// adı pillarSet ile aynı ama farklı sözlük — kizlarkodu.json:36-37, plan Tuzaklar).
+test('kizlar-tr, moda-tr havuzunu kapsar ve anahtarlar tekil', () => {
+  const MODA = twistsFor('moda-tr');
+  const KIZLAR = twistsFor('kizlar-tr');
+  for (const t of MODA) assert.ok(KIZLAR.some(k => k.key === t.key), `${t.key} kizlar-tr'de eksik`);
+  assert.equal(new Set(KIZLAR.map(t => t.key)).size, KIZLAR.length, 'anahtarlar tekil olmalı');
+  assert.ok(KIZLAR.length > MODA.length, 'kizlar-tr moda-tr\'nin üstüne twist eklemeli');
+});
+
+const MERAK_TWIST_KEYS = twistsFor('kizlar-tr').filter(t => t.aile === 'merak').map(t => t.key);
+
+test('aile==="merak" filtresi tam 2 anahtar veriyor', () => {
+  assert.deepEqual(new Set(MERAK_TWIST_KEYS), new Set(['herkes-yasiyor', 'anneannen-hakliymis']));
+});
+
+test('2 merak twistinin kime/focus dolu, focus\'ta YASAK ve kilit cümle var', () => {
+  const T = twistsFor('kizlar-tr');
+  for (const key of MERAK_TWIST_KEYS) {
+    const twist = T.find(t => t.key === key);
+    assert.ok(twist, `${key} kizlar-tr havuzunda bulunamadı`);
+    assert.ok(twist.kime?.length > 10, `${key}: kime alanı boş/çok kısa`);
+    assert.ok(twist.focus?.length > 40, `${key}: focus alanı çok kısa`);
+    assert.match(twist.focus, /YASAK/, `${key}: focus'ta YASAK satırı yok`);
+    assert.match(twist.focus, /mekanizma bugünkü konudan gelir/, `${key}: kilit cümle eksik`);
+  }
+});
+
+test('2 merak twistinin focus metninde bilgi-durumu iddiası yok (test ettik/denedik/kanıtlandı/kimse bilmiyor)', () => {
+  const YASAKLI_IDDIA = /test ettik|denedik|kanıtlandı|kimse bilmiyor/i;
+  const T = twistsFor('kizlar-tr');
+  for (const key of MERAK_TWIST_KEYS) {
+    const twist = T.find(t => t.key === key);
+    assert.doesNotMatch(twist.focus, YASAKLI_IDDIA, `${key}: bilgi-durumu iddiası`);
+  }
+});
