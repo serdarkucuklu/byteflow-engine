@@ -197,3 +197,24 @@ test('fetchFootage maps off-list queries onto distinct whitelist topics', async 
   assert.ok(seen.every(q => SAFE_FOOTAGE_QUERIES.includes(q)), seen.join(', '));
   assert.ok(seen.includes('circuit board macro'), 'listedeki sorgu korunmalı');
 });
+
+// ── GÜNLÜK KÜMESİ (docs/plan/kizlarkodu-merak-acigi.md, Faz 1.9/1.11) ──────────────────────
+// @kizlar.kodu artık kumaş makrosuna değil günlük hayat çekimlerine düşmeli (yastık, sabah
+// uyanma, saç tarama…). Kumaş/tekstil terimleri KESİNLİKLE geçmemeli — bu kümenin varlık
+// nedeni tam olarak kumaş b-roll'ünden kaçmak.
+test('footageSetFor("gunluk") en az 12 sorgu döndürür ve kumaş terimi içermez', async () => {
+  const {footageSetFor, SAFE_FOOTAGE_QUERIES} = await import('./fetch-footage.mjs');
+  const gunluk = footageSetFor('gunluk');
+  // tech'e sessizce düşmediğini de kilitle — aksi halde bu test "bilinmeyen ad → tech"
+  // davranışını yanlışlıkla "gunluk küme var" sanıp yanlış yeşil verir.
+  assert.notDeepEqual(gunluk, SAFE_FOOTAGE_QUERIES, 'gunluk küme tanımsız, tech\'e düşmüş');
+  assert.ok(gunluk.length >= 12, `en az 12 sorgu bekleniyor, gelen: ${gunluk.length}`);
+  assert.ok(gunluk.some(q => /pillow|waking up|morning/i.test(q)), 'günlük hayat çekimi yok');
+  const fabricDeseni = /\b(fabric|denim|wool|cotton|silk|garment)\b/i;
+  for (const q of gunluk) assert.doesNotMatch(q, fabricDeseni, `kumaş terimi sızmış: ${q}`);
+});
+
+test('footageSetFor bilinmeyen adda hâlâ tech\'e düşer (mevcut davranış kilidi)', async () => {
+  const {footageSetFor, SAFE_FOOTAGE_QUERIES} = await import('./fetch-footage.mjs');
+  assert.deepEqual(footageSetFor('bilinmeyen-kume'), SAFE_FOOTAGE_QUERIES);
+});

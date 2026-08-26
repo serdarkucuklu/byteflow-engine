@@ -127,7 +127,29 @@ const FABRIC_FOOTAGE = [
   'hands opening parcel box',
 ];
 
-export const FOOTAGE_SETS = {tech: TECH_FOOTAGE, soft: SOFT_FOOTAGE, fabric: FABRIC_FOOTAGE};
+// @kizlar.kodu merak açığı ekseni (docs/plan/kizlarkodu-merak-acigi.md, Faz 1.9): kumaş
+// makrosu DEĞİL, günlük hayat çekimleri — yastık/yatak, sabah uyanma, ayna, ev içi. Aynı
+// YÜZSÜZ kural: kadraja sadece el/mekân/nesne girer, model/manken YOK.
+const GUNLUK_FOOTAGE = [
+  'pillow and bed sheets morning light',
+  'waking up stretching in bed close up',
+  'hand hitting alarm clock morning',
+  'hairbrush on hair close up',
+  'mirror reflection morning routine',
+  'coffee cup steam morning light',
+  'sweaty gym towel close up',
+  'socks and feet on floor close up',
+  'cozy home interior soft light',
+  'wardrobe door opening close up',
+  'hand washing dishes close up',
+  'night lamp warm glow bedroom',
+  'window fog condensation morning',
+  'hand pulling blanket close up',
+  'slippers on wooden floor close up',
+  'steam from hot shower bathroom',
+];
+
+export const FOOTAGE_SETS = {tech: TECH_FOOTAGE, soft: SOFT_FOOTAGE, fabric: FABRIC_FOOTAGE, gunluk: GUNLUK_FOOTAGE};
 
 /** Marka dosyasındaki footageSet adına göre beyaz liste (varsayılan: tech). */
 export function footageSetFor(name = 'tech') {

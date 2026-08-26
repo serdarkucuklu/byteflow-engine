@@ -20,6 +20,10 @@ function arg(name) {
 const brandArg = arg('brand');
 const pillarKey = arg('pillar');
 const twistKey = arg('twist');
+// 1.7 (docs/plan/kizlarkodu-merak-acigi.md): --yasak=k1,k2,… — virgüllü kelimeler yalnız
+// title/hook/subject'te aranır. Gövdede geçmesi SERBEST (ölçülen şey konunun kaymadığı,
+// meşru bir gövde cümlesini haksız kırmızı yapmamak için — bkz. plan Tuzaklar).
+const yasakListesi = (arg('yasak') ?? '').split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
 
 // 1.5: --twist ZORUNLU. Twist'siz koşu run-daily.mjs'in gerçek davranışını (her zaman twist
 // zorlar) ölçmez — sessizce twist'siz bir prompt "geçti" der, yalan yeşil verir.
@@ -121,3 +125,21 @@ if (sizinti.length) {
 }
 
 console.log('✓ SIZINTI YOK · kaynak: gemini');
+
+// 1.7: --yasak taraması — YALNIZ title/hook/subject. Gövde (narration/step.status/caption)
+// bilerek TARANMAZ: meşru bir gövde cümlesi ("kumaş" mekanizmayı anlatırken geçebilir) haksız
+// kırmızı vermesin (bkz. plan Tuzaklar, hafıza: tek senaryo iki pencere).
+if (yasakListesi.length) {
+  const alanlar = {title: spec.title ?? '', hook: spec.hook ?? '', subject: spec.subject ?? ''};
+  const yasakIsabet = [];
+  for (const [alan, metin] of Object.entries(alanlar)) {
+    const alt = String(metin).toLowerCase();
+    for (const kelime of yasakListesi) if (alt.includes(kelime)) yasakIsabet.push(`${alan}: "${metin}" ← "${kelime}"`);
+  }
+  if (yasakIsabet.length) {
+    console.error('✗ --yasak — yasaklı kelime title/hook/subject\'e sızmış:');
+    for (const s of yasakIsabet) console.error(`  ${s}`);
+    process.exit(1);
+  }
+  console.log(`✓ --yasak kırmızısı yok (${yasakListesi.join(', ')})`);
+}

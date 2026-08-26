@@ -492,3 +492,30 @@ test('uydurma PARA rakamı ayrıca yasaklanır (maliyet/marj/kira payı)', async
   assert.match(p, /applies HARDEST to money/);
   assert.match(p, /cost breakdown figure/);
 });
+
+// ── NİŞ KİLİDİ (docs/plan/kizlarkodu-merak-acigi.md, Faz 1.8) ──────────────────────────────
+// Domain artık kumaş tekelinde değil (rev B): (a) SUBJECT UNIVERSE kuralı duruyor, (b) hem
+// "uyku borcu" hem "ter kokusu" domain metninde geçiyor, (c) mekanizma şartı düşmedi, (d)
+// kardeş sayfanın (@cilt.kodu) kelimeleri hiçbiri sızmamış — liste pillars.test.mjs:83 ile
+// BİREBİR aynı olmalı (daha geniş desen yanlış kırmızı verir, bkz. plan Tuzaklar).
+test('kizlarkodu domaini kumaş tekelinde değil, mekanizma şartı ve kardeş sayfa çiti duruyor', async () => {
+  const brand = JSON.parse(readFileSync(new URL('../brands/kizlarkodu.json', import.meta.url), 'utf8'));
+  const pillar = {key: 'usume-farki', focus: 'aynı odada bazılarının üşümesi, bazılarının üşümemesi'};
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar, brand,
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /SUBJECT UNIVERSE/, 'konu evreni kuralı prompt\'ta olmalı');
+  assert.match(p, /uyku borcu/, 'domain artık kumaş tekelinde değil');
+  assert.match(p, /ter kokusu/, 'domain artık kumaş tekelinde değil');
+  assert.match(p, /mechanism/i, 'mekanizma şartı düşmemeli');
+  // (d) kardeş sayfa (@cilt.kodu) sızıntısı domain metninde taranır, TÜM promptta değil:
+  // generate-spec.mjs'in genel (markadan bağımsız) örnek cümlelerinden biri ("Kaç tane yarım
+  // serumun var, dürüst ol.") tesadüfen "serum" içeriyor — bu domain'in ⛔ çitiyle ilgisiz,
+  // taramayı tüm prompta genişletmek haksız kırmızı verir (bkz. plan Tuzaklar).
+  for (const yasak of [/gözenek/i, /sivilce/i, /serum/i, /retinol/i, /niasinamid/i, /güneş kremi/i]) {
+    assert.doesNotMatch(brand.examples.domain, yasak, `kardeş sayfanın (@cilt.kodu) kelimesi domain'e sızmış: ${yasak}`);
+  }
+});
