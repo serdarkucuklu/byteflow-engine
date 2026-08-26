@@ -1,124 +1,124 @@
 {
-  "hook": "Pahalı C vitaminin el kremi oldu.",
-  "title": "C Vitamini Neden Sararır ve Çöp Olur?",
+  "hook": "Bu pantolonu terzi de kurtaramaz.",
+  "title": "Terzi Tadilatının Anatomisi ve Kalıp Tuzağı",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "diagram",
+      "layout": "cycle",
       "nodes": [
         {
-          "id": "kapak",
-          "label": "AÇIK KAPAK"
+          "id": "ALIS",
+          "label": "BÜYÜK BEDEN"
         },
         {
-          "id": "hava",
-          "label": "OKSİJEN TEMASI"
+          "id": "KALIP",
+          "label": "KALIP BOZULMASI"
         },
         {
-          "id": "asit",
-          "label": "ASİT BOZULMASI"
+          "id": "DIKIS",
+          "label": "DİKİŞ PAYI YOK"
         },
         {
-          "id": "etki",
-          "label": "SIFIR FAYDA"
+          "id": "DOLAP",
+          "label": "SÜREKLİ ERTELEME"
         }
       ],
       "steps": [
         {
-          "from": "kapak",
-          "to": "hava",
-          "packet": "HAVA",
-          "status": "kapağı açık kalınca içeri oksijen dolar",
+          "from": "ALIS",
+          "to": "KALIP",
+          "packet": "KESİM",
+          "status": "omuz ve cep yerleri tamamen kayar",
           "color": "warn"
         },
         {
-          "from": "hava",
-          "to": "asit",
-          "packet": "TEPKİ",
-          "status": "askorbik asit havayla hemen oksitlenir",
+          "from": "KALIP",
+          "to": "DIKIS",
+          "packet": "DİKİŞ",
+          "status": "daraltırken kumaş payı yetersiz kalır",
           "color": "warn"
         },
         {
-          "from": "asit",
-          "to": "etki",
-          "packet": "KAYIP",
-          "status": "turuncu sıvıya dönüşüp etkisini kaybeder",
+          "from": "DIKIS",
+          "to": "DOLAP",
+          "packet": "HÜSRAN",
+          "status": "asla giyilmeden dolapta yıllanır",
           "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Pahalı C vitaminin el kremi oldu. Pahalı C vitamini serumun neden bir haftada turuncuya dönüyor, adım adım:\n\n1. Açık Kapak — Banyoda kapağı tam kapatılmayan şişeden içeriye oksijen sızar.\n\n2. Oksijen Teması — L-askorbik asit formülü havayla temas ettiği an bozulmaya başlar.\n\n3. Asit Bozulması — Oksitlenen etken madde antioksidan gücünü kaybedip sararır.\n\n4. Sıfır Fayda — Koyu turuncu olan serum artık cildini aydınlatmaz, tahriş edebilir. İpucu: C vitamini alırken koyu camlı veya pompalı ambalaj tercih et. Ürün kötü değil, banyodaki ortak kullanımı abartanlar suçlu.\n\n📌 Kaydet — serumun rengi koyulaşınca paniklememek için sakla.\n\n🔁 Bunu senin üç bin liralık serumunu el kremi niyetine süren kardeşine gönder. Senin C vitaminin şu an sarardı mı yoksa berrak mı? Yazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Bu pantolonu terzi de kurtaramaz.\n\n'İndirimde iki beden büyüğünü alayım, terzide hallederiz' diyenlerin bilmediği o görünmez duvar:\n\n1. İPLİK YÖNÜ KAÇAR: Bir pantolonu iki bedenden fazla daraltmaya kalktığınızda kumaşın ana ekseni sapar. Ağ oyuntusu ve cepler kayar, yolda yürürken paça bacağınıza doğru burulmaya başlar.\n2. DİKİŞ PAYI YOKTUR: Seri üretim markaları kumaştan tasarruf etmek için dikiş paylarını milimetrik tutar. Terzinin kumaşı sıfırdan kesip doğru yöne oturtması için gereken ekstra kumaş içeride yoktur.\n3. KALIP BOZULUR: Sadece kenarlardan kestirmek kalıbı baştan bozar. Ne kadar usta terzi olursa olsun elde malzeme yoksa o paça dönmeye devam eder.\n\nTadilat sadece küçük rötuşlar içindir, kalıbı baştan baştan yaratmak için değil.\n\n📌 Kaydet — bir dahaki indirim hevesinde lazım olacak.\n\n🔁 Bunu her bulduğunu 'terzide hallederiz' diye sepete atan arkadaşına gönder.\n\nGardırobunda aylardır terzi bekleyen kaç parça var, dürüst ol?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimigüzellikcvitaminiserumciltbariyeriskincare",
-    "#ciltbakimi",
-    "#makyaj",
-    "#güzellik",
-    "#skincare",
-    "#cilt"
+    "#giyim",
+    "#moda",
+    "#gardırop",
+    "#kombintüyoları",
+    "#terzi",
+    "#dikiş",
+    "#bedentablosu"
   ],
-  "takeaway": "Turuncuya dönen C vitaminini banyodan sessizce çıkar ve at.",
+  "takeaway": "Kalıbı baştan bozulan kıyafete terzinin makası bile çare olamaz.",
   "footage_queries": [
-    "hand holding serum dropper",
-    "serum drop close up"
+    "measuring tape and fabric",
+    "sewing machine stitching close up"
   ],
   "narration": [
-    "Pahalı C vitaminin el kremi oldu.",
-    "Banyoda kapağı açık unutulan serum hızla bolca hava solur.",
-    "Hassas askorbik asit oksijenle karşılaşınca anında pes edip oksitlenir.",
-    "Rengi turuncuya dönen o pahalı sıvı artık nemlendirici bile olamaz.",
-    "Bozulmuş C vitamini fayda vermek yerine cilde leke bırakabilir."
+    "Bu pantolonu terzi de kurtaramaz.",
+    "İki beden daraltılan pantolonun dikiş çizgisi kayıp bacağı burmaya başlar.",
+    "Hazır giyimde kumaş payı olmadığından terzi o aksı düzeltemez.",
+    "Cepteki üç kuruşluk indirim böylece dolapta yürüyen dönel paçaya dönüşür.",
+    "Kalıbı baştan bozulan kıyafete terzinin makası bile çare olamaz."
   ],
-  "subject": "vitamin c",
-  "sendTo": "senin üç bin liralık serumunu el kremi niyetine süren kardeşine",
-  "soru": "Senin C vitaminin şu an sarardı mı yoksa berrak mı?",
-  "theme": "#d98c5f",
+  "subject": "terzi tadilatı",
+  "sendTo": "her aldığını 'kısalttırırız' diye sepetine ekleyen annene",
+  "soru": "Gardırobunda aylardır terzi bekleyen kaç parça var, dürüst ol?",
+  "theme": "#ff8fab",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Pahalı C vitaminin el kremi oldu.",
+      "text": "Bu pantolonu terzi de kurtaramaz.",
       "start": 0.35,
-      "dur": 2.26
+      "dur": 2.158
     },
     {
-      "text": "Banyoda kapağı açık unutulan serum hızla bolca hava solur.",
-      "start": 2.61,
-      "dur": 3.972
+      "text": "İki beden daraltılan pantolonun dikiş çizgisi kayıp bacağı burmaya başlar.",
+      "start": 2.508,
+      "dur": 4.839
     },
     {
-      "text": "Hassas askorbik asit oksijenle karşılaşınca anında pes edip oksitlenir.",
-      "start": 6.582,
-      "dur": 4.862
+      "text": "Hazır giyimde kumaş payı olmadığından terzi o aksı düzeltemez.",
+      "start": 7.347,
+      "dur": 4.054
     },
     {
-      "text": "Rengi turuncuya dönen o pahalı sıvı artık nemlendirici bile olamaz.",
-      "start": 11.444,
-      "dur": 4.588
+      "text": "Cepteki üç kuruşluk indirim böylece dolapta yürüyen dönel paçaya dönüşür.",
+      "start": 11.402,
+      "dur": 4.774
     },
     {
-      "text": "Bozulmuş C vitamini fayda vermek yerine cilde leke bırakabilir.",
-      "start": 16.033,
-      "dur": 5.415
+      "text": "Kalıbı baştan bozulan kıyafete terzinin makası bile çare olamaz.",
+      "start": 16.175,
+      "dur": 5.285
     }
   ]
 }

@@ -331,25 +331,28 @@
     "insightsAt": "2026-08-25T17:35:01.341Z"
   },
   {
-    "title": "Alışverişte İade Penceresi Tuzağı",
-    "subject": "beden tablosu",
-    "twist": "iade-tembelligi",
-    "pillar": "uyku-borcu",
+    "title": "Terzi Tadilatının Anatomisi ve Kalıp Tuzağı",
+    "subject": "terzi tadilatı",
+    "twist": "anne-terzi",
+    "pillar": "sac-yikama-sikligi",
     "layout": "cycle",
     "kinds": "diagram",
     "motion": "orbit",
     "theme": "#ff8fab",
     "source": "gemini",
     "footage": [
-      "pexels:cardboard parcel box close up",
-      "pexels:hands opening parcel box",
+      "pexels:measuring tape and fabric",
+      "pexels:sewing machine stitching close up",
       "pexels:denim fabric texture macro",
       "pexels:cotton fabric weave macro"
     ],
     "voice": 5,
-    "voiceName": "Kore",
+    "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "date": "2026-08-24",
+    "sir": "Bir pantolonu iki bedenden fazla daraltmaya çalıştığınızda kumaşın 'düz boy ipliği' (grainline) ekseni sapar; bu da ağ o",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-08-26",
     "durSec": 21.4
   }
 ]
