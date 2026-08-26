@@ -770,5 +770,30 @@
       "ig_reels_video_view_total_time": 41485
     },
     "insightsAt": "2026-08-26T16:18:09.084Z"
+  },
+  {
+    "title": "Makyaj Sabitleme Spreyi: Parayı Neye Ödüyoruz?",
+    "subject": "makyaj sabitleme spreyi",
+    "twist": "yaz-ve-ter",
+    "pillar": "para-degeri",
+    "layout": "vertical-stack",
+    "kinds": "diagram",
+    "motion": "camera",
+    "theme": "#b08bbb",
+    "source": "gemini",
+    "footage": [
+      "pexels:liquid foundation swatch",
+      "pexels:steam rising slow motion",
+      "pexels:water droplets on glass",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": 5,
+    "voiceName": "Kore",
+    "muzik": "byteflow-ambient.mp3",
+    "sir": "Ucuz spreylerde kullanılan tekil PVP polimeri terle hızla çözünürken; yüksek performanslı spreylerde ödediğiniz asıl bed",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-08-26",
+    "durSec": 21.4
   }
 ]

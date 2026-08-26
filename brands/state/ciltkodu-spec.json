@@ -1,78 +1,79 @@
 {
-  "hook": "Pahalı C vitaminin el kremi oldu.",
-  "title": "C Vitamini Neden Sararır ve Çöp Olur?",
+  "hook": "35 derecede makyaj sabitleme spreyi sıkan o arkadaşın.",
+  "title": "Makyaj Sabitleme Spreyi: Parayı Neye Ödüyoruz?",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "kapak",
-          "label": "AÇIK KAPAK"
+          "id": "su_alkol",
+          "label": "SU VE ALKOL"
         },
         {
-          "id": "hava",
-          "label": "OKSİJEN TEMASI"
+          "id": "polimer",
+          "label": "POLİMER FİLMİ"
         },
         {
-          "id": "asit",
-          "label": "ASİT BOZULMASI"
+          "id": "ter_sebum",
+          "label": "TER VE SEBUM"
         },
         {
-          "id": "etki",
-          "label": "SIFIR FAYDA"
+          "id": "erime",
+          "label": "ÇÖZÜLME ANI"
         }
       ],
       "steps": [
         {
-          "from": "kapak",
-          "to": "hava",
-          "packet": "HAVA",
-          "status": "kapağı açık kalınca içeri oksijen dolar",
+          "from": "su_alkol",
+          "to": "polimer",
+          "packet": "SPREY",
+          "status": "alkol uçar polimer ciltte tabaka kurar",
+          "color": "accent"
+        },
+        {
+          "from": "polimer",
+          "to": "ter_sebum",
+          "packet": "SICAK",
+          "status": "sıcakta çıkan ter film tabakasını iter",
           "color": "warn"
         },
         {
-          "from": "hava",
-          "to": "asit",
-          "packet": "TEPKİ",
-          "status": "askorbik asit havayla hemen oksitlenir",
-          "color": "warn"
-        },
-        {
-          "from": "asit",
-          "to": "etki",
-          "packet": "KAYIP",
-          "status": "turuncu sıvıya dönüşüp etkisini kaybeder",
-          "color": "warn"
+          "from": "ter_sebum",
+          "to": "erime",
+          "packet": "AKAN",
+          "status": "yağ polimeri çözer makyaj akar gider",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Pahalı C vitaminin el kremi oldu. Pahalı C vitamini serumun neden bir haftada turuncuya dönüyor, adım adım:\n\n1. Açık Kapak — Banyoda kapağı tam kapatılmayan şişeden içeriye oksijen sızar.\n\n2. Oksijen Teması — L-askorbik asit formülü havayla temas ettiği an bozulmaya başlar.\n\n3. Asit Bozulması — Oksitlenen etken madde antioksidan gücünü kaybedip sararır.\n\n4. Sıfır Fayda — Koyu turuncu olan serum artık cildini aydınlatmaz, tahriş edebilir. İpucu: C vitamini alırken koyu camlı veya pompalı ambalaj tercih et. Ürün kötü değil, banyodaki ortak kullanımı abartanlar suçlu.\n\n📌 Kaydet — serumun rengi koyulaşınca paniklememek için sakla.\n\n🔁 Bunu senin üç bin liralık serumunu el kremi niyetine süren kardeşine gönder. Senin C vitaminin şu an sarardı mı yoksa berrak mı? Yazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Makyaj sabitleme spreyi 35 derece sıcakta mucize yaratmaz.\n\nEtikete bakıp iki spreyin aynı olduğunu sanma! İşin asıl sırrı şurada:\n\n1. Tekil PVP Tuzağı — Ucuz spreyler sadece tekil PVP polimeri kullanır. Sıcağı ve teri gördüğü an hızla çözünür.\n2. Esnek Kopolimer Gücü — Yüksek performanslı spreylerdeki asıl fark, mimiklerinizle çatlamayan esnek bir koruma ağı kuran özel kopolimer (akrilat/silikon) karışımlarıdır.\n3. Yağ ve Su Direnci — Bu esnek kopolimer yapı, cildin hem yağ hem terleme suyuna aynı anda direnç gösterir.\n\nParayı sadece marka şişesine değil, formüldeki bu esnek ağ teknolojisine ödersin. Ama unutma, 35 derecede en iyi sabitleyici yine de gölgedir.\n\n📌 Kaydet — bir dahaki sıcak makyaj krizinde lazım olacak.\n🔁 Bunu 35 derecede tam makyajla dışarı çıkan arkadaşına gönder.\n\nSıcakta makyajın kaç dakikada eriyor, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimigüzellikcvitaminiserumciltbariyeriskincare",
     "#ciltbakimi",
     "#makyaj",
+    "#makyajsabitlemespreyi",
     "#güzellik",
-    "#skincare",
-    "#cilt"
+    "#makyajtüyoları",
+    "#ciltkodu",
+    "#yazmakyajı"
   ],
-  "takeaway": "Turuncuya dönen C vitaminini banyodan sessizce çıkar ve at.",
+  "takeaway": "Parayı şişeye değil gölgede oturmaya yatırmak daha mantıklı.",
   "footage_queries": [
-    "hand holding serum dropper",
-    "serum drop close up"
+    "liquid foundation swatch",
+    "steam rising slow motion"
   ],
   "narration": [
-    "Pahalı C vitaminin el kremi oldu.",
-    "Banyoda kapağı açık unutulan serum hızla bolca hava solur.",
-    "Hassas askorbik asit oksijenle karşılaşınca anında pes edip oksitlenir.",
-    "Rengi turuncuya dönen o pahalı sıvı artık nemlendirici bile olamaz.",
-    "Bozulmuş C vitamini fayda vermek yerine cilde leke bırakabilir."
+    "Makyaj sabitleme spreyi 35 derecede erir.",
+    "Ucuz spreyler tekil polimerle ter görünce hemen pes eder.",
+    "Kalitelisi gülüşünle çatlamayan, lastik gibi esnek bir ağ örer.",
+    "Bu akıllı kopolimer karışımı ter ve yağa meydan okur.",
+    "Parayı şişeye değil gölgede oturmaya yatırmak daha mantıklı."
   ],
-  "subject": "vitamin c",
-  "sendTo": "senin üç bin liralık serumunu el kremi niyetine süren kardeşine",
-  "soru": "Senin C vitaminin şu an sarardı mı yoksa berrak mı?",
-  "theme": "#d98c5f",
+  "subject": "makyaj sabitleme spreyi",
+  "sendTo": "35 derecede tam makyajla dışarı çıkan arkadaşına",
+  "soru": "Sıcakta makyajın kaç dakikada eriyor, dürüst ol?",
+  "theme": "#b08bbb",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -91,35 +92,35 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "camera",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Pahalı C vitaminin el kremi oldu.",
+      "text": "Makyaj sabitleme spreyi 35 derecede erir.",
       "start": 0.35,
-      "dur": 2.26
+      "dur": 2.991
     },
     {
-      "text": "Banyoda kapağı açık unutulan serum hızla bolca hava solur.",
-      "start": 2.61,
-      "dur": 3.972
+      "text": "Ucuz spreyler tekil polimerle ter görünce hemen pes eder.",
+      "start": 3.341,
+      "dur": 4.158
     },
     {
-      "text": "Hassas askorbik asit oksijenle karşılaşınca anında pes edip oksitlenir.",
-      "start": 6.582,
-      "dur": 4.862
+      "text": "Kalitelisi gülüşünle çatlamayan, lastik gibi esnek bir ağ örer.",
+      "start": 7.499,
+      "dur": 4.596
     },
     {
-      "text": "Rengi turuncuya dönen o pahalı sıvı artık nemlendirici bile olamaz.",
-      "start": 11.444,
-      "dur": 4.588
+      "text": "Bu akıllı kopolimer karışımı ter ve yağa meydan okur.",
+      "start": 12.095,
+      "dur": 3.866
     },
     {
-      "text": "Bozulmuş C vitamini fayda vermek yerine cilde leke bırakabilir.",
-      "start": 16.033,
-      "dur": 5.415
+      "text": "Parayı şişeye değil gölgede oturmaya yatırmak daha mantıklı.",
+      "start": 15.962,
+      "dur": 5.477
     }
   ],
-  "thumbOffset": 1730
+  "thumbOffset": 2096
 }

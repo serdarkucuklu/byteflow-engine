@@ -1,124 +1,125 @@
 {
-  "hook": "Bu pantolonu terzi de kurtaramaz.",
-  "title": "Terzi Tadilatının Anatomisi ve Kalıp Tuzağı",
+  "hook": "35 derecede makyaj sabitleme spreyi sıkan o arkadaşın.",
+  "title": "Makyaj Sabitleme Spreyi: Parayı Neye Ödüyoruz?",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "vertical-stack",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "ALIS",
-          "label": "BÜYÜK BEDEN"
+          "id": "su_alkol",
+          "label": "SU VE ALKOL"
         },
         {
-          "id": "KALIP",
-          "label": "KALIP BOZULMASI"
+          "id": "polimer",
+          "label": "POLİMER FİLMİ"
         },
         {
-          "id": "DIKIS",
-          "label": "DİKİŞ PAYI YOK"
+          "id": "ter_sebum",
+          "label": "TER VE SEBUM"
         },
         {
-          "id": "DOLAP",
-          "label": "SÜREKLİ ERTELEME"
+          "id": "erime",
+          "label": "ÇÖZÜLME ANI"
         }
       ],
       "steps": [
         {
-          "from": "ALIS",
-          "to": "KALIP",
-          "packet": "KESİM",
-          "status": "omuz ve cep yerleri tamamen kayar",
+          "from": "su_alkol",
+          "to": "polimer",
+          "packet": "SPREY",
+          "status": "alkol uçar polimer ciltte tabaka kurar",
+          "color": "accent"
+        },
+        {
+          "from": "polimer",
+          "to": "ter_sebum",
+          "packet": "SICAK",
+          "status": "sıcakta çıkan ter film tabakasını iter",
           "color": "warn"
         },
         {
-          "from": "KALIP",
-          "to": "DIKIS",
-          "packet": "DİKİŞ",
-          "status": "daraltırken kumaş payı yetersiz kalır",
-          "color": "warn"
-        },
-        {
-          "from": "DIKIS",
-          "to": "DOLAP",
-          "packet": "HÜSRAN",
-          "status": "asla giyilmeden dolapta yıllanır",
-          "color": "warn"
+          "from": "ter_sebum",
+          "to": "erime",
+          "packet": "AKAN",
+          "status": "yağ polimeri çözer makyaj akar gider",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Bu pantolonu terzi de kurtaramaz.\n\n'İndirimde iki beden büyüğünü alayım, terzide hallederiz' diyenlerin bilmediği o görünmez duvar:\n\n1. İPLİK YÖNÜ KAÇAR: Bir pantolonu iki bedenden fazla daraltmaya kalktığınızda kumaşın ana ekseni sapar. Ağ oyuntusu ve cepler kayar, yolda yürürken paça bacağınıza doğru burulmaya başlar.\n2. DİKİŞ PAYI YOKTUR: Seri üretim markaları kumaştan tasarruf etmek için dikiş paylarını milimetrik tutar. Terzinin kumaşı sıfırdan kesip doğru yöne oturtması için gereken ekstra kumaş içeride yoktur.\n3. KALIP BOZULUR: Sadece kenarlardan kestirmek kalıbı baştan bozar. Ne kadar usta terzi olursa olsun elde malzeme yoksa o paça dönmeye devam eder.\n\nTadilat sadece küçük rötuşlar içindir, kalıbı baştan baştan yaratmak için değil.\n\n📌 Kaydet — bir dahaki indirim hevesinde lazım olacak.\n\n🔁 Bunu her bulduğunu 'terzide hallederiz' diye sepete atan arkadaşına gönder.\n\nGardırobunda aylardır terzi bekleyen kaç parça var, dürüst ol?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Makyaj sabitleme spreyi 35 derece sıcakta mucize yaratmaz.\n\nEtikete bakıp iki spreyin aynı olduğunu sanma! İşin asıl sırrı şurada:\n\n1. Tekil PVP Tuzağı — Ucuz spreyler sadece tekil PVP polimeri kullanır. Sıcağı ve teri gördüğü an hızla çözünür.\n2. Esnek Kopolimer Gücü — Yüksek performanslı spreylerdeki asıl fark, mimiklerinizle çatlamayan esnek bir koruma ağı kuran özel kopolimer (akrilat/silikon) karışımlarıdır.\n3. Yağ ve Su Direnci — Bu esnek kopolimer yapı, cildin hem yağ hem terleme suyuna aynı anda direnç gösterir.\n\nParayı sadece marka şişesine değil, formüldeki bu esnek ağ teknolojisine ödersin. Ama unutma, 35 derecede en iyi sabitleyici yine de gölgedir.\n\n📌 Kaydet — bir dahaki sıcak makyaj krizinde lazım olacak.\n🔁 Bunu 35 derecede tam makyajla dışarı çıkan arkadaşına gönder.\n\nSıcakta makyajın kaç dakikada eriyor, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#giyim",
-    "#moda",
-    "#gardırop",
-    "#kombintüyoları",
-    "#terzi",
-    "#dikiş",
-    "#bedentablosu"
+    "#ciltbakimi",
+    "#makyaj",
+    "#makyajsabitlemespreyi",
+    "#güzellik",
+    "#makyajtüyoları",
+    "#ciltkodu",
+    "#yazmakyajı"
   ],
-  "takeaway": "Kalıbı baştan bozulan kıyafete terzinin makası bile çare olamaz.",
+  "takeaway": "Parayı şişeye değil gölgede oturmaya yatırmak daha mantıklı.",
   "footage_queries": [
-    "measuring tape and fabric",
-    "sewing machine stitching close up"
+    "liquid foundation swatch",
+    "steam rising slow motion"
   ],
   "narration": [
-    "Bu pantolonu terzi de kurtaramaz.",
-    "İki beden daraltılan pantolonun dikiş çizgisi kayıp bacağı burmaya başlar.",
-    "Hazır giyimde kumaş payı olmadığından terzi o aksı düzeltemez.",
-    "Cepteki üç kuruşluk indirim böylece dolapta yürüyen dönel paçaya dönüşür.",
-    "Kalıbı baştan bozulan kıyafete terzinin makası bile çare olamaz."
+    "Makyaj sabitleme spreyi 35 derecede erir.",
+    "Ucuz spreyler tekil polimerle ter görünce hemen pes eder.",
+    "Kalitelisi gülüşünle çatlamayan, lastik gibi esnek bir ağ örer.",
+    "Bu akıllı kopolimer karışımı ter ve yağa meydan okur.",
+    "Parayı şişeye değil gölgede oturmaya yatırmak daha mantıklı."
   ],
-  "subject": "terzi tadilatı",
-  "sendTo": "her aldığını 'kısalttırırız' diye sepetine ekleyen annene",
-  "soru": "Gardırobunda aylardır terzi bekleyen kaç parça var, dürüst ol?",
-  "theme": "#ff8fab",
+  "subject": "makyaj sabitleme spreyi",
+  "sendTo": "35 derecede tam makyajla dışarı çıkan arkadaşına",
+  "soru": "Sıcakta makyajın kaç dakikada eriyor, dürüst ol?",
+  "theme": "#b08bbb",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "camera",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Bu pantolonu terzi de kurtaramaz.",
+      "text": "Makyaj sabitleme spreyi 35 derecede erir.",
       "start": 0.35,
-      "dur": 2.158
+      "dur": 2.991
     },
     {
-      "text": "İki beden daraltılan pantolonun dikiş çizgisi kayıp bacağı burmaya başlar.",
-      "start": 2.508,
-      "dur": 4.839
+      "text": "Ucuz spreyler tekil polimerle ter görünce hemen pes eder.",
+      "start": 3.341,
+      "dur": 4.158
     },
     {
-      "text": "Hazır giyimde kumaş payı olmadığından terzi o aksı düzeltemez.",
-      "start": 7.347,
-      "dur": 4.054
+      "text": "Kalitelisi gülüşünle çatlamayan, lastik gibi esnek bir ağ örer.",
+      "start": 7.499,
+      "dur": 4.596
     },
     {
-      "text": "Cepteki üç kuruşluk indirim böylece dolapta yürüyen dönel paçaya dönüşür.",
-      "start": 11.402,
-      "dur": 4.774
+      "text": "Bu akıllı kopolimer karışımı ter ve yağa meydan okur.",
+      "start": 12.095,
+      "dur": 3.866
     },
     {
-      "text": "Kalıbı baştan bozulan kıyafete terzinin makası bile çare olamaz.",
-      "start": 16.175,
-      "dur": 5.285
+      "text": "Parayı şişeye değil gölgede oturmaya yatırmak daha mantıklı.",
+      "start": 15.962,
+      "dur": 5.477
     }
   ]
 }
