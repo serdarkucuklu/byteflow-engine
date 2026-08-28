@@ -807,5 +807,30 @@
       "ig_reels_video_view_total_time": 940358
     },
     "insightsAt": "2026-08-28T00:16:23.956Z"
+  },
+  {
+    "title": "Hyalüronik Asit Vaatleri ve Gerçekler",
+    "subject": "hyalüronik asit",
+    "twist": "pazarlama-dili",
+    "pillar": "iddia-kontrol",
+    "layout": "hub-spoke",
+    "kinds": "diagram",
+    "motion": "ripple",
+    "theme": "#7fb3a5",
+    "source": "gemini",
+    "footage": [
+      "pexels:serum drop close up",
+      "pexels:hands applying cream close up",
+      "pexels:water droplets on glass",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": 5,
+    "voiceName": "Aoede",
+    "muzik": "byteflow-ambient.mp3",
+    "sir": "Markaların 'aşırı küçük/nano moleküllü hyalüronik asit en alt katmana inip cildi hücresel düzeyde yeniler' iddiasının ak",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-08-28",
+    "durSec": 21.4
   }
 ]

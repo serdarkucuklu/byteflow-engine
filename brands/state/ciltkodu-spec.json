@@ -1,79 +1,79 @@
 {
-  "hook": "35 derecede makyaj sabitleme spreyi sıkan o arkadaşın.",
-  "title": "Makyaj Sabitleme Spreyi: Parayı Neye Ödüyoruz?",
+  "hook": "Hyalüronik asitte %99 nem vaadine kanan o arkadaşın.",
+  "title": "Hyalüronik Asit Vaatleri ve Gerçekler",
   "scenes": [
     {
-      "layout": "vertical-stack",
+      "layout": "hub-spoke",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "su_alkol",
-          "label": "SU VE ALKOL"
+          "id": "ha",
+          "label": "HYALÜRONİK ASİT"
         },
         {
-          "id": "polimer",
-          "label": "POLİMER FİLMİ"
+          "id": "vaat",
+          "label": "72 SAAT NEM"
         },
         {
-          "id": "ter_sebum",
-          "label": "TER VE SEBUM"
+          "id": "boyut",
+          "label": "MOLEKÜL BOYUTU"
         },
         {
-          "id": "erime",
-          "label": "ÇÖZÜLME ANI"
+          "id": "sonuc",
+          "label": "YÜZEYSEL SU"
         }
       ],
       "steps": [
         {
-          "from": "su_alkol",
-          "to": "polimer",
-          "packet": "SPREY",
-          "status": "alkol uçar polimer ciltte tabaka kurar",
-          "color": "accent"
-        },
-        {
-          "from": "polimer",
-          "to": "ter_sebum",
-          "packet": "SICAK",
-          "status": "sıcakta çıkan ter film tabakasını iter",
+          "from": "ha",
+          "to": "boyut",
+          "packet": "BOYUT",
+          "status": "dev molekül alt cilde asla geçemez",
           "color": "warn"
         },
         {
-          "from": "ter_sebum",
-          "to": "erime",
-          "packet": "AKAN",
-          "status": "yağ polimeri çözer makyaj akar gider",
-          "color": "good"
+          "from": "ha",
+          "to": "vaat",
+          "packet": "HAVADA",
+          "status": "kuru havada nemi cildinden çeker",
+          "color": "warn"
+        },
+        {
+          "from": "ha",
+          "to": "sonuc",
+          "packet": "SUKUT",
+          "status": "mucize denen etki ilk yıkamada biter",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Makyaj sabitleme spreyi 35 derece sıcakta mucize yaratmaz.\n\nEtikete bakıp iki spreyin aynı olduğunu sanma! İşin asıl sırrı şurada:\n\n1. Tekil PVP Tuzağı — Ucuz spreyler sadece tekil PVP polimeri kullanır. Sıcağı ve teri gördüğü an hızla çözünür.\n2. Esnek Kopolimer Gücü — Yüksek performanslı spreylerdeki asıl fark, mimiklerinizle çatlamayan esnek bir koruma ağı kuran özel kopolimer (akrilat/silikon) karışımlarıdır.\n3. Yağ ve Su Direnci — Bu esnek kopolimer yapı, cildin hem yağ hem terleme suyuna aynı anda direnç gösterir.\n\nParayı sadece marka şişesine değil, formüldeki bu esnek ağ teknolojisine ödersin. Ama unutma, 35 derecede en iyi sabitleyici yine de gölgedir.\n\n📌 Kaydet — bir dahaki sıcak makyaj krizinde lazım olacak.\n🔁 Bunu 35 derecede tam makyajla dışarı çıkan arkadaşına gönder.\n\nSıcakta makyajın kaç dakikada eriyor, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kutunun üstüne %99 nem yazmak kolay, peki o \"derine inen nano molekül\" masalı gerçekte ne yapıyor?\n\nHyalüronik asit ambalajındaki dev iddialar ve arkasındaki gerçekler:\n\n1. Nano Molekül Tuzağı — \"Derine insin\" diye parçalanan o minik hyalüronik asitler, cildin altına inince hücresel yenilenme yapmak yerine cildin yangın alarmına basıyor.\n2. Yanlış Alarm — Cilt bu küçültülmüş molekülleri bir doku hasarı ve yara sinyali zannedip paniğe kapılıyor.\n3. Gizli Hasar — Sürekli panikleyen ve savunmaya geçen ciltte sinsi mikro-enflamasyonlar oluşuyor, bariyer nem tutacağına daha da yıpranıyor.\n\nNem serumu alırken vaatlere değil, arkasına occlusive yani nemi hapseden bir krem sürüp sürmediğinize bakın.\n\nAmbalajın üstündeki vaatler gerçek olsaydı hepimiz bebek teniyle geziyorduk.\n\n📌 Kaydet — bir dahaki krem alışverişinde lazım olacak.\n🔁 Bunu kutudaki her pazarlama vaadine hemen inanan arkadaşına gönder.\nSen de '72 saat nem' yazısını görünce gözü kapalı alanlardan mısın?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#makyaj",
-    "#makyajsabitlemespreyi",
     "#güzellik",
-    "#makyajtüyoları",
-    "#ciltkodu",
-    "#yazmakyajı"
+    "#hyalüronikasit",
+    "#ciltbakimigutusu",
+    "#nemlendirici",
+    "#ciltbariyeri",
+    "#nem"
   ],
-  "takeaway": "Parayı şişeye değil gölgede oturmaya yatırmak daha mantıklı.",
+  "takeaway": "Etikete değil moleküle bak, nemi cilde kremsiz hapsetme.",
   "footage_queries": [
-    "liquid foundation swatch",
-    "steam rising slow motion"
+    "serum drop close up",
+    "hands applying cream close up"
   ],
   "narration": [
-    "Makyaj sabitleme spreyi 35 derecede erir.",
-    "Ucuz spreyler tekil polimerle ter görünce hemen pes eder.",
-    "Kalitelisi gülüşünle çatlamayan, lastik gibi esnek bir ağ örer.",
-    "Bu akıllı kopolimer karışımı ter ve yağa meydan okur.",
-    "Parayı şişeye değil gölgede oturmaya yatırmak daha mantıklı."
+    "Hyalüronik asit vaatleri tam bir masal.",
+    "Derine inen o minik moleküller cildi yangın var diye korkutuyor.",
+    "Alarm veren cilt kendi kendini korumaya çalışırken bariyerini yıpratıyor.",
+    "Nano mucize denen şey aslında cilde gizli mikro zarar veriyor.",
+    "İçerik değil doğru nem kilit yöntemi cildi kurtarır."
   ],
-  "subject": "makyaj sabitleme spreyi",
-  "sendTo": "35 derecede tam makyajla dışarı çıkan arkadaşına",
-  "soru": "Sıcakta makyajın kaç dakikada eriyor, dürüst ol?",
-  "theme": "#b08bbb",
+  "subject": "hyalüronik asit",
+  "sendTo": "kutudaki her pazarlama vaadine hemen inanan arkadaşına",
+  "soru": "Sen de '72 saat nem' yazısını görünce gözü kapalı alanlardan mısın?",
+  "theme": "#7fb3a5",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -92,35 +92,35 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "ripple",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Makyaj sabitleme spreyi 35 derecede erir.",
+      "text": "Hyalüronik asit vaatleri tam bir masal.",
       "start": 0.35,
-      "dur": 2.991
+      "dur": 2.691
     },
     {
-      "text": "Ucuz spreyler tekil polimerle ter görünce hemen pes eder.",
-      "start": 3.341,
-      "dur": 4.158
+      "text": "Derine inen o minik moleküller cildi yangın var diye korkutuyor.",
+      "start": 3.041,
+      "dur": 4.416
     },
     {
-      "text": "Kalitelisi gülüşünle çatlamayan, lastik gibi esnek bir ağ örer.",
-      "start": 7.499,
-      "dur": 4.596
+      "text": "Alarm veren cilt kendi kendini korumaya çalışırken bariyerini yıpratıyor.",
+      "start": 7.457,
+      "dur": 5.037
     },
     {
-      "text": "Bu akıllı kopolimer karışımı ter ve yağa meydan okur.",
-      "start": 12.095,
-      "dur": 3.866
+      "text": "Nano mucize denen şey aslında cilde gizli mikro zarar veriyor.",
+      "start": 12.493,
+      "dur": 4.278
     },
     {
-      "text": "Parayı şişeye değil gölgede oturmaya yatırmak daha mantıklı.",
-      "start": 15.962,
-      "dur": 5.477
+      "text": "İçerik değil doğru nem kilit yöntemi cildi kurtarır.",
+      "start": 16.771,
+      "dur": 4.688
     }
   ],
-  "thumbOffset": 2096
+  "thumbOffset": 1946
 }
