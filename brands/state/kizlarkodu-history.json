@@ -331,28 +331,29 @@
     "insightsAt": "2026-08-28T01:22:40.959Z"
   },
   {
-    "title": "Terzi Tadilatının Anatomisi ve Kalıp Tuzağı",
-    "subject": "terzi tadilatı",
-    "twist": "anne-terzi",
-    "pillar": "sac-yikama-sikligi",
-    "layout": "cycle",
+    "title": "Tüylerin Diken Diken Olma Mekanizması",
+    "subject": "tüy dikleşmesi",
+    "twist": "para",
+    "pillar": "tuy-diken-diken",
+    "layout": "hub-spoke",
     "kinds": "diagram",
     "motion": "orbit",
     "theme": "#ff8fab",
     "source": "gemini",
     "footage": [
-      "pexels:measuring tape and fabric",
-      "pexels:sewing machine stitching close up",
-      "pexels:denim fabric texture macro",
-      "pexels:cotton fabric weave macro"
+      "pexels:cozy home interior soft light",
+      "pexels:blanket folded on sofa close up",
+      "pexels:alarm clock on nightstand close up",
+      "pexels:bathroom mirror steam close up"
     ],
     "voice": 5,
-    "voiceName": "Aoede",
+    "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Bir pantolonu iki bedenden fazla daraltmaya çalıştığınızda kumaşın 'düz boy ipliği' (grainline) ekseni sapar; bu da ağ o",
-    "sirUygulandi": "kismi",
-    "sirAtlandi": null,
-    "date": "2026-08-26",
+    "not": "Her kadının bilmediği bir bilgi olsun, öğretici güzel bir bilgi",
+    "sir": null,
+    "sirUygulandi": null,
+    "sirAtlandi": "not-var",
+    "date": "2026-08-28",
     "durSec": 21.4
   }
 ]

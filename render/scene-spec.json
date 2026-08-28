@@ -1,125 +1,124 @@
 {
-  "hook": "Hyalüronik asitte %99 nem vaadine kanan o arkadaşın.",
-  "title": "Hyalüronik Asit Vaatleri ve Gerçekler",
+  "hook": "Sepette indirim görünce tüylerin neden diken diken olur?",
+  "title": "Tüylerin Diken Diken Olma Mekanizması",
   "scenes": [
     {
       "layout": "hub-spoke",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "ha",
-          "label": "HYALÜRONİK ASİT"
+          "id": "n1",
+          "label": "MINIK KASLAR"
         },
         {
-          "id": "vaat",
-          "label": "72 SAAT NEM"
+          "id": "n2",
+          "label": "SEMPATIK UYARI"
         },
         {
-          "id": "boyut",
-          "label": "MOLEKÜL BOYUTU"
+          "id": "n3",
+          "label": "HAVA YALITIMI"
         },
         {
-          "id": "sonuc",
-          "label": "YÜZEYSEL SU"
+          "id": "n4",
+          "label": "EVRIMSEL KANIT"
         }
       ],
       "steps": [
         {
-          "from": "ha",
-          "to": "boyut",
-          "packet": "BOYUT",
-          "status": "dev molekül alt cilde asla geçemez",
-          "color": "warn"
-        },
-        {
-          "from": "ha",
-          "to": "vaat",
-          "packet": "HAVADA",
-          "status": "kuru havada nemi cildinden çeker",
-          "color": "warn"
-        },
-        {
-          "from": "ha",
-          "to": "sonuc",
-          "packet": "SUKUT",
-          "status": "mucize denen etki ilk yıkamada biter",
+          "from": "n1",
+          "to": "n2",
+          "packet": "SİNYAL",
+          "status": "heyecan ve soğuk sempatik siniri",
           "color": "accent"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "KASILM",
+          "status": "tüy dibindeki minik kas anında kasılır",
+          "color": "good"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "TEPKİ",
+          "status": "vücut ısıyı korumak için hava cebi açar",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Kutunun üstüne %99 nem yazmak kolay, peki o \"derine inen nano molekül\" masalı gerçekte ne yapıyor?\n\nHyalüronik asit ambalajındaki dev iddialar ve arkasındaki gerçekler:\n\n1. Nano Molekül Tuzağı — \"Derine insin\" diye parçalanan o minik hyalüronik asitler, cildin altına inince hücresel yenilenme yapmak yerine cildin yangın alarmına basıyor.\n2. Yanlış Alarm — Cilt bu küçültülmüş molekülleri bir doku hasarı ve yara sinyali zannedip paniğe kapılıyor.\n3. Gizli Hasar — Sürekli panikleyen ve savunmaya geçen ciltte sinsi mikro-enflamasyonlar oluşuyor, bariyer nem tutacağına daha da yıpranıyor.\n\nNem serumu alırken vaatlere değil, arkasına occlusive yani nemi hapseden bir krem sürüp sürmediğinize bakın.\n\nAmbalajın üstündeki vaatler gerçek olsaydı hepimiz bebek teniyle geziyorduk.\n\n📌 Kaydet — bir dahaki krem alışverişinde lazım olacak.\n🔁 Bunu kutudaki her pazarlama vaadine hemen inanan arkadaşına gönder.\nSen de '72 saat nem' yazısını görünce gözü kapalı alanlardan mısın?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "İndirimde sepeti onaylarken veya aniden soğuk basınca tüylerinin dikleşmesi tesadüf değil.\n\nBunu sağlayan mikroskobik mekanizma adım adım şöyle çalışıyor:\n\n1. Sempatik sinir uyarısı — Beynin heyecan veya ısı düşüşü algıladığında sempatik sinir sistemini saniyede devreye sokar.\n2. Arrektör pili kasları — Her bir tüy köküne bağlı olan gözle görülmez minik kaslar kasılarak tüyü dikleştirir.\n3. Hava yalıtım cebi — Dikleşen tüyler cilt yüzeyinde mikroskobik bir hava katmanı hapsederek ısı kaybını engellemeye çalışır.\n\nBinlerce liralık kışlık mont alsan da vücudun sıcaklığı korumak için ilk olarak milyonlarca yıllık bu biyolojik refleksine güveniyor.\n\nMonta servet ödedik ama ısıtmayı yine tüy dibindeki kas yapıyor.\n\n📌 Kaydet — kış alışverişinde bu bilgi lazım olacak.\n🔁 Bunu indirim görünce heyecandan tüyleri diken diken olan arkadaşına gönder.\nSen de soğukta mı yoksa heyecanlanınca mı daha çok diken diken olursun?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#hyalüronikasit",
-    "#ciltbakimigutusu",
-    "#nemlendirici",
-    "#ciltbariyeri",
-    "#nem"
+    "#merak",
+    "#kadınlar",
+    "#nedenoluyor",
+    "#günlükhayat",
+    "#vücudumuz",
+    "#biyoloji"
   ],
-  "takeaway": "Etikete değil moleküle bak, nemi cilde kremsiz hapsetme.",
+  "takeaway": "Pahalı ceket alsan da vücut ısısını tüy dibindeki kaslar koruyor.",
   "footage_queries": [
-    "serum drop close up",
-    "hands applying cream close up"
+    "cozy home interior soft light",
+    "blanket folded on sofa close up"
   ],
   "narration": [
-    "Hyalüronik asit vaatleri tam bir masal.",
-    "Derine inen o minik moleküller cildi yangın var diye korkutuyor.",
-    "Alarm veren cilt kendi kendini korumaya çalışırken bariyerini yıpratıyor.",
-    "Nano mucize denen şey aslında cilde gizli mikro zarar veriyor.",
-    "İçerik değil doğru nem kilit yöntemi cildi kurtarır."
+    "İndirimde tüylerin neden diken diken?",
+    "Beyin heyecan veya soğuk algılayınca sempatik sinir sistemi anında tetiklenir.",
+    "Tüy köklerindeki arrektör pili kasları kasılarak tüyleri dik konuma getirir.",
+    "Eski çağlardan kalan bu refleks cilt yüzeyinde koruyucu hava tabakası kurar.",
+    "Pahalı ceket alsan da vücut ısısını bu minik kaslar korur."
   ],
-  "subject": "hyalüronik asit",
-  "sendTo": "kutudaki her pazarlama vaadine hemen inanan arkadaşına",
-  "soru": "Sen de '72 saat nem' yazısını görünce gözü kapalı alanlardan mısın?",
-  "theme": "#7fb3a5",
+  "subject": "tüy dikleşmesi",
+  "sendTo": "İndirim görünce heyecandan tüyleri diken diken olan arkadaşına",
+  "soru": "Sen de soğukta mı yoksa heyecanlanınca mı daha çok diken diken olursun?",
+  "theme": "#ff8fab",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Hyalüronik asit vaatleri tam bir masal.",
+      "text": "İndirimde tüylerin neden diken diken?",
       "start": 0.35,
-      "dur": 2.691
+      "dur": 2.277
     },
     {
-      "text": "Derine inen o minik moleküller cildi yangın var diye korkutuyor.",
-      "start": 3.041,
-      "dur": 4.416
+      "text": "Beyin heyecan veya soğuk algılayınca sempatik sinir sistemi anında tetiklenir.",
+      "start": 2.627,
+      "dur": 4.801
     },
     {
-      "text": "Alarm veren cilt kendi kendini korumaya çalışırken bariyerini yıpratıyor.",
-      "start": 7.457,
-      "dur": 5.037
+      "text": "Tüy köklerindeki arrektör pili kasları kasılarak tüyleri dik konuma getirir.",
+      "start": 7.428,
+      "dur": 4.678
     },
     {
-      "text": "Nano mucize denen şey aslında cilde gizli mikro zarar veriyor.",
-      "start": 12.493,
-      "dur": 4.278
+      "text": "Eski çağlardan kalan bu refleks cilt yüzeyinde koruyucu hava tabakası kurar.",
+      "start": 12.106,
+      "dur": 4.678
     },
     {
-      "text": "İçerik değil doğru nem kilit yöntemi cildi kurtarır.",
-      "start": 16.771,
-      "dur": 4.688
+      "text": "Pahalı ceket alsan da vücut ısısını bu minik kaslar korur.",
+      "start": 16.784,
+      "dur": 4.67
     }
   ]
 }

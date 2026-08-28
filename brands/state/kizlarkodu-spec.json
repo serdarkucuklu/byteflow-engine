@@ -1,77 +1,77 @@
 {
-  "hook": "Bu pantolonu terzi de kurtaramaz.",
-  "title": "Terzi Tadilatının Anatomisi ve Kalıp Tuzağı",
+  "hook": "Sepette indirim görünce tüylerin neden diken diken olur?",
+  "title": "Tüylerin Diken Diken Olma Mekanizması",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "hub-spoke",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "ALIS",
-          "label": "BÜYÜK BEDEN"
+          "id": "n1",
+          "label": "MINIK KASLAR"
         },
         {
-          "id": "KALIP",
-          "label": "KALIP BOZULMASI"
+          "id": "n2",
+          "label": "SEMPATIK UYARI"
         },
         {
-          "id": "DIKIS",
-          "label": "DİKİŞ PAYI YOK"
+          "id": "n3",
+          "label": "HAVA YALITIMI"
         },
         {
-          "id": "DOLAP",
-          "label": "SÜREKLİ ERTELEME"
+          "id": "n4",
+          "label": "EVRIMSEL KANIT"
         }
       ],
       "steps": [
         {
-          "from": "ALIS",
-          "to": "KALIP",
-          "packet": "KESİM",
-          "status": "omuz ve cep yerleri tamamen kayar",
-          "color": "warn"
+          "from": "n1",
+          "to": "n2",
+          "packet": "SİNYAL",
+          "status": "heyecan ve soğuk sempatik siniri",
+          "color": "accent"
         },
         {
-          "from": "KALIP",
-          "to": "DIKIS",
-          "packet": "DİKİŞ",
-          "status": "daraltırken kumaş payı yetersiz kalır",
-          "color": "warn"
+          "from": "n2",
+          "to": "n3",
+          "packet": "KASILM",
+          "status": "tüy dibindeki minik kas anında kasılır",
+          "color": "good"
         },
         {
-          "from": "DIKIS",
-          "to": "DOLAP",
-          "packet": "HÜSRAN",
-          "status": "asla giyilmeden dolapta yıllanır",
+          "from": "n3",
+          "to": "n4",
+          "packet": "TEPKİ",
+          "status": "vücut ısıyı korumak için hava cebi açar",
           "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Bu pantolonu terzi de kurtaramaz.\n\n'İndirimde iki beden büyüğünü alayım, terzide hallederiz' diyenlerin bilmediği o görünmez duvar:\n\n1. İPLİK YÖNÜ KAÇAR: Bir pantolonu iki bedenden fazla daraltmaya kalktığınızda kumaşın ana ekseni sapar. Ağ oyuntusu ve cepler kayar, yolda yürürken paça bacağınıza doğru burulmaya başlar.\n2. DİKİŞ PAYI YOKTUR: Seri üretim markaları kumaştan tasarruf etmek için dikiş paylarını milimetrik tutar. Terzinin kumaşı sıfırdan kesip doğru yöne oturtması için gereken ekstra kumaş içeride yoktur.\n3. KALIP BOZULUR: Sadece kenarlardan kestirmek kalıbı baştan bozar. Ne kadar usta terzi olursa olsun elde malzeme yoksa o paça dönmeye devam eder.\n\nTadilat sadece küçük rötuşlar içindir, kalıbı baştan baştan yaratmak için değil.\n\n📌 Kaydet — bir dahaki indirim hevesinde lazım olacak.\n\n🔁 Bunu her bulduğunu 'terzide hallederiz' diye sepete atan arkadaşına gönder.\n\nGardırobunda aylardır terzi bekleyen kaç parça var, dürüst ol?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "İndirimde sepeti onaylarken veya aniden soğuk basınca tüylerinin dikleşmesi tesadüf değil.\n\nBunu sağlayan mikroskobik mekanizma adım adım şöyle çalışıyor:\n\n1. Sempatik sinir uyarısı — Beynin heyecan veya ısı düşüşü algıladığında sempatik sinir sistemini saniyede devreye sokar.\n2. Arrektör pili kasları — Her bir tüy köküne bağlı olan gözle görülmez minik kaslar kasılarak tüyü dikleştirir.\n3. Hava yalıtım cebi — Dikleşen tüyler cilt yüzeyinde mikroskobik bir hava katmanı hapsederek ısı kaybını engellemeye çalışır.\n\nBinlerce liralık kışlık mont alsan da vücudun sıcaklığı korumak için ilk olarak milyonlarca yıllık bu biyolojik refleksine güveniyor.\n\nMonta servet ödedik ama ısıtmayı yine tüy dibindeki kas yapıyor.\n\n📌 Kaydet — kış alışverişinde bu bilgi lazım olacak.\n🔁 Bunu indirim görünce heyecandan tüyleri diken diken olan arkadaşına gönder.\nSen de soğukta mı yoksa heyecanlanınca mı daha çok diken diken olursun?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#giyim",
-    "#moda",
-    "#gardırop",
-    "#kombintüyoları",
-    "#terzi",
-    "#dikiş",
-    "#bedentablosu"
+    "#merak",
+    "#kadınlar",
+    "#nedenoluyor",
+    "#günlükhayat",
+    "#vücudumuz",
+    "#biyoloji"
   ],
-  "takeaway": "Kalıbı baştan bozulan kıyafete terzinin makası bile çare olamaz.",
+  "takeaway": "Pahalı ceket alsan da vücut ısısını tüy dibindeki kaslar koruyor.",
   "footage_queries": [
-    "measuring tape and fabric",
-    "sewing machine stitching close up"
+    "cozy home interior soft light",
+    "blanket folded on sofa close up"
   ],
   "narration": [
-    "Bu pantolonu terzi de kurtaramaz.",
-    "İki beden daraltılan pantolonun dikiş çizgisi kayıp bacağı burmaya başlar.",
-    "Hazır giyimde kumaş payı olmadığından terzi o aksı düzeltemez.",
-    "Cepteki üç kuruşluk indirim böylece dolapta yürüyen dönel paçaya dönüşür.",
-    "Kalıbı baştan bozulan kıyafete terzinin makası bile çare olamaz."
+    "İndirimde tüylerin neden diken diken?",
+    "Beyin heyecan veya soğuk algılayınca sempatik sinir sistemi anında tetiklenir.",
+    "Tüy köklerindeki arrektör pili kasları kasılarak tüyleri dik konuma getirir.",
+    "Eski çağlardan kalan bu refleks cilt yüzeyinde koruyucu hava tabakası kurar.",
+    "Pahalı ceket alsan da vücut ısısını bu minik kaslar korur."
   ],
-  "subject": "terzi tadilatı",
-  "sendTo": "her aldığını 'kısalttırırız' diye sepetine ekleyen annene",
-  "soru": "Gardırobunda aylardır terzi bekleyen kaç parça var, dürüst ol?",
+  "subject": "tüy dikleşmesi",
+  "sendTo": "İndirim görünce heyecandan tüyleri diken diken olan arkadaşına",
+  "soru": "Sen de soğukta mı yoksa heyecanlanınca mı daha çok diken diken olursun?",
   "theme": "#ff8fab",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -96,30 +96,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Bu pantolonu terzi de kurtaramaz.",
+      "text": "İndirimde tüylerin neden diken diken?",
       "start": 0.35,
-      "dur": 2.158
+      "dur": 2.277
     },
     {
-      "text": "İki beden daraltılan pantolonun dikiş çizgisi kayıp bacağı burmaya başlar.",
-      "start": 2.508,
-      "dur": 4.839
+      "text": "Beyin heyecan veya soğuk algılayınca sempatik sinir sistemi anında tetiklenir.",
+      "start": 2.627,
+      "dur": 4.801
     },
     {
-      "text": "Hazır giyimde kumaş payı olmadığından terzi o aksı düzeltemez.",
-      "start": 7.347,
-      "dur": 4.054
+      "text": "Tüy köklerindeki arrektör pili kasları kasılarak tüyleri dik konuma getirir.",
+      "start": 7.428,
+      "dur": 4.678
     },
     {
-      "text": "Cepteki üç kuruşluk indirim böylece dolapta yürüyen dönel paçaya dönüşür.",
-      "start": 11.402,
-      "dur": 4.774
+      "text": "Eski çağlardan kalan bu refleks cilt yüzeyinde koruyucu hava tabakası kurar.",
+      "start": 12.106,
+      "dur": 4.678
     },
     {
-      "text": "Kalıbı baştan bozulan kıyafete terzinin makası bile çare olamaz.",
-      "start": 16.175,
-      "dur": 5.285
+      "text": "Pahalı ceket alsan da vücut ısısını bu minik kaslar korur.",
+      "start": 16.784,
+      "dur": 4.67
     }
   ],
-  "thumbOffset": 1679
+  "thumbOffset": 1739
 }
