@@ -1,75 +1,59 @@
 {
-  "hook": "Volufiline sürüp ertesi sabah aynaya koşan o arkadaşın.",
-  "title": "Volufiline ve Ertesi Sabah Mucizesi",
+  "hook": "Hyalüronik asit serumuna servet döken o arkadaşın.",
+  "title": "Hyalüronik Asit: Pahalı vs Ucuz Gerçeği",
   "scenes": [
     {
-      "layout": "cycle",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "nodes-flow",
+      "kind": "versus",
+      "left": "LÜKS HA SERUMU",
+      "right": "UCUZ HA SERUMU",
+      "rows": [
         {
-          "id": "n1",
-          "label": "VOLUFILIN SURULUR"
+          "label": "ANA İÇERİK",
+          "left": "%95 SU VE GLİSERİN",
+          "right": "%95 SU VE GLİSERİN",
+          "winner": "tie"
         },
         {
-          "id": "n2",
-          "label": "YAG HUCROSI"
+          "label": "AKTİF ORANI",
+          "left": "%1.5 HYALÜRONİK",
+          "right": "%1.5 HYALÜRONİK",
+          "winner": "tie"
         },
         {
-          "id": "n3",
-          "label": "30 GUNLUK PERIYOT"
-        }
-      ],
-      "steps": [
-        {
-          "from": "n1",
-          "to": "n2",
-          "packet": "LIPID",
-          "status": "lipid uyarılır ama mucize sabah oluşmaz",
-          "color": "accent"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "ZAMAN",
-          "status": "doku büyümesi tam otuz gün zaman ister",
-          "color": "good"
-        },
-        {
-          "from": "n3",
-          "to": "n1",
-          "packet": "SABIR",
-          "status": "beşinci gün pes edilir krem rafa kalkar",
-          "color": "warn"
+          "label": "EKSTRA KATKI",
+          "left": "PARFÜM VE ŞIK CAM",
+          "right": "SADECE B5 VİTAMİNİ",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Volufiline sürdüğün gece dolgu yaptırmış gibi uyanacağını sanıyorsan yalnız değilsin.\n\nŞişedeki dolgu denilen Volufiline ciltte nasıl çalışır, neden sabır ister:\n\n1. Hücresel Uyarı — Sarsasapogenin aktifi, uygulandığı bölgedeki yağ hücrelerinin (adiposit) lipid depolamasını yavaşça uyarır.\n2. Doku Büyümesi — Yağ dokusu hacminin gözle görülür hâle gelmesi için hücrelerin zamana ihtiyacı vardır; bu biyolojik süreç minimum 30 gündür.\n3. Erken Pes — 5. günde aynaya bakıp 'işe yaramadı' diyerek ürünü terk etmek, cildin hücresel takvimini hiçe saymaktır.\n\nÜründen medikal dolgu enjeksiyonu performansı beklemek hayal kırıklığı yaratır; düzenli kullanımda hafif doku desteği sağlar.\n\nKrem suçlu değil, ertesi sabah aynaya koşan sabırsızlığımız suçlu.\n\n📌 Kaydet — yeni bir viral krem almadan önce hatırla.\n🔁 Bunu ertesi sabah aynada dolgu etkisi arayan arkadaşına gönder.\nSen sabırlı tarafta mısın yoksa 5. günde vazgeçenlerden mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "O hyalüronik asit serumuna ödediğin servetin gerçeğiyle yüzleşme vakti.\n\nPahalı ve ucuz hyalüronik asit serumları arasındaki farklar adım adım:\n\n1. Kıvam İllüzyonu: Elindeki o lüks, jöle gibi yoğun kıvamın sebebi hyalüronik asit zenginliği değil. Gerçek %1'lik asit çözeltisi bildiğin su gibi akışkandır. O dolgun hissi veren şey, içine katılan birkaç kuruşluk ucuz jelleştiriciler.\n2. Aktif Oranı: Cildin kaldırabileceği maksimum hyalüronik asit oranı zaten %1-2 arasındadır. Fazlası cildi kurutur, çöl eder. Yani lüks olan da ucuz olan da aynı güçte.\n3. Ambalaj Oyunu: Pahalı serumlar o lüks hissi pekiştirmek için ağır cam şişeler ve parfümler kullanır. Biz de masada şık dursun diye bu illüzyona servet dökeriz.\n\nAlırken neye dikkat etmeli: Yarın sabah alışveriş yaparken kıvama aldanma; arkasını çevirip parfümsüz ve sade içerikli olanı seç, paran cebinde kalsın.\n\nŞişesi havalı diye suya servet ödüyoruz ama olsun, masada şık duruyor.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n\n🔁 Bunu kavanoza servet yatıran, ama muadilini duyunca yıkılacak arkadaşına gönder.\n\nSen bir seruma en fazla kaç para verirsin?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimi",
     "#güzellik",
-    "#volufiline",
-    "#ciltbakimrutini",
-    "#dolguetkisi",
-    "#yagdokusu",
-    "#skincaretr"
+    "#ciltbakimi",
+    "#hyalüronikasit",
+    "#serum",
+    "#ciltbakımıönerileri",
+    "#ucuzvspahalı"
   ],
-  "takeaway": "Sürdüğün gece dolgu etkisi beklemek, tohuma hemen ağaç ol demek.",
+  "takeaway": "Parayı neme değil, havalı şişeye ödüyoruz süslüm.",
   "footage_queries": [
-    "cream texture macro",
-    "hands applying cream close up"
+    "serum drop close up",
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Volufiline sürüp ertesi sabah mucize bekleyenler!",
-    "Bitkisel aktif yağ hücrelerini yavaşça uyarıp hacim toplamaya zorlar.",
-    "Gerçek bir dolgunluk için dokunun en az bir ay süresi vardır.",
-    "Fakat sabırsız kullanıcı beşinci günde ürünü rafa kaldırıp pes eder.",
-    "Krem dolgu değildir hücresel süreç ertesi sabaha asla yetişmez."
+    "Hyalüronik asit serumuna servet ödeyenler.",
+    "O yoğun, zengin kıvam aslında ucuz jelleştirici hilesidir.",
+    "Gerçek hyalüronik asit su gibi akıp gider, durmaz.",
+    "Lüks markalar ucuz polimerle göz boyayıp kandırıyor.",
+    "Parayı hyalüronik asite değil, sadece şişesine ödüyoruz."
   ],
-  "subject": "volufiline",
-  "sendTo": "ertesi sabah aynada dolgu etkisi arayan arkadaşına",
-  "soru": "Sen sabırlı tarafta mısın yoksa 5. günde vazgeçenlerden mi?",
-  "theme": "#7fb3a5",
+  "subject": "hyalüronik asit",
+  "sendTo": "kavanoza servet yatıran, ama muadilini duyunca yıkılacak arkadaşına",
+  "soru": "Sen bir seruma en fazla kaç para verirsin?",
+  "theme": "#c9a227",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -88,35 +72,35 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "buildup",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Volufiline sürüp ertesi sabah mucize bekleyenler!",
+      "text": "Hyalüronik asit serumuna servet ödeyenler.",
       "start": 0.35,
-      "dur": 3.162
+      "dur": 3.254
     },
     {
-      "text": "Bitkisel aktif yağ hücrelerini yavaşça uyarıp hacim toplamaya zorlar.",
-      "start": 3.512,
-      "dur": 4.453
+      "text": "O yoğun, zengin kıvam aslında ucuz jelleştirici hilesidir.",
+      "start": 3.604,
+      "dur": 4.493
     },
     {
-      "text": "Gerçek bir dolgunluk için dokunun en az bir ay süresi vardır.",
-      "start": 7.965,
-      "dur": 3.937
+      "text": "Gerçek hyalüronik asit su gibi akıp gider, durmaz.",
+      "start": 8.097,
+      "dur": 3.874
     },
     {
-      "text": "Fakat sabırsız kullanıcı beşinci günde ürünü rafa kaldırıp pes eder.",
-      "start": 11.902,
-      "dur": 4.388
+      "text": "Lüks markalar ucuz polimerle göz boyayıp kandırıyor.",
+      "start": 11.971,
+      "dur": 4.029
     },
     {
-      "text": "Krem dolgu değildir hücresel süreç ertesi sabaha asla yetişmez.",
-      "start": 16.29,
-      "dur": 5.166
+      "text": "Parayı hyalüronik asite değil, sadece şişesine ödüyoruz.",
+      "start": 16,
+      "dur": 5.438
     }
   ],
-  "thumbOffset": 2181
+  "thumbOffset": 2030
 }

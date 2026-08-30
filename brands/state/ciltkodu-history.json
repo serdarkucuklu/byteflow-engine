@@ -835,5 +835,30 @@
     "durSec": 21.4,
     "mediaId": "17891688906609259",
     "postedAt": "2026-08-30T19:20:06.892Z"
+  },
+  {
+    "title": "Hyalüronik Asit: Pahalı vs Ucuz Gerçeği",
+    "subject": "hyalüronik asit",
+    "twist": "para",
+    "pillar": "para-degeri",
+    "layout": "nodes-flow",
+    "kinds": "versus",
+    "motion": "buildup",
+    "theme": "#c9a227",
+    "source": "gemini",
+    "footage": [
+      "pexels:serum drop close up",
+      "pexels:cosmetic bottles soft light",
+      "pexels:water droplets on glass",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": 5,
+    "voiceName": "Puck",
+    "muzik": "byteflow-ambient.mp3",
+    "sir": "Yüksek fiyatlı serumlardaki o 'zengin ve lüks' kıvam hyalüronik asidin yoğunluğundan değil, formüle eklenen sentetik kıv",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-08-30",
+    "durSec": 21.4
   }
 ]
