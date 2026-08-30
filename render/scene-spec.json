@@ -1,124 +1,121 @@
 {
-  "hook": "Sepette indirim görünce tüylerin neden diken diken olur?",
-  "title": "Tüylerin Diken Diken Olma Mekanizması",
+  "hook": "Volufiline sürüp ertesi sabah aynaya koşan o arkadaşın.",
+  "title": "Volufiline ve Ertesi Sabah Mucizesi",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "cycle",
       "kind": "diagram",
       "nodes": [
         {
           "id": "n1",
-          "label": "MINIK KASLAR"
+          "label": "VOLUFILIN SURULUR"
         },
         {
           "id": "n2",
-          "label": "SEMPATIK UYARI"
+          "label": "YAG HUCROSI"
         },
         {
           "id": "n3",
-          "label": "HAVA YALITIMI"
-        },
-        {
-          "id": "n4",
-          "label": "EVRIMSEL KANIT"
+          "label": "30 GUNLUK PERIYOT"
         }
       ],
       "steps": [
         {
           "from": "n1",
           "to": "n2",
-          "packet": "SİNYAL",
-          "status": "heyecan ve soğuk sempatik siniri",
+          "packet": "LIPID",
+          "status": "lipid uyarılır ama mucize sabah oluşmaz",
           "color": "accent"
         },
         {
           "from": "n2",
           "to": "n3",
-          "packet": "KASILM",
-          "status": "tüy dibindeki minik kas anında kasılır",
+          "packet": "ZAMAN",
+          "status": "doku büyümesi tam otuz gün zaman ister",
           "color": "good"
         },
         {
           "from": "n3",
-          "to": "n4",
-          "packet": "TEPKİ",
-          "status": "vücut ısıyı korumak için hava cebi açar",
+          "to": "n1",
+          "packet": "SABIR",
+          "status": "beşinci gün pes edilir krem rafa kalkar",
           "color": "warn"
         }
       ]
     }
   ],
-  "caption": "İndirimde sepeti onaylarken veya aniden soğuk basınca tüylerinin dikleşmesi tesadüf değil.\n\nBunu sağlayan mikroskobik mekanizma adım adım şöyle çalışıyor:\n\n1. Sempatik sinir uyarısı — Beynin heyecan veya ısı düşüşü algıladığında sempatik sinir sistemini saniyede devreye sokar.\n2. Arrektör pili kasları — Her bir tüy köküne bağlı olan gözle görülmez minik kaslar kasılarak tüyü dikleştirir.\n3. Hava yalıtım cebi — Dikleşen tüyler cilt yüzeyinde mikroskobik bir hava katmanı hapsederek ısı kaybını engellemeye çalışır.\n\nBinlerce liralık kışlık mont alsan da vücudun sıcaklığı korumak için ilk olarak milyonlarca yıllık bu biyolojik refleksine güveniyor.\n\nMonta servet ödedik ama ısıtmayı yine tüy dibindeki kas yapıyor.\n\n📌 Kaydet — kış alışverişinde bu bilgi lazım olacak.\n🔁 Bunu indirim görünce heyecandan tüyleri diken diken olan arkadaşına gönder.\nSen de soğukta mı yoksa heyecanlanınca mı daha çok diken diken olursun?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Volufiline sürdüğün gece dolgu yaptırmış gibi uyanacağını sanıyorsan yalnız değilsin.\n\nŞişedeki dolgu denilen Volufiline ciltte nasıl çalışır, neden sabır ister:\n\n1. Hücresel Uyarı — Sarsasapogenin aktifi, uygulandığı bölgedeki yağ hücrelerinin (adiposit) lipid depolamasını yavaşça uyarır.\n2. Doku Büyümesi — Yağ dokusu hacminin gözle görülür hâle gelmesi için hücrelerin zamana ihtiyacı vardır; bu biyolojik süreç minimum 30 gündür.\n3. Erken Pes — 5. günde aynaya bakıp 'işe yaramadı' diyerek ürünü terk etmek, cildin hücresel takvimini hiçe saymaktır.\n\nÜründen medikal dolgu enjeksiyonu performansı beklemek hayal kırıklığı yaratır; düzenli kullanımda hafif doku desteği sağlar.\n\nKrem suçlu değil, ertesi sabah aynaya koşan sabırsızlığımız suçlu.\n\n📌 Kaydet — yeni bir viral krem almadan önce hatırla.\n🔁 Bunu ertesi sabah aynada dolgu etkisi arayan arkadaşına gönder.\nSen sabırlı tarafta mısın yoksa 5. günde vazgeçenlerden mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#merak",
-    "#kadınlar",
-    "#nedenoluyor",
-    "#günlükhayat",
-    "#vücudumuz",
-    "#biyoloji"
+    "#ciltbakimi",
+    "#güzellik",
+    "#volufiline",
+    "#ciltbakimrutini",
+    "#dolguetkisi",
+    "#yagdokusu",
+    "#skincaretr"
   ],
-  "takeaway": "Pahalı ceket alsan da vücut ısısını tüy dibindeki kaslar koruyor.",
+  "takeaway": "Sürdüğün gece dolgu etkisi beklemek, tohuma hemen ağaç ol demek.",
   "footage_queries": [
-    "cozy home interior soft light",
-    "blanket folded on sofa close up"
+    "cream texture macro",
+    "hands applying cream close up"
   ],
   "narration": [
-    "İndirimde tüylerin neden diken diken?",
-    "Beyin heyecan veya soğuk algılayınca sempatik sinir sistemi anında tetiklenir.",
-    "Tüy köklerindeki arrektör pili kasları kasılarak tüyleri dik konuma getirir.",
-    "Eski çağlardan kalan bu refleks cilt yüzeyinde koruyucu hava tabakası kurar.",
-    "Pahalı ceket alsan da vücut ısısını bu minik kaslar korur."
+    "Volufiline sürüp ertesi sabah mucize bekleyenler!",
+    "Bitkisel aktif yağ hücrelerini yavaşça uyarıp hacim toplamaya zorlar.",
+    "Gerçek bir dolgunluk için dokunun en az bir ay süresi vardır.",
+    "Fakat sabırsız kullanıcı beşinci günde ürünü rafa kaldırıp pes eder.",
+    "Krem dolgu değildir hücresel süreç ertesi sabaha asla yetişmez."
   ],
-  "subject": "tüy dikleşmesi",
-  "sendTo": "İndirim görünce heyecandan tüyleri diken diken olan arkadaşına",
-  "soru": "Sen de soğukta mı yoksa heyecanlanınca mı daha çok diken diken olursun?",
-  "theme": "#ff8fab",
+  "subject": "volufiline",
+  "sendTo": "ertesi sabah aynada dolgu etkisi arayan arkadaşına",
+  "soru": "Sen sabırlı tarafta mısın yoksa 5. günde vazgeçenlerden mi?",
+  "theme": "#7fb3a5",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "ripple",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "İndirimde tüylerin neden diken diken?",
+      "text": "Volufiline sürüp ertesi sabah mucize bekleyenler!",
       "start": 0.35,
-      "dur": 2.277
+      "dur": 3.162
     },
     {
-      "text": "Beyin heyecan veya soğuk algılayınca sempatik sinir sistemi anında tetiklenir.",
-      "start": 2.627,
-      "dur": 4.801
+      "text": "Bitkisel aktif yağ hücrelerini yavaşça uyarıp hacim toplamaya zorlar.",
+      "start": 3.512,
+      "dur": 4.453
     },
     {
-      "text": "Tüy köklerindeki arrektör pili kasları kasılarak tüyleri dik konuma getirir.",
-      "start": 7.428,
-      "dur": 4.678
+      "text": "Gerçek bir dolgunluk için dokunun en az bir ay süresi vardır.",
+      "start": 7.965,
+      "dur": 3.937
     },
     {
-      "text": "Eski çağlardan kalan bu refleks cilt yüzeyinde koruyucu hava tabakası kurar.",
-      "start": 12.106,
-      "dur": 4.678
+      "text": "Fakat sabırsız kullanıcı beşinci günde ürünü rafa kaldırıp pes eder.",
+      "start": 11.902,
+      "dur": 4.388
     },
     {
-      "text": "Pahalı ceket alsan da vücut ısısını bu minik kaslar korur.",
-      "start": 16.784,
-      "dur": 4.67
+      "text": "Krem dolgu değildir hücresel süreç ertesi sabaha asla yetişmez.",
+      "start": 16.29,
+      "dur": 5.166
     }
   ]
 }

@@ -809,17 +809,17 @@
     "insightsAt": "2026-08-30T18:26:31.333Z"
   },
   {
-    "title": "Hyalüronik Asit Vaatleri ve Gerçekler",
-    "subject": "hyalüronik asit",
-    "twist": "pazarlama-dili",
-    "pillar": "iddia-kontrol",
-    "layout": "hub-spoke",
+    "title": "Volufiline ve Ertesi Sabah Mucizesi",
+    "subject": "volufiline",
+    "twist": "beklenti",
+    "pillar": "trend-mekanik",
+    "layout": "cycle",
     "kinds": "diagram",
     "motion": "ripple",
     "theme": "#7fb3a5",
     "source": "gemini",
     "footage": [
-      "pexels:serum drop close up",
+      "pexels:cream texture macro",
       "pexels:hands applying cream close up",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
@@ -827,10 +827,11 @@
     "voice": 5,
     "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Markaların 'aşırı küçük/nano moleküllü hyalüronik asit en alt katmana inip cildi hücresel düzeyde yeniler' iddiasının ak",
-    "sirUygulandi": "kismi",
-    "sirAtlandi": null,
-    "date": "2026-08-28",
+    "not": "Daha az bilinen farklı bir konu olsun",
+    "sir": null,
+    "sirUygulandi": null,
+    "sirAtlandi": "not-var",
+    "date": "2026-08-30",
     "durSec": 21.4
   }
 ]

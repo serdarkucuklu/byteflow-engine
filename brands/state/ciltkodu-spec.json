@@ -1,78 +1,74 @@
 {
-  "hook": "Hyalüronik asitte %99 nem vaadine kanan o arkadaşın.",
-  "title": "Hyalüronik Asit Vaatleri ve Gerçekler",
+  "hook": "Volufiline sürüp ertesi sabah aynaya koşan o arkadaşın.",
+  "title": "Volufiline ve Ertesi Sabah Mucizesi",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "cycle",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "ha",
-          "label": "HYALÜRONİK ASİT"
+          "id": "n1",
+          "label": "VOLUFILIN SURULUR"
         },
         {
-          "id": "vaat",
-          "label": "72 SAAT NEM"
+          "id": "n2",
+          "label": "YAG HUCROSI"
         },
         {
-          "id": "boyut",
-          "label": "MOLEKÜL BOYUTU"
-        },
-        {
-          "id": "sonuc",
-          "label": "YÜZEYSEL SU"
+          "id": "n3",
+          "label": "30 GUNLUK PERIYOT"
         }
       ],
       "steps": [
         {
-          "from": "ha",
-          "to": "boyut",
-          "packet": "BOYUT",
-          "status": "dev molekül alt cilde asla geçemez",
-          "color": "warn"
-        },
-        {
-          "from": "ha",
-          "to": "vaat",
-          "packet": "HAVADA",
-          "status": "kuru havada nemi cildinden çeker",
-          "color": "warn"
-        },
-        {
-          "from": "ha",
-          "to": "sonuc",
-          "packet": "SUKUT",
-          "status": "mucize denen etki ilk yıkamada biter",
+          "from": "n1",
+          "to": "n2",
+          "packet": "LIPID",
+          "status": "lipid uyarılır ama mucize sabah oluşmaz",
           "color": "accent"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "ZAMAN",
+          "status": "doku büyümesi tam otuz gün zaman ister",
+          "color": "good"
+        },
+        {
+          "from": "n3",
+          "to": "n1",
+          "packet": "SABIR",
+          "status": "beşinci gün pes edilir krem rafa kalkar",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Kutunun üstüne %99 nem yazmak kolay, peki o \"derine inen nano molekül\" masalı gerçekte ne yapıyor?\n\nHyalüronik asit ambalajındaki dev iddialar ve arkasındaki gerçekler:\n\n1. Nano Molekül Tuzağı — \"Derine insin\" diye parçalanan o minik hyalüronik asitler, cildin altına inince hücresel yenilenme yapmak yerine cildin yangın alarmına basıyor.\n2. Yanlış Alarm — Cilt bu küçültülmüş molekülleri bir doku hasarı ve yara sinyali zannedip paniğe kapılıyor.\n3. Gizli Hasar — Sürekli panikleyen ve savunmaya geçen ciltte sinsi mikro-enflamasyonlar oluşuyor, bariyer nem tutacağına daha da yıpranıyor.\n\nNem serumu alırken vaatlere değil, arkasına occlusive yani nemi hapseden bir krem sürüp sürmediğinize bakın.\n\nAmbalajın üstündeki vaatler gerçek olsaydı hepimiz bebek teniyle geziyorduk.\n\n📌 Kaydet — bir dahaki krem alışverişinde lazım olacak.\n🔁 Bunu kutudaki her pazarlama vaadine hemen inanan arkadaşına gönder.\nSen de '72 saat nem' yazısını görünce gözü kapalı alanlardan mısın?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Volufiline sürdüğün gece dolgu yaptırmış gibi uyanacağını sanıyorsan yalnız değilsin.\n\nŞişedeki dolgu denilen Volufiline ciltte nasıl çalışır, neden sabır ister:\n\n1. Hücresel Uyarı — Sarsasapogenin aktifi, uygulandığı bölgedeki yağ hücrelerinin (adiposit) lipid depolamasını yavaşça uyarır.\n2. Doku Büyümesi — Yağ dokusu hacminin gözle görülür hâle gelmesi için hücrelerin zamana ihtiyacı vardır; bu biyolojik süreç minimum 30 gündür.\n3. Erken Pes — 5. günde aynaya bakıp 'işe yaramadı' diyerek ürünü terk etmek, cildin hücresel takvimini hiçe saymaktır.\n\nÜründen medikal dolgu enjeksiyonu performansı beklemek hayal kırıklığı yaratır; düzenli kullanımda hafif doku desteği sağlar.\n\nKrem suçlu değil, ertesi sabah aynaya koşan sabırsızlığımız suçlu.\n\n📌 Kaydet — yeni bir viral krem almadan önce hatırla.\n🔁 Bunu ertesi sabah aynada dolgu etkisi arayan arkadaşına gönder.\nSen sabırlı tarafta mısın yoksa 5. günde vazgeçenlerden mi?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
-    "#hyalüronikasit",
-    "#ciltbakimigutusu",
-    "#nemlendirici",
-    "#ciltbariyeri",
-    "#nem"
+    "#volufiline",
+    "#ciltbakimrutini",
+    "#dolguetkisi",
+    "#yagdokusu",
+    "#skincaretr"
   ],
-  "takeaway": "Etikete değil moleküle bak, nemi cilde kremsiz hapsetme.",
+  "takeaway": "Sürdüğün gece dolgu etkisi beklemek, tohuma hemen ağaç ol demek.",
   "footage_queries": [
-    "serum drop close up",
+    "cream texture macro",
     "hands applying cream close up"
   ],
   "narration": [
-    "Hyalüronik asit vaatleri tam bir masal.",
-    "Derine inen o minik moleküller cildi yangın var diye korkutuyor.",
-    "Alarm veren cilt kendi kendini korumaya çalışırken bariyerini yıpratıyor.",
-    "Nano mucize denen şey aslında cilde gizli mikro zarar veriyor.",
-    "İçerik değil doğru nem kilit yöntemi cildi kurtarır."
+    "Volufiline sürüp ertesi sabah mucize bekleyenler!",
+    "Bitkisel aktif yağ hücrelerini yavaşça uyarıp hacim toplamaya zorlar.",
+    "Gerçek bir dolgunluk için dokunun en az bir ay süresi vardır.",
+    "Fakat sabırsız kullanıcı beşinci günde ürünü rafa kaldırıp pes eder.",
+    "Krem dolgu değildir hücresel süreç ertesi sabaha asla yetişmez."
   ],
-  "subject": "hyalüronik asit",
-  "sendTo": "kutudaki her pazarlama vaadine hemen inanan arkadaşına",
-  "soru": "Sen de '72 saat nem' yazısını görünce gözü kapalı alanlardan mısın?",
+  "subject": "volufiline",
+  "sendTo": "ertesi sabah aynada dolgu etkisi arayan arkadaşına",
+  "soru": "Sen sabırlı tarafta mısın yoksa 5. günde vazgeçenlerden mi?",
   "theme": "#7fb3a5",
   "brand": {
     "handle": "@cilt.kodu",
@@ -97,30 +93,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Hyalüronik asit vaatleri tam bir masal.",
+      "text": "Volufiline sürüp ertesi sabah mucize bekleyenler!",
       "start": 0.35,
-      "dur": 2.691
+      "dur": 3.162
     },
     {
-      "text": "Derine inen o minik moleküller cildi yangın var diye korkutuyor.",
-      "start": 3.041,
-      "dur": 4.416
+      "text": "Bitkisel aktif yağ hücrelerini yavaşça uyarıp hacim toplamaya zorlar.",
+      "start": 3.512,
+      "dur": 4.453
     },
     {
-      "text": "Alarm veren cilt kendi kendini korumaya çalışırken bariyerini yıpratıyor.",
-      "start": 7.457,
-      "dur": 5.037
+      "text": "Gerçek bir dolgunluk için dokunun en az bir ay süresi vardır.",
+      "start": 7.965,
+      "dur": 3.937
     },
     {
-      "text": "Nano mucize denen şey aslında cilde gizli mikro zarar veriyor.",
-      "start": 12.493,
-      "dur": 4.278
+      "text": "Fakat sabırsız kullanıcı beşinci günde ürünü rafa kaldırıp pes eder.",
+      "start": 11.902,
+      "dur": 4.388
     },
     {
-      "text": "İçerik değil doğru nem kilit yöntemi cildi kurtarır.",
-      "start": 16.771,
-      "dur": 4.688
+      "text": "Krem dolgu değildir hücresel süreç ertesi sabaha asla yetişmez.",
+      "start": 16.29,
+      "dur": 5.166
     }
   ],
-  "thumbOffset": 1946
+  "thumbOffset": 2181
 }
