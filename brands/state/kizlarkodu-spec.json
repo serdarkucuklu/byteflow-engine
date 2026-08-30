@@ -1,77 +1,77 @@
 {
-  "hook": "Sepette indirim görünce tüylerin neden diken diken olur?",
-  "title": "Tüylerin Diken Diken Olma Mekanizması",
+  "hook": "Tırnaktaki beyaz leke kalsiyum değil, anneannen haklıydı!",
+  "title": "Tırnaktaki Beyaz Lekenin Sırrı",
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "kind": "diagram",
+      "layout": "cycle",
       "nodes": [
         {
           "id": "n1",
-          "label": "MINIK KASLAR"
+          "label": "TIRNAK KÖKÜ"
         },
         {
           "id": "n2",
-          "label": "SEMPATIK UYARI"
+          "label": "MİNİK DARBE"
         },
         {
           "id": "n3",
-          "label": "HAVA YALITIMI"
+          "label": "HAVA BOŞLUĞU"
         },
         {
           "id": "n4",
-          "label": "EVRIMSEL KANIT"
+          "label": "6 AYLIK YOLCULUK"
         }
       ],
       "steps": [
         {
           "from": "n1",
           "to": "n2",
-          "packet": "SİNYAL",
-          "status": "heyecan ve soğuk sempatik siniri",
-          "color": "accent"
+          "packet": "DARBE",
+          "status": "kütiküle minik darbe iner anneanne",
+          "color": "warn"
         },
         {
           "from": "n2",
           "to": "n3",
-          "packet": "KASILM",
-          "status": "tüy dibindeki minik kas anında kasılır",
-          "color": "good"
+          "packet": "HÜCRE",
+          "status": "hasarlı keratin sıkışır süt içsen de",
+          "color": "warn"
         },
         {
           "from": "n3",
           "to": "n4",
-          "packet": "TEPKİ",
-          "status": "vücut ısıyı korumak için hava cebi açar",
-          "color": "warn"
+          "packet": "UZAMA",
+          "status": "tırnak uzadıkça leke 6 ay sonra uca",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "İndirimde sepeti onaylarken veya aniden soğuk basınca tüylerinin dikleşmesi tesadüf değil.\n\nBunu sağlayan mikroskobik mekanizma adım adım şöyle çalışıyor:\n\n1. Sempatik sinir uyarısı — Beynin heyecan veya ısı düşüşü algıladığında sempatik sinir sistemini saniyede devreye sokar.\n2. Arrektör pili kasları — Her bir tüy köküne bağlı olan gözle görülmez minik kaslar kasılarak tüyü dikleştirir.\n3. Hava yalıtım cebi — Dikleşen tüyler cilt yüzeyinde mikroskobik bir hava katmanı hapsederek ısı kaybını engellemeye çalışır.\n\nBinlerce liralık kışlık mont alsan da vücudun sıcaklığı korumak için ilk olarak milyonlarca yıllık bu biyolojik refleksine güveniyor.\n\nMonta servet ödedik ama ısıtmayı yine tüy dibindeki kas yapıyor.\n\n📌 Kaydet — kış alışverişinde bu bilgi lazım olacak.\n🔁 Bunu indirim görünce heyecandan tüyleri diken diken olan arkadaşına gönder.\nSen de soğukta mı yoksa heyecanlanınca mı daha çok diken diken olursun?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Tırnağındaki beyaz leke kalsiyum eksikliği değil, aylar önceki o minik darbe!\n\nTırnaktaki lekenin 6 aylık yolculuğu şöyle çalışıyor:\n\n1. TIRNAK KÖKÜ — Tırnağın uzadığı matris bölgesi darbelere karşı son derece hassastır.\n2. MİNİK DARBE — Klavyeye sert basmak veya tırnak etini zorlamak matristeki hücre yapısını bozar.\n3. HAVA BOŞLUĞU — Hasarlı keratin üretilince tırnak katmanları arasında gözle görülen minik hava boşluğu kalır.\n4. 6 AYLIK YOLCULUK — Tırnak kökten uca uzarken o geçmiş darbe leke olarak aylar sonra gün yüzüne çıkar.\n\nYani süt içmek lekeyi yok etmez; kütikül bölgesini nemlendirip korumak çözümdür.\n\nAnneannen tırnak diplerine kremi boşuna sürmüyormuş, kadının bir bildiği varmış.\n\n📌 Kaydet — tırnağında leke görünce paniğe kapılma.\n🔁 Bunu tırnağında beyaz leke görünce hemen süt içmeye çalışan arkadaşına gönder.\nSen de o lekeyi kalsiyum eksikliği sananlardan mısın?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
-    "#kadınlar",
-    "#nedenoluyor",
     "#günlükhayat",
-    "#vücudumuz",
-    "#biyoloji"
+    "#tırnakbakımı",
+    "#vücutmekanizması",
+    "#sağlıkefsaneleri",
+    "#tırnaklekesi",
+    "#kalsiyum"
   ],
-  "takeaway": "Pahalı ceket alsan da vücut ısısını tüy dibindeki kaslar koruyor.",
+  "takeaway": "Süt içmeyi bırak, 6 ay önceki masaya vurma anını hatırla!",
   "footage_queries": [
-    "cozy home interior soft light",
-    "blanket folded on sofa close up"
+    "bathroom mirror steam close up",
+    "faucet water drops close up"
   ],
   "narration": [
-    "İndirimde tüylerin neden diken diken?",
-    "Beyin heyecan veya soğuk algılayınca sempatik sinir sistemi anında tetiklenir.",
-    "Tüy köklerindeki arrektör pili kasları kasılarak tüyleri dik konuma getirir.",
-    "Eski çağlardan kalan bu refleks cilt yüzeyinde koruyucu hava tabakası kurar.",
-    "Pahalı ceket alsan da vücut ısısını bu minik kaslar korur."
+    "Tırnaktaki leke kalsiyum eksikliği değildir.",
+    "Aylar önce masaya vurduğun kütikül matrisindeki hücre zedelenir.",
+    "Bozulan keratin üretimi orada şeffaf olmayan hava boşluğu bırakır.",
+    "Tırnak yavaşça uzadıkça o eski darbe leke olarak uca taşınır.",
+    "Anneannenin tırnak etini koru demesi meğer tam bilimsel gerçekmiş."
   ],
-  "subject": "tüy dikleşmesi",
-  "sendTo": "İndirim görünce heyecandan tüyleri diken diken olan arkadaşına",
-  "soru": "Sen de soğukta mı yoksa heyecanlanınca mı daha çok diken diken olursun?",
+  "subject": "tırnak lekesi",
+  "sendTo": "tırnağında beyaz leke görünce hemen süt içmeye çalışan arkadaşına",
+  "soru": "Sen de o lekeyi kalsiyum eksikliği sananlardan mısın?",
   "theme": "#ff8fab",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -96,30 +96,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "İndirimde tüylerin neden diken diken?",
+      "text": "Tırnaktaki leke kalsiyum eksikliği değildir.",
       "start": 0.35,
-      "dur": 2.277
+      "dur": 2.923
     },
     {
-      "text": "Beyin heyecan veya soğuk algılayınca sempatik sinir sistemi anında tetiklenir.",
-      "start": 2.627,
-      "dur": 4.801
+      "text": "Aylar önce masaya vurduğun kütikül matrisindeki hücre zedelenir.",
+      "start": 3.273,
+      "dur": 4.252
     },
     {
-      "text": "Tüy köklerindeki arrektör pili kasları kasılarak tüyleri dik konuma getirir.",
-      "start": 7.428,
-      "dur": 4.678
+      "text": "Bozulan keratin üretimi orada şeffaf olmayan hava boşluğu bırakır.",
+      "start": 7.525,
+      "dur": 4.385
     },
     {
-      "text": "Eski çağlardan kalan bu refleks cilt yüzeyinde koruyucu hava tabakası kurar.",
-      "start": 12.106,
-      "dur": 4.678
+      "text": "Tırnak yavaşça uzadıkça o eski darbe leke olarak uca taşınır.",
+      "start": 11.91,
+      "dur": 4.053
     },
     {
-      "text": "Pahalı ceket alsan da vücut ısısını bu minik kaslar korur.",
-      "start": 16.784,
-      "dur": 4.67
+      "text": "Anneannenin tırnak etini koru demesi meğer tam bilimsel gerçekmiş.",
+      "start": 15.962,
+      "dur": 5.485
     }
   ],
-  "thumbOffset": 1739
+  "thumbOffset": 2030
 }

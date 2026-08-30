@@ -1,105 +1,124 @@
 {
-  "hook": "Hyalüronik asit serumuna servet döken o arkadaşın.",
-  "title": "Hyalüronik Asit: Pahalı vs Ucuz Gerçeği",
+  "hook": "Tırnaktaki beyaz leke kalsiyum değil, anneannen haklıydı!",
+  "title": "Tırnaktaki Beyaz Lekenin Sırrı",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "versus",
-      "left": "LÜKS HA SERUMU",
-      "right": "UCUZ HA SERUMU",
-      "rows": [
+      "layout": "cycle",
+      "nodes": [
         {
-          "label": "ANA İÇERİK",
-          "left": "%95 SU VE GLİSERİN",
-          "right": "%95 SU VE GLİSERİN",
-          "winner": "tie"
+          "id": "n1",
+          "label": "TIRNAK KÖKÜ"
         },
         {
-          "label": "AKTİF ORANI",
-          "left": "%1.5 HYALÜRONİK",
-          "right": "%1.5 HYALÜRONİK",
-          "winner": "tie"
+          "id": "n2",
+          "label": "MİNİK DARBE"
         },
         {
-          "label": "EKSTRA KATKI",
-          "left": "PARFÜM VE ŞIK CAM",
-          "right": "SADECE B5 VİTAMİNİ",
-          "winner": "right"
+          "id": "n3",
+          "label": "HAVA BOŞLUĞU"
+        },
+        {
+          "id": "n4",
+          "label": "6 AYLIK YOLCULUK"
+        }
+      ],
+      "steps": [
+        {
+          "from": "n1",
+          "to": "n2",
+          "packet": "DARBE",
+          "status": "kütiküle minik darbe iner anneanne",
+          "color": "warn"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "HÜCRE",
+          "status": "hasarlı keratin sıkışır süt içsen de",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "UZAMA",
+          "status": "tırnak uzadıkça leke 6 ay sonra uca",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "O hyalüronik asit serumuna ödediğin servetin gerçeğiyle yüzleşme vakti.\n\nPahalı ve ucuz hyalüronik asit serumları arasındaki farklar adım adım:\n\n1. Kıvam İllüzyonu: Elindeki o lüks, jöle gibi yoğun kıvamın sebebi hyalüronik asit zenginliği değil. Gerçek %1'lik asit çözeltisi bildiğin su gibi akışkandır. O dolgun hissi veren şey, içine katılan birkaç kuruşluk ucuz jelleştiriciler.\n2. Aktif Oranı: Cildin kaldırabileceği maksimum hyalüronik asit oranı zaten %1-2 arasındadır. Fazlası cildi kurutur, çöl eder. Yani lüks olan da ucuz olan da aynı güçte.\n3. Ambalaj Oyunu: Pahalı serumlar o lüks hissi pekiştirmek için ağır cam şişeler ve parfümler kullanır. Biz de masada şık dursun diye bu illüzyona servet dökeriz.\n\nAlırken neye dikkat etmeli: Yarın sabah alışveriş yaparken kıvama aldanma; arkasını çevirip parfümsüz ve sade içerikli olanı seç, paran cebinde kalsın.\n\nŞişesi havalı diye suya servet ödüyoruz ama olsun, masada şık duruyor.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n\n🔁 Bunu kavanoza servet yatıran, ama muadilini duyunca yıkılacak arkadaşına gönder.\n\nSen bir seruma en fazla kaç para verirsin?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Tırnağındaki beyaz leke kalsiyum eksikliği değil, aylar önceki o minik darbe!\n\nTırnaktaki lekenin 6 aylık yolculuğu şöyle çalışıyor:\n\n1. TIRNAK KÖKÜ — Tırnağın uzadığı matris bölgesi darbelere karşı son derece hassastır.\n2. MİNİK DARBE — Klavyeye sert basmak veya tırnak etini zorlamak matristeki hücre yapısını bozar.\n3. HAVA BOŞLUĞU — Hasarlı keratin üretilince tırnak katmanları arasında gözle görülen minik hava boşluğu kalır.\n4. 6 AYLIK YOLCULUK — Tırnak kökten uca uzarken o geçmiş darbe leke olarak aylar sonra gün yüzüne çıkar.\n\nYani süt içmek lekeyi yok etmez; kütikül bölgesini nemlendirip korumak çözümdür.\n\nAnneannen tırnak diplerine kremi boşuna sürmüyormuş, kadının bir bildiği varmış.\n\n📌 Kaydet — tırnağında leke görünce paniğe kapılma.\n🔁 Bunu tırnağında beyaz leke görünce hemen süt içmeye çalışan arkadaşına gönder.\nSen de o lekeyi kalsiyum eksikliği sananlardan mısın?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#güzellik",
-    "#ciltbakimi",
-    "#hyalüronikasit",
-    "#serum",
-    "#ciltbakımıönerileri",
-    "#ucuzvspahalı"
+    "#merak",
+    "#günlükhayat",
+    "#tırnakbakımı",
+    "#vücutmekanizması",
+    "#sağlıkefsaneleri",
+    "#tırnaklekesi",
+    "#kalsiyum"
   ],
-  "takeaway": "Parayı neme değil, havalı şişeye ödüyoruz süslüm.",
+  "takeaway": "Süt içmeyi bırak, 6 ay önceki masaya vurma anını hatırla!",
   "footage_queries": [
-    "serum drop close up",
-    "cosmetic bottles soft light"
+    "bathroom mirror steam close up",
+    "faucet water drops close up"
   ],
   "narration": [
-    "Hyalüronik asit serumuna servet ödeyenler.",
-    "O yoğun, zengin kıvam aslında ucuz jelleştirici hilesidir.",
-    "Gerçek hyalüronik asit su gibi akıp gider, durmaz.",
-    "Lüks markalar ucuz polimerle göz boyayıp kandırıyor.",
-    "Parayı hyalüronik asite değil, sadece şişesine ödüyoruz."
+    "Tırnaktaki leke kalsiyum eksikliği değildir.",
+    "Aylar önce masaya vurduğun kütikül matrisindeki hücre zedelenir.",
+    "Bozulan keratin üretimi orada şeffaf olmayan hava boşluğu bırakır.",
+    "Tırnak yavaşça uzadıkça o eski darbe leke olarak uca taşınır.",
+    "Anneannenin tırnak etini koru demesi meğer tam bilimsel gerçekmiş."
   ],
-  "subject": "hyalüronik asit",
-  "sendTo": "kavanoza servet yatıran, ama muadilini duyunca yıkılacak arkadaşına",
-  "soru": "Sen bir seruma en fazla kaç para verirsin?",
-  "theme": "#c9a227",
+  "subject": "tırnak lekesi",
+  "sendTo": "tırnağında beyaz leke görünce hemen süt içmeye çalışan arkadaşına",
+  "soru": "Sen de o lekeyi kalsiyum eksikliği sananlardan mısın?",
+  "theme": "#ff8fab",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Hyalüronik asit serumuna servet ödeyenler.",
+      "text": "Tırnaktaki leke kalsiyum eksikliği değildir.",
       "start": 0.35,
-      "dur": 3.254
+      "dur": 2.923
     },
     {
-      "text": "O yoğun, zengin kıvam aslında ucuz jelleştirici hilesidir.",
-      "start": 3.604,
-      "dur": 4.493
+      "text": "Aylar önce masaya vurduğun kütikül matrisindeki hücre zedelenir.",
+      "start": 3.273,
+      "dur": 4.252
     },
     {
-      "text": "Gerçek hyalüronik asit su gibi akıp gider, durmaz.",
-      "start": 8.097,
-      "dur": 3.874
+      "text": "Bozulan keratin üretimi orada şeffaf olmayan hava boşluğu bırakır.",
+      "start": 7.525,
+      "dur": 4.385
     },
     {
-      "text": "Lüks markalar ucuz polimerle göz boyayıp kandırıyor.",
-      "start": 11.971,
-      "dur": 4.029
+      "text": "Tırnak yavaşça uzadıkça o eski darbe leke olarak uca taşınır.",
+      "start": 11.91,
+      "dur": 4.053
     },
     {
-      "text": "Parayı hyalüronik asite değil, sadece şişesine ödüyoruz.",
-      "start": 16,
-      "dur": 5.438
+      "text": "Anneannenin tırnak etini koru demesi meğer tam bilimsel gerçekmiş.",
+      "start": 15.962,
+      "dur": 5.485
     }
   ]
 }

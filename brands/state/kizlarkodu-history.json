@@ -331,29 +331,29 @@
     "insightsAt": "2026-08-30T19:40:45.596Z"
   },
   {
-    "title": "Tüylerin Diken Diken Olma Mekanizması",
-    "subject": "tüy dikleşmesi",
-    "twist": "para",
-    "pillar": "tuy-diken-diken",
-    "layout": "hub-spoke",
+    "title": "Tırnaktaki Beyaz Lekenin Sırrı",
+    "subject": "tırnak lekesi",
+    "twist": "anneannen-hakliymis",
+    "pillar": "tirnak-isaretleri",
+    "layout": "cycle",
     "kinds": "diagram",
     "motion": "orbit",
     "theme": "#ff8fab",
     "source": "gemini",
     "footage": [
-      "pexels:cozy home interior soft light",
-      "pexels:blanket folded on sofa close up",
+      "pexels:bathroom mirror steam close up",
+      "pexels:faucet water drops close up",
       "pexels:alarm clock on nightstand close up",
-      "pexels:bathroom mirror steam close up"
+      "pexels:coffee cup steam morning light"
     ],
     "voice": 5,
-    "voiceName": "Kore",
+    "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Her kadının bilmediği bir bilgi olsun, öğretici güzel bir bilgi",
+    "not": "Daha az bilinen farklı bir konu olsun",
     "sir": null,
     "sirUygulandi": null,
     "sirAtlandi": "not-var",
-    "date": "2026-08-28",
+    "date": "2026-08-30",
     "durSec": 21.4
   }
 ]
