@@ -847,28 +847,29 @@
     "insightsAt": "2026-08-31T20:41:05.432Z"
   },
   {
-    "title": "Micellar Su: Pahalı ve Ucuz Arasındaki Tek Fark",
-    "subject": "micellar su",
-    "twist": "gece-sepeti",
-    "pillar": "para-degeri",
+    "title": "Salisilik Asit vs Glikolik Asit",
+    "subject": "salisilik asit",
+    "twist": "dolap-mezarligi",
+    "pillar": "karsilastirma",
     "layout": "nodes-flow",
     "kinds": "versus",
     "motion": "buildup",
     "theme": "#c9a227",
     "source": "gemini",
     "footage": [
-      "pexels:silk fabric flowing",
       "pexels:cosmetic bottles soft light",
+      "pexels:soap bubbles macro",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
-    "voice": 6,
+    "voice": 5,
     "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Pahalı ve ucuz misel sularının neredeyse tamamı, kir ve makyajı hapsetmek için Poloxamer 184 veya PEG-6 gibi tamamen ayn",
-    "sirUygulandi": "kismi",
-    "sirAtlandi": null,
+    "not": "Daha farklı bir konu bul lütfen, öğretici her kıxın kadının bilmediği bir cilt bakım konusu olsun",
+    "sir": null,
+    "sirUygulandi": null,
+    "sirAtlandi": "not-var",
     "date": "2026-08-31",
-    "durSec": 21.4
+    "durSec": 19.4
   }
 ]

@@ -1,66 +1,59 @@
 {
-  "hook": "Gece 2'de kargo bedava olsun diye alınan o micellar su...",
-  "title": "Micellar Su: Pahalı ve Ucuz Arasındaki Tek Fark",
+  "hook": "Çekmecesi yarım asitlerle dolu olan o arkadaşın.",
+  "title": "Salisilik Asit vs Glikolik Asit",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "versus",
-      "left": "PAHALI MİCELLAR SU",
-      "right": "BÜTÇE DOSTU MİCELLAR",
+      "left": "Glikolik Asit",
+      "right": "Salisilik Asit",
       "rows": [
         {
-          "label": "TEMEL İÇERİK",
-          "left": "Arıtılmış su ve misel",
-          "right": "Arıtılmış su ve misel",
-          "winner": "tie"
-        },
-        {
-          "label": "TEMİZLEME GÜCÜ",
-          "left": "Aynı sürfaktan yapısı",
-          "right": "Aynı sürfaktan yapısı",
-          "winner": "tie"
-        },
-        {
-          "label": "AMBALAJ & PARFÜM",
-          "left": "Süslü şişe ve koku",
-          "right": "Sade plastik ambalaj",
+          "label": "ÇÖZÜNÜRLÜK",
+          "left": "Suda çözünür",
+          "right": "Yağda çözünür",
           "winner": "right"
         },
         {
-          "label": "MALİYET FARKI",
-          "left": "Marka ve reklam primi",
-          "right": "Yalnızca formül fiyatı",
+          "label": "HEDEF ALAN",
+          "left": "Cilt yüzeyi",
+          "right": "Gözenek içi",
+          "winner": "right"
+        },
+        {
+          "label": "SİYAH NOKTA",
+          "left": "Yüzeyde kalır",
+          "right": "Yağı kökten eritir",
           "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Gece 2'de sırf kargo bedava olsun diye sepete attığın ürünler...\n\nGece 2'de kargo bedava eşiğini geçmek için sepete attığın micellar suyun perde arkası:\n\n1. Temel İçerik — Ucuz ve lüks misel sularının temelinde tamamen aynı temizleyici yüzey aktif maddeler bulunur.\n2. Temizleme Gücü — Makyajı ve kiri bir mıknatıs gibi hapseden Poloxamer 184 veya PEG-6 molekülleri iki tarafta da birebir aynıdır.\n3. Parfüm ve Ambalaj — Fiyatı katlayan şey daha gelişmiş bir temizlik teknolojisi değil, %1'den az orandaki koku ve ağır şişelerdir.\n4. Pazarlama İllüzyonu — Kargo bedava gelsin derken ödediğin ekstra bütçe doğrudan markanın pazarlama çarkına gider.\n\nMisel suda bakman gereken tek şey içerik listesinin sadeliği ve cildi yormayan Poloxamer yapısıdır.\n\nÜcretsiz kargo kazandık ama yine pazarlamaya yakalandık.\n\n📌 Kaydet — bir dahaki gece 2 alışveriş krizinde açıp bakarsın.\n\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını unutan arkadaşına gönder.\n\nSenin gece 2 sepetinde şu an kaç ürün var, dürüst ol?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Siyah nokta için aldığın asit neden banyoda toz topluyor?\n\nÇekmecendeki yarım kalmış asit şişelerinin gerçek sebebi:\n\n1. Çözünürlük farkı — Glikolik asit suda çözünür. Yüzeydeki ölü deriyi soyar ama yağlı gözenek duvarına çarpıp kalır.\n2. Gözenek erişimi — Salisilik asit (BHA) yağda çözünür. Sebum biriken tıkalı gözeneğin en derinine rahatça sızar.\n3. Siyah nokta performansı — Yağda çözünmeyen asit siyah noktayı temizleyemez. İşe yaramadı sanıp kenara atarsın, raf mezarlığa döner.\n\nAsit alırken süslü şişeye değil, yağda mı suda mı çözündüğüne bakmalısın.\n\nYanlış asit gözenekleri değil, sadece banyo raflarını doldurur.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n\n🔁 Bunu çekmecesinde yarım kalmış asit şişeleri biriken arkadaşına gönder.\n\nÇekmecende şu an kaç tane yarım kalmış ürün var?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#makyaj",
-    "#güzellik",
-    "#micellarsu",
-    "#makyajtemizleme",
-    "#ciltbariyeri",
-    "#makyajönerileri"
+    "#guzellik",
+    "#salisilikasit",
+    "#glikolikasit",
+    "#siyahnokta",
+    "#ciltrutini",
+    "#bha"
   ],
-  "takeaway": "Su ile sürfaktan karışımına marka ambalajı parası verdik yine.",
+  "takeaway": "Gözeneğine giremeyen asit banyoda toz toplamaya mahkumdur.",
   "footage_queries": [
-    "water droplets on glass",
-    "cosmetic bottles soft light"
+    "cosmetic bottles soft light",
+    "hand holding serum dropper"
   ],
   "narration": [
-    "Gece ikide alınan micellar su.",
-    "Ucuzunda da pahalısında da yağı yakalayan köpük molekülü birebir aynıdır.",
-    "Poloxamer denen o minik temizlik mıknatısları kiri hemen içine çeker.",
-    "Lüks markaya verdiğin ekstra para sadece yüzde bir kokuya gider.",
-    "Kargo bedava gelsin derken aslında süslü parfüme servet ödedik.",
-    "Günün sonunda aynı misel suyuna beş kat fazla ödedik."
+    "Çekmecan yarım kalan asitlerle dolu.",
+    "Glikolik asit suda çözündüğü için yağlı gözeneğe hiç giremez.",
+    "Salisilik asit yağda çözünüp tıkalı gözeneği kolayca eritir.",
+    "Yanlış seçilen asit banyoda toz toplayıp emekli olur.",
+    "Gözeneğe girmeyen asidi alırsan dolabın ürün mezarlığı kalır."
   ],
-  "subject": "micellar su",
-  "sendTo": "Gece 2'de sepeti onaylayıp sabah ne aldığını unutan arkadaşına",
-  "soru": "Senin gece 2 sepetinde şu an kaç ürün var, dürüst ol?",
+  "subject": "salisilik asit",
+  "sendTo": "çekmecesinde yarım kalmış asit şişeleri biriken arkadaşına",
+  "soru": "Çekmecende şu an kaç tane yarım kalmış ürün var?",
   "theme": "#c9a227",
   "brand": {
     "handle": "@cilt.kodu",
@@ -85,35 +78,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Gece ikide alınan micellar su.",
+      "text": "Çekmecan yarım kalan asitlerle dolu.",
       "start": 0.35,
-      "dur": 1.704
+      "dur": 2.393
     },
     {
-      "text": "Ucuzunda da pahalısında da yağı yakalayan köpük molekülü birebir aynıdır.",
-      "start": 2.054,
-      "dur": 4.148
+      "text": "Glikolik asit suda çözündüğü için yağlı gözeneğe hiç giremez.",
+      "start": 2.743,
+      "dur": 4.054
     },
     {
-      "text": "Poloxamer denen o minik temizlik mıknatısları kiri hemen içine çeker.",
-      "start": 6.202,
-      "dur": 3.92
+      "text": "Salisilik asit yağda çözünüp tıkalı gözeneği kolayca eritir.",
+      "start": 6.797,
+      "dur": 3.988
     },
     {
-      "text": "Lüks markaya verdiğin ekstra para sadece yüzde bir kokuya gider.",
-      "start": 10.122,
-      "dur": 3.636
+      "text": "Yanlış seçilen asit banyoda toz toplayıp emekli olur.",
+      "start": 10.784,
+      "dur": 3.522
     },
     {
-      "text": "Kargo bedava gelsin derken aslında süslü parfüme servet ödedik.",
-      "start": 13.759,
-      "dur": 3.579
-    },
-    {
-      "text": "Günün sonunda aynı misel suyuna beş kat fazla ödedik.",
-      "start": 17.338,
-      "dur": 4.111
+      "text": "Gözeneğe girmeyen asidi alırsan dolabın ürün mezarlığı kalır.",
+      "start": 14.307,
+      "dur": 5.154
     }
   ],
-  "thumbOffset": 1452
+  "thumbOffset": 1797
 }
