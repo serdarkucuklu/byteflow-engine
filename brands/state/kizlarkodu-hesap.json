@@ -337,14 +337,14 @@
   },
   {
     "date": "2026-09-01",
-    "followers": 3,
-    "mediaCount": 10,
+    "followers": 4,
+    "mediaCount": 11,
     "metrikler": {
-      "reach": 0,
-      "views": 0,
+      "reach": 46,
+      "views": 51,
       "profile_views": 0,
-      "accounts_engaged": 0
+      "accounts_engaged": 2
     },
-    "olcumAt": "2026-08-31T21:55:18.241Z"
+    "olcumAt": "2026-08-31T23:00:21.720Z"
   }
 ]
