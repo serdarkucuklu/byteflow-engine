@@ -6,5 +6,13 @@
     "neden": "Tüketiciler terzilerin her kıyafeti istenen bedene küçültebileceğini düşünür, ancak kalıbı taşıyan ana dengenin kumaşın iplik yönü ve dikiş payı sınırlarına bağlı olduğunu bilmezler.",
     "kullanildi": true,
     "at": "2026-08-26T16:02:37.502Z"
+  },
+  {
+    "gun": "2026-09-01",
+    "konu": "beden tablosu",
+    "sir": "Beden tabloları yalnızca çevre ölçülerini (göğüs, bel, kalça) gösterir; ancak kıyafetin oturmasını sağlayan asıl unsur bel ile kalça arasındaki kavis açısıdır (drop oranı). Markalar tüm beden serisini tek bir canlı prova mankeninin kavis açısına göre ölçeklediği için, çevre ölçüleriniz tabloyla uysa dahi kendi anatominizdeki kavis açısı mankeninkiyle eşleşmediğinde kıyafet belden pot yapar veya basenden sıkar.",
+    "neden": "Kullanıcılar sorunu yanlış ölçü almaya veya kumaş kalitesine bağlarken, aksine çevre ölçüleri tutsa bile sabitleştirilmiş kavis açısı mekanizmasının kıyafetin oturmasını engellediği bilgisi tekstil kalıpçılığı dışında bilinmez.",
+    "kullanildi": true,
+    "at": "2026-08-31T21:58:36.097Z"
   }
 ]

@@ -1,77 +1,78 @@
 {
-  "hook": "Tırnaktaki beyaz leke kalsiyum değil, anneannen haklıydı!",
-  "title": "Tırnaktaki Beyaz Lekenin Sırrı",
+  "hook": "Kabinde yine o beden olmadı mı?",
+  "title": "Beden Standartlarının Büyük Yalanı",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "hub-spoke",
       "nodes": [
         {
-          "id": "n1",
-          "label": "TIRNAK KÖKÜ"
+          "id": "BEDEN",
+          "label": "BEDEN TABLOSU"
         },
         {
-          "id": "n2",
-          "label": "MİNİK DARBE"
+          "id": "VANITY",
+          "label": "BEDEN HİLESİ"
         },
         {
-          "id": "n3",
-          "label": "HAVA BOŞLUĞU"
+          "id": "KESIM",
+          "label": "KESİM TOLERANSI"
         },
         {
-          "id": "n4",
-          "label": "6 AYLIK YOLCULUK"
+          "id": "MARKET",
+          "label": "HEDEF MÜŞTERİ"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "DARBE",
-          "status": "kütiküle minik darbe iner anneanne",
+          "from": "BEDEN",
+          "to": "VANITY",
+          "packet": "PAZAR",
+          "status": "marka mutlu ol diye etiketi küçük basar",
           "color": "warn"
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "HÜCRE",
-          "status": "hasarlı keratin sıkışır süt içsen de",
-          "color": "warn"
+          "from": "BEDEN",
+          "to": "KESIM",
+          "packet": "HATA",
+          "status": "seri kesim hataları santimleri kaydırır",
+          "color": "accent"
         },
         {
-          "from": "n3",
-          "to": "n4",
-          "packet": "UZAMA",
-          "status": "tırnak uzadıkça leke 6 ay sonra uca",
+          "from": "BEDEN",
+          "to": "MARKET",
+          "packet": "HEDEF",
+          "status": "tasarımcı kendi hayalindeki kadına diker",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Tırnağındaki beyaz leke kalsiyum eksikliği değil, aylar önceki o minik darbe!\n\nTırnaktaki lekenin 6 aylık yolculuğu şöyle çalışıyor:\n\n1. TIRNAK KÖKÜ — Tırnağın uzadığı matris bölgesi darbelere karşı son derece hassastır.\n2. MİNİK DARBE — Klavyeye sert basmak veya tırnak etini zorlamak matristeki hücre yapısını bozar.\n3. HAVA BOŞLUĞU — Hasarlı keratin üretilince tırnak katmanları arasında gözle görülen minik hava boşluğu kalır.\n4. 6 AYLIK YOLCULUK — Tırnak kökten uca uzarken o geçmiş darbe leke olarak aylar sonra gün yüzüne çıkar.\n\nYani süt içmek lekeyi yok etmez; kütikül bölgesini nemlendirip korumak çözümdür.\n\nAnneannen tırnak diplerine kremi boşuna sürmüyormuş, kadının bir bildiği varmış.\n\n📌 Kaydet — tırnağında leke görünce paniğe kapılma.\n🔁 Bunu tırnağında beyaz leke görünce hemen süt içmeye çalışan arkadaşına gönder.\nSen de o lekeyi kalsiyum eksikliği sananlardan mısın?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kabinde denediğin o pantolonun fermuarı yine mi kapanmadı? Kendini suçlamayı bırak, kahveni al ve arkana yaslan. Sorun senin fiziğinde değil, markaların o gizemli kalıp oyunlarında!\n\nBeden standartlarının arkasındaki o büyük sırrı açıklıyorum:\n\n1. Sadece Çevre Ölçüsü — Beden tablolarında gördüğün sayılar sadece göğüs, bel ve kalçanın yuvarlak çevre ölçüsüdür. Ama insan vücudu düz bir silindir değil ki!\n\n2. Kıvrım Açısı — Bir kıyafetin üzerine tam oturmasını sağlayan şey, belinle kalçan arasındaki o tatlı kavis açısıdır. Tablolar bunu asla yazmaz.\n\n3. Tek Manken İllüzyonu — Markalar tüm beden serisini tek bir canlı prova mankeninin vücut kıvrımına göre büyütüp küçültür. Senin çevre ölçün tabloya uysa bile, kıvrım açın o mankeninkiyle eşleşmediğinde pantolon ya belden pot yapar ya da basenden sıkar. Yani o dikişlerin sana uymaması tamamen matematiksel bir piyango!\n\nBir dahaki sefere kabinde aynaya bakıp canını sıkmak yerine, o kıvrım açısının senin eşsiz anatominle uyuşmadığını hatırla. Suç sende değil, o hayali ölçülerde!\n\n📌 Kaydet — bir dahaki alışveriş krizinde sakinleşmek için lazım olacak.\n\n🔁 Bunu kabinde aynı bedenin iki farklı çıktığını gören arkadaşına gönder.\n\nSen de kabinde sinir krizi geçirenlerden misin?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
-    "#günlükhayat",
-    "#tırnakbakımı",
-    "#vücutmekanizması",
-    "#sağlıkefsaneleri",
-    "#tırnaklekesi",
-    "#kalsiyum"
+    "#kadınlar",
+    "#nedenoluyor",
+    "#kombin",
+    "#alışveriş",
+    "#bedentablosu",
+    "#kabin",
+    "#moda"
   ],
-  "takeaway": "Süt içmeyi bırak, 6 ay önceki masaya vurma anını hatırla!",
+  "takeaway": "Beden tablosu standart değil, markanın seninle flört etme biçimidir.",
   "footage_queries": [
-    "bathroom mirror steam close up",
-    "faucet water drops close up"
+    "wardrobe door open close up",
+    "bathroom mirror steam close up"
   ],
   "narration": [
-    "Tırnaktaki leke kalsiyum eksikliği değildir.",
-    "Aylar önce masaya vurduğun kütikül matrisindeki hücre zedelenir.",
-    "Bozulan keratin üretimi orada şeffaf olmayan hava boşluğu bırakır.",
-    "Tırnak yavaşça uzadıkça o eski darbe leke olarak uca taşınır.",
-    "Anneannenin tırnak etini koru demesi meğer tam bilimsel gerçekmiş."
+    "Kabinde yine o beden olmadı mı?",
+    "Tablolar sadece etrafını ölçer, senin o güzel kıvrımlarını görmez.",
+    "Çünkü pantolonun oturması bel ile kalçanın kavis açısına bağlı.",
+    "Marka o tek mankenin kıvrımını sana zorla dayatır.",
+    "Beden tablosu bir standart değil, sadece markanın seninle flört etme biçimidir."
   ],
-  "subject": "tırnak lekesi",
-  "sendTo": "tırnağında beyaz leke görünce hemen süt içmeye çalışan arkadaşına",
-  "soru": "Sen de o lekeyi kalsiyum eksikliği sananlardan mısın?",
+  "subject": "beden tablosu",
+  "sendTo": "kabinde aynı bedenin iki farklı çıktığını gören arkadaşına",
+  "soru": "Sen de kabinde sinir krizi geçirenlerden misin?",
   "theme": "#ff8fab",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -96,30 +97,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Tırnaktaki leke kalsiyum eksikliği değildir.",
+      "text": "Kabinde yine o beden olmadı mı?",
       "start": 0.35,
-      "dur": 2.923
+      "dur": 2.146
     },
     {
-      "text": "Aylar önce masaya vurduğun kütikül matrisindeki hücre zedelenir.",
-      "start": 3.273,
-      "dur": 4.252
+      "text": "Tablolar sadece etrafını ölçer, senin o güzel kıvrımlarını görmez.",
+      "start": 2.496,
+      "dur": 4.57
     },
     {
-      "text": "Bozulan keratin üretimi orada şeffaf olmayan hava boşluğu bırakır.",
-      "start": 7.525,
-      "dur": 4.385
+      "text": "Çünkü pantolonun oturması bel ile kalçanın kavis açısına bağlı.",
+      "start": 7.066,
+      "dur": 4.362
     },
     {
-      "text": "Tırnak yavaşça uzadıkça o eski darbe leke olarak uca taşınır.",
-      "start": 11.91,
-      "dur": 4.053
+      "text": "Marka o tek mankenin kıvrımını sana zorla dayatır.",
+      "start": 11.428,
+      "dur": 3.462
     },
     {
-      "text": "Anneannenin tırnak etini koru demesi meğer tam bilimsel gerçekmiş.",
-      "start": 15.962,
-      "dur": 5.485
+      "text": "Beden tablosu bir standart değil, sadece markanın seninle flört etme biçimidir.",
+      "start": 14.89,
+      "dur": 6.57
     }
   ],
-  "thumbOffset": 2030
+  "thumbOffset": 1673
 }

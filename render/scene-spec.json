@@ -1,125 +1,125 @@
 {
-  "hook": "Pahalı hyalüronik asite servet gömüp mucize bekliyorsun.",
-  "title": "Pahalı Hyalüronik Asit Gerçeği",
+  "hook": "Kabinde yine o beden olmadı mı?",
+  "title": "Beden Standartlarının Büyük Yalanı",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "diagram",
+      "layout": "hub-spoke",
       "nodes": [
         {
-          "id": "node1",
-          "label": "YÜZDE DOKSAN SU"
+          "id": "BEDEN",
+          "label": "BEDEN TABLOSU"
         },
         {
-          "id": "node2",
-          "label": "GLİSERİN VE AKTİF"
+          "id": "VANITY",
+          "label": "BEDEN HİLESİ"
         },
         {
-          "id": "node3",
-          "label": "LÜKS AMBALAJ"
+          "id": "KESIM",
+          "label": "KESİM TOLERANSI"
         },
         {
-          "id": "node4",
-          "label": "MARKA PRİMİ"
+          "id": "MARKET",
+          "label": "HEDEF MÜŞTERİ"
         }
       ],
       "steps": [
         {
-          "from": "node1",
-          "to": "node2",
-          "packet": "FORMÜL",
-          "status": "şişenin çoğu bildiğin çeşme suyu",
-          "color": "accent"
-        },
-        {
-          "from": "node2",
-          "to": "node3",
-          "packet": "ŞİŞE",
-          "status": "hyalüronik asit ucuzdur ama cam ağır",
+          "from": "BEDEN",
+          "to": "VANITY",
+          "packet": "PAZAR",
+          "status": "marka mutlu ol diye etiketi küçük basar",
           "color": "warn"
         },
         {
-          "from": "node3",
-          "to": "node4",
-          "packet": "REKLAM",
-          "status": "kalan parayla kutu ve his satın alırsın",
+          "from": "BEDEN",
+          "to": "KESIM",
+          "packet": "HATA",
+          "status": "seri kesim hataları santimleri kaydırır",
+          "color": "accent"
+        },
+        {
+          "from": "BEDEN",
+          "to": "MARKET",
+          "packet": "HEDEF",
+          "status": "tasarımcı kendi hayalindeki kadına diker",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Pahalı hyalüronik asite servet gömüp mucize bekliyorsun.\n\nKavanoza ödediğin paranın gerçekte nereye gittiği adım adım:\n\n1. Yüzde Doksan Su — Ürünün ana taşıyıcısı sudur, aktif maddeler suda çözünür.\n2. Gliserin ve Aktif — Nem tutan hyalüronik asit molekülü üretimi son derece ucuz bir hammaddedir.\n3. Lüks Ambalaj — Bütçenin önemli bir kısmı ağır cam şişeye ve kutu tasarımına harcanır.\n4. Marka Primi — Pazarlama bütçeleri ve lüks algısı son etiketi katlar.\n\nFormüldeki etken molekül aynıysa, sade içerikli muadil tam olarak aynı nemi sağlar.\n\nAmbalaja aşık olup yine pahalısını alacağız ama en azından gerçeği biliyoruz.\n\n📌 Kaydet — bir dahaki serum krizinde lazım olacak.\n🔁 Bunu beş bin liralık seruma servet yatıran arkadaşına gönder.\nEn son hangi ürüne verdiğin paraya acıdın, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kabinde denediğin o pantolonun fermuarı yine mi kapanmadı? Kendini suçlamayı bırak, kahveni al ve arkana yaslan. Sorun senin fiziğinde değil, markaların o gizemli kalıp oyunlarında!\n\nBeden standartlarının arkasındaki o büyük sırrı açıklıyorum:\n\n1. Sadece Çevre Ölçüsü — Beden tablolarında gördüğün sayılar sadece göğüs, bel ve kalçanın yuvarlak çevre ölçüsüdür. Ama insan vücudu düz bir silindir değil ki!\n\n2. Kıvrım Açısı — Bir kıyafetin üzerine tam oturmasını sağlayan şey, belinle kalçan arasındaki o tatlı kavis açısıdır. Tablolar bunu asla yazmaz.\n\n3. Tek Manken İllüzyonu — Markalar tüm beden serisini tek bir canlı prova mankeninin vücut kıvrımına göre büyütüp küçültür. Senin çevre ölçün tabloya uysa bile, kıvrım açın o mankeninkiyle eşleşmediğinde pantolon ya belden pot yapar ya da basenden sıkar. Yani o dikişlerin sana uymaması tamamen matematiksel bir piyango!\n\nBir dahaki sefere kabinde aynaya bakıp canını sıkmak yerine, o kıvrım açısının senin eşsiz anatominle uyuşmadığını hatırla. Suç sende değil, o hayali ölçülerde!\n\n📌 Kaydet — bir dahaki alışveriş krizinde sakinleşmek için lazım olacak.\n\n🔁 Bunu kabinde aynı bedenin iki farklı çıktığını gören arkadaşına gönder.\n\nSen de kabinde sinir krizi geçirenlerden misin?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#hyalüronikasit",
-    "#nemlendirici",
-    "#skincare",
-    "#ciltbakımönerileri",
-    "#bakımrutini"
+    "#merak",
+    "#kadınlar",
+    "#nedenoluyor",
+    "#kombin",
+    "#alışveriş",
+    "#bedentablosu",
+    "#kabin",
+    "#moda"
   ],
-  "takeaway": "Cildin markayı değil molekülü tanır, ambalaja para verme.",
+  "takeaway": "Beden tablosu standart değil, markanın seninle flört etme biçimidir.",
   "footage_queries": [
-    "cosmetic bottles soft light",
-    "hand holding serum dropper"
+    "wardrobe door open close up",
+    "bathroom mirror steam close up"
   ],
   "narration": [
-    "Pahalı hyalüronik asite servet döküyorsun.",
-    "Şişenin yüzde doksanı bildiğin saf sudan oluşuyor.",
-    "Nem tutan hyalüronik asit hammaddesi aslında gayet ucuzdur.",
-    "Ödediğin servet etken maddeye değil ağır cam şişeye gidiyor.",
-    "Cildin markayı değil molekülü tanır ucuzunu seç rahat et."
+    "Kabinde yine o beden olmadı mı?",
+    "Tablolar sadece etrafını ölçer, senin o güzel kıvrımlarını görmez.",
+    "Çünkü pantolonun oturması bel ile kalçanın kavis açısına bağlı.",
+    "Marka o tek mankenin kıvrımını sana zorla dayatır.",
+    "Beden tablosu bir standart değil, sadece markanın seninle flört etme biçimidir."
   ],
-  "subject": "hyalüronik asit",
-  "sendTo": "beş bin liralık seruma servet yatıran arkadaşına",
-  "soru": "En son hangi ürüne verdiğin paraya acıdın, dürüst ol?",
-  "theme": "#e8a0a8",
+  "subject": "beden tablosu",
+  "sendTo": "kabinde aynı bedenin iki farklı çıktığını gören arkadaşına",
+  "soru": "Sen de kabinde sinir krizi geçirenlerden misin?",
+  "theme": "#ff8fab",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Pahalı hyalüronik asite servet döküyorsun.",
+      "text": "Kabinde yine o beden olmadı mı?",
       "start": 0.35,
-      "dur": 3.048
+      "dur": 2.146
     },
     {
-      "text": "Şişenin yüzde doksanı bildiğin saf sudan oluşuyor.",
-      "start": 3.398,
-      "dur": 3.629
+      "text": "Tablolar sadece etrafını ölçer, senin o güzel kıvrımlarını görmez.",
+      "start": 2.496,
+      "dur": 4.57
     },
     {
-      "text": "Nem tutan hyalüronik asit hammaddesi aslında gayet ucuzdur.",
-      "start": 7.027,
-      "dur": 4.282
+      "text": "Çünkü pantolonun oturması bel ile kalçanın kavis açısına bağlı.",
+      "start": 7.066,
+      "dur": 4.362
     },
     {
-      "text": "Ödediğin servet etken maddeye değil ağır cam şişeye gidiyor.",
-      "start": 11.309,
-      "dur": 4.355
+      "text": "Marka o tek mankenin kıvrımını sana zorla dayatır.",
+      "start": 11.428,
+      "dur": 3.462
     },
     {
-      "text": "Cildin markayı değil molekülü tanır ucuzunu seç rahat et.",
-      "start": 15.664,
-      "dur": 5.237
+      "text": "Beden tablosu bir standart değil, sadece markanın seninle flört etme biçimidir.",
+      "start": 14.89,
+      "dur": 6.57
     }
   ]
 }

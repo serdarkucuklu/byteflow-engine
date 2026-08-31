@@ -331,29 +331,28 @@
     "insightsAt": "2026-08-31T21:55:13.175Z"
   },
   {
-    "title": "Tırnaktaki Beyaz Lekenin Sırrı",
-    "subject": "tırnak lekesi",
-    "twist": "anneannen-hakliymis",
-    "pillar": "tirnak-isaretleri",
-    "layout": "cycle",
+    "title": "Beden Standartlarının Büyük Yalanı",
+    "subject": "beden tablosu",
+    "twist": "beden-savasi",
+    "pillar": "eski-usul-ev",
+    "layout": "hub-spoke",
     "kinds": "diagram",
     "motion": "orbit",
     "theme": "#ff8fab",
     "source": "gemini",
     "footage": [
+      "pexels:wardrobe door open close up",
       "pexels:bathroom mirror steam close up",
-      "pexels:faucet water drops close up",
       "pexels:alarm clock on nightstand close up",
       "pexels:coffee cup steam morning light"
     ],
     "voice": 5,
-    "voiceName": "Aoede",
+    "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Daha az bilinen farklı bir konu olsun",
-    "sir": null,
-    "sirUygulandi": null,
-    "sirAtlandi": "not-var",
-    "date": "2026-08-30",
+    "sir": "Beden tabloları yalnızca çevre ölçülerini (göğüs, bel, kalça) gösterir; ancak kıyafetin oturmasını sağlayan asıl unsur b",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-08-31",
     "durSec": 21.4
   }
 ]
