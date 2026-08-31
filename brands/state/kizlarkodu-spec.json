@@ -1,78 +1,78 @@
 {
-  "hook": "Kabinde yine o beden olmadı mı?",
-  "title": "Beden Standartlarının Büyük Yalanı",
+  "hook": "Aynı elbise sende neden pot duruyor?",
+  "title": "Aynı Elbisenin İki Kişide Farklı Durma Sebebi",
   "scenes": [
     {
       "layout": "hub-spoke",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "BEDEN",
-          "label": "BEDEN TABLOSU"
+          "id": "kalip",
+          "label": "KALIP METRİĞİ"
         },
         {
-          "id": "VANITY",
-          "label": "BEDEN HİLESİ"
+          "id": "omuz",
+          "label": "OMUZ DİKİŞİ"
         },
         {
-          "id": "KESIM",
-          "label": "KESİM TOLERANSI"
+          "id": "pens",
+          "label": "GÖĞÜS PENSLERİ"
         },
         {
-          "id": "MARKET",
-          "label": "HEDEF MÜŞTERİ"
+          "id": "dort",
+          "label": "VEREV DÖKÜM"
         }
       ],
       "steps": [
         {
-          "from": "BEDEN",
-          "to": "VANITY",
-          "packet": "PAZAR",
-          "status": "marka mutlu ol diye etiketi küçük basar",
+          "from": "kalip",
+          "to": "omuz",
+          "packet": "AÇI",
+          "status": "omuz acisi kemige uymayinca potlasir",
           "color": "warn"
         },
         {
-          "from": "BEDEN",
-          "to": "KESIM",
-          "packet": "HATA",
-          "status": "seri kesim hataları santimleri kaydırır",
+          "from": "kalip",
+          "to": "pens",
+          "packet": "HACİM",
+          "status": "pens konumu gogus yapina gore oturur",
           "color": "accent"
         },
         {
-          "from": "BEDEN",
-          "to": "MARKET",
-          "packet": "HEDEF",
-          "status": "tasarımcı kendi hayalindeki kadına diker",
+          "from": "kalip",
+          "to": "dort",
+          "packet": "DÖKÜM",
+          "status": "verev kesim kumas kalcada farkli dökülür",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kabinde denediğin o pantolonun fermuarı yine mi kapanmadı? Kendini suçlamayı bırak, kahveni al ve arkana yaslan. Sorun senin fiziğinde değil, markaların o gizemli kalıp oyunlarında!\n\nBeden standartlarının arkasındaki o büyük sırrı açıklıyorum:\n\n1. Sadece Çevre Ölçüsü — Beden tablolarında gördüğün sayılar sadece göğüs, bel ve kalçanın yuvarlak çevre ölçüsüdür. Ama insan vücudu düz bir silindir değil ki!\n\n2. Kıvrım Açısı — Bir kıyafetin üzerine tam oturmasını sağlayan şey, belinle kalçan arasındaki o tatlı kavis açısıdır. Tablolar bunu asla yazmaz.\n\n3. Tek Manken İllüzyonu — Markalar tüm beden serisini tek bir canlı prova mankeninin vücut kıvrımına göre büyütüp küçültür. Senin çevre ölçün tabloya uysa bile, kıvrım açın o mankeninkiyle eşleşmediğinde pantolon ya belden pot yapar ya da basenden sıkar. Yani o dikişlerin sana uymaması tamamen matematiksel bir piyango!\n\nBir dahaki sefere kabinde aynaya bakıp canını sıkmak yerine, o kıvrım açısının senin eşsiz anatominle uyuşmadığını hatırla. Suç sende değil, o hayali ölçülerde!\n\n📌 Kaydet — bir dahaki alışveriş krizinde sakinleşmek için lazım olacak.\n\n🔁 Bunu kabinde aynı bedenin iki farklı çıktığını gören arkadaşına gönder.\n\nSen de kabinde sinir krizi geçirenlerden misin?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Arkadaşında mükemmel duran elbise sende neden pot yapıyor?\n\nAynı kıyafetin iki farklı bedende bambaşka durmasının sebebi:\n\n1. Omuz dikiş açısı — İki insanın omuz kemik açısı aynı değildir; dikiş sıfıra oturmadığında kumaş yukarı toplanır.\n2. Göğüs pens yerleşimi — Penslerin derinliği ve açısı göğüs kafesi yapına uymadığında ön kısımda katlanma oluşur.\n3. Verev döküm farkı — Verev kesilen kumaşlar kalça ve bel kıvrımına göre genişleyip daralarak döküm değiştirir.\n\nKıyafet alırken sadece beden numarasına değil, dikiş açısına ve kumaşın kesim yönüne bakmak gerekir.\n\nYani suç senin bedeninde değil, kalıbı çıkaran terzinin açılarında.\n\n📌 Kaydet — alışverişe çıkmadan önce lazım olacak.\n🔁 Bunu seninle aynı elbiseyi alıp üstünde bambaşka duran arkadaşına gönder.\nSen de arkadaşında beğenip aldığın parçada hayal kırıklığı yaşadın mı?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#kadınlar",
+    "#günlükhayat",
     "#nedenoluyor",
-    "#kombin",
-    "#alışveriş",
+    "#kıyafetkombin",
     "#bedentablosu",
-    "#kabin",
-    "#moda"
+    "#dikiştaktikleri"
   ],
-  "takeaway": "Beden tablosu standart değil, markanın seninle flört etme biçimidir.",
+  "takeaway": "Suç senin bedeninde değil, kumaşın kesim açısında.",
   "footage_queries": [
     "wardrobe door open close up",
-    "bathroom mirror steam close up"
+    "cozy home interior soft light"
   ],
   "narration": [
-    "Kabinde yine o beden olmadı mı?",
-    "Tablolar sadece etrafını ölçer, senin o güzel kıvrımlarını görmez.",
-    "Çünkü pantolonun oturması bel ile kalçanın kavis açısına bağlı.",
-    "Marka o tek mankenin kıvrımını sana zorla dayatır.",
-    "Beden tablosu bir standart değil, sadece markanın seninle flört etme biçimidir."
+    "Aynı elbise sende neden pot duruyor?",
+    "Omuz dikiş açısı kemik yapına uymayınca kumaş yukarı doğru katlanır.",
+    "Göğüs penslerinin konumu hizanla eşleşmeyince ön kısımda potluk oluşur.",
+    "Verev kesilen dökümlü kumaşlar kalça genişliğine göre tamamen farklı düşer.",
+    "Yani sorun senin bedeninde değil kumaşın kesim açısında gizli."
   ],
   "subject": "beden tablosu",
-  "sendTo": "kabinde aynı bedenin iki farklı çıktığını gören arkadaşına",
-  "soru": "Sen de kabinde sinir krizi geçirenlerden misin?",
+  "sendTo": "seninle aynı elbiseyi alıp üstünde bambaşka duran arkadaşına",
+  "soru": "Sen de arkadaşında beğenip aldığın parçada hayal kırıklığı yaşadın mı?",
   "theme": "#ff8fab",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -95,32 +95,5 @@
   "motion": "orbit",
   "format": "kinetik",
   "footage": true,
-  "beats": [
-    {
-      "text": "Kabinde yine o beden olmadı mı?",
-      "start": 0.35,
-      "dur": 2.146
-    },
-    {
-      "text": "Tablolar sadece etrafını ölçer, senin o güzel kıvrımlarını görmez.",
-      "start": 2.496,
-      "dur": 4.57
-    },
-    {
-      "text": "Çünkü pantolonun oturması bel ile kalçanın kavis açısına bağlı.",
-      "start": 7.066,
-      "dur": 4.362
-    },
-    {
-      "text": "Marka o tek mankenin kıvrımını sana zorla dayatır.",
-      "start": 11.428,
-      "dur": 3.462
-    },
-    {
-      "text": "Beden tablosu bir standart değil, sadece markanın seninle flört etme biçimidir.",
-      "start": 14.89,
-      "dur": 6.57
-    }
-  ],
-  "thumbOffset": 1673
+  "thumbOffset": 1300
 }

@@ -331,10 +331,10 @@
     "insightsAt": "2026-08-31T21:55:13.175Z"
   },
   {
-    "title": "Beden Standartlarının Büyük Yalanı",
+    "title": "Aynı Elbisenin İki Kişide Farklı Durma Sebebi",
     "subject": "beden tablosu",
-    "twist": "beden-savasi",
-    "pillar": "eski-usul-ev",
+    "twist": "arkadas-kopyasi",
+    "pillar": "uyku-borcu",
     "layout": "hub-spoke",
     "kinds": "diagram",
     "motion": "orbit",
@@ -342,17 +342,18 @@
     "source": "gemini",
     "footage": [
       "pexels:wardrobe door open close up",
-      "pexels:bathroom mirror steam close up",
+      "pexels:cozy home interior soft light",
       "pexels:alarm clock on nightstand close up",
-      "pexels:coffee cup steam morning light"
+      "pexels:bathroom mirror steam close up"
     ],
-    "voice": 5,
-    "voiceName": "Kore",
+    "voice": null,
+    "voiceName": null,
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Beden tabloları yalnızca çevre ölçülerini (göğüs, bel, kalça) gösterir; ancak kıyafetin oturmasını sağlayan asıl unsur b",
-    "sirUygulandi": "kismi",
-    "sirAtlandi": null,
+    "not": "Daha farklı konu olsun, kadınların her kadının bilmediği bir konu bul!",
+    "sir": null,
+    "sirUygulandi": null,
+    "sirAtlandi": "not-var",
     "date": "2026-08-31",
-    "durSec": 21.4
+    "durSec": 20.2
   }
 ]
