@@ -1,60 +1,79 @@
 {
-  "hook": "Çekmecesi yarım asitlerle dolu olan o arkadaşın.",
-  "title": "Salisilik Asit vs Glikolik Asit",
+  "hook": "Pahalı hyalüronik asite servet gömüp mucize bekliyorsun.",
+  "title": "Pahalı Hyalüronik Asit Gerçeği",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "versus",
-      "left": "Glikolik Asit",
-      "right": "Salisilik Asit",
-      "rows": [
+      "layout": "vertical-stack",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "ÇÖZÜNÜRLÜK",
-          "left": "Suda çözünür",
-          "right": "Yağda çözünür",
-          "winner": "right"
+          "id": "node1",
+          "label": "YÜZDE DOKSAN SU"
         },
         {
-          "label": "HEDEF ALAN",
-          "left": "Cilt yüzeyi",
-          "right": "Gözenek içi",
-          "winner": "right"
+          "id": "node2",
+          "label": "GLİSERİN VE AKTİF"
         },
         {
-          "label": "SİYAH NOKTA",
-          "left": "Yüzeyde kalır",
-          "right": "Yağı kökten eritir",
-          "winner": "right"
+          "id": "node3",
+          "label": "LÜKS AMBALAJ"
+        },
+        {
+          "id": "node4",
+          "label": "MARKA PRİMİ"
+        }
+      ],
+      "steps": [
+        {
+          "from": "node1",
+          "to": "node2",
+          "packet": "FORMÜL",
+          "status": "şişenin çoğu bildiğin çeşme suyu",
+          "color": "accent"
+        },
+        {
+          "from": "node2",
+          "to": "node3",
+          "packet": "ŞİŞE",
+          "status": "hyalüronik asit ucuzdur ama cam ağır",
+          "color": "warn"
+        },
+        {
+          "from": "node3",
+          "to": "node4",
+          "packet": "REKLAM",
+          "status": "kalan parayla kutu ve his satın alırsın",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Siyah nokta için aldığın asit neden banyoda toz topluyor?\n\nÇekmecendeki yarım kalmış asit şişelerinin gerçek sebebi:\n\n1. Çözünürlük farkı — Glikolik asit suda çözünür. Yüzeydeki ölü deriyi soyar ama yağlı gözenek duvarına çarpıp kalır.\n2. Gözenek erişimi — Salisilik asit (BHA) yağda çözünür. Sebum biriken tıkalı gözeneğin en derinine rahatça sızar.\n3. Siyah nokta performansı — Yağda çözünmeyen asit siyah noktayı temizleyemez. İşe yaramadı sanıp kenara atarsın, raf mezarlığa döner.\n\nAsit alırken süslü şişeye değil, yağda mı suda mı çözündüğüne bakmalısın.\n\nYanlış asit gözenekleri değil, sadece banyo raflarını doldurur.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n\n🔁 Bunu çekmecesinde yarım kalmış asit şişeleri biriken arkadaşına gönder.\n\nÇekmecende şu an kaç tane yarım kalmış ürün var?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Pahalı hyalüronik asite servet gömüp mucize bekliyorsun.\n\nKavanoza ödediğin paranın gerçekte nereye gittiği adım adım:\n\n1. Yüzde Doksan Su — Ürünün ana taşıyıcısı sudur, aktif maddeler suda çözünür.\n2. Gliserin ve Aktif — Nem tutan hyalüronik asit molekülü üretimi son derece ucuz bir hammaddedir.\n3. Lüks Ambalaj — Bütçenin önemli bir kısmı ağır cam şişeye ve kutu tasarımına harcanır.\n4. Marka Primi — Pazarlama bütçeleri ve lüks algısı son etiketi katlar.\n\nFormüldeki etken molekül aynıysa, sade içerikli muadil tam olarak aynı nemi sağlar.\n\nAmbalaja aşık olup yine pahalısını alacağız ama en azından gerçeği biliyoruz.\n\n📌 Kaydet — bir dahaki serum krizinde lazım olacak.\n🔁 Bunu beş bin liralık seruma servet yatıran arkadaşına gönder.\nEn son hangi ürüne verdiğin paraya acıdın, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#guzellik",
-    "#salisilikasit",
-    "#glikolikasit",
-    "#siyahnokta",
-    "#ciltrutini",
-    "#bha"
+    "#güzellik",
+    "#hyalüronikasit",
+    "#nemlendirici",
+    "#skincare",
+    "#ciltbakımönerileri",
+    "#bakımrutini"
   ],
-  "takeaway": "Gözeneğine giremeyen asit banyoda toz toplamaya mahkumdur.",
+  "takeaway": "Cildin markayı değil molekülü tanır, ambalaja para verme.",
   "footage_queries": [
     "cosmetic bottles soft light",
     "hand holding serum dropper"
   ],
   "narration": [
-    "Çekmecan yarım kalan asitlerle dolu.",
-    "Glikolik asit suda çözündüğü için yağlı gözeneğe hiç giremez.",
-    "Salisilik asit yağda çözünüp tıkalı gözeneği kolayca eritir.",
-    "Yanlış seçilen asit banyoda toz toplayıp emekli olur.",
-    "Gözeneğe girmeyen asidi alırsan dolabın ürün mezarlığı kalır."
+    "Pahalı hyalüronik asite servet döküyorsun.",
+    "Şişenin yüzde doksanı bildiğin saf sudan oluşuyor.",
+    "Nem tutan hyalüronik asit hammaddesi aslında gayet ucuzdur.",
+    "Ödediğin servet etken maddeye değil ağır cam şişeye gidiyor.",
+    "Cildin markayı değil molekülü tanır ucuzunu seç rahat et."
   ],
-  "subject": "salisilik asit",
-  "sendTo": "çekmecesinde yarım kalmış asit şişeleri biriken arkadaşına",
-  "soru": "Çekmecende şu an kaç tane yarım kalmış ürün var?",
-  "theme": "#c9a227",
+  "subject": "hyalüronik asit",
+  "sendTo": "beş bin liralık seruma servet yatıran arkadaşına",
+  "soru": "En son hangi ürüne verdiğin paraya acıdın, dürüst ol?",
+  "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -73,34 +92,34 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "camera",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Çekmecan yarım kalan asitlerle dolu.",
+      "text": "Pahalı hyalüronik asite servet döküyorsun.",
       "start": 0.35,
-      "dur": 2.393
+      "dur": 3.048
     },
     {
-      "text": "Glikolik asit suda çözündüğü için yağlı gözeneğe hiç giremez.",
-      "start": 2.743,
-      "dur": 4.054
+      "text": "Şişenin yüzde doksanı bildiğin saf sudan oluşuyor.",
+      "start": 3.398,
+      "dur": 3.629
     },
     {
-      "text": "Salisilik asit yağda çözünüp tıkalı gözeneği kolayca eritir.",
-      "start": 6.797,
-      "dur": 3.988
+      "text": "Nem tutan hyalüronik asit hammaddesi aslında gayet ucuzdur.",
+      "start": 7.027,
+      "dur": 4.282
     },
     {
-      "text": "Yanlış seçilen asit banyoda toz toplayıp emekli olur.",
-      "start": 10.784,
-      "dur": 3.522
+      "text": "Ödediğin servet etken maddeye değil ağır cam şişeye gidiyor.",
+      "start": 11.309,
+      "dur": 4.355
     },
     {
-      "text": "Gözeneğe girmeyen asidi alırsan dolabın ürün mezarlığı kalır.",
-      "start": 14.307,
-      "dur": 5.154
+      "text": "Cildin markayı değil molekülü tanır ucuzunu seç rahat et.",
+      "start": 15.664,
+      "dur": 5.237
     }
   ]
 }

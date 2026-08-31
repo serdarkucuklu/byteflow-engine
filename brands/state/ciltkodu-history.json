@@ -873,5 +873,30 @@
     "durSec": 19.4,
     "mediaId": "18119329903865701",
     "postedAt": "2026-08-31T20:59:00.414Z"
+  },
+  {
+    "title": "Pahalı Hyalüronik Asit Gerçeği",
+    "subject": "hyalüronik asit",
+    "twist": "para",
+    "pillar": "makyaj-cantasi",
+    "layout": "vertical-stack",
+    "kinds": "diagram",
+    "motion": "camera",
+    "theme": "#e8a0a8",
+    "source": "gemini",
+    "footage": [
+      "pexels:marble surface texture",
+      "pexels:hand holding serum dropper",
+      "pexels:water droplets on glass",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": 5,
+    "voiceName": "Kore",
+    "muzik": "byteflow-ambient.mp3",
+    "sir": "Aylarca makyaj çantasındaki ısı değişimlerine maruz kalan hyalüronik asit serumunda koruyucu sistem zayıfladığında, serb",
+    "sirUygulandi": "geri-alindi",
+    "sirAtlandi": "degisiklik-yok",
+    "date": "2026-08-31",
+    "durSec": 20.8
   }
 ]
