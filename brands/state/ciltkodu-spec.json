@@ -1,58 +1,66 @@
 {
-  "hook": "Hyalüronik asit serumuna servet döken o arkadaşın.",
-  "title": "Hyalüronik Asit: Pahalı vs Ucuz Gerçeği",
+  "hook": "Gece 2'de kargo bedava olsun diye alınan o micellar su...",
+  "title": "Micellar Su: Pahalı ve Ucuz Arasındaki Tek Fark",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "versus",
-      "left": "LÜKS HA SERUMU",
-      "right": "UCUZ HA SERUMU",
+      "left": "PAHALI MİCELLAR SU",
+      "right": "BÜTÇE DOSTU MİCELLAR",
       "rows": [
         {
-          "label": "ANA İÇERİK",
-          "left": "%95 SU VE GLİSERİN",
-          "right": "%95 SU VE GLİSERİN",
+          "label": "TEMEL İÇERİK",
+          "left": "Arıtılmış su ve misel",
+          "right": "Arıtılmış su ve misel",
           "winner": "tie"
         },
         {
-          "label": "AKTİF ORANI",
-          "left": "%1.5 HYALÜRONİK",
-          "right": "%1.5 HYALÜRONİK",
+          "label": "TEMİZLEME GÜCÜ",
+          "left": "Aynı sürfaktan yapısı",
+          "right": "Aynı sürfaktan yapısı",
           "winner": "tie"
         },
         {
-          "label": "EKSTRA KATKI",
-          "left": "PARFÜM VE ŞIK CAM",
-          "right": "SADECE B5 VİTAMİNİ",
+          "label": "AMBALAJ & PARFÜM",
+          "left": "Süslü şişe ve koku",
+          "right": "Sade plastik ambalaj",
+          "winner": "right"
+        },
+        {
+          "label": "MALİYET FARKI",
+          "left": "Marka ve reklam primi",
+          "right": "Yalnızca formül fiyatı",
           "winner": "right"
         }
       ]
     }
   ],
-  "caption": "O hyalüronik asit serumuna ödediğin servetin gerçeğiyle yüzleşme vakti.\n\nPahalı ve ucuz hyalüronik asit serumları arasındaki farklar adım adım:\n\n1. Kıvam İllüzyonu: Elindeki o lüks, jöle gibi yoğun kıvamın sebebi hyalüronik asit zenginliği değil. Gerçek %1'lik asit çözeltisi bildiğin su gibi akışkandır. O dolgun hissi veren şey, içine katılan birkaç kuruşluk ucuz jelleştiriciler.\n2. Aktif Oranı: Cildin kaldırabileceği maksimum hyalüronik asit oranı zaten %1-2 arasındadır. Fazlası cildi kurutur, çöl eder. Yani lüks olan da ucuz olan da aynı güçte.\n3. Ambalaj Oyunu: Pahalı serumlar o lüks hissi pekiştirmek için ağır cam şişeler ve parfümler kullanır. Biz de masada şık dursun diye bu illüzyona servet dökeriz.\n\nAlırken neye dikkat etmeli: Yarın sabah alışveriş yaparken kıvama aldanma; arkasını çevirip parfümsüz ve sade içerikli olanı seç, paran cebinde kalsın.\n\nŞişesi havalı diye suya servet ödüyoruz ama olsun, masada şık duruyor.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n\n🔁 Bunu kavanoza servet yatıran, ama muadilini duyunca yıkılacak arkadaşına gönder.\n\nSen bir seruma en fazla kaç para verirsin?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Gece 2'de sırf kargo bedava olsun diye sepete attığın ürünler...\n\nGece 2'de kargo bedava eşiğini geçmek için sepete attığın micellar suyun perde arkası:\n\n1. Temel İçerik — Ucuz ve lüks misel sularının temelinde tamamen aynı temizleyici yüzey aktif maddeler bulunur.\n2. Temizleme Gücü — Makyajı ve kiri bir mıknatıs gibi hapseden Poloxamer 184 veya PEG-6 molekülleri iki tarafta da birebir aynıdır.\n3. Parfüm ve Ambalaj — Fiyatı katlayan şey daha gelişmiş bir temizlik teknolojisi değil, %1'den az orandaki koku ve ağır şişelerdir.\n4. Pazarlama İllüzyonu — Kargo bedava gelsin derken ödediğin ekstra bütçe doğrudan markanın pazarlama çarkına gider.\n\nMisel suda bakman gereken tek şey içerik listesinin sadeliği ve cildi yormayan Poloxamer yapısıdır.\n\nÜcretsiz kargo kazandık ama yine pazarlamaya yakalandık.\n\n📌 Kaydet — bir dahaki gece 2 alışveriş krizinde açıp bakarsın.\n\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını unutan arkadaşına gönder.\n\nSenin gece 2 sepetinde şu an kaç ürün var, dürüst ol?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#güzellik",
     "#ciltbakimi",
-    "#hyalüronikasit",
-    "#serum",
-    "#ciltbakımıönerileri",
-    "#ucuzvspahalı"
+    "#makyaj",
+    "#güzellik",
+    "#micellarsu",
+    "#makyajtemizleme",
+    "#ciltbariyeri",
+    "#makyajönerileri"
   ],
-  "takeaway": "Parayı neme değil, havalı şişeye ödüyoruz süslüm.",
+  "takeaway": "Su ile sürfaktan karışımına marka ambalajı parası verdik yine.",
   "footage_queries": [
-    "serum drop close up",
+    "water droplets on glass",
     "cosmetic bottles soft light"
   ],
   "narration": [
-    "Hyalüronik asit serumuna servet ödeyenler.",
-    "O yoğun, zengin kıvam aslında ucuz jelleştirici hilesidir.",
-    "Gerçek hyalüronik asit su gibi akıp gider, durmaz.",
-    "Lüks markalar ucuz polimerle göz boyayıp kandırıyor.",
-    "Parayı hyalüronik asite değil, sadece şişesine ödüyoruz."
+    "Gece ikide alınan micellar su.",
+    "Ucuzunda da pahalısında da yağı yakalayan köpük molekülü birebir aynıdır.",
+    "Poloxamer denen o minik temizlik mıknatısları kiri hemen içine çeker.",
+    "Lüks markaya verdiğin ekstra para sadece yüzde bir kokuya gider.",
+    "Kargo bedava gelsin derken aslında süslü parfüme servet ödedik.",
+    "Günün sonunda aynı misel suyuna beş kat fazla ödedik."
   ],
-  "subject": "hyalüronik asit",
-  "sendTo": "kavanoza servet yatıran, ama muadilini duyunca yıkılacak arkadaşına",
-  "soru": "Sen bir seruma en fazla kaç para verirsin?",
+  "subject": "micellar su",
+  "sendTo": "Gece 2'de sepeti onaylayıp sabah ne aldığını unutan arkadaşına",
+  "soru": "Senin gece 2 sepetinde şu an kaç ürün var, dürüst ol?",
   "theme": "#c9a227",
   "brand": {
     "handle": "@cilt.kodu",
@@ -77,30 +85,35 @@
   "footage": true,
   "beats": [
     {
-      "text": "Hyalüronik asit serumuna servet ödeyenler.",
+      "text": "Gece ikide alınan micellar su.",
       "start": 0.35,
-      "dur": 3.254
+      "dur": 1.704
     },
     {
-      "text": "O yoğun, zengin kıvam aslında ucuz jelleştirici hilesidir.",
-      "start": 3.604,
-      "dur": 4.493
+      "text": "Ucuzunda da pahalısında da yağı yakalayan köpük molekülü birebir aynıdır.",
+      "start": 2.054,
+      "dur": 4.148
     },
     {
-      "text": "Gerçek hyalüronik asit su gibi akıp gider, durmaz.",
-      "start": 8.097,
-      "dur": 3.874
+      "text": "Poloxamer denen o minik temizlik mıknatısları kiri hemen içine çeker.",
+      "start": 6.202,
+      "dur": 3.92
     },
     {
-      "text": "Lüks markalar ucuz polimerle göz boyayıp kandırıyor.",
-      "start": 11.971,
-      "dur": 4.029
+      "text": "Lüks markaya verdiğin ekstra para sadece yüzde bir kokuya gider.",
+      "start": 10.122,
+      "dur": 3.636
     },
     {
-      "text": "Parayı hyalüronik asite değil, sadece şişesine ödüyoruz.",
-      "start": 16,
-      "dur": 5.438
+      "text": "Kargo bedava gelsin derken aslında süslü parfüme servet ödedik.",
+      "start": 13.759,
+      "dur": 3.579
+    },
+    {
+      "text": "Günün sonunda aynı misel suyuna beş kat fazla ödedik.",
+      "start": 17.338,
+      "dur": 4.111
     }
   ],
-  "thumbOffset": 2030
+  "thumbOffset": 1452
 }

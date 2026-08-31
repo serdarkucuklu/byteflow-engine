@@ -1,124 +1,118 @@
 {
-  "hook": "Tırnaktaki beyaz leke kalsiyum değil, anneannen haklıydı!",
-  "title": "Tırnaktaki Beyaz Lekenin Sırrı",
+  "hook": "Gece 2'de kargo bedava olsun diye alınan o micellar su...",
+  "title": "Micellar Su: Pahalı ve Ucuz Arasındaki Tek Fark",
   "scenes": [
     {
-      "layout": "cycle",
-      "nodes": [
+      "layout": "nodes-flow",
+      "kind": "versus",
+      "left": "PAHALI MİCELLAR SU",
+      "right": "BÜTÇE DOSTU MİCELLAR",
+      "rows": [
         {
-          "id": "n1",
-          "label": "TIRNAK KÖKÜ"
+          "label": "TEMEL İÇERİK",
+          "left": "Arıtılmış su ve misel",
+          "right": "Arıtılmış su ve misel",
+          "winner": "tie"
         },
         {
-          "id": "n2",
-          "label": "MİNİK DARBE"
+          "label": "TEMİZLEME GÜCÜ",
+          "left": "Aynı sürfaktan yapısı",
+          "right": "Aynı sürfaktan yapısı",
+          "winner": "tie"
         },
         {
-          "id": "n3",
-          "label": "HAVA BOŞLUĞU"
+          "label": "AMBALAJ & PARFÜM",
+          "left": "Süslü şişe ve koku",
+          "right": "Sade plastik ambalaj",
+          "winner": "right"
         },
         {
-          "id": "n4",
-          "label": "6 AYLIK YOLCULUK"
-        }
-      ],
-      "steps": [
-        {
-          "from": "n1",
-          "to": "n2",
-          "packet": "DARBE",
-          "status": "kütiküle minik darbe iner anneanne",
-          "color": "warn"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "HÜCRE",
-          "status": "hasarlı keratin sıkışır süt içsen de",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "UZAMA",
-          "status": "tırnak uzadıkça leke 6 ay sonra uca",
-          "color": "good"
+          "label": "MALİYET FARKI",
+          "left": "Marka ve reklam primi",
+          "right": "Yalnızca formül fiyatı",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Tırnağındaki beyaz leke kalsiyum eksikliği değil, aylar önceki o minik darbe!\n\nTırnaktaki lekenin 6 aylık yolculuğu şöyle çalışıyor:\n\n1. TIRNAK KÖKÜ — Tırnağın uzadığı matris bölgesi darbelere karşı son derece hassastır.\n2. MİNİK DARBE — Klavyeye sert basmak veya tırnak etini zorlamak matristeki hücre yapısını bozar.\n3. HAVA BOŞLUĞU — Hasarlı keratin üretilince tırnak katmanları arasında gözle görülen minik hava boşluğu kalır.\n4. 6 AYLIK YOLCULUK — Tırnak kökten uca uzarken o geçmiş darbe leke olarak aylar sonra gün yüzüne çıkar.\n\nYani süt içmek lekeyi yok etmez; kütikül bölgesini nemlendirip korumak çözümdür.\n\nAnneannen tırnak diplerine kremi boşuna sürmüyormuş, kadının bir bildiği varmış.\n\n📌 Kaydet — tırnağında leke görünce paniğe kapılma.\n🔁 Bunu tırnağında beyaz leke görünce hemen süt içmeye çalışan arkadaşına gönder.\nSen de o lekeyi kalsiyum eksikliği sananlardan mısın?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Gece 2'de sırf kargo bedava olsun diye sepete attığın ürünler...\n\nGece 2'de kargo bedava eşiğini geçmek için sepete attığın micellar suyun perde arkası:\n\n1. Temel İçerik — Ucuz ve lüks misel sularının temelinde tamamen aynı temizleyici yüzey aktif maddeler bulunur.\n2. Temizleme Gücü — Makyajı ve kiri bir mıknatıs gibi hapseden Poloxamer 184 veya PEG-6 molekülleri iki tarafta da birebir aynıdır.\n3. Parfüm ve Ambalaj — Fiyatı katlayan şey daha gelişmiş bir temizlik teknolojisi değil, %1'den az orandaki koku ve ağır şişelerdir.\n4. Pazarlama İllüzyonu — Kargo bedava gelsin derken ödediğin ekstra bütçe doğrudan markanın pazarlama çarkına gider.\n\nMisel suda bakman gereken tek şey içerik listesinin sadeliği ve cildi yormayan Poloxamer yapısıdır.\n\nÜcretsiz kargo kazandık ama yine pazarlamaya yakalandık.\n\n📌 Kaydet — bir dahaki gece 2 alışveriş krizinde açıp bakarsın.\n\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını unutan arkadaşına gönder.\n\nSenin gece 2 sepetinde şu an kaç ürün var, dürüst ol?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#merak",
-    "#günlükhayat",
-    "#tırnakbakımı",
-    "#vücutmekanizması",
-    "#sağlıkefsaneleri",
-    "#tırnaklekesi",
-    "#kalsiyum"
+    "#ciltbakimi",
+    "#makyaj",
+    "#güzellik",
+    "#micellarsu",
+    "#makyajtemizleme",
+    "#ciltbariyeri",
+    "#makyajönerileri"
   ],
-  "takeaway": "Süt içmeyi bırak, 6 ay önceki masaya vurma anını hatırla!",
+  "takeaway": "Su ile sürfaktan karışımına marka ambalajı parası verdik yine.",
   "footage_queries": [
-    "bathroom mirror steam close up",
-    "faucet water drops close up"
+    "water droplets on glass",
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Tırnaktaki leke kalsiyum eksikliği değildir.",
-    "Aylar önce masaya vurduğun kütikül matrisindeki hücre zedelenir.",
-    "Bozulan keratin üretimi orada şeffaf olmayan hava boşluğu bırakır.",
-    "Tırnak yavaşça uzadıkça o eski darbe leke olarak uca taşınır.",
-    "Anneannenin tırnak etini koru demesi meğer tam bilimsel gerçekmiş."
+    "Gece ikide alınan micellar su.",
+    "Ucuzunda da pahalısında da yağı yakalayan köpük molekülü birebir aynıdır.",
+    "Poloxamer denen o minik temizlik mıknatısları kiri hemen içine çeker.",
+    "Lüks markaya verdiğin ekstra para sadece yüzde bir kokuya gider.",
+    "Kargo bedava gelsin derken aslında süslü parfüme servet ödedik.",
+    "Günün sonunda aynı misel suyuna beş kat fazla ödedik."
   ],
-  "subject": "tırnak lekesi",
-  "sendTo": "tırnağında beyaz leke görünce hemen süt içmeye çalışan arkadaşına",
-  "soru": "Sen de o lekeyi kalsiyum eksikliği sananlardan mısın?",
-  "theme": "#ff8fab",
+  "subject": "micellar su",
+  "sendTo": "Gece 2'de sepeti onaylayıp sabah ne aldığını unutan arkadaşına",
+  "soru": "Senin gece 2 sepetinde şu an kaç ürün var, dürüst ol?",
+  "theme": "#c9a227",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "buildup",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Tırnaktaki leke kalsiyum eksikliği değildir.",
+      "text": "Gece ikide alınan micellar su.",
       "start": 0.35,
-      "dur": 2.923
+      "dur": 1.704
     },
     {
-      "text": "Aylar önce masaya vurduğun kütikül matrisindeki hücre zedelenir.",
-      "start": 3.273,
-      "dur": 4.252
+      "text": "Ucuzunda da pahalısında da yağı yakalayan köpük molekülü birebir aynıdır.",
+      "start": 2.054,
+      "dur": 4.148
     },
     {
-      "text": "Bozulan keratin üretimi orada şeffaf olmayan hava boşluğu bırakır.",
-      "start": 7.525,
-      "dur": 4.385
+      "text": "Poloxamer denen o minik temizlik mıknatısları kiri hemen içine çeker.",
+      "start": 6.202,
+      "dur": 3.92
     },
     {
-      "text": "Tırnak yavaşça uzadıkça o eski darbe leke olarak uca taşınır.",
-      "start": 11.91,
-      "dur": 4.053
+      "text": "Lüks markaya verdiğin ekstra para sadece yüzde bir kokuya gider.",
+      "start": 10.122,
+      "dur": 3.636
     },
     {
-      "text": "Anneannenin tırnak etini koru demesi meğer tam bilimsel gerçekmiş.",
-      "start": 15.962,
-      "dur": 5.485
+      "text": "Kargo bedava gelsin derken aslında süslü parfüme servet ödedik.",
+      "start": 13.759,
+      "dur": 3.579
+    },
+    {
+      "text": "Günün sonunda aynı misel suyuna beş kat fazla ödedik.",
+      "start": 17.338,
+      "dur": 4.111
     }
   ]
 }

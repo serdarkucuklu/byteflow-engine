@@ -847,9 +847,9 @@
     "insightsAt": "2026-08-31T20:41:05.432Z"
   },
   {
-    "title": "Hyalüronik Asit: Pahalı vs Ucuz Gerçeği",
-    "subject": "hyalüronik asit",
-    "twist": "para",
+    "title": "Micellar Su: Pahalı ve Ucuz Arasındaki Tek Fark",
+    "subject": "micellar su",
+    "twist": "gece-sepeti",
     "pillar": "para-degeri",
     "layout": "nodes-flow",
     "kinds": "versus",
@@ -857,18 +857,18 @@
     "theme": "#c9a227",
     "source": "gemini",
     "footage": [
-      "pexels:serum drop close up",
+      "pexels:silk fabric flowing",
       "pexels:cosmetic bottles soft light",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
-    "voice": 5,
-    "voiceName": "Puck",
+    "voice": 6,
+    "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Yüksek fiyatlı serumlardaki o 'zengin ve lüks' kıvam hyalüronik asidin yoğunluğundan değil, formüle eklenen sentetik kıv",
+    "sir": "Pahalı ve ucuz misel sularının neredeyse tamamı, kir ve makyajı hapsetmek için Poloxamer 184 veya PEG-6 gibi tamamen ayn",
     "sirUygulandi": "kismi",
     "sirAtlandi": null,
-    "date": "2026-08-30",
+    "date": "2026-08-31",
     "durSec": 21.4
   }
 ]
