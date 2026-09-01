@@ -285,15 +285,15 @@
     "mediaId": "18125798044752318",
     "postedAt": "2026-08-23T17:47:27.474Z",
     "insights": {
-      "views": 181,
-      "reach": 153,
+      "views": 184,
+      "reach": 154,
       "saved": 0,
       "shares": 0,
       "total_interactions": 2,
-      "ig_reels_avg_watch_time": 4795,
-      "ig_reels_video_view_total_time": 748158
+      "ig_reels_avg_watch_time": 4803,
+      "ig_reels_video_view_total_time": 754105
     },
-    "insightsAt": "2026-08-31T21:55:12.535Z"
+    "insightsAt": "2026-09-01T19:47:21.239Z"
   },
   {
     "title": "Kadın Tişörtündeki Gramaj Hilesi",
@@ -320,15 +320,15 @@
     "mediaId": "18265269130306114",
     "postedAt": "2026-08-24T19:44:25.975Z",
     "insights": {
-      "views": 127,
-      "reach": 111,
+      "views": 128,
+      "reach": 112,
       "saved": 0,
       "shares": 0,
       "total_interactions": 6,
-      "ig_reels_avg_watch_time": 5327,
-      "ig_reels_video_view_total_time": 596658
+      "ig_reels_avg_watch_time": 5284,
+      "ig_reels_video_view_total_time": 597110
     },
-    "insightsAt": "2026-08-31T21:55:13.175Z"
+    "insightsAt": "2026-09-01T19:47:21.869Z"
   },
   {
     "title": "Aynı Elbisenin İki Kişide Farklı Durma Sebebi",
@@ -356,6 +356,16 @@
     "date": "2026-08-31",
     "durSec": 20.2,
     "mediaId": "17873833569565943",
-    "postedAt": "2026-08-31T22:15:47.198Z"
+    "postedAt": "2026-08-31T22:15:47.198Z",
+    "insights": {
+      "views": 133,
+      "reach": 118,
+      "saved": 1,
+      "shares": 2,
+      "total_interactions": 7,
+      "ig_reels_avg_watch_time": 4086,
+      "ig_reels_video_view_total_time": 482163
+    },
+    "insightsAt": "2026-09-01T19:47:23.192Z"
   }
 ]
