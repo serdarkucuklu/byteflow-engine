@@ -885,29 +885,29 @@
     "insightsAt": "2026-09-01T18:11:11.297Z"
   },
   {
-    "title": "Kuru Cilde Hyalüronik Asit Tuzağı",
-    "subject": "hyalüronik asit",
-    "twist": "zaman",
-    "pillar": "rutin-gercekleri",
+    "title": "Pencere Arkasında Güneş Kremi Gerekir mi?",
+    "subject": "UVA ışınları",
+    "twist": "aile-tavsiyesi",
+    "pillar": "gunes",
     "layout": "vertical-stack",
     "kinds": "diagram",
     "motion": "camera",
     "theme": "#e8a0a8",
     "source": "gemini",
     "footage": [
-      "pexels:serum drop close up",
-      "pexels:hand holding serum dropper",
+      "pexels:marble surface texture",
+      "pexels:fingers touching cream texture",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
     "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Daha farklı bir konu bul, birçok kadının bilmediği ve gördüğünde okuduğunda kaydetmek isteyeveği bir şey olsun",
+    "not": "Hep aynı cild maddelerinden bahsediyoruz, farklı konu bul! Bir çok kadının bilmediği bir durum olsun, kaydetsinler!",
     "sir": null,
     "sirUygulandi": null,
     "sirAtlandi": "not-var",
     "date": "2026-09-01",
-    "durSec": 17.2
+    "durSec": 21.4
   }
 ]
