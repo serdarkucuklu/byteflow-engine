@@ -692,15 +692,15 @@
     "mediaId": "17869556112650488",
     "postedAt": "2026-08-23T17:46:02.906Z",
     "insights": {
-      "views": 31,
-      "reach": 22,
+      "views": 32,
+      "reach": 23,
       "saved": 1,
       "shares": 0,
       "total_interactions": 4,
-      "ig_reels_avg_watch_time": 4918,
-      "ig_reels_video_view_total_time": 118051
+      "ig_reels_avg_watch_time": 5305,
+      "ig_reels_video_view_total_time": 132633
     },
-    "insightsAt": "2026-08-31T20:40:57.438Z"
+    "insightsAt": "2026-09-01T18:11:04.784Z"
   },
   {
     "title": "Işık Gafi: Pahalı vs Ucuz Pudra",
@@ -727,15 +727,15 @@
     "mediaId": "18413103952157830",
     "postedAt": "2026-08-24T18:16:51.089Z",
     "insights": {
-      "views": 149,
-      "reach": 142,
+      "views": 151,
+      "reach": 143,
       "saved": 0,
       "shares": 1,
       "total_interactions": 4,
-      "ig_reels_avg_watch_time": 3007,
-      "ig_reels_video_view_total_time": 433121
+      "ig_reels_avg_watch_time": 3146,
+      "ig_reels_video_view_total_time": 456311
     },
-    "insightsAt": "2026-08-31T20:40:58.568Z"
+    "insightsAt": "2026-09-01T18:11:06.012Z"
   },
   {
     "title": "C Vitamini Neden Sararır ve Çöp Olur?",
@@ -761,15 +761,15 @@
     "mediaId": "17933894694371382",
     "postedAt": "2026-08-25T11:08:03.424Z",
     "insights": {
-      "views": 8,
-      "reach": 6,
+      "views": 10,
+      "reach": 7,
       "saved": 0,
       "shares": 0,
       "total_interactions": 2,
-      "ig_reels_avg_watch_time": 5926,
-      "ig_reels_video_view_total_time": 41485
+      "ig_reels_avg_watch_time": 8250,
+      "ig_reels_video_view_total_time": 66001
     },
-    "insightsAt": "2026-08-31T20:41:01.863Z"
+    "insightsAt": "2026-09-01T18:11:06.973Z"
   },
   {
     "title": "Makyaj Sabitleme Spreyi: Parayı Neye Ödüyoruz?",
@@ -798,15 +798,15 @@
     "mediaId": "18403934728082225",
     "postedAt": "2026-08-26T17:08:14.737Z",
     "insights": {
-      "views": 234,
-      "reach": 207,
+      "views": 236,
+      "reach": 208,
       "saved": 0,
       "shares": 0,
       "total_interactions": 4,
-      "ig_reels_avg_watch_time": 4456,
-      "ig_reels_video_view_total_time": 940358
+      "ig_reels_avg_watch_time": 4541,
+      "ig_reels_video_view_total_time": 962693
     },
-    "insightsAt": "2026-08-31T20:41:04.092Z"
+    "insightsAt": "2026-09-01T18:11:08.710Z"
   },
   {
     "title": "Volufiline ve Ertesi Sabah Mucizesi",
@@ -836,15 +836,15 @@
     "mediaId": "17891688906609259",
     "postedAt": "2026-08-30T19:20:06.892Z",
     "insights": {
-      "views": 144,
-      "reach": 127,
+      "views": 150,
+      "reach": 132,
       "saved": 0,
       "shares": 1,
       "total_interactions": 4,
-      "ig_reels_avg_watch_time": 3769,
-      "ig_reels_video_view_total_time": 497634
+      "ig_reels_avg_watch_time": 3901,
+      "ig_reels_video_view_total_time": 534520
     },
-    "insightsAt": "2026-08-31T20:41:05.432Z"
+    "insightsAt": "2026-09-01T18:11:09.662Z"
   },
   {
     "title": "Salisilik Asit vs Glikolik Asit",
@@ -872,7 +872,17 @@
     "date": "2026-08-31",
     "durSec": 19.4,
     "mediaId": "18119329903865701",
-    "postedAt": "2026-08-31T20:59:00.414Z"
+    "postedAt": "2026-08-31T20:59:00.414Z",
+    "insights": {
+      "views": 158,
+      "reach": 129,
+      "saved": 1,
+      "shares": 1,
+      "total_interactions": 6,
+      "ig_reels_avg_watch_time": 6053,
+      "ig_reels_video_view_total_time": 793015
+    },
+    "insightsAt": "2026-09-01T18:11:11.297Z"
   },
   {
     "title": "Pahalı Hyalüronik Asit Gerçeği",
