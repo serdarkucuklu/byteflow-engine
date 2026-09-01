@@ -1,78 +1,74 @@
 {
-  "hook": "Pahalı hyalüronik asite servet gömüp mucize bekliyorsun.",
-  "title": "Pahalı Hyalüronik Asit Gerçeği",
+  "hook": "10 adımlı rutin yapıp cildini kurutan o arkadaşın.",
+  "title": "Kuru Cilde Hyalüronik Asit Tuzağı",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "node1",
-          "label": "YÜZDE DOKSAN SU"
+          "id": "n1",
+          "label": "HYALÜRONİK ASİT"
         },
         {
-          "id": "node2",
-          "label": "GLİSERİN VE AKTİF"
+          "id": "n2",
+          "label": "KURU DIŞ BARIYER"
         },
         {
-          "id": "node3",
-          "label": "LÜKS AMBALAJ"
-        },
-        {
-          "id": "node4",
-          "label": "MARKA PRİMİ"
+          "id": "n3",
+          "label": "ALT DERİ SU DEPOSU"
         }
       ],
       "steps": [
         {
-          "from": "node1",
-          "to": "node2",
-          "packet": "FORMÜL",
-          "status": "şişenin çoğu bildiğin çeşme suyu",
-          "color": "accent"
-        },
-        {
-          "from": "node2",
-          "to": "node3",
-          "packet": "ŞİŞE",
-          "status": "hyalüronik asit ucuzdur ama cam ağır",
+          "from": "n1",
+          "to": "n2",
+          "packet": "SUSUZ",
+          "status": "kuru havada nem bulamaz çaresiz kalır",
           "color": "warn"
         },
         {
-          "from": "node3",
-          "to": "node4",
-          "packet": "REKLAM",
-          "status": "kalan parayla kutu ve his satın alırsın",
+          "from": "n1",
+          "to": "n3",
+          "packet": "ÇEKİM",
+          "status": "alt derideki son nemi de yukarı çeker",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n2",
+          "packet": "HAPİS",
+          "status": "nemli cilde sürersen 10 adım kurtulur",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Pahalı hyalüronik asite servet gömüp mucize bekliyorsun.\n\nKavanoza ödediğin paranın gerçekte nereye gittiği adım adım:\n\n1. Yüzde Doksan Su — Ürünün ana taşıyıcısı sudur, aktif maddeler suda çözünür.\n2. Gliserin ve Aktif — Nem tutan hyalüronik asit molekülü üretimi son derece ucuz bir hammaddedir.\n3. Lüks Ambalaj — Bütçenin önemli bir kısmı ağır cam şişeye ve kutu tasarımına harcanır.\n4. Marka Primi — Pazarlama bütçeleri ve lüks algısı son etiketi katlar.\n\nFormüldeki etken molekül aynıysa, sade içerikli muadil tam olarak aynı nemi sağlar.\n\nAmbalaja aşık olup yine pahalısını alacağız ama en azından gerçeği biliyoruz.\n\n📌 Kaydet — bir dahaki serum krizinde lazım olacak.\n🔁 Bunu beş bin liralık seruma servet yatıran arkadaşına gönder.\nEn son hangi ürüne verdiğin paraya acıdın, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "10 adım rutin yapıp cildin hâlâ gerim gerim geriliyorsa suç üründe değil sıralamada.\n\nHyalüronik asitin nem yerine kuruluk üretme mekanizması:\n\n1. Mıknatıs Etkisi — Hyalüronik asit kendi ağırlığının 1000 katı su tutar ama suyu sıfırdan üretmez, etraftan çeker.\n2. Havadan Çekememe — Kuru cilde ve kuru havaya sürdüğünde dışarıda nem bulamaz.\n3. Ters Emilim — Çaresiz kalıp cildin alt katmanlarındaki suyu yüzeye çeker. O nem de havaya buharlaşınca cildin eskisinden daha kuru kalır.\n\nÇözüm çok basit: Serumu sürmeden önce yüzünü hafifçe suyla veya tonikle ıslat. Molekül dışarıdaki suyu tutsun, seninki sende kalsın.\n\nYine de 12 adım sürmeye devam edeceğiz ama en azından sırasını bilelim.\n\n📌 Kaydet — bir dahaki rutin krizinde lazım olacak.\n\n🔁 Bunu 10 adımlı bakım yapıp cildini kurutan arkadaşına gönder.\n\nHyalüronik asiti nemli cilde mi kuru cilde mi sürüyorsun?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
     "#hyalüronikasit",
+    "#ciltbariyeri",
+    "#skincaretips",
     "#nemlendirici",
-    "#skincare",
-    "#ciltbakımönerileri",
-    "#bakımrutini"
+    "#ciltbakımrutini"
   ],
-  "takeaway": "Cildin markayı değil molekülü tanır, ambalaja para verme.",
+  "takeaway": "Serumu nemli cilde sür, yoksa 10 adımlı rutin cildini kurutur.",
   "footage_queries": [
-    "cosmetic bottles soft light",
+    "serum drop close up",
     "hand holding serum dropper"
   ],
   "narration": [
-    "Pahalı hyalüronik asite servet döküyorsun.",
-    "Şişenin yüzde doksanı bildiğin saf sudan oluşuyor.",
-    "Nem tutan hyalüronik asit hammaddesi aslında gayet ucuzdur.",
-    "Ödediğin servet etken maddeye değil ağır cam şişeye gidiyor.",
-    "Cildin markayı değil molekülü tanır ucuzunu seç rahat et."
+    "10 adımlı rutin yine kuruttu mu?",
+    "Kuru cilde sürülen hyalüronik asit havada nem bulamaz.",
+    "Çaresiz kalıp cildin kendi suyunu yüzeye doğru çeker.",
+    "Tüm o nem havaya buharlaşır cilt daha çok kurur.",
+    "Serumdan önce yüzünü ıslat yoksa zamanın çöp olur."
   ],
   "subject": "hyalüronik asit",
-  "sendTo": "beş bin liralık seruma servet yatıran arkadaşına",
-  "soru": "En son hangi ürüne verdiğin paraya acıdın, dürüst ol?",
+  "sendTo": "10 adımlı bakım yapıp cildini kurutan arkadaşına",
+  "soru": "Hyalüronik asiti nemli cilde mi kuru cilde mi sürüyorsun?",
   "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -97,30 +93,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Pahalı hyalüronik asite servet döküyorsun.",
+      "text": "10 adımlı rutin yine kuruttu mu?",
       "start": 0.35,
-      "dur": 3.048
+      "dur": 2.135
     },
     {
-      "text": "Şişenin yüzde doksanı bildiğin saf sudan oluşuyor.",
-      "start": 3.398,
-      "dur": 3.629
+      "text": "Kuru cilde sürülen hyalüronik asit havada nem bulamaz.",
+      "start": 2.485,
+      "dur": 3.602
     },
     {
-      "text": "Nem tutan hyalüronik asit hammaddesi aslında gayet ucuzdur.",
-      "start": 7.027,
-      "dur": 4.282
+      "text": "Çaresiz kalıp cildin kendi suyunu yüzeye doğru çeker.",
+      "start": 6.087,
+      "dur": 3.536
     },
     {
-      "text": "Ödediğin servet etken maddeye değil ağır cam şişeye gidiyor.",
-      "start": 11.309,
-      "dur": 4.355
+      "text": "Tüm o nem havaya buharlaşır cilt daha çok kurur.",
+      "start": 9.623,
+      "dur": 3.202
     },
     {
-      "text": "Cildin markayı değil molekülü tanır ucuzunu seç rahat et.",
-      "start": 15.664,
-      "dur": 5.237
+      "text": "Serumdan önce yüzünü ıslat yoksa zamanın çöp olur.",
+      "start": 12.825,
+      "dur": 4.436
     }
   ],
-  "thumbOffset": 2030
+  "thumbOffset": 1668
 }

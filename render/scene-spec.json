@@ -1,125 +1,121 @@
 {
-  "hook": "Arkadaşının servet ödediği kazak iki günde bilyelendi — neden?",
-  "title": "Kazaklar Neden Bilyelenir?",
+  "hook": "10 adımlı rutin yapıp cildini kurutan o arkadaşın.",
+  "title": "Kuru Cilde Hyalüronik Asit Tuzağı",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "node1",
-          "label": "KISA ELYAF"
+          "id": "n1",
+          "label": "HYALÜRONİK ASİT"
         },
         {
-          "id": "node2",
-          "label": "SÜRTÜNME BÖLGESİ"
+          "id": "n2",
+          "label": "KURU DIŞ BARIYER"
         },
         {
-          "id": "node3",
-          "label": "LİF DÜĞÜMLENMESİ"
-        },
-        {
-          "id": "node4",
-          "label": "TÜY TOPLARI"
+          "id": "n3",
+          "label": "ALT DERİ SU DEPOSU"
         }
       ],
       "steps": [
         {
-          "from": "node1",
-          "to": "node2",
-          "packet": "SÜRT",
-          "status": "çanta askısı o pahalı kumaşı yıpratır",
+          "from": "n1",
+          "to": "n2",
+          "packet": "SUSUZ",
+          "status": "kuru havada nem bulamaz çaresiz kalır",
           "color": "warn"
         },
         {
-          "from": "node2",
-          "to": "node3",
-          "packet": "KOPMA",
-          "status": "kısa lifler dışarı kaçıp düğümlenir",
-          "color": "accent"
+          "from": "n1",
+          "to": "n3",
+          "packet": "ÇEKİM",
+          "status": "alt derideki son nemi de yukarı çeker",
+          "color": "warn"
         },
         {
-          "from": "node3",
-          "to": "node4",
-          "packet": "BİLYE",
-          "status": "yeni kazak iki günde bilyeliye döner",
+          "from": "n3",
+          "to": "n2",
+          "packet": "HAPİS",
+          "status": "nemli cilde sürersen 10 adım kurtulur",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Arkadaşının o kadar para verip aldığı kazak ikinci giymede neden pıtır pıtır bilyelenir?\n\nKazağın tüylenme ve bilyelenme mekanizması şöyle çalışıyor:\n\n1. Düşük Büküm Tuzağı — Mağazada pamuk gibi yumuşak hissettirsin diye ipliğin bükümünü az tutarlar. Dokuma gevşek olunca lifler hemen serbest kalır.\n2. Yüzeyde Dolanma — Çanta askısı veya kol sürtünmesiyle dışarı kaçan zayıf lifler pıtır pıtır düğümlenip tüy topu oluşturur.\n3. Çapa Lif Kilitlenmesi — Kumaştaki naylon veya polyester gibi kopmayan sağlam lifler, oluşan bu düğümleri tutar ve dökülmesini engelleyip kazağa kilitler.\n\nBir parçanın fiyatı veya markası onun uzun elyaflı kaliteli kumaştan yapıldığını garanti etmez.\n\nFiyat etiketine kanıp bilye toplayan kazağa servet ödemeyin.\n\n📌 Kaydet — bir dahaki kazak alışverişinde lazım olacak.\n🔁 Bunu beğenip aldığı yeni kazak iki günde bilyelenen arkadaşına gönder.\n\nSenin dolabında da iki giymede bilyelenen kazak var mı?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "10 adım rutin yapıp cildin hâlâ gerim gerim geriliyorsa suç üründe değil sıralamada.\n\nHyalüronik asitin nem yerine kuruluk üretme mekanizması:\n\n1. Mıknatıs Etkisi — Hyalüronik asit kendi ağırlığının 1000 katı su tutar ama suyu sıfırdan üretmez, etraftan çeker.\n2. Havadan Çekememe — Kuru cilde ve kuru havaya sürdüğünde dışarıda nem bulamaz.\n3. Ters Emilim — Çaresiz kalıp cildin alt katmanlarındaki suyu yüzeye çeker. O nem de havaya buharlaşınca cildin eskisinden daha kuru kalır.\n\nÇözüm çok basit: Serumu sürmeden önce yüzünü hafifçe suyla veya tonikle ıslat. Molekül dışarıdaki suyu tutsun, seninki sende kalsın.\n\nYine de 12 adım sürmeye devam edeceğiz ama en azından sırasını bilelim.\n\n📌 Kaydet — bir dahaki rutin krizinde lazım olacak.\n\n🔁 Bunu 10 adımlı bakım yapıp cildini kurutan arkadaşına gönder.\n\nHyalüronik asiti nemli cilde mi kuru cilde mi sürüyorsun?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#merak",
-    "#günlükhayat",
-    "#nedenoluyor",
-    "#kombin",
-    "#kumaş",
-    "#tüylenme",
-    "#pilling"
+    "#ciltbakimi",
+    "#güzellik",
+    "#hyalüronikasit",
+    "#ciltbariyeri",
+    "#skincaretips",
+    "#nemlendirici",
+    "#ciltbakımrutini"
   ],
-  "takeaway": "Pahalı etikete değil, kumaşın lif uzunluğuna para öde.",
+  "takeaway": "Serumu nemli cilde sür, yoksa 10 adımlı rutin cildini kurutur.",
   "footage_queries": [
-    "wardrobe door open close up",
-    "cozy home interior soft light"
+    "serum drop close up",
+    "hand holding serum dropper"
   ],
   "narration": [
-    "Arkadaşın o kazağa boşuna para verdi.",
-    "Lüks hissettirsin diye ipliği az büküp iyice gevşek bırakıyorlar.",
-    "Sürtündükçe gevşeyen lifler yüzeyde pıtır pıtır tüy topuna dönüşüyor.",
-    "İçindeki naylon çapa lifler o topakları düşürmeyip kazağa kilitliyor.",
-    "Pahalı olması uzun elyaflı kaliteli kumaş kullanıldığı anlamına gelmez."
+    "10 adımlı rutin yine kuruttu mu?",
+    "Kuru cilde sürülen hyalüronik asit havada nem bulamaz.",
+    "Çaresiz kalıp cildin kendi suyunu yüzeye doğru çeker.",
+    "Tüm o nem havaya buharlaşır cilt daha çok kurur.",
+    "Serumdan önce yüzünü ıslat yoksa zamanın çöp olur."
   ],
-  "subject": "tüylenme",
-  "sendTo": "beğenip aldığı yeni kazak iki günde bilyelenen arkadaşına",
-  "soru": "Senin dolabında da iki giymede bilyelenen kazak var mı?",
-  "theme": "#ffb37d",
+  "subject": "hyalüronik asit",
+  "sendTo": "10 adımlı bakım yapıp cildini kurutan arkadaşına",
+  "soru": "Hyalüronik asiti nemli cilde mi kuru cilde mi sürüyorsun?",
+  "theme": "#e8a0a8",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "cascade",
+  "motion": "camera",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Arkadaşın o kazağa boşuna para verdi.",
+      "text": "10 adımlı rutin yine kuruttu mu?",
       "start": 0.35,
-      "dur": 2.38
+      "dur": 2.135
     },
     {
-      "text": "Lüks hissettirsin diye ipliği az büküp iyice gevşek bırakıyorlar.",
-      "start": 2.73,
-      "dur": 4.18
+      "text": "Kuru cilde sürülen hyalüronik asit havada nem bulamaz.",
+      "start": 2.485,
+      "dur": 3.602
     },
     {
-      "text": "Sürtündükçe gevşeyen lifler yüzeyde pıtır pıtır tüy topuna dönüşüyor.",
-      "start": 6.91,
-      "dur": 4.438
+      "text": "Çaresiz kalıp cildin kendi suyunu yüzeye doğru çeker.",
+      "start": 6.087,
+      "dur": 3.536
     },
     {
-      "text": "İçindeki naylon çapa lifler o topakları düşürmeyip kazağa kilitliyor.",
-      "start": 11.347,
-      "dur": 4.438
+      "text": "Tüm o nem havaya buharlaşır cilt daha çok kurur.",
+      "start": 9.623,
+      "dur": 3.202
     },
     {
-      "text": "Pahalı olması uzun elyaflı kaliteli kumaş kullanıldığı anlamına gelmez.",
-      "start": 15.785,
-      "dur": 5.666
+      "text": "Serumdan önce yüzünü ıslat yoksa zamanın çöp olur.",
+      "start": 12.825,
+      "dur": 4.436
     }
   ]
 }

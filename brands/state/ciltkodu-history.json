@@ -885,17 +885,17 @@
     "insightsAt": "2026-09-01T18:11:11.297Z"
   },
   {
-    "title": "Pahalı Hyalüronik Asit Gerçeği",
+    "title": "Kuru Cilde Hyalüronik Asit Tuzağı",
     "subject": "hyalüronik asit",
-    "twist": "para",
-    "pillar": "makyaj-cantasi",
+    "twist": "zaman",
+    "pillar": "rutin-gercekleri",
     "layout": "vertical-stack",
     "kinds": "diagram",
     "motion": "camera",
     "theme": "#e8a0a8",
     "source": "gemini",
     "footage": [
-      "pexels:marble surface texture",
+      "pexels:serum drop close up",
       "pexels:hand holding serum dropper",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
@@ -903,10 +903,11 @@
     "voice": 5,
     "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Aylarca makyaj çantasındaki ısı değişimlerine maruz kalan hyalüronik asit serumunda koruyucu sistem zayıfladığında, serb",
-    "sirUygulandi": "geri-alindi",
-    "sirAtlandi": "degisiklik-yok",
-    "date": "2026-08-31",
-    "durSec": 20.8
+    "not": "Daha farklı bir konu bul, birçok kadının bilmediği ve gördüğünde okuduğunda kaydetmek isteyeveği bir şey olsun",
+    "sir": null,
+    "sirUygulandi": null,
+    "sirAtlandi": "not-var",
+    "date": "2026-09-01",
+    "durSec": 17.2
   }
 ]
