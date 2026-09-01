@@ -1,79 +1,79 @@
 {
-  "hook": "Aynı elbise sende neden pot duruyor?",
-  "title": "Aynı Elbisenin İki Kişide Farklı Durma Sebebi",
+  "hook": "Arkadaşının servet ödediği kazak iki günde bilyelendi — neden?",
+  "title": "Kazaklar Neden Bilyelenir?",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "kalip",
-          "label": "KALIP METRİĞİ"
+          "id": "node1",
+          "label": "KISA ELYAF"
         },
         {
-          "id": "omuz",
-          "label": "OMUZ DİKİŞİ"
+          "id": "node2",
+          "label": "SÜRTÜNME BÖLGESİ"
         },
         {
-          "id": "pens",
-          "label": "GÖĞÜS PENSLERİ"
+          "id": "node3",
+          "label": "LİF DÜĞÜMLENMESİ"
         },
         {
-          "id": "dort",
-          "label": "VEREV DÖKÜM"
+          "id": "node4",
+          "label": "TÜY TOPLARI"
         }
       ],
       "steps": [
         {
-          "from": "kalip",
-          "to": "omuz",
-          "packet": "AÇI",
-          "status": "omuz acisi kemige uymayinca potlasir",
+          "from": "node1",
+          "to": "node2",
+          "packet": "SÜRT",
+          "status": "çanta askısı o pahalı kumaşı yıpratır",
           "color": "warn"
         },
         {
-          "from": "kalip",
-          "to": "pens",
-          "packet": "HACİM",
-          "status": "pens konumu gogus yapina gore oturur",
+          "from": "node2",
+          "to": "node3",
+          "packet": "KOPMA",
+          "status": "kısa lifler dışarı kaçıp düğümlenir",
           "color": "accent"
         },
         {
-          "from": "kalip",
-          "to": "dort",
-          "packet": "DÖKÜM",
-          "status": "verev kesim kumas kalcada farkli dökülür",
+          "from": "node3",
+          "to": "node4",
+          "packet": "BİLYE",
+          "status": "yeni kazak iki günde bilyeliye döner",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Arkadaşında mükemmel duran elbise sende neden pot yapıyor?\n\nAynı kıyafetin iki farklı bedende bambaşka durmasının sebebi:\n\n1. Omuz dikiş açısı — İki insanın omuz kemik açısı aynı değildir; dikiş sıfıra oturmadığında kumaş yukarı toplanır.\n2. Göğüs pens yerleşimi — Penslerin derinliği ve açısı göğüs kafesi yapına uymadığında ön kısımda katlanma oluşur.\n3. Verev döküm farkı — Verev kesilen kumaşlar kalça ve bel kıvrımına göre genişleyip daralarak döküm değiştirir.\n\nKıyafet alırken sadece beden numarasına değil, dikiş açısına ve kumaşın kesim yönüne bakmak gerekir.\n\nYani suç senin bedeninde değil, kalıbı çıkaran terzinin açılarında.\n\n📌 Kaydet — alışverişe çıkmadan önce lazım olacak.\n🔁 Bunu seninle aynı elbiseyi alıp üstünde bambaşka duran arkadaşına gönder.\nSen de arkadaşında beğenip aldığın parçada hayal kırıklığı yaşadın mı?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Arkadaşının o kadar para verip aldığı kazak ikinci giymede neden pıtır pıtır bilyelenir?\n\nKazağın tüylenme ve bilyelenme mekanizması şöyle çalışıyor:\n\n1. Düşük Büküm Tuzağı — Mağazada pamuk gibi yumuşak hissettirsin diye ipliğin bükümünü az tutarlar. Dokuma gevşek olunca lifler hemen serbest kalır.\n2. Yüzeyde Dolanma — Çanta askısı veya kol sürtünmesiyle dışarı kaçan zayıf lifler pıtır pıtır düğümlenip tüy topu oluşturur.\n3. Çapa Lif Kilitlenmesi — Kumaştaki naylon veya polyester gibi kopmayan sağlam lifler, oluşan bu düğümleri tutar ve dökülmesini engelleyip kazağa kilitler.\n\nBir parçanın fiyatı veya markası onun uzun elyaflı kaliteli kumaştan yapıldığını garanti etmez.\n\nFiyat etiketine kanıp bilye toplayan kazağa servet ödemeyin.\n\n📌 Kaydet — bir dahaki kazak alışverişinde lazım olacak.\n🔁 Bunu beğenip aldığı yeni kazak iki günde bilyelenen arkadaşına gönder.\n\nSenin dolabında da iki giymede bilyelenen kazak var mı?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
-    "#kadınlar",
     "#günlükhayat",
     "#nedenoluyor",
-    "#kıyafetkombin",
-    "#bedentablosu",
-    "#dikiştaktikleri"
+    "#kombin",
+    "#kumaş",
+    "#tüylenme",
+    "#pilling"
   ],
-  "takeaway": "Suç senin bedeninde değil, kumaşın kesim açısında.",
+  "takeaway": "Pahalı etikete değil, kumaşın lif uzunluğuna para öde.",
   "footage_queries": [
     "wardrobe door open close up",
     "cozy home interior soft light"
   ],
   "narration": [
-    "Aynı elbise sende neden pot duruyor?",
-    "Omuz dikiş açısı kemik yapına uymayınca kumaş yukarı doğru katlanır.",
-    "Göğüs penslerinin konumu hizanla eşleşmeyince ön kısımda potluk oluşur.",
-    "Verev kesilen dökümlü kumaşlar kalça genişliğine göre tamamen farklı düşer.",
-    "Yani sorun senin bedeninde değil kumaşın kesim açısında gizli."
+    "Arkadaşın o kazağa boşuna para verdi.",
+    "Lüks hissettirsin diye ipliği az büküp iyice gevşek bırakıyorlar.",
+    "Sürtündükçe gevşeyen lifler yüzeyde pıtır pıtır tüy topuna dönüşüyor.",
+    "İçindeki naylon çapa lifler o topakları düşürmeyip kazağa kilitliyor.",
+    "Pahalı olması uzun elyaflı kaliteli kumaş kullanıldığı anlamına gelmez."
   ],
-  "subject": "beden tablosu",
-  "sendTo": "seninle aynı elbiseyi alıp üstünde bambaşka duran arkadaşına",
-  "soru": "Sen de arkadaşında beğenip aldığın parçada hayal kırıklığı yaşadın mı?",
-  "theme": "#ff8fab",
+  "subject": "tüylenme",
+  "sendTo": "beğenip aldığı yeni kazak iki günde bilyelenen arkadaşına",
+  "soru": "Senin dolabında da iki giymede bilyelenen kazak var mı?",
+  "theme": "#ffb37d",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -92,8 +92,35 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "cascade",
   "format": "kinetik",
   "footage": true,
-  "thumbOffset": 1300
+  "beats": [
+    {
+      "text": "Arkadaşın o kazağa boşuna para verdi.",
+      "start": 0.35,
+      "dur": 2.38
+    },
+    {
+      "text": "Lüks hissettirsin diye ipliği az büküp iyice gevşek bırakıyorlar.",
+      "start": 2.73,
+      "dur": 4.18
+    },
+    {
+      "text": "Sürtündükçe gevşeyen lifler yüzeyde pıtır pıtır tüy topuna dönüşüyor.",
+      "start": 6.91,
+      "dur": 4.438
+    },
+    {
+      "text": "İçindeki naylon çapa lifler o topakları düşürmeyip kazağa kilitliyor.",
+      "start": 11.347,
+      "dur": 4.438
+    },
+    {
+      "text": "Pahalı olması uzun elyaflı kaliteli kumaş kullanıldığı anlamına gelmez.",
+      "start": 15.785,
+      "dur": 5.666
+    }
+  ],
+  "thumbOffset": 1790
 }
