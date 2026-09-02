@@ -1,79 +1,78 @@
 {
-  "hook": "Her gün yıkadığın saç neden akşamına yağlanır?",
-  "title": "Saç Yağlanmasının Gizli Döngüsü",
+  "hook": "Kışın saçların daha çok dökülüyor sanıyorsun, değil mi?",
+  "title": "Kışın Saçlar Neden Daha Çok Dökülür?",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "HER_GUN_YIKAMA",
-          "label": "HER GÜN YIKAMA"
+          "id": "kok",
+          "label": "SAÇ KÖKÜ"
         },
         {
-          "id": "KORUYUCU_KAYIP",
-          "label": "BARİYER KAYBI"
+          "id": "buyu",
+          "label": "BÜYÜME"
         },
         {
-          "id": "SİNYAL_SEBUM",
-          "label": "SEBUM PATLAMASI"
+          "id": "dinlen",
+          "label": "DİNLENME"
         },
         {
-          "id": "HIZLI_YAGLANMA",
-          "label": "HIZLI YAĞLANMA"
+          "id": "es_zaman",
+          "label": "EŞ ZAMANLILIK"
         }
       ],
       "steps": [
         {
-          "from": "HER_GUN_YIKAMA",
-          "to": "KORUYUCU_KAYIP",
-          "packet": "ARINMA",
-          "status": "şampuan kafa derisinin doğal nemini",
-          "color": "warn"
+          "from": "kok",
+          "to": "buyu",
+          "packet": "GÜÇ",
+          "status": "saç kökün \"büyü\" komutuyla coşkuyla",
+          "color": "good"
         },
         {
-          "from": "KORUYUCU_KAYIP",
-          "to": "SİNYAL_SEBUM",
-          "packet": "TEPKİ",
-          "status": "kuruyan deri savunmaya geçip sebum",
+          "from": "buyu",
+          "to": "dinlen",
+          "packet": "YAVAŞ",
+          "status": "yaz bitince saçın tatili başlar",
           "color": "accent"
         },
         {
-          "from": "SİNYAL_SEBUM",
-          "to": "HIZLI_YAGLANMA",
-          "packet": "DÖNGÜ",
-          "status": "saç dipte saatler içinde tekrar",
-          "color": "good"
+          "from": "dinlen",
+          "to": "es_zaman",
+          "packet": "GİTME",
+          "status": "kış gelince hepsi \"hadi gidelim\" diye",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Saçını her gün yıkadığın halde akşama doğru ağırlaştığını hissediyorsan suç saçında değil, aşırı temizlik döngüsünde.\n\nSaç diplerindeki o bitmeyen yağlanma mekanizması adım adım:\n\n1. Her gün yıkama — Güçlü arındırıcı şampuanlar kafa derisindeki doğal sebum katmanını her gün tamamen sıfırlar.\n2. Bariyer kaybı — Savunmasız kalan kafa derisi aşırı kuruluk sinyali alır ve alarma geçer.\n3. Sebum patlaması — Deri kaybettiği nemi telafi etmek için normalden iki kat daha hızlı ve yoğun yağ üretmeye başlar.\n4. Hızlı yağlanma — Gün bitmeden dipler tekrar ağırlaşır ve sen yeniden yıkama ihtiyacı duyarsın.\n\nDuşta yapabileceğin en iyi şey: Şampuanı doğrudan saç boyuna değil sadece diplere uygulamak ve yıkama aralığını kademeli olarak açmaktır.\n\nSuçlu saçın değil, fazla mesai yapan kafa derin. Ama yine de şampuan şişesini suçlayacağız.\n\n📌 Kaydet — bir dahaki duş öncesi lazım olacak.\n🔁 Bunu saçını her gün yıkayıp yine de yağlanmasından şikayet eden arkadaşına gönder.\nSen saçını haftada kaç gün yıkıyorsun?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kışın saçlarının daha çok döküldüğünü sanıyorsun ama aslında olan bambaşka bir şey!\nMevsimsel saç dökülmesi efsanesinin ardındaki mekanizma adım adım:\n1. Saç Kökü: Her saç telinin kendi ömrü ve döngüsü var. Köklerin, yeni saçlar üretmek için sürekli bir enerjiyle çalıştığı bir dönem yaşar.\n2. Büyüme: Saçın en aktif olduğu bu faz, aylarca sürer ve saç telleri uzar. Yaz aylarında saçların daha hızlı uzadığını fark edebilirsin.\n3. Dinlenme: Yaz mevsimi bitip sonbahar gelince, saç büyümesi yavaşlar ve saç telleri dinlenme evresine geçer. Bu dönemde saç kökü, yeni bir saç üretmek için hazırlık yapar.\n4. Eş Zamanlılık: Dinlenme fazındaki saç telleri, kış aylarına doğru hep birlikte dökülmeye başlar. Bu yüzden sana kışın daha çok saç dökülüyor gibi gelir ama aslında biriken saçlar topluca veda eder.\nSaç dökülmesi stres, beslenme ve hormonal değişimlerden de etkilense de, mevsimsel döngüyü bilmek endişeyi azaltır.\nSaçlarının bir koro gibi \"güle güle\" demesini garipseme, o yüzden tarayınca küme küme geliyorlar.\n📌 Kaydet — kışın içini ferahlatır.\n🔁 Bunu kış gelince saçlarını taramaya korkan arkadaşına gönder.\nSen de mevsim geçişlerinde saç dökülmesi sendromu yaşayanlardan mısın?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#kadınlar",
-    "#günlükhayat",
     "#nedenoluyor",
     "#saçbakımı",
-    "#saçsağlığı",
-    "#saçyağlanması"
+    "#sağlık",
+    "#saçdökülmesi"
   ],
-  "takeaway": "Şampuanı azalt, kafa derinin kendi dengesini bulmasına izin ver.",
+  "takeaway": "Kışın saçların dökülmüyor, sadece hepsi aynı anda \"güle güle\" diyor.",
   "footage_queries": [
     "hairbrush on table close up",
-    "faucet water drops close up"
+    "night lamp warm glow bedroom"
   ],
   "narration": [
-    "Saçın neden her gün yağlanır?",
-    "Sık şampuanlamak kafa derisindeki doğal koruyucu bariyeri tamamen yok eder.",
-    "Kuruyan deri kendini korumak için iki kat fazla sebum üretir.",
-    "Üretilen fazla yağ saç diplerine hızla yayılarak ağırlaşma yapar.",
-    "Saçını daha az yıkayarak bu kısırdöngüyü üç haftada kırabilirsin."
+    "Kışın saçların daha çok dökülüyor sanıyorsun, değil mi?",
+    "Saç kökün \"büyü\" komutuyla coşkuyla çalışır.",
+    "Yaz bitince saçın tatili başlar, büyümeyi keser.",
+    "Kış gelince hepsi \"hadi gidelim\" diye dökülür.",
+    "Kışın saçların dökülmüyor, sadece hepsi aynı anda \"güle güle\" diyor."
   ],
-  "subject": "saç yağlanması",
-  "sendTo": "saçını her gün yıkayıp yine de yağlanmasından şikayet eden arkadaşına",
-  "soru": "Sen saçını haftada kaç gün yıkıyorsun?",
-  "theme": "#ffb37d",
+  "subject": "saç dökülmesi",
+  "sendTo": "kış gelince saçlarını taramaya korkan arkadaşına",
+  "soru": "Sen de mevsim geçişlerinde saç dökülmesi sendromu yaşayanlardan mısın?",
+  "theme": "#b39cff",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -92,35 +91,8 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "cascade",
+  "motion": "sketch",
   "format": "kinetik",
   "footage": true,
-  "beats": [
-    {
-      "text": "Saçın neden her gün yağlanır?",
-      "start": 0.35,
-      "dur": 1.966
-    },
-    {
-      "text": "Sık şampuanlamak kafa derisindeki doğal koruyucu bariyeri tamamen yok eder.",
-      "start": 2.316,
-      "dur": 5.084
-    },
-    {
-      "text": "Kuruyan deri kendini korumak için iki kat fazla sebum üretir.",
-      "start": 7.4,
-      "dur": 4.135
-    },
-    {
-      "text": "Üretilen fazla yağ saç diplerine hızla yayılarak ağırlaşma yapar.",
-      "start": 11.535,
-      "dur": 4.406
-    },
-    {
-      "text": "Saçını daha az yıkayarak bu kısırdöngüyü üç haftada kırabilirsin.",
-      "start": 15.942,
-      "dur": 5.506
-    }
-  ],
-  "thumbOffset": 1583
+  "thumbOffset": 1300
 }

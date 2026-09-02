@@ -395,5 +395,30 @@
     "durSec": 21.4,
     "mediaId": "18101436200034110",
     "postedAt": "2026-09-02T19:40:42.907Z"
+  },
+  {
+    "title": "Kışın Saçlar Neden Daha Çok Dökülür?",
+    "subject": "saç dökülmesi",
+    "twist": "herkes-yasiyor",
+    "pillar": "sehir-efsanesi",
+    "layout": "nodes-flow",
+    "kinds": "diagram",
+    "motion": "sketch",
+    "theme": "#b39cff",
+    "source": "gemini",
+    "footage": [
+      "pexels:blanket folded on sofa close up",
+      "pexels:night lamp warm glow bedroom",
+      "pexels:alarm clock on nightstand close up",
+      "pexels:bathroom mirror steam close up"
+    ],
+    "voice": null,
+    "voiceName": null,
+    "muzik": "byteflow-ambient.mp3",
+    "sir": null,
+    "sirUygulandi": null,
+    "sirAtlandi": "dongu-null",
+    "date": "2026-09-02",
+    "durSec": 20.2
   }
 ]
