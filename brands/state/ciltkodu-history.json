@@ -885,29 +885,29 @@
     "insightsAt": "2026-09-01T18:11:11.297Z"
   },
   {
-    "title": "Pencere Arkasında Güneş Kremi Gerekir mi?",
-    "subject": "UVA ışınları",
-    "twist": "aile-tavsiyesi",
-    "pillar": "gunes",
+    "title": "Göz Kremi Balonu Patladı",
+    "subject": "göz kremi",
+    "twist": "para",
+    "pillar": "satin-alma-tuzagi",
     "layout": "vertical-stack",
-    "kinds": "diagram",
+    "kinds": "versus",
     "motion": "camera",
     "theme": "#e8a0a8",
     "source": "gemini",
     "footage": [
-      "pexels:marble surface texture",
+      "pexels:linen fabric texture",
       "pexels:fingers touching cream texture",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Kore",
+    "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Hep aynı cild maddelerinden bahsediyoruz, farklı konu bul! Bir çok kadının bilmediği bir durum olsun, kaydetsinler!",
+    "not": "Başka bir konu olsun, bu zamana kadarkilerden farklı olsun. Kadınlar görünce kaydetsinler,birbirlerine göndersinler,birçoğunun bilmediği ve şaşıracağı bir konu olsun",
     "sir": null,
     "sirUygulandi": null,
     "sirAtlandi": "not-var",
-    "date": "2026-09-01",
-    "durSec": 21.4
+    "date": "2026-09-02",
+    "durSec": 18.7
   }
 ]

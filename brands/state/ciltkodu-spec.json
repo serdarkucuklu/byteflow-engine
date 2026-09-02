@@ -1,74 +1,59 @@
 {
-  "hook": "Evdeyken güneş kremi sürünce sana gülen kuzenine selam olsun.",
-  "title": "Pencere Arkasında Güneş Kremi Gerekir mi?",
+  "hook": "15 milim göz kremine servet döken o arkadaşın.",
+  "title": "Göz Kremi Balonu Patladı",
   "scenes": [
     {
       "layout": "vertical-stack",
-      "kind": "diagram",
-      "nodes": [
+      "kind": "versus",
+      "left": "LÜKS GÖZ KREMİ",
+      "right": "DÜZ NEMLENDİRİCİ",
+      "rows": [
         {
-          "id": "cam",
-          "label": "PENCERE CAMI"
+          "label": "ANA İÇERİK",
+          "left": "Su ve Gliserin",
+          "right": "Su ve Gliserin",
+          "winner": "tie"
         },
         {
-          "id": "uva",
-          "label": "UVA IŞINLARI"
+          "label": "ÖZEL FORMÜL",
+          "left": "Yok (Pazarlama)",
+          "right": "Yok (Sade Nem)",
+          "winner": "tie"
         },
         {
-          "id": "kolajen",
-          "label": "DERİ ALT KATMANI"
-        }
-      ],
-      "steps": [
-        {
-          "from": "cam",
-          "to": "uva",
-          "packet": "IŞIK",
-          "status": "uvb camda kalır ama uva içeri sızar",
-          "color": "accent"
-        },
-        {
-          "from": "uva",
-          "to": "kolajen",
-          "packet": "DERİN",
-          "status": "hiç yakmadan en alt katmana ulaşır",
-          "color": "warn"
-        },
-        {
-          "from": "kolajen",
-          "to": "cam",
-          "packet": "LEKE",
-          "status": "kolajen sessizce çöker leke başlar",
-          "color": "warn"
+          "label": "MİLİLİTRE FİYATI",
+          "left": "15 ml / 1500 TL",
+          "right": "200 ml / 400 TL",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Evde otururken güneş kremi sürdüğünde seninle dalga geçen kuzenin maalesef yanılıyor.\n\nPencere arkasında cildine adım adım ne oluyor:\n\n1. Pencere Camı — Camlar kızarıklık ve yanık yapan UVB ışınlarını engeller. Bu yüzden evde tenin kızarmaz.\n2. UVA Geçişi — Kırışıklık ve lekeden sorumlu olan UVA ışınları standart camdan doğrudan geçer.\n3. Deri Alt Katmanı — Hiç acı hissetmezsin ama UVA en alt katmana inip kolajen liflerini parçalar.\n\nCam kenarında çalışıyorsan içeride de geniş spektrumlu koruma kullanmak en mantıklısı.\n\nTeyze tavsiyeleri tatlıdır ama UVA ışını akraba dinlemiyor.\n\n📌 Kaydet — bir dahaki evde koruma tartışmasında lazım olacak.\n🔁 Bunu evde otururken güneş kremi sürdüğünde seninle dalga geçen kuzenine gönder.\nEvde veya ofiste güneş kremi sürüyor musun, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Göz kremleri aslında tamamen büyük bir pazarlama yalanı.\n\n15 milimlik minik kavanozlara neden servet ödememen gerektiğini adım adım açıklıyoruz:\n\n1. Ana İçerik — Çoğu göz kreminin ilk üç maddesi normal yüz kreminiz gibi su ve gliserindir. Ekstra bir mucize içermezler.\n2. Özel Formül — Markalar göz çevresinin çok ince olduğunu söyler ama içerideki nemlendirici ajanlar tamamen aynıdır. Sadece parfümsüzdür.\n3. Mililitre Fiyatı — Aynı formülü 15 milimlik tüpe koyup lüks kutuya sarınca fiyatı birden on katına çıkıyor.\n\nGöz kremi almak yerine parfümsüz, temiz içerikli bir yüz nemlendiricisi alıp göz çevrene de güvenle uygulayabilirsin.\n\nKavanoza ödediğin parayla akşam yemeği yiyebilirdin ama o kutu şifonyerde çok cool duruyor, anlıyorum.\n\n📌 Kaydet — bir dahaki kozmetik alışverişinde paranı kurtaracak.\n\n🔁 Bunu 15 milimlik göz kremine servet döken o arkadaşına gönder.\n\nSen hiç göz kremine binlerce lira döktün mü?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
-    "#güneşkremi",
-    "#ciltbariyeri",
-    "#leketedavisi",
-    "#güneşkoruması",
-    "#spf"
+    "#gözkremi",
+    "#bakımönerileri",
+    "#makyaj",
+    "#paratuzağı",
+    "#nemlendirici"
   ],
-  "takeaway": "Camın arkasından yanmazsın ama kolajenin sessizce erir.",
+  "takeaway": "Göz kremi yoktur, küçük kutuda pahalı nemlendirici vardır.",
   "footage_queries": [
-    "sunlight through curtain",
-    "hands applying cream close up"
+    "cosmetic bottles soft light",
+    "fingers touching cream texture"
   ],
   "narration": [
-    "Evde otururken güneş kremi sürülür mü?",
-    "Pencere camı UVB ışınlarını tutar ama UVA rahatça geçer.",
-    "Cildiniz hiç yanmaz ama ışınlar en alt katmana iner.",
-    "Sessizce kolajeni parçalayıp lekeleri ve derin kırışıklıkları tetikler.",
-    "Cam kenarında çalışıyorsanız o güneş kremi kapalıda da sürülecek."
+    "Göz kremine servet döken o arkadaşın.",
+    "İçerik listesine bakarsan ikisi de su ve gliserindir.",
+    "Göz çevresini kurtaracak sihirli bir aktif madde yoktur.",
+    "Sadece küçücük bir tüpe on katı para ödüyoruz.",
+    "Nemlendiricini gözüne sür, o parayla da akşam yemeği ye."
   ],
-  "subject": "UVA ışınları",
-  "sendTo": "evde otururken güneş kremi sürdüğünde seninle dalga geçen kuzenine",
-  "soru": "Evde veya ofiste güneş kremi sürüyor musun, dürüst ol?",
+  "subject": "göz kremi",
+  "sendTo": "15 milimlik göz kremine servet döken o arkadaşına",
+  "soru": "Sen hiç göz kremine binlerce lira döktün mü?",
   "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -93,30 +78,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Evde otururken güneş kremi sürülür mü?",
+      "text": "Göz kremine servet döken o arkadaşın.",
       "start": 0.35,
-      "dur": 2.696
+      "dur": 2.592
     },
     {
-      "text": "Pencere camı UVB ışınlarını tutar ama UVA rahatça geçer.",
-      "start": 3.046,
-      "dur": 3.972
+      "text": "İçerik listesine bakarsan ikisi de su ve gliserindir.",
+      "start": 2.942,
+      "dur": 3.712
     },
     {
-      "text": "Cildiniz hiç yanmaz ama ışınlar en alt katmana iner.",
-      "start": 7.018,
-      "dur": 3.689
+      "text": "Göz çevresini kurtaracak sihirli bir aktif madde yoktur.",
+      "start": 6.654,
+      "dur": 3.922
     },
     {
-      "text": "Sessizce kolajeni parçalayıp lekeleri ve derin kırışıklıkları tetikler.",
-      "start": 10.707,
-      "dur": 5.037
+      "text": "Sadece küçücük bir tüpe on katı para ödüyoruz.",
+      "start": 10.576,
+      "dur": 3.222
     },
     {
-      "text": "Cam kenarında çalışıyorsanız o güneş kremi kapalıda da sürülecek.",
-      "start": 15.743,
-      "dur": 5.711
+      "text": "Nemlendiricini gözüne sür, o parayla da akşam yemeği ye.",
+      "start": 13.798,
+      "dur": 5.022
     }
   ],
-  "thumbOffset": 1948
+  "thumbOffset": 1896
 }
