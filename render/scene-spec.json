@@ -1,106 +1,125 @@
 {
-  "hook": "15 milim göz kremine servet döken o arkadaşın.",
-  "title": "Göz Kremi Balonu Patladı",
+  "hook": "Her gün yıkadığın saç neden akşamına yağlanır?",
+  "title": "Saç Yağlanmasının Gizli Döngüsü",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "versus",
-      "left": "LÜKS GÖZ KREMİ",
-      "right": "DÜZ NEMLENDİRİCİ",
-      "rows": [
+      "layout": "cycle",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "ANA İÇERİK",
-          "left": "Su ve Gliserin",
-          "right": "Su ve Gliserin",
-          "winner": "tie"
+          "id": "HER_GUN_YIKAMA",
+          "label": "HER GÜN YIKAMA"
         },
         {
-          "label": "ÖZEL FORMÜL",
-          "left": "Yok (Pazarlama)",
-          "right": "Yok (Sade Nem)",
-          "winner": "tie"
+          "id": "KORUYUCU_KAYIP",
+          "label": "BARİYER KAYBI"
         },
         {
-          "label": "MİLİLİTRE FİYATI",
-          "left": "15 ml / 1500 TL",
-          "right": "200 ml / 400 TL",
-          "winner": "right"
+          "id": "SİNYAL_SEBUM",
+          "label": "SEBUM PATLAMASI"
+        },
+        {
+          "id": "HIZLI_YAGLANMA",
+          "label": "HIZLI YAĞLANMA"
+        }
+      ],
+      "steps": [
+        {
+          "from": "HER_GUN_YIKAMA",
+          "to": "KORUYUCU_KAYIP",
+          "packet": "ARINMA",
+          "status": "şampuan kafa derisinin doğal nemini",
+          "color": "warn"
+        },
+        {
+          "from": "KORUYUCU_KAYIP",
+          "to": "SİNYAL_SEBUM",
+          "packet": "TEPKİ",
+          "status": "kuruyan deri savunmaya geçip sebum",
+          "color": "accent"
+        },
+        {
+          "from": "SİNYAL_SEBUM",
+          "to": "HIZLI_YAGLANMA",
+          "packet": "DÖNGÜ",
+          "status": "saç dipte saatler içinde tekrar",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Göz kremleri aslında tamamen büyük bir pazarlama yalanı.\n\n15 milimlik minik kavanozlara neden servet ödememen gerektiğini adım adım açıklıyoruz:\n\n1. Ana İçerik — Çoğu göz kreminin ilk üç maddesi normal yüz kreminiz gibi su ve gliserindir. Ekstra bir mucize içermezler.\n2. Özel Formül — Markalar göz çevresinin çok ince olduğunu söyler ama içerideki nemlendirici ajanlar tamamen aynıdır. Sadece parfümsüzdür.\n3. Mililitre Fiyatı — Aynı formülü 15 milimlik tüpe koyup lüks kutuya sarınca fiyatı birden on katına çıkıyor.\n\nGöz kremi almak yerine parfümsüz, temiz içerikli bir yüz nemlendiricisi alıp göz çevrene de güvenle uygulayabilirsin.\n\nKavanoza ödediğin parayla akşam yemeği yiyebilirdin ama o kutu şifonyerde çok cool duruyor, anlıyorum.\n\n📌 Kaydet — bir dahaki kozmetik alışverişinde paranı kurtaracak.\n\n🔁 Bunu 15 milimlik göz kremine servet döken o arkadaşına gönder.\n\nSen hiç göz kremine binlerce lira döktün mü?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Saçını her gün yıkadığın halde akşama doğru ağırlaştığını hissediyorsan suç saçında değil, aşırı temizlik döngüsünde.\n\nSaç diplerindeki o bitmeyen yağlanma mekanizması adım adım:\n\n1. Her gün yıkama — Güçlü arındırıcı şampuanlar kafa derisindeki doğal sebum katmanını her gün tamamen sıfırlar.\n2. Bariyer kaybı — Savunmasız kalan kafa derisi aşırı kuruluk sinyali alır ve alarma geçer.\n3. Sebum patlaması — Deri kaybettiği nemi telafi etmek için normalden iki kat daha hızlı ve yoğun yağ üretmeye başlar.\n4. Hızlı yağlanma — Gün bitmeden dipler tekrar ağırlaşır ve sen yeniden yıkama ihtiyacı duyarsın.\n\nDuşta yapabileceğin en iyi şey: Şampuanı doğrudan saç boyuna değil sadece diplere uygulamak ve yıkama aralığını kademeli olarak açmaktır.\n\nSuçlu saçın değil, fazla mesai yapan kafa derin. Ama yine de şampuan şişesini suçlayacağız.\n\n📌 Kaydet — bir dahaki duş öncesi lazım olacak.\n🔁 Bunu saçını her gün yıkayıp yine de yağlanmasından şikayet eden arkadaşına gönder.\nSen saçını haftada kaç gün yıkıyorsun?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#gözkremi",
-    "#bakımönerileri",
-    "#makyaj",
-    "#paratuzağı",
-    "#nemlendirici"
+    "#merak",
+    "#kadınlar",
+    "#günlükhayat",
+    "#nedenoluyor",
+    "#saçbakımı",
+    "#saçsağlığı",
+    "#saçyağlanması"
   ],
-  "takeaway": "Göz kremi yoktur, küçük kutuda pahalı nemlendirici vardır.",
+  "takeaway": "Şampuanı azalt, kafa derinin kendi dengesini bulmasına izin ver.",
   "footage_queries": [
-    "cosmetic bottles soft light",
-    "fingers touching cream texture"
+    "hairbrush on table close up",
+    "faucet water drops close up"
   ],
   "narration": [
-    "Göz kremine servet döken o arkadaşın.",
-    "İçerik listesine bakarsan ikisi de su ve gliserindir.",
-    "Göz çevresini kurtaracak sihirli bir aktif madde yoktur.",
-    "Sadece küçücük bir tüpe on katı para ödüyoruz.",
-    "Nemlendiricini gözüne sür, o parayla da akşam yemeği ye."
+    "Saçın neden her gün yağlanır?",
+    "Sık şampuanlamak kafa derisindeki doğal koruyucu bariyeri tamamen yok eder.",
+    "Kuruyan deri kendini korumak için iki kat fazla sebum üretir.",
+    "Üretilen fazla yağ saç diplerine hızla yayılarak ağırlaşma yapar.",
+    "Saçını daha az yıkayarak bu kısırdöngüyü üç haftada kırabilirsin."
   ],
-  "subject": "göz kremi",
-  "sendTo": "15 milimlik göz kremine servet döken o arkadaşına",
-  "soru": "Sen hiç göz kremine binlerce lira döktün mü?",
-  "theme": "#e8a0a8",
+  "subject": "saç yağlanması",
+  "sendTo": "saçını her gün yıkayıp yine de yağlanmasından şikayet eden arkadaşına",
+  "soru": "Sen saçını haftada kaç gün yıkıyorsun?",
+  "theme": "#ffb37d",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "cascade",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Göz kremine servet döken o arkadaşın.",
+      "text": "Saçın neden her gün yağlanır?",
       "start": 0.35,
-      "dur": 2.592
+      "dur": 1.966
     },
     {
-      "text": "İçerik listesine bakarsan ikisi de su ve gliserindir.",
-      "start": 2.942,
-      "dur": 3.712
+      "text": "Sık şampuanlamak kafa derisindeki doğal koruyucu bariyeri tamamen yok eder.",
+      "start": 2.316,
+      "dur": 5.084
     },
     {
-      "text": "Göz çevresini kurtaracak sihirli bir aktif madde yoktur.",
-      "start": 6.654,
-      "dur": 3.922
+      "text": "Kuruyan deri kendini korumak için iki kat fazla sebum üretir.",
+      "start": 7.4,
+      "dur": 4.135
     },
     {
-      "text": "Sadece küçücük bir tüpe on katı para ödüyoruz.",
-      "start": 10.576,
-      "dur": 3.222
+      "text": "Üretilen fazla yağ saç diplerine hızla yayılarak ağırlaşma yapar.",
+      "start": 11.535,
+      "dur": 4.406
     },
     {
-      "text": "Nemlendiricini gözüne sür, o parayla da akşam yemeği ye.",
-      "start": 13.798,
-      "dur": 5.022
+      "text": "Saçını daha az yıkayarak bu kısırdöngüyü üç haftada kırabilirsin.",
+      "start": 15.942,
+      "dur": 5.506
     }
   ]
 }

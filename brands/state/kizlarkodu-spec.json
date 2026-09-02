@@ -1,78 +1,78 @@
 {
-  "hook": "Arkadaşının servet ödediği kazak iki günde bilyelendi — neden?",
-  "title": "Kazaklar Neden Bilyelenir?",
+  "hook": "Her gün yıkadığın saç neden akşamına yağlanır?",
+  "title": "Saç Yağlanmasının Gizli Döngüsü",
   "scenes": [
     {
-      "layout": "vertical-stack",
+      "layout": "cycle",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "node1",
-          "label": "KISA ELYAF"
+          "id": "HER_GUN_YIKAMA",
+          "label": "HER GÜN YIKAMA"
         },
         {
-          "id": "node2",
-          "label": "SÜRTÜNME BÖLGESİ"
+          "id": "KORUYUCU_KAYIP",
+          "label": "BARİYER KAYBI"
         },
         {
-          "id": "node3",
-          "label": "LİF DÜĞÜMLENMESİ"
+          "id": "SİNYAL_SEBUM",
+          "label": "SEBUM PATLAMASI"
         },
         {
-          "id": "node4",
-          "label": "TÜY TOPLARI"
+          "id": "HIZLI_YAGLANMA",
+          "label": "HIZLI YAĞLANMA"
         }
       ],
       "steps": [
         {
-          "from": "node1",
-          "to": "node2",
-          "packet": "SÜRT",
-          "status": "çanta askısı o pahalı kumaşı yıpratır",
+          "from": "HER_GUN_YIKAMA",
+          "to": "KORUYUCU_KAYIP",
+          "packet": "ARINMA",
+          "status": "şampuan kafa derisinin doğal nemini",
           "color": "warn"
         },
         {
-          "from": "node2",
-          "to": "node3",
-          "packet": "KOPMA",
-          "status": "kısa lifler dışarı kaçıp düğümlenir",
+          "from": "KORUYUCU_KAYIP",
+          "to": "SİNYAL_SEBUM",
+          "packet": "TEPKİ",
+          "status": "kuruyan deri savunmaya geçip sebum",
           "color": "accent"
         },
         {
-          "from": "node3",
-          "to": "node4",
-          "packet": "BİLYE",
-          "status": "yeni kazak iki günde bilyeliye döner",
+          "from": "SİNYAL_SEBUM",
+          "to": "HIZLI_YAGLANMA",
+          "packet": "DÖNGÜ",
+          "status": "saç dipte saatler içinde tekrar",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Arkadaşının o kadar para verip aldığı kazak ikinci giymede neden pıtır pıtır bilyelenir?\n\nKazağın tüylenme ve bilyelenme mekanizması şöyle çalışıyor:\n\n1. Düşük Büküm Tuzağı — Mağazada pamuk gibi yumuşak hissettirsin diye ipliğin bükümünü az tutarlar. Dokuma gevşek olunca lifler hemen serbest kalır.\n2. Yüzeyde Dolanma — Çanta askısı veya kol sürtünmesiyle dışarı kaçan zayıf lifler pıtır pıtır düğümlenip tüy topu oluşturur.\n3. Çapa Lif Kilitlenmesi — Kumaştaki naylon veya polyester gibi kopmayan sağlam lifler, oluşan bu düğümleri tutar ve dökülmesini engelleyip kazağa kilitler.\n\nBir parçanın fiyatı veya markası onun uzun elyaflı kaliteli kumaştan yapıldığını garanti etmez.\n\nFiyat etiketine kanıp bilye toplayan kazağa servet ödemeyin.\n\n📌 Kaydet — bir dahaki kazak alışverişinde lazım olacak.\n🔁 Bunu beğenip aldığı yeni kazak iki günde bilyelenen arkadaşına gönder.\n\nSenin dolabında da iki giymede bilyelenen kazak var mı?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Saçını her gün yıkadığın halde akşama doğru ağırlaştığını hissediyorsan suç saçında değil, aşırı temizlik döngüsünde.\n\nSaç diplerindeki o bitmeyen yağlanma mekanizması adım adım:\n\n1. Her gün yıkama — Güçlü arındırıcı şampuanlar kafa derisindeki doğal sebum katmanını her gün tamamen sıfırlar.\n2. Bariyer kaybı — Savunmasız kalan kafa derisi aşırı kuruluk sinyali alır ve alarma geçer.\n3. Sebum patlaması — Deri kaybettiği nemi telafi etmek için normalden iki kat daha hızlı ve yoğun yağ üretmeye başlar.\n4. Hızlı yağlanma — Gün bitmeden dipler tekrar ağırlaşır ve sen yeniden yıkama ihtiyacı duyarsın.\n\nDuşta yapabileceğin en iyi şey: Şampuanı doğrudan saç boyuna değil sadece diplere uygulamak ve yıkama aralığını kademeli olarak açmaktır.\n\nSuçlu saçın değil, fazla mesai yapan kafa derin. Ama yine de şampuan şişesini suçlayacağız.\n\n📌 Kaydet — bir dahaki duş öncesi lazım olacak.\n🔁 Bunu saçını her gün yıkayıp yine de yağlanmasından şikayet eden arkadaşına gönder.\nSen saçını haftada kaç gün yıkıyorsun?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
+    "#kadınlar",
     "#günlükhayat",
     "#nedenoluyor",
-    "#kombin",
-    "#kumaş",
-    "#tüylenme",
-    "#pilling"
+    "#saçbakımı",
+    "#saçsağlığı",
+    "#saçyağlanması"
   ],
-  "takeaway": "Pahalı etikete değil, kumaşın lif uzunluğuna para öde.",
+  "takeaway": "Şampuanı azalt, kafa derinin kendi dengesini bulmasına izin ver.",
   "footage_queries": [
-    "wardrobe door open close up",
-    "cozy home interior soft light"
+    "hairbrush on table close up",
+    "faucet water drops close up"
   ],
   "narration": [
-    "Arkadaşın o kazağa boşuna para verdi.",
-    "Lüks hissettirsin diye ipliği az büküp iyice gevşek bırakıyorlar.",
-    "Sürtündükçe gevşeyen lifler yüzeyde pıtır pıtır tüy topuna dönüşüyor.",
-    "İçindeki naylon çapa lifler o topakları düşürmeyip kazağa kilitliyor.",
-    "Pahalı olması uzun elyaflı kaliteli kumaş kullanıldığı anlamına gelmez."
+    "Saçın neden her gün yağlanır?",
+    "Sık şampuanlamak kafa derisindeki doğal koruyucu bariyeri tamamen yok eder.",
+    "Kuruyan deri kendini korumak için iki kat fazla sebum üretir.",
+    "Üretilen fazla yağ saç diplerine hızla yayılarak ağırlaşma yapar.",
+    "Saçını daha az yıkayarak bu kısırdöngüyü üç haftada kırabilirsin."
   ],
-  "subject": "tüylenme",
-  "sendTo": "beğenip aldığı yeni kazak iki günde bilyelenen arkadaşına",
-  "soru": "Senin dolabında da iki giymede bilyelenen kazak var mı?",
+  "subject": "saç yağlanması",
+  "sendTo": "saçını her gün yıkayıp yine de yağlanmasından şikayet eden arkadaşına",
+  "soru": "Sen saçını haftada kaç gün yıkıyorsun?",
   "theme": "#ffb37d",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -97,30 +97,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Arkadaşın o kazağa boşuna para verdi.",
+      "text": "Saçın neden her gün yağlanır?",
       "start": 0.35,
-      "dur": 2.38
+      "dur": 1.966
     },
     {
-      "text": "Lüks hissettirsin diye ipliği az büküp iyice gevşek bırakıyorlar.",
-      "start": 2.73,
-      "dur": 4.18
+      "text": "Sık şampuanlamak kafa derisindeki doğal koruyucu bariyeri tamamen yok eder.",
+      "start": 2.316,
+      "dur": 5.084
     },
     {
-      "text": "Sürtündükçe gevşeyen lifler yüzeyde pıtır pıtır tüy topuna dönüşüyor.",
-      "start": 6.91,
-      "dur": 4.438
+      "text": "Kuruyan deri kendini korumak için iki kat fazla sebum üretir.",
+      "start": 7.4,
+      "dur": 4.135
     },
     {
-      "text": "İçindeki naylon çapa lifler o topakları düşürmeyip kazağa kilitliyor.",
-      "start": 11.347,
-      "dur": 4.438
+      "text": "Üretilen fazla yağ saç diplerine hızla yayılarak ağırlaşma yapar.",
+      "start": 11.535,
+      "dur": 4.406
     },
     {
-      "text": "Pahalı olması uzun elyaflı kaliteli kumaş kullanıldığı anlamına gelmez.",
-      "start": 15.785,
-      "dur": 5.666
+      "text": "Saçını daha az yıkayarak bu kısırdöngüyü üç haftada kırabilirsin.",
+      "start": 15.942,
+      "dur": 5.506
     }
   ],
-  "thumbOffset": 1790
+  "thumbOffset": 1583
 }

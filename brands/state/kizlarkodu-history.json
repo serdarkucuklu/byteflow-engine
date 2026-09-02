@@ -369,17 +369,17 @@
     "insightsAt": "2026-09-01T19:47:23.192Z"
   },
   {
-    "title": "Kazaklar Neden Bilyelenir?",
-    "subject": "tüylenme",
-    "twist": "para",
-    "pillar": "pilling",
-    "layout": "vertical-stack",
+    "title": "Saç Yağlanmasının Gizli Döngüsü",
+    "subject": "saç yağlanması",
+    "twist": "dolap-mezarligi",
+    "pillar": "tuy-diken-diken",
+    "layout": "cycle",
     "kinds": "diagram",
     "motion": "cascade",
     "theme": "#ffb37d",
     "source": "gemini",
     "footage": [
-      "pexels:blanket folded on sofa close up",
+      "pexels:hairbrush on table close up",
       "pexels:faucet water drops close up",
       "pexels:alarm clock on nightstand close up",
       "pexels:bathroom mirror steam close up"
@@ -387,10 +387,11 @@
     "voice": 5,
     "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Lüks kazaklardaki ekstra yumuşaklık ipliğin büküm katsayısının düşük tutulmasıyla sağlanır; ancak kumaştaki polyester ve",
-    "sirUygulandi": "kismi",
-    "sirAtlandi": null,
-    "date": "2026-09-01",
+    "not": "Başka bşr konu bul, giysi şart değil. Kadınlarla ilgili onların öğrenmek isteyeceği ve hepsinin bilmediği vd kaydedecekleri bir konu olsun",
+    "sir": null,
+    "sirUygulandi": null,
+    "sirAtlandi": "not-var",
+    "date": "2026-09-02",
     "durSec": 21.4
   }
 ]
