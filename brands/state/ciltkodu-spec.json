@@ -1,60 +1,83 @@
 {
-  "hook": "15 milim göz kremine servet döken o arkadaşın.",
-  "title": "Göz Kremi Balonu Patladı",
+  "hook": "Senin güneş kremini \"birazcık\" alan o kişi.",
+  "title": "Güneş Kremi: Birazcık Yetmez!",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "versus",
-      "left": "LÜKS GÖZ KREMİ",
-      "right": "DÜZ NEMLENDİRİCİ",
-      "rows": [
+      "layout": "hub-spoke",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "ANA İÇERİK",
-          "left": "Su ve Gliserin",
-          "right": "Su ve Gliserin",
-          "winner": "tie"
+          "id": "ID_KREM",
+          "label": "SÜRÜLEN KREM"
         },
         {
-          "label": "ÖZEL FORMÜL",
-          "left": "Yok (Pazarlama)",
-          "right": "Yok (Sade Nem)",
-          "winner": "tie"
+          "id": "ID_UVA",
+          "label": "UVA FİLTRELERİ"
         },
         {
-          "label": "MİLİLİTRE FİYATI",
-          "left": "15 ml / 1500 TL",
-          "right": "200 ml / 400 TL",
-          "winner": "right"
+          "id": "ID_UVB",
+          "label": "UVB FİLTRELERİ"
+        },
+        {
+          "id": "ID_BARIYER",
+          "label": "CİLT BARİYERİ"
+        },
+        {
+          "id": "ID_HASAR",
+          "label": "HÜCRE HASARI"
+        }
+      ],
+      "steps": [
+        {
+          "from": "ID_KREM",
+          "to": "ID_UVA",
+          "packet": "MİKTAR",
+          "status": "yeterli miktar kremi UVA filtrelerine",
+          "color": "accent"
+        },
+        {
+          "from": "ID_KREM",
+          "to": "ID_UVB",
+          "packet": "KORUMA",
+          "status": "UVB filtreleri yanık riskini azaltır",
+          "color": "accent"
+        },
+        {
+          "from": "ID_KREM",
+          "to": "ID_BARIYER",
+          "packet": "TABAKA",
+          "status": "krem cilt bariyerini güçlendirir, sen",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Göz kremleri aslında tamamen büyük bir pazarlama yalanı.\n\n15 milimlik minik kavanozlara neden servet ödememen gerektiğini adım adım açıklıyoruz:\n\n1. Ana İçerik — Çoğu göz kreminin ilk üç maddesi normal yüz kreminiz gibi su ve gliserindir. Ekstra bir mucize içermezler.\n2. Özel Formül — Markalar göz çevresinin çok ince olduğunu söyler ama içerideki nemlendirici ajanlar tamamen aynıdır. Sadece parfümsüzdür.\n3. Mililitre Fiyatı — Aynı formülü 15 milimlik tüpe koyup lüks kutuya sarınca fiyatı birden on katına çıkıyor.\n\nGöz kremi almak yerine parfümsüz, temiz içerikli bir yüz nemlendiricisi alıp göz çevrene de güvenle uygulayabilirsin.\n\nKavanoza ödediğin parayla akşam yemeği yiyebilirdin ama o kutu şifonyerde çok cool duruyor, anlıyorum.\n\n📌 Kaydet — bir dahaki kozmetik alışverişinde paranı kurtaracak.\n\n🔁 Bunu 15 milimlik göz kremine servet döken o arkadaşına gönder.\n\nSen hiç göz kremine binlerce lira döktün mü?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Senin güneş kremini \"birazcık\" alan o kişi, aslında cildini korumuyor. Güneş kreminin az sürülmesi neden cildini savunmasız bırakır, adım adım:1. Sürülen Krem: Cildine uyguladığın güneş kremi, aslında bir kalkan görevi görür. Ama bu kalkanın işe yaraması için yeterli miktarda olması şart.2. UVA Filtreleri: Kremin içindeki UVA filtreleri, cildinin erken yaşlanmasına ve lekelenmeye neden olan uzun dalga ultraviyole ışınlarına karşı koruma sağlar. Bu filtreler, kremi doğru miktarda sürdüğünde aktifleşir.3. UVB Filtreleri: UVB filtreleri ise güneş yanıklarına neden olan kısa dalga ultraviyole ışınlarına karşı savaşır. Onların da tam performans göstermesi için cildin her yerine homojen ve yeterli miktarda yayılması gerekir.4. Cilt Bariyeri: Güneş kremi aynı zamanda cilt bariyerini destekleyerek nem kaybını önler ve cildin dış etkenlere karşı direncini artırır. Bu koruma, ancak tam kapsama ile mümkün.5. Hücre Hasarı: Yetersiz miktarda sürülen güneş kremi, cildinin bazı bölgelerini savunmasız bırakır. Bu da hücre hasarına, erken yaşlanmaya ve hatta cilt kanseri riskine davetiye çıkarır. Yani \"birazcık\" sürdüğünde, o pahalı kremin koruyuculuğundan mahrum kalmış olursun. Güneş kremi alırken sadece SPF ve PA değerlerine değil, aynı zamanda düzenli ve yeterli miktarda uygulama alışkanlığına da yatırım yaptığını unutma. Ucuz da olsa, pahalı da olsa, yeterli miktarda sürmek en önemlisi. Unutma, o kremin taksitleri durmuyor ama koruması \"birazcık\" sürünce duruyor.\n\n📌 Kaydet — bir dahaki sefere kremini çalmak isteyenlere atarsın.\n\n🔁 Bunu senin güneş kremini habersiz kullanan kardeşine gönder. Senin banyonda hangi ürünlere göz dikiliyor, dürüst ol? Yazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
-    "#gözkremi",
-    "#bakımönerileri",
-    "#makyaj",
-    "#paratuzağı",
-    "#nemlendirici"
+    "#güneşkremi",
+    "#ciltkoruma",
+    "#nemlendirici",
+    "#ciltbariyeri",
+    "#spf50"
   ],
-  "takeaway": "Göz kremi yoktur, küçük kutuda pahalı nemlendirici vardır.",
+  "takeaway": "Güneş kremi paylaşılmaz, hele ki az sürülmez, bedeli ağır.",
   "footage_queries": [
-    "cosmetic bottles soft light",
-    "fingers touching cream texture"
+    "hands applying cream close up",
+    "hand holding serum dropper"
   ],
   "narration": [
-    "Göz kremine servet döken o arkadaşın.",
-    "İçerik listesine bakarsan ikisi de su ve gliserindir.",
-    "Göz çevresini kurtaracak sihirli bir aktif madde yoktur.",
-    "Sadece küçücük bir tüpe on katı para ödüyoruz.",
-    "Nemlendiricini gözüne sür, o parayla da akşam yemeği ye."
+    "Senin güneş kremini \"birazcık\" alan o kişi.",
+    "Yeterli miktar kremi UVA filtrelerine ulaştırır, cildin korunur.",
+    "UVB filtreleri yanık riskini azaltır, sen rahatlarsın.",
+    "Krem cilt bariyerini güçlendirir, sen de öyle.",
+    "Güneş kremi paylaşılmaz, hele ki az sürülmez, bedeli ağır."
   ],
-  "subject": "göz kremi",
-  "sendTo": "15 milimlik göz kremine servet döken o arkadaşına",
-  "soru": "Sen hiç göz kremine binlerce lira döktün mü?",
-  "theme": "#e8a0a8",
+  "subject": "güneş kremi",
+  "sendTo": "Senin güneş kremini habersiz kullanan kardeşine",
+  "soru": "Senin banyonda hangi ürünlere göz dikiliyor, dürüst ol?",
+  "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -73,35 +96,35 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "ripple",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Göz kremine servet döken o arkadaşın.",
+      "text": "Senin güneş kremini \"birazcık\" alan o kişi.",
       "start": 0.35,
-      "dur": 2.592
+      "dur": 3.246
     },
     {
-      "text": "İçerik listesine bakarsan ikisi de su ve gliserindir.",
-      "start": 2.942,
-      "dur": 3.712
+      "text": "Yeterli miktar kremi UVA filtrelerine ulaştırır, cildin korunur.",
+      "start": 3.596,
+      "dur": 4.831
     },
     {
-      "text": "Göz çevresini kurtaracak sihirli bir aktif madde yoktur.",
-      "start": 6.654,
-      "dur": 3.922
+      "text": "UVB filtreleri yanık riskini azaltır, sen rahatlarsın.",
+      "start": 8.427,
+      "dur": 4.076
     },
     {
-      "text": "Sadece küçücük bir tüpe on katı para ödüyoruz.",
-      "start": 10.576,
-      "dur": 3.222
+      "text": "Krem cilt bariyerini güçlendirir, sen de öyle.",
+      "start": 12.503,
+      "dur": 3.472
     },
     {
-      "text": "Nemlendiricini gözüne sür, o parayla da akşam yemeği ye.",
-      "start": 13.798,
-      "dur": 5.022
+      "text": "Güneş kremi paylaşılmaz, hele ki az sürülmez, bedeli ağır.",
+      "start": 15.975,
+      "dur": 5.478
     }
   ],
-  "thumbOffset": 1896
+  "thumbOffset": 2223
 }

@@ -921,5 +921,30 @@
       "ig_reels_video_view_total_time": 153976
     },
     "insightsAt": "2026-09-03T18:23:42.711Z"
+  },
+  {
+    "title": "Güneş Kremi: Birazcık Yetmez!",
+    "subject": "güneş kremi",
+    "twist": "ev-arkadasi",
+    "pillar": "muadil",
+    "layout": "hub-spoke",
+    "kinds": "diagram",
+    "motion": "ripple",
+    "theme": "#8fa8c8",
+    "source": "gemini",
+    "footage": [
+      "pexels:makeup brushes flat lay",
+      "pexels:hand holding serum dropper",
+      "pexels:water droplets on glass",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": 5,
+    "voiceName": "Puck",
+    "muzik": "byteflow-ambient.mp3",
+    "sir": null,
+    "sirUygulandi": null,
+    "sirAtlandi": "dongu-null",
+    "date": "2026-09-03",
+    "durSec": 21.4
   }
 ]

@@ -1,97 +1,129 @@
 {
-  "hook": "Kışın saçların daha çok dökülüyor sanıyorsun, değil mi?",
-  "title": "Kışın Saçlar Neden Daha Çok Dökülür?",
+  "hook": "Senin güneş kremini \"birazcık\" alan o kişi.",
+  "title": "Güneş Kremi: Birazcık Yetmez!",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "hub-spoke",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "kok",
-          "label": "SAÇ KÖKÜ"
+          "id": "ID_KREM",
+          "label": "SÜRÜLEN KREM"
         },
         {
-          "id": "buyu",
-          "label": "BÜYÜME"
+          "id": "ID_UVA",
+          "label": "UVA FİLTRELERİ"
         },
         {
-          "id": "dinlen",
-          "label": "DİNLENME"
+          "id": "ID_UVB",
+          "label": "UVB FİLTRELERİ"
         },
         {
-          "id": "es_zaman",
-          "label": "EŞ ZAMANLILIK"
+          "id": "ID_BARIYER",
+          "label": "CİLT BARİYERİ"
+        },
+        {
+          "id": "ID_HASAR",
+          "label": "HÜCRE HASARI"
         }
       ],
       "steps": [
         {
-          "from": "kok",
-          "to": "buyu",
-          "packet": "GÜÇ",
-          "status": "saç kökün \"büyü\" komutuyla coşkuyla",
-          "color": "good"
-        },
-        {
-          "from": "buyu",
-          "to": "dinlen",
-          "packet": "YAVAŞ",
-          "status": "yaz bitince saçın tatili başlar",
+          "from": "ID_KREM",
+          "to": "ID_UVA",
+          "packet": "MİKTAR",
+          "status": "yeterli miktar kremi UVA filtrelerine",
           "color": "accent"
         },
         {
-          "from": "dinlen",
-          "to": "es_zaman",
-          "packet": "GİTME",
-          "status": "kış gelince hepsi \"hadi gidelim\" diye",
-          "color": "warn"
+          "from": "ID_KREM",
+          "to": "ID_UVB",
+          "packet": "KORUMA",
+          "status": "UVB filtreleri yanık riskini azaltır",
+          "color": "accent"
+        },
+        {
+          "from": "ID_KREM",
+          "to": "ID_BARIYER",
+          "packet": "TABAKA",
+          "status": "krem cilt bariyerini güçlendirir, sen",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kışın saçlarının daha çok döküldüğünü sanıyorsun ama aslında olan bambaşka bir şey!\nMevsimsel saç dökülmesi efsanesinin ardındaki mekanizma adım adım:\n1. Saç Kökü: Her saç telinin kendi ömrü ve döngüsü var. Köklerin, yeni saçlar üretmek için sürekli bir enerjiyle çalıştığı bir dönem yaşar.\n2. Büyüme: Saçın en aktif olduğu bu faz, aylarca sürer ve saç telleri uzar. Yaz aylarında saçların daha hızlı uzadığını fark edebilirsin.\n3. Dinlenme: Yaz mevsimi bitip sonbahar gelince, saç büyümesi yavaşlar ve saç telleri dinlenme evresine geçer. Bu dönemde saç kökü, yeni bir saç üretmek için hazırlık yapar.\n4. Eş Zamanlılık: Dinlenme fazındaki saç telleri, kış aylarına doğru hep birlikte dökülmeye başlar. Bu yüzden sana kışın daha çok saç dökülüyor gibi gelir ama aslında biriken saçlar topluca veda eder.\nSaç dökülmesi stres, beslenme ve hormonal değişimlerden de etkilense de, mevsimsel döngüyü bilmek endişeyi azaltır.\nSaçlarının bir koro gibi \"güle güle\" demesini garipseme, o yüzden tarayınca küme küme geliyorlar.\n📌 Kaydet — kışın içini ferahlatır.\n🔁 Bunu kış gelince saçlarını taramaya korkan arkadaşına gönder.\nSen de mevsim geçişlerinde saç dökülmesi sendromu yaşayanlardan mısın?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Senin güneş kremini \"birazcık\" alan o kişi, aslında cildini korumuyor. Güneş kreminin az sürülmesi neden cildini savunmasız bırakır, adım adım:1. Sürülen Krem: Cildine uyguladığın güneş kremi, aslında bir kalkan görevi görür. Ama bu kalkanın işe yaraması için yeterli miktarda olması şart.2. UVA Filtreleri: Kremin içindeki UVA filtreleri, cildinin erken yaşlanmasına ve lekelenmeye neden olan uzun dalga ultraviyole ışınlarına karşı koruma sağlar. Bu filtreler, kremi doğru miktarda sürdüğünde aktifleşir.3. UVB Filtreleri: UVB filtreleri ise güneş yanıklarına neden olan kısa dalga ultraviyole ışınlarına karşı savaşır. Onların da tam performans göstermesi için cildin her yerine homojen ve yeterli miktarda yayılması gerekir.4. Cilt Bariyeri: Güneş kremi aynı zamanda cilt bariyerini destekleyerek nem kaybını önler ve cildin dış etkenlere karşı direncini artırır. Bu koruma, ancak tam kapsama ile mümkün.5. Hücre Hasarı: Yetersiz miktarda sürülen güneş kremi, cildinin bazı bölgelerini savunmasız bırakır. Bu da hücre hasarına, erken yaşlanmaya ve hatta cilt kanseri riskine davetiye çıkarır. Yani \"birazcık\" sürdüğünde, o pahalı kremin koruyuculuğundan mahrum kalmış olursun. Güneş kremi alırken sadece SPF ve PA değerlerine değil, aynı zamanda düzenli ve yeterli miktarda uygulama alışkanlığına da yatırım yaptığını unutma. Ucuz da olsa, pahalı da olsa, yeterli miktarda sürmek en önemlisi. Unutma, o kremin taksitleri durmuyor ama koruması \"birazcık\" sürünce duruyor.\n\n📌 Kaydet — bir dahaki sefere kremini çalmak isteyenlere atarsın.\n\n🔁 Bunu senin güneş kremini habersiz kullanan kardeşine gönder. Senin banyonda hangi ürünlere göz dikiliyor, dürüst ol? Yazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#merak",
-    "#kadınlar",
-    "#nedenoluyor",
-    "#saçbakımı",
-    "#sağlık",
-    "#saçdökülmesi"
+    "#ciltbakimi",
+    "#güzellik",
+    "#güneşkremi",
+    "#ciltkoruma",
+    "#nemlendirici",
+    "#ciltbariyeri",
+    "#spf50"
   ],
-  "takeaway": "Kışın saçların dökülmüyor, sadece hepsi aynı anda \"güle güle\" diyor.",
+  "takeaway": "Güneş kremi paylaşılmaz, hele ki az sürülmez, bedeli ağır.",
   "footage_queries": [
-    "hairbrush on table close up",
-    "night lamp warm glow bedroom"
+    "hands applying cream close up",
+    "hand holding serum dropper"
   ],
   "narration": [
-    "Kışın saçların daha çok dökülüyor sanıyorsun, değil mi?",
-    "Saç kökün \"büyü\" komutuyla coşkuyla çalışır.",
-    "Yaz bitince saçın tatili başlar, büyümeyi keser.",
-    "Kış gelince hepsi \"hadi gidelim\" diye dökülür.",
-    "Kışın saçların dökülmüyor, sadece hepsi aynı anda \"güle güle\" diyor."
+    "Senin güneş kremini \"birazcık\" alan o kişi.",
+    "Yeterli miktar kremi UVA filtrelerine ulaştırır, cildin korunur.",
+    "UVB filtreleri yanık riskini azaltır, sen rahatlarsın.",
+    "Krem cilt bariyerini güçlendirir, sen de öyle.",
+    "Güneş kremi paylaşılmaz, hele ki az sürülmez, bedeli ağır."
   ],
-  "subject": "saç dökülmesi",
-  "sendTo": "kış gelince saçlarını taramaya korkan arkadaşına",
-  "soru": "Sen de mevsim geçişlerinde saç dökülmesi sendromu yaşayanlardan mısın?",
-  "theme": "#b39cff",
+  "subject": "güneş kremi",
+  "sendTo": "Senin güneş kremini habersiz kullanan kardeşine",
+  "soru": "Senin banyonda hangi ürünlere göz dikiliyor, dürüst ol?",
+  "theme": "#8fa8c8",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "ripple",
   "format": "kinetik",
-  "footage": true
+  "footage": true,
+  "beats": [
+    {
+      "text": "Senin güneş kremini \"birazcık\" alan o kişi.",
+      "start": 0.35,
+      "dur": 3.246
+    },
+    {
+      "text": "Yeterli miktar kremi UVA filtrelerine ulaştırır, cildin korunur.",
+      "start": 3.596,
+      "dur": 4.831
+    },
+    {
+      "text": "UVB filtreleri yanık riskini azaltır, sen rahatlarsın.",
+      "start": 8.427,
+      "dur": 4.076
+    },
+    {
+      "text": "Krem cilt bariyerini güçlendirir, sen de öyle.",
+      "start": 12.503,
+      "dur": 3.472
+    },
+    {
+      "text": "Güneş kremi paylaşılmaz, hele ki az sürülmez, bedeli ağır.",
+      "start": 15.975,
+      "dur": 5.478
+    }
+  ]
 }
