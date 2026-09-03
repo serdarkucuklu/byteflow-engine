@@ -700,7 +700,7 @@
       "ig_reels_avg_watch_time": 5305,
       "ig_reels_video_view_total_time": 132633
     },
-    "insightsAt": "2026-09-02T18:29:09.297Z"
+    "insightsAt": "2026-09-03T18:23:35.031Z"
   },
   {
     "title": "Işık Gafi: Pahalı vs Ucuz Pudra",
@@ -735,7 +735,7 @@
       "ig_reels_avg_watch_time": 3146,
       "ig_reels_video_view_total_time": 456311
     },
-    "insightsAt": "2026-09-02T18:29:11.080Z"
+    "insightsAt": "2026-09-03T18:23:36.097Z"
   },
   {
     "title": "C Vitamini Neden Sararır ve Çöp Olur?",
@@ -769,7 +769,7 @@
       "ig_reels_avg_watch_time": 8250,
       "ig_reels_video_view_total_time": 66001
     },
-    "insightsAt": "2026-09-02T18:29:12.166Z"
+    "insightsAt": "2026-09-03T18:23:37.014Z"
   },
   {
     "title": "Makyaj Sabitleme Spreyi: Parayı Neye Ödüyoruz?",
@@ -806,7 +806,7 @@
       "ig_reels_avg_watch_time": 4541,
       "ig_reels_video_view_total_time": 962693
     },
-    "insightsAt": "2026-09-02T18:29:13.194Z"
+    "insightsAt": "2026-09-03T18:23:38.228Z"
   },
   {
     "title": "Volufiline ve Ertesi Sabah Mucizesi",
@@ -844,7 +844,7 @@
       "ig_reels_avg_watch_time": 4028,
       "ig_reels_video_view_total_time": 555950
     },
-    "insightsAt": "2026-09-02T18:29:14.886Z"
+    "insightsAt": "2026-09-03T18:23:39.970Z"
   },
   {
     "title": "Salisilik Asit vs Glikolik Asit",
@@ -874,15 +874,15 @@
     "mediaId": "18119329903865701",
     "postedAt": "2026-08-31T20:59:00.414Z",
     "insights": {
-      "views": 160,
-      "reach": 130,
+      "views": 161,
+      "reach": 131,
       "saved": 1,
       "shares": 1,
       "total_interactions": 6,
-      "ig_reels_avg_watch_time": 6053,
-      "ig_reels_video_view_total_time": 805160
+      "ig_reels_avg_watch_time": 6083,
+      "ig_reels_video_view_total_time": 815233
     },
-    "insightsAt": "2026-09-02T18:29:15.966Z"
+    "insightsAt": "2026-09-03T18:23:41.326Z"
   },
   {
     "title": "Göz Kremi Balonu Patladı",
@@ -910,6 +910,16 @@
     "date": "2026-09-02",
     "durSec": 18.7,
     "mediaId": "18104874262944566",
-    "postedAt": "2026-09-02T17:33:44.590Z"
+    "postedAt": "2026-09-02T17:33:44.590Z",
+    "insights": {
+      "views": 35,
+      "reach": 31,
+      "saved": 2,
+      "shares": 0,
+      "total_interactions": 5,
+      "ig_reels_avg_watch_time": 4966,
+      "ig_reels_video_view_total_time": 153976
+    },
+    "insightsAt": "2026-09-03T18:23:42.711Z"
   }
 ]
