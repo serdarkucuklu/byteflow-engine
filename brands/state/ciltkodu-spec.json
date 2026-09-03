@@ -1,82 +1,75 @@
 {
-  "hook": "Senin güneş kremini \"birazcık\" alan o kişi.",
-  "title": "Güneş Kremi: Birazcık Yetmez!",
+  "hook": "Hyalüronik asit sürüp kurumasını bekleyen o arkadaşın...",
+  "title": "Hyalüronik Asit ve Kuruma Tuzağı",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "cycle",
+      "heading": "Hyalüronik Asit Kurutma Döngüsü",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "ID_KREM",
-          "label": "SÜRÜLEN KREM"
+          "id": "kuru_cilt",
+          "label": "KURU CİLDE SÜRÜŞ"
         },
         {
-          "id": "ID_UVA",
-          "label": "UVA FİLTRELERİ"
+          "id": "su_cekimi",
+          "label": "DERİNDEN SU ÇEKME"
         },
         {
-          "id": "ID_UVB",
-          "label": "UVB FİLTRELERİ"
-        },
-        {
-          "id": "ID_BARIYER",
-          "label": "CİLT BARİYERİ"
-        },
-        {
-          "id": "ID_HASAR",
-          "label": "HÜCRE HASARI"
+          "id": "buharlasmas",
+          "label": "HAVAYA UÇMA"
         }
       ],
       "steps": [
         {
-          "from": "ID_KREM",
-          "to": "ID_UVA",
-          "packet": "MİKTAR",
-          "status": "yeterli miktar kremi UVA filtrelerine",
-          "color": "accent"
+          "from": "kuru_cilt",
+          "to": "su_cekimi",
+          "packet": "ASİT",
+          "status": "asit havada nem bulamayınca şaşırır",
+          "color": "warn"
         },
         {
-          "from": "ID_KREM",
-          "to": "ID_UVB",
-          "packet": "KORUMA",
-          "status": "UVB filtreleri yanık riskini azaltır",
-          "color": "accent"
+          "from": "su_cekimi",
+          "to": "buharlasmas",
+          "packet": "SU",
+          "status": "alt katmandaki suyu kendine çeker",
+          "color": "warn"
         },
         {
-          "from": "ID_KREM",
-          "to": "ID_BARIYER",
-          "packet": "TABAKA",
-          "status": "krem cilt bariyerini güçlendirir, sen",
-          "color": "good"
+          "from": "buharlasmas",
+          "to": "kuru_cilt",
+          "packet": "BUHAR",
+          "status": "beklerken o su da havaya uçar gider",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Senin güneş kremini \"birazcık\" alan o kişi, aslında cildini korumuyor. Güneş kreminin az sürülmesi neden cildini savunmasız bırakır, adım adım:1. Sürülen Krem: Cildine uyguladığın güneş kremi, aslında bir kalkan görevi görür. Ama bu kalkanın işe yaraması için yeterli miktarda olması şart.2. UVA Filtreleri: Kremin içindeki UVA filtreleri, cildinin erken yaşlanmasına ve lekelenmeye neden olan uzun dalga ultraviyole ışınlarına karşı koruma sağlar. Bu filtreler, kremi doğru miktarda sürdüğünde aktifleşir.3. UVB Filtreleri: UVB filtreleri ise güneş yanıklarına neden olan kısa dalga ultraviyole ışınlarına karşı savaşır. Onların da tam performans göstermesi için cildin her yerine homojen ve yeterli miktarda yayılması gerekir.4. Cilt Bariyeri: Güneş kremi aynı zamanda cilt bariyerini destekleyerek nem kaybını önler ve cildin dış etkenlere karşı direncini artırır. Bu koruma, ancak tam kapsama ile mümkün.5. Hücre Hasarı: Yetersiz miktarda sürülen güneş kremi, cildinin bazı bölgelerini savunmasız bırakır. Bu da hücre hasarına, erken yaşlanmaya ve hatta cilt kanseri riskine davetiye çıkarır. Yani \"birazcık\" sürdüğünde, o pahalı kremin koruyuculuğundan mahrum kalmış olursun. Güneş kremi alırken sadece SPF ve PA değerlerine değil, aynı zamanda düzenli ve yeterli miktarda uygulama alışkanlığına da yatırım yaptığını unutma. Ucuz da olsa, pahalı da olsa, yeterli miktarda sürmek en önemlisi. Unutma, o kremin taksitleri durmuyor ama koruması \"birazcık\" sürünce duruyor.\n\n📌 Kaydet — bir dahaki sefere kremini çalmak isteyenlere atarsın.\n\n🔁 Bunu senin güneş kremini habersiz kullanan kardeşine gönder. Senin banyonda hangi ürünlere göz dikiliyor, dürüst ol? Yazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Hyalüronik asit sürüp kurumasını bekleyen o arkadaşın...\n\nHyalüronik asit sürerken düştüğümüz kuruma döngüsü adım adım:\n\n1. Kuru Cilde Sürüş — Hyalüronik asit kendi ağırlığının bin katı su tutabilen bir sünger gibidir. Ama süngerin çalışması için ortamda su olmalıdır. Kuru cilde sürdüğünde dışarıda nem bulamaz.\n2. Derinden Su Çekme — Havada nem bulamayan asit molekülleri, cildinin alt katmanlarındaki suyu yukarıya, yüzeye doğru çekmeye başlar.\n3. Havaya Uçma — Sen ürünün emilmesini beklerken, yukarı çekilen o değerli hücresel su havaya karışıp buharlaşır ve cildin eskisinden de kuru kalır.\n\nPahalı hyalüronik asit serumlarına binlerce lira dökmene gerek yok; doğru uygulamadıktan sonra en pahalısı bile cildini kurutur. Önemli olan fiyattan ziyade cildini nemli bırakıp üzerine hemen nemlendiriciyle kilit vurmaktır.\n\nDakikalarca bekleyip cildini çölleştiren o 11 adımlı rutini zaten 3. günde bırakacaksın, gel yol yakınken dönelim.\n\n📌 Kaydet — kuruma krizine girmeden önce lazım olacak.\n\n🔁 Bunu her adımda dakikalarca bekleyip rutini 3. günde bırakan arkadaşına gönder.\n\nSen hyalüronik asiti ıslak cilde mi sürüyorsun yoksa kuru mu?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
-    "#güneşkremi",
-    "#ciltkoruma",
-    "#nemlendirici",
+    "#hyalüronikasit",
     "#ciltbariyeri",
-    "#spf50"
+    "#nemlendirici",
+    "#ciltbakımrutini",
+    "#skincare"
   ],
-  "takeaway": "Güneş kremi paylaşılmaz, hele ki az sürülmez, bedeli ağır.",
+  "takeaway": "Bekleme yapma, ıslak cilde kilitle geç.",
   "footage_queries": [
-    "hands applying cream close up",
-    "hand holding serum dropper"
+    "serum drop close up",
+    "water droplets on glass"
   ],
   "narration": [
-    "Senin güneş kremini \"birazcık\" alan o kişi.",
-    "Yeterli miktar kremi UVA filtrelerine ulaştırır, cildin korunur.",
-    "UVB filtreleri yanık riskini azaltır, sen rahatlarsın.",
-    "Krem cilt bariyerini güçlendirir, sen de öyle.",
-    "Güneş kremi paylaşılmaz, hele ki az sürülmez, bedeli ağır."
+    "Hyalüronik asit sürüp bekleyen o arkadaşın.",
+    "Kuru cilde sürülen asit havada nem bulamayınca şaşırıyor.",
+    "Dışarıda su göremeyince derindeki kendi suyunu yukarıya çekmeye başlıyor.",
+    "Sen emilsin diye dakikalarca beklerken o su tamamen buharlaşıyor.",
+    "Boşuna bekleme yapma, ıslak cilde sür ve hemen nemlendiriciyle kilitle."
   ],
-  "subject": "güneş kremi",
-  "sendTo": "Senin güneş kremini habersiz kullanan kardeşine",
-  "soru": "Senin banyonda hangi ürünlere göz dikiliyor, dürüst ol?",
+  "subject": "hyalüronik asit",
+  "sendTo": "her adımda dakikalarca bekleyip rutini 3. günde bırakan arkadaşına",
+  "soru": "Sen hyalüronik asiti ıslak cilde mi sürüyorsun yoksa kuru mu?",
   "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -101,30 +94,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Senin güneş kremini \"birazcık\" alan o kişi.",
+      "text": "Hyalüronik asit sürüp bekleyen o arkadaşın.",
       "start": 0.35,
-      "dur": 3.246
+      "dur": 2.782
     },
     {
-      "text": "Yeterli miktar kremi UVA filtrelerine ulaştırır, cildin korunur.",
-      "start": 3.596,
-      "dur": 4.831
+      "text": "Kuru cilde sürülen asit havada nem bulamayınca şaşırıyor.",
+      "start": 3.132,
+      "dur": 3.688
     },
     {
-      "text": "UVB filtreleri yanık riskini azaltır, sen rahatlarsın.",
-      "start": 8.427,
-      "dur": 4.076
+      "text": "Dışarıda su göremeyince derindeki kendi suyunu yukarıya çekmeye başlıyor.",
+      "start": 6.821,
+      "dur": 4.724
     },
     {
-      "text": "Krem cilt bariyerini güçlendirir, sen de öyle.",
-      "start": 12.503,
-      "dur": 3.472
+      "text": "Sen emilsin diye dakikalarca beklerken o su tamamen buharlaşıyor.",
+      "start": 11.544,
+      "dur": 4.206
     },
     {
-      "text": "Güneş kremi paylaşılmaz, hele ki az sürülmez, bedeli ağır.",
-      "start": 15.975,
-      "dur": 5.478
+      "text": "Boşuna bekleme yapma, ıslak cilde sür ve hemen nemlendiriciyle kilitle.",
+      "start": 15.75,
+      "dur": 5.694
     }
   ],
-  "thumbOffset": 2223
+  "thumbOffset": 1991
 }

@@ -923,27 +923,28 @@
     "insightsAt": "2026-09-03T18:23:42.711Z"
   },
   {
-    "title": "Güneş Kremi: Birazcık Yetmez!",
-    "subject": "güneş kremi",
-    "twist": "ev-arkadasi",
-    "pillar": "muadil",
-    "layout": "hub-spoke",
+    "title": "Hyalüronik Asit ve Kuruma Tuzağı",
+    "subject": "hyalüronik asit",
+    "twist": "zaman",
+    "pillar": "para-degeri",
+    "layout": "cycle",
     "kinds": "diagram",
     "motion": "ripple",
     "theme": "#8fa8c8",
     "source": "gemini",
     "footage": [
-      "pexels:makeup brushes flat lay",
+      "pexels:serum drop close up",
       "pexels:hand holding serum dropper",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Puck",
+    "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
+    "not": "Hep aynı konular olmasın, fadklı konu bul. Gören bakan aaaa desşn şaşırsın öğrensin",
     "sir": null,
     "sirUygulandi": null,
-    "sirAtlandi": "dongu-null",
+    "sirAtlandi": "not-var",
     "date": "2026-09-03",
     "durSec": 21.4
   }
