@@ -948,5 +948,30 @@
     "durSec": 21.4,
     "mediaId": "17919156018221520",
     "postedAt": "2026-09-04T19:10:00.519Z"
+  },
+  {
+    "title": "Üre Kremdeki Gerçek INCI Listesi",
+    "subject": "üre",
+    "twist": "itiraf",
+    "pillar": "icindekiler",
+    "layout": "hub-spoke",
+    "kinds": "diagram",
+    "motion": "buildup",
+    "theme": "#d98c5f",
+    "source": "gemini",
+    "footage": [
+      "pexels:cream texture macro",
+      "pexels:serum drop close up",
+      "pexels:silk fabric flowing",
+      "pexels:marble surface texture"
+    ],
+    "voice": 5,
+    "voiceName": "Puck",
+    "muzik": "byteflow-ambient.mp3",
+    "sir": "Türkiye'de çok satan Isana %5 Üre Yüz Kremi'nde ürenin Gliserin ile yan yana 2. ve 3. sırada yer alması, ürenin sadece s",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-09-04",
+    "durSec": 19.7
   }
 ]

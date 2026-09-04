@@ -1,78 +1,79 @@
 {
-  "hook": "Cildin yandıkça üstüne beş serum daha süren o arkadaşın.",
-  "title": "%10 Niasinamid Serum Bariyeri Nasıl Yakar?",
+  "hook": "Dolabın arkasında unuttuğun o üre kremi var ya...",
+  "title": "Üre Kremdeki Gerçek INCI Listesi",
   "scenes": [
     {
-      "layout": "cycle",
+      "layout": "hub-spoke",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "%10 NIASINAMID"
+          "id": "ure",
+          "label": "ÜRE MOLEKÜLÜ"
         },
         {
-          "id": "n2",
-          "label": "BARIYER HASARI"
+          "id": "su",
+          "label": "NEM BAĞLAMA"
         },
         {
-          "id": "n3",
-          "label": "KIZARIKLIK VE"
+          "id": "soyme",
+          "label": "KERATOLİTİK"
         },
         {
-          "id": "n4",
-          "label": "ÜST ÜSTE KATMAN"
+          "id": "bariyer",
+          "label": "DERİ DOKUSU"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "ORAN",
-          "status": "yüksek oran bariyerde mikro yangın",
-          "color": "warn"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "YANGIN",
-          "status": "su kaybı artar ve cilt anında kızarır",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "KATMAN",
-          "status": "kurtarmak için beş yeni katman eklenir",
+          "from": "ure",
+          "to": "su",
+          "packet": "NEM",
+          "status": "suyu cilde kilitler, dolapta beklemez",
           "color": "accent"
+        },
+        {
+          "from": "ure",
+          "to": "soyme",
+          "packet": "SOYMA",
+          "status": "ölü deriyi nazikçe çözer, pamuk gibi",
+          "color": "warn"
+        },
+        {
+          "from": "ure",
+          "to": "bariyer",
+          "packet": "DOKU",
+          "status": "bariyeri güçlendirir, pes etmek yok",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Daha yüksek oran her zaman daha hızlı sonuç demek değildir.\n\n%10 Niasinamid çılgınlığı cildini nasıl kısır döngüye sokuyor, adım adım:\n\n1. Kaçak Asit Tehdidi — %10 ve üzeri niasinamid serumlarındaki ham madde kaynaklı nikotinik asit kalıntısı, ciltteki panik butonlarını tetikler.\n2. Yalancı Yangın — Tüketiciler bu yanmayı 'ürün hücresel düzeyde çalışıyor' sansa da aslında bu sadece damar reseptörlerinin uyarılmasıyla oluşan sahte bir kızarıklıktır.\n3. Bariyer Hasarı — Cilt savunma duvarı bu gereksiz kimyasal panik yüzünden zedelenir ve nem hızla buharlaşır.\n4. Üst Üste Katman — Kızarıklığı söndürmek için ortama yeni aktifler eklenir, bariyer iyice boğulur.\n\nSerum alırken yüksek yüzdeye değil, cildinin tolerans sınırına para ödersin.\n\nÜrün suçlu değil, 'daha çok sürersem çabuk geçer' mantığı suçlu.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu yüzü her kızardığında yeni bir aktif serum alan arkadaşına gönder.\nCilt bakım rutininde aynı anda kaç aktif ürün kullanıyorsun?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Dolabın dibinde unutulan o üre kremi aslında makyajının gizli kahramanı.\n\nIsana %5 Üre Yüz Kremi gibi formüllerde üre ve gliserin üst sıralardaysa, cildin kapılarını adeta bir maymuncuk gibi açar. Peki bu ne işe yarar?\n\n1. Kapıları Açma — Üre cilt proteinlerini esneterek arkadaki bileşenlere geçit töreni yaptırır.\n2. Derin Süzülme — Yanındaki laktik asit bu açık kapıdan rahatça alt katmanlara iner.\n3. Makyaj Kurtarma — Cilt neme doyduğu için gün içinde fondötenin suyunu emip rengini karartmaz (oksidasyon krizine son!).\n\nKremi dolapta sergilemek cilde iyi gelmiyor, bu gece sürüyoruz.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu kremleri alıp dolabın dibinde unutan arkadaşına gönder.\n\nSenin dolabının dibinde unutulmuş kaç krem var?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
-    "#niasinamid",
+    "#ürekrem",
+    "#incilistesi",
     "#ciltbariyeri",
-    "#serum",
-    "#skincare"
+    "#skincare",
+    "#ciltbakımrutini"
   ],
-  "takeaway": "Daha fazla aktif daha hızlı çözüm değildir; bariyer dinlenme ister.",
+  "takeaway": "Dolapta bekleyen krem cilt yenilemez, bu gece sürüyoruz.",
   "footage_queries": [
-    "serum drop close up",
-    "hands rubbing lotion macro"
+    "hands opening jar macro",
+    "cream texture macro"
   ],
   "narration": [
-    "Cildin yandıkça serum süren o arkadaşın.",
-    "Yüksek niasinamiddeki gizli asit artığı ciltte sahte yangın başlatır.",
-    "Kızarınca çalışıyor sanırsın ama o sadece kaçak asit uyarısıdır.",
-    "Bu tatlı yalana inanıp üstüne beş kat daha serum dizersin.",
-    "Kızaran cilde yeni ürün değil sadece sakin bir nemlendirici lazım."
+    "Üre kremini dolabın dibinde unuttuk.",
+    "Gliserinle birleşen üre ciltteki kilitli kapıları açar.",
+    "Laktik asit içeri süzülür, cildi içten dışa doyurur.",
+    "Böylece cilt fondötenin suyunu emip makyajı asla karartmaz.",
+    "Kremi dolapta saklamak yerine yüzümüze sürmeyi deniyoruz."
   ],
-  "subject": "niasinamid",
-  "sendTo": "yüzü her kızardığında yeni bir aktif serum alan arkadaşına",
-  "soru": "Cilt bakım rutininde aynı anda kaç aktif ürün kullanıyorsun?",
-  "theme": "#8fa8c8",
+  "subject": "üre",
+  "sendTo": "kremleri alıp dolabın dibinde unutan arkadaşına",
+  "soru": "Senin dolabının dibinde unutulmuş kaç krem var?",
+  "theme": "#d98c5f",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -91,35 +92,35 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "buildup",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Cildin yandıkça serum süren o arkadaşın.",
+      "text": "Üre kremini dolabın dibinde unuttuk.",
       "start": 0.35,
-      "dur": 2.695
+      "dur": 2.553
     },
     {
-      "text": "Yüksek niasinamiddeki gizli asit artığı ciltte sahte yangın başlatır.",
-      "start": 3.045,
-      "dur": 4.648
+      "text": "Gliserinle birleşen üre ciltteki kilitli kapıları açar.",
+      "start": 2.903,
+      "dur": 3.901
     },
     {
-      "text": "Kızarınca çalışıyor sanırsın ama o sadece kaçak asit uyarısıdır.",
-      "start": 7.693,
-      "dur": 4.311
+      "text": "Laktik asit içeri süzülür, cildi içten dışa doyurur.",
+      "start": 6.805,
+      "dur": 3.688
     },
     {
-      "text": "Bu tatlı yalana inanıp üstüne beş kat daha serum dizersin.",
-      "start": 12.004,
-      "dur": 3.907
+      "text": "Böylece cilt fondötenin suyunu emip makyajı asla karartmaz.",
+      "start": 10.493,
+      "dur": 4.185
     },
     {
-      "text": "Kızaran cilde yeni ürün değil sadece sakin bir nemlendirici lazım.",
-      "start": 15.912,
-      "dur": 5.546
+      "text": "Kremi dolapta saklamak yerine yüzümüze sürmeyi deniyoruz.",
+      "start": 14.678,
+      "dur": 5.143
     }
   ],
-  "thumbOffset": 1947
+  "thumbOffset": 1877
 }
