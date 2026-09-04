@@ -407,28 +407,28 @@
     "insightsAt": "2026-09-04T19:21:28.426Z"
   },
   {
-    "title": "Kışın Saçlar Neden Daha Çok Dökülür?",
-    "subject": "saç dökülmesi",
-    "twist": "herkes-yasiyor",
-    "pillar": "sehir-efsanesi",
-    "layout": "nodes-flow",
+    "title": "İkinci El Alışverişte Kabin İllüzyonu",
+    "subject": "ikinci el",
+    "twist": "magaza-danismani",
+    "pillar": "ikinci-el",
+    "layout": "vertical-stack",
     "kinds": "diagram",
     "motion": "sketch",
     "theme": "#b39cff",
     "source": "gemini",
     "footage": [
-      "pexels:blanket folded on sofa close up",
-      "pexels:night lamp warm glow bedroom",
+      "pexels:dish soap bubbles in sink close up",
+      "pexels:window fog condensation morning",
       "pexels:alarm clock on nightstand close up",
       "pexels:bathroom mirror steam close up"
     ],
-    "voice": null,
-    "voiceName": null,
+    "voice": 5,
+    "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
     "sir": null,
     "sirUygulandi": null,
     "sirAtlandi": "dongu-null",
-    "date": "2026-09-02",
-    "durSec": 20.2
+    "date": "2026-09-04",
+    "durSec": 21.4
   }
 ]

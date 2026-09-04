@@ -1,125 +1,121 @@
 {
-  "hook": "Dolabın arkasında unuttuğun o üre kremi var ya...",
-  "title": "Üre Kremdeki Gerçek INCI Listesi",
+  "hook": "Kabinde 'üstünüzde çok güzel durdu' lafına inandın mı?",
+  "title": "İkinci El Alışverişte Kabin İllüzyonu",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "ure",
-          "label": "ÜRE MOLEKÜLÜ"
+          "id": "kabin",
+          "label": "KABIN İLTİFATI"
         },
         {
-          "id": "su",
-          "label": "NEM BAĞLAMA"
+          "id": "ayna",
+          "label": "MEYİLLİ AYNA AÇISI"
         },
         {
-          "id": "soyme",
-          "label": "KERATOLİTİK"
-        },
-        {
-          "id": "bariyer",
-          "label": "DERİ DOKUSU"
+          "id": "detay",
+          "label": "ASTAR VE FERMUAR"
         }
       ],
       "steps": [
         {
-          "from": "ure",
-          "to": "su",
-          "packet": "NEM",
-          "status": "suyu cilde kilitler, dolapta beklemez",
+          "from": "kabin",
+          "to": "ayna",
+          "packet": "GÜVEN",
+          "status": "kabin iltifatı dopamini artırır",
           "color": "accent"
         },
         {
-          "from": "ure",
-          "to": "soyme",
-          "packet": "SOYMA",
-          "status": "ölü deriyi nazikçe çözer, pamuk gibi",
+          "from": "ayna",
+          "to": "detay",
+          "packet": "AYNA",
+          "status": "eğimli ayna bedeni daha uzun gösterir",
           "color": "warn"
         },
         {
-          "from": "ure",
-          "to": "bariyer",
-          "packet": "DOKU",
-          "status": "bariyeri güçlendirir, pes etmek yok",
+          "from": "detay",
+          "to": "kabin",
+          "packet": "KUSUR",
+          "status": "evde astar ve fermuar defosu yakalanır",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Dolabın dibinde unutulan o üre kremi aslında makyajının gizli kahramanı.\n\nIsana %5 Üre Yüz Kremi gibi formüllerde üre ve gliserin üst sıralardaysa, cildin kapılarını adeta bir maymuncuk gibi açar. Peki bu ne işe yarar?\n\n1. Kapıları Açma — Üre cilt proteinlerini esneterek arkadaki bileşenlere geçit töreni yaptırır.\n2. Derin Süzülme — Yanındaki laktik asit bu açık kapıdan rahatça alt katmanlara iner.\n3. Makyaj Kurtarma — Cilt neme doyduğu için gün içinde fondötenin suyunu emip rengini karartmaz (oksidasyon krizine son!).\n\nKremi dolapta sergilemek cilde iyi gelmiyor, bu gece sürüyoruz.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu kremleri alıp dolabın dibinde unutan arkadaşına gönder.\n\nSenin dolabının dibinde unutulmuş kaç krem var?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kabinde her şey harika görünür ama ikinci el alışverişin sırrı detayda saklıdır.\n\nİkinci el alışverişte kabin tuzağı nasıl işler, adım adım:\n\n1. Kabin iltifatı — Danışmanın söylediği tatlı sözler beyninizde dopamin salgılatır ve eleştirel gözü anında kapatır.\n2. Eğimli ayna açısı — Mağaza aynaları hafif geriye yatıktır, silüeti olduğundan daha uzun ve orantılı gösterir.\n3. Detay körlüğü — Sarı ışık ve satın alma heyecanı yüzünden ceketin astar söküğü veya fermuar defosu fark edilmez.\n\nİkinci el alırken iltifata değil; astar dikişlerine, koltuk altı yıpranmasına ve fermuara bakın.\n\nKabindeki o üç dakikalık güven harikaydı ama faturayı maalesef astar dikişi ödemiyor.\n\n📌 Kaydet — bir dahaki ikinci el turunda lazım olacak.\n\n🔁 Bunu mağazadan tek parçayla girip üç poşetle çıkan o arkadaşına gönder.\n\nSen de kabin ışığında her şeyi beğenip evde pişman olanlardan mısın?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#ürekrem",
-    "#incilistesi",
-    "#ciltbariyeri",
-    "#skincare",
-    "#ciltbakımrutini"
+    "#merak",
+    "#günlükhayat",
+    "#ikinciel",
+    "#vintage",
+    "#kombin",
+    "#fermuar",
+    "#ikincielkıyafet"
   ],
-  "takeaway": "Dolapta bekleyen krem cilt yenilemez, bu gece sürüyoruz.",
+  "takeaway": "Kabin iltifatanı değil, ikinci el ceketin astarını kontrol et.",
   "footage_queries": [
-    "hands opening jar macro",
-    "cream texture macro"
+    "bathroom mirror steam close up",
+    "wardrobe door open close up"
   ],
   "narration": [
-    "Üre kremini dolabın dibinde unuttuk.",
-    "Gliserinle birleşen üre ciltteki kilitli kapıları açar.",
-    "Laktik asit içeri süzülür, cildi içten dışa doyurur.",
-    "Böylece cilt fondötenin suyunu emip makyajı asla karartmaz.",
-    "Kremi dolapta saklamak yerine yüzümüze sürmeyi deniyoruz."
+    "İkinci el ceket kabinde harika durdu?",
+    "Kabin önündeki iltifat beynine anında hızlı dopamin salgılatır.",
+    "Mağazadaki eğimli ayna açısı kıyafeti üstünde olduğundan uzun gösterir.",
+    "Eve gelip bakınca astar yırtığı ve sıkışan fermuar ortaya çıkar.",
+    "Aynadaki ışığa değil kumaşın astarı ile dikiş kalitesine bak."
   ],
-  "subject": "üre",
-  "sendTo": "kremleri alıp dolabın dibinde unutan arkadaşına",
-  "soru": "Senin dolabının dibinde unutulmuş kaç krem var?",
-  "theme": "#d98c5f",
+  "subject": "ikinci el",
+  "sendTo": "Mağazadan tek parçayla girip üç poşetle çıkan o arkadaşına",
+  "soru": "Sen de kabin ışığında her şeyi beğenip evde pişman olanlardan mısın?",
+  "theme": "#b39cff",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "sketch",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Üre kremini dolabın dibinde unuttuk.",
+      "text": "İkinci el ceket kabinde harika durdu?",
       "start": 0.35,
-      "dur": 2.553
+      "dur": 2.5
     },
     {
-      "text": "Gliserinle birleşen üre ciltteki kilitli kapıları açar.",
-      "start": 2.903,
-      "dur": 3.901
+      "text": "Kabin önündeki iltifat beynine anında hızlı dopamin salgılatır.",
+      "start": 2.85,
+      "dur": 4.256
     },
     {
-      "text": "Laktik asit içeri süzülür, cildi içten dışa doyurur.",
-      "start": 6.805,
-      "dur": 3.688
+      "text": "Mağazadaki eğimli ayna açısı kıyafeti üstünde olduğundan uzun gösterir.",
+      "start": 7.106,
+      "dur": 4.797
     },
     {
-      "text": "Böylece cilt fondötenin suyunu emip makyajı asla karartmaz.",
-      "start": 10.493,
-      "dur": 4.185
+      "text": "Eve gelip bakınca astar yırtığı ve sıkışan fermuar ortaya çıkar.",
+      "start": 11.902,
+      "dur": 4.324
     },
     {
-      "text": "Kremi dolapta saklamak yerine yüzümüze sürmeyi deniyoruz.",
-      "start": 14.678,
-      "dur": 5.143
+      "text": "Aynadaki ışığa değil kumaşın astarı ile dikiş kalitesine bak.",
+      "start": 16.226,
+      "dur": 5.221
     }
   ]
 }

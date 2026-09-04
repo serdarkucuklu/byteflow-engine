@@ -1,77 +1,74 @@
 {
-  "hook": "Kışın saçların daha çok dökülüyor sanıyorsun, değil mi?",
-  "title": "Kışın Saçlar Neden Daha Çok Dökülür?",
+  "hook": "Kabinde 'üstünüzde çok güzel durdu' lafına inandın mı?",
+  "title": "İkinci El Alışverişte Kabin İllüzyonu",
   "scenes": [
     {
-      "layout": "nodes-flow",
+      "layout": "vertical-stack",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "kok",
-          "label": "SAÇ KÖKÜ"
+          "id": "kabin",
+          "label": "KABIN İLTİFATI"
         },
         {
-          "id": "buyu",
-          "label": "BÜYÜME"
+          "id": "ayna",
+          "label": "MEYİLLİ AYNA AÇISI"
         },
         {
-          "id": "dinlen",
-          "label": "DİNLENME"
-        },
-        {
-          "id": "es_zaman",
-          "label": "EŞ ZAMANLILIK"
+          "id": "detay",
+          "label": "ASTAR VE FERMUAR"
         }
       ],
       "steps": [
         {
-          "from": "kok",
-          "to": "buyu",
-          "packet": "GÜÇ",
-          "status": "saç kökün \"büyü\" komutuyla coşkuyla",
-          "color": "good"
-        },
-        {
-          "from": "buyu",
-          "to": "dinlen",
-          "packet": "YAVAŞ",
-          "status": "yaz bitince saçın tatili başlar",
+          "from": "kabin",
+          "to": "ayna",
+          "packet": "GÜVEN",
+          "status": "kabin iltifatı dopamini artırır",
           "color": "accent"
         },
         {
-          "from": "dinlen",
-          "to": "es_zaman",
-          "packet": "GİTME",
-          "status": "kış gelince hepsi \"hadi gidelim\" diye",
+          "from": "ayna",
+          "to": "detay",
+          "packet": "AYNA",
+          "status": "eğimli ayna bedeni daha uzun gösterir",
           "color": "warn"
+        },
+        {
+          "from": "detay",
+          "to": "kabin",
+          "packet": "KUSUR",
+          "status": "evde astar ve fermuar defosu yakalanır",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kışın saçlarının daha çok döküldüğünü sanıyorsun ama aslında olan bambaşka bir şey!\nMevsimsel saç dökülmesi efsanesinin ardındaki mekanizma adım adım:\n1. Saç Kökü: Her saç telinin kendi ömrü ve döngüsü var. Köklerin, yeni saçlar üretmek için sürekli bir enerjiyle çalıştığı bir dönem yaşar.\n2. Büyüme: Saçın en aktif olduğu bu faz, aylarca sürer ve saç telleri uzar. Yaz aylarında saçların daha hızlı uzadığını fark edebilirsin.\n3. Dinlenme: Yaz mevsimi bitip sonbahar gelince, saç büyümesi yavaşlar ve saç telleri dinlenme evresine geçer. Bu dönemde saç kökü, yeni bir saç üretmek için hazırlık yapar.\n4. Eş Zamanlılık: Dinlenme fazındaki saç telleri, kış aylarına doğru hep birlikte dökülmeye başlar. Bu yüzden sana kışın daha çok saç dökülüyor gibi gelir ama aslında biriken saçlar topluca veda eder.\nSaç dökülmesi stres, beslenme ve hormonal değişimlerden de etkilense de, mevsimsel döngüyü bilmek endişeyi azaltır.\nSaçlarının bir koro gibi \"güle güle\" demesini garipseme, o yüzden tarayınca küme küme geliyorlar.\n📌 Kaydet — kışın içini ferahlatır.\n🔁 Bunu kış gelince saçlarını taramaya korkan arkadaşına gönder.\nSen de mevsim geçişlerinde saç dökülmesi sendromu yaşayanlardan mısın?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kabinde her şey harika görünür ama ikinci el alışverişin sırrı detayda saklıdır.\n\nİkinci el alışverişte kabin tuzağı nasıl işler, adım adım:\n\n1. Kabin iltifatı — Danışmanın söylediği tatlı sözler beyninizde dopamin salgılatır ve eleştirel gözü anında kapatır.\n2. Eğimli ayna açısı — Mağaza aynaları hafif geriye yatıktır, silüeti olduğundan daha uzun ve orantılı gösterir.\n3. Detay körlüğü — Sarı ışık ve satın alma heyecanı yüzünden ceketin astar söküğü veya fermuar defosu fark edilmez.\n\nİkinci el alırken iltifata değil; astar dikişlerine, koltuk altı yıpranmasına ve fermuara bakın.\n\nKabindeki o üç dakikalık güven harikaydı ama faturayı maalesef astar dikişi ödemiyor.\n\n📌 Kaydet — bir dahaki ikinci el turunda lazım olacak.\n\n🔁 Bunu mağazadan tek parçayla girip üç poşetle çıkan o arkadaşına gönder.\n\nSen de kabin ışığında her şeyi beğenip evde pişman olanlardan mısın?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
-    "#kadınlar",
-    "#nedenoluyor",
-    "#saçbakımı",
-    "#sağlık",
-    "#saçdökülmesi"
+    "#günlükhayat",
+    "#ikinciel",
+    "#vintage",
+    "#kombin",
+    "#fermuar",
+    "#ikincielkıyafet"
   ],
-  "takeaway": "Kışın saçların dökülmüyor, sadece hepsi aynı anda \"güle güle\" diyor.",
+  "takeaway": "Kabin iltifatanı değil, ikinci el ceketin astarını kontrol et.",
   "footage_queries": [
-    "hairbrush on table close up",
-    "night lamp warm glow bedroom"
+    "bathroom mirror steam close up",
+    "wardrobe door open close up"
   ],
   "narration": [
-    "Kışın saçların daha çok dökülüyor sanıyorsun, değil mi?",
-    "Saç kökün \"büyü\" komutuyla coşkuyla çalışır.",
-    "Yaz bitince saçın tatili başlar, büyümeyi keser.",
-    "Kış gelince hepsi \"hadi gidelim\" diye dökülür.",
-    "Kışın saçların dökülmüyor, sadece hepsi aynı anda \"güle güle\" diyor."
+    "İkinci el ceket kabinde harika durdu?",
+    "Kabin önündeki iltifat beynine anında hızlı dopamin salgılatır.",
+    "Mağazadaki eğimli ayna açısı kıyafeti üstünde olduğundan uzun gösterir.",
+    "Eve gelip bakınca astar yırtığı ve sıkışan fermuar ortaya çıkar.",
+    "Aynadaki ışığa değil kumaşın astarı ile dikiş kalitesine bak."
   ],
-  "subject": "saç dökülmesi",
-  "sendTo": "kış gelince saçlarını taramaya korkan arkadaşına",
-  "soru": "Sen de mevsim geçişlerinde saç dökülmesi sendromu yaşayanlardan mısın?",
+  "subject": "ikinci el",
+  "sendTo": "Mağazadan tek parçayla girip üç poşetle çıkan o arkadaşına",
+  "soru": "Sen de kabin ışığında her şeyi beğenip evde pişman olanlardan mısın?",
   "theme": "#b39cff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -94,5 +91,32 @@
   "motion": "sketch",
   "format": "kinetik",
   "footage": true,
-  "thumbOffset": 1300
+  "beats": [
+    {
+      "text": "İkinci el ceket kabinde harika durdu?",
+      "start": 0.35,
+      "dur": 2.5
+    },
+    {
+      "text": "Kabin önündeki iltifat beynine anında hızlı dopamin salgılatır.",
+      "start": 2.85,
+      "dur": 4.256
+    },
+    {
+      "text": "Mağazadaki eğimli ayna açısı kıyafeti üstünde olduğundan uzun gösterir.",
+      "start": 7.106,
+      "dur": 4.797
+    },
+    {
+      "text": "Eve gelip bakınca astar yırtığı ve sıkışan fermuar ortaya çıkar.",
+      "start": 11.902,
+      "dur": 4.324
+    },
+    {
+      "text": "Aynadaki ışığa değil kumaşın astarı ile dikiş kalitesine bak.",
+      "start": 16.226,
+      "dur": 5.221
+    }
+  ],
+  "thumbOffset": 1850
 }
