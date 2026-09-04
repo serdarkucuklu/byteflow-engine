@@ -1,75 +1,78 @@
 {
-  "hook": "Hyalüronik asit sürüp kurumasını bekleyen o arkadaşın...",
-  "title": "Hyalüronik Asit ve Kuruma Tuzağı",
+  "hook": "Kuzeninin öve öve bitiremediği micellar su aslında su.",
+  "title": "Pahalı Micellar Su Gerçekten Fark Yaratır mı?",
   "scenes": [
     {
-      "layout": "cycle",
-      "heading": "Hyalüronik Asit Kurutma Döngüsü",
+      "layout": "hub-spoke",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "kuru_cilt",
-          "label": "KURU CİLDE SÜRÜŞ"
+          "id": "n1",
+          "label": "MİCELLAR FORMÜL"
         },
         {
-          "id": "su_cekimi",
-          "label": "DERİNDEN SU ÇEKME"
+          "id": "n2",
+          "label": "YÜZDE DOKSAN SU"
         },
         {
-          "id": "buharlasmas",
-          "label": "HAVAYA UÇMA"
+          "id": "n3",
+          "label": "MİSEL YAĞ TUTUCU"
+        },
+        {
+          "id": "n4",
+          "label": "MARKA VE ETİKET"
         }
       ],
       "steps": [
         {
-          "from": "kuru_cilt",
-          "to": "su_cekimi",
-          "packet": "ASİT",
-          "status": "asit havada nem bulamayınca şaşırır",
-          "color": "warn"
-        },
-        {
-          "from": "su_cekimi",
-          "to": "buharlasmas",
+          "from": "n1",
+          "to": "n2",
           "packet": "SU",
-          "status": "alt katmandaki suyu kendine çeker",
-          "color": "warn"
+          "status": "şişenin çoğu sadece arıtılmış saf su.",
+          "color": "accent"
         },
         {
-          "from": "buharlasmas",
-          "to": "kuru_cilt",
-          "packet": "BUHAR",
-          "status": "beklerken o su da havaya uçar gider",
+          "from": "n1",
+          "to": "n3",
+          "packet": "MİSEL",
+          "status": "kiri çeken kısım ucuz misel molekülü.",
+          "color": "good"
+        },
+        {
+          "from": "n1",
+          "to": "n4",
+          "packet": "ŞİŞE",
+          "status": "fiyatı katlayan şey süslü ambalajı.",
           "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Hyalüronik asit sürüp kurumasını bekleyen o arkadaşın...\n\nHyalüronik asit sürerken düştüğümüz kuruma döngüsü adım adım:\n\n1. Kuru Cilde Sürüş — Hyalüronik asit kendi ağırlığının bin katı su tutabilen bir sünger gibidir. Ama süngerin çalışması için ortamda su olmalıdır. Kuru cilde sürdüğünde dışarıda nem bulamaz.\n2. Derinden Su Çekme — Havada nem bulamayan asit molekülleri, cildinin alt katmanlarındaki suyu yukarıya, yüzeye doğru çekmeye başlar.\n3. Havaya Uçma — Sen ürünün emilmesini beklerken, yukarı çekilen o değerli hücresel su havaya karışıp buharlaşır ve cildin eskisinden de kuru kalır.\n\nPahalı hyalüronik asit serumlarına binlerce lira dökmene gerek yok; doğru uygulamadıktan sonra en pahalısı bile cildini kurutur. Önemli olan fiyattan ziyade cildini nemli bırakıp üzerine hemen nemlendiriciyle kilit vurmaktır.\n\nDakikalarca bekleyip cildini çölleştiren o 11 adımlı rutini zaten 3. günde bırakacaksın, gel yol yakınken dönelim.\n\n📌 Kaydet — kuruma krizine girmeden önce lazım olacak.\n\n🔁 Bunu her adımda dakikalarca bekleyip rutini 3. günde bırakan arkadaşına gönder.\n\nSen hyalüronik asiti ıslak cilde mi sürüyorsun yoksa kuru mu?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kuzeninin öve öve bitiremediği pahalı micellar su aslında neye paranı harcadığının en net kanıtı.\n\nBin lira ödediğin micellar suyun arkasındaki o 'durulama gerektirmez' vaadi koca bir pazarlama efsanesi. Neden mi? Adım adım bakalım:\n\n1. Durulama Yalanı — En pahalı markada bile temizleyici ajanlar sıvı içinde serbestçe dolanır. Yüzünü yıkamazsan, bu serbest kalan sabunsu moleküller cildinde kurur.\n2. Duvarı Delen Sızma — Cildinin üstünde doğal, koruyucu bir yağ duvarı var. İşte o durulamadığın boşta gezen moleküller, bu koruyucu duvara sızıp orayı delik deşik etmeye başlar. Sonuç? Cildin nemini tutamaz, açık kalmış bir şişe gibi kurur.\n3. Fizik Kuralları Değişmez — Şişenin üstüne ne kadar lüks bir logo basarlarsa bassınlar, kimya lüks dinlemez. En pahalı micellar su bile cildini durulamadığın sürece o koruyucu bariyeri yıpratır.\n\nMicellar su alırken bakman gereken tek şey gözünü yakmaması ve nazik temizlemesidir. Pahalı şişeye değil, banyodaki musluk suyuna güvenip o yüzü mutlaka durula.\n\nKuzenine uyup durulamadan yatmaya devam edersen yakında çöl kuraklığı kapıda, benden söylemesi.\n\n📌 Kaydet — reyon önünde kararsız kaldığında bakarsın.\n🔁 Bunu her pahalı ürünü mucize sanan o kuzenine gönder.\nSen micellar suya ne kadar ödüyorsun, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#güzellik",
-    "#hyalüronikasit",
+    "#makyaj",
+    "#ciltbakimigutusu",
+    "#makyajtemizleme",
     "#ciltbariyeri",
-    "#nemlendirici",
-    "#ciltbakımrutini",
-    "#skincare"
+    "#kozmetik",
+    "#micellarsu"
   ],
-  "takeaway": "Bekleme yapma, ıslak cilde kilitle geç.",
+  "takeaway": "Lüks ambalaja değil içeriğe öde, paran cebinde kalsın.",
   "footage_queries": [
-    "serum drop close up",
-    "water droplets on glass"
+    "water droplets on glass",
+    "cosmetic bottles soft light"
   ],
   "narration": [
-    "Hyalüronik asit sürüp bekleyen o arkadaşın.",
-    "Kuru cilde sürülen asit havada nem bulamayınca şaşırıyor.",
-    "Dışarıda su göremeyince derindeki kendi suyunu yukarıya çekmeye başlıyor.",
-    "Sen emilsin diye dakikalarca beklerken o su tamamen buharlaşıyor.",
-    "Boşuna bekleme yapma, ıslak cilde sür ve hemen nemlendiriciyle kilitle."
+    "Pahalı micellar su mucize yaratmaz.",
+    "Durulama gerektirmez yalanı cildinin koruyucu duvarını sinsice kemirir.",
+    "Boşta gezen temizleyici moleküller pahalı şişede de aynen durur.",
+    "Yıkamazsan o pahalı su cildini kurutup çöl gibi bırakır.",
+    "Güzellik danışmanına değil moleküle inanıp paranı cebinde tut."
   ],
-  "subject": "hyalüronik asit",
-  "sendTo": "her adımda dakikalarca bekleyip rutini 3. günde bırakan arkadaşına",
-  "soru": "Sen hyalüronik asiti ıslak cilde mi sürüyorsun yoksa kuru mu?",
+  "subject": "micellar su",
+  "sendTo": "her pahalı ürünü mucize sanan o kuzenine",
+  "soru": "Sen micellar suya ne kadar ödüyorsun, dürüst ol?",
   "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -94,30 +97,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Hyalüronik asit sürüp bekleyen o arkadaşın.",
+      "text": "Pahalı micellar su mucize yaratmaz.",
       "start": 0.35,
-      "dur": 2.782
+      "dur": 2.388
     },
     {
-      "text": "Kuru cilde sürülen asit havada nem bulamayınca şaşırıyor.",
-      "start": 3.132,
-      "dur": 3.688
+      "text": "Durulama gerektirmez yalanı cildinin koruyucu duvarını sinsice kemirir.",
+      "start": 2.738,
+      "dur": 4.845
     },
     {
-      "text": "Dışarıda su göremeyince derindeki kendi suyunu yukarıya çekmeye başlıyor.",
-      "start": 6.821,
-      "dur": 4.724
+      "text": "Boşta gezen temizleyici moleküller pahalı şişede de aynen durur.",
+      "start": 7.583,
+      "dur": 4.367
     },
     {
-      "text": "Sen emilsin diye dakikalarca beklerken o su tamamen buharlaşıyor.",
-      "start": 11.544,
-      "dur": 4.206
+      "text": "Yıkamazsan o pahalı su cildini kurutup çöl gibi bırakır.",
+      "start": 11.95,
+      "dur": 3.821
     },
     {
-      "text": "Boşuna bekleme yapma, ıslak cilde sür ve hemen nemlendiriciyle kilitle.",
-      "start": 15.75,
-      "dur": 5.694
+      "text": "Güzellik danışmanına değil moleküle inanıp paranı cebinde tut.",
+      "start": 15.771,
+      "dur": 5.33
     }
   ],
-  "thumbOffset": 1991
+  "thumbOffset": 1794
 }

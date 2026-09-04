@@ -923,29 +923,28 @@
     "insightsAt": "2026-09-04T18:08:22.933Z"
   },
   {
-    "title": "Hyalüronik Asit ve Kuruma Tuzağı",
-    "subject": "hyalüronik asit",
-    "twist": "zaman",
+    "title": "Pahalı Micellar Su Gerçekten Fark Yaratır mı?",
+    "subject": "micellar su",
+    "twist": "aile-tavsiyesi",
     "pillar": "para-degeri",
-    "layout": "cycle",
+    "layout": "hub-spoke",
     "kinds": "diagram",
     "motion": "ripple",
     "theme": "#8fa8c8",
     "source": "gemini",
     "footage": [
-      "pexels:serum drop close up",
-      "pexels:hand holding serum dropper",
+      "pexels:flower petals close up",
+      "pexels:makeup brushes flat lay",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Kore",
+    "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "not": "Hep aynı konular olmasın, fadklı konu bul. Gören bakan aaaa desşn şaşırsın öğrensin",
-    "sir": null,
-    "sirUygulandi": null,
-    "sirAtlandi": "not-var",
-    "date": "2026-09-03",
-    "durSec": 21.4
+    "sir": "Pahalı markaların 'durulama gerektirmez' vaadiyle sattığı lüks micellar sularda bile yüzey aktif maddeler sıvı içinde se",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-09-04",
+    "durSec": 21
   }
 ]
