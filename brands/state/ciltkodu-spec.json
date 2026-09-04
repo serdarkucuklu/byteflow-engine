@@ -1,78 +1,77 @@
 {
-  "hook": "Kuzeninin öve öve bitiremediği micellar su aslında su.",
-  "title": "Pahalı Micellar Su Gerçekten Fark Yaratır mı?",
+  "hook": "Cildin yandıkça üstüne beş serum daha süren o arkadaşın.",
+  "title": "%10 Niasinamid Serum Bariyeri Nasıl Yakar?",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "cycle",
       "kind": "diagram",
       "nodes": [
         {
           "id": "n1",
-          "label": "MİCELLAR FORMÜL"
+          "label": "%10 NIASINAMID"
         },
         {
           "id": "n2",
-          "label": "YÜZDE DOKSAN SU"
+          "label": "BARIYER HASARI"
         },
         {
           "id": "n3",
-          "label": "MİSEL YAĞ TUTUCU"
+          "label": "KIZARIKLIK VE"
         },
         {
           "id": "n4",
-          "label": "MARKA VE ETİKET"
+          "label": "ÜST ÜSTE KATMAN"
         }
       ],
       "steps": [
         {
           "from": "n1",
           "to": "n2",
-          "packet": "SU",
-          "status": "şişenin çoğu sadece arıtılmış saf su.",
-          "color": "accent"
-        },
-        {
-          "from": "n1",
-          "to": "n3",
-          "packet": "MİSEL",
-          "status": "kiri çeken kısım ucuz misel molekülü.",
-          "color": "good"
-        },
-        {
-          "from": "n1",
-          "to": "n4",
-          "packet": "ŞİŞE",
-          "status": "fiyatı katlayan şey süslü ambalajı.",
+          "packet": "ORAN",
+          "status": "yüksek oran bariyerde mikro yangın",
           "color": "warn"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "YANGIN",
+          "status": "su kaybı artar ve cilt anında kızarır",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "KATMAN",
+          "status": "kurtarmak için beş yeni katman eklenir",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Kuzeninin öve öve bitiremediği pahalı micellar su aslında neye paranı harcadığının en net kanıtı.\n\nBin lira ödediğin micellar suyun arkasındaki o 'durulama gerektirmez' vaadi koca bir pazarlama efsanesi. Neden mi? Adım adım bakalım:\n\n1. Durulama Yalanı — En pahalı markada bile temizleyici ajanlar sıvı içinde serbestçe dolanır. Yüzünü yıkamazsan, bu serbest kalan sabunsu moleküller cildinde kurur.\n2. Duvarı Delen Sızma — Cildinin üstünde doğal, koruyucu bir yağ duvarı var. İşte o durulamadığın boşta gezen moleküller, bu koruyucu duvara sızıp orayı delik deşik etmeye başlar. Sonuç? Cildin nemini tutamaz, açık kalmış bir şişe gibi kurur.\n3. Fizik Kuralları Değişmez — Şişenin üstüne ne kadar lüks bir logo basarlarsa bassınlar, kimya lüks dinlemez. En pahalı micellar su bile cildini durulamadığın sürece o koruyucu bariyeri yıpratır.\n\nMicellar su alırken bakman gereken tek şey gözünü yakmaması ve nazik temizlemesidir. Pahalı şişeye değil, banyodaki musluk suyuna güvenip o yüzü mutlaka durula.\n\nKuzenine uyup durulamadan yatmaya devam edersen yakında çöl kuraklığı kapıda, benden söylemesi.\n\n📌 Kaydet — reyon önünde kararsız kaldığında bakarsın.\n🔁 Bunu her pahalı ürünü mucize sanan o kuzenine gönder.\nSen micellar suya ne kadar ödüyorsun, dürüst ol?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Daha yüksek oran her zaman daha hızlı sonuç demek değildir.\n\n%10 Niasinamid çılgınlığı cildini nasıl kısır döngüye sokuyor, adım adım:\n\n1. Kaçak Asit Tehdidi — %10 ve üzeri niasinamid serumlarındaki ham madde kaynaklı nikotinik asit kalıntısı, ciltteki panik butonlarını tetikler.\n2. Yalancı Yangın — Tüketiciler bu yanmayı 'ürün hücresel düzeyde çalışıyor' sansa da aslında bu sadece damar reseptörlerinin uyarılmasıyla oluşan sahte bir kızarıklıktır.\n3. Bariyer Hasarı — Cilt savunma duvarı bu gereksiz kimyasal panik yüzünden zedelenir ve nem hızla buharlaşır.\n4. Üst Üste Katman — Kızarıklığı söndürmek için ortama yeni aktifler eklenir, bariyer iyice boğulur.\n\nSerum alırken yüksek yüzdeye değil, cildinin tolerans sınırına para ödersin.\n\nÜrün suçlu değil, 'daha çok sürersem çabuk geçer' mantığı suçlu.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu yüzü her kızardığında yeni bir aktif serum alan arkadaşına gönder.\nCilt bakım rutininde aynı anda kaç aktif ürün kullanıyorsun?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#makyaj",
-    "#ciltbakimigutusu",
-    "#makyajtemizleme",
+    "#güzellik",
+    "#niasinamid",
     "#ciltbariyeri",
-    "#kozmetik",
-    "#micellarsu"
+    "#serum",
+    "#skincare"
   ],
-  "takeaway": "Lüks ambalaja değil içeriğe öde, paran cebinde kalsın.",
+  "takeaway": "Daha fazla aktif daha hızlı çözüm değildir; bariyer dinlenme ister.",
   "footage_queries": [
-    "water droplets on glass",
-    "cosmetic bottles soft light"
+    "serum drop close up",
+    "hands rubbing lotion macro"
   ],
   "narration": [
-    "Pahalı micellar su mucize yaratmaz.",
-    "Durulama gerektirmez yalanı cildinin koruyucu duvarını sinsice kemirir.",
-    "Boşta gezen temizleyici moleküller pahalı şişede de aynen durur.",
-    "Yıkamazsan o pahalı su cildini kurutup çöl gibi bırakır.",
-    "Güzellik danışmanına değil moleküle inanıp paranı cebinde tut."
+    "Cildin yandıkça serum süren o arkadaşın.",
+    "Yüksek niasinamiddeki gizli asit artığı ciltte sahte yangın başlatır.",
+    "Kızarınca çalışıyor sanırsın ama o sadece kaçak asit uyarısıdır.",
+    "Bu tatlı yalana inanıp üstüne beş kat daha serum dizersin.",
+    "Kızaran cilde yeni ürün değil sadece sakin bir nemlendirici lazım."
   ],
-  "subject": "micellar su",
-  "sendTo": "her pahalı ürünü mucize sanan o kuzenine",
-  "soru": "Sen micellar suya ne kadar ödüyorsun, dürüst ol?",
+  "subject": "niasinamid",
+  "sendTo": "yüzü her kızardığında yeni bir aktif serum alan arkadaşına",
+  "soru": "Cilt bakım rutininde aynı anda kaç aktif ürün kullanıyorsun?",
   "theme": "#8fa8c8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -97,30 +96,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Pahalı micellar su mucize yaratmaz.",
+      "text": "Cildin yandıkça serum süren o arkadaşın.",
       "start": 0.35,
-      "dur": 2.388
+      "dur": 2.695
     },
     {
-      "text": "Durulama gerektirmez yalanı cildinin koruyucu duvarını sinsice kemirir.",
-      "start": 2.738,
-      "dur": 4.845
+      "text": "Yüksek niasinamiddeki gizli asit artığı ciltte sahte yangın başlatır.",
+      "start": 3.045,
+      "dur": 4.648
     },
     {
-      "text": "Boşta gezen temizleyici moleküller pahalı şişede de aynen durur.",
-      "start": 7.583,
-      "dur": 4.367
+      "text": "Kızarınca çalışıyor sanırsın ama o sadece kaçak asit uyarısıdır.",
+      "start": 7.693,
+      "dur": 4.311
     },
     {
-      "text": "Yıkamazsan o pahalı su cildini kurutup çöl gibi bırakır.",
-      "start": 11.95,
-      "dur": 3.821
+      "text": "Bu tatlı yalana inanıp üstüne beş kat daha serum dizersin.",
+      "start": 12.004,
+      "dur": 3.907
     },
     {
-      "text": "Güzellik danışmanına değil moleküle inanıp paranı cebinde tut.",
-      "start": 15.771,
-      "dur": 5.33
+      "text": "Kızaran cilde yeni ürün değil sadece sakin bir nemlendirici lazım.",
+      "start": 15.912,
+      "dur": 5.546
     }
   ],
-  "thumbOffset": 1794
+  "thumbOffset": 1947
 }
