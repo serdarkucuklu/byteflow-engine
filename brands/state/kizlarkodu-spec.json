@@ -1,77 +1,78 @@
 {
-  "hook": "Yaz bitmeden tiftiklenen elbiseyi indirimde sanan arkadaşın:",
-  "title": "Sezon Sonu İndirim Etiketinin Gizli Oyunu",
+  "hook": "Kargo takibini ezberleyen arkadaşına viskon elbise şoku",
+  "title": "Viskon Elbisenin Kargoda Buruşma Sırrı",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "kind": "diagram",
       "nodes": [
         {
-          "id": "etiket",
-          "label": "YÜKSEK ETİKET"
+          "id": "n1",
+          "label": "STÜDYO BUHARI"
         },
         {
-          "id": "indirim",
-          "label": "SANAL İNDİRİM"
+          "id": "n2",
+          "label": "NEMLİ KARGO POŞETİ"
         },
         {
-          "id": "stok",
-          "label": "STOK AÇIĞI"
+          "id": "n3",
+          "label": "SELÜLOZ LİFLERİ"
         },
         {
-          "id": "sezon",
-          "label": "YENİ SEZON"
+          "id": "n4",
+          "label": "BURUŞUK FORM"
         }
       ],
       "steps": [
         {
-          "from": "etiket",
-          "to": "indirim",
-          "packet": "FİYAT",
-          "status": "fiyat kampanya öncesi gizlice şişirilir",
-          "color": "warn"
-        },
-        {
-          "from": "indirim",
-          "to": "stok",
-          "packet": "ETİKET",
-          "status": "çizili referans fiyat fırsat hissettirir",
+          "from": "n1",
+          "to": "n2",
+          "packet": "BUHAR",
+          "status": "stüdyoda ütülenen lifler poşete girer",
           "color": "accent"
         },
         {
-          "from": "stok",
-          "to": "sezon",
-          "packet": "STOK",
-          "status": "sezonluk ürün taksiti bitmeden eskitilir",
-          "color": "good"
+          "from": "n2",
+          "to": "n3",
+          "packet": "NEM",
+          "status": "kapalı poşette nemlenen selüloz şişer",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n4",
+          "packet": "FORM",
+          "status": "kuruyan lifler pakette buruşup kalır",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Sezon sonu indiriminde alıp kâr ettiğini sandığın o parça aslında nasıl fiyatlandırılıyor?\n\nİndirim illüzyonunun arkasındaki sır adım adım şöyle çalışıyor:\n\n1. Çapa Fiyat — Ürün rafa zaten hiç satılmayacak kadar yüksek bir 'referans fiyatla' koyulur.\n2. İndirim Oyunu — Etiketin üstü çizildiğinde beynimiz otomatikman 'büyük kâr ettim' diye düşünür.\n3. Kalite Yanılsaması — Eski fiyatı pahalı gördüğümüz için kalitesiz kumaşı bile kaliteli zannederiz.\n4. Acı Gerçek — Taksiti bitmeden tiftiklenen elbise dolapta eskirken mağaza yeni çapa fiyatları rafa dizer.\n\nAlışveriş yaparken etiketteki çizili fiyata değil kumaşın dokusuna bakın. Eski fiyatı yüksek diye kalitesiz bir parçaya servet ödemeyin.\n\n📌 Kaydet — bir dahaki indirim döneminde lazım olacak.\n\n🔁 Bunu yazlık aldığı elbiseyi daha yaz bitmeden tiftikleten arkadaşına gönder.\n\nSen de sezon sonu indiriminden alıp bir kez giydiğin elbiseyi saklıyor musun?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Mankende efsane dökümlü duran o viskon elbisenin kargodan buruşuk çıkma sebebi:\n\nO çok beğendiğin viskon elbisenin kargoda buruşma sebebi adım adım:\n\n1. Stüdyo buharı — Elbise çekimdeyken buharla düzleştirilir, liflerin içindeki esnek bağlar geçici olarak hizalanır.\n2. Nemli kargo poşeti — Kapalı poşette hava alamayan selüloz lifleri nem emip bağlarını salar ve gevşer.\n3. Buruşuk kilitlenme — Sıkışık pakette kuruyan lifler yeni buruşuk halini koruyarak adeta kilitlenir.\n\nElbisen kalitesiz olduğu için değil, viskon nem görünce esneyip kururken şekil aldığı için böyledir.\n\nKargo hareketlerini saat başı yenilemek kumaşı düzeltmiyor ama yenilemeye devam edeceğiz.\n\n📌 Kaydet — bir dahaki online alışverişte hatırlarsın.\n🔁 Bunu kargo hareketlerini saat başı yenileyen arkadaşına gönder.\nSen de kargoyu saat başı yenileyenlerden misin?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
+    "#merakokuluokuruduklarımincelemeleriynenokurumdurumunualayimfalanfilanmeryemceeminegunlukleriayşe",
     "#merak",
     "#günlükhayat",
-    "#indirim",
-    "#sezonindirimi",
+    "#nedenoluyor",
     "#kombin",
-    "#alışveriş"
+    "#kumaş",
+    "#kargo",
+    "#viskon"
   ],
-  "takeaway": "İndirim kumaşı kaliteli yapmaz, sadece eski fiyatı pahalı gösterir.",
+  "takeaway": "Kargo takibini ezberlemek kumaşı düzeltmez, buhar makinesi düzeltir.",
   "footage_queries": [
     "wardrobe door open close up",
-    "cozy home interior soft light"
+    "crumpled bed sheets close up"
   ],
   "narration": [
-    "Sezon indirimi fiyatta nasıl illüzyon yaratır?",
-    "Mağazalar etikete baştan kasten yüksek bir çapa fiyat koyar.",
-    "Amaç satmak değil, indirimde üstünü çizip beyni kandırmaktır.",
-    "Çizilen pahalı etiket sana kalitesiz kumaşı kelepir gibi sattırır.",
-    "İndirim kumaşı kaliteli yapmaz sadece eski fiyatı daha pahalı gösterir."
+    "Viskon elbisen kargodan neden buruşuk çıkar?",
+    "Stüdyo buharı kumaştaki gizli esnek bağları geçici olarak düzleştirir.",
+    "Kargo poşetindeki nem liflerin bağlarını gevşetip elbiseyi iyice salar.",
+    "Sıkışık pakette kuruyan lifler yeni buruşuk haline kilitlenir.",
+    "Kargo takibini ezberlemek yerine viskon kumaşı giymeden önce buharlaman gerekir."
   ],
-  "subject": "sezon indirimi",
-  "sendTo": "yazlık aldığı elbiseyi daha yaz bitmeden tiftikleten arkadaşına",
-  "soru": "Sen de sezon sonu indiriminden alıp bir kez giydiğin elbiseyi saklıyor musun?",
+  "subject": "viskon",
+  "sendTo": "kargo hareketlerini saat başı yenileyen arkadaşına",
+  "soru": "Sen de kargoyu saat başı yenileyenlerden misin?",
   "theme": "#b39cff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -96,30 +97,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Sezon indirimi fiyatta nasıl illüzyon yaratır?",
+      "text": "Viskon elbisen kargodan neden buruşuk çıkar?",
       "start": 0.35,
-      "dur": 3.027
+      "dur": 2.692
     },
     {
-      "text": "Mağazalar etikete baştan kasten yüksek bir çapa fiyat koyar.",
-      "start": 3.377,
-      "dur": 3.949
+      "text": "Stüdyo buharı kumaştaki gizli esnek bağları geçici olarak düzleştirir.",
+      "start": 3.042,
+      "dur": 4.283
     },
     {
-      "text": "Amaç satmak değil, indirimde üstünü çizip beyni kandırmaktır.",
-      "start": 7.326,
-      "dur": 4.014
+      "text": "Kargo poşetindeki nem liflerin bağlarını gevşetip elbiseyi iyice salar.",
+      "start": 7.325,
+      "dur": 4.344
     },
     {
-      "text": "Çizilen pahalı etiket sana kalitesiz kumaşı kelepir gibi sattırır.",
-      "start": 11.34,
-      "dur": 4.343
+      "text": "Sıkışık pakette kuruyan lifler yeni buruşuk haline kilitlenir.",
+      "start": 11.669,
+      "dur": 3.793
     },
     {
-      "text": "İndirim kumaşı kaliteli yapmaz sadece eski fiyatı daha pahalı gösterir.",
-      "start": 15.684,
-      "dur": 5.773
+      "text": "Kargo takibini ezberlemek yerine viskon kumaşı giymeden önce buharlaman gerekir.",
+      "start": 15.462,
+      "dur": 5.995
     }
   ],
-  "thumbOffset": 2114
+  "thumbOffset": 1946
 }

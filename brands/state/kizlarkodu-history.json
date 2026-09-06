@@ -407,10 +407,10 @@
     "insightsAt": "2026-09-05T18:53:57.944Z"
   },
   {
-    "title": "Sezon Sonu İndirim Etiketinin Gizli Oyunu",
-    "subject": "sezon indirimi",
-    "twist": "sezon-aldatmacasi",
-    "pillar": "indirim-mekanigi",
+    "title": "Viskon Elbisenin Kargoda Buruşma Sırrı",
+    "subject": "viskon",
+    "twist": "kargo-hayali",
+    "pillar": "cok-satanlar",
     "layout": "nodes-flow",
     "kinds": "diagram",
     "motion": "sketch",
@@ -418,14 +418,14 @@
     "source": "gemini",
     "footage": [
       "pexels:window fog condensation morning",
-      "pexels:dish soap bubbles in sink close up",
+      "pexels:crumpled bed sheets close up",
       "pexels:alarm clock on nightstand close up",
       "pexels:bathroom mirror steam close up"
     ],
     "voice": 5,
-    "voiceName": "Aoede",
+    "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Perakende fiyatlamasında ürünler kasten yüksek bir 'referans çapa fiyat' ile rafa çıkarılır; amaç ürünü o fiyattan satma",
+    "sir": "Çok satan %100 viskon elbiselerin etiketindeki yüksek döküm ve serinlik vaadi rejenere selülozdan gelir; ancak bu lifler",
     "sirUygulandi": "kismi",
     "sirAtlandi": null,
     "date": "2026-09-06",
