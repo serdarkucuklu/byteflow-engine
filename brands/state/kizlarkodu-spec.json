@@ -1,74 +1,77 @@
 {
-  "hook": "60 derecede kazağını bebek bedenine getiren o arkadaşın?",
-  "title": "Sıcak Suda Küçülen Kazak Gizemi",
+  "hook": "Yaz bitmeden tiftiklenen elbiseyi indirimde sanan arkadaşın:",
+  "title": "Sezon Sonu İndirim Etiketinin Gizli Oyunu",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "ISINAN LİFLER"
+          "id": "etiket",
+          "label": "YÜKSEK ETİKET"
         },
         {
-          "id": "n2",
-          "label": "MEKANİK SÜRTÜNME"
+          "id": "indirim",
+          "label": "SANAL İNDİRİM"
         },
         {
-          "id": "n3",
-          "label": "KALICI DARALMA"
+          "id": "stok",
+          "label": "STOK AÇIĞI"
+        },
+        {
+          "id": "sezon",
+          "label": "YENİ SEZON"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "ISIL",
-          "status": "sıcak su gergin lifleri bir anda salar",
+          "from": "etiket",
+          "to": "indirim",
+          "packet": "FİYAT",
+          "status": "fiyat kampanya öncesi gizlice şişirilir",
           "color": "warn"
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "BASKI",
-          "status": "sürtünme lifleri kilitler dönüşü olmaz",
+          "from": "indirim",
+          "to": "stok",
+          "packet": "ETİKET",
+          "status": "çizili referans fiyat fırsat hissettirir",
           "color": "accent"
         },
         {
-          "from": "n3",
-          "to": "n3",
-          "packet": "SONUÇ",
-          "status": "kuruyan kumaş minyatür boyda donar",
+          "from": "stok",
+          "to": "sezon",
+          "packet": "STOK",
+          "status": "sezonluk ürün taksiti bitmeden eskitilir",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "60 derecede yıkanan o favori kazak neden anında oyuncak bedenine dönüşür? Çamaşır makinesinde küçülen kıyafetlerin arkasındaki gizem, adım adım:\n\n1. FABRİKA GERGİNLİĞİ — Kıyafetler üretilirken lifler makineler tarafından yüksek gerilimle esnetilerek dokunur.\n\n2. SERBEST KALAN LİFLER — 60 derece sıcak su bu fabrika gerginliğini çözer ve lifler hapsedilmiş stresten kurtulur.\n\n3. DOĞAL HALİNE DÖNÜŞ — Kumaş aslında küçülmez, sadece yapay gerginliği bırakıp orijinal kısa boyutuna geri sıçrar. Kıyafetin ömrü etiketteki yıkama derecesinde saklıdır. Kazak çekmedi, sadece gardıroptan oyuncak kutusuna transfer olmak istedi.\n\n📌 Kaydet — bir dahaki yıkamada dereceye bakmayı unutma.\n\n🔁 Bunu 60 derece suda kazağını oyuncak bedenine çeviren arkadaşına gönder. Sen hiç favori kazağını sıcak suda küçülttün mü? Yazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Sezon sonu indiriminde alıp kâr ettiğini sandığın o parça aslında nasıl fiyatlandırılıyor?\n\nİndirim illüzyonunun arkasındaki sır adım adım şöyle çalışıyor:\n\n1. Çapa Fiyat — Ürün rafa zaten hiç satılmayacak kadar yüksek bir 'referans fiyatla' koyulur.\n2. İndirim Oyunu — Etiketin üstü çizildiğinde beynimiz otomatikman 'büyük kâr ettim' diye düşünür.\n3. Kalite Yanılsaması — Eski fiyatı pahalı gördüğümüz için kalitesiz kumaşı bile kaliteli zannederiz.\n4. Acı Gerçek — Taksiti bitmeden tiftiklenen elbise dolapta eskirken mağaza yeni çapa fiyatları rafa dizer.\n\nAlışveriş yaparken etiketteki çizili fiyata değil kumaşın dokusuna bakın. Eski fiyatı yüksek diye kalitesiz bir parçaya servet ödemeyin.\n\n📌 Kaydet — bir dahaki indirim döneminde lazım olacak.\n\n🔁 Bunu yazlık aldığı elbiseyi daha yaz bitmeden tiftikleten arkadaşına gönder.\n\nSen de sezon sonu indiriminden alıp bir kez giydiğin elbiseyi saklıyor musun?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#günlükhayat",
-    "#nedenoluyor",
-    "#kıyafetbakımı",
-    "#çamaşıryıkama",
-    "#püfnoktası",
-    "#kazak"
+    "#indirim",
+    "#sezonindirimi",
+    "#kombin",
+    "#alışveriş"
   ],
-  "takeaway": "Kazağın suçu yok, 60 derece sıcaklık onu oyuncak bedenine kilitledi.",
+  "takeaway": "İndirim kumaşı kaliteli yapmaz, sadece eski fiyatı pahalı gösterir.",
   "footage_queries": [
     "wardrobe door open close up",
-    "faucet water drops close up"
+    "cozy home interior soft light"
   ],
   "narration": [
-    "60 derecede yıkanan kazak neden çeker?",
-    "Fabrikadaki makineler lifleri zorla esnetip kazak haline getiriyor.",
-    "Sıcak su gelince lifler fabrika gerginliğini salıp rahatlıyor.",
-    "Böylece kazak büzüşmüyor, sadece kendi doğal kısa boyuna dönüyor.",
-    "Kazağın suçu yok yüksek sıcaklık onu mikro bedene dönüştürdü."
+    "Sezon indirimi fiyatta nasıl illüzyon yaratır?",
+    "Mağazalar etikete baştan kasten yüksek bir çapa fiyat koyar.",
+    "Amaç satmak değil, indirimde üstünü çizip beyni kandırmaktır.",
+    "Çizilen pahalı etiket sana kalitesiz kumaşı kelepir gibi sattırır.",
+    "İndirim kumaşı kaliteli yapmaz sadece eski fiyatı daha pahalı gösterir."
   ],
-  "subject": "çamaşır çekmesi",
-  "sendTo": "60 derece suda kazağını oyuncak bedenine çeviren arkadaşına",
-  "soru": "Sen hiç favori kazağını sıcak suda küçülttün mü?",
+  "subject": "sezon indirimi",
+  "sendTo": "yazlık aldığı elbiseyi daha yaz bitmeden tiftikleten arkadaşına",
+  "soru": "Sen de sezon sonu indiriminden alıp bir kez giydiğin elbiseyi saklıyor musun?",
   "theme": "#b39cff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -93,30 +96,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "60 derecede yıkanan kazak neden çeker?",
+      "text": "Sezon indirimi fiyatta nasıl illüzyon yaratır?",
       "start": 0.35,
-      "dur": 2.593
+      "dur": 3.027
     },
     {
-      "text": "Fabrikadaki makineler lifleri zorla esnetip kazak haline getiriyor.",
-      "start": 2.943,
-      "dur": 4.572
+      "text": "Mağazalar etikete baştan kasten yüksek bir çapa fiyat koyar.",
+      "start": 3.377,
+      "dur": 3.949
     },
     {
-      "text": "Sıcak su gelince lifler fabrika gerginliğini salıp rahatlıyor.",
-      "start": 7.515,
-      "dur": 4.231
+      "text": "Amaç satmak değil, indirimde üstünü çizip beyni kandırmaktır.",
+      "start": 7.326,
+      "dur": 4.014
     },
     {
-      "text": "Böylece kazak büzüşmüyor, sadece kendi doğal kısa boyuna dönüyor.",
-      "start": 11.746,
-      "dur": 4.436
+      "text": "Çizilen pahalı etiket sana kalitesiz kumaşı kelepir gibi sattırır.",
+      "start": 11.34,
+      "dur": 4.343
     },
     {
-      "text": "Kazağın suçu yok yüksek sıcaklık onu mikro bedene dönüştürdü.",
-      "start": 16.182,
-      "dur": 5.263
+      "text": "İndirim kumaşı kaliteli yapmaz sadece eski fiyatı daha pahalı gösterir.",
+      "start": 15.684,
+      "dur": 5.773
     }
   ],
-  "thumbOffset": 1897
+  "thumbOffset": 2114
 }
