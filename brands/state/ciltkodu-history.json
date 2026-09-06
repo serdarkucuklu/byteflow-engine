@@ -995,5 +995,30 @@
       "ig_reels_video_view_total_time": 107398
     },
     "insightsAt": "2026-09-06T17:31:40.117Z"
+  },
+  {
+    "title": "Bariyer bozulunca her ürün yakar",
+    "subject": null,
+    "twist": "ev-arkadasi",
+    "pillar": "bariyer",
+    "layout": "nodes-flow",
+    "kinds": "diagram",
+    "motion": "camera",
+    "theme": "#b08bbb",
+    "source": "seed",
+    "footage": [
+      "pexels:compact powder pressed texture",
+      "pexels:oil and water macro",
+      "pexels:water droplets on glass",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": null,
+    "voiceName": null,
+    "muzik": "byteflow-ambient.mp3",
+    "sir": null,
+    "sirUygulandi": null,
+    "sirAtlandi": "seed",
+    "date": "2026-09-06",
+    "durSec": 20.2
   }
 ]

@@ -1,79 +1,78 @@
 {
-  "hook": "Dolabın arkasında unuttuğun o üre kremi var ya...",
-  "title": "Üre Kremdeki Gerçek INCI Listesi",
+  "title": "Bariyer bozulunca her ürün yakar",
+  "topic_source": "seed",
+  "pillar": "bariyer",
+  "hook": "Ürün değiştirdikçe kötüleşiyorsa sorun üründe değil.",
+  "takeaway": "Bariyer onarılmadan hiçbir aktif işe yaramaz.",
+  "narration": [
+    "Ürün değiştirdikçe kötüleşiyorsa sorun üründe değil.",
+    "Üç adımda görelim.",
+    "Bariyer seramid, kolesterol ve yağ asidinden oluşur.",
+    "Aşırı temizlik ve asit bu harcı inceltir.",
+    "Su kaçar, sinir uçları açığa çıkar ve her ürün yakar.",
+    "Bariyer onarılmadan hiçbir aktif işe yaramaz."
+  ],
+  "footage_queries": [
+    "linen fabric texture",
+    "oil and water macro"
+  ],
+  "caption": "Her ürün yakıyorsa sorun ürünlerde değil, bariyerde.\n\n1. Yapı — cildin üst tabakası tuğla-harç gibidir: hücreler tuğla, seramid + kolesterol + yağ asidi karışımı harçtır.\n2. Hasar — sert temizleyici, sık peeling, yüksek yoğunluklu aktifler ve sıcak su bu harcı inceltir.\n3. Sonuç — su kaybı artar, sinir uçları uyaranlara açık kalır; \"her şey yakıyor\" hissi budur.\nYapılacak: 2-4 hafta aktifleri durdur, yumuşak temizleyici + seramitli nemlendirici + güneş koruması. Sonra tek tek geri ekle.\n\n📌 Kaydet, cildin küstüğünde buradan başla.\n🔁 \"Her ürün bana dokunuyor\" diyene gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+  "hashtags": [
+    "#ciltbariyeri",
+    "#seramid",
+    "#ciltbakımı",
+    "#hassascilt",
+    "#skincare",
+    "#ciltbakimrutini"
+  ],
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "kind": "diagram",
+      "layout": "nodes-flow",
+      "heading": "Bariyer nasıl bozulur",
       "nodes": [
         {
-          "id": "ure",
-          "label": "ÜRE MOLEKÜLÜ"
+          "id": "harc",
+          "label": "SERAMİD HARCI"
         },
         {
-          "id": "su",
-          "label": "NEM BAĞLAMA"
+          "id": "asiri",
+          "label": "AŞIRI TEMİZLİK"
         },
         {
-          "id": "soyme",
-          "label": "KERATOLİTİK"
+          "id": "kacak",
+          "label": "SU KAYBI"
         },
         {
-          "id": "bariyer",
-          "label": "DERİ DOKUSU"
+          "id": "tahris",
+          "label": "TAHRİŞ"
         }
       ],
       "steps": [
         {
-          "from": "ure",
-          "to": "su",
-          "packet": "NEM",
-          "status": "suyu cilde kilitler, dolapta beklemez",
-          "color": "accent"
+          "from": "harc",
+          "to": "asiri",
+          "packet": "İNCEL",
+          "color": "warn",
+          "status": "harç incelir"
         },
         {
-          "from": "ure",
-          "to": "soyme",
-          "packet": "SOYMA",
-          "status": "ölü deriyi nazikçe çözer, pamuk gibi",
-          "color": "warn"
+          "from": "asiri",
+          "to": "kacak",
+          "packet": "SU",
+          "color": "warn",
+          "status": "su kaybı artar"
         },
         {
-          "from": "ure",
-          "to": "bariyer",
-          "packet": "DOKU",
-          "status": "bariyeri güçlendirir, pes etmek yok",
-          "color": "good"
+          "from": "kacak",
+          "to": "tahris",
+          "packet": "YANMA",
+          "color": "accent",
+          "status": "her ürün yakmaya başlar"
         }
       ]
     }
   ],
-  "caption": "Dolabın dibinde unutulan o üre kremi aslında makyajının gizli kahramanı.\n\nIsana %5 Üre Yüz Kremi gibi formüllerde üre ve gliserin üst sıralardaysa, cildin kapılarını adeta bir maymuncuk gibi açar. Peki bu ne işe yarar?\n\n1. Kapıları Açma — Üre cilt proteinlerini esneterek arkadaki bileşenlere geçit töreni yaptırır.\n2. Derin Süzülme — Yanındaki laktik asit bu açık kapıdan rahatça alt katmanlara iner.\n3. Makyaj Kurtarma — Cilt neme doyduğu için gün içinde fondötenin suyunu emip rengini karartmaz (oksidasyon krizine son!).\n\nKremi dolapta sergilemek cilde iyi gelmiyor, bu gece sürüyoruz.\n\n📌 Kaydet — bir dahaki ürün krizinde lazım olacak.\n🔁 Bunu kremleri alıp dolabın dibinde unutan arkadaşına gönder.\n\nSenin dolabının dibinde unutulmuş kaç krem var?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
-  "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#ürekrem",
-    "#incilistesi",
-    "#ciltbariyeri",
-    "#skincare",
-    "#ciltbakımrutini"
-  ],
-  "takeaway": "Dolapta bekleyen krem cilt yenilemez, bu gece sürüyoruz.",
-  "footage_queries": [
-    "hands opening jar macro",
-    "cream texture macro"
-  ],
-  "narration": [
-    "Üre kremini dolabın dibinde unuttuk.",
-    "Gliserinle birleşen üre ciltteki kilitli kapıları açar.",
-    "Laktik asit içeri süzülür, cildi içten dışa doyurur.",
-    "Böylece cilt fondötenin suyunu emip makyajı asla karartmaz.",
-    "Kremi dolapta saklamak yerine yüzümüze sürmeyi deniyoruz."
-  ],
-  "subject": "üre",
-  "sendTo": "kremleri alıp dolabın dibinde unutan arkadaşına",
-  "soru": "Senin dolabının dibinde unutulmuş kaç krem var?",
-  "theme": "#d98c5f",
+  "theme": "#b08bbb",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -92,35 +91,8 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "camera",
   "format": "kinetik",
   "footage": true,
-  "beats": [
-    {
-      "text": "Üre kremini dolabın dibinde unuttuk.",
-      "start": 0.35,
-      "dur": 2.553
-    },
-    {
-      "text": "Gliserinle birleşen üre ciltteki kilitli kapıları açar.",
-      "start": 2.903,
-      "dur": 3.901
-    },
-    {
-      "text": "Laktik asit içeri süzülür, cildi içten dışa doyurur.",
-      "start": 6.805,
-      "dur": 3.688
-    },
-    {
-      "text": "Böylece cilt fondötenin suyunu emip makyajı asla karartmaz.",
-      "start": 10.493,
-      "dur": 4.185
-    },
-    {
-      "text": "Kremi dolapta saklamak yerine yüzümüze sürmeyi deniyoruz.",
-      "start": 14.678,
-      "dur": 5.143
-    }
-  ],
-  "thumbOffset": 1877
+  "thumbOffset": 1300
 }

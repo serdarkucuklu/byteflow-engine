@@ -1,125 +1,97 @@
 {
-  "hook": "Kargo takibini ezberleyen arkadaşına viskon elbise şoku",
-  "title": "Viskon Elbisenin Kargoda Buruşma Sırrı",
+  "title": "Bariyer bozulunca her ürün yakar",
+  "topic_source": "seed",
+  "pillar": "bariyer",
+  "hook": "Ürün değiştirdikçe kötüleşiyorsa sorun üründe değil.",
+  "takeaway": "Bariyer onarılmadan hiçbir aktif işe yaramaz.",
+  "narration": [
+    "Ürün değiştirdikçe kötüleşiyorsa sorun üründe değil.",
+    "Üç adımda görelim.",
+    "Bariyer seramid, kolesterol ve yağ asidinden oluşur.",
+    "Aşırı temizlik ve asit bu harcı inceltir.",
+    "Su kaçar, sinir uçları açığa çıkar ve her ürün yakar.",
+    "Bariyer onarılmadan hiçbir aktif işe yaramaz."
+  ],
+  "footage_queries": [
+    "linen fabric texture",
+    "oil and water macro"
+  ],
+  "caption": "Her ürün yakıyorsa sorun ürünlerde değil, bariyerde.\n\n1. Yapı — cildin üst tabakası tuğla-harç gibidir: hücreler tuğla, seramid + kolesterol + yağ asidi karışımı harçtır.\n2. Hasar — sert temizleyici, sık peeling, yüksek yoğunluklu aktifler ve sıcak su bu harcı inceltir.\n3. Sonuç — su kaybı artar, sinir uçları uyaranlara açık kalır; \"her şey yakıyor\" hissi budur.\nYapılacak: 2-4 hafta aktifleri durdur, yumuşak temizleyici + seramitli nemlendirici + güneş koruması. Sonra tek tek geri ekle.\n\n📌 Kaydet, cildin küstüğünde buradan başla.\n🔁 \"Her ürün bana dokunuyor\" diyene gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
+  "hashtags": [
+    "#ciltbariyeri",
+    "#seramid",
+    "#ciltbakımı",
+    "#hassascilt",
+    "#skincare",
+    "#ciltbakimrutini"
+  ],
   "scenes": [
     {
       "layout": "nodes-flow",
+      "heading": "Bariyer nasıl bozulur",
       "nodes": [
         {
-          "id": "n1",
-          "label": "STÜDYO BUHARI"
+          "id": "harc",
+          "label": "SERAMİD HARCI"
         },
         {
-          "id": "n2",
-          "label": "NEMLİ KARGO POŞETİ"
+          "id": "asiri",
+          "label": "AŞIRI TEMİZLİK"
         },
         {
-          "id": "n3",
-          "label": "SELÜLOZ LİFLERİ"
+          "id": "kacak",
+          "label": "SU KAYBI"
         },
         {
-          "id": "n4",
-          "label": "BURUŞUK FORM"
+          "id": "tahris",
+          "label": "TAHRİŞ"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "BUHAR",
-          "status": "stüdyoda ütülenen lifler poşete girer",
-          "color": "accent"
+          "from": "harc",
+          "to": "asiri",
+          "packet": "İNCEL",
+          "color": "warn",
+          "status": "harç incelir"
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "NEM",
-          "status": "kapalı poşette nemlenen selüloz şişer",
-          "color": "warn"
+          "from": "asiri",
+          "to": "kacak",
+          "packet": "SU",
+          "color": "warn",
+          "status": "su kaybı artar"
         },
         {
-          "from": "n3",
-          "to": "n4",
-          "packet": "FORM",
-          "status": "kuruyan lifler pakette buruşup kalır",
-          "color": "warn"
+          "from": "kacak",
+          "to": "tahris",
+          "packet": "YANMA",
+          "color": "accent",
+          "status": "her ürün yakmaya başlar"
         }
       ]
     }
   ],
-  "caption": "Mankende efsane dökümlü duran o viskon elbisenin kargodan buruşuk çıkma sebebi:\n\nO çok beğendiğin viskon elbisenin kargoda buruşma sebebi adım adım:\n\n1. Stüdyo buharı — Elbise çekimdeyken buharla düzleştirilir, liflerin içindeki esnek bağlar geçici olarak hizalanır.\n2. Nemli kargo poşeti — Kapalı poşette hava alamayan selüloz lifleri nem emip bağlarını salar ve gevşer.\n3. Buruşuk kilitlenme — Sıkışık pakette kuruyan lifler yeni buruşuk halini koruyarak adeta kilitlenir.\n\nElbisen kalitesiz olduğu için değil, viskon nem görünce esneyip kururken şekil aldığı için böyledir.\n\nKargo hareketlerini saat başı yenilemek kumaşı düzeltmiyor ama yenilemeye devam edeceğiz.\n\n📌 Kaydet — bir dahaki online alışverişte hatırlarsın.\n🔁 Bunu kargo hareketlerini saat başı yenileyen arkadaşına gönder.\nSen de kargoyu saat başı yenileyenlerden misin?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
-  "hashtags": [
-    "#merakokuluokuruduklarımincelemeleriynenokurumdurumunualayimfalanfilanmeryemceeminegunlukleriayşe",
-    "#merak",
-    "#günlükhayat",
-    "#nedenoluyor",
-    "#kombin",
-    "#kumaş",
-    "#kargo",
-    "#viskon"
-  ],
-  "takeaway": "Kargo takibini ezberlemek kumaşı düzeltmez, buhar makinesi düzeltir.",
-  "footage_queries": [
-    "wardrobe door open close up",
-    "crumpled bed sheets close up"
-  ],
-  "narration": [
-    "Viskon elbisen kargodan neden buruşuk çıkar?",
-    "Stüdyo buharı kumaştaki gizli esnek bağları geçici olarak düzleştirir.",
-    "Kargo poşetindeki nem liflerin bağlarını gevşetip elbiseyi iyice salar.",
-    "Sıkışık pakette kuruyan lifler yeni buruşuk haline kilitlenir.",
-    "Kargo takibini ezberlemek yerine viskon kumaşı giymeden önce buharlaman gerekir."
-  ],
-  "subject": "viskon",
-  "sendTo": "kargo hareketlerini saat başı yenileyen arkadaşına",
-  "soru": "Sen de kargoyu saat başı yenileyenlerden misin?",
-  "theme": "#b39cff",
+  "theme": "#b08bbb",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "camera",
   "format": "kinetik",
-  "footage": true,
-  "beats": [
-    {
-      "text": "Viskon elbisen kargodan neden buruşuk çıkar?",
-      "start": 0.35,
-      "dur": 2.692
-    },
-    {
-      "text": "Stüdyo buharı kumaştaki gizli esnek bağları geçici olarak düzleştirir.",
-      "start": 3.042,
-      "dur": 4.283
-    },
-    {
-      "text": "Kargo poşetindeki nem liflerin bağlarını gevşetip elbiseyi iyice salar.",
-      "start": 7.325,
-      "dur": 4.344
-    },
-    {
-      "text": "Sıkışık pakette kuruyan lifler yeni buruşuk haline kilitlenir.",
-      "start": 11.669,
-      "dur": 3.793
-    },
-    {
-      "text": "Kargo takibini ezberlemek yerine viskon kumaşı giymeden önce buharlaman gerekir.",
-      "start": 15.462,
-      "dur": 5.995
-    }
-  ]
+  "footage": true
 }
