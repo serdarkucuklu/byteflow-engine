@@ -1,78 +1,73 @@
 {
-  "hook": "Kargo takibini ezberleyen arkadaşına viskon elbise şoku",
-  "title": "Viskon Elbisenin Kargoda Buruşma Sırrı",
+  "hook": "60 derece yıkayan kardeşin polyesteri neden bozuyor?",
+  "title": "Polyester Ve 60 Derece Yıkama Hilesi",
   "scenes": [
     {
       "layout": "nodes-flow",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "STÜDYO BUHARI"
+          "id": "N1",
+          "label": "YÜKSEK ISI"
         },
         {
-          "id": "n2",
-          "label": "NEMLİ KARGO POŞETİ"
+          "id": "N2",
+          "label": "LİF GEVŞEMESİ"
         },
         {
-          "id": "n3",
-          "label": "SELÜLOZ LİFLERİ"
-        },
-        {
-          "id": "n4",
-          "label": "BURUŞUK FORM"
+          "id": "N3",
+          "label": "REKOR SARKMA"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "BUHAR",
-          "status": "stüdyoda ütülenen lifler poşete girer",
+          "from": "N1",
+          "to": "N2",
+          "packet": "SICAK",
+          "status": "60 derece su polyester lifini gevşetir",
+          "color": "warn"
+        },
+        {
+          "from": "N2",
+          "to": "N3",
+          "packet": "LİFLER",
+          "status": "sıkma tamburu uzayan kumaşı sündürür",
+          "color": "warn"
+        },
+        {
+          "from": "N3",
+          "to": "N1",
+          "packet": "SONUÇ",
+          "status": "soğuyunca yeni yamuk formu sabitlenir",
           "color": "accent"
-        },
-        {
-          "from": "n2",
-          "to": "n3",
-          "packet": "NEM",
-          "status": "kapalı poşette nemlenen selüloz şişer",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n4",
-          "packet": "FORM",
-          "status": "kuruyan lifler pakette buruşup kalır",
-          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Mankende efsane dökümlü duran o viskon elbisenin kargodan buruşuk çıkma sebebi:\n\nO çok beğendiğin viskon elbisenin kargoda buruşma sebebi adım adım:\n\n1. Stüdyo buharı — Elbise çekimdeyken buharla düzleştirilir, liflerin içindeki esnek bağlar geçici olarak hizalanır.\n2. Nemli kargo poşeti — Kapalı poşette hava alamayan selüloz lifleri nem emip bağlarını salar ve gevşer.\n3. Buruşuk kilitlenme — Sıkışık pakette kuruyan lifler yeni buruşuk halini koruyarak adeta kilitlenir.\n\nElbisen kalitesiz olduğu için değil, viskon nem görünce esneyip kururken şekil aldığı için böyledir.\n\nKargo hareketlerini saat başı yenilemek kumaşı düzeltmiyor ama yenilemeye devam edeceğiz.\n\n📌 Kaydet — bir dahaki online alışverişte hatırlarsın.\n🔁 Bunu kargo hareketlerini saat başı yenileyen arkadaşına gönder.\nSen de kargoyu saat başı yenileyenlerden misin?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "60 derece yıkayan kardeşin polyesteri neden bozuyor?\n\n60 derecede yıkanan polyesterin başına gelenler, adım adım:\n\n1. Üretim Faturası — Hızlı moda markaları elektrikten tasarruf etmek için kumaşın ısı sabitleme (termofikse) süresini kısa keser.\n2. İç Gerginlik — Kumaş liflerinde patlamaya hazır bir stres ve iç gerilme hapsedilmiş olarak kalır.\n3. Ani Patlama — 60 derece sıcak su gelince o hapsolmuş gerilim serbest kalır, lifler büzülüp formunu kaybeder.\n\nMakineye etiketsiz giren her tişört, derece şansına teslim edilmiş bir piyango biletidir.\n\n📌 Kaydet — bir dahaki çamaşır gününde lazım olacak.\n🔁 Bunu her şeyi tek makinede 60 derecede yıkayan kardeşine gönder.\nSen de çamaşırları dereceye bakmadan tek makineye atanlardan mısın?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#merakokuluokuruduklarımincelemeleriynenokurumdurumunualayimfalanfilanmeryemceeminegunlukleriayşe",
     "#merak",
     "#günlükhayat",
-    "#nedenoluyor",
+    "#kıyafetbakımı",
+    "#çamaşır",
     "#kombin",
-    "#kumaş",
-    "#kargo",
-    "#viskon"
+    "#polyester"
   ],
-  "takeaway": "Kargo takibini ezberlemek kumaşı düzeltmez, buhar makinesi düzeltir.",
+  "takeaway": "Etikete bakmadan atılan 60 derece, kıyafete emeklilik biletidir.",
   "footage_queries": [
-    "wardrobe door open close up",
-    "crumpled bed sheets close up"
+    "cozy home interior soft light",
+    "folded towel on bench close up"
   ],
   "narration": [
-    "Viskon elbisen kargodan neden buruşuk çıkar?",
-    "Stüdyo buharı kumaştaki gizli esnek bağları geçici olarak düzleştirir.",
-    "Kargo poşetindeki nem liflerin bağlarını gevşetip elbiseyi iyice salar.",
-    "Sıkışık pakette kuruyan lifler yeni buruşuk haline kilitlenir.",
-    "Kargo takibini ezberlemek yerine viskon kumaşı giymeden önce buharlaman gerekir."
+    "Polyester altmış derecede neden salıyor?",
+    "Ucuz fabrikalar elektrikten kaçmak için ısı sabitlemesini kısa tutuyor.",
+    "Kumaşın içinde sıkışıp kalan o gerginlik sıcakta aniden boşanıyor.",
+    "Nefesini tutmuş lifler serbest kalınca tişört çekip kendini salıyor.",
+    "Görünürde zaman kazandıran o dev makine kıyafeti böyle çöp eder."
   ],
-  "subject": "viskon",
-  "sendTo": "kargo hareketlerini saat başı yenileyen arkadaşına",
-  "soru": "Sen de kargoyu saat başı yenileyenlerden misin?",
+  "subject": "polyester",
+  "sendTo": "her şeyi tek makinede 60 derecede yıkayan kardeşine",
+  "soru": "Sen de çamaşırları dereceye bakmadan tek makineye atanlardan mısın?",
   "theme": "#b39cff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -97,30 +92,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Viskon elbisen kargodan neden buruşuk çıkar?",
+      "text": "Polyester altmış derecede neden salıyor?",
       "start": 0.35,
-      "dur": 2.692
+      "dur": 2.589
     },
     {
-      "text": "Stüdyo buharı kumaştaki gizli esnek bağları geçici olarak düzleştirir.",
-      "start": 3.042,
-      "dur": 4.283
+      "text": "Ucuz fabrikalar elektrikten kaçmak için ısı sabitlemesini kısa tutuyor.",
+      "start": 2.939,
+      "dur": 4.595
     },
     {
-      "text": "Kargo poşetindeki nem liflerin bağlarını gevşetip elbiseyi iyice salar.",
-      "start": 7.325,
-      "dur": 4.344
+      "text": "Kumaşın içinde sıkışıp kalan o gerginlik sıcakta aniden boşanıyor.",
+      "start": 7.534,
+      "dur": 4.271
     },
     {
-      "text": "Sıkışık pakette kuruyan lifler yeni buruşuk haline kilitlenir.",
-      "start": 11.669,
-      "dur": 3.793
+      "text": "Nefesini tutmuş lifler serbest kalınca tişört çekip kendini salıyor.",
+      "start": 11.805,
+      "dur": 4.401
     },
     {
-      "text": "Kargo takibini ezberlemek yerine viskon kumaşı giymeden önce buharlaman gerekir.",
-      "start": 15.462,
-      "dur": 5.995
+      "text": "Görünürde zaman kazandıran o dev makine kıyafeti böyle çöp eder.",
+      "start": 16.206,
+      "dur": 5.242
     }
   ],
-  "thumbOffset": 1946
+  "thumbOffset": 1894
 }

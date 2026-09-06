@@ -1,97 +1,120 @@
 {
-  "title": "Bariyer bozulunca her ürün yakar",
-  "topic_source": "seed",
-  "pillar": "bariyer",
-  "hook": "Ürün değiştirdikçe kötüleşiyorsa sorun üründe değil.",
-  "takeaway": "Bariyer onarılmadan hiçbir aktif işe yaramaz.",
-  "narration": [
-    "Ürün değiştirdikçe kötüleşiyorsa sorun üründe değil.",
-    "Üç adımda görelim.",
-    "Bariyer seramid, kolesterol ve yağ asidinden oluşur.",
-    "Aşırı temizlik ve asit bu harcı inceltir.",
-    "Su kaçar, sinir uçları açığa çıkar ve her ürün yakar.",
-    "Bariyer onarılmadan hiçbir aktif işe yaramaz."
-  ],
-  "footage_queries": [
-    "linen fabric texture",
-    "oil and water macro"
-  ],
-  "caption": "Her ürün yakıyorsa sorun ürünlerde değil, bariyerde.\n\n1. Yapı — cildin üst tabakası tuğla-harç gibidir: hücreler tuğla, seramid + kolesterol + yağ asidi karışımı harçtır.\n2. Hasar — sert temizleyici, sık peeling, yüksek yoğunluklu aktifler ve sıcak su bu harcı inceltir.\n3. Sonuç — su kaybı artar, sinir uçları uyaranlara açık kalır; \"her şey yakıyor\" hissi budur.\nYapılacak: 2-4 hafta aktifleri durdur, yumuşak temizleyici + seramitli nemlendirici + güneş koruması. Sonra tek tek geri ekle.\n\n📌 Kaydet, cildin küstüğünde buradan başla.\n🔁 \"Her ürün bana dokunuyor\" diyene gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
-  "hashtags": [
-    "#ciltbariyeri",
-    "#seramid",
-    "#ciltbakımı",
-    "#hassascilt",
-    "#skincare",
-    "#ciltbakimrutini"
-  ],
+  "hook": "60 derece yıkayan kardeşin polyesteri neden bozuyor?",
+  "title": "Polyester Ve 60 Derece Yıkama Hilesi",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "heading": "Bariyer nasıl bozulur",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "harc",
-          "label": "SERAMİD HARCI"
+          "id": "N1",
+          "label": "YÜKSEK ISI"
         },
         {
-          "id": "asiri",
-          "label": "AŞIRI TEMİZLİK"
+          "id": "N2",
+          "label": "LİF GEVŞEMESİ"
         },
         {
-          "id": "kacak",
-          "label": "SU KAYBI"
-        },
-        {
-          "id": "tahris",
-          "label": "TAHRİŞ"
+          "id": "N3",
+          "label": "REKOR SARKMA"
         }
       ],
       "steps": [
         {
-          "from": "harc",
-          "to": "asiri",
-          "packet": "İNCEL",
-          "color": "warn",
-          "status": "harç incelir"
+          "from": "N1",
+          "to": "N2",
+          "packet": "SICAK",
+          "status": "60 derece su polyester lifini gevşetir",
+          "color": "warn"
         },
         {
-          "from": "asiri",
-          "to": "kacak",
-          "packet": "SU",
-          "color": "warn",
-          "status": "su kaybı artar"
+          "from": "N2",
+          "to": "N3",
+          "packet": "LİFLER",
+          "status": "sıkma tamburu uzayan kumaşı sündürür",
+          "color": "warn"
         },
         {
-          "from": "kacak",
-          "to": "tahris",
-          "packet": "YANMA",
-          "color": "accent",
-          "status": "her ürün yakmaya başlar"
+          "from": "N3",
+          "to": "N1",
+          "packet": "SONUÇ",
+          "status": "soğuyunca yeni yamuk formu sabitlenir",
+          "color": "accent"
         }
       ]
     }
   ],
-  "theme": "#b08bbb",
+  "caption": "60 derece yıkayan kardeşin polyesteri neden bozuyor?\n\n60 derecede yıkanan polyesterin başına gelenler, adım adım:\n\n1. Üretim Faturası — Hızlı moda markaları elektrikten tasarruf etmek için kumaşın ısı sabitleme (termofikse) süresini kısa keser.\n2. İç Gerginlik — Kumaş liflerinde patlamaya hazır bir stres ve iç gerilme hapsedilmiş olarak kalır.\n3. Ani Patlama — 60 derece sıcak su gelince o hapsolmuş gerilim serbest kalır, lifler büzülüp formunu kaybeder.\n\nMakineye etiketsiz giren her tişört, derece şansına teslim edilmiş bir piyango biletidir.\n\n📌 Kaydet — bir dahaki çamaşır gününde lazım olacak.\n🔁 Bunu her şeyi tek makinede 60 derecede yıkayan kardeşine gönder.\nSen de çamaşırları dereceye bakmadan tek makineye atanlardan mısın?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "hashtags": [
+    "#merak",
+    "#günlükhayat",
+    "#kıyafetbakımı",
+    "#çamaşır",
+    "#kombin",
+    "#polyester"
+  ],
+  "takeaway": "Etikete bakmadan atılan 60 derece, kıyafete emeklilik biletidir.",
+  "footage_queries": [
+    "cozy home interior soft light",
+    "folded towel on bench close up"
+  ],
+  "narration": [
+    "Polyester altmış derecede neden salıyor?",
+    "Ucuz fabrikalar elektrikten kaçmak için ısı sabitlemesini kısa tutuyor.",
+    "Kumaşın içinde sıkışıp kalan o gerginlik sıcakta aniden boşanıyor.",
+    "Nefesini tutmuş lifler serbest kalınca tişört çekip kendini salıyor.",
+    "Görünürde zaman kazandıran o dev makine kıyafeti böyle çöp eder."
+  ],
+  "subject": "polyester",
+  "sendTo": "her şeyi tek makinede 60 derecede yıkayan kardeşine",
+  "soru": "Sen de çamaşırları dereceye bakmadan tek makineye atanlardan mısın?",
+  "theme": "#b39cff",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "sketch",
   "format": "kinetik",
-  "footage": true
+  "footage": true,
+  "beats": [
+    {
+      "text": "Polyester altmış derecede neden salıyor?",
+      "start": 0.35,
+      "dur": 2.589
+    },
+    {
+      "text": "Ucuz fabrikalar elektrikten kaçmak için ısı sabitlemesini kısa tutuyor.",
+      "start": 2.939,
+      "dur": 4.595
+    },
+    {
+      "text": "Kumaşın içinde sıkışıp kalan o gerginlik sıcakta aniden boşanıyor.",
+      "start": 7.534,
+      "dur": 4.271
+    },
+    {
+      "text": "Nefesini tutmuş lifler serbest kalınca tişört çekip kendini salıyor.",
+      "start": 11.805,
+      "dur": 4.401
+    },
+    {
+      "text": "Görünürde zaman kazandıran o dev makine kıyafeti böyle çöp eder.",
+      "start": 16.206,
+      "dur": 5.242
+    }
+  ]
 }
