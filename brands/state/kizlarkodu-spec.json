@@ -1,74 +1,74 @@
 {
-  "hook": "Kabinde 'üstünüzde çok güzel durdu' lafına inandın mı?",
-  "title": "İkinci El Alışverişte Kabin İllüzyonu",
+  "hook": "60 derecede kazağını bebek bedenine getiren o arkadaşın?",
+  "title": "Sıcak Suda Küçülen Kazak Gizemi",
   "scenes": [
     {
-      "layout": "vertical-stack",
+      "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "kabin",
-          "label": "KABIN İLTİFATI"
+          "id": "n1",
+          "label": "ISINAN LİFLER"
         },
         {
-          "id": "ayna",
-          "label": "MEYİLLİ AYNA AÇISI"
+          "id": "n2",
+          "label": "MEKANİK SÜRTÜNME"
         },
         {
-          "id": "detay",
-          "label": "ASTAR VE FERMUAR"
+          "id": "n3",
+          "label": "KALICI DARALMA"
         }
       ],
       "steps": [
         {
-          "from": "kabin",
-          "to": "ayna",
-          "packet": "GÜVEN",
-          "status": "kabin iltifatı dopamini artırır",
-          "color": "accent"
-        },
-        {
-          "from": "ayna",
-          "to": "detay",
-          "packet": "AYNA",
-          "status": "eğimli ayna bedeni daha uzun gösterir",
+          "from": "n1",
+          "to": "n2",
+          "packet": "ISIL",
+          "status": "sıcak su gergin lifleri bir anda salar",
           "color": "warn"
         },
         {
-          "from": "detay",
-          "to": "kabin",
-          "packet": "KUSUR",
-          "status": "evde astar ve fermuar defosu yakalanır",
+          "from": "n2",
+          "to": "n3",
+          "packet": "BASKI",
+          "status": "sürtünme lifleri kilitler dönüşü olmaz",
+          "color": "accent"
+        },
+        {
+          "from": "n3",
+          "to": "n3",
+          "packet": "SONUÇ",
+          "status": "kuruyan kumaş minyatür boyda donar",
           "color": "good"
         }
       ]
     }
   ],
-  "caption": "Kabinde her şey harika görünür ama ikinci el alışverişin sırrı detayda saklıdır.\n\nİkinci el alışverişte kabin tuzağı nasıl işler, adım adım:\n\n1. Kabin iltifatı — Danışmanın söylediği tatlı sözler beyninizde dopamin salgılatır ve eleştirel gözü anında kapatır.\n2. Eğimli ayna açısı — Mağaza aynaları hafif geriye yatıktır, silüeti olduğundan daha uzun ve orantılı gösterir.\n3. Detay körlüğü — Sarı ışık ve satın alma heyecanı yüzünden ceketin astar söküğü veya fermuar defosu fark edilmez.\n\nİkinci el alırken iltifata değil; astar dikişlerine, koltuk altı yıpranmasına ve fermuara bakın.\n\nKabindeki o üç dakikalık güven harikaydı ama faturayı maalesef astar dikişi ödemiyor.\n\n📌 Kaydet — bir dahaki ikinci el turunda lazım olacak.\n\n🔁 Bunu mağazadan tek parçayla girip üç poşetle çıkan o arkadaşına gönder.\n\nSen de kabin ışığında her şeyi beğenip evde pişman olanlardan mısın?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "60 derecede yıkanan o favori kazak neden anında oyuncak bedenine dönüşür? Çamaşır makinesinde küçülen kıyafetlerin arkasındaki gizem, adım adım:\n\n1. FABRİKA GERGİNLİĞİ — Kıyafetler üretilirken lifler makineler tarafından yüksek gerilimle esnetilerek dokunur.\n\n2. SERBEST KALAN LİFLER — 60 derece sıcak su bu fabrika gerginliğini çözer ve lifler hapsedilmiş stresten kurtulur.\n\n3. DOĞAL HALİNE DÖNÜŞ — Kumaş aslında küçülmez, sadece yapay gerginliği bırakıp orijinal kısa boyutuna geri sıçrar. Kıyafetin ömrü etiketteki yıkama derecesinde saklıdır. Kazak çekmedi, sadece gardıroptan oyuncak kutusuna transfer olmak istedi.\n\n📌 Kaydet — bir dahaki yıkamada dereceye bakmayı unutma.\n\n🔁 Bunu 60 derece suda kazağını oyuncak bedenine çeviren arkadaşına gönder. Sen hiç favori kazağını sıcak suda küçülttün mü? Yazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#günlükhayat",
-    "#ikinciel",
-    "#vintage",
-    "#kombin",
-    "#fermuar",
-    "#ikincielkıyafet"
+    "#nedenoluyor",
+    "#kıyafetbakımı",
+    "#çamaşıryıkama",
+    "#püfnoktası",
+    "#kazak"
   ],
-  "takeaway": "Kabin iltifatanı değil, ikinci el ceketin astarını kontrol et.",
+  "takeaway": "Kazağın suçu yok, 60 derece sıcaklık onu oyuncak bedenine kilitledi.",
   "footage_queries": [
-    "bathroom mirror steam close up",
-    "wardrobe door open close up"
+    "wardrobe door open close up",
+    "faucet water drops close up"
   ],
   "narration": [
-    "İkinci el ceket kabinde harika durdu?",
-    "Kabin önündeki iltifat beynine anında hızlı dopamin salgılatır.",
-    "Mağazadaki eğimli ayna açısı kıyafeti üstünde olduğundan uzun gösterir.",
-    "Eve gelip bakınca astar yırtığı ve sıkışan fermuar ortaya çıkar.",
-    "Aynadaki ışığa değil kumaşın astarı ile dikiş kalitesine bak."
+    "60 derecede yıkanan kazak neden çeker?",
+    "Fabrikadaki makineler lifleri zorla esnetip kazak haline getiriyor.",
+    "Sıcak su gelince lifler fabrika gerginliğini salıp rahatlıyor.",
+    "Böylece kazak büzüşmüyor, sadece kendi doğal kısa boyuna dönüyor.",
+    "Kazağın suçu yok yüksek sıcaklık onu mikro bedene dönüştürdü."
   ],
-  "subject": "ikinci el",
-  "sendTo": "Mağazadan tek parçayla girip üç poşetle çıkan o arkadaşına",
-  "soru": "Sen de kabin ışığında her şeyi beğenip evde pişman olanlardan mısın?",
+  "subject": "çamaşır çekmesi",
+  "sendTo": "60 derece suda kazağını oyuncak bedenine çeviren arkadaşına",
+  "soru": "Sen hiç favori kazağını sıcak suda küçülttün mü?",
   "theme": "#b39cff",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -93,30 +93,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "İkinci el ceket kabinde harika durdu?",
+      "text": "60 derecede yıkanan kazak neden çeker?",
       "start": 0.35,
-      "dur": 2.5
+      "dur": 2.593
     },
     {
-      "text": "Kabin önündeki iltifat beynine anında hızlı dopamin salgılatır.",
-      "start": 2.85,
-      "dur": 4.256
+      "text": "Fabrikadaki makineler lifleri zorla esnetip kazak haline getiriyor.",
+      "start": 2.943,
+      "dur": 4.572
     },
     {
-      "text": "Mağazadaki eğimli ayna açısı kıyafeti üstünde olduğundan uzun gösterir.",
-      "start": 7.106,
-      "dur": 4.797
+      "text": "Sıcak su gelince lifler fabrika gerginliğini salıp rahatlıyor.",
+      "start": 7.515,
+      "dur": 4.231
     },
     {
-      "text": "Eve gelip bakınca astar yırtığı ve sıkışan fermuar ortaya çıkar.",
-      "start": 11.902,
-      "dur": 4.324
+      "text": "Böylece kazak büzüşmüyor, sadece kendi doğal kısa boyuna dönüyor.",
+      "start": 11.746,
+      "dur": 4.436
     },
     {
-      "text": "Aynadaki ışığa değil kumaşın astarı ile dikiş kalitesine bak.",
-      "start": 16.226,
-      "dur": 5.221
+      "text": "Kazağın suçu yok yüksek sıcaklık onu mikro bedene dönüştürdü.",
+      "start": 16.182,
+      "dur": 5.263
     }
   ],
-  "thumbOffset": 1850
+  "thumbOffset": 1897
 }

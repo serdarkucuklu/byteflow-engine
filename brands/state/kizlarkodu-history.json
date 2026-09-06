@@ -407,28 +407,28 @@
     "insightsAt": "2026-09-05T18:53:57.944Z"
   },
   {
-    "title": "İkinci El Alışverişte Kabin İllüzyonu",
-    "subject": "ikinci el",
-    "twist": "magaza-danismani",
-    "pillar": "ikinci-el",
-    "layout": "vertical-stack",
+    "title": "Sıcak Suda Küçülen Kazak Gizemi",
+    "subject": "çamaşır çekmesi",
+    "twist": "yikama-kazasi",
+    "pillar": "kargo-ve-iade",
+    "layout": "nodes-flow",
     "kinds": "diagram",
     "motion": "sketch",
     "theme": "#b39cff",
     "source": "gemini",
     "footage": [
-      "pexels:dish soap bubbles in sink close up",
-      "pexels:window fog condensation morning",
+      "pexels:slippers on wooden floor close up",
+      "pexels:folded towel on bench close up",
       "pexels:alarm clock on nightstand close up",
       "pexels:bathroom mirror steam close up"
     ],
     "voice": 5,
-    "voiceName": "Puck",
+    "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "sir": null,
-    "sirUygulandi": null,
-    "sirAtlandi": "dongu-null",
-    "date": "2026-09-04",
+    "sir": "Dokuma ve örme sırasında lifler makineler tarafından yüksek mekanik gerilim altında esnetilerek biçimlendirilir. Yüksek ",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-09-06",
     "durSec": 21.4
   }
 ]
