@@ -366,7 +366,7 @@
       "ig_reels_avg_watch_time": 4300,
       "ig_reels_video_view_total_time": 584893
     },
-    "insightsAt": "2026-09-06T18:56:52.452Z"
+    "insightsAt": "2026-09-07T20:24:19.422Z"
   },
   {
     "title": "Saç Yağlanmasının Gizli Döngüsü",
@@ -404,7 +404,7 @@
       "ig_reels_avg_watch_time": 4498,
       "ig_reels_video_view_total_time": 859253
     },
-    "insightsAt": "2026-09-06T18:56:53.188Z"
+    "insightsAt": "2026-09-07T20:24:20.256Z"
   },
   {
     "title": "Polyester Ve 60 Derece Yıkama Hilesi",
@@ -431,6 +431,16 @@
     "date": "2026-09-06",
     "durSec": 21.4,
     "mediaId": "18151304680525425",
-    "postedAt": "2026-09-06T18:01:49.877Z"
+    "postedAt": "2026-09-06T18:01:49.877Z",
+    "insights": {
+      "views": 154,
+      "reach": 133,
+      "saved": 0,
+      "shares": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 4806,
+      "ig_reels_video_view_total_time": 639292
+    },
+    "insightsAt": "2026-09-07T20:24:21.068Z"
   }
 ]
