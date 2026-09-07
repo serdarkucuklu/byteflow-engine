@@ -1032,5 +1032,30 @@
       "ig_reels_video_view_total_time": 88312
     },
     "insightsAt": "2026-09-07T19:01:38.290Z"
+  },
+  {
+    "title": "Güneş Kremi Ambalaj Gafı",
+    "subject": "güneş kremi ambalajı",
+    "twist": "ambalaj",
+    "pillar": "gunes",
+    "layout": "vertical-stack",
+    "kinds": "versus",
+    "motion": "ripple",
+    "theme": "#7fb3a5",
+    "source": "gemini",
+    "footage": [
+      "pexels:hand pumping bottle close up",
+      "pexels:flower petals close up",
+      "pexels:water droplets on glass",
+      "pexels:sunlight through curtain"
+    ],
+    "voice": null,
+    "voiceName": null,
+    "muzik": "byteflow-ambient.mp3",
+    "sir": "Güneş kremlerindeki organik filtreleri homojen çözeltide tutan uçucu taşıyıcı yağlar, ambalaj kesilip havayla temas etti",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-09-07",
+    "durSec": 21
   }
 ]

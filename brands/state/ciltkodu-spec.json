@@ -1,78 +1,67 @@
 {
-  "title": "Bariyer bozulunca her ürün yakar",
-  "topic_source": "seed",
-  "pillar": "bariyer",
-  "hook": "Ürün değiştirdikçe kötüleşiyorsa sorun üründe değil.",
-  "takeaway": "Bariyer onarılmadan hiçbir aktif işe yaramaz.",
-  "narration": [
-    "Ürün değiştirdikçe kötüleşiyorsa sorun üründe değil.",
-    "Üç adımda görelim.",
-    "Bariyer seramid, kolesterol ve yağ asidinden oluşur.",
-    "Aşırı temizlik ve asit bu harcı inceltir.",
-    "Su kaçar, sinir uçları açığa çıkar ve her ürün yakar.",
-    "Bariyer onarılmadan hiçbir aktif işe yaramaz."
-  ],
-  "footage_queries": [
-    "linen fabric texture",
-    "oil and water macro"
-  ],
-  "caption": "Her ürün yakıyorsa sorun ürünlerde değil, bariyerde.\n\n1. Yapı — cildin üst tabakası tuğla-harç gibidir: hücreler tuğla, seramid + kolesterol + yağ asidi karışımı harçtır.\n2. Hasar — sert temizleyici, sık peeling, yüksek yoğunluklu aktifler ve sıcak su bu harcı inceltir.\n3. Sonuç — su kaybı artar, sinir uçları uyaranlara açık kalır; \"her şey yakıyor\" hissi budur.\nYapılacak: 2-4 hafta aktifleri durdur, yumuşak temizleyici + seramitli nemlendirici + güneş koruması. Sonra tek tek geri ekle.\n\n📌 Kaydet, cildin küstüğünde buradan başla.\n🔁 \"Her ürün bana dokunuyor\" diyene gönder.\nYazan: Derin.\nTakip et: @cilt.kodu — cilt bakımı, pazarlama değil.",
-  "hashtags": [
-    "#ciltbariyeri",
-    "#seramid",
-    "#ciltbakımı",
-    "#hassascilt",
-    "#skincare",
-    "#ciltbakimrutini"
-  ],
+  "hook": "Pahalı güneş kreminin dibinde kalan ürün için savaş!",
+  "title": "Güneş Kremi Ambalaj Gafı",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "heading": "Bariyer nasıl bozulur",
-      "nodes": [
+      "layout": "vertical-stack",
+      "kind": "versus",
+      "left": "Pompalı Şişe",
+      "right": "Tüp Ambalaj",
+      "rows": [
         {
-          "id": "harc",
-          "label": "SERAMİD HARCI"
+          "label": "SON DAMLA",
+          "left": "Çok ürün kalır",
+          "right": "Neredeyse hepsi çıkar",
+          "winner": "right"
         },
         {
-          "id": "asiri",
-          "label": "AŞIRI TEMİZLİK"
+          "label": "HAVA TEMASI",
+          "left": "Azaltır, daha stabil",
+          "right": "Hava alabilir, oksitlenir",
+          "winner": "left"
         },
         {
-          "id": "kacak",
-          "label": "SU KAYBI"
+          "label": "HİJYEN",
+          "left": "Doğrudan temas yok",
+          "right": "Parmakla temas edebilir",
+          "winner": "left"
         },
         {
-          "id": "tahris",
-          "label": "TAHRİŞ"
-        }
-      ],
-      "steps": [
-        {
-          "from": "harc",
-          "to": "asiri",
-          "packet": "İNCEL",
-          "color": "warn",
-          "status": "harç incelir"
-        },
-        {
-          "from": "asiri",
-          "to": "kacak",
-          "packet": "SU",
-          "color": "warn",
-          "status": "su kaybı artar"
-        },
-        {
-          "from": "kacak",
-          "to": "tahris",
-          "packet": "YANMA",
-          "color": "accent",
-          "status": "her ürün yakmaya başlar"
+          "label": "FİYAT HİSSİ",
+          "left": "Daha pahalı algılanır",
+          "right": "Daha uygun algılanır",
+          "winner": "tie"
         }
       ]
     }
   ],
-  "theme": "#b08bbb",
+  "caption": "O şişenin dibi için verdiğin savaş gerçek, yalnız değilsin. Ama o tüpü makasla ortadan kestiğin an işler değişiyor. İşte o çok gizli mekanizma:\n\n1. TAŞIYICI YAĞLAR UÇUYOR — Güneş kremindeki koruyucu filtreleri bir arada tutan uçucu yağlar, tüp kesilip havayla temas ettiği an uçup gidiyor.\n2. KRİSTALLEŞME BAŞLIYOR — Yağ gidince filtreler pütür pütür kristalleşiyor. Yani kremin yapısı bozuluyor.\n3. KORUMA BOŞLUKLARI — Cildine sürdüğünde bazı yerler tamamen korumasız kalıyor, süzgeç gibi delik deşik bir koruma elde ediyorsun.\n4. MAKYAJ FACİASI — O kristaller yüzünden üstüne sürdüğün fondöten pütür pütür soyuluyor, pul pul dökülüyor.\n\nSon damla için savaşıp cildini tehlikeye atma!\n\nSen de son damla için şişeyi kesenlerden misin?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "hashtags": [
+    "#ciltbakimi",
+    "#güneşkremi",
+    "#güzellik",
+    "#ambalajgafı",
+    "#sunscreen",
+    "#ciltkoruma",
+    "#spf"
+  ],
+  "takeaway": "Boşa giden her damla, aslında cildinden çaldığın koruma demek.",
+  "footage_queries": [
+    "hand pumping bottle close up",
+    "hands rubbing lotion macro"
+  ],
+  "narration": [
+    "Pahalı güneş kreminin dibinde kalan ürün için savaş!",
+    "Tüpü ortadan kesip son damlayı kurtarmak harika fikir değil mi?",
+    "Oysa hava girdiği an koruyucu uçucu yağlar uçup gidiyor.",
+    "Filtreler pütür pütür kristalleşiyor ve koruma gücü tamamen çöp oluyor.",
+    "Üstüne sürdün mü makyajın soyulur, cildin de güneşten kavrulur.",
+    "Boşa giden her damla, aslında cildinden çaldığın koruma demek."
+  ],
+  "subject": "güneş kremi ambalajı",
+  "sendTo": "pahalı güneş kreminin dibi için ölene dek savaşan arkadaşına",
+  "soru": "Sen de son damla için şişeyi kesenlerden misin?",
+  "theme": "#7fb3a5",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -91,7 +80,7 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "ripple",
   "format": "kinetik",
   "footage": true,
   "thumbOffset": 1300
