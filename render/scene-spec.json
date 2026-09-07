@@ -1,86 +1,106 @@
 {
-  "hook": "Pahalı güneş kreminin dibinde kalan ürün için savaş!",
-  "title": "Güneş Kremi Ambalaj Gafı",
+  "hook": "Tıklım tıklım dolabın var ama giyecek hiçbir şeyin yok!",
+  "title": "Dolabın Dolu Ama Neden Giyecek Bir Şey Bulamıyorsun?",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "Pompalı Şişe",
-      "right": "Tüp Ambalaj",
+      "left": "SÜREKLİ GİYİLENLER",
+      "right": "ASKIDA BEKLEYENLER",
       "rows": [
         {
-          "label": "SON DAMLA",
-          "left": "Çok ürün kalır",
-          "right": "Neredeyse hepsi çıkar",
-          "winner": "right"
-        },
-        {
-          "label": "HAVA TEMASI",
-          "left": "Azaltır, daha stabil",
-          "right": "Hava alabilir, oksitlenir",
+          "label": "ALINMA MANTIĞI",
+          "left": "Temiz ve kurtarıcı",
+          "right": "İndirimde aşık olundu",
           "winner": "left"
         },
         {
-          "label": "HİJYEN",
-          "left": "Doğrudan temas yok",
-          "right": "Parmakla temas edebilir",
+          "label": "KOMBİNLENME ORANI",
+          "left": "Dolaptaki her şeyle",
+          "right": "Tek bir alt parçayla",
           "winner": "left"
         },
         {
-          "label": "FİYAT HİSSİ",
-          "left": "Daha pahalı algılanır",
-          "right": "Daha uygun algılanır",
-          "winner": "tie"
+          "label": "SABAHKİ KADERİ",
+          "left": "Üstüne giyilip çıkılır",
+          "right": "Denip yatağa atılır",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "O şişenin dibi için verdiğin savaş gerçek, yalnız değilsin. Ama o tüpü makasla ortadan kestiğin an işler değişiyor. İşte o çok gizli mekanizma:\n\n1. TAŞIYICI YAĞLAR UÇUYOR — Güneş kremindeki koruyucu filtreleri bir arada tutan uçucu yağlar, tüp kesilip havayla temas ettiği an uçup gidiyor.\n2. KRİSTALLEŞME BAŞLIYOR — Yağ gidince filtreler pütür pütür kristalleşiyor. Yani kremin yapısı bozuluyor.\n3. KORUMA BOŞLUKLARI — Cildine sürdüğünde bazı yerler tamamen korumasız kalıyor, süzgeç gibi delik deşik bir koruma elde ediyorsun.\n4. MAKYAJ FACİASI — O kristaller yüzünden üstüne sürdüğün fondöten pütür pütür soyuluyor, pul pul dökülüyor.\n\nSon damla için savaşıp cildini tehlikeye atma!\n\nSen de son damla için şişeyi kesenlerden misin?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Tıklım tıklım dolabın var ama her sabah 'giyecek hiçbir şeyim yok' diye krize mi giriyorsun? Ekranda dolabındaki temel parçalarla harika uyacak sanıp aldığın o nötr kıyafet, eve gelince neden hiçbir şeyinle uyuşmaz? Cevap tekstil boyalarındaki metamerizm tuzağı! Online çekimlerde kullanılan 5500 Kelvin soğuk beyaz flaş ışığı ile evindeki 2700 Kelvin sıcak sarı lambanın tayf farkı, kumaşın alt tonunu tamamen değiştirir. Ekranda tam uyan o parça, ev ışığında farklı bir alt ton yayarak elindeki kıyafetlerle kombin dışı kalır. Alışveriş yaparken kıyafeti sadece ekran ışığında değil, gün ışığı ve ev lambası altında da düşünmen gerekir.\n\n📌 Kaydet — bir dahaki alışverişte mağazada lazım olacak.\n\n🔁 Bunu her sabah yatağın üstünü kıyafet dağına çeviren arkadaşına gönder. Senin de dolabında etiketli duran kıyafet var mı? Yazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güneşkremi",
-    "#güzellik",
-    "#ambalajgafı",
-    "#sunscreen",
-    "#ciltkoruma",
-    "#spf"
+    "#merak",
+    "#günlükhayat",
+    "#nedenoluyor",
+    "#kombin",
+    "#gardırop",
+    "#fashion",
+    "#style"
   ],
-  "takeaway": "Boşa giden her damla, aslında cildinden çaldığın koruma demek.",
+  "takeaway": "Dolabındaki parçaların %80'i tekil star, sıfır kombin!",
   "footage_queries": [
-    "hand pumping bottle close up",
-    "hands rubbing lotion macro"
+    "wardrobe door open close up",
+    "crumpled bed sheets close up"
   ],
   "narration": [
-    "Pahalı güneş kreminin dibinde kalan ürün için savaş!",
-    "Tüpü ortadan kesip son damlayı kurtarmak harika fikir değil mi?",
-    "Oysa hava girdiği an koruyucu uçucu yağlar uçup gidiyor.",
-    "Filtreler pütür pütür kristalleşiyor ve koruma gücü tamamen çöp oluyor.",
-    "Üstüne sürdün mü makyajın soyulur, cildin de güneşten kavrulur.",
-    "Boşa giden her damla, aslında cildinden çaldığın koruma demek."
+    "Dolap dolu ama giyecek şey yok.",
+    "Ekranda beğendiğin o nötr renk stüdyo ışığında harika görünür.",
+    "Evdeki sarı ışık kıyafetin alt tonunu birden değiştirip uyumu bozar.",
+    "Mağaza flaşıyla ev lambasının tayf farkı yüzünden kombinler asla oturmaz.",
+    "Çözüm dolabı büyütmek değil, sadece kombinlenebilir temel parçalar almaktır."
   ],
-  "subject": "güneş kremi ambalajı",
-  "sendTo": "pahalı güneş kreminin dibi için ölene dek savaşan arkadaşına",
-  "soru": "Sen de son damla için şişeyi kesenlerden misin?",
-  "theme": "#7fb3a5",
+  "subject": "kombin çıkmazı",
+  "sendTo": "her sabah yatağın üstünü kıyafet dağına çeviren arkadaşına",
+  "soru": "Senin de dolabında etiketli duran kıyafet var mı?",
+  "theme": "#7de2d1",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "orbit",
   "format": "kinetik",
-  "footage": true
+  "footage": true,
+  "beats": [
+    {
+      "text": "Dolap dolu ama giyecek şey yok.",
+      "start": 0.35,
+      "dur": 2
+    },
+    {
+      "text": "Ekranda beğendiğin o nötr renk stüdyo ışığında harika görünür.",
+      "start": 2.35,
+      "dur": 4
+    },
+    {
+      "text": "Evdeki sarı ışık kıyafetin alt tonunu birden değiştirip uyumu bozar.",
+      "start": 6.35,
+      "dur": 4.387
+    },
+    {
+      "text": "Mağaza flaşıyla ev lambasının tayf farkı yüzünden kombinler asla oturmaz.",
+      "start": 10.737,
+      "dur": 4.71
+    },
+    {
+      "text": "Çözüm dolabı büyütmek değil, sadece kombinlenebilir temel parçalar almaktır.",
+      "start": 15.447,
+      "dur": 6.003
+    }
+  ]
 }

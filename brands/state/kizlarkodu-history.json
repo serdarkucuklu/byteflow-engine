@@ -442,5 +442,30 @@
       "ig_reels_video_view_total_time": 639292
     },
     "insightsAt": "2026-09-07T20:24:21.068Z"
+  },
+  {
+    "title": "Dolabın Dolu Ama Neden Giyecek Bir Şey Bulamıyorsun?",
+    "subject": "kombin çıkmazı",
+    "twist": "kombin-yalani",
+    "pillar": "online-alisveris",
+    "layout": "vertical-stack",
+    "kinds": "versus",
+    "motion": "orbit",
+    "theme": "#7de2d1",
+    "source": "gemini",
+    "footage": [
+      "pexels:window fog condensation morning",
+      "pexels:crumpled bed sheets close up",
+      "pexels:alarm clock on nightstand close up",
+      "pexels:bathroom mirror steam close up"
+    ],
+    "voice": 5,
+    "voiceName": "Kore",
+    "muzik": "byteflow-ambient.mp3",
+    "sir": "Online çekimlerde kullanılan 5500 Kelvin beyaz flaş ışığı ile ev ortamındaki 2700 Kelvin sıcak ışık arasındaki tayf fark",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-09-07",
+    "durSec": 21.4
   }
 ]

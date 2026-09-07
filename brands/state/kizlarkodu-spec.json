@@ -1,74 +1,60 @@
 {
-  "hook": "60 derece yıkayan kardeşin polyesteri neden bozuyor?",
-  "title": "Polyester Ve 60 Derece Yıkama Hilesi",
+  "hook": "Tıklım tıklım dolabın var ama giyecek hiçbir şeyin yok!",
+  "title": "Dolabın Dolu Ama Neden Giyecek Bir Şey Bulamıyorsun?",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "vertical-stack",
+      "kind": "versus",
+      "left": "SÜREKLİ GİYİLENLER",
+      "right": "ASKIDA BEKLEYENLER",
+      "rows": [
         {
-          "id": "N1",
-          "label": "YÜKSEK ISI"
+          "label": "ALINMA MANTIĞI",
+          "left": "Temiz ve kurtarıcı",
+          "right": "İndirimde aşık olundu",
+          "winner": "left"
         },
         {
-          "id": "N2",
-          "label": "LİF GEVŞEMESİ"
+          "label": "KOMBİNLENME ORANI",
+          "left": "Dolaptaki her şeyle",
+          "right": "Tek bir alt parçayla",
+          "winner": "left"
         },
         {
-          "id": "N3",
-          "label": "REKOR SARKMA"
-        }
-      ],
-      "steps": [
-        {
-          "from": "N1",
-          "to": "N2",
-          "packet": "SICAK",
-          "status": "60 derece su polyester lifini gevşetir",
-          "color": "warn"
-        },
-        {
-          "from": "N2",
-          "to": "N3",
-          "packet": "LİFLER",
-          "status": "sıkma tamburu uzayan kumaşı sündürür",
-          "color": "warn"
-        },
-        {
-          "from": "N3",
-          "to": "N1",
-          "packet": "SONUÇ",
-          "status": "soğuyunca yeni yamuk formu sabitlenir",
-          "color": "accent"
+          "label": "SABAHKİ KADERİ",
+          "left": "Üstüne giyilip çıkılır",
+          "right": "Denip yatağa atılır",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "60 derece yıkayan kardeşin polyesteri neden bozuyor?\n\n60 derecede yıkanan polyesterin başına gelenler, adım adım:\n\n1. Üretim Faturası — Hızlı moda markaları elektrikten tasarruf etmek için kumaşın ısı sabitleme (termofikse) süresini kısa keser.\n2. İç Gerginlik — Kumaş liflerinde patlamaya hazır bir stres ve iç gerilme hapsedilmiş olarak kalır.\n3. Ani Patlama — 60 derece sıcak su gelince o hapsolmuş gerilim serbest kalır, lifler büzülüp formunu kaybeder.\n\nMakineye etiketsiz giren her tişört, derece şansına teslim edilmiş bir piyango biletidir.\n\n📌 Kaydet — bir dahaki çamaşır gününde lazım olacak.\n🔁 Bunu her şeyi tek makinede 60 derecede yıkayan kardeşine gönder.\nSen de çamaşırları dereceye bakmadan tek makineye atanlardan mısın?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Tıklım tıklım dolabın var ama her sabah 'giyecek hiçbir şeyim yok' diye krize mi giriyorsun? Ekranda dolabındaki temel parçalarla harika uyacak sanıp aldığın o nötr kıyafet, eve gelince neden hiçbir şeyinle uyuşmaz? Cevap tekstil boyalarındaki metamerizm tuzağı! Online çekimlerde kullanılan 5500 Kelvin soğuk beyaz flaş ışığı ile evindeki 2700 Kelvin sıcak sarı lambanın tayf farkı, kumaşın alt tonunu tamamen değiştirir. Ekranda tam uyan o parça, ev ışığında farklı bir alt ton yayarak elindeki kıyafetlerle kombin dışı kalır. Alışveriş yaparken kıyafeti sadece ekran ışığında değil, gün ışığı ve ev lambası altında da düşünmen gerekir.\n\n📌 Kaydet — bir dahaki alışverişte mağazada lazım olacak.\n\n🔁 Bunu her sabah yatağın üstünü kıyafet dağına çeviren arkadaşına gönder. Senin de dolabında etiketli duran kıyafet var mı? Yazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#günlükhayat",
-    "#kıyafetbakımı",
-    "#çamaşır",
+    "#nedenoluyor",
     "#kombin",
-    "#polyester"
+    "#gardırop",
+    "#fashion",
+    "#style"
   ],
-  "takeaway": "Etikete bakmadan atılan 60 derece, kıyafete emeklilik biletidir.",
+  "takeaway": "Dolabındaki parçaların %80'i tekil star, sıfır kombin!",
   "footage_queries": [
-    "cozy home interior soft light",
-    "folded towel on bench close up"
+    "wardrobe door open close up",
+    "crumpled bed sheets close up"
   ],
   "narration": [
-    "Polyester altmış derecede neden salıyor?",
-    "Ucuz fabrikalar elektrikten kaçmak için ısı sabitlemesini kısa tutuyor.",
-    "Kumaşın içinde sıkışıp kalan o gerginlik sıcakta aniden boşanıyor.",
-    "Nefesini tutmuş lifler serbest kalınca tişört çekip kendini salıyor.",
-    "Görünürde zaman kazandıran o dev makine kıyafeti böyle çöp eder."
+    "Dolap dolu ama giyecek şey yok.",
+    "Ekranda beğendiğin o nötr renk stüdyo ışığında harika görünür.",
+    "Evdeki sarı ışık kıyafetin alt tonunu birden değiştirip uyumu bozar.",
+    "Mağaza flaşıyla ev lambasının tayf farkı yüzünden kombinler asla oturmaz.",
+    "Çözüm dolabı büyütmek değil, sadece kombinlenebilir temel parçalar almaktır."
   ],
-  "subject": "polyester",
-  "sendTo": "her şeyi tek makinede 60 derecede yıkayan kardeşine",
-  "soru": "Sen de çamaşırları dereceye bakmadan tek makineye atanlardan mısın?",
-  "theme": "#b39cff",
+  "subject": "kombin çıkmazı",
+  "sendTo": "her sabah yatağın üstünü kıyafet dağına çeviren arkadaşına",
+  "soru": "Senin de dolabında etiketli duran kıyafet var mı?",
+  "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -87,35 +73,35 @@
     "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "sketch",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Polyester altmış derecede neden salıyor?",
+      "text": "Dolap dolu ama giyecek şey yok.",
       "start": 0.35,
-      "dur": 2.589
+      "dur": 2
     },
     {
-      "text": "Ucuz fabrikalar elektrikten kaçmak için ısı sabitlemesini kısa tutuyor.",
-      "start": 2.939,
-      "dur": 4.595
+      "text": "Ekranda beğendiğin o nötr renk stüdyo ışığında harika görünür.",
+      "start": 2.35,
+      "dur": 4
     },
     {
-      "text": "Kumaşın içinde sıkışıp kalan o gerginlik sıcakta aniden boşanıyor.",
-      "start": 7.534,
-      "dur": 4.271
+      "text": "Evdeki sarı ışık kıyafetin alt tonunu birden değiştirip uyumu bozar.",
+      "start": 6.35,
+      "dur": 4.387
     },
     {
-      "text": "Nefesini tutmuş lifler serbest kalınca tişört çekip kendini salıyor.",
-      "start": 11.805,
-      "dur": 4.401
+      "text": "Mağaza flaşıyla ev lambasının tayf farkı yüzünden kombinler asla oturmaz.",
+      "start": 10.737,
+      "dur": 4.71
     },
     {
-      "text": "Görünürde zaman kazandıran o dev makine kıyafeti böyle çöp eder.",
-      "start": 16.206,
-      "dur": 5.242
+      "text": "Çözüm dolabı büyütmek değil, sadece kombinlenebilir temel parçalar almaktır.",
+      "start": 15.447,
+      "dur": 6.003
     }
   ],
-  "thumbOffset": 1894
+  "thumbOffset": 1600
 }
