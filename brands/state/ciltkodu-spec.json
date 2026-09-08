@@ -1,66 +1,59 @@
 {
-  "hook": "Pahalı güneş kreminin dibinde kalan ürün için savaş!",
-  "title": "Güneş Kremi Ambalaj Gafı",
+  "hook": "Gece 2'de sepet onaylayan arkadaşın serumu unuttu.",
+  "title": "Gece 2 Sepeti ve Hyalüronik Asit",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "Pompalı Şişe",
-      "right": "Tüp Ambalaj",
+      "left": "SEPET DOLDURAN SERUM",
+      "right": "TEMEL NEMLENDİRİCİ",
       "rows": [
         {
-          "label": "SON DAMLA",
-          "left": "Çok ürün kalır",
-          "right": "Neredeyse hepsi çıkar",
+          "label": "ALINMA NEDENİ",
+          "left": "Kargo bedava olsun diye",
+          "right": "Cildin nem ihtiyacı için",
           "winner": "right"
         },
         {
-          "label": "HAVA TEMASI",
-          "left": "Azaltır, daha stabil",
-          "right": "Hava alabilir, oksitlenir",
-          "winner": "left"
+          "label": "ÇALIŞMA ŞEKLİ",
+          "left": "Kuruyken cildi daha gerer",
+          "right": "Nemi doğrudan kilitler",
+          "winner": "right"
         },
         {
-          "label": "HİJYEN",
-          "left": "Doğrudan temas yok",
-          "right": "Parmakla temas edebilir",
-          "winner": "left"
-        },
-        {
-          "label": "FİYAT HİSSİ",
-          "left": "Daha pahalı algılanır",
-          "right": "Daha uygun algılanır",
-          "winner": "tie"
+          "label": "KADERİ",
+          "left": "İki güne rafa kalkar",
+          "right": "Dip kapağına kadar biter",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "O şişenin dibi için verdiğin savaş gerçek, yalnız değilsin. Ama o tüpü makasla ortadan kestiğin an işler değişiyor. İşte o çok gizli mekanizma:\n\n1. TAŞIYICI YAĞLAR UÇUYOR — Güneş kremindeki koruyucu filtreleri bir arada tutan uçucu yağlar, tüp kesilip havayla temas ettiği an uçup gidiyor.\n2. KRİSTALLEŞME BAŞLIYOR — Yağ gidince filtreler pütür pütür kristalleşiyor. Yani kremin yapısı bozuluyor.\n3. KORUMA BOŞLUKLARI — Cildine sürdüğünde bazı yerler tamamen korumasız kalıyor, süzgeç gibi delik deşik bir koruma elde ediyorsun.\n4. MAKYAJ FACİASI — O kristaller yüzünden üstüne sürdüğün fondöten pütür pütür soyuluyor, pul pul dökülüyor.\n\nSon damla için savaşıp cildini tehlikeye atma!\n\nSen de son damla için şişeyi kesenlerden misin?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Gece 2'de kargo bedava olsun diye sepete atılan o serumlar cildi kurtarmıyor, aksine kurutuyor! 🙄\n\nNeden mi? Kat kat nem serumu sürmek cildi neme boğmaz. Cildin üstündeki o koruyucu yağ duvarını bozar. Su çeken moleküller, etrafında onu kilitleyecek bir yağ bariyeri bulamazsa, cildin kendi suyunu da yanına alıp havaya uçar. Yani açık bir kapı gibi tüm nem buharlaşır!\n\nTüyo: Yarın sabah kat kat serum sürmeyi bırakıp, su ve yağ dengesi kurulmuş tek bir iyi nemlendirici krem kullanın.\n\nGece 2'de kargo bedava olsun diye eklediğin kaç ürün rafa kalktı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
-    "#güneşkremi",
     "#güzellik",
-    "#ambalajgafı",
-    "#sunscreen",
-    "#ciltkoruma",
-    "#spf"
+    "#hyalüronikasit",
+    "#ciltbariyeri",
+    "#nemlendirici",
+    "#skincare",
+    "#serum"
   ],
-  "takeaway": "Boşa giden her damla, aslında cildinden çaldığın koruma demek.",
+  "takeaway": "Sepet doldu diye alınan serum cildi değil kargoyu sevindirir.",
   "footage_queries": [
-    "hand pumping bottle close up",
-    "hands rubbing lotion macro"
+    "hand holding serum dropper",
+    "serum drop close up"
   ],
   "narration": [
-    "Pahalı güneş kreminin dibinde kalan ürün için savaş!",
-    "Tüpü ortadan kesip son damlayı kurtarmak harika fikir değil mi?",
-    "Oysa hava girdiği an koruyucu uçucu yağlar uçup gidiyor.",
-    "Filtreler pütür pütür kristalleşiyor ve koruma gücü tamamen çöp oluyor.",
-    "Üstüne sürdün mü makyajın soyulur, cildin de güneşten kavrulur.",
-    "Boşa giden her damla, aslında cildinden çaldığın koruma demek."
+    "Gece sepeti onaylayan arkadaşın serumu unuttu.",
+    "Üst üste sürülen nem serumları cildini daha çok kurutur.",
+    "Çünkü yağ kilidi yoksa su uçup cildi hemen kurutur.",
+    "Kat kat serum sürmek yerine dengeli tek krem yeter.",
+    "Sepeti doldurmak cildini nemlendirmez sadece kargo şirketini sevindirir."
   ],
-  "subject": "güneş kremi ambalajı",
-  "sendTo": "pahalı güneş kreminin dibi için ölene dek savaşan arkadaşına",
-  "soru": "Sen de son damla için şişeyi kesenlerden misin?",
+  "subject": "hyalüronik asit",
+  "sendTo": "gece 2'de sepeti onaylayıp sabah ne aldığını unutan arkadaşına",
+  "soru": "Gece 2'de kargo bedava olsun diye eklediğin kaç ürün rafa kalktı?",
   "theme": "#7fb3a5",
   "brand": {
     "handle": "@cilt.kodu",
@@ -83,5 +76,32 @@
   "motion": "ripple",
   "format": "kinetik",
   "footage": true,
-  "thumbOffset": 1300
+  "beats": [
+    {
+      "text": "Gece sepeti onaylayan arkadaşın serumu unuttu.",
+      "start": 0.35,
+      "dur": 3.268
+    },
+    {
+      "text": "Üst üste sürülen nem serumları cildini daha çok kurutur.",
+      "start": 3.618,
+      "dur": 3.979
+    },
+    {
+      "text": "Çünkü yağ kilidi yoksa su uçup cildi hemen kurutur.",
+      "start": 7.598,
+      "dur": 3.624
+    },
+    {
+      "text": "Kat kat serum sürmek yerine dengeli tek krem yeter.",
+      "start": 11.221,
+      "dur": 3.624
+    },
+    {
+      "text": "Sepeti doldurmak cildini nemlendirmez sadece kargo şirketini sevindirir.",
+      "start": 14.845,
+      "dur": 6.216
+    }
+  ],
+  "thumbOffset": 2234
 }

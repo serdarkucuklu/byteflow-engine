@@ -1,106 +1,106 @@
 {
-  "hook": "Tıklım tıklım dolabın var ama giyecek hiçbir şeyin yok!",
-  "title": "Dolabın Dolu Ama Neden Giyecek Bir Şey Bulamıyorsun?",
+  "hook": "Gece 2'de sepet onaylayan arkadaşın serumu unuttu.",
+  "title": "Gece 2 Sepeti ve Hyalüronik Asit",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "SÜREKLİ GİYİLENLER",
-      "right": "ASKIDA BEKLEYENLER",
+      "left": "SEPET DOLDURAN SERUM",
+      "right": "TEMEL NEMLENDİRİCİ",
       "rows": [
         {
-          "label": "ALINMA MANTIĞI",
-          "left": "Temiz ve kurtarıcı",
-          "right": "İndirimde aşık olundu",
-          "winner": "left"
+          "label": "ALINMA NEDENİ",
+          "left": "Kargo bedava olsun diye",
+          "right": "Cildin nem ihtiyacı için",
+          "winner": "right"
         },
         {
-          "label": "KOMBİNLENME ORANI",
-          "left": "Dolaptaki her şeyle",
-          "right": "Tek bir alt parçayla",
-          "winner": "left"
+          "label": "ÇALIŞMA ŞEKLİ",
+          "left": "Kuruyken cildi daha gerer",
+          "right": "Nemi doğrudan kilitler",
+          "winner": "right"
         },
         {
-          "label": "SABAHKİ KADERİ",
-          "left": "Üstüne giyilip çıkılır",
-          "right": "Denip yatağa atılır",
-          "winner": "left"
+          "label": "KADERİ",
+          "left": "İki güne rafa kalkar",
+          "right": "Dip kapağına kadar biter",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Tıklım tıklım dolabın var ama her sabah 'giyecek hiçbir şeyim yok' diye krize mi giriyorsun? Ekranda dolabındaki temel parçalarla harika uyacak sanıp aldığın o nötr kıyafet, eve gelince neden hiçbir şeyinle uyuşmaz? Cevap tekstil boyalarındaki metamerizm tuzağı! Online çekimlerde kullanılan 5500 Kelvin soğuk beyaz flaş ışığı ile evindeki 2700 Kelvin sıcak sarı lambanın tayf farkı, kumaşın alt tonunu tamamen değiştirir. Ekranda tam uyan o parça, ev ışığında farklı bir alt ton yayarak elindeki kıyafetlerle kombin dışı kalır. Alışveriş yaparken kıyafeti sadece ekran ışığında değil, gün ışığı ve ev lambası altında da düşünmen gerekir.\n\n📌 Kaydet — bir dahaki alışverişte mağazada lazım olacak.\n\n🔁 Bunu her sabah yatağın üstünü kıyafet dağına çeviren arkadaşına gönder. Senin de dolabında etiketli duran kıyafet var mı? Yazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Gece 2'de kargo bedava olsun diye sepete atılan o serumlar cildi kurtarmıyor, aksine kurutuyor! 🙄\n\nNeden mi? Kat kat nem serumu sürmek cildi neme boğmaz. Cildin üstündeki o koruyucu yağ duvarını bozar. Su çeken moleküller, etrafında onu kilitleyecek bir yağ bariyeri bulamazsa, cildin kendi suyunu da yanına alıp havaya uçar. Yani açık bir kapı gibi tüm nem buharlaşır!\n\nTüyo: Yarın sabah kat kat serum sürmeyi bırakıp, su ve yağ dengesi kurulmuş tek bir iyi nemlendirici krem kullanın.\n\nGece 2'de kargo bedava olsun diye eklediğin kaç ürün rafa kalktı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#merak",
-    "#günlükhayat",
-    "#nedenoluyor",
-    "#kombin",
-    "#gardırop",
-    "#fashion",
-    "#style"
+    "#ciltbakimi",
+    "#güzellik",
+    "#hyalüronikasit",
+    "#ciltbariyeri",
+    "#nemlendirici",
+    "#skincare",
+    "#serum"
   ],
-  "takeaway": "Dolabındaki parçaların %80'i tekil star, sıfır kombin!",
+  "takeaway": "Sepet doldu diye alınan serum cildi değil kargoyu sevindirir.",
   "footage_queries": [
-    "wardrobe door open close up",
-    "crumpled bed sheets close up"
+    "hand holding serum dropper",
+    "serum drop close up"
   ],
   "narration": [
-    "Dolap dolu ama giyecek şey yok.",
-    "Ekranda beğendiğin o nötr renk stüdyo ışığında harika görünür.",
-    "Evdeki sarı ışık kıyafetin alt tonunu birden değiştirip uyumu bozar.",
-    "Mağaza flaşıyla ev lambasının tayf farkı yüzünden kombinler asla oturmaz.",
-    "Çözüm dolabı büyütmek değil, sadece kombinlenebilir temel parçalar almaktır."
+    "Gece sepeti onaylayan arkadaşın serumu unuttu.",
+    "Üst üste sürülen nem serumları cildini daha çok kurutur.",
+    "Çünkü yağ kilidi yoksa su uçup cildi hemen kurutur.",
+    "Kat kat serum sürmek yerine dengeli tek krem yeter.",
+    "Sepeti doldurmak cildini nemlendirmez sadece kargo şirketini sevindirir."
   ],
-  "subject": "kombin çıkmazı",
-  "sendTo": "her sabah yatağın üstünü kıyafet dağına çeviren arkadaşına",
-  "soru": "Senin de dolabında etiketli duran kıyafet var mı?",
-  "theme": "#7de2d1",
+  "subject": "hyalüronik asit",
+  "sendTo": "gece 2'de sepeti onaylayıp sabah ne aldığını unutan arkadaşına",
+  "soru": "Gece 2'de kargo bedava olsun diye eklediğin kaç ürün rafa kalktı?",
+  "theme": "#7fb3a5",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "ripple",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Dolap dolu ama giyecek şey yok.",
+      "text": "Gece sepeti onaylayan arkadaşın serumu unuttu.",
       "start": 0.35,
-      "dur": 2
+      "dur": 3.268
     },
     {
-      "text": "Ekranda beğendiğin o nötr renk stüdyo ışığında harika görünür.",
-      "start": 2.35,
-      "dur": 4
+      "text": "Üst üste sürülen nem serumları cildini daha çok kurutur.",
+      "start": 3.618,
+      "dur": 3.979
     },
     {
-      "text": "Evdeki sarı ışık kıyafetin alt tonunu birden değiştirip uyumu bozar.",
-      "start": 6.35,
-      "dur": 4.387
+      "text": "Çünkü yağ kilidi yoksa su uçup cildi hemen kurutur.",
+      "start": 7.598,
+      "dur": 3.624
     },
     {
-      "text": "Mağaza flaşıyla ev lambasının tayf farkı yüzünden kombinler asla oturmaz.",
-      "start": 10.737,
-      "dur": 4.71
+      "text": "Kat kat serum sürmek yerine dengeli tek krem yeter.",
+      "start": 11.221,
+      "dur": 3.624
     },
     {
-      "text": "Çözüm dolabı büyütmek değil, sadece kombinlenebilir temel parçalar almaktır.",
-      "start": 15.447,
-      "dur": 6.003
+      "text": "Sepeti doldurmak cildini nemlendirmez sadece kargo şirketini sevindirir.",
+      "start": 14.845,
+      "dur": 6.216
     }
   ]
 }
