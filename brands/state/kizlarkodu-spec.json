@@ -1,59 +1,58 @@
 {
-  "hook": "Üstü çizili fiyata kanan o arkadaşın!",
-  "title": "Üstü Çizili Fiyat Hilesi",
+  "hook": "Dolap önünde ıslak saçla sabahı harcayan o arkadaşın...",
+  "title": "Islak Saçla Dışarı Çıkmak Hasta Eder mi?",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "ÇAPA FİYAT",
-      "right": "GERÇEK İNDİRİM",
+      "left": "ANNENİN KORKUSU",
+      "right": "BİLİMİN GERÇEĞİ",
       "rows": [
         {
-          "label": "AMAC",
-          "left": "Psikolojik çapa atmak",
-          "right": "Stok eritmektir",
+          "label": "HASTALIK SEBEBİ",
+          "left": "Sadece soğuk ve rüzgar",
+          "right": "Havadaki virüsler",
           "winner": "right"
         },
         {
-          "label": "ETİKET",
-          "left": "Yapay yükseltilmiş fiyat",
-          "right": "Son 30 günün en düşüğü",
+          "label": "VÜCUTTAKİ DEĞİŞİM",
+          "left": "Beynin üşümesi",
+          "right": "Burun damarı daralması",
           "winner": "right"
         },
         {
-          "label": "HİS",
-          "left": "Sahte fırsat kaçırma",
-          "right": "Gerçek bütçe kazancı",
+          "label": "KAYBOLAN ZAMAN",
+          "left": "Kurutma süresi 10 dk",
+          "right": "Kombin seçimi 20 dk",
           "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Üstü çizili fiyatların arkasındaki gizli yazılım hilesi:\n\nSistem seni nasıl kandırıyor adım adım:\n1. Tavan Fiyat Çapası — Yazılım, kıyafetin en pahalı beden veya renginin fiyatını alıp ürünün tepesine üstü çizili olarak yapıştırır.\n2. Olmayan İndirim — Senin sepete attığın S beden o tavan fiyata hiç satılmamış olsa bile, ekranda dev bir indirim yüzdesi belirir.\n3. Sepet Zaferi — Zihnin 'XXL fiyatından S beden kaptım' algısıyla sahte fırsata atlar, kasada kazandım sanırsın.\n\nE-ticaret siteleri varyant fiyatlarını tek etikette birleştirip göz boyar. Alışveriş yaparken etiket illüzyonuna değil, geçmiş fiyatına bakılır.\n\nEn pahalı XL bedenin faturasını S bedene kesen bu yazılıma da bir kahve ısmarlarsın artık.\n\n📌 Kaydet — bir dahaki indirim döneminde lazım olacak.\n🔁 Bunu İndirim etiketini görünce sepeti dolduran arkadaşına gönder.\nSen de üstü çizili fiyata hemen inanıyor musun?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Sabahları ıslak saçla dolabın önünde kombin aramaktan donduk.\n\nIslak saçla dolap önünde donmanın gerçek mekanizması:\n\n1. Isı Hırsızı — Saçındaki su buharlaşırken kafa derindeki kılcal damarlardan adeta sünger gibi yüksek ısı çeker.\n2. Titreme Refleksi — Suyun yüksek ısı iletkenliği yüzünden vücut sıcaklığın anında düşer ve aniden titremeye başlarsın. Yani o üşüme virüsten değil, suyun fiziğindendir.\n3. Zaman Tuzağı — Saçını kurutmadan kombin aramak, vücudunu bilerek soğutucuya sokup kararsızca beklemektir.\n\nÖnce saçını kurutup kombini öyle seçmek seni titremekten kurtarır.\n\nKombin yine olmayacak ama en azından buz tutmadan dolap önünde ağlarsın.\n\n📌 Kaydet — yarın sabah kombin seçerken lazım olacak.\n\n🔁 Bunu her sabah dolabın önünde 20 dakika kaybeden arkadaşına gönder.\n\nSen de sabahları dolap önünde saatlerce bekleyenlerden misin?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#günlükhayat",
     "#nedenoluyor",
-    "#alışveriş",
-    "#indirim",
-    "#üstüçizilifiyat",
-    "#çapafiyat"
+    "#saçbakımı",
+    "#sağlık",
+    "#ıslaksaç"
   ],
-  "takeaway": "Kırmızı etikete değil sepet geçmişine bakarak alışveriş yap.",
+  "takeaway": "Kombin seçerken donmak yerine saçını kurutup öyle düşün.",
   "footage_queries": [
     "wardrobe door open close up",
-    "cozy home interior soft light"
+    "hairbrush on table close up"
   ],
   "narration": [
-    "Üstü çizili fiyata kanan o arkadaşın!",
-    "Sistem en pahalı bedenin fiyatını tüm renklere ortak çapa yapar.",
-    "Senin seçtiğin o S beden o fiyata hiç çıkmamıştır bile.",
-    "Böylece sistem sahte indirimle gözünü boyayıp sepeti hemen doldurtur.",
-    "Alışveriş yaparken etikete değil sepet geçmişine bak."
+    "Dolap önünde ıslak saçla bekliyoruz.",
+    "Saçındaki ıslaklık buharlaşırken kafandaki bütün ısıyı anında emer.",
+    "Su ısıyı hızlı ilettiği için vücudun hemen titremeye başlar.",
+    "Hissedilen donma virüsten değil suyun ısıyı çekmesinden gelir.",
+    "Kombin seçerken donmak yerine önce saçını kurutup öyle düşün."
   ],
-  "subject": "üstü çizili fiyat",
-  "sendTo": "İndirim etiketini görünce sepeti dolduran arkadaşına",
-  "soru": "Sen de üstü çizili fiyata hemen inanıyor musun?",
+  "subject": "ıslak saç",
+  "sendTo": "her sabah dolabın önünde 20 dakika kaybeden arkadaşına",
+  "soru": "Sen de sabahları dolap önünde saatlerce bekleyenlerden misin?",
   "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -78,30 +77,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Üstü çizili fiyata kanan o arkadaşın!",
+      "text": "Dolap önünde ıslak saçla bekliyoruz.",
       "start": 0.35,
-      "dur": 2.661
+      "dur": 2.518
     },
     {
-      "text": "Sistem en pahalı bedenin fiyatını tüm renklere ortak çapa yapar.",
-      "start": 3.011,
-      "dur": 4.602
+      "text": "Saçındaki ıslaklık buharlaşırken kafandaki bütün ısıyı anında emer.",
+      "start": 2.868,
+      "dur": 4.686
     },
     {
-      "text": "Senin seçtiğin o S beden o fiyata hiç çıkmamıştır bile.",
-      "start": 7.613,
-      "dur": 3.955
+      "text": "Su ısıyı hızlı ilettiği için vücudun hemen titremeye başlar.",
+      "start": 7.554,
+      "dur": 4.197
     },
     {
-      "text": "Böylece sistem sahte indirimle gözünü boyayıp sepeti hemen doldurtur.",
-      "start": 11.568,
-      "dur": 4.962
+      "text": "Hissedilen donma virüsten değil suyun ısıyı çekmesinden gelir.",
+      "start": 11.751,
+      "dur": 4.336
     },
     {
-      "text": "Alışveriş yaparken etikete değil sepet geçmişine bak.",
-      "start": 16.531,
-      "dur": 4.911
+      "text": "Kombin seçerken donmak yerine önce saçını kurutup öyle düşün.",
+      "start": 16.087,
+      "dur": 5.366
     }
   ],
-  "thumbOffset": 1930
+  "thumbOffset": 1859
 }
