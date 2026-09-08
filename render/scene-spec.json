@@ -1,106 +1,106 @@
 {
-  "hook": "Gece 2'de sepet onaylayan arkadaşın serumu unuttu.",
-  "title": "Gece 2 Sepeti ve Hyalüronik Asit",
+  "hook": "Üstü çizili fiyata kanan o arkadaşın!",
+  "title": "Üstü Çizili Fiyat Hilesi",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "SEPET DOLDURAN SERUM",
-      "right": "TEMEL NEMLENDİRİCİ",
+      "left": "ÇAPA FİYAT",
+      "right": "GERÇEK İNDİRİM",
       "rows": [
         {
-          "label": "ALINMA NEDENİ",
-          "left": "Kargo bedava olsun diye",
-          "right": "Cildin nem ihtiyacı için",
+          "label": "AMAC",
+          "left": "Psikolojik çapa atmak",
+          "right": "Stok eritmektir",
           "winner": "right"
         },
         {
-          "label": "ÇALIŞMA ŞEKLİ",
-          "left": "Kuruyken cildi daha gerer",
-          "right": "Nemi doğrudan kilitler",
+          "label": "ETİKET",
+          "left": "Yapay yükseltilmiş fiyat",
+          "right": "Son 30 günün en düşüğü",
           "winner": "right"
         },
         {
-          "label": "KADERİ",
-          "left": "İki güne rafa kalkar",
-          "right": "Dip kapağına kadar biter",
+          "label": "HİS",
+          "left": "Sahte fırsat kaçırma",
+          "right": "Gerçek bütçe kazancı",
           "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Gece 2'de kargo bedava olsun diye sepete atılan o serumlar cildi kurtarmıyor, aksine kurutuyor! 🙄\n\nNeden mi? Kat kat nem serumu sürmek cildi neme boğmaz. Cildin üstündeki o koruyucu yağ duvarını bozar. Su çeken moleküller, etrafında onu kilitleyecek bir yağ bariyeri bulamazsa, cildin kendi suyunu da yanına alıp havaya uçar. Yani açık bir kapı gibi tüm nem buharlaşır!\n\nTüyo: Yarın sabah kat kat serum sürmeyi bırakıp, su ve yağ dengesi kurulmuş tek bir iyi nemlendirici krem kullanın.\n\nGece 2'de kargo bedava olsun diye eklediğin kaç ürün rafa kalktı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Üstü çizili fiyatların arkasındaki gizli yazılım hilesi:\n\nSistem seni nasıl kandırıyor adım adım:\n1. Tavan Fiyat Çapası — Yazılım, kıyafetin en pahalı beden veya renginin fiyatını alıp ürünün tepesine üstü çizili olarak yapıştırır.\n2. Olmayan İndirim — Senin sepete attığın S beden o tavan fiyata hiç satılmamış olsa bile, ekranda dev bir indirim yüzdesi belirir.\n3. Sepet Zaferi — Zihnin 'XXL fiyatından S beden kaptım' algısıyla sahte fırsata atlar, kasada kazandım sanırsın.\n\nE-ticaret siteleri varyant fiyatlarını tek etikette birleştirip göz boyar. Alışveriş yaparken etiket illüzyonuna değil, geçmiş fiyatına bakılır.\n\nEn pahalı XL bedenin faturasını S bedene kesen bu yazılıma da bir kahve ısmarlarsın artık.\n\n📌 Kaydet — bir dahaki indirim döneminde lazım olacak.\n🔁 Bunu İndirim etiketini görünce sepeti dolduran arkadaşına gönder.\nSen de üstü çizili fiyata hemen inanıyor musun?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#hyalüronikasit",
-    "#ciltbariyeri",
-    "#nemlendirici",
-    "#skincare",
-    "#serum"
+    "#merak",
+    "#günlükhayat",
+    "#nedenoluyor",
+    "#alışveriş",
+    "#indirim",
+    "#üstüçizilifiyat",
+    "#çapafiyat"
   ],
-  "takeaway": "Sepet doldu diye alınan serum cildi değil kargoyu sevindirir.",
+  "takeaway": "Kırmızı etikete değil sepet geçmişine bakarak alışveriş yap.",
   "footage_queries": [
-    "hand holding serum dropper",
-    "serum drop close up"
+    "wardrobe door open close up",
+    "cozy home interior soft light"
   ],
   "narration": [
-    "Gece sepeti onaylayan arkadaşın serumu unuttu.",
-    "Üst üste sürülen nem serumları cildini daha çok kurutur.",
-    "Çünkü yağ kilidi yoksa su uçup cildi hemen kurutur.",
-    "Kat kat serum sürmek yerine dengeli tek krem yeter.",
-    "Sepeti doldurmak cildini nemlendirmez sadece kargo şirketini sevindirir."
+    "Üstü çizili fiyata kanan o arkadaşın!",
+    "Sistem en pahalı bedenin fiyatını tüm renklere ortak çapa yapar.",
+    "Senin seçtiğin o S beden o fiyata hiç çıkmamıştır bile.",
+    "Böylece sistem sahte indirimle gözünü boyayıp sepeti hemen doldurtur.",
+    "Alışveriş yaparken etikete değil sepet geçmişine bak."
   ],
-  "subject": "hyalüronik asit",
-  "sendTo": "gece 2'de sepeti onaylayıp sabah ne aldığını unutan arkadaşına",
-  "soru": "Gece 2'de kargo bedava olsun diye eklediğin kaç ürün rafa kalktı?",
-  "theme": "#7fb3a5",
+  "subject": "üstü çizili fiyat",
+  "sendTo": "İndirim etiketini görünce sepeti dolduran arkadaşına",
+  "soru": "Sen de üstü çizili fiyata hemen inanıyor musun?",
+  "theme": "#7de2d1",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Gece sepeti onaylayan arkadaşın serumu unuttu.",
+      "text": "Üstü çizili fiyata kanan o arkadaşın!",
       "start": 0.35,
-      "dur": 3.268
+      "dur": 2.661
     },
     {
-      "text": "Üst üste sürülen nem serumları cildini daha çok kurutur.",
-      "start": 3.618,
-      "dur": 3.979
+      "text": "Sistem en pahalı bedenin fiyatını tüm renklere ortak çapa yapar.",
+      "start": 3.011,
+      "dur": 4.602
     },
     {
-      "text": "Çünkü yağ kilidi yoksa su uçup cildi hemen kurutur.",
-      "start": 7.598,
-      "dur": 3.624
+      "text": "Senin seçtiğin o S beden o fiyata hiç çıkmamıştır bile.",
+      "start": 7.613,
+      "dur": 3.955
     },
     {
-      "text": "Kat kat serum sürmek yerine dengeli tek krem yeter.",
-      "start": 11.221,
-      "dur": 3.624
+      "text": "Böylece sistem sahte indirimle gözünü boyayıp sepeti hemen doldurtur.",
+      "start": 11.568,
+      "dur": 4.962
     },
     {
-      "text": "Sepeti doldurmak cildini nemlendirmez sadece kargo şirketini sevindirir.",
-      "start": 14.845,
-      "dur": 6.216
+      "text": "Alışveriş yaparken etikete değil sepet geçmişine bak.",
+      "start": 16.531,
+      "dur": 4.911
     }
   ]
 }

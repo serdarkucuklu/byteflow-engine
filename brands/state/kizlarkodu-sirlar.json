@@ -62,5 +62,13 @@
     "neden": "Kıyafetlerin eve gelince dolaptaki parçalarla uymama sebebini sadece ekran çözünürlüğüne değil, tekstil boyalarındaki metamerizm ve Kelvin ışık tayfı farkı mekanizmasına bağladığı için derin bir detaydır.",
     "kullanildi": true,
     "at": "2026-09-07T20:25:41.750Z"
+  },
+  {
+    "gun": "2026-09-08",
+    "konu": "üstü çizili fiyat",
+    "sir": "E-ticaret yazılımları, bir ürünün farklı renk veya beden varyantları içindeki en yüksek tavan fiyatı tüm ürün kartına ortak 'referans fiyat' olarak atayabilir. Bu sayede senin seçtiğin beden veya renk o fiyata hiç çıkmamış olsa bile, sistem en pahalı varyantın üstü çizili değerini göstererek senin baktığın seçenekte yapay bir indirim yüzdesi illüzyonu yaratır.",
+    "neden": "Tüketiciler etiketteki üstü çizili fiyatın doğrudan seçtikleri spesifik beden veya rengin geçmiş fiyatı olduğunu varsayar; arka plandaki varyant seviyesinde veri birleştirme (SKU aggregation) mantığını bilmezler.",
+    "kullanildi": true,
+    "at": "2026-09-08T19:49:49.035Z"
   }
 ]

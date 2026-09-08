@@ -444,28 +444,28 @@
     "insightsAt": "2026-09-08T19:48:18.369Z"
   },
   {
-    "title": "Dolabın Dolu Ama Neden Giyecek Bir Şey Bulamıyorsun?",
-    "subject": "kombin çıkmazı",
-    "twist": "kombin-yalani",
-    "pillar": "online-alisveris",
+    "title": "Üstü Çizili Fiyat Hilesi",
+    "subject": "üstü çizili fiyat",
+    "twist": "herkes-yasiyor",
+    "pillar": "indirim-mekanigi",
     "layout": "vertical-stack",
     "kinds": "versus",
     "motion": "orbit",
     "theme": "#7de2d1",
     "source": "gemini",
     "footage": [
-      "pexels:window fog condensation morning",
-      "pexels:crumpled bed sheets close up",
+      "pexels:night lamp warm glow bedroom",
+      "pexels:slippers on wooden floor close up",
       "pexels:alarm clock on nightstand close up",
       "pexels:bathroom mirror steam close up"
     ],
     "voice": 5,
     "voiceName": "Kore",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Online çekimlerde kullanılan 5500 Kelvin beyaz flaş ışığı ile ev ortamındaki 2700 Kelvin sıcak ışık arasındaki tayf fark",
+    "sir": "E-ticaret yazılımları, bir ürünün farklı renk veya beden varyantları içindeki en yüksek tavan fiyatı tüm ürün kartına or",
     "sirUygulandi": "kismi",
     "sirAtlandi": null,
-    "date": "2026-09-07",
+    "date": "2026-09-08",
     "durSec": 21.4
   }
 ]

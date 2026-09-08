@@ -1,59 +1,59 @@
 {
-  "hook": "Tıklım tıklım dolabın var ama giyecek hiçbir şeyin yok!",
-  "title": "Dolabın Dolu Ama Neden Giyecek Bir Şey Bulamıyorsun?",
+  "hook": "Üstü çizili fiyata kanan o arkadaşın!",
+  "title": "Üstü Çizili Fiyat Hilesi",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "SÜREKLİ GİYİLENLER",
-      "right": "ASKIDA BEKLEYENLER",
+      "left": "ÇAPA FİYAT",
+      "right": "GERÇEK İNDİRİM",
       "rows": [
         {
-          "label": "ALINMA MANTIĞI",
-          "left": "Temiz ve kurtarıcı",
-          "right": "İndirimde aşık olundu",
-          "winner": "left"
+          "label": "AMAC",
+          "left": "Psikolojik çapa atmak",
+          "right": "Stok eritmektir",
+          "winner": "right"
         },
         {
-          "label": "KOMBİNLENME ORANI",
-          "left": "Dolaptaki her şeyle",
-          "right": "Tek bir alt parçayla",
-          "winner": "left"
+          "label": "ETİKET",
+          "left": "Yapay yükseltilmiş fiyat",
+          "right": "Son 30 günün en düşüğü",
+          "winner": "right"
         },
         {
-          "label": "SABAHKİ KADERİ",
-          "left": "Üstüne giyilip çıkılır",
-          "right": "Denip yatağa atılır",
-          "winner": "left"
+          "label": "HİS",
+          "left": "Sahte fırsat kaçırma",
+          "right": "Gerçek bütçe kazancı",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Tıklım tıklım dolabın var ama her sabah 'giyecek hiçbir şeyim yok' diye krize mi giriyorsun? Ekranda dolabındaki temel parçalarla harika uyacak sanıp aldığın o nötr kıyafet, eve gelince neden hiçbir şeyinle uyuşmaz? Cevap tekstil boyalarındaki metamerizm tuzağı! Online çekimlerde kullanılan 5500 Kelvin soğuk beyaz flaş ışığı ile evindeki 2700 Kelvin sıcak sarı lambanın tayf farkı, kumaşın alt tonunu tamamen değiştirir. Ekranda tam uyan o parça, ev ışığında farklı bir alt ton yayarak elindeki kıyafetlerle kombin dışı kalır. Alışveriş yaparken kıyafeti sadece ekran ışığında değil, gün ışığı ve ev lambası altında da düşünmen gerekir.\n\n📌 Kaydet — bir dahaki alışverişte mağazada lazım olacak.\n\n🔁 Bunu her sabah yatağın üstünü kıyafet dağına çeviren arkadaşına gönder. Senin de dolabında etiketli duran kıyafet var mı? Yazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Üstü çizili fiyatların arkasındaki gizli yazılım hilesi:\n\nSistem seni nasıl kandırıyor adım adım:\n1. Tavan Fiyat Çapası — Yazılım, kıyafetin en pahalı beden veya renginin fiyatını alıp ürünün tepesine üstü çizili olarak yapıştırır.\n2. Olmayan İndirim — Senin sepete attığın S beden o tavan fiyata hiç satılmamış olsa bile, ekranda dev bir indirim yüzdesi belirir.\n3. Sepet Zaferi — Zihnin 'XXL fiyatından S beden kaptım' algısıyla sahte fırsata atlar, kasada kazandım sanırsın.\n\nE-ticaret siteleri varyant fiyatlarını tek etikette birleştirip göz boyar. Alışveriş yaparken etiket illüzyonuna değil, geçmiş fiyatına bakılır.\n\nEn pahalı XL bedenin faturasını S bedene kesen bu yazılıma da bir kahve ısmarlarsın artık.\n\n📌 Kaydet — bir dahaki indirim döneminde lazım olacak.\n🔁 Bunu İndirim etiketini görünce sepeti dolduran arkadaşına gönder.\nSen de üstü çizili fiyata hemen inanıyor musun?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#günlükhayat",
     "#nedenoluyor",
-    "#kombin",
-    "#gardırop",
-    "#fashion",
-    "#style"
+    "#alışveriş",
+    "#indirim",
+    "#üstüçizilifiyat",
+    "#çapafiyat"
   ],
-  "takeaway": "Dolabındaki parçaların %80'i tekil star, sıfır kombin!",
+  "takeaway": "Kırmızı etikete değil sepet geçmişine bakarak alışveriş yap.",
   "footage_queries": [
     "wardrobe door open close up",
-    "crumpled bed sheets close up"
+    "cozy home interior soft light"
   ],
   "narration": [
-    "Dolap dolu ama giyecek şey yok.",
-    "Ekranda beğendiğin o nötr renk stüdyo ışığında harika görünür.",
-    "Evdeki sarı ışık kıyafetin alt tonunu birden değiştirip uyumu bozar.",
-    "Mağaza flaşıyla ev lambasının tayf farkı yüzünden kombinler asla oturmaz.",
-    "Çözüm dolabı büyütmek değil, sadece kombinlenebilir temel parçalar almaktır."
+    "Üstü çizili fiyata kanan o arkadaşın!",
+    "Sistem en pahalı bedenin fiyatını tüm renklere ortak çapa yapar.",
+    "Senin seçtiğin o S beden o fiyata hiç çıkmamıştır bile.",
+    "Böylece sistem sahte indirimle gözünü boyayıp sepeti hemen doldurtur.",
+    "Alışveriş yaparken etikete değil sepet geçmişine bak."
   ],
-  "subject": "kombin çıkmazı",
-  "sendTo": "her sabah yatağın üstünü kıyafet dağına çeviren arkadaşına",
-  "soru": "Senin de dolabında etiketli duran kıyafet var mı?",
+  "subject": "üstü çizili fiyat",
+  "sendTo": "İndirim etiketini görünce sepeti dolduran arkadaşına",
+  "soru": "Sen de üstü çizili fiyata hemen inanıyor musun?",
   "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -78,30 +78,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Dolap dolu ama giyecek şey yok.",
+      "text": "Üstü çizili fiyata kanan o arkadaşın!",
       "start": 0.35,
-      "dur": 2
+      "dur": 2.661
     },
     {
-      "text": "Ekranda beğendiğin o nötr renk stüdyo ışığında harika görünür.",
-      "start": 2.35,
-      "dur": 4
+      "text": "Sistem en pahalı bedenin fiyatını tüm renklere ortak çapa yapar.",
+      "start": 3.011,
+      "dur": 4.602
     },
     {
-      "text": "Evdeki sarı ışık kıyafetin alt tonunu birden değiştirip uyumu bozar.",
-      "start": 6.35,
-      "dur": 4.387
+      "text": "Senin seçtiğin o S beden o fiyata hiç çıkmamıştır bile.",
+      "start": 7.613,
+      "dur": 3.955
     },
     {
-      "text": "Mağaza flaşıyla ev lambasının tayf farkı yüzünden kombinler asla oturmaz.",
-      "start": 10.737,
-      "dur": 4.71
+      "text": "Böylece sistem sahte indirimle gözünü boyayıp sepeti hemen doldurtur.",
+      "start": 11.568,
+      "dur": 4.962
     },
     {
-      "text": "Çözüm dolabı büyütmek değil, sadece kombinlenebilir temel parçalar almaktır.",
-      "start": 15.447,
-      "dur": 6.003
+      "text": "Alışveriş yaparken etikete değil sepet geçmişine bak.",
+      "start": 16.531,
+      "dur": 4.911
     }
   ],
-  "thumbOffset": 1600
+  "thumbOffset": 1930
 }
