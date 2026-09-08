@@ -1,59 +1,60 @@
 {
-  "hook": "Dolap önünde ıslak saçla sabahı harcayan o arkadaşın...",
-  "title": "Islak Saçla Dışarı Çıkmak Hasta Eder mi?",
+  "hook": "Kavanoz kremi banyoda çürüten arkadaşın.",
+  "title": "Kavanoz Krem vs Pompalı Krem",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "ANNENİN KORKUSU",
-      "right": "BİLİMİN GERÇEĞİ",
+      "left": "KAVANOZ KREM",
+      "right": "POMPALI KREM",
       "rows": [
         {
-          "label": "HASTALIK SEBEBİ",
-          "left": "Sadece soğuk ve rüzgar",
-          "right": "Havadaki virüsler",
+          "label": "HAVA TEMASI",
+          "left": "Sürekli oksitlenme",
+          "right": "Sıfır hava teması",
           "winner": "right"
         },
         {
-          "label": "VÜCUTTAKİ DEĞİŞİM",
-          "left": "Beynin üşümesi",
-          "right": "Burun damarı daralması",
+          "label": "HİJYEN",
+          "left": "Bakteri şenliği",
+          "right": "Tamamen steril",
           "winner": "right"
         },
         {
-          "label": "KAYBOLAN ZAMAN",
-          "left": "Kurutma süresi 10 dk",
-          "right": "Kombin seçimi 20 dk",
+          "label": "AKTİF KORUMA",
+          "left": "Hızlı bozulan formül",
+          "right": "Son damlaya kadar aktif",
           "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Sabahları ıslak saçla dolabın önünde kombin aramaktan donduk.\n\nIslak saçla dolap önünde donmanın gerçek mekanizması:\n\n1. Isı Hırsızı — Saçındaki su buharlaşırken kafa derindeki kılcal damarlardan adeta sünger gibi yüksek ısı çeker.\n2. Titreme Refleksi — Suyun yüksek ısı iletkenliği yüzünden vücut sıcaklığın anında düşer ve aniden titremeye başlarsın. Yani o üşüme virüsten değil, suyun fiziğindendir.\n3. Zaman Tuzağı — Saçını kurutmadan kombin aramak, vücudunu bilerek soğutucuya sokup kararsızca beklemektir.\n\nÖnce saçını kurutup kombini öyle seçmek seni titremekten kurtarır.\n\nKombin yine olmayacak ama en azından buz tutmadan dolap önünde ağlarsın.\n\n📌 Kaydet — yarın sabah kombin seçerken lazım olacak.\n\n🔁 Bunu her sabah dolabın önünde 20 dakika kaybeden arkadaşına gönder.\n\nSen de sabahları dolap önünde saatlerce bekleyenlerden misin?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kavanoz kremleri banyoda çürütüp sonra 'bu krem bana yaramadı, yüzümü yaktı' diyoruz. Ama işin aslı çok başka!\n\nKavanoz krem vs pompalı krem savaşı, adım adım cildine ne yapıyor:\n\n1. Hava Teması — Kapağı her açtığında içeri giren oksijen, o çok güvendiğin pahalı aktifleri uçuruyor.\n2. Bakteri İstilası — Parmağından kreme geçen bakteriler boş durmuyor. Salgıladıkları enzimlerle kremin o güzelim faydalı yağlarını parçalayıp serbest asitlere dönüştürüyor. Sen bunu sürünce de cilt bariyerin delik deşik oluyor, asitler doğrudan sinir uçlarına dokunup yüzünde aniden o meşhur batma ve yanma hissini yaratıyor. Sen de 'parfüm alerjisi yaptı' sanıyorsun, oysa krem bildiğin asit bombasına dönüştü!\n3. Akıllı Çözüm — Pompalı veya tüp ambalajlar ise formülü hem havadan hem de bu davetsiz misafirlerden koruyarak son damlaya kadar taze tutuyor.\n\nCilt bakımında sadece içeriğe değil, o içeriği koruyan ambalaja da para ödüyoruz. Kavanozu parmaklamaya devam edersek yakında kendi küçük bakteri cumhuriyetimizi kuracağız.\n\n📌 Kaydet — bir sonraki krem alışverişinde aklında olsun.\n\n🔁 Bunu banyoda ağzı açık kavanoz krem biriktiren arkadaşına gönder.\n\nSen hangisini tercih ediyorsun: Kavanoz mu, pompalı mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#merak",
-    "#günlükhayat",
-    "#nedenoluyor",
-    "#saçbakımı",
-    "#sağlık",
-    "#ıslaksaç"
+    "#ciltbakimi",
+    "#güzellik",
+    "#nemlendirici",
+    "#ciltbariyeri",
+    "#skincare",
+    "#kozmetik",
+    "#bakımönerileri"
   ],
-  "takeaway": "Kombin seçerken donmak yerine saçını kurutup öyle düşün.",
+  "takeaway": "O pahalı krem artık sadece bakteri yuvası.",
   "footage_queries": [
-    "wardrobe door open close up",
-    "hairbrush on table close up"
+    "hand opening jar macro",
+    "hand pumping bottle close up"
   ],
   "narration": [
-    "Dolap önünde ıslak saçla bekliyoruz.",
-    "Saçındaki ıslaklık buharlaşırken kafandaki bütün ısıyı anında emer.",
-    "Su ısıyı hızlı ilettiği için vücudun hemen titremeye başlar.",
-    "Hissedilen donma virüsten değil suyun ısıyı çekmesinden gelir.",
-    "Kombin seçerken donmak yerine önce saçını kurutup öyle düşün."
+    "O kavanoz kremini artık parmaklama.",
+    "Açık kapağa doluşan hava, kremdeki tüm o aktifleri söndürüyor.",
+    "Parmak bakterileri kremin yağını aside çevirip yüzünü aniden yakıyor.",
+    "Pompalı şişe ise formülü canavar gibi koruyup taze tutuyor.",
+    "O pahalı krem artık sadece bakteri yuvası."
   ],
-  "subject": "ıslak saç",
-  "sendTo": "her sabah dolabın önünde 20 dakika kaybeden arkadaşına",
-  "soru": "Sen de sabahları dolap önünde saatlerce bekleyenlerden misin?",
-  "theme": "#7de2d1",
+  "subject": "kavanoz krem",
+  "sendTo": "banyoda ağzı açık kavanoz krem biriktiren arkadaşına",
+  "soru": "Sen hangisini tercih ediyorsun: Kavanoz mu, pompalı mı?",
+  "theme": "#7fb3a5",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -77,29 +78,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Dolap önünde ıslak saçla bekliyoruz.",
+      "text": "O kavanoz kremini artık parmaklama.",
       "start": 0.35,
-      "dur": 2.518
+      "dur": 2.377
     },
     {
-      "text": "Saçındaki ıslaklık buharlaşırken kafandaki bütün ısıyı anında emer.",
-      "start": 2.868,
+      "text": "Açık kapağa doluşan hava, kremdeki tüm o aktifleri söndürüyor.",
+      "start": 2.727,
+      "dur": 4.21
+    },
+    {
+      "text": "Parmak bakterileri kremin yağını aside çevirip yüzünü aniden yakıyor.",
+      "start": 6.937,
       "dur": 4.686
     },
     {
-      "text": "Su ısıyı hızlı ilettiği için vücudun hemen titremeye başlar.",
-      "start": 7.554,
-      "dur": 4.197
+      "text": "Pompalı şişe ise formülü canavar gibi koruyup taze tutuyor.",
+      "start": 11.622,
+      "dur": 4.006
     },
     {
-      "text": "Hissedilen donma virüsten değil suyun ısıyı çekmesinden gelir.",
-      "start": 11.751,
-      "dur": 4.336
-    },
-    {
-      "text": "Kombin seçerken donmak yerine önce saçını kurutup öyle düşün.",
-      "start": 16.087,
-      "dur": 5.366
+      "text": "O pahalı krem artık sadece bakteri yuvası.",
+      "start": 15.629,
+      "dur": 3.952
     }
   ]
 }

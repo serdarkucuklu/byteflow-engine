@@ -1,59 +1,59 @@
 {
-  "hook": "Gece 2'de sepet onaylayan arkadaşın serumu unuttu.",
-  "title": "Gece 2 Sepeti ve Hyalüronik Asit",
+  "hook": "Kavanoz kremi banyoda çürüten arkadaşın.",
+  "title": "Kavanoz Krem vs Pompalı Krem",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "SEPET DOLDURAN SERUM",
-      "right": "TEMEL NEMLENDİRİCİ",
+      "left": "KAVANOZ KREM",
+      "right": "POMPALI KREM",
       "rows": [
         {
-          "label": "ALINMA NEDENİ",
-          "left": "Kargo bedava olsun diye",
-          "right": "Cildin nem ihtiyacı için",
+          "label": "HAVA TEMASI",
+          "left": "Sürekli oksitlenme",
+          "right": "Sıfır hava teması",
           "winner": "right"
         },
         {
-          "label": "ÇALIŞMA ŞEKLİ",
-          "left": "Kuruyken cildi daha gerer",
-          "right": "Nemi doğrudan kilitler",
+          "label": "HİJYEN",
+          "left": "Bakteri şenliği",
+          "right": "Tamamen steril",
           "winner": "right"
         },
         {
-          "label": "KADERİ",
-          "left": "İki güne rafa kalkar",
-          "right": "Dip kapağına kadar biter",
+          "label": "AKTİF KORUMA",
+          "left": "Hızlı bozulan formül",
+          "right": "Son damlaya kadar aktif",
           "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Gece 2'de kargo bedava olsun diye sepete atılan o serumlar cildi kurtarmıyor, aksine kurutuyor! 🙄\n\nNeden mi? Kat kat nem serumu sürmek cildi neme boğmaz. Cildin üstündeki o koruyucu yağ duvarını bozar. Su çeken moleküller, etrafında onu kilitleyecek bir yağ bariyeri bulamazsa, cildin kendi suyunu da yanına alıp havaya uçar. Yani açık bir kapı gibi tüm nem buharlaşır!\n\nTüyo: Yarın sabah kat kat serum sürmeyi bırakıp, su ve yağ dengesi kurulmuş tek bir iyi nemlendirici krem kullanın.\n\nGece 2'de kargo bedava olsun diye eklediğin kaç ürün rafa kalktı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kavanoz kremleri banyoda çürütüp sonra 'bu krem bana yaramadı, yüzümü yaktı' diyoruz. Ama işin aslı çok başka!\n\nKavanoz krem vs pompalı krem savaşı, adım adım cildine ne yapıyor:\n\n1. Hava Teması — Kapağı her açtığında içeri giren oksijen, o çok güvendiğin pahalı aktifleri uçuruyor.\n2. Bakteri İstilası — Parmağından kreme geçen bakteriler boş durmuyor. Salgıladıkları enzimlerle kremin o güzelim faydalı yağlarını parçalayıp serbest asitlere dönüştürüyor. Sen bunu sürünce de cilt bariyerin delik deşik oluyor, asitler doğrudan sinir uçlarına dokunup yüzünde aniden o meşhur batma ve yanma hissini yaratıyor. Sen de 'parfüm alerjisi yaptı' sanıyorsun, oysa krem bildiğin asit bombasına dönüştü!\n3. Akıllı Çözüm — Pompalı veya tüp ambalajlar ise formülü hem havadan hem de bu davetsiz misafirlerden koruyarak son damlaya kadar taze tutuyor.\n\nCilt bakımında sadece içeriğe değil, o içeriği koruyan ambalaja da para ödüyoruz. Kavanozu parmaklamaya devam edersek yakında kendi küçük bakteri cumhuriyetimizi kuracağız.\n\n📌 Kaydet — bir sonraki krem alışverişinde aklında olsun.\n\n🔁 Bunu banyoda ağzı açık kavanoz krem biriktiren arkadaşına gönder.\n\nSen hangisini tercih ediyorsun: Kavanoz mu, pompalı mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#ciltbakimi",
     "#güzellik",
-    "#hyalüronikasit",
-    "#ciltbariyeri",
     "#nemlendirici",
+    "#ciltbariyeri",
     "#skincare",
-    "#serum"
+    "#kozmetik",
+    "#bakımönerileri"
   ],
-  "takeaway": "Sepet doldu diye alınan serum cildi değil kargoyu sevindirir.",
+  "takeaway": "O pahalı krem artık sadece bakteri yuvası.",
   "footage_queries": [
-    "hand holding serum dropper",
-    "serum drop close up"
+    "hand opening jar macro",
+    "hand pumping bottle close up"
   ],
   "narration": [
-    "Gece sepeti onaylayan arkadaşın serumu unuttu.",
-    "Üst üste sürülen nem serumları cildini daha çok kurutur.",
-    "Çünkü yağ kilidi yoksa su uçup cildi hemen kurutur.",
-    "Kat kat serum sürmek yerine dengeli tek krem yeter.",
-    "Sepeti doldurmak cildini nemlendirmez sadece kargo şirketini sevindirir."
+    "O kavanoz kremini artık parmaklama.",
+    "Açık kapağa doluşan hava, kremdeki tüm o aktifleri söndürüyor.",
+    "Parmak bakterileri kremin yağını aside çevirip yüzünü aniden yakıyor.",
+    "Pompalı şişe ise formülü canavar gibi koruyup taze tutuyor.",
+    "O pahalı krem artık sadece bakteri yuvası."
   ],
-  "subject": "hyalüronik asit",
-  "sendTo": "gece 2'de sepeti onaylayıp sabah ne aldığını unutan arkadaşına",
-  "soru": "Gece 2'de kargo bedava olsun diye eklediğin kaç ürün rafa kalktı?",
+  "subject": "kavanoz krem",
+  "sendTo": "banyoda ağzı açık kavanoz krem biriktiren arkadaşına",
+  "soru": "Sen hangisini tercih ediyorsun: Kavanoz mu, pompalı mı?",
   "theme": "#7fb3a5",
   "brand": {
     "handle": "@cilt.kodu",
@@ -78,30 +78,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Gece sepeti onaylayan arkadaşın serumu unuttu.",
+      "text": "O kavanoz kremini artık parmaklama.",
       "start": 0.35,
-      "dur": 3.268
+      "dur": 2.377
     },
     {
-      "text": "Üst üste sürülen nem serumları cildini daha çok kurutur.",
-      "start": 3.618,
-      "dur": 3.979
+      "text": "Açık kapağa doluşan hava, kremdeki tüm o aktifleri söndürüyor.",
+      "start": 2.727,
+      "dur": 4.21
     },
     {
-      "text": "Çünkü yağ kilidi yoksa su uçup cildi hemen kurutur.",
-      "start": 7.598,
-      "dur": 3.624
+      "text": "Parmak bakterileri kremin yağını aside çevirip yüzünü aniden yakıyor.",
+      "start": 6.937,
+      "dur": 4.686
     },
     {
-      "text": "Kat kat serum sürmek yerine dengeli tek krem yeter.",
-      "start": 11.221,
-      "dur": 3.624
+      "text": "Pompalı şişe ise formülü canavar gibi koruyup taze tutuyor.",
+      "start": 11.622,
+      "dur": 4.006
     },
     {
-      "text": "Sepeti doldurmak cildini nemlendirmez sadece kargo şirketini sevindirir.",
-      "start": 14.845,
-      "dur": 6.216
+      "text": "O pahalı krem artık sadece bakteri yuvası.",
+      "start": 15.629,
+      "dur": 3.952
     }
   ],
-  "thumbOffset": 2234
+  "thumbOffset": 1789
 }

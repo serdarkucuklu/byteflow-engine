@@ -1034,28 +1034,28 @@
     "insightsAt": "2026-09-08T18:21:50.437Z"
   },
   {
-    "title": "Gece 2 Sepeti ve Hyalüronik Asit",
-    "subject": "hyalüronik asit",
-    "twist": "gece-sepeti",
-    "pillar": "rutin-gercekleri",
+    "title": "Kavanoz Krem vs Pompalı Krem",
+    "subject": "kavanoz krem",
+    "twist": "ambalaj",
+    "pillar": "hassasiyet",
     "layout": "vertical-stack",
     "kinds": "versus",
     "motion": "ripple",
     "theme": "#7fb3a5",
     "source": "gemini",
     "footage": [
-      "pexels:hand holding serum dropper",
-      "pexels:gold glitter particles dark",
+      "pexels:hand opening jar macro",
+      "pexels:hand pumping bottle close up",
       "pexels:water droplets on glass",
       "pexels:sunlight through curtain"
     ],
     "voice": 5,
-    "voiceName": "Aoede",
+    "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "10 adımlı rutinlerde üst üste sürülen hyalüronik asit serumları, yeterli lipid desteği olmadığında stratum corneum'daki ",
+    "sir": "Parmaklarından kreme geçen mikroorganizmaların salgıladığı lipaz enzimleri, formüldeki faydalı yağları serbest yağ asitl",
     "sirUygulandi": "kismi",
     "sirAtlandi": null,
     "date": "2026-09-08",
-    "durSec": 21
+    "durSec": 19.6
   }
 ]
