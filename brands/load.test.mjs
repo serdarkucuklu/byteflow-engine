@@ -91,3 +91,14 @@ test('kizlarkodu kendi pillar/twist/feed/footage havuzlarina bagli', () => {
   assert.equal(b.twistSet, 'kizlar-tr');
   assert.equal(b.footageSet, 'gunluk');
 });
+
+// saglik-beden-broll Faz 2.5: ciltkodu soft+beden; kizlar gunluk, alt yok
+test('ciltkodu soft + altFootageSet beden; kizlar gunluk ve alt yok', () => {
+  const cilt = loadBrand('ciltkodu');
+  assert.equal(cilt.footageSet, 'soft');
+  assert.equal(cilt.altFootageSet, 'beden');
+
+  const kizlar = loadBrand('kizlarkodu');
+  assert.equal(kizlar.footageSet, 'gunluk');
+  assert.equal(kizlar.altFootageSet, undefined);
+});

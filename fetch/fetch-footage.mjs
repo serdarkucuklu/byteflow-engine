@@ -152,7 +152,32 @@ const GUNLUK_FOOTAGE = [
   'faucet water drops close up',
 ];
 
-export const FOOTAGE_SETS = {tech: TECH_FOOTAGE, soft: SOFT_FOOTAGE, fabric: FABRIC_FOOTAGE, gunluk: GUNLUK_FOOTAGE};
+const BEDEN_FOOTAGE = [
+  // İnsansız kural: yalnız ekipman/nesne — yoga mat, dumbbell, foam roller vb.
+  // (kelime: woman|girl|man|person|people|model|face ve makyaj/tech terimleri yok)
+  'empty yoga mat on wooden floor',
+  'dumbbell on gym floor close up',
+  'running shoes on plain background',
+  'water bottle on wooden table close up',
+  'foam roller on floor close up',
+  'jump rope on gym floor close up',
+  'resistance band on floor close up',
+  'fitness watch on table macro',
+  'fruit and water glass still life',
+  'kettlebell on gym floor close up',
+  'exercise mat rolled up close up',
+  'protein shaker bottle close up',
+  'athletic sneakers flat lay',
+  'yoga block on wooden floor',
+  'barbell plates on floor close up',
+  'sleep mask on nightstand close up',
+  'herbal tea cup steam close up',
+  'bathroom scale on floor close up',
+  'ice pack on wooden surface close up',
+  'gym towel folded on bench close up',
+];
+
+export const FOOTAGE_SETS = {tech: TECH_FOOTAGE, soft: SOFT_FOOTAGE, fabric: FABRIC_FOOTAGE, gunluk: GUNLUK_FOOTAGE, beden: BEDEN_FOOTAGE};
 
 /** Marka dosyasındaki footageSet adına göre beyaz liste (varsayılan: tech). */
 export function footageSetFor(name = 'tech') {

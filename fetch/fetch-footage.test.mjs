@@ -231,3 +231,35 @@ test('footageSetFor bilinmeyen adda hâlâ tech\'e düşer (mevcut davranış ki
   const {footageSetFor, SAFE_FOOTAGE_QUERIES} = await import('./fetch-footage.mjs');
   assert.deepEqual(footageSetFor('bilinmeyen-kume'), SAFE_FOOTAGE_QUERIES);
 });
+
+// ── BEDEN KÜMESİ (docs/plan/saglik-beden-broll.md, Faz 1.2) ─────────────────────────────────
+// SAGLIK_BEDEN Reels'leri krem/serum/yüz makrosuna düşmemeli; yüzsüz spor/sağlık nesnesi
+// sorguları (yoga mat, dumbbell, foam roller…) ayrı kümede. Tech fallback yanlış yeşil
+// vermesin diye FOOTAGE_SETS.beden varlığı + tech ayırt edicisi de kilitlenir.
+// hand|body|stretching yasağı gunluk'e özel — burada uygulanmaz.
+test('footageSetFor("beden") en az 16 sorgu döndürür ve tech\'e düşmez', async () => {
+  const {footageSetFor, FOOTAGE_SETS, SAFE_FOOTAGE_QUERIES} = await import('./fetch-footage.mjs');
+  assert.ok(Object.hasOwn(FOOTAGE_SETS, 'beden'), 'FOOTAGE_SETS.beden tanımsız');
+  const beden = footageSetFor('beden');
+  assert.notDeepEqual(beden, SAFE_FOOTAGE_QUERIES, 'beden küme tanımsız, tech\'e düşmüş');
+  assert.notEqual(beden, footageSetFor('tech'), 'beden tech ile aynı referans');
+  assert.ok(beden.length >= 16, `en az 16 sorgu bekleniyor, gelen: ${beden.length}`);
+  assert.ok(beden.some(q => /yoga mat|dumbbell|foam roller/i.test(q)), 'spor/sağlık nesnesi yok');
+  for (const q of beden) {
+    assert.doesNotMatch(q, /\b(circuit board|microchip)\b/i, `tech sorgusu sızmış: ${q}`);
+  }
+});
+
+test('footageSetFor("beden") krem/makyaj ve insan/yüz sorgusu içermez', async () => {
+  const {footageSetFor, FOOTAGE_SETS, SAFE_FOOTAGE_QUERIES} = await import('./fetch-footage.mjs');
+  // tech'te cream/yüz yok → fallback ile yanlış yeşil; önce kümenin gerçekten var olduğunu kilitle.
+  assert.ok(Object.hasOwn(FOOTAGE_SETS, 'beden'), 'FOOTAGE_SETS.beden tanımsız');
+  const beden = footageSetFor('beden');
+  assert.notDeepEqual(beden, SAFE_FOOTAGE_QUERIES, 'beden küme tanımsız, tech\'e düşmüş');
+  const kremGuard = /cream|serum|lipstick|foundation|mascara/i;
+  const yuzGuard = /\b(woman|girl|man|person|people|model|face)\b/i;
+  for (const q of beden) {
+    assert.doesNotMatch(q, kremGuard, `krem/makyaj terimi sızmış: ${q}`);
+    assert.doesNotMatch(q, yuzGuard, `insan/yüz terimi sızmış: ${q}`);
+  }
+});

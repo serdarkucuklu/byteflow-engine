@@ -13,6 +13,7 @@ import {composeFootageVideo, countFrames, findFramesDir} from './publish/compose
 import {denetle, rapor} from './publish/retansiyon-denetci.mjs';
 import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './publish/voiceover.mjs';
 import {pillarsFor, selectPillar} from './brain/pillars.mjs';
+import {resolveFootageSet} from './brain/footage-set.mjs';
 import {twistsFor, selectTwist, twistByKey} from './brain/twists.mjs';
 import {recentSubjects} from './brain/subjects.mjs';
 import {pickCatalogSubject} from './brain/catalog.mjs';
@@ -136,6 +137,8 @@ if (forcedSubject?.pillar && forcedSubject.pillar !== pillar.key) {
 if (forcedSubject?.subject) console.log(`🔒 konu kilit: ${forcedSubject.subject}`);
 else if (catalog.length) console.log('⚠ katalog tükendi — serbest üretim (soğuma hâlâ tam geçmiş)');
 
+const footageQueries = footageSetFor(resolveFootageSet(brand, pillar.key));
+
 // TEST KANCASI: BYTEFLOW_SPEC verilirse beyin/çeviri atlanır ve o spec render edilir.
 // Yeni sahne şablonlarını (ör. versus) gerçek render'da doğrulamak için — şablonun bozuk
 // olduğunu YAYIN GÜNÜ öğrenmek kabul edilemez.
@@ -143,7 +146,7 @@ const fixturePath = process.env.BYTEFLOW_SPEC;
 
 const seeds = JSON.parse(readFileSync(brand.paths.seeds, 'utf8'));
 // Beyin, markanın b-roll beyaz listesini de görsün (yoksa teknoloji sorguları öneriyordu).
-const brandForBrain = {...brand, footageQueries: footageSetFor(brand.footageSet)};
+const brandForBrain = {...brand, footageQueries};
 const {spec: rawSpec, source} = fixturePath
   ? {spec: JSON.parse(readFileSync(join(root, fixturePath), 'utf8')), source: 'fixture'}
   : await produceSpec({candidates, apiKey, recentTitles, pillar, brand: brandForBrain, seeds, pickSeed: randomSeed,
@@ -283,7 +286,7 @@ if (!queries.length) queries.push(queryFromTitle(spec.title));
 // sorgu → sayfayı kaydıran aynı görüntüyü tekrar tekrar görüyor.
 {
   const gecmisB = gecmisSorgulari(history, 3);
-  const taze = tazeSorgular({istenen: queries, gecmis: gecmisB, liste: footageSetFor(brand.footageSet)});
+  const taze = tazeSorgular({istenen: queries, gecmis: gecmisB, liste: footageQueries});
   const degisen = taze.filter((q, i) => q !== queries[i]);
   if (degisen.length) console.log(`↻ b-roll tekrarı engellendi: ${degisen.join(', ')}`);
   queries = taze;
@@ -295,7 +298,7 @@ if (process.env.BYTEFLOW_FOOTAGE === '0') {
 } else {
   try {
     clips = await fetchFootage({queries, count: FOOTAGE_CLIPS, outDir: footageDir,
-      allowed: footageSetFor(brand.footageSet)});
+      allowed: footageQueries});
   } catch (e) {
     console.error(`⚠ footage indirilemedi: ${e.message}`);
   }

@@ -91,6 +91,7 @@ const SAGLIK_BEDEN = [
   {key: 'efsane-saglik', focus: 'lenf drenaj, soğuk duş mucizesi, aralıklı oruçun kadınlarda ters tepmesi, 10 bin adım totemi — efsanenin NEREDEN çıktığı + asıl mekanizma'},
   {key: 'kadin-beslenme', focus: 'tatlı krizi, kahve aç karnına, çikolata/magnezyum, creatine ve kadın, kollajen tozu. Sepetten/kavanozdan gir; mucize iddiası yok'},
 ];
+export const SAGLIK_BEDEN_KEYS = new Set(SAGLIK_BEDEN.map(p => p.key));
 
 const BEAUTY_TR_FULL = [...BEAUTY_TR, ...SAGLIK_BEDEN];
 

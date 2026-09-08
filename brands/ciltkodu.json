@@ -37,6 +37,7 @@
   "twistSet": "beauty-tr",
   "feedSet": "skincare-news",
   "footageSet": "soft",
+  "altFootageSet": "beden",
   "seedBacklog": "brands/seeds/ciltkodu.json",
   "musicDir": "assets/music/ciltkodu",
   "publish": {
