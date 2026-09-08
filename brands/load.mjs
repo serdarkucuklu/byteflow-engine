@@ -55,6 +55,7 @@ export function loadBrand(slug = resolveBrandSlug(), {root = ROOT} = {}) {
       // İnsider-sır defteri — anlatılmış mekanizmalar buraya birikir (bkz. brain/sir-defteri.mjs).
       sirlar: join(root, state.sirlar ?? `brands/state/${slug}-sirlar.json`),
       seeds: join(root, brand.seedBacklog ?? 'brain/seed-backlog.json'),
+      catalog: join(root, brand.subjectCatalog ?? `brands/catalogs/${slug}.json`),
       music: join(root, brand.musicDir ?? 'assets/music'),
     },
   };

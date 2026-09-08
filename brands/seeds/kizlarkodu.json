@@ -228,5 +228,25 @@
     "title": "Ter Sarısı Neden Çıkmıyor",
     "subject": "ter lekesi",
     "hook": "Beyaz gömleğin koltuk altı savaşını kaybediyorsun."
+  },
+  {
+    "title": "Yeni Saçını Neden Fark Etmez",
+    "subject": "dikkat körlüğü",
+    "hook": "Saçını kestirdin, o hâlâ eski haline bakıyor."
+  },
+  {
+    "title": "İyiyim Deyip Neden Patlıyorsun",
+    "subject": "iyiyim kalkanı",
+    "hook": "İyiyim dediğin cümle durum raporu değil, kapı kilidi."
+  },
+  {
+    "title": "Görüldü Bırakmanın Pahası",
+    "subject": "görüldü bırakma",
+    "hook": "Görüldü, cevap yok — net hayırdan pahalı olan bu."
+  },
+  {
+    "title": "Derdine Çözüm Yağdıran Adam",
+    "subject": "çözüm refleksi",
+    "hook": "Anlattın, o hemen tamir etmeye kalktı, sen suskun kaldın."
   }
 ]

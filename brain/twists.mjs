@@ -150,7 +150,31 @@ const MERAK_TR = [
 // twist kümesi adı ("kizlar-tr") pillar kümesiyle (brands/kizlarkodu.json:36) AYNI ama AYRI
 // sözlükte — kapsamSiniri gibi bu da kod tarafından bağlanmıyor, isim çakışması tesadüfi
 // (bkz. plan Tuzaklar).
-export const TWIST_SETS = {'beauty-tr': BEAUTY_TR, 'moda-tr': MODA_TR, 'kizlar-tr': [...MODA_TR, ...MERAK_TR]};
+const DOGA_TR = [
+  {key: 'cozum-refleksi', kime: 'derdini anlatınca hemen çözüm döşeyen kardeşine/eşine', aile: 'doga',
+    focus: 'ÇÖZÜM GAFI: kapı onun \"hallederiz\" refleksi — sen ayna istiyorsun, o tornavida uzatıyor. Anlatılan mekanizma bugünkü konudan gelir; twist yeni mekanizma İDDİA ETMEZ. ⛔ YASAK: \"erkekler anlamaz\" genellemesi. ✅ böyle: \"çözüm cümlesi gelir gelmez derdin geçersiz ilan edildiğini hissediyorsun\"'},
+  {key: 'goruldu-birakma', kime: 'mavi tiki görüp hâlâ üç nokta bekleyen arkadaşına', aile: 'doga',
+    focus: 'GÖRÜLDÜ GAFI: kapı o yarım bırakılmış konuşma — yazdı, görüldü, dünya dönüyor. Mekanizma bugünkü konudan gelir. ⛔ YASAK: uydurma istatistik. ✅ böyle: \"görüldü bırakmak reddin belirsiz hali, net hayırdan pahalı\"'},
+  {key: 'kombin-oyu', kime: 'grup sohbetine kare atıp beş kişiden onay bekleyen arkadaşına', aile: 'doga',
+    focus: 'OYLAMA GAFI: kapı o \"hangisini giyeyim\" anketi — karar yorgunluğunu kalabalığa ihale etmek. Mekanizma bugünkü konudan gelir. ✅ böyle: \"beğeni, kararın bedelini paylaştırıyor\"'},
+  {key: 'kiskanclik-kivilcim', kime: 'hikâyedeki ismi üç kez durdurup bakan arkadaşına', aile: 'doga',
+    focus: 'KIVILCIM GAFI: kapı o isim — tehdit sistemi boşluğu doldurur, kanıt aramaz. Mekanizma bugünkü konudan gelir. ⛔ YASAK: \"kadınlar kıskançtır\" genellemesi. ✅ böyle: \"belirsiz rakip, tam rakip gibi kodlanır\"'},
+];
+
+const SAGLIK_TR = [
+  {key: 'pazartesi-diyeti', kime: 'her pazartesi hayata sıfırdan başlayan arkadaşına',
+    focus: 'PAZARTESİ GAFI: kapı o \"bu hafta ciddiye alıyorum\" yemini — perşembe akşamı çöker. Mekanizma bugünkü konudan (hormon/beslenme/antrenman) gelir; twist yeni iddia ETMEZ. ✅ böyle: \"yasak büyüttükçe tatlı krizi de büyür\"'},
+  {key: 'salon-ayna', kime: 'salonda hep aynı açıyla poz veren arkadaşına',
+    focus: 'SALON GAFI: kapı o ayna açısı — kası görmek ile kası çalıştırmak karışır. Mekanizma bugünkü konudan gelir. ✅ böyle: \"ayna, çalışan kası değil ışığı övüyor\"'},
+  {key: 'dr-google', kime: 'belirtisini gece 2\'de aratıp üç hastalık bulan arkadaşına',
+    focus: 'GOOGLE GAFI: kapı o arama geçmişi — nadir hastalık önce çıkar, sık mekanizma altta kalır. ⛔ teşhis koyma. ✅ böyle: \"arama, korkuyu bilgi diye satar\"'},
+];
+
+export const TWIST_SETS = {
+  'beauty-tr': [...BEAUTY_TR, ...SAGLIK_TR],
+  'moda-tr': MODA_TR,
+  'kizlar-tr': [...MODA_TR, ...MERAK_TR, ...DOGA_TR],
+};
 
 /** Marka dosyasındaki twistSet adına karşılık gelen havuz (yoksa null → gaf ekseni kapalı). */
 export function twistsFor(setName) {

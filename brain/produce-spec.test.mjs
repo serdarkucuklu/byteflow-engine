@@ -137,3 +137,21 @@ test('not yokken seed yedeği eskisi gibi çalışır', async () => {
     retries: 0, backoffMs: 0, generate: async () => { throw new Error('503'); }});
   assert.equal(source, 'seed');
 });
+
+test('forcedSubject generate\'e iletilir ve kilit kaçarsa yeniden üretir', async () => {
+  const calls = [];
+  const generate = async (args) => {
+    calls.push(args.forcedSubject);
+    return calls.length === 1
+      ? {...SEED_BACKLOG[0], subject: 'polyester'}
+      : {...SEED_BACKLOG[0], subject: 'dikkat körlüğü'};
+  };
+  const {spec, source} = await produceSpec({
+    candidates: cands, apiKey: 'x', pillar: fakePillar, generate, retries: 3, backoffMs: 0,
+    forcedSubject: {subject: 'dikkat körlüğü', ipucu: 'sahneyi atlar'},
+  });
+  assert.equal(source, 'gemini');
+  assert.equal(spec.subject, 'dikkat körlüğü');
+  assert.equal(calls.length, 2);
+  assert.equal(calls[0].subject, 'dikkat körlüğü');
+});

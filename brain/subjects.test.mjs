@@ -42,3 +42,13 @@ test('recentSubjects yayın durumuna BAKMAZ (tekrar her hâlükârda kötü)', (
   const history = [{subject: 'retinol', mediaId: '1'}, {subject: 'kapatıcı'}];
   assert.deepEqual(recentSubjects(history), ['kapatıcı', 'retinol']);
 });
+
+test('kısa özne (SPF 50) soğumada kaybolmaz', () => {
+  assert.equal(subjectsClash('SPF 50', 'spf 50 stick'), true);
+  assert.ok(subjectTokens('SPF 50').length);
+});
+
+test('varsayılan soğuma TÜM geçmişi yasaklar, 8 ile kırpmaz', () => {
+  const history = Array.from({length: 12}, (_, i) => ({subject: `konu${i}ozel`}));
+  assert.equal(recentSubjects(history).length, 12);
+});

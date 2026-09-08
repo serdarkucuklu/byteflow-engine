@@ -2,7 +2,7 @@ import {readFileSync} from 'node:fs';
 import {validateSpec} from './validate.mjs';
 import {generateSpec, MODELS} from './generate-spec.mjs';
 import {repairSpec} from './repair.mjs';
-import {clashingSubject} from './subjects.mjs';
+import {clashingSubject, foldTr} from './subjects.mjs';
 
 export const SEED_BACKLOG = JSON.parse(
   readFileSync(new URL('./seed-backlog.json', import.meta.url)),
@@ -21,7 +21,7 @@ function pickSeedDefault(seeds) {
 // yayınlandı (Serdar beğenmedi, IG'den sildi). Seed düşüşü İSTİSNA olmalı — bir 429/503 dalgası
 // yayını off-strateji bir konuya çevirmesin diye deneme sayısı artırıldı.
 export async function produceSpec({candidates, apiKey, recentTitles = [], pillar, brand = {}, seeds = SEED_BACKLOG, generate = generateSpec, retries = 4, pickSeed = pickSeedDefault, backoffMs = 400,
-  bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = [], not = null}) {
+  bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = [], not = null, forcedSubject = null}) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
       // Deneme başına model merdiveninde bir basamak in (503/kapasite dalgasını aş).
@@ -32,7 +32,7 @@ export async function produceSpec({candidates, apiKey, recentTitles = [], pillar
       // @cilt.kodu'ya TÜRKÇE AI içeriği ("Claude Code vs Cursor") yayınlandı — marka
       // dosyası doğru olduğu hâlde. Marka yalnızca bu satırdan modele ulaşıyor.
       const raw = await generate({candidates, apiKey, recentTitles, pillar, brand, model,
-        bannedSubjects, twist, bannedLayouts, recentKinds, not});
+        bannedSubjects, twist, bannedLayouts, recentKinds, not, forcedSubject});
       // Küçük kusurları (kodsuz kod sahnesi, taşan label/packet) onar — denemeyi harcamak
       // yerine düzelt; her başarısız deneme bizi seed'e (jenerik videoya) yaklaştırıyor.
       const spec = repairSpec(raw, {defaultHashtags: brand.defaultHashtags, maxSteps: brand.video?.maxSteps, format: brand.format});
@@ -41,9 +41,18 @@ export async function produceSpec({candidates, apiKey, recentTitles = [], pillar
         // KONU TEKRARI = GEÇERSİZ ÜRETİM. Prompt'taki soğuma kuralı yumuşak bir istek;
         // burası sert kapı. 2026-08-01 Serdar direktifi: aynı etken madde arka arkaya
         // ASLA çıkmayacak — model kuralı çiğnerse denemeyi harcayıp yeniden üretiyoruz.
-        const clash = clashingSubject(spec.subject ?? spec.title, bannedSubjects);
-        if (!clash) return {spec, source: 'gemini'};
-        console.error(`[produce] attempt ${attempt} KONU TEKRARI: "${spec.subject ?? spec.title}" ~ yasaklı "${clash}" → yeniden`);
+        const locked = forcedSubject?.subject;
+        const got = spec.subject ?? '';
+        const honorsLock = !locked
+          || foldTr(got) === foldTr(locked)
+          || Boolean(clashingSubject(got, [locked]));
+        if (!honorsLock) {
+          console.error(`[produce] attempt ${attempt} KİLİT KAÇTI: "${got}" ≠ kilit "${locked}" → yeniden`);
+        } else {
+          const clash = clashingSubject(spec.subject ?? spec.title, bannedSubjects);
+          if (!clash) return {spec, source: 'gemini'};
+          console.error(`[produce] attempt ${attempt} KONU TEKRARI: "${spec.subject ?? spec.title}" ~ yasaklı "${clash}" → yeniden`);
+        }
       } else {
         console.error(`[produce] attempt ${attempt} (${MODELS[Math.min(attempt, MODELS.length - 1)]}) invalid: ${errors.join('; ')}`);
       }

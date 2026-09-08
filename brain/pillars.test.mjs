@@ -84,3 +84,17 @@ test('kizlar-tr havuzunda cilt bakımı konusu YOK (kardeş sayfa sınırı)', (
     assert.ok(!metin.includes(yasak), `kardeş sayfanın konusu sızmış: ${yasak}`);
   }
 });
+
+test('kizlar-tr kadın doğası ailesini kapsar (erkek/ilişki, giysi tekeli değil)', () => {
+  const keys = pillarsFor('kizlar-tr').map(p => p.key);
+  for (const k of ['erkek-farki', 'mesaj-psikolojisi', 'dongu-gunluk', 'flort-sinyali']) {
+    assert.ok(keys.includes(k), `eksik pillar: ${k}`);
+  }
+});
+
+test('beauty-tr kadın sağlığı/spor ailesini kapsar (yalnız kavanoz değil)', () => {
+  const keys = pillarsFor('beauty-tr').map(p => p.key);
+  for (const k of ['kadin-antrenman', 'eksiklikler', 'durus-ve-hareket', 'hormon-enerji']) {
+    assert.ok(keys.includes(k), `eksik pillar: ${k}`);
+  }
+});

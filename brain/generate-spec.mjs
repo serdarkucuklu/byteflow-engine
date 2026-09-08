@@ -137,7 +137,8 @@ const PROMPT = (candidates, recentTitles = [], pillar, brand = {}, opts = {}) =>
 // bannedLayouts/recentKinds: görsel tekrarı kırmak için (hepsi run-daily.mjs'ten gelir).
 // not: Serdar'ın onay konsolundan yazdığı yönlendirme ("tekrar dene" notu). Her şeyin
 // üstünde — kural değil, SİPARİŞtir.
-const {bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = [], not = null} = opts;
+const {bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = [], not = null,
+  forcedSubject = null} = opts;
 const persona = {...DEFAULT_PERSONA, ...(brand.persona ?? {})};
 const handle = brand.handle ?? '@byteflowlabs';
 const lang = brand.language && brand.language !== 'en' ? LANG_NAMES[brand.language] ?? brand.language : null;
@@ -203,11 +204,22 @@ HARD RULE for this pillar: the title AND the hook must each NAME the thing concr
 ones, so the name has to be on screen in the first frame.
 ` : ''}Pick ONE sharp, specific idea INSIDE this pillar to explain as a ${vid.seconds}s animated diagram.
 ${tone.angle}
-WITHIN the pillar, PREFER concrete, named topics people actually search for and spend money on
+NOVELTY — HARD RULE: do not teach the Wikipedia first paragraph. Teach the lesser-known mechanism
+that makes her say "bunu hiç duymamıştım". A famous cousin topic (the lecture everyone already
+saw last month) is WRONG even if it fits the pillar. Every video must be a NEW subject, not a new
+joke about an old subject.
+WITHIN the pillar, PREFER concrete, named, slightly obscure topics people actually search for
 (${namedExamples}) over generic/abstract framing. The trending headlines below are fresh
 inspiration for WHICH idea inside the pillar is timely. Keep the anti-hype angle even on product
 topics: explain the mechanism, not the marketing language.
-Do NOT drift to a topic outside the pillar.
+Do NOT drift to a topic outside the pillar.${forcedSubject?.subject ? `
+TODAY'S SUBJECT IS LOCKED — HARDEST RULE, harder than the pillar:
+The \`subject\` field MUST be exactly this string (lowercase, verbatim): "${forcedSubject.subject}"
+Do not substitute a more famous cousin. Do not "improve" the name.
+${forcedSubject.ipucu ? `THE LESSER-KNOWN ANGLE you must teach (not the obvious version): ${forcedSubject.ipucu}` : ''}
+The pillar above is the DOOR and the gaf; the locked subject is WHAT the video is about.
+If pillar and subject seem to disagree, KEEP THE SUBJECT and tell its mechanism.
+` : ''}
 ${recentTitles.length ? `
 Do NOT repeat or closely resemble any of these recently-posted topics:
 ${recentTitles.map(t => `- ${t}`).join('\n')}
@@ -219,7 +231,7 @@ SUBJECT COOLDOWN — HARDEST RULE ON THIS PAGE. Each of these was the SUBJECT of
 and is BANNED today:
 ${bannedSubjects.map(s => `- ${s}`).join('\n')}
 They are perfectly on-brand; they are banned ONLY because the page just covered them. Today's
-video must be about a DIFFERENT product / ingredient / thing. A new angle, a new pillar or a new
+video must be about a DIFFERENT named thing. A new angle, a new pillar or a new
 joke about a banned subject is STILL BANNED — the viewer sees the subject, not your angle.
 Also do not make a banned subject the co-star: it may appear in ONE comparison line at most,
 never in the title, the hook or more than one node label.
@@ -429,7 +441,7 @@ SON HATIRLATMA — sayfa sahibinin notu: "${String(not).trim()}"
 };
 
 export async function generateSpec({candidates, apiKey, recentTitles = [], pillar, brand = {}, model = MODELS[0], fetchFn = fetch,
-  bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = [], not = null}) {
+  bannedSubjects = [], twist = null, bannedLayouts = [], recentKinds = [], not = null, forcedSubject = null}) {
   if (!apiKey) throw new Error('GEMINI_API_KEY missing');
   if (!pillar) throw new Error('pillar missing');
   const res = await fetchFn(ENDPOINT(apiKey, model), {
@@ -437,7 +449,7 @@ export async function generateSpec({candidates, apiKey, recentTitles = [], pilla
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
       contents: [{parts: [{text: PROMPT(candidates, recentTitles, pillar, brand,
-        {bannedSubjects, twist, bannedLayouts, recentKinds, not})}]}],
+        {bannedSubjects, twist, bannedLayouts, recentKinds, not, forcedSubject})}]}],
       generationConfig: {responseMimeType: 'application/json',
         responseSchema: responseSchemaFor(brand.brandKeys ?? BRAND_KEYS), temperature: 0.9},
     }),

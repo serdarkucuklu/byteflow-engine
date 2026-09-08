@@ -7,6 +7,7 @@ test('the default brand loads and resolves its state paths', () => {
   assert.equal(b.handle, '@cilt.kodu');
   assert.ok(b.paths.history.endsWith('ciltkodu-history.json'));
   assert.ok(b.paths.seeds.endsWith('ciltkodu.json'), 'marka KENDİ seed havuzunu kullanmalı');
+  assert.ok(b.paths.catalog.endsWith('catalogs/ciltkodu.json'), 'konu kataloğu markaya bağlı');
   assert.ok(b.themes.length >= 1 && b.narrationVoices.length >= 1);
 });
 

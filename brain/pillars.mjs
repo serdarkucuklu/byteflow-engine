@@ -76,6 +76,24 @@ const BEAUTY_TR = [
   {key: 'para-degeri', timely: true, focus: 'bir üründe paranın gerçekte neye gittiği: aktif konsantrasyonu mu, ambalaj mı, marka mı; pahalı ile uygun fiyatlı arasındaki formülasyon farkı gerçekten hissedilir mi'},
 ];
 
+// ── @cilt.kodu — kadın sağlığı, beden, spor (2026-09-08) ──────────────────────
+// Serdar: "cilt.kodu sayfası kadın sağlığı vs genel olsun — beden, spor, cilt."
+// Cilt/makyaj alt küme olarak kalır. ⛔ ilişki-kişilik psikolojisi (@kizlar.kodu).
+// ⛔ teşhis/tedavi planı; mekanizma + "bunu doktora bırak" çizgisi.
+const SAGLIK_BEDEN = [
+  {key: 'hormon-enerji', focus: 'kortizol, insülin, tiroid üşümesi — "neden yorgun / neden göbek / neden üşüyorum" görünür durumdan gir. Teşhis koyma; bir mekanizma seç'},
+  {key: 'kadin-antrenman', focus: 'kadın vücudunda antrenman — zone 2, glute uyanışı, döngüye göre tempo, HIIT\'in kortizolle çarpışması. Salon sahnesinden gir, program satma'},
+  {key: 'eksiklikler', focus: 'demir/ferritin yorgunluğu, D vitamini kışı, magnezyum kramp, protein. "Kahve içiyorum yine bitkinim" kapısı. Takviye markası yok, mekanizma var'},
+  {key: 'durus-ve-hareket', focus: 'text neck, ofis kalçası, pelvik taban, anterior tilt — telefon/koltuk/topuk. Aynadaki duruştan gir'},
+  {key: 'uyku-iyilesme', focus: 'uyku ve onarım — büyüme hormonu penceresi, DOMS, antrenman sonrası gecikmeli açlık. "Spor yaptım gece 2\'de açıldım" kapısı'},
+  {key: 'sindirim-odem', focus: 'şişkinlik, tuz ödemi, yemek sonrası yürüyüş ve glukoz. Pantolonun öğlen sıkmasından gir. Detoks saçmalığını mekanizmayla sök'},
+  {key: 'spor-kazalari', focus: 'spor sütyeni sürtünmesi, adet haftası performans düşüşü, diş sıkma, nefes kaması. Soyunma odası derdinden gir'},
+  {key: 'efsane-saglik', focus: 'lenf drenaj, soğuk duş mucizesi, aralıklı oruçun kadınlarda ters tepmesi, 10 bin adım totemi — efsanenin NEREDEN çıktığı + asıl mekanizma'},
+  {key: 'kadin-beslenme', focus: 'tatlı krizi, kahve aç karnına, çikolata/magnezyum, creatine ve kadın, kollajen tozu. Sepetten/kavanozdan gir; mucize iddiası yok'},
+];
+
+const BEAUTY_TR_FULL = [...BEAUTY_TR, ...SAGLIK_BEDEN];
+
 
 // ── @kizlar.kodu / giyim-dolap ailesi — MODA_TR (2026-08-03) ─────────────────
 // @byteflowlabs (İngilizce AI içeriği) 20 postta 2 takipçide kaldı; medyan 118 izlenme,
@@ -165,10 +183,32 @@ const VUCUT_GUNLUK = [
   {key: 'sehir-efsanesi', timely: true, focus: 'herkesin birbirine söylediği ama yanlış olan klasik — "ıslak saçla dışarı çıkma hasta edersin", "sakız yutulunca 7 yıl kalır", "gece aynaya bakma", "soğuk havada saç daha çok dökülür". Efsanenin NEREDEN çıktığını da söyle, sadece "yanlış" deme'},
 ];
 
-// kizlar-tr = giyim/dolap ailesi + vücut/günlük hayat ailesi (üst küme).
-const KIZLAR_TR = [...MODA_TR, ...VUCUT_GUNLUK];
+// ── @kizlar.kodu — kadınların doğası + erkekler + ilişki kodları (2026-09-08) ──
+// Serdar: "sadece giysi ya da cilt değil. kadınların doğası, erkekler, birçok konu."
+// Hâlâ MEKANİZMA: dikkat körlüğü, çözüm refleksi, tend-and-befriend. ⛔ "erkekler böyledir"
+// cinsiyet genellemesi, ⛔ klinik teşhis, ⛔ yüz bakım ürünü (@cilt.kodu).
+const KADIN_DOGA = [
+  {key: 'erkek-farki', focus: 'yanındaki erkeğin görünür davranışı — yeni saçı fark etmemesi, derdini çözer gibi dinlemesi, işten gelince susması. Kapı DAVRANIŞ; açıklama mekanizma (dikkat körlüğü, araçsal destek). ⛔ "hepsi böyledir" biyoloji/karakter iddiası yasak'},
+  {key: 'konusma-tarzi', focus: '"iyiyim" demesi, ayrıntıyla anlatması, "sen anla" beklemesi — rapor konuşması ile sohbet konuşması farkı, çatışma maliyeti. Görünür bir diyalogdan gir'},
+  {key: 'kiskanclik-radari', focus: 'kıskançlık kıvılcımı — hikâyedeki isim, beğeni, "sadece arkadaşız". Tehdit algısının neden orantısız şiştiği; izlemeyi değil mekanizmayı anlat. Alay etme'},
+  {key: 'mesaj-psikolojisi', focus: 'mesajlaşma kodları — görüldü bırakma, son görülme, "k" cevabı, taslağı üç kez silme. Bildirim + belirsizliğin beyni meşgul etmesi. Ekran kaydından gir'},
+  {key: 'ses-ve-beden', focus: 'ses tonu radarı, göz teması, söz kesilince yükselen öfke — kelimeden önce prozodi. "Ne dedi değil nasıl dedi" durumundan gir'},
+  {key: 'stres-sosyal', focus: 'stresle hemen birine yazmak / konuşmak istemek (tend and befriend) — işten çıkınca sohbet, onun mağara ihtiyacıyla çarpışması. Kimseyi suçlama'},
+  {key: 'kiyas-ve-ayna', focus: 'kıyas aynası — hikâyedeki bel, filtresiz kare, "kilo almışım" test sorusu. Sosyal karşılaştırma ve mere-exposure. Ürün satma'},
+  {key: 'iliski-bellek', focus: 'ilişki belleği — kavgayı kelimesi kelimesine hatırlamak, doğum gününü unutmamak, "o gün şunu demiştin". Duygusal kodlamanın neden ayrıntıyı yapıştırdığı'},
+  {key: 'flort-sinyali', focus: 'nezaket mi flört mü — iltifat, uzun bakış, "sadece soruyorum". Belirsiz sinyalin neden iki türlü okunduğu. Tavsiye değil mekanizma'},
+  {key: 'aile-dinamigi', focus: 'anne-kız, kaynana, "ye yavrum", erkek arkadaşın anne bağı — bakım ve kontrolün aynı cümlede durması. Sevgiyle, teşhis koymadan'},
+  {key: 'para-gurur', focus: 'hesap gerginliği, hediye zihniyeti, "ben öderim" gururu — paranın ilişkideki yüzü. Rakam uydurma; sırayı ve hissi konuş'},
+  {key: 'dongu-gunluk', focus: 'döngü haftası — o gün herkese sinir, özgüven dalgası, "ne giysem"in ağırlaşması. Yaşanan gün; klinik ders ve ürün yok. Kardeş sayfa (@cilt.kodu) hormon+antrenmanı anlatır'},
+  {key: 'karar-yorgunlugu', focus: 'ne giysem, "sen seç" sonra beğenmeme, kombin oylaması — seçenek fazlası ve kimlik giyside. Dolap önünden gir'},
+  {key: 'sessizlik-kodu', focus: 'sessizlik cezası, "neden yazmıyor" zihin okuma, "ben değişirim" sözü — yokluğun tehdit olarak okunması. Dramatize etme, mekanizmayı göster'},
+  {key: 'arkadaslik-kodu', focus: 'grup sohbetinde susma, kombin oylaması, kıskançlık DM\'i, "sadece arkadaşız" sınırı — kadın arkadaşlık kodları. Gönderilebilir bir kişi tarif et'},
+];
 
-export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING, 'skincare-science': SKINCARE_SCIENCE, 'beauty-tr': BEAUTY_TR, 'moda-tr': MODA_TR, 'kizlar-tr': KIZLAR_TR};
+// kizlar-tr = giyim + günlük vücut + kadınların doğası (üst küme).
+const KIZLAR_TR = [...MODA_TR, ...VUCUT_GUNLUK, ...KADIN_DOGA];
+
+export const PILLAR_SETS = {'ai-engineering': AI_ENGINEERING, 'skincare-science': SKINCARE_SCIENCE, 'beauty-tr': BEAUTY_TR_FULL, 'moda-tr': MODA_TR, 'kizlar-tr': KIZLAR_TR};
 
 /** Marka dosyasındaki pillarSet adına karşılık gelen havuz. */
 export function pillarsFor(setName = 'ai-engineering') {

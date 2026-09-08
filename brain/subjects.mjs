@@ -9,9 +9,10 @@
 // Çözüm: model her spec'te işlediği ÖZNEYİ (subject) beyan eder, geçmişe yazılır ve sonraki
 // koşularda soğuma listesine girer — hem prompt'ta yasaklanır hem de üretim sonrası denetlenir.
 
-// Soğumada 8 post = ~8 gün. Daha uzunu konu havuzunu daraltıyor (aynı nişteyiz), daha kısası
-// "geçen hafta zaten anlatmıştık" hissini engellemiyor.
-export const SUBJECT_COOLDOWN = 8;
+// 2026-09-08: 8 post yetmedi — model 9. günde aynı özneyi (retinol, polyester) yeni açıyla
+// geri getiriyordu. Serdar: aynı konuda reels tekrar üretilmesin. Varsayılan = TÜM geçmiş.
+// Çağıran hâlâ limit verebilir (testler). Katalog bitmeden havuz daralmaz.
+export const SUBJECT_COOLDOWN = Number.POSITIVE_INFINITY;
 
 // Türkçe aksanı ASCII'ye katla: "hyalüronik" ve "hyaluronik" AYNI özne (model iki yazımı da
 // üretiyor). Ayrıca büyük İ/I farkını da bu adım siliyor.
@@ -32,10 +33,12 @@ const GENERIC = new Set([
 
 /** Özneyi ayırt edici köklere indirger: "Hyalüronik Asit Serumu" → ["hyaluronik"]. */
 export function subjectTokens(subject = '') {
-  return foldTr(subject)
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .split(/\s+/)
-    .filter(t => t.length >= 4 && !GENERIC.has(t));
+  const raw = foldTr(subject).replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(Boolean);
+  const long = raw.filter(t => t.length >= 4 && !GENERIC.has(t));
+  const shortJoin = raw.filter(t => t.length < 4 && !GENERIC.has(t)).join('');
+  const out = [...long];
+  if (shortJoin.length >= 3) out.push(shortJoin);
+  return out;
 }
 
 // Tek kök eşleşmesi yeter: "niasinamid" ile "niasinamidin faydası" aynı öznedir. Ekleri

@@ -614,3 +614,44 @@ test('ciltkodu (override yok) varsayılan sendTo/soru metnini korur', async () =
   assert.match(p, /cilt bakımı sevenlere/, 'varsayılan sendTo metni bozulmamalı');
   assert.match(p, /Kaç tane yarım serumun var, dürüst ol\./, 'varsayılan soru metni bozulmamalı');
 });
+
+test('forcedSubject prompta kilit ve ipucu olarak girer', async () => {
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar,
+    forcedSubject: {subject: 'dikkat körlüğü', ipucu: 'inattentional blindness — sahneyi atlar'},
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /TODAY'S SUBJECT IS LOCKED/);
+  assert.match(p, /dikkat körlüğü/);
+  assert.match(p, /inattentional blindness/);
+  assert.match(p, /NOVELTY/);
+});
+
+test('kizlarkodu domaini kadın doğası ve erkek davranışını kapsar', async () => {
+  const brand = JSON.parse(readFileSync(new URL('../brands/kizlarkodu.json', import.meta.url), 'utf8'));
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar, brand,
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /kadınların doğası/);
+  assert.match(p, /dikkat körlüğü/);
+  assert.match(p, /NOVELTY/);
+});
+
+test('ciltkodu domaini kadın sağlığı/spor evrenini de kapsar', async () => {
+  const brand = JSON.parse(readFileSync(new URL('../brands/ciltkodu.json', import.meta.url), 'utf8'));
+  const cap = {};
+  await generateSpec({
+    candidates: [{source: 'x', title: 'y'}], apiKey: 'k', pillar: fakePillar, brand,
+    fetchFn: fakeFetchCapturing(cap),
+  });
+  const p = cap.body.contents[0].parts[0].text;
+  assert.match(p, /women's health/i);
+  assert.match(p, /sport/i);
+  assert.match(p, /skincare/i);
+  assert.match(p, /makeup/i);
+});

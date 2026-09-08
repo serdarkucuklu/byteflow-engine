@@ -15,6 +15,7 @@ import {synthesizeScript, buildVoiceTrack, mixVoiceAndMusic, VOICES} from './pub
 import {pillarsFor, selectPillar} from './brain/pillars.mjs';
 import {twistsFor, selectTwist, twistByKey} from './brain/twists.mjs';
 import {recentSubjects} from './brain/subjects.mjs';
+import {pickCatalogSubject} from './brain/catalog.mjs';
 import {redOku, bugunkuRedler, trGunu} from './brain/red-defteri.mjs';
 import {sirBul} from './brain/sir-derinlestir.mjs';
 import {enjekteEt} from './brain/sir-enjekte.mjs';
@@ -77,7 +78,7 @@ for (const s of bugunkuRedler(redOku(brand.paths.red))) {
   if (!bannedSubjects.some(b => b === s)) bannedSubjects.push(s);
 }
 if (serdarNotu) console.log(`📝 Serdar'ın notu: ${serdarNotu}`);
-if (bannedSubjects.length) console.log(`⛔ konu soğumada: ${bannedSubjects.join(', ')}`);
+if (bannedSubjects.length) console.log(`⛔ konu soğumada (${bannedSubjects.length}): ${bannedSubjects.join(', ')}`);
 
 // GAF EKSENİ: her videonun zorunlu esprili açısı, rotasyonla (Serdar 2026-08-01: "para gafı
 // süperdi, ama sadece para değil — farklı gaflar"). Tutan gaf türü zamanla öne çıkar.
@@ -114,10 +115,26 @@ console.log(leaderboard(history));
 // kullanılıyordu ve cilt bakımı markası 'model-releases' konusu üretmişti (canlı görüldü).
 // timelyPayi MARKADAN: haber kancası AI sayfasında belirleyiciydi, merak sayfasında değil
 // (bkz. brain/pillars.mjs). Verilmezse eski davranış (%75) korunur.
-const pillar = selectPillar(recentPillars, history.length, pillarStats,
+let pillar = selectPillar(recentPillars, history.length, pillarStats,
   (cands, st) => pickWeighted(cands, st), PILLARS, brand.timelyPayi ?? 0.75);
 console.log(`✓ pillar: ${pillar.key}${pillar.timely ? ' (timely)' : ''}` +
   (pillarStats.groups.get(pillar.key) ? ` [skor ${pillarStats.groups.get(pillar.key).score}]` : ' [veri yok]'));
+
+// KONU KİLİDİ: katalogdan henüz işlenmemiş özne. BYTEFLOW_KONU varsa o kazanır.
+const catalog = existsSync(brand.paths.catalog) ? JSON.parse(readFileSync(brand.paths.catalog, 'utf8')) : [];
+const envKonu = (process.env.BYTEFLOW_KONU ?? '').trim();
+let forcedSubject = envKonu
+  ? (catalog.find(e => e.subject === envKonu) ?? {subject: envKonu})
+  : pickCatalogSubject(catalog, bannedSubjects, randomSeed, pillar.key);
+if (forcedSubject?.pillar && forcedSubject.pillar !== pillar.key) {
+  const hinted = PILLARS.find(p => p.key === forcedSubject.pillar);
+  if (hinted) {
+    pillar = hinted;
+    console.log(`✓ pillar kataloğa hizalandı: ${pillar.key}`);
+  }
+}
+if (forcedSubject?.subject) console.log(`🔒 konu kilit: ${forcedSubject.subject}`);
+else if (catalog.length) console.log('⚠ katalog tükendi — serbest üretim (soğuma hâlâ tam geçmiş)');
 
 // TEST KANCASI: BYTEFLOW_SPEC verilirse beyin/çeviri atlanır ve o spec render edilir.
 // Yeni sahne şablonlarını (ör. versus) gerçek render'da doğrulamak için — şablonun bozuk
@@ -130,7 +147,7 @@ const brandForBrain = {...brand, footageQueries: footageSetFor(brand.footageSet)
 const {spec: rawSpec, source} = fixturePath
   ? {spec: JSON.parse(readFileSync(join(root, fixturePath), 'utf8')), source: 'fixture'}
   : await produceSpec({candidates, apiKey, recentTitles, pillar, brand: brandForBrain, seeds, pickSeed: randomSeed,
-      bannedSubjects, twist, bannedLayouts, recentKinds, not: serdarNotu});
+      bannedSubjects, twist, bannedLayouts, recentKinds, not: serdarNotu, forcedSubject});
 // Ekrandaki metinlerde markdown vurgusu kalmasın ("your *real* safety net" yıldızlarıyla basılıyordu).
 // YERELLEŞTİRME: prompt'a "Türkçe yaz" demek yetmedi (model üç koşuda da İngilizce yazdı).
 // Ayrı, dar kapsamlı bir çeviri adımı yapıyı bozmadan metinleri hedef dile çeviriyor.

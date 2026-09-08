@@ -5,7 +5,7 @@
   "language": "tr",
   "persona": {
     "name": "Derin",
-    "audience": "cilt bakımı, makyaj ve güzellik dünyasını EĞLENCELİ şekilde anlatan bir Instagram sayfası (hedef: 18-35 yaş kadın, Türkiye). Amaç ders vermek değil; önce güldürmek, sonra işe yarar tek bir şey öğretmek",
+    "audience": "18-35 yaş Türk kadını. Kadın sağlığı GENEL: beden, spor, hormon, eksiklik, duruş, uyku, cilt ve makyaj. Ders değil — önce güldür, sonra az bilinen tek mekanizma. Kavanoz TEK konu değil",
     "voice": "komik ve samimi bir kız arkadaş tonu: önce güldürür, sonra \"aaa demek oymuş\" dedirtir. Ukalalık ve ders verme YOK; terim yerine benzetme, sıkıcı olmaktansa esprili olmayı seçer",
     "signoff": "güzellik, pazarlama değil",
     "tagline": "Takip et: @cilt.kodu — güzellik, pazarlama değil.",
@@ -60,10 +60,10 @@
     "history": "brands/state/ciltkodu-history.json",
     "spec": "brands/state/ciltkodu-spec.json"
   },
-  "namedExamples": "\"retinol\", \"niasinamid\", \"SPF 50\", \"hyalüronik asit\", \"fondöten\", \"primer\", \"maskara\", \"mat ruj\", \"micellar su\", \"kapatıcı\"",
+  "namedExamples": "\"stres göbeği\", \"ferritin\", \"pelvik taban\", \"zone iki\", \"d vitamini\", \"retinol\", \"niasinamid\", \"SPF 50\", \"text neck\", \"insülin direnci\"",
   "brandKeys": [],
   "examples": {
-    "domain": "skincare AND makeup, explained at the mechanism level (active ingredients, the skin barrier, formulation, why makeup slides/oxidises/pills, what you are really paying for) for a Turkish audience of women aged 18-35 — curious and fun, never a chemistry lecture",
+    "domain": "women's health for Turkish women aged 18-35: body, sport, hormones, deficiencies, posture, sleep, PLUS skincare AND makeup — all at mechanism level, a DIFFERENT subject every video, never a chemistry lecture and never a diagnosis. ⛔ relationship/personality psychology belongs to sister page @kizlar.kodu",
     "hook": "\"Fondötenin seni saat 12de satıyor, sen hâlâ cildini suçluyorsun.\"",
     "hubSpoke": "one active ingredient acting on several skin structures at once",
     "cycle": "the skin renewal cycle, barrier damage and repair, irritation and tolerance",
@@ -79,12 +79,12 @@
     "narrationEar": "\"Transepidermal su kaybı artar\" değil, \"cilt suyunu tutamaz olur.\""
   },
   "defaultHashtags": [
+    "#kadınsağlığı",
+    "#spor",
+    "#beden",
     "#ciltbakimi",
     "#makyaj",
-    "#güzellik",
-    "#skincare",
-    "#cilt",
-    "#makyajönerisi"
+    "#güzellik"
   ],
   "video": {
     "seconds": "18-22",
@@ -108,6 +108,8 @@
     "puntoCarpani": 1,
     "harfAralik": -1.4
   },
+  "timelyPayi": 0.25,
+  "subjectCatalog": "brands/catalogs/ciltkodu.json",
   "sirDerinlestirme": {
     "aktif": true,
     "turSayisi": 2,
