@@ -1,60 +1,77 @@
 {
-  "hook": "Kavanoz kremi banyoda çürüten arkadaşın.",
-  "title": "Kavanoz Krem vs Pompalı Krem",
+  "hook": "O ayna kasını değil sadece ışığı övüyor.",
+  "title": "Kreatin Erkek Tozu Mu Yoksa Gizli Silah Mı?",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "versus",
-      "left": "KAVANOZ KREM",
-      "right": "POMPALI KREM",
-      "rows": [
+      "layout": "hub-spoke",
+      "nodes": [
         {
-          "label": "HAVA TEMASI",
-          "left": "Sürekli oksitlenme",
-          "right": "Sıfır hava teması",
-          "winner": "right"
+          "id": "kreatin",
+          "label": "KREATİN"
         },
         {
-          "label": "HİJYEN",
-          "left": "Bakteri şenliği",
-          "right": "Tamamen steril",
-          "winner": "right"
+          "id": "su",
+          "label": "SU DEPOSU"
         },
         {
-          "label": "AKTİF KORUMA",
-          "left": "Hızlı bozulan formül",
-          "right": "Son damlaya kadar aktif",
-          "winner": "right"
+          "id": "kas",
+          "label": "KAS HÜCRESİ"
+        },
+        {
+          "id": "beyin",
+          "label": "BEYİN GÜCÜ"
+        }
+      ],
+      "steps": [
+        {
+          "from": "kreatin",
+          "to": "su",
+          "packet": "SU",
+          "status": "suyu yağ değil kas içine çeker",
+          "color": "accent"
+        },
+        {
+          "from": "kreatin",
+          "to": "kas",
+          "packet": "GÜÇ",
+          "status": "son tekrarda o gücü buldurur",
+          "color": "good"
+        },
+        {
+          "from": "kreatin",
+          "to": "beyin",
+          "packet": "ENERJİ",
+          "status": "sisli kafayı anında netleştirir",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Kavanoz kremleri banyoda çürütüp sonra 'bu krem bana yaramadı, yüzümü yaktı' diyoruz. Ama işin aslı çok başka!\n\nKavanoz krem vs pompalı krem savaşı, adım adım cildine ne yapıyor:\n\n1. Hava Teması — Kapağı her açtığında içeri giren oksijen, o çok güvendiğin pahalı aktifleri uçuruyor.\n2. Bakteri İstilası — Parmağından kreme geçen bakteriler boş durmuyor. Salgıladıkları enzimlerle kremin o güzelim faydalı yağlarını parçalayıp serbest asitlere dönüştürüyor. Sen bunu sürünce de cilt bariyerin delik deşik oluyor, asitler doğrudan sinir uçlarına dokunup yüzünde aniden o meşhur batma ve yanma hissini yaratıyor. Sen de 'parfüm alerjisi yaptı' sanıyorsun, oysa krem bildiğin asit bombasına dönüştü!\n3. Akıllı Çözüm — Pompalı veya tüp ambalajlar ise formülü hem havadan hem de bu davetsiz misafirlerden koruyarak son damlaya kadar taze tutuyor.\n\nCilt bakımında sadece içeriğe değil, o içeriği koruyan ambalaja da para ödüyoruz. Kavanozu parmaklamaya devam edersek yakında kendi küçük bakteri cumhuriyetimizi kuracağız.\n\n📌 Kaydet — bir sonraki krem alışverişinde aklında olsun.\n\n🔁 Bunu banyoda ağzı açık kavanoz krem biriktiren arkadaşına gönder.\n\nSen hangisini tercih ediyorsun: Kavanoz mu, pompalı mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "O aynanın önünde saatlerce poz vermekle kas çalışmıyor maalesef.\n\nKreatin kullanınca erkek gibi şişeceğini sanıp köşe bucak kaçanlar, toplanın. İşin aslı çok başka:\n\n1. Hücre İçi Akvaryum — Kreatin seni sünger gibi şişirip ödem yapmaz. Suyu derinin altında değil, doğrudan kas hücrelerinin içine çeker. Yani pofuduk değil, sıkı görünürsün.\n2. Östrojen Desteği — Kadınlarda malum dönemlerde östrojen düşünce hücresel enerji üretimi de yerlerde sürünür. Kreatin tam burada devreye girip o boşalan enerji depolarını jet hızıyla doldurur.\n3. Sisli Beyne Son — Sadece antrenmanda son iki tekrarı çıkarmakla kalmazsın; hani o öğleden sonra gelen kafa karışıklığı var ya, onu da siler süpürür.\n\nSeçerken süslü ambalajlara aldanma, tek ihtiyacın olan şey saf kreatin monohidrat. Gerisi tamamen pazarlama yalanı.\n\nAynadaki ışıkla değil, hücrendeki gerçek enerjiyle parlaman dileğiyle.\n\n📌 Kaydet — bir dahaki antrenman krizinde lazım olacak.\n\n🔁 Bunu salonda hep aynı ışıklı açıda poz veren o arkadaşına gönder.\n\nSen hiç kreatin denedin mi yoksa şişerim diye korktun mu?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#nemlendirici",
-    "#ciltbariyeri",
-    "#skincare",
-    "#kozmetik",
-    "#bakımönerileri"
+    "#saglikliyasam",
+    "#sporyapanlar",
+    "#kreatin",
+    "#kadinvespor",
+    "#kasgelisimi",
+    "#antrenman"
   ],
-  "takeaway": "O pahalı krem artık sadece bakteri yuvası.",
+  "takeaway": "Şişme korkusuyla kaçtığın o toz, aslında beynini de çalıştırıyor.",
   "footage_queries": [
-    "hand opening jar macro",
-    "hand pumping bottle close up"
+    "dumbbell on gym floor close up",
+    "protein shaker bottle close up"
   ],
   "narration": [
-    "O kavanoz kremini artık parmaklama.",
-    "Açık kapağa doluşan hava, kremdeki tüm o aktifleri söndürüyor.",
-    "Parmak bakterileri kremin yağını aside çevirip yüzünü aniden yakıyor.",
-    "Pompalı şişe ise formülü canavar gibi koruyup taze tutuyor.",
-    "O pahalı krem artık sadece bakteri yuvası."
+    "O ayna kasını değil ışığı övüyor.",
+    "Östrojen düştüğünde pilin biter, bu toz suyu kasına kilitler.",
+    "Deri altı ödemi değil, kas içi dolgunluk ve sıkılık verir.",
+    "Sadece popoyu dikleştirmez, o sisli kafayı da anında açar.",
+    "Erkek tozu sanıp kaçtığın şey aslında senin gizli gücündür."
   ],
-  "subject": "kavanoz krem",
-  "sendTo": "banyoda ağzı açık kavanoz krem biriktiren arkadaşına",
-  "soru": "Sen hangisini tercih ediyorsun: Kavanoz mu, pompalı mı?",
-  "theme": "#7fb3a5",
+  "subject": "kreatin",
+  "sendTo": "salonda hep aynı ışıklı açıda poz veren o arkadaşına",
+  "soru": "Sen hiç kreatin denedin mi yoksa şişerim diye korktun mu?",
+  "theme": "#c9a227",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -73,35 +90,35 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "ripple",
+  "motion": "buildup",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "O kavanoz kremini artık parmaklama.",
+      "text": "O ayna kasını değil ışığı övüyor.",
       "start": 0.35,
-      "dur": 2.377
+      "dur": 2.454
     },
     {
-      "text": "Açık kapağa doluşan hava, kremdeki tüm o aktifleri söndürüyor.",
-      "start": 2.727,
-      "dur": 4.21
+      "text": "Östrojen düştüğünde pilin biter, bu toz suyu kasına kilitler.",
+      "start": 2.804,
+      "dur": 4.537
     },
     {
-      "text": "Parmak bakterileri kremin yağını aside çevirip yüzünü aniden yakıyor.",
-      "start": 6.937,
-      "dur": 4.686
+      "text": "Deri altı ödemi değil, kas içi dolgunluk ve sıkılık verir.",
+      "start": 7.341,
+      "dur": 4.314
     },
     {
-      "text": "Pompalı şişe ise formülü canavar gibi koruyup taze tutuyor.",
-      "start": 11.622,
-      "dur": 4.006
+      "text": "Sadece popoyu dikleştirmez, o sisli kafayı da anında açar.",
+      "start": 11.655,
+      "dur": 4.314
     },
     {
-      "text": "O pahalı krem artık sadece bakteri yuvası.",
-      "start": 15.629,
-      "dur": 3.952
+      "text": "Erkek tozu sanıp kaçtığın şey aslında senin gizli gücündür.",
+      "start": 15.969,
+      "dur": 5.488
     }
   ],
-  "thumbOffset": 1789
+  "thumbOffset": 1827
 }

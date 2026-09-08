@@ -1059,5 +1059,30 @@
     "durSec": 19.6,
     "mediaId": "18095676728536961",
     "postedAt": "2026-09-08T21:04:46.132Z"
+  },
+  {
+    "title": "Kreatin Erkek Tozu Mu Yoksa Gizli Silah Mı?",
+    "subject": "kreatin",
+    "twist": "salon-ayna",
+    "pillar": "kadin-beslenme",
+    "layout": "hub-spoke",
+    "kinds": "diagram",
+    "motion": "buildup",
+    "theme": "#c9a227",
+    "source": "gemini",
+    "footage": [
+      "pexels:dumbbell on gym floor close up",
+      "pexels:protein shaker bottle close up",
+      "pexels:running shoes on plain background",
+      "pexels:foam roller on floor close up"
+    ],
+    "voice": 5,
+    "voiceName": "Aoede",
+    "muzik": "byteflow-ambient.mp3",
+    "sir": "Kadınlarda östrojen seviyesinin düştüğü dönemlerde hücresel ATP üretimi yavaşlar; kreatin suyu deri altında ödem yapacak",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-09-08",
+    "durSec": 21.4
   }
 ]

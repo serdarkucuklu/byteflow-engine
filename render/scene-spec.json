@@ -1,106 +1,123 @@
 {
-  "hook": "Büyük krizde ağlamayıp reklama neden doluyorsun?",
-  "title": "Reklam Gözyaşının Gizli Mekanizması",
+  "hook": "O ayna kasını değil sadece ışığı övüyor.",
+  "title": "Kreatin Erkek Tozu Mu Yoksa Gizli Silah Mı?",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "versus",
-      "left": "GERÇEK DERT",
-      "right": "30 SN REKLAM",
-      "rows": [
+      "layout": "hub-spoke",
+      "nodes": [
         {
-          "label": "BEYİN MODU",
-          "left": "Savunma kalkanı açık",
-          "right": "Tehditsiz güvenli alan",
-          "winner": "right"
+          "id": "kreatin",
+          "label": "KREATİN"
         },
         {
-          "label": "AYNA NÖRON",
-          "left": "Kilitli ve baskılı",
-          "right": "Anında empati tetikleme",
-          "winner": "right"
+          "id": "su",
+          "label": "SU DEPOSU"
         },
         {
-          "label": "TAŞMA TEPKİSİ",
-          "left": "Gözyaşı kilitlenir",
-          "right": "Birikmiş duygu deşarjı",
-          "winner": "right"
+          "id": "kas",
+          "label": "KAS HÜCRESİ"
+        },
+        {
+          "id": "beyin",
+          "label": "BEYİN GÜCÜ"
+        }
+      ],
+      "steps": [
+        {
+          "from": "kreatin",
+          "to": "su",
+          "packet": "SU",
+          "status": "suyu yağ değil kas içine çeker",
+          "color": "accent"
+        },
+        {
+          "from": "kreatin",
+          "to": "kas",
+          "packet": "GÜÇ",
+          "status": "son tekrarda o gücü buldurur",
+          "color": "good"
+        },
+        {
+          "from": "kreatin",
+          "to": "beyin",
+          "packet": "ENERJİ",
+          "status": "sisli kafayı anında netleştirir",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Büyük krizlerde taş gibi durup 30 saniyelik bayram reklamında gözyaşlarına boğulmanın bilimsel açıklaması var.\n\nReklam gözyaşı mekanizması adım adım şöyle çalışır:\n\n1. Mikro Dışlanma Acısı: Kombin grubunda gelen örtük bir iğnelemeyi geçiştirirsin ama beyin bunu fiziksel yaralanmayla aynı acı yolunda işler.\n2. Nörolojik Bastırma: Sosyal bağları korumak adına zihnin gün boyu bu acıyı baskılamak için devasa bir enerji harcar.\n3. Güvenli Limanda Deşarj: Akşam ekran karşısında hiçbir tehdit içermeyen bir reklam görünce, gün boyu kilitlenen frenler anında gevşer.\n\nAslında ağlatan sponsorlu film değil, gün boyu içe atılan yorgunluğun güvenli liman bulmasıdır.\n\n📌 Kaydet — bir dahaki duygusal patlamada kendini suçlama.\n🔁 Bunu mağazadan planladığından hep fazlasıyla çıkan arkadaşına gönder.\nSen de en son hangi reklamda duygulandın?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "O aynanın önünde saatlerce poz vermekle kas çalışmıyor maalesef.\n\nKreatin kullanınca erkek gibi şişeceğini sanıp köşe bucak kaçanlar, toplanın. İşin aslı çok başka:\n\n1. Hücre İçi Akvaryum — Kreatin seni sünger gibi şişirip ödem yapmaz. Suyu derinin altında değil, doğrudan kas hücrelerinin içine çeker. Yani pofuduk değil, sıkı görünürsün.\n2. Östrojen Desteği — Kadınlarda malum dönemlerde östrojen düşünce hücresel enerji üretimi de yerlerde sürünür. Kreatin tam burada devreye girip o boşalan enerji depolarını jet hızıyla doldurur.\n3. Sisli Beyne Son — Sadece antrenmanda son iki tekrarı çıkarmakla kalmazsın; hani o öğleden sonra gelen kafa karışıklığı var ya, onu da siler süpürür.\n\nSeçerken süslü ambalajlara aldanma, tek ihtiyacın olan şey saf kreatin monohidrat. Gerisi tamamen pazarlama yalanı.\n\nAynadaki ışıkla değil, hücrendeki gerçek enerjiyle parlaman dileğiyle.\n\n📌 Kaydet — bir dahaki antrenman krizinde lazım olacak.\n\n🔁 Bunu salonda hep aynı ışıklı açıda poz veren o arkadaşına gönder.\n\nSen hiç kreatin denedin mi yoksa şişerim diye korktun mu?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#merak",
-    "#kadınlar",
-    "#günlükhayat",
-    "#nedenoluyor",
-    "#psikoloji",
-    "#aynanöron",
-    "#reklamgözyaşı"
+    "#saglikliyasam",
+    "#sporyapanlar",
+    "#kreatin",
+    "#kadinvespor",
+    "#kasgelisimi",
+    "#antrenman"
   ],
-  "takeaway": "Ağlatan sponsorlu film değil, gün boyu kilitlediğin duygu yükün.",
+  "takeaway": "Şişme korkusuyla kaçtığın o toz, aslında beynini de çalıştırıyor.",
   "footage_queries": [
-    "cozy home interior soft light",
-    "blanket folded on sofa close up"
+    "dumbbell on gym floor close up",
+    "protein shaker bottle close up"
   ],
   "narration": [
-    "Reklamda neden aniden gözün doluyor?",
-    "Arkadaş grubundaki ufak bir laf sokmayı gün boyu yutuyorsun.",
-    "Beyin bu sosyal acıyı gerçek bir fiziksel yara sayıyor.",
-    "Akşam risksiz reklamı görünce bütün o bastırılmış fren gevşiyor.",
-    "Ağlatan sponsorlu film değil, gün boyu bastırdığın kendi yorgunluğun."
+    "O ayna kasını değil ışığı övüyor.",
+    "Östrojen düştüğünde pilin biter, bu toz suyu kasına kilitler.",
+    "Deri altı ödemi değil, kas içi dolgunluk ve sıkılık verir.",
+    "Sadece popoyu dikleştirmez, o sisli kafayı da anında açar.",
+    "Erkek tozu sanıp kaçtığın şey aslında senin gizli gücündür."
   ],
-  "subject": "reklam gözyaşı",
-  "sendTo": "mağazadan planladığından hep fazlasıyla çıkan arkadaşına",
-  "soru": "Sen de en son hangi reklamda duygulandın?",
-  "theme": "#7de2d1",
+  "subject": "kreatin",
+  "sendTo": "salonda hep aynı ışıklı açıda poz veren o arkadaşına",
+  "soru": "Sen hiç kreatin denedin mi yoksa şişerim diye korktun mu?",
+  "theme": "#c9a227",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "buildup",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Reklamda neden aniden gözün doluyor?",
+      "text": "O ayna kasını değil ışığı övüyor.",
       "start": 0.35,
-      "dur": 2.536
+      "dur": 2.454
     },
     {
-      "text": "Arkadaş grubundaki ufak bir laf sokmayı gün boyu yutuyorsun.",
-      "start": 2.886,
-      "dur": 4.226
+      "text": "Östrojen düştüğünde pilin biter, bu toz suyu kasına kilitler.",
+      "start": 2.804,
+      "dur": 4.537
     },
     {
-      "text": "Beyin bu sosyal acıyı gerçek bir fiziksel yara sayıyor.",
-      "start": 7.111,
-      "dur": 3.874
+      "text": "Deri altı ödemi değil, kas içi dolgunluk ve sıkılık verir.",
+      "start": 7.341,
+      "dur": 4.314
     },
     {
-      "text": "Akşam risksiz reklamı görünce bütün o bastırılmış fren gevşiyor.",
-      "start": 10.985,
-      "dur": 4.508
+      "text": "Sadece popoyu dikleştirmez, o sisli kafayı da anında açar.",
+      "start": 11.655,
+      "dur": 4.314
     },
     {
-      "text": "Ağlatan sponsorlu film değil, gün boyu bastırdığın kendi yorgunluğun.",
-      "start": 15.493,
-      "dur": 5.96
+      "text": "Erkek tozu sanıp kaçtığın şey aslında senin gizli gücündür.",
+      "start": 15.969,
+      "dur": 5.488
     }
   ]
 }
