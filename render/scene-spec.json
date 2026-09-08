@@ -1,60 +1,60 @@
 {
-  "hook": "Kavanoz kremi banyoda çürüten arkadaşın.",
-  "title": "Kavanoz Krem vs Pompalı Krem",
+  "hook": "Büyük krizde ağlamayıp reklama neden doluyorsun?",
+  "title": "Reklam Gözyaşının Gizli Mekanizması",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "KAVANOZ KREM",
-      "right": "POMPALI KREM",
+      "left": "GERÇEK DERT",
+      "right": "30 SN REKLAM",
       "rows": [
         {
-          "label": "HAVA TEMASI",
-          "left": "Sürekli oksitlenme",
-          "right": "Sıfır hava teması",
+          "label": "BEYİN MODU",
+          "left": "Savunma kalkanı açık",
+          "right": "Tehditsiz güvenli alan",
           "winner": "right"
         },
         {
-          "label": "HİJYEN",
-          "left": "Bakteri şenliği",
-          "right": "Tamamen steril",
+          "label": "AYNA NÖRON",
+          "left": "Kilitli ve baskılı",
+          "right": "Anında empati tetikleme",
           "winner": "right"
         },
         {
-          "label": "AKTİF KORUMA",
-          "left": "Hızlı bozulan formül",
-          "right": "Son damlaya kadar aktif",
+          "label": "TAŞMA TEPKİSİ",
+          "left": "Gözyaşı kilitlenir",
+          "right": "Birikmiş duygu deşarjı",
           "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Kavanoz kremleri banyoda çürütüp sonra 'bu krem bana yaramadı, yüzümü yaktı' diyoruz. Ama işin aslı çok başka!\n\nKavanoz krem vs pompalı krem savaşı, adım adım cildine ne yapıyor:\n\n1. Hava Teması — Kapağı her açtığında içeri giren oksijen, o çok güvendiğin pahalı aktifleri uçuruyor.\n2. Bakteri İstilası — Parmağından kreme geçen bakteriler boş durmuyor. Salgıladıkları enzimlerle kremin o güzelim faydalı yağlarını parçalayıp serbest asitlere dönüştürüyor. Sen bunu sürünce de cilt bariyerin delik deşik oluyor, asitler doğrudan sinir uçlarına dokunup yüzünde aniden o meşhur batma ve yanma hissini yaratıyor. Sen de 'parfüm alerjisi yaptı' sanıyorsun, oysa krem bildiğin asit bombasına dönüştü!\n3. Akıllı Çözüm — Pompalı veya tüp ambalajlar ise formülü hem havadan hem de bu davetsiz misafirlerden koruyarak son damlaya kadar taze tutuyor.\n\nCilt bakımında sadece içeriğe değil, o içeriği koruyan ambalaja da para ödüyoruz. Kavanozu parmaklamaya devam edersek yakında kendi küçük bakteri cumhuriyetimizi kuracağız.\n\n📌 Kaydet — bir sonraki krem alışverişinde aklında olsun.\n\n🔁 Bunu banyoda ağzı açık kavanoz krem biriktiren arkadaşına gönder.\n\nSen hangisini tercih ediyorsun: Kavanoz mu, pompalı mı?\n\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Büyük krizlerde taş gibi durup 30 saniyelik bayram reklamında gözyaşlarına boğulmanın bilimsel açıklaması var.\n\nReklam gözyaşı mekanizması adım adım şöyle çalışır:\n\n1. Mikro Dışlanma Acısı: Kombin grubunda gelen örtük bir iğnelemeyi geçiştirirsin ama beyin bunu fiziksel yaralanmayla aynı acı yolunda işler.\n2. Nörolojik Bastırma: Sosyal bağları korumak adına zihnin gün boyu bu acıyı baskılamak için devasa bir enerji harcar.\n3. Güvenli Limanda Deşarj: Akşam ekran karşısında hiçbir tehdit içermeyen bir reklam görünce, gün boyu kilitlenen frenler anında gevşer.\n\nAslında ağlatan sponsorlu film değil, gün boyu içe atılan yorgunluğun güvenli liman bulmasıdır.\n\n📌 Kaydet — bir dahaki duygusal patlamada kendini suçlama.\n🔁 Bunu mağazadan planladığından hep fazlasıyla çıkan arkadaşına gönder.\nSen de en son hangi reklamda duygulandın?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#ciltbakimi",
-    "#güzellik",
-    "#nemlendirici",
-    "#ciltbariyeri",
-    "#skincare",
-    "#kozmetik",
-    "#bakımönerileri"
+    "#merak",
+    "#kadınlar",
+    "#günlükhayat",
+    "#nedenoluyor",
+    "#psikoloji",
+    "#aynanöron",
+    "#reklamgözyaşı"
   ],
-  "takeaway": "O pahalı krem artık sadece bakteri yuvası.",
+  "takeaway": "Ağlatan sponsorlu film değil, gün boyu kilitlediğin duygu yükün.",
   "footage_queries": [
-    "hand opening jar macro",
-    "hand pumping bottle close up"
+    "cozy home interior soft light",
+    "blanket folded on sofa close up"
   ],
   "narration": [
-    "O kavanoz kremini artık parmaklama.",
-    "Açık kapağa doluşan hava, kremdeki tüm o aktifleri söndürüyor.",
-    "Parmak bakterileri kremin yağını aside çevirip yüzünü aniden yakıyor.",
-    "Pompalı şişe ise formülü canavar gibi koruyup taze tutuyor.",
-    "O pahalı krem artık sadece bakteri yuvası."
+    "Reklamda neden aniden gözün doluyor?",
+    "Arkadaş grubundaki ufak bir laf sokmayı gün boyu yutuyorsun.",
+    "Beyin bu sosyal acıyı gerçek bir fiziksel yara sayıyor.",
+    "Akşam risksiz reklamı görünce bütün o bastırılmış fren gevşiyor.",
+    "Ağlatan sponsorlu film değil, gün boyu bastırdığın kendi yorgunluğun."
   ],
-  "subject": "kavanoz krem",
-  "sendTo": "banyoda ağzı açık kavanoz krem biriktiren arkadaşına",
-  "soru": "Sen hangisini tercih ediyorsun: Kavanoz mu, pompalı mı?",
-  "theme": "#7fb3a5",
+  "subject": "reklam gözyaşı",
+  "sendTo": "mağazadan planladığından hep fazlasıyla çıkan arkadaşına",
+  "soru": "Sen de en son hangi reklamda duygulandın?",
+  "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
     "signoff": "her şeyin bir sebebi var",
@@ -78,29 +78,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "O kavanoz kremini artık parmaklama.",
+      "text": "Reklamda neden aniden gözün doluyor?",
       "start": 0.35,
-      "dur": 2.377
+      "dur": 2.536
     },
     {
-      "text": "Açık kapağa doluşan hava, kremdeki tüm o aktifleri söndürüyor.",
-      "start": 2.727,
-      "dur": 4.21
+      "text": "Arkadaş grubundaki ufak bir laf sokmayı gün boyu yutuyorsun.",
+      "start": 2.886,
+      "dur": 4.226
     },
     {
-      "text": "Parmak bakterileri kremin yağını aside çevirip yüzünü aniden yakıyor.",
-      "start": 6.937,
-      "dur": 4.686
+      "text": "Beyin bu sosyal acıyı gerçek bir fiziksel yara sayıyor.",
+      "start": 7.111,
+      "dur": 3.874
     },
     {
-      "text": "Pompalı şişe ise formülü canavar gibi koruyup taze tutuyor.",
-      "start": 11.622,
-      "dur": 4.006
+      "text": "Akşam risksiz reklamı görünce bütün o bastırılmış fren gevşiyor.",
+      "start": 10.985,
+      "dur": 4.508
     },
     {
-      "text": "O pahalı krem artık sadece bakteri yuvası.",
-      "start": 15.629,
-      "dur": 3.952
+      "text": "Ağlatan sponsorlu film değil, gün boyu bastırdığın kendi yorgunluğun.",
+      "start": 15.493,
+      "dur": 5.96
     }
   ]
 }

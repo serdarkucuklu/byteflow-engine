@@ -444,10 +444,10 @@
     "insightsAt": "2026-09-08T19:48:18.369Z"
   },
   {
-    "title": "Islak Saçla Dışarı Çıkmak Hasta Eder mi?",
-    "subject": "ıslak saç",
-    "twist": "zaman",
-    "pillar": "sehir-efsanesi",
+    "title": "Reklam Gözyaşının Gizli Mekanizması",
+    "subject": "reklam gözyaşı",
+    "twist": "magaza-danismani",
+    "pillar": "arkadaslik-kodu",
     "layout": "vertical-stack",
     "kinds": "versus",
     "motion": "orbit",
@@ -455,14 +455,14 @@
     "source": "gemini",
     "footage": [
       "pexels:socks on wooden floor close up",
-      "pexels:slippers on wooden floor close up",
+      "pexels:blanket folded on sofa close up",
       "pexels:alarm clock on nightstand close up",
       "pexels:bathroom mirror steam close up"
     ],
     "voice": 5,
-    "voiceName": "Kore",
+    "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Islak saçın hasta ettiği efsanesi, suyun buharlaşırken kafa derisindeki kılcal damarlardan çektiği yüksek gizli ısı yüzü",
+    "sir": "Yakın arkadaş grubundaki bir kombin oylamasında gelen örtük iğnelemeyi veya dışlanma korkusuyla susmayı 'önemsiz' sayıp ",
     "sirUygulandi": "kismi",
     "sirAtlandi": null,
     "date": "2026-09-08",

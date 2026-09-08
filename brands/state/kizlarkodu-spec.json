@@ -1,58 +1,59 @@
 {
-  "hook": "Dolap önünde ıslak saçla sabahı harcayan o arkadaşın...",
-  "title": "Islak Saçla Dışarı Çıkmak Hasta Eder mi?",
+  "hook": "Büyük krizde ağlamayıp reklama neden doluyorsun?",
+  "title": "Reklam Gözyaşının Gizli Mekanizması",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "ANNENİN KORKUSU",
-      "right": "BİLİMİN GERÇEĞİ",
+      "left": "GERÇEK DERT",
+      "right": "30 SN REKLAM",
       "rows": [
         {
-          "label": "HASTALIK SEBEBİ",
-          "left": "Sadece soğuk ve rüzgar",
-          "right": "Havadaki virüsler",
+          "label": "BEYİN MODU",
+          "left": "Savunma kalkanı açık",
+          "right": "Tehditsiz güvenli alan",
           "winner": "right"
         },
         {
-          "label": "VÜCUTTAKİ DEĞİŞİM",
-          "left": "Beynin üşümesi",
-          "right": "Burun damarı daralması",
+          "label": "AYNA NÖRON",
+          "left": "Kilitli ve baskılı",
+          "right": "Anında empati tetikleme",
           "winner": "right"
         },
         {
-          "label": "KAYBOLAN ZAMAN",
-          "left": "Kurutma süresi 10 dk",
-          "right": "Kombin seçimi 20 dk",
+          "label": "TAŞMA TEPKİSİ",
+          "left": "Gözyaşı kilitlenir",
+          "right": "Birikmiş duygu deşarjı",
           "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Sabahları ıslak saçla dolabın önünde kombin aramaktan donduk.\n\nIslak saçla dolap önünde donmanın gerçek mekanizması:\n\n1. Isı Hırsızı — Saçındaki su buharlaşırken kafa derindeki kılcal damarlardan adeta sünger gibi yüksek ısı çeker.\n2. Titreme Refleksi — Suyun yüksek ısı iletkenliği yüzünden vücut sıcaklığın anında düşer ve aniden titremeye başlarsın. Yani o üşüme virüsten değil, suyun fiziğindendir.\n3. Zaman Tuzağı — Saçını kurutmadan kombin aramak, vücudunu bilerek soğutucuya sokup kararsızca beklemektir.\n\nÖnce saçını kurutup kombini öyle seçmek seni titremekten kurtarır.\n\nKombin yine olmayacak ama en azından buz tutmadan dolap önünde ağlarsın.\n\n📌 Kaydet — yarın sabah kombin seçerken lazım olacak.\n\n🔁 Bunu her sabah dolabın önünde 20 dakika kaybeden arkadaşına gönder.\n\nSen de sabahları dolap önünde saatlerce bekleyenlerden misin?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Büyük krizlerde taş gibi durup 30 saniyelik bayram reklamında gözyaşlarına boğulmanın bilimsel açıklaması var.\n\nReklam gözyaşı mekanizması adım adım şöyle çalışır:\n\n1. Mikro Dışlanma Acısı: Kombin grubunda gelen örtük bir iğnelemeyi geçiştirirsin ama beyin bunu fiziksel yaralanmayla aynı acı yolunda işler.\n2. Nörolojik Bastırma: Sosyal bağları korumak adına zihnin gün boyu bu acıyı baskılamak için devasa bir enerji harcar.\n3. Güvenli Limanda Deşarj: Akşam ekran karşısında hiçbir tehdit içermeyen bir reklam görünce, gün boyu kilitlenen frenler anında gevşer.\n\nAslında ağlatan sponsorlu film değil, gün boyu içe atılan yorgunluğun güvenli liman bulmasıdır.\n\n📌 Kaydet — bir dahaki duygusal patlamada kendini suçlama.\n🔁 Bunu mağazadan planladığından hep fazlasıyla çıkan arkadaşına gönder.\nSen de en son hangi reklamda duygulandın?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
+    "#kadınlar",
     "#günlükhayat",
     "#nedenoluyor",
-    "#saçbakımı",
-    "#sağlık",
-    "#ıslaksaç"
+    "#psikoloji",
+    "#aynanöron",
+    "#reklamgözyaşı"
   ],
-  "takeaway": "Kombin seçerken donmak yerine saçını kurutup öyle düşün.",
+  "takeaway": "Ağlatan sponsorlu film değil, gün boyu kilitlediğin duygu yükün.",
   "footage_queries": [
-    "wardrobe door open close up",
-    "hairbrush on table close up"
+    "cozy home interior soft light",
+    "blanket folded on sofa close up"
   ],
   "narration": [
-    "Dolap önünde ıslak saçla bekliyoruz.",
-    "Saçındaki ıslaklık buharlaşırken kafandaki bütün ısıyı anında emer.",
-    "Su ısıyı hızlı ilettiği için vücudun hemen titremeye başlar.",
-    "Hissedilen donma virüsten değil suyun ısıyı çekmesinden gelir.",
-    "Kombin seçerken donmak yerine önce saçını kurutup öyle düşün."
+    "Reklamda neden aniden gözün doluyor?",
+    "Arkadaş grubundaki ufak bir laf sokmayı gün boyu yutuyorsun.",
+    "Beyin bu sosyal acıyı gerçek bir fiziksel yara sayıyor.",
+    "Akşam risksiz reklamı görünce bütün o bastırılmış fren gevşiyor.",
+    "Ağlatan sponsorlu film değil, gün boyu bastırdığın kendi yorgunluğun."
   ],
-  "subject": "ıslak saç",
-  "sendTo": "her sabah dolabın önünde 20 dakika kaybeden arkadaşına",
-  "soru": "Sen de sabahları dolap önünde saatlerce bekleyenlerden misin?",
+  "subject": "reklam gözyaşı",
+  "sendTo": "mağazadan planladığından hep fazlasıyla çıkan arkadaşına",
+  "soru": "Sen de en son hangi reklamda duygulandın?",
   "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -77,30 +78,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Dolap önünde ıslak saçla bekliyoruz.",
+      "text": "Reklamda neden aniden gözün doluyor?",
       "start": 0.35,
-      "dur": 2.518
+      "dur": 2.536
     },
     {
-      "text": "Saçındaki ıslaklık buharlaşırken kafandaki bütün ısıyı anında emer.",
-      "start": 2.868,
-      "dur": 4.686
+      "text": "Arkadaş grubundaki ufak bir laf sokmayı gün boyu yutuyorsun.",
+      "start": 2.886,
+      "dur": 4.226
     },
     {
-      "text": "Su ısıyı hızlı ilettiği için vücudun hemen titremeye başlar.",
-      "start": 7.554,
-      "dur": 4.197
+      "text": "Beyin bu sosyal acıyı gerçek bir fiziksel yara sayıyor.",
+      "start": 7.111,
+      "dur": 3.874
     },
     {
-      "text": "Hissedilen donma virüsten değil suyun ısıyı çekmesinden gelir.",
-      "start": 11.751,
-      "dur": 4.336
+      "text": "Akşam risksiz reklamı görünce bütün o bastırılmış fren gevşiyor.",
+      "start": 10.985,
+      "dur": 4.508
     },
     {
-      "text": "Kombin seçerken donmak yerine önce saçını kurutup öyle düşün.",
-      "start": 16.087,
-      "dur": 5.366
+      "text": "Ağlatan sponsorlu film değil, gün boyu bastırdığın kendi yorgunluğun.",
+      "start": 15.493,
+      "dur": 5.96
     }
   ],
-  "thumbOffset": 1859
+  "thumbOffset": 1868
 }
