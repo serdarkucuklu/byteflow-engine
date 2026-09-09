@@ -1,59 +1,59 @@
 {
-  "hook": "Büyük krizde ağlamayıp reklama neden doluyorsun?",
-  "title": "Reklam Gözyaşının Gizli Mekanizması",
+  "hook": "Görüldü bırakmak net hayırdan daha pahalı.",
+  "title": "Kıskançlık Kıvılcımı",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "GERÇEK DERT",
-      "right": "30 SN REKLAM",
+      "left": "GİZEMLİ İSİM",
+      "right": "BİLİNEN RAKİP",
       "rows": [
         {
-          "label": "BEYİN MODU",
-          "left": "Savunma kalkanı açık",
-          "right": "Tehditsiz güvenli alan",
-          "winner": "right"
+          "label": "TEHDİT SİSTEMİ ALGISI",
+          "left": "Maksimum alarm verir",
+          "right": "Sadece gerçek riske bakar",
+          "winner": "left"
         },
         {
-          "label": "AYNA NÖRON",
-          "left": "Kilitli ve baskılı",
-          "right": "Anında empati tetikleme",
-          "winner": "right"
+          "label": "BEYNİN REAKSİYONU",
+          "left": "Boşlukları kendi doldurur",
+          "right": "Kanıtlanmış veriyi işler",
+          "winner": "left"
         },
         {
-          "label": "TAŞMA TEPKİSİ",
-          "left": "Gözyaşı kilitlenir",
-          "right": "Birikmiş duygu deşarjı",
-          "winner": "right"
+          "label": "KIVILCIM ETKİSİ",
+          "left": "Orantısız şekilde büyür",
+          "right": "Kontrol altında kalır",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "Büyük krizlerde taş gibi durup 30 saniyelik bayram reklamında gözyaşlarına boğulmanın bilimsel açıklaması var.\n\nReklam gözyaşı mekanizması adım adım şöyle çalışır:\n\n1. Mikro Dışlanma Acısı: Kombin grubunda gelen örtük bir iğnelemeyi geçiştirirsin ama beyin bunu fiziksel yaralanmayla aynı acı yolunda işler.\n2. Nörolojik Bastırma: Sosyal bağları korumak adına zihnin gün boyu bu acıyı baskılamak için devasa bir enerji harcar.\n3. Güvenli Limanda Deşarj: Akşam ekran karşısında hiçbir tehdit içermeyen bir reklam görünce, gün boyu kilitlenen frenler anında gevşer.\n\nAslında ağlatan sponsorlu film değil, gün boyu içe atılan yorgunluğun güvenli liman bulmasıdır.\n\n📌 Kaydet — bir dahaki duygusal patlamada kendini suçlama.\n🔁 Bunu mağazadan planladığından hep fazlasıyla çıkan arkadaşına gönder.\nSen de en son hangi reklamda duygulandın?\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Görüldü bırakmak, net bir hayırdan çok daha pahalıya patlar.\n\nKıskançlık kıvılcımının zihnimizde devasa bir tehdide dönüşme mekanizması:\n\n1. Beklenti İhlali ve Sinyal Şoku — Mesaj atıp yanıt alamadığında beyin bunu sıradan bir sessizlik olarak görmez. Beklenti bozulduğu an, beynin acı merkezi adeta fiziksel bir tokat yemiş gibi tetiklenir.\n2. Otomatik Senaryo Motoru — Bilgi eksikliği yaşandığında beyindeki Varsayılan Mod Ağı (DMN) hiper-aktif hale gelir. Kanıt aramak yerine, boşlukları doğrudan en felaket senaryolarla doldurmaya başlar.\n3. Kurgusal Yangın — Belirsizlik uzadıkça zihinsel kurgu ekibimiz tam zamanlı çalışır; küçücük bir şüphe devasa bir kıskançlık krizine dönüşür.\n\nBurada ödediğin bedel para değil, kendi ürettiğin senaryoların zihinsel faturası.\n\nMavi tik sessizdir ama içimizdeki senarist asla susmaz. Yine de o üç noktayı beklemeye devam edeceğiz.\n\n📌 Kaydet — belirsiz anlarda zihnini sakinleştirmek için lazım olacak.\n🔁 Bunu mavi tiki görüp hâlâ üç nokta bekleyen arkadaşına gönder.\nSen hangisisin: Görüldü atıp unutan mı, üç nokta bekleyen mi?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
-    "#kadınlar",
     "#günlükhayat",
     "#nedenoluyor",
-    "#psikoloji",
-    "#aynanöron",
-    "#reklamgözyaşı"
+    "#ilişkiler",
+    "#kıskançlık",
+    "#görüldübırakma",
+    "#kıskançlıkkıvılcımı"
   ],
-  "takeaway": "Ağlatan sponsorlu film değil, gün boyu kilitlediğin duygu yükün.",
+  "takeaway": "Mavi tik sessizdir ama içimizdeki senarist asla susmaz.",
   "footage_queries": [
-    "cozy home interior soft light",
-    "blanket folded on sofa close up"
+    "night lamp warm glow bedroom",
+    "alarm clock on nightstand close up"
   ],
   "narration": [
-    "Reklamda neden aniden gözün doluyor?",
-    "Arkadaş grubundaki ufak bir laf sokmayı gün boyu yutuyorsun.",
-    "Beyin bu sosyal acıyı gerçek bir fiziksel yara sayıyor.",
-    "Akşam risksiz reklamı görünce bütün o bastırılmış fren gevşiyor.",
-    "Ağlatan sponsorlu film değil, gün boyu bastırdığın kendi yorgunluğun."
+    "Görüldü bırakmak net hayırdan daha pahalı.",
+    "Mesaj yanıtsız kalınca beyin bunu bildiğin tokat yemiş gibi algılar.",
+    "Beklenti bozulunca zihnin hayal kurma motoru hemen fazla mesai yapar.",
+    "Bilgi eksik olunca kurgu ekibimiz en felaket senaryoyu yazar.",
+    "Mavi tik sessizdir ama içimizdeki senarist asla susmaz."
   ],
-  "subject": "reklam gözyaşı",
-  "sendTo": "mağazadan planladığından hep fazlasıyla çıkan arkadaşına",
-  "soru": "Sen de en son hangi reklamda duygulandın?",
+  "subject": "kıskançlık kıvılcımı",
+  "sendTo": "mavi tiki görüp hâlâ üç nokta bekleyen arkadaşına",
+  "soru": "Sen hangisisin: Görüldü atıp unutan mı, üç nokta bekleyen mi?",
   "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -78,30 +78,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Reklamda neden aniden gözün doluyor?",
+      "text": "Görüldü bırakmak net hayırdan daha pahalı.",
       "start": 0.35,
-      "dur": 2.536
+      "dur": 2.848
     },
     {
-      "text": "Arkadaş grubundaki ufak bir laf sokmayı gün boyu yutuyorsun.",
-      "start": 2.886,
-      "dur": 4.226
+      "text": "Mesaj yanıtsız kalınca beyin bunu bildiğin tokat yemiş gibi algılar.",
+      "start": 3.198,
+      "dur": 4.611
     },
     {
-      "text": "Beyin bu sosyal acıyı gerçek bir fiziksel yara sayıyor.",
-      "start": 7.111,
-      "dur": 3.874
+      "text": "Beklenti bozulunca zihnin hayal kurma motoru hemen fazla mesai yapar.",
+      "start": 7.809,
+      "dur": 4.679
     },
     {
-      "text": "Akşam risksiz reklamı görünce bütün o bastırılmış fren gevşiyor.",
-      "start": 10.985,
-      "dur": 4.508
+      "text": "Bilgi eksik olunca kurgu ekibimiz en felaket senaryoyu yazar.",
+      "start": 12.488,
+      "dur": 4.137
     },
     {
-      "text": "Ağlatan sponsorlu film değil, gün boyu bastırdığın kendi yorgunluğun.",
-      "start": 15.493,
-      "dur": 5.96
+      "text": "Mavi tik sessizdir ama içimizdeki senarist asla susmaz.",
+      "start": 16.625,
+      "dur": 4.83
     }
   ],
-  "thumbOffset": 1868
+  "thumbOffset": 2024
 }

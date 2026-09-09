@@ -1,123 +1,106 @@
 {
-  "hook": "O ayna kasını değil sadece ışığı övüyor.",
-  "title": "Kreatin Erkek Tozu Mu Yoksa Gizli Silah Mı?",
+  "hook": "Görüldü bırakmak net hayırdan daha pahalı.",
+  "title": "Kıskançlık Kıvılcımı",
   "scenes": [
     {
-      "layout": "hub-spoke",
-      "nodes": [
+      "layout": "vertical-stack",
+      "kind": "versus",
+      "left": "GİZEMLİ İSİM",
+      "right": "BİLİNEN RAKİP",
+      "rows": [
         {
-          "id": "kreatin",
-          "label": "KREATİN"
+          "label": "TEHDİT SİSTEMİ ALGISI",
+          "left": "Maksimum alarm verir",
+          "right": "Sadece gerçek riske bakar",
+          "winner": "left"
         },
         {
-          "id": "su",
-          "label": "SU DEPOSU"
+          "label": "BEYNİN REAKSİYONU",
+          "left": "Boşlukları kendi doldurur",
+          "right": "Kanıtlanmış veriyi işler",
+          "winner": "left"
         },
         {
-          "id": "kas",
-          "label": "KAS HÜCRESİ"
-        },
-        {
-          "id": "beyin",
-          "label": "BEYİN GÜCÜ"
-        }
-      ],
-      "steps": [
-        {
-          "from": "kreatin",
-          "to": "su",
-          "packet": "SU",
-          "status": "suyu yağ değil kas içine çeker",
-          "color": "accent"
-        },
-        {
-          "from": "kreatin",
-          "to": "kas",
-          "packet": "GÜÇ",
-          "status": "son tekrarda o gücü buldurur",
-          "color": "good"
-        },
-        {
-          "from": "kreatin",
-          "to": "beyin",
-          "packet": "ENERJİ",
-          "status": "sisli kafayı anında netleştirir",
-          "color": "accent"
+          "label": "KIVILCIM ETKİSİ",
+          "left": "Orantısız şekilde büyür",
+          "right": "Kontrol altında kalır",
+          "winner": "left"
         }
       ]
     }
   ],
-  "caption": "O aynanın önünde saatlerce poz vermekle kas çalışmıyor maalesef.\n\nKreatin kullanınca erkek gibi şişeceğini sanıp köşe bucak kaçanlar, toplanın. İşin aslı çok başka:\n\n1. Hücre İçi Akvaryum — Kreatin seni sünger gibi şişirip ödem yapmaz. Suyu derinin altında değil, doğrudan kas hücrelerinin içine çeker. Yani pofuduk değil, sıkı görünürsün.\n2. Östrojen Desteği — Kadınlarda malum dönemlerde östrojen düşünce hücresel enerji üretimi de yerlerde sürünür. Kreatin tam burada devreye girip o boşalan enerji depolarını jet hızıyla doldurur.\n3. Sisli Beyne Son — Sadece antrenmanda son iki tekrarı çıkarmakla kalmazsın; hani o öğleden sonra gelen kafa karışıklığı var ya, onu da siler süpürür.\n\nSeçerken süslü ambalajlara aldanma, tek ihtiyacın olan şey saf kreatin monohidrat. Gerisi tamamen pazarlama yalanı.\n\nAynadaki ışıkla değil, hücrendeki gerçek enerjiyle parlaman dileğiyle.\n\n📌 Kaydet — bir dahaki antrenman krizinde lazım olacak.\n\n🔁 Bunu salonda hep aynı ışıklı açıda poz veren o arkadaşına gönder.\n\nSen hiç kreatin denedin mi yoksa şişerim diye korktun mu?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Görüldü bırakmak, net bir hayırdan çok daha pahalıya patlar.\n\nKıskançlık kıvılcımının zihnimizde devasa bir tehdide dönüşme mekanizması:\n\n1. Beklenti İhlali ve Sinyal Şoku — Mesaj atıp yanıt alamadığında beyin bunu sıradan bir sessizlik olarak görmez. Beklenti bozulduğu an, beynin acı merkezi adeta fiziksel bir tokat yemiş gibi tetiklenir.\n2. Otomatik Senaryo Motoru — Bilgi eksikliği yaşandığında beyindeki Varsayılan Mod Ağı (DMN) hiper-aktif hale gelir. Kanıt aramak yerine, boşlukları doğrudan en felaket senaryolarla doldurmaya başlar.\n3. Kurgusal Yangın — Belirsizlik uzadıkça zihinsel kurgu ekibimiz tam zamanlı çalışır; küçücük bir şüphe devasa bir kıskançlık krizine dönüşür.\n\nBurada ödediğin bedel para değil, kendi ürettiğin senaryoların zihinsel faturası.\n\nMavi tik sessizdir ama içimizdeki senarist asla susmaz. Yine de o üç noktayı beklemeye devam edeceğiz.\n\n📌 Kaydet — belirsiz anlarda zihnini sakinleştirmek için lazım olacak.\n🔁 Bunu mavi tiki görüp hâlâ üç nokta bekleyen arkadaşına gönder.\nSen hangisisin: Görüldü atıp unutan mı, üç nokta bekleyen mi?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#saglikliyasam",
-    "#sporyapanlar",
-    "#kreatin",
-    "#kadinvespor",
-    "#kasgelisimi",
-    "#antrenman"
+    "#merak",
+    "#günlükhayat",
+    "#nedenoluyor",
+    "#ilişkiler",
+    "#kıskançlık",
+    "#görüldübırakma",
+    "#kıskançlıkkıvılcımı"
   ],
-  "takeaway": "Şişme korkusuyla kaçtığın o toz, aslında beynini de çalıştırıyor.",
+  "takeaway": "Mavi tik sessizdir ama içimizdeki senarist asla susmaz.",
   "footage_queries": [
-    "dumbbell on gym floor close up",
-    "protein shaker bottle close up"
+    "night lamp warm glow bedroom",
+    "alarm clock on nightstand close up"
   ],
   "narration": [
-    "O ayna kasını değil ışığı övüyor.",
-    "Östrojen düştüğünde pilin biter, bu toz suyu kasına kilitler.",
-    "Deri altı ödemi değil, kas içi dolgunluk ve sıkılık verir.",
-    "Sadece popoyu dikleştirmez, o sisli kafayı da anında açar.",
-    "Erkek tozu sanıp kaçtığın şey aslında senin gizli gücündür."
+    "Görüldü bırakmak net hayırdan daha pahalı.",
+    "Mesaj yanıtsız kalınca beyin bunu bildiğin tokat yemiş gibi algılar.",
+    "Beklenti bozulunca zihnin hayal kurma motoru hemen fazla mesai yapar.",
+    "Bilgi eksik olunca kurgu ekibimiz en felaket senaryoyu yazar.",
+    "Mavi tik sessizdir ama içimizdeki senarist asla susmaz."
   ],
-  "subject": "kreatin",
-  "sendTo": "salonda hep aynı ışıklı açıda poz veren o arkadaşına",
-  "soru": "Sen hiç kreatin denedin mi yoksa şişerim diye korktun mu?",
-  "theme": "#c9a227",
+  "subject": "kıskançlık kıvılcımı",
+  "sendTo": "mavi tiki görüp hâlâ üç nokta bekleyen arkadaşına",
+  "soru": "Sen hangisisin: Görüldü atıp unutan mı, üç nokta bekleyen mi?",
+  "theme": "#7de2d1",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "O ayna kasını değil ışığı övüyor.",
+      "text": "Görüldü bırakmak net hayırdan daha pahalı.",
       "start": 0.35,
-      "dur": 2.454
+      "dur": 2.848
     },
     {
-      "text": "Östrojen düştüğünde pilin biter, bu toz suyu kasına kilitler.",
-      "start": 2.804,
-      "dur": 4.537
+      "text": "Mesaj yanıtsız kalınca beyin bunu bildiğin tokat yemiş gibi algılar.",
+      "start": 3.198,
+      "dur": 4.611
     },
     {
-      "text": "Deri altı ödemi değil, kas içi dolgunluk ve sıkılık verir.",
-      "start": 7.341,
-      "dur": 4.314
+      "text": "Beklenti bozulunca zihnin hayal kurma motoru hemen fazla mesai yapar.",
+      "start": 7.809,
+      "dur": 4.679
     },
     {
-      "text": "Sadece popoyu dikleştirmez, o sisli kafayı da anında açar.",
-      "start": 11.655,
-      "dur": 4.314
+      "text": "Bilgi eksik olunca kurgu ekibimiz en felaket senaryoyu yazar.",
+      "start": 12.488,
+      "dur": 4.137
     },
     {
-      "text": "Erkek tozu sanıp kaçtığın şey aslında senin gizli gücündür.",
-      "start": 15.969,
-      "dur": 5.488
+      "text": "Mavi tik sessizdir ama içimizdeki senarist asla susmaz.",
+      "start": 16.625,
+      "dur": 4.83
     }
   ]
 }
