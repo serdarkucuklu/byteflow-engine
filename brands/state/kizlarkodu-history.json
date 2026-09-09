@@ -444,17 +444,17 @@
     "insightsAt": "2026-09-09T19:38:31.756Z"
   },
   {
-    "title": "Kıskançlık Kıvılcımı",
-    "subject": "kıskançlık kıvılcımı",
-    "twist": "goruldu-birakma",
-    "pillar": "kiskanclik-radari",
+    "title": "Fotoğraf Yüzü: Aynadaki İmaj Neden Değişir?",
+    "subject": "fotoğraf yüzü",
+    "twist": "magaza-danismani",
+    "pillar": "kiyas-ve-ayna",
     "layout": "vertical-stack",
     "kinds": "versus",
     "motion": "orbit",
     "theme": "#7de2d1",
     "source": "gemini",
     "footage": [
-      "pexels:night lamp warm glow bedroom",
+      "pexels:window fog condensation morning",
       "pexels:blanket folded on sofa close up",
       "pexels:alarm clock on nightstand close up",
       "pexels:bathroom mirror steam close up"
@@ -462,7 +462,7 @@
     "voice": 5,
     "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "İlişkisel bir mikro-sinyalde yanıt alamamak veya üçüncü kişiye yönelen bir etkileşim görmek beyinde 'beklenti ihlali' ya",
+    "sir": "Her gün aynada gördüğün yüzün aslında kendi asimetrilerinin ters dönmüş versiyonudur ve beynin 'tanıdık' olan bu görüntü",
     "sirUygulandi": "kismi",
     "sirAtlandi": null,
     "date": "2026-09-09",

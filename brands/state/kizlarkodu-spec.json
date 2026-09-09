@@ -1,59 +1,58 @@
 {
-  "hook": "Görüldü bırakmak net hayırdan daha pahalı.",
-  "title": "Kıskançlık Kıvılcımı",
+  "hook": "Kabin aynasında harika durup fotoğrafta neden garip gelir?",
+  "title": "Fotoğraf Yüzü: Aynadaki İmaj Neden Değişir?",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "GİZEMLİ İSİM",
-      "right": "BİLİNEN RAKİP",
+      "left": "AYNADAKİ YÜZÜN",
+      "right": "FOTOĞRAFTAKİ YÜZÜN",
       "rows": [
         {
-          "label": "TEHDİT SİSTEMİ ALGISI",
-          "left": "Maksimum alarm verir",
-          "right": "Sadece gerçek riske bakar",
+          "label": "GÖRÜNTÜ AÇISI",
+          "left": "Yansıma ters simetri",
+          "right": "Düz gerçek görünüm",
           "winner": "left"
         },
         {
-          "label": "BEYNİN REAKSİYONU",
-          "left": "Boşlukları kendi doldurur",
-          "right": "Kanıtlanmış veriyi işler",
+          "label": "BEYİN ALGISI",
+          "left": "Tanıdık ve güvenli",
+          "right": "Yabancı asimetri",
           "winner": "left"
         },
         {
-          "label": "KIVILCIM ETKİSİ",
-          "left": "Orantısız şekilde büyür",
-          "right": "Kontrol altında kalır",
+          "label": "LENS ETKİSİ",
+          "left": "Göz odak derinliği",
+          "right": "Kamera bükülmesi",
           "winner": "left"
         }
       ]
     }
   ],
-  "caption": "Görüldü bırakmak, net bir hayırdan çok daha pahalıya patlar.\n\nKıskançlık kıvılcımının zihnimizde devasa bir tehdide dönüşme mekanizması:\n\n1. Beklenti İhlali ve Sinyal Şoku — Mesaj atıp yanıt alamadığında beyin bunu sıradan bir sessizlik olarak görmez. Beklenti bozulduğu an, beynin acı merkezi adeta fiziksel bir tokat yemiş gibi tetiklenir.\n2. Otomatik Senaryo Motoru — Bilgi eksikliği yaşandığında beyindeki Varsayılan Mod Ağı (DMN) hiper-aktif hale gelir. Kanıt aramak yerine, boşlukları doğrudan en felaket senaryolarla doldurmaya başlar.\n3. Kurgusal Yangın — Belirsizlik uzadıkça zihinsel kurgu ekibimiz tam zamanlı çalışır; küçücük bir şüphe devasa bir kıskançlık krizine dönüşür.\n\nBurada ödediğin bedel para değil, kendi ürettiğin senaryoların zihinsel faturası.\n\nMavi tik sessizdir ama içimizdeki senarist asla susmaz. Yine de o üç noktayı beklemeye devam edeceğiz.\n\n📌 Kaydet — belirsiz anlarda zihnini sakinleştirmek için lazım olacak.\n🔁 Bunu mavi tiki görüp hâlâ üç nokta bekleyen arkadaşına gönder.\nSen hangisisin: Görüldü atıp unutan mı, üç nokta bekleyen mi?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kabin aynasında aşırı tatlı duran o elbisenin fotoğrafta patates çuvalı gibi durma sebebi nihayet çözüldü! 🕵️‍♀️\n\nOlay ne biliyor musun? Kabindeki o tatlı danışman abla sana yalan söylemiyor, boşuna günahını alma. Suç tamamen beyninin konfor düşkünlüğünde.\n\n1. Sık Maruz Kalma Etkisi: Her gün aynada gördüğün o 'ters' yansımaya o kadar alıştın ki, beynin bunu senin tek gerçek halin sanıyor. En güvenli limanı orası.\n2. Simetri Kırılması: Telefon kamerası seni 'düz' açıyla, yani başkalarının gördüğü gerçek halinle çekiyor. Beynin o milimetrik asimetrileri ters dönmemiş görünce panikleyip 'Bu ne, çok garip!' diye alarm veriyor.\n3. Algı Oyunu: Yani aslında çirkin çıkmıyorsun, sadece beynin alışık olmadığı bu yeni açıyı doğrudan 'estetiksiz' diye etiketleyip geçiyor.\n\nKısacası o elbise de sen de harikasınız. Tek sorun, kameranın aynayı ters çevirmemesi!\n\n📌 Kaydet — fotoğrafta kendini beğenmeyip depresyona girdiğinde açıp okursun.\n🔁 Bunu mağazada 'çok yakıştı' denen kıyafeti fotoğrafta beğenmeyen arkadaşına gönder.\n\nSen hangisisin: ayna yüzünü seven mi, fotoğraf yüzünü seven mi?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#günlükhayat",
-    "#nedenoluyor",
-    "#ilişkiler",
-    "#kıskançlık",
-    "#görüldübırakma",
-    "#kıskançlıkkıvılcımı"
+    "#fotoğrafyüzü",
+    "#kıyasaynası",
+    "#psikoloji",
+    "#algı"
   ],
-  "takeaway": "Mavi tik sessizdir ama içimizdeki senarist asla susmaz.",
+  "takeaway": "Danışman haklıydı, elbise güzeldi; yabancı gelen sadece düz kameraydı.",
   "footage_queries": [
-    "night lamp warm glow bedroom",
-    "alarm clock on nightstand close up"
+    "bathroom mirror steam close up",
+    "wardrobe door open close up"
   ],
   "narration": [
-    "Görüldü bırakmak net hayırdan daha pahalı.",
-    "Mesaj yanıtsız kalınca beyin bunu bildiğin tokat yemiş gibi algılar.",
-    "Beklenti bozulunca zihnin hayal kurma motoru hemen fazla mesai yapar.",
-    "Bilgi eksik olunca kurgu ekibimiz en felaket senaryoyu yazar.",
-    "Mavi tik sessizdir ama içimizdeki senarist asla susmaz."
+    "Fotoğrafta neden kendimizi garip buluruz?",
+    "Aynadaki ters görüntün beynine yıllardır aşırı güvenli ve tanıdık geliyor.",
+    "Kamera seni düz çekince alıştığın o ters simetri aniden bozuluyor.",
+    "Beynin bu yabancı açıyı hemen çirkinmişsin gibi etiketleyip seni yanıltıyor.",
+    "Suç senin yüzünde değil, beynin sadece alışık olduğu simetriyi arıyor."
   ],
-  "subject": "kıskançlık kıvılcımı",
-  "sendTo": "mavi tiki görüp hâlâ üç nokta bekleyen arkadaşına",
-  "soru": "Sen hangisisin: Görüldü atıp unutan mı, üç nokta bekleyen mi?",
+  "subject": "fotoğraf yüzü",
+  "sendTo": "mağazada 'çok yakıştı' denen kıyafeti fotoğrafta beğenmeyen arkadaşına",
+  "soru": "Sen hangisisin: ayna yüzünü seven mi, fotoğraf yüzünü seven mi?",
   "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -78,30 +77,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Görüldü bırakmak net hayırdan daha pahalı.",
+      "text": "Fotoğrafta neden kendimizi garip buluruz?",
       "start": 0.35,
-      "dur": 2.848
+      "dur": 2.508
     },
     {
-      "text": "Mesaj yanıtsız kalınca beyin bunu bildiğin tokat yemiş gibi algılar.",
-      "start": 3.198,
-      "dur": 4.611
+      "text": "Aynadaki ters görüntün beynine yıllardır aşırı güvenli ve tanıdık geliyor.",
+      "start": 2.858,
+      "dur": 4.527
     },
     {
-      "text": "Beklenti bozulunca zihnin hayal kurma motoru hemen fazla mesai yapar.",
-      "start": 7.809,
-      "dur": 4.679
+      "text": "Kamera seni düz çekince alıştığın o ters simetri aniden bozuluyor.",
+      "start": 7.385,
+      "dur": 4.037
     },
     {
-      "text": "Bilgi eksik olunca kurgu ekibimiz en felaket senaryoyu yazar.",
-      "start": 12.488,
-      "dur": 4.137
+      "text": "Beynin bu yabancı açıyı hemen çirkinmişsin gibi etiketleyip seni yanıltıyor.",
+      "start": 11.422,
+      "dur": 4.649
     },
     {
-      "text": "Mavi tik sessizdir ama içimizdeki senarist asla susmaz.",
-      "start": 16.625,
-      "dur": 4.83
+      "text": "Suç senin yüzünde değil, beynin sadece alışık olduğu simetriyi arıyor.",
+      "start": 16.072,
+      "dur": 5.382
     }
   ],
-  "thumbOffset": 2024
+  "thumbOffset": 1854
 }
