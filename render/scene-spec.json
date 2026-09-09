@@ -1,58 +1,60 @@
 {
-  "hook": "Kabin aynasında harika durup fotoğrafta neden garip gelir?",
-  "title": "Fotoğraf Yüzü: Aynadaki İmaj Neden Değişir?",
+  "hook": "Eşin annesini aradığında o garip his?",
+  "title": "Eşinin Anne Bağı: Gizli Hiyerarşi",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "AYNADAKİ YÜZÜN",
-      "right": "FOTOĞRAFTAKİ YÜZÜN",
+      "left": "Geleneksel Bağ",
+      "right": "Eşle Yeni Bağ",
       "rows": [
         {
-          "label": "GÖRÜNTÜ AÇISI",
-          "left": "Yansıma ters simetri",
-          "right": "Düz gerçek görünüm",
+          "label": "ONAY MERCİİ",
+          "left": "ANNE",
+          "right": "EŞ",
           "winner": "left"
         },
         {
-          "label": "BEYİN ALGISI",
-          "left": "Tanıdık ve güvenli",
-          "right": "Yabancı asimetri",
-          "winner": "left"
+          "label": "KISKANÇLIK",
+          "left": "NORMAL",
+          "right": "YER PAYLAŞIMI",
+          "winner": "right"
         },
         {
-          "label": "LENS ETKİSİ",
-          "left": "Göz odak derinliği",
-          "right": "Kamera bükülmesi",
-          "winner": "left"
+          "label": "MEKANİZMA",
+          "left": "BAKIM + KONTROL",
+          "right": "GİZLİ HİYERARŞİ",
+          "winner": "tie"
         }
       ]
     }
   ],
-  "caption": "Kabin aynasında aşırı tatlı duran o elbisenin fotoğrafta patates çuvalı gibi durma sebebi nihayet çözüldü! 🕵️‍♀️\n\nOlay ne biliyor musun? Kabindeki o tatlı danışman abla sana yalan söylemiyor, boşuna günahını alma. Suç tamamen beyninin konfor düşkünlüğünde.\n\n1. Sık Maruz Kalma Etkisi: Her gün aynada gördüğün o 'ters' yansımaya o kadar alıştın ki, beynin bunu senin tek gerçek halin sanıyor. En güvenli limanı orası.\n2. Simetri Kırılması: Telefon kamerası seni 'düz' açıyla, yani başkalarının gördüğü gerçek halinle çekiyor. Beynin o milimetrik asimetrileri ters dönmemiş görünce panikleyip 'Bu ne, çok garip!' diye alarm veriyor.\n3. Algı Oyunu: Yani aslında çirkin çıkmıyorsun, sadece beynin alışık olmadığı bu yeni açıyı doğrudan 'estetiksiz' diye etiketleyip geçiyor.\n\nKısacası o elbise de sen de harikasınız. Tek sorun, kameranın aynayı ters çevirmemesi!\n\n📌 Kaydet — fotoğrafta kendini beğenmeyip depresyona girdiğinde açıp okursun.\n🔁 Bunu mağazada 'çok yakıştı' denen kıyafeti fotoğrafta beğenmeyen arkadaşına gönder.\n\nSen hangisisin: ayna yüzünü seven mi, fotoğraf yüzünü seven mi?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Eşin annesini aradığında içini kemiren o garip hissin sebebi ne?\n\nAslında olay basit bir 'annecilik' değil, arkasında gizli bir duygusal mekanizma var:\n\n1. Gizli Duygusal Borç: İlişkinizde her şey harika gittiğinde ve özerklik kazandığınızda, erkeğin zihninde annesine karşı farkında olmadığı bir 'suçluluk ve borç' sinyali çalar.\n\n2. Vicdan Taksiti: Telefonda sorduğu o sıradan hatır sormalar aslında ilişkinizdeki mutluluğun yarattığı suçluluğu ödeme hamlesidir.\n\n3. Sadakat Dengesi: Arayarak aile sistemindeki görünmez sadakat dengesini yeniden kurar. Yani sorun sen değilsin, bu onun iç dengesi!\n\n📌 Kaydet — içten içe gerildiğin bir dahaki sefere hatırlarsın.\n🔁 Bunu eşinin annesini her aradığında içten içe gerilen arkadaşına gönder.\n\nSen de bu garip hissi yaşıyor musun?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
-    "#günlükhayat",
-    "#fotoğrafyüzü",
-    "#kıyasaynası",
-    "#psikoloji",
-    "#algı"
+    "#kadınlar",
+    "#nedenoluyor",
+    "#aileilişkileri",
+    "#anneoğul",
+    "#ilişkikodları",
+    "#annebağı",
+    "#gizlihiyerarşi"
   ],
-  "takeaway": "Danışman haklıydı, elbise güzeldi; yabancı gelen sadece düz kameraydı.",
+  "takeaway": "O garip his senin değil, gizli hiyerarşinin yansıması.",
   "footage_queries": [
-    "bathroom mirror steam close up",
-    "wardrobe door open close up"
+    "empty bed pillow morning light",
+    "coffee cup steam morning light"
   ],
   "narration": [
-    "Fotoğrafta neden kendimizi garip buluruz?",
-    "Aynadaki ters görüntün beynine yıllardır aşırı güvenli ve tanıdık geliyor.",
-    "Kamera seni düz çekince alıştığın o ters simetri aniden bozuluyor.",
-    "Beynin bu yabancı açıyı hemen çirkinmişsin gibi etiketleyip seni yanıltıyor.",
-    "Suç senin yüzünde değil, beynin sadece alışık olduğu simetriyi arıyor."
+    "Eşin annesini aradığında o garip his?",
+    "İlişkinizde mutlu olduğu an erkekte gizli bir borç hissi uyanır.",
+    "O sıradan telefon araması aslında annesine ödediği vicdan taksitidir.",
+    "Mutluluğun suçluluğunu bastırmak için arayıp sadakat dengesini yeniden kurar.",
+    "O garip his senin değil, gizli hiyerarşinin yansıması."
   ],
-  "subject": "fotoğraf yüzü",
-  "sendTo": "mağazada 'çok yakıştı' denen kıyafeti fotoğrafta beğenmeyen arkadaşına",
-  "soru": "Sen hangisisin: ayna yüzünü seven mi, fotoğraf yüzünü seven mi?",
+  "subject": "anne bağı",
+  "sendTo": "Eşinin annesini her aradığında içten içe gerilen arkadaşına",
+  "soru": "Sen de bu garip hissi yaşıyor musun?",
   "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -77,29 +79,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Fotoğrafta neden kendimizi garip buluruz?",
+      "text": "Eşin annesini aradığında o garip his?",
       "start": 0.35,
-      "dur": 2.508
+      "dur": 2.458
     },
     {
-      "text": "Aynadaki ters görüntün beynine yıllardır aşırı güvenli ve tanıdık geliyor.",
-      "start": 2.858,
-      "dur": 4.527
+      "text": "İlişkinizde mutlu olduğu an erkekte gizli bir borç hissi uyanır.",
+      "start": 2.808,
+      "dur": 4.252
     },
     {
-      "text": "Kamera seni düz çekince alıştığın o ters simetri aniden bozuluyor.",
-      "start": 7.385,
-      "dur": 4.037
+      "text": "O sıradan telefon araması aslında annesine ödediği vicdan taksitidir.",
+      "start": 7.06,
+      "dur": 4.584
     },
     {
-      "text": "Beynin bu yabancı açıyı hemen çirkinmişsin gibi etiketleyip seni yanıltıyor.",
-      "start": 11.422,
-      "dur": 4.649
+      "text": "Mutluluğun suçluluğunu bastırmak için arayıp sadakat dengesini yeniden kurar.",
+      "start": 11.644,
+      "dur": 5.116
     },
     {
-      "text": "Suç senin yüzünde değil, beynin sadece alışık olduğu simetriyi arıyor.",
-      "start": 16.072,
-      "dur": 5.382
+      "text": "O garip his senin değil, gizli hiyerarşinin yansıması.",
+      "start": 16.76,
+      "dur": 4.688
     }
   ]
 }
