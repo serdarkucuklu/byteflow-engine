@@ -1106,5 +1106,30 @@
       "ig_reels_video_view_total_time": 29405
     },
     "insightsAt": "2026-09-10T18:08:44.649Z"
+  },
+  {
+    "title": "Spor Sütyeni Neden Yakar ve Omuza Çöker?",
+    "subject": "spor sütyeni",
+    "twist": "on-kamera",
+    "pillar": "spor-kazalari",
+    "layout": "nodes-flow",
+    "kinds": "diagram",
+    "motion": "camera",
+    "theme": "#e8a0a8",
+    "source": "gemini",
+    "footage": [
+      "pexels:gym towel folded on bench close up",
+      "pexels:resistance band on floor close up",
+      "pexels:running shoes on plain background",
+      "pexels:foam roller on floor close up"
+    ],
+    "voice": 5,
+    "voiceName": "Puck",
+    "muzik": "byteflow-ambient.mp3",
+    "sir": "Aşırı dar alt bant interkostal sinirlerin lateral dallarına baskı yaparak kaburga genişlemesini kısıtlar ve diyafram yer",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-09-10",
+    "durSec": 21.4
   }
 ]

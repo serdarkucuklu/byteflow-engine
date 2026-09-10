@@ -1,77 +1,74 @@
 {
-  "hook": "O ayna kasını değil sadece ışığı övüyor.",
-  "title": "Kreatin Erkek Tozu Mu Yoksa Gizli Silah Mı?",
+  "hook": "Seni spordan sonra filtresiz etiketleyen o arkadaşın var ya",
+  "title": "Spor Sütyeni Neden Yakar ve Omuza Çöker?",
   "scenes": [
     {
-      "layout": "hub-spoke",
+      "layout": "nodes-flow",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "kreatin",
-          "label": "KREATİN"
+          "id": "n1",
+          "label": "HAREKET VE TER"
         },
         {
-          "id": "su",
-          "label": "SU DEPOSU"
+          "id": "n2",
+          "label": "DİKİŞ SÜRTÜNMESİ"
         },
         {
-          "id": "kas",
-          "label": "KAS HÜCRESİ"
-        },
-        {
-          "id": "beyin",
-          "label": "BEYİN GÜCÜ"
+          "id": "n3",
+          "label": "OMUZ SİNİR BASISI"
         }
       ],
       "steps": [
         {
-          "from": "kreatin",
-          "to": "su",
-          "packet": "SU",
-          "status": "suyu yağ değil kas içine çeker",
-          "color": "accent"
+          "from": "n1",
+          "to": "n2",
+          "packet": "TER",
+          "status": "ter birikip dikişle deriyi çizer",
+          "color": "warn"
         },
         {
-          "from": "kreatin",
-          "to": "kas",
-          "packet": "GÜÇ",
-          "status": "son tekrarda o gücü buldurur",
-          "color": "good"
+          "from": "n2",
+          "to": "n3",
+          "packet": "BASKI",
+          "status": "dar bant tüm yükü omuz sinirine bindirir",
+          "color": "warn"
         },
         {
-          "from": "kreatin",
-          "to": "beyin",
-          "packet": "ENERJİ",
-          "status": "sisli kafayı anında netleştirir",
+          "from": "n3",
+          "to": "n1",
+          "packet": "AĞRI",
+          "status": "sinir basısı sırttan duruşu bozar",
           "color": "accent"
         }
       ]
     }
   ],
-  "caption": "O aynanın önünde saatlerce poz vermekle kas çalışmıyor maalesef.\n\nKreatin kullanınca erkek gibi şişeceğini sanıp köşe bucak kaçanlar, toplanın. İşin aslı çok başka:\n\n1. Hücre İçi Akvaryum — Kreatin seni sünger gibi şişirip ödem yapmaz. Suyu derinin altında değil, doğrudan kas hücrelerinin içine çeker. Yani pofuduk değil, sıkı görünürsün.\n2. Östrojen Desteği — Kadınlarda malum dönemlerde östrojen düşünce hücresel enerji üretimi de yerlerde sürünür. Kreatin tam burada devreye girip o boşalan enerji depolarını jet hızıyla doldurur.\n3. Sisli Beyne Son — Sadece antrenmanda son iki tekrarı çıkarmakla kalmazsın; hani o öğleden sonra gelen kafa karışıklığı var ya, onu da siler süpürür.\n\nSeçerken süslü ambalajlara aldanma, tek ihtiyacın olan şey saf kreatin monohidrat. Gerisi tamamen pazarlama yalanı.\n\nAynadaki ışıkla değil, hücrendeki gerçek enerjiyle parlaman dileğiyle.\n\n📌 Kaydet — bir dahaki antrenman krizinde lazım olacak.\n\n🔁 Bunu salonda hep aynı ışıklı açıda poz veren o arkadaşına gönder.\n\nSen hiç kreatin denedin mi yoksa şişerim diye korktun mu?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Spor sütyeni seni filtresiz fotoğrafta da antrenmanda da yakalar.\n\nSpor sütyeninin cildini yakıp omuzlarını çökertme mekanizması aslında şöyle çalışıyor:\n\n1. Tuzlu Zımpara Etkisi — Olay sadece kumaşın sürtünmesi değil. Terindeki tuz kuruyup kristalleşiyor ve dikişlerin altında adeta mikroskobik bir zımparaya dönüşerek cilt katmanlarını birbirinden ayırmaya çalışıyor.\n2. Kaburga Sıkışması — Aşırı dar alt bant, kaburgandaki o incecik sinirleri eziyor. Akciğerlerin rahatça genişleyemiyor.\n3. Zoraki Kamburluk — Diyaframdan nefes alamayınca vücut üst göğüs kaslarına yükleniyor ve omuzlarını istemsizce öne çekip seni kamburlaştırıyor.\n\nAlırken sadece göğsü sıkıştırmasına değil, alt bandın esnekliğine ve dikişsiz yapısına bakmak gerekiyor.\n\nFotoğrafta filtresiz çıkabiliriz ama omuz ağrısı çekmek zorunda değiliz.\n\n📌 Kaydet — bir dahaki spor alışverişinde lazım olacak.\n🔁 Bunu spordan sonra seni filtresiz fotoğrafta etiketleyen o arkadaşına gönder.\nSpor sütyeni izi sende kaç gün kalıyor, dürüst ol?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#saglikliyasam",
-    "#sporyapanlar",
-    "#kreatin",
-    "#kadinvespor",
-    "#kasgelisimi",
-    "#antrenman"
+    "#sporsagligi",
+    "#kadınsağlığı",
+    "#spor",
+    "#beden",
+    "#ciltbakimi",
+    "#makyaj"
   ],
-  "takeaway": "Şişme korkusuyla kaçtığın o toz, aslında beynini de çalıştırıyor.",
+  "takeaway": "Sürtünen kumaş değil ter ve dikiş, suçlu yine omuz bantları.",
   "footage_queries": [
-    "dumbbell on gym floor close up",
-    "protein shaker bottle close up"
+    "gym towel folded on bench close up",
+    "resistance band on floor close up"
   ],
   "narration": [
-    "O ayna kasını değil ışığı övüyor.",
-    "Östrojen düştüğünde pilin biter, bu toz suyu kasına kilitler.",
-    "Deri altı ödemi değil, kas içi dolgunluk ve sıkılık verir.",
-    "Sadece popoyu dikleştirmez, o sisli kafayı da anında açar.",
-    "Erkek tozu sanıp kaçtığın şey aslında senin gizli gücündür."
+    "Spor sütyeni seni filtresiz fotoğrafta yakalar.",
+    "Kuruyan ter tuzları cildinde zımpara gibi mikroskopik kesikler açar.",
+    "Dar alt bant kaburga sinirlerini ezip nefesimizi haram ediyor.",
+    "Nefes alamayınca duruşun çöküyor, eski sevgiliyi görmüş gibi bükülüyorsun.",
+    "Doğru beden seçerek hem cildini hem sinirini koru."
   ],
-  "subject": "kreatin",
-  "sendTo": "salonda hep aynı ışıklı açıda poz veren o arkadaşına",
-  "soru": "Sen hiç kreatin denedin mi yoksa şişerim diye korktun mu?",
-  "theme": "#c9a227",
+  "subject": "spor sütyeni",
+  "sendTo": "spordan sonra seni filtresiz fotoğrafta etiketleyen o arkadaşına",
+  "soru": "Spor sütyeni izi sende kaç gün kalıyor, dürüst ol?",
+  "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
     "signoff": "güzellik, pazarlama değil",
@@ -90,35 +87,35 @@
     "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "buildup",
+  "motion": "camera",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "O ayna kasını değil ışığı övüyor.",
+      "text": "Spor sütyeni seni filtresiz fotoğrafta yakalar.",
       "start": 0.35,
-      "dur": 2.454
+      "dur": 3.124
     },
     {
-      "text": "Östrojen düştüğünde pilin biter, bu toz suyu kasına kilitler.",
-      "start": 2.804,
-      "dur": 4.537
+      "text": "Kuruyan ter tuzları cildinde zımpara gibi mikroskopik kesikler açar.",
+      "start": 3.474,
+      "dur": 4.521
     },
     {
-      "text": "Deri altı ödemi değil, kas içi dolgunluk ve sıkılık verir.",
-      "start": 7.341,
-      "dur": 4.314
+      "text": "Dar alt bant kaburga sinirlerini ezip nefesimizi haram ediyor.",
+      "start": 7.995,
+      "dur": 4.122
     },
     {
-      "text": "Sadece popoyu dikleştirmez, o sisli kafayı da anında açar.",
-      "start": 11.655,
-      "dur": 4.314
+      "text": "Nefes alamayınca duruşun çöküyor, eski sevgiliyi görmüş gibi bükülüyorsun.",
+      "start": 12.117,
+      "dur": 4.919
     },
     {
-      "text": "Erkek tozu sanıp kaçtığın şey aslında senin gizli gücündür.",
-      "start": 15.969,
-      "dur": 5.488
+      "text": "Doğru beden seçerek hem cildini hem sinirini koru.",
+      "start": 17.036,
+      "dur": 4.424
     }
   ],
-  "thumbOffset": 1827
+  "thumbOffset": 2162
 }

@@ -1,107 +1,120 @@
 {
-  "hook": "Eşin annesini aradığında o garip his?",
-  "title": "Eşinin Anne Bağı: Gizli Hiyerarşi",
+  "hook": "Seni spordan sonra filtresiz etiketleyen o arkadaşın var ya",
+  "title": "Spor Sütyeni Neden Yakar ve Omuza Çöker?",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "kind": "versus",
-      "left": "Geleneksel Bağ",
-      "right": "Eşle Yeni Bağ",
-      "rows": [
+      "layout": "nodes-flow",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "ONAY MERCİİ",
-          "left": "ANNE",
-          "right": "EŞ",
-          "winner": "left"
+          "id": "n1",
+          "label": "HAREKET VE TER"
         },
         {
-          "label": "KISKANÇLIK",
-          "left": "NORMAL",
-          "right": "YER PAYLAŞIMI",
-          "winner": "right"
+          "id": "n2",
+          "label": "DİKİŞ SÜRTÜNMESİ"
         },
         {
-          "label": "MEKANİZMA",
-          "left": "BAKIM + KONTROL",
-          "right": "GİZLİ HİYERARŞİ",
-          "winner": "tie"
+          "id": "n3",
+          "label": "OMUZ SİNİR BASISI"
+        }
+      ],
+      "steps": [
+        {
+          "from": "n1",
+          "to": "n2",
+          "packet": "TER",
+          "status": "ter birikip dikişle deriyi çizer",
+          "color": "warn"
+        },
+        {
+          "from": "n2",
+          "to": "n3",
+          "packet": "BASKI",
+          "status": "dar bant tüm yükü omuz sinirine bindirir",
+          "color": "warn"
+        },
+        {
+          "from": "n3",
+          "to": "n1",
+          "packet": "AĞRI",
+          "status": "sinir basısı sırttan duruşu bozar",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Eşin annesini aradığında içini kemiren o garip hissin sebebi ne?\n\nAslında olay basit bir 'annecilik' değil, arkasında gizli bir duygusal mekanizma var:\n\n1. Gizli Duygusal Borç: İlişkinizde her şey harika gittiğinde ve özerklik kazandığınızda, erkeğin zihninde annesine karşı farkında olmadığı bir 'suçluluk ve borç' sinyali çalar.\n\n2. Vicdan Taksiti: Telefonda sorduğu o sıradan hatır sormalar aslında ilişkinizdeki mutluluğun yarattığı suçluluğu ödeme hamlesidir.\n\n3. Sadakat Dengesi: Arayarak aile sistemindeki görünmez sadakat dengesini yeniden kurar. Yani sorun sen değilsin, bu onun iç dengesi!\n\n📌 Kaydet — içten içe gerildiğin bir dahaki sefere hatırlarsın.\n🔁 Bunu eşinin annesini her aradığında içten içe gerilen arkadaşına gönder.\n\nSen de bu garip hissi yaşıyor musun?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Spor sütyeni seni filtresiz fotoğrafta da antrenmanda da yakalar.\n\nSpor sütyeninin cildini yakıp omuzlarını çökertme mekanizması aslında şöyle çalışıyor:\n\n1. Tuzlu Zımpara Etkisi — Olay sadece kumaşın sürtünmesi değil. Terindeki tuz kuruyup kristalleşiyor ve dikişlerin altında adeta mikroskobik bir zımparaya dönüşerek cilt katmanlarını birbirinden ayırmaya çalışıyor.\n2. Kaburga Sıkışması — Aşırı dar alt bant, kaburgandaki o incecik sinirleri eziyor. Akciğerlerin rahatça genişleyemiyor.\n3. Zoraki Kamburluk — Diyaframdan nefes alamayınca vücut üst göğüs kaslarına yükleniyor ve omuzlarını istemsizce öne çekip seni kamburlaştırıyor.\n\nAlırken sadece göğsü sıkıştırmasına değil, alt bandın esnekliğine ve dikişsiz yapısına bakmak gerekiyor.\n\nFotoğrafta filtresiz çıkabiliriz ama omuz ağrısı çekmek zorunda değiliz.\n\n📌 Kaydet — bir dahaki spor alışverişinde lazım olacak.\n🔁 Bunu spordan sonra seni filtresiz fotoğrafta etiketleyen o arkadaşına gönder.\nSpor sütyeni izi sende kaç gün kalıyor, dürüst ol?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#merak",
-    "#kadınlar",
-    "#nedenoluyor",
-    "#aileilişkileri",
-    "#anneoğul",
-    "#ilişkikodları",
-    "#annebağı",
-    "#gizlihiyerarşi"
+    "#sporsagligi",
+    "#kadınsağlığı",
+    "#spor",
+    "#beden",
+    "#ciltbakimi",
+    "#makyaj"
   ],
-  "takeaway": "O garip his senin değil, gizli hiyerarşinin yansıması.",
+  "takeaway": "Sürtünen kumaş değil ter ve dikiş, suçlu yine omuz bantları.",
   "footage_queries": [
-    "empty bed pillow morning light",
-    "coffee cup steam morning light"
+    "gym towel folded on bench close up",
+    "resistance band on floor close up"
   ],
   "narration": [
-    "Eşin annesini aradığında o garip his?",
-    "İlişkinizde mutlu olduğu an erkekte gizli bir borç hissi uyanır.",
-    "O sıradan telefon araması aslında annesine ödediği vicdan taksitidir.",
-    "Mutluluğun suçluluğunu bastırmak için arayıp sadakat dengesini yeniden kurar.",
-    "O garip his senin değil, gizli hiyerarşinin yansıması."
+    "Spor sütyeni seni filtresiz fotoğrafta yakalar.",
+    "Kuruyan ter tuzları cildinde zımpara gibi mikroskopik kesikler açar.",
+    "Dar alt bant kaburga sinirlerini ezip nefesimizi haram ediyor.",
+    "Nefes alamayınca duruşun çöküyor, eski sevgiliyi görmüş gibi bükülüyorsun.",
+    "Doğru beden seçerek hem cildini hem sinirini koru."
   ],
-  "subject": "anne bağı",
-  "sendTo": "Eşinin annesini her aradığında içten içe gerilen arkadaşına",
-  "soru": "Sen de bu garip hissi yaşıyor musun?",
-  "theme": "#7de2d1",
+  "subject": "spor sütyeni",
+  "sendTo": "spordan sonra seni filtresiz fotoğrafta etiketleyen o arkadaşına",
+  "soru": "Spor sütyeni izi sende kaç gün kalıyor, dürüst ol?",
+  "theme": "#e8a0a8",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "camera",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Eşin annesini aradığında o garip his?",
+      "text": "Spor sütyeni seni filtresiz fotoğrafta yakalar.",
       "start": 0.35,
-      "dur": 2.458
+      "dur": 3.124
     },
     {
-      "text": "İlişkinizde mutlu olduğu an erkekte gizli bir borç hissi uyanır.",
-      "start": 2.808,
-      "dur": 4.252
+      "text": "Kuruyan ter tuzları cildinde zımpara gibi mikroskopik kesikler açar.",
+      "start": 3.474,
+      "dur": 4.521
     },
     {
-      "text": "O sıradan telefon araması aslında annesine ödediği vicdan taksitidir.",
-      "start": 7.06,
-      "dur": 4.584
+      "text": "Dar alt bant kaburga sinirlerini ezip nefesimizi haram ediyor.",
+      "start": 7.995,
+      "dur": 4.122
     },
     {
-      "text": "Mutluluğun suçluluğunu bastırmak için arayıp sadakat dengesini yeniden kurar.",
-      "start": 11.644,
-      "dur": 5.116
+      "text": "Nefes alamayınca duruşun çöküyor, eski sevgiliyi görmüş gibi bükülüyorsun.",
+      "start": 12.117,
+      "dur": 4.919
     },
     {
-      "text": "O garip his senin değil, gizli hiyerarşinin yansıması.",
-      "start": 16.76,
-      "dur": 4.688
+      "text": "Doğru beden seçerek hem cildini hem sinirini koru.",
+      "start": 17.036,
+      "dur": 4.424
     }
   ]
 }
