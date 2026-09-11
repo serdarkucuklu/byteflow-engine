@@ -1108,10 +1108,10 @@
     "insightsAt": "2026-09-11T18:12:02.458Z"
   },
   {
-    "title": "İnce Belin Sırrı: Derindeki Korse Kası",
-    "subject": "core kası",
-    "twist": "beklenti",
-    "pillar": "kadin-antrenman",
+    "title": "Fotoğraflarda Neden Kambur Çıkıyorsun?",
+    "subject": "text neck",
+    "twist": "on-kamera",
+    "pillar": "durus-ve-hareket",
     "layout": "nodes-flow",
     "kinds": "diagram",
     "motion": "camera",
@@ -1119,14 +1119,14 @@
     "source": "gemini",
     "footage": [
       "pexels:exercise mat rolled up close up",
-      "pexels:fitness watch on table macro",
+      "pexels:gym towel folded on bench close up",
       "pexels:running shoes on plain background",
       "pexels:foam roller on floor close up"
     ],
     "voice": 5,
     "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Klasik mekik hareketi yüzeysel rectus abdominis kasını sıkıştırarak karın duvarını dışarı doğru iter; oysa bel çevresini",
+    "sir": "Kafa öne her eğildiğinde derin boyun fleksörleri nörolojik olarak pasifleşir ve 5 kiloluk kafayı havada tutma faturası t",
     "sirUygulandi": "kismi",
     "sirAtlandi": null,
     "date": "2026-09-11",

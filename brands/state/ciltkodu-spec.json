@@ -1,72 +1,76 @@
 {
-  "hook": "İlk mekikten sonra aynada baklava arayan o sabırsızlık.",
-  "title": "İnce Belin Sırrı: Derindeki Korse Kası",
+  "hook": "Text neck seni fotoğraflarda kaplumbağa yapıyor.",
+  "title": "Fotoğraflarda Neden Kambur Çıkıyorsun?",
   "scenes": [
     {
       "layout": "nodes-flow",
       "nodes": [
         {
-          "id": "CRUNCH",
-          "label": "KLASİK MEKİK"
+          "id": "bakis",
+          "label": "TELEFON BAKIŞI"
         },
         {
-          "id": "TRANSVERSUS",
-          "label": "KORSE KASI"
+          "id": "egim",
+          "label": "15 DERECE EĞİM"
         },
         {
-          "id": "NEFES",
-          "label": "KORSE NEFESİ"
+          "id": "kaldirac",
+          "label": "KALDIRAÇ GÜCÜ"
+        },
+        {
+          "id": "trapez",
+          "label": "TRAPEZ ACISI"
         }
       ],
       "steps": [
         {
-          "from": "CRUNCH",
-          "to": "TRANSVERSUS",
-          "packet": "BASKI",
-          "status": "crunch omurgayı büküp karnı dışa iter",
+          "from": "bakis",
+          "to": "egim",
+          "packet": "BAKIŞ",
+          "status": "kafa öne düşer, filtreler kayar",
           "color": "warn"
         },
         {
-          "from": "TRANSVERSUS",
-          "to": "NEFES",
-          "packet": "KORSE",
-          "status": "transversus kası beli korse gibi sarar",
-          "color": "good"
+          "from": "egim",
+          "to": "kaldirac",
+          "packet": "FİZİK",
+          "status": "her santim boyna ekstra yük bindirir",
+          "color": "accent"
         },
         {
-          "from": "NEFES",
-          "to": "TRANSVERSUS",
-          "packet": "NEFES",
-          "status": "derin nefesle karın duvarını içeri çek",
-          "color": "accent"
+          "from": "kaldirac",
+          "to": "trapez",
+          "packet": "GERGİN",
+          "status": "boyun değil omuzlar faturayı öder",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "İlk mekikten sonra aynada baklava arayan o sabırsızlık bittiyse gerçekleri konuşalım.\n\nHer antrenman sonrası göbeğini kontrol eden o tatlı acelecilik neden işe yaramıyor, adım adım açıklıyorum:\n\n1. Klasik Mekik Tuzağı — Yüzeysel kasları zorlayıp durmak karın duvarını dışarı doğru iter. Baklava yapacağım derken karnını öne doğru şişirebilirsin.\n2. Gizli Korse Kası — Belini incecik tutan asıl güç yüzeyde değil, en derindeki korse kasındadır. Nefes verirken diyaframla el ele verip iç basınçla beli sarar.\n3. Nefes Vakumu — Bu kası mekikle değil, nefesini tamamen boşaltıp göbek deliğini sırtına yapıştırarak çalıştırabilirsin.\n\nİnce bir bel için katlanıp durmak değil, derin kasları doğru nefesle içeriden sıkıştırmak gerekir.\n\nMucize ilk sabah gelmeyecek ama doğru kası uyandırırsan o korse etkisi başlayacak.\n\n📌 Kaydet — bir dahaki antrenmanda aynaya bakmadan önce hatırla.\n🔁 Bunu ilk antrenmandan sonra aynada baklava arayan arkadaşına gönder.\nSen hangisisin: Crunch'çı mı, nefes tutup plank'çi mi?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Text neck seni fotoğraflarda kaplumbağa gibi çıkarıyor, suç telefonda değil açıda!\n\nArkadaşının habersiz çektiği o karede neden hem omuzların kulağına değiyor hem de durduk yere gıdın çıkıyor? İşte o gizli mekanizma:\n\n1. DERİN KASLAR UYUYOR — Başını öne her eğdiğinde, öndeki derin boyun kasların 'ben kaçar' deyip şalteri kapatıyor.\n2. TRAPEZLER SAVAŞTA — 5 kiloluk kafa havada asılı kalınca, bütün fatura zavallı trapez ve kürek kemiği kaslarına kesiliyor. Omuzlar felaket geriliyor.\n3. GIDI SÜRPRİZİ — İşin sırrı şurada: Bu gerilim boğazındaki hyoid kemiğinin açısını bozuyor. Sıfır beden olsan bile çene hattın aşağı çöküyor, gıdın varmış gibi görünüyor!\n\nÇözüm pahalı gıdı korseleri veya masaj aletleri değil; telefonu sadece göz hizana kaldırmak.\n\nArkadaşın seni yine habersiz çekecek ama bu sefer en azından çene hattın ve duruşun kurtulacak.\n\n📌 Kaydet — duruşunu düzeltmek istediğinde hatırlarsın.\n\n🔁 Bunu seni her fotoğrafta kambur yakalayıp etiketleyen o arkadaşına gönder.\n\nSenin telefon tutuşun hangisi: göz hizası mı, göbek hizası mı?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
     "#güzellik",
-    "#antrenman",
-    "#corekası",
-    "#karınkası",
-    "#sporyapmak",
-    "#belinceltme"
+    "#sağlık",
+    "#postür",
+    "#boyunağrısı",
+    "#duruşbozukluğu",
+    "#textneck"
   ],
-  "takeaway": "Aynayla vedalaş, derin nefes al ve korseni içeriden sık.",
+  "takeaway": "Telefonu kaldır, o etiketlendiğin fotoğrafları kurtar.",
   "footage_queries": [
     "exercise mat rolled up close up",
-    "fitness watch on table macro"
+    "gym towel folded on bench close up"
   ],
   "narration": [
-    "Core kası ilk mekikle çıkmaz.",
-    "Klasik mekik karnı içeri çekmez, yüzeysel kasları şişirip dışarı iter.",
-    "İnce belin sırrı nefesle çalışan en derindeki gizli korse kasında.",
-    "Nefesini tamamen boşaltıp o derin kası içeriden sıkıca çekmelisin.",
-    "Aynayla vedalaş, derin nefes al ve korseni içeriden sık."
+    "Text neck seni fotoğraflarda kaplumbağa yapıyor.",
+    "Başını öne eğince derin boyun kasların anında uykuya geçiyor.",
+    "Beş kiloluk kafa yükü tamamen omuzlarındaki ezik trapezlere biniyor.",
+    "Ayrıca boğazdaki kemik çekilip zayıf olsan bile gıdı çıkarıyor.",
+    "Telefonu göz hizana kaldır, o etiketlendiğin fotoğrafları kurtar."
   ],
-  "subject": "core kası",
-  "sendTo": "ilk antrenmandan sonra aynada baklava arayan arkadaşına",
-  "soru": "Sen hangisisin: Crunch'çı mı, nefes tutup plank'çi mi?",
+  "subject": "text neck",
+  "sendTo": "seni her fotoğrafta kambur yakalayıp etiketleyen o arkadaşına",
+  "soru": "Senin telefon tutuşun hangisi: göz hizası mı, göbek hizası mı?",
   "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -91,30 +95,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Core kası ilk mekikle çıkmaz.",
+      "text": "Text neck seni fotoğraflarda kaplumbağa yapıyor.",
       "start": 0.35,
-      "dur": 2.022
+      "dur": 3.148
     },
     {
-      "text": "Klasik mekik karnı içeri çekmez, yüzeysel kasları şişirip dışarı iter.",
-      "start": 2.372,
-      "dur": 4.88
+      "text": "Başını öne eğince derin boyun kasların anında uykuya geçiyor.",
+      "start": 3.498,
+      "dur": 4.001
     },
     {
-      "text": "İnce belin sırrı nefesle çalışan en derindeki gizli korse kasında.",
-      "start": 7.252,
-      "dur": 4.601
+      "text": "Beş kiloluk kafa yükü tamamen omuzlarındaki ezik trapezlere biniyor.",
+      "start": 7.499,
+      "dur": 4.46
     },
     {
-      "text": "Nefesini tamamen boşaltıp o derin kası içeriden sıkıca çekmelisin.",
-      "start": 11.854,
-      "dur": 4.601
+      "text": "Ayrıca boğazdaki kemik çekilip zayıf olsan bile gıdı çıkarıyor.",
+      "start": 11.959,
+      "dur": 4.132
     },
     {
-      "text": "Aynayla vedalaş, derin nefes al ve korseni içeriden sık.",
-      "start": 16.455,
-      "dur": 5.004
+      "text": "Telefonu göz hizana kaldır, o etiketlendiğin fotoğrafları kurtar.",
+      "start": 16.092,
+      "dur": 5.363
     }
   ],
-  "thumbOffset": 1611
+  "thumbOffset": 2174
 }
