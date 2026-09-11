@@ -1,123 +1,80 @@
 {
-  "hook": "Text neck seni fotoğraflarda kaplumbağa yapıyor.",
-  "title": "Fotoğraflarda Neden Kambur Çıkıyorsun?",
+  "hook": "Anneannenin 'ağır ol' öğüdü kalabalıkta neden haklı çıktı?",
+  "title": "Grup Sohbetinde Susma Kodları",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "nodes": [
+      "layout": "vertical-stack",
+      "heading": "Grupta Susma Neden Gerçekleşir?",
+      "kind": "versus",
+      "left": "BİREBİR SOHBET",
+      "right": "GRUP SOHBETİ",
+      "rows": [
         {
-          "id": "bakis",
-          "label": "TELEFON BAKIŞI"
+          "label": "SOSYAL RİSK",
+          "left": "Düşük elenme riski",
+          "right": "Yüksek dışlanma riski",
+          "winner": "left"
         },
         {
-          "id": "egim",
-          "label": "15 DERECE EĞİM"
+          "label": "BEYİN ODAĞI",
+          "left": "Fikir paylaşımı",
+          "right": "Grubun hiyerarşisi",
+          "winner": "left"
         },
         {
-          "id": "kaldirac",
-          "label": "KALDIRAÇ GÜCÜ"
-        },
-        {
-          "id": "trapez",
-          "label": "TRAPEZ ACISI"
-        }
-      ],
-      "steps": [
-        {
-          "from": "bakis",
-          "to": "egim",
-          "packet": "BAKIŞ",
-          "status": "kafa öne düşer, filtreler kayar",
-          "color": "warn"
-        },
-        {
-          "from": "egim",
-          "to": "kaldirac",
-          "packet": "FİZİK",
-          "status": "her santim boyna ekstra yük bindirir",
-          "color": "accent"
-        },
-        {
-          "from": "kaldirac",
-          "to": "trapez",
-          "packet": "GERGİN",
-          "status": "boyun değil omuzlar faturayı öder",
-          "color": "warn"
+          "label": "ANNEANNE ÖĞÜDÜ",
+          "left": "Ağzına geleni söyle",
+          "right": "Lafını tartıp konuş",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Text neck seni fotoğraflarda kaplumbağa gibi çıkarıyor, suç telefonda değil açıda!\n\nArkadaşının habersiz çektiği o karede neden hem omuzların kulağına değiyor hem de durduk yere gıdın çıkıyor? İşte o gizli mekanizma:\n\n1. DERİN KASLAR UYUYOR — Başını öne her eğdiğinde, öndeki derin boyun kasların 'ben kaçar' deyip şalteri kapatıyor.\n2. TRAPEZLER SAVAŞTA — 5 kiloluk kafa havada asılı kalınca, bütün fatura zavallı trapez ve kürek kemiği kaslarına kesiliyor. Omuzlar felaket geriliyor.\n3. GIDI SÜRPRİZİ — İşin sırrı şurada: Bu gerilim boğazındaki hyoid kemiğinin açısını bozuyor. Sıfır beden olsan bile çene hattın aşağı çöküyor, gıdın varmış gibi görünüyor!\n\nÇözüm pahalı gıdı korseleri veya masaj aletleri değil; telefonu sadece göz hizana kaldırmak.\n\nArkadaşın seni yine habersiz çekecek ama bu sefer en azından çene hattın ve duruşun kurtulacak.\n\n📌 Kaydet — duruşunu düzeltmek istediğinde hatırlarsın.\n\n🔁 Bunu seni her fotoğrafta kambur yakalayıp etiketleyen o arkadaşına gönder.\n\nSenin telefon tutuşun hangisi: göz hizası mı, göbek hizası mı?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Anneanneniz ağır ol molla desinler derken haklıydı!\n\nGrup sohbetinde neden aniden sustuğunun mekanizması:\n\n1. Sosyal risk artışı — Birebir konuşmada rahatken kalabalık grupta yanlış bir cümle kurma korkusu sosyal maliyeti artırır.\n2. Hiyerarşi okuma — Beyin fikir üretmeyi durdurup ortamın dinamiklerini ve dengelerini okumaya geçer.\n3. Sessizlik kalkanı — Konuşma maliyeti yüksek olduğunda susmak grubu dışarıdan izleme stratejisidir.\n\nGrupta susmak fikirsizlik değil, beynin risk yönetimidir.\n\nAnneannemiz ağır ol derken meğer sosyal psikoloji yapıyormuş. Ama biz yine de utangaçlıktan sustuk diyeceğiz.\n\n📌 Kaydet — bir dahaki grup sohbetinde lazım olacak.\n🔁 Bunu kalabalık ortamlarda sessizleşip arkadan izleyen o arkadaşına gönder.\nSen kalabalık grupta çok konuşan mısın yoksa sessizce izleyen mi?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#güzellik",
-    "#sağlık",
-    "#postür",
-    "#boyunağrısı",
-    "#duruşbozukluğu",
-    "#textneck"
+    "#merak",
+    "#kadınlar",
+    "#günlükhayat",
+    "#sosyallik",
+    "#arkadaşlık",
+    "#psikoloji",
+    "#gruptasusma"
   ],
-  "takeaway": "Telefonu kaldır, o etiketlendiğin fotoğrafları kurtar.",
+  "takeaway": "Anneannen haklıydı: kalabalıkta susmak cehalet değil sosyal savunma.",
   "footage_queries": [
-    "exercise mat rolled up close up",
-    "gym towel folded on bench close up"
+    "cozy home interior soft light",
+    "coffee cup steam morning light"
   ],
   "narration": [
-    "Text neck seni fotoğraflarda kaplumbağa yapıyor.",
-    "Başını öne eğince derin boyun kasların anında uykuya geçiyor.",
-    "Beş kiloluk kafa yükü tamamen omuzlarındaki ezik trapezlere biniyor.",
-    "Ayrıca boğazdaki kemik çekilip zayıf olsan bile gıdı çıkarıyor.",
-    "Telefonu göz hizana kaldır, o etiketlendiğin fotoğrafları kurtar."
+    "Anneannen ağır ol derken haklıydı.",
+    "Birebir sohbet düşük riskliyken kalabalık grupta elenme riski yükselir.",
+    "Beyin kalabalıkta fikir üretmeyi bırakıp grubun hiyerarşisini okumaya başlar.",
+    "Yanlış bir cümle dışlayacağı için susmak en ucuz sosyal kalkan olur.",
+    "Yani grupta susmak fikir yokluğu değil tamamen bir sosyal savunmadır."
   ],
-  "subject": "text neck",
-  "sendTo": "seni her fotoğrafta kambur yakalayıp etiketleyen o arkadaşına",
-  "soru": "Senin telefon tutuşun hangisi: göz hizası mı, göbek hizası mı?",
-  "theme": "#e8a0a8",
+  "subject": "grupta susma",
+  "sendTo": "kalabalık ortamlarda sessizleşip arkadan izleyen o arkadaşına",
+  "soru": "Sen kalabalık grupta çok konuşan mısın yoksa sessizce izleyen mi?",
+  "theme": "#7de2d1",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "orbit",
   "format": "kinetik",
-  "footage": true,
-  "beats": [
-    {
-      "text": "Text neck seni fotoğraflarda kaplumbağa yapıyor.",
-      "start": 0.35,
-      "dur": 3.148
-    },
-    {
-      "text": "Başını öne eğince derin boyun kasların anında uykuya geçiyor.",
-      "start": 3.498,
-      "dur": 4.001
-    },
-    {
-      "text": "Beş kiloluk kafa yükü tamamen omuzlarındaki ezik trapezlere biniyor.",
-      "start": 7.499,
-      "dur": 4.46
-    },
-    {
-      "text": "Ayrıca boğazdaki kemik çekilip zayıf olsan bile gıdı çıkarıyor.",
-      "start": 11.959,
-      "dur": 4.132
-    },
-    {
-      "text": "Telefonu göz hizana kaldır, o etiketlendiğin fotoğrafları kurtar.",
-      "start": 16.092,
-      "dur": 5.363
-    }
-  ]
+  "footage": true
 }

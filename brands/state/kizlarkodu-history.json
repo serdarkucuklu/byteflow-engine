@@ -444,28 +444,28 @@
     "insightsAt": "2026-09-11T19:30:08.159Z"
   },
   {
-    "title": "Eşinin Anne Bağı: Gizli Hiyerarşi",
-    "subject": "anne bağı",
-    "twist": "beden-savasi",
-    "pillar": "aile-dinamigi",
+    "title": "Grup Sohbetinde Susma Kodları",
+    "subject": "grupta susma",
+    "twist": "anneannen-hakliymis",
+    "pillar": "arkadaslik-kodu",
     "layout": "vertical-stack",
     "kinds": "versus",
     "motion": "orbit",
     "theme": "#7de2d1",
     "source": "gemini",
     "footage": [
-      "pexels:empty bed pillow morning light",
+      "pexels:night lamp warm glow bedroom",
       "pexels:coffee cup steam morning light",
       "pexels:alarm clock on nightstand close up",
       "pexels:bathroom mirror steam close up"
     ],
-    "voice": 5,
-    "voiceName": "Aoede",
+    "voice": null,
+    "voiceName": null,
     "muzik": "byteflow-ambient.mp3",
-    "sir": "İlişkide doyuma ulaşıldığı anlarda erkeğin zihninde annesine karşı farkında olmadığı bir 'duygusal borç' sinyali çalar. ",
-    "sirUygulandi": "kismi",
-    "sirAtlandi": null,
-    "date": "2026-09-09",
-    "durSec": 21.4
+    "sir": "Grup sohbetlerinde bir fikir sorulduğunda hemen yanıt vermemek, zihnin olası mikro-dışlanma riskini hesapladığı asimetri",
+    "sirUygulandi": "geri-alindi",
+    "sirAtlandi": "istek-basarisiz",
+    "date": "2026-09-11",
+    "durSec": 20
   }
 ]

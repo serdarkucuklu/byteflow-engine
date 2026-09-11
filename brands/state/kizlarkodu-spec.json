@@ -1,60 +1,60 @@
 {
-  "hook": "Eşin annesini aradığında o garip his?",
-  "title": "Eşinin Anne Bağı: Gizli Hiyerarşi",
+  "hook": "Anneannenin 'ağır ol' öğüdü kalabalıkta neden haklı çıktı?",
+  "title": "Grup Sohbetinde Susma Kodları",
   "scenes": [
     {
       "layout": "vertical-stack",
+      "heading": "Grupta Susma Neden Gerçekleşir?",
       "kind": "versus",
-      "left": "Geleneksel Bağ",
-      "right": "Eşle Yeni Bağ",
+      "left": "BİREBİR SOHBET",
+      "right": "GRUP SOHBETİ",
       "rows": [
         {
-          "label": "ONAY MERCİİ",
-          "left": "ANNE",
-          "right": "EŞ",
+          "label": "SOSYAL RİSK",
+          "left": "Düşük elenme riski",
+          "right": "Yüksek dışlanma riski",
           "winner": "left"
         },
         {
-          "label": "KISKANÇLIK",
-          "left": "NORMAL",
-          "right": "YER PAYLAŞIMI",
-          "winner": "right"
+          "label": "BEYİN ODAĞI",
+          "left": "Fikir paylaşımı",
+          "right": "Grubun hiyerarşisi",
+          "winner": "left"
         },
         {
-          "label": "MEKANİZMA",
-          "left": "BAKIM + KONTROL",
-          "right": "GİZLİ HİYERARŞİ",
-          "winner": "tie"
+          "label": "ANNEANNE ÖĞÜDÜ",
+          "left": "Ağzına geleni söyle",
+          "right": "Lafını tartıp konuş",
+          "winner": "right"
         }
       ]
     }
   ],
-  "caption": "Eşin annesini aradığında içini kemiren o garip hissin sebebi ne?\n\nAslında olay basit bir 'annecilik' değil, arkasında gizli bir duygusal mekanizma var:\n\n1. Gizli Duygusal Borç: İlişkinizde her şey harika gittiğinde ve özerklik kazandığınızda, erkeğin zihninde annesine karşı farkında olmadığı bir 'suçluluk ve borç' sinyali çalar.\n\n2. Vicdan Taksiti: Telefonda sorduğu o sıradan hatır sormalar aslında ilişkinizdeki mutluluğun yarattığı suçluluğu ödeme hamlesidir.\n\n3. Sadakat Dengesi: Arayarak aile sistemindeki görünmez sadakat dengesini yeniden kurar. Yani sorun sen değilsin, bu onun iç dengesi!\n\n📌 Kaydet — içten içe gerildiğin bir dahaki sefere hatırlarsın.\n🔁 Bunu eşinin annesini her aradığında içten içe gerilen arkadaşına gönder.\n\nSen de bu garip hissi yaşıyor musun?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Anneanneniz ağır ol molla desinler derken haklıydı!\n\nGrup sohbetinde neden aniden sustuğunun mekanizması:\n\n1. Sosyal risk artışı — Birebir konuşmada rahatken kalabalık grupta yanlış bir cümle kurma korkusu sosyal maliyeti artırır.\n2. Hiyerarşi okuma — Beyin fikir üretmeyi durdurup ortamın dinamiklerini ve dengelerini okumaya geçer.\n3. Sessizlik kalkanı — Konuşma maliyeti yüksek olduğunda susmak grubu dışarıdan izleme stratejisidir.\n\nGrupta susmak fikirsizlik değil, beynin risk yönetimidir.\n\nAnneannemiz ağır ol derken meğer sosyal psikoloji yapıyormuş. Ama biz yine de utangaçlıktan sustuk diyeceğiz.\n\n📌 Kaydet — bir dahaki grup sohbetinde lazım olacak.\n🔁 Bunu kalabalık ortamlarda sessizleşip arkadan izleyen o arkadaşına gönder.\nSen kalabalık grupta çok konuşan mısın yoksa sessizce izleyen mi?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#kadınlar",
-    "#nedenoluyor",
-    "#aileilişkileri",
-    "#anneoğul",
-    "#ilişkikodları",
-    "#annebağı",
-    "#gizlihiyerarşi"
+    "#günlükhayat",
+    "#sosyallik",
+    "#arkadaşlık",
+    "#psikoloji",
+    "#gruptasusma"
   ],
-  "takeaway": "O garip his senin değil, gizli hiyerarşinin yansıması.",
+  "takeaway": "Anneannen haklıydı: kalabalıkta susmak cehalet değil sosyal savunma.",
   "footage_queries": [
-    "empty bed pillow morning light",
+    "cozy home interior soft light",
     "coffee cup steam morning light"
   ],
   "narration": [
-    "Eşin annesini aradığında o garip his?",
-    "İlişkinizde mutlu olduğu an erkekte gizli bir borç hissi uyanır.",
-    "O sıradan telefon araması aslında annesine ödediği vicdan taksitidir.",
-    "Mutluluğun suçluluğunu bastırmak için arayıp sadakat dengesini yeniden kurar.",
-    "O garip his senin değil, gizli hiyerarşinin yansıması."
+    "Anneannen ağır ol derken haklıydı.",
+    "Birebir sohbet düşük riskliyken kalabalık grupta elenme riski yükselir.",
+    "Beyin kalabalıkta fikir üretmeyi bırakıp grubun hiyerarşisini okumaya başlar.",
+    "Yanlış bir cümle dışlayacağı için susmak en ucuz sosyal kalkan olur.",
+    "Yani grupta susmak fikir yokluğu değil tamamen bir sosyal savunmadır."
   ],
-  "subject": "anne bağı",
-  "sendTo": "Eşinin annesini her aradığında içten içe gerilen arkadaşına",
-  "soru": "Sen de bu garip hissi yaşıyor musun?",
+  "subject": "grupta susma",
+  "sendTo": "kalabalık ortamlarda sessizleşip arkadan izleyen o arkadaşına",
+  "soru": "Sen kalabalık grupta çok konuşan mısın yoksa sessizce izleyen mi?",
   "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -77,32 +77,5 @@
   "motion": "orbit",
   "format": "kinetik",
   "footage": true,
-  "beats": [
-    {
-      "text": "Eşin annesini aradığında o garip his?",
-      "start": 0.35,
-      "dur": 2.458
-    },
-    {
-      "text": "İlişkinizde mutlu olduğu an erkekte gizli bir borç hissi uyanır.",
-      "start": 2.808,
-      "dur": 4.252
-    },
-    {
-      "text": "O sıradan telefon araması aslında annesine ödediği vicdan taksitidir.",
-      "start": 7.06,
-      "dur": 4.584
-    },
-    {
-      "text": "Mutluluğun suçluluğunu bastırmak için arayıp sadakat dengesini yeniden kurar.",
-      "start": 11.644,
-      "dur": 5.116
-    },
-    {
-      "text": "O garip his senin değil, gizli hiyerarşinin yansıması.",
-      "start": 16.76,
-      "dur": 4.688
-    }
-  ],
-  "thumbOffset": 1829
+  "thumbOffset": 1300
 }
