@@ -1,73 +1,78 @@
 {
-  "hook": "Seni spordan sonra filtresiz etiketleyen o arkadaşın var ya",
-  "title": "Spor Sütyeni Neden Yakar ve Omuza Çöker?",
+  "hook": "Gece iki araman seni banyoda titretti ama yağ yakmıyor.",
+  "title": "Soğuk Duş Yağ Yakmaz, Sadece Uyandırır",
   "scenes": [
     {
       "layout": "nodes-flow",
       "kind": "diagram",
       "nodes": [
         {
-          "id": "n1",
-          "label": "HAREKET VE TER"
+          "id": "soguk_su",
+          "label": "SOĞUK ŞOKU"
         },
         {
-          "id": "n2",
-          "label": "DİKİŞ SÜRTÜNMESİ"
+          "id": "hormon",
+          "label": "NOREPİNEFRİN"
         },
         {
-          "id": "n3",
-          "label": "OMUZ SİNİR BASISI"
+          "id": "nabiz",
+          "label": "ANİ UYANMA"
+        },
+        {
+          "id": "yag_yaki",
+          "label": "SIFIR YAĞ YAKIMI"
         }
       ],
       "steps": [
         {
-          "from": "n1",
-          "to": "n2",
-          "packet": "TER",
-          "status": "ter birikip dikişle deriyi çizer",
+          "from": "soguk_su",
+          "to": "hormon",
+          "packet": "ŞOK",
+          "status": "soğuk su ciltte şok etkisi yaratır",
           "color": "warn"
         },
         {
-          "from": "n2",
-          "to": "n3",
-          "packet": "BASKI",
-          "status": "dar bant tüm yükü omuz sinirine bindirir",
-          "color": "warn"
-        },
-        {
-          "from": "n3",
-          "to": "n1",
-          "packet": "AĞRI",
-          "status": "sinir basısı sırttan duruşu bozar",
+          "from": "hormon",
+          "to": "nabiz",
+          "packet": "NABIZ",
+          "status": "norepinefrin yükselip nabzı zıplatır",
           "color": "accent"
+        },
+        {
+          "from": "nabiz",
+          "to": "yag_yaki",
+          "packet": "YAĞ",
+          "status": "sadece uykun kaçar kalori erimez",
+          "color": "good"
         }
       ]
     }
   ],
-  "caption": "Spor sütyeni seni filtresiz fotoğrafta da antrenmanda da yakalar.\n\nSpor sütyeninin cildini yakıp omuzlarını çökertme mekanizması aslında şöyle çalışıyor:\n\n1. Tuzlu Zımpara Etkisi — Olay sadece kumaşın sürtünmesi değil. Terindeki tuz kuruyup kristalleşiyor ve dikişlerin altında adeta mikroskobik bir zımparaya dönüşerek cilt katmanlarını birbirinden ayırmaya çalışıyor.\n2. Kaburga Sıkışması — Aşırı dar alt bant, kaburgandaki o incecik sinirleri eziyor. Akciğerlerin rahatça genişleyemiyor.\n3. Zoraki Kamburluk — Diyaframdan nefes alamayınca vücut üst göğüs kaslarına yükleniyor ve omuzlarını istemsizce öne çekip seni kamburlaştırıyor.\n\nAlırken sadece göğsü sıkıştırmasına değil, alt bandın esnekliğine ve dikişsiz yapısına bakmak gerekiyor.\n\nFotoğrafta filtresiz çıkabiliriz ama omuz ağrısı çekmek zorunda değiliz.\n\n📌 Kaydet — bir dahaki spor alışverişinde lazım olacak.\n🔁 Bunu spordan sonra seni filtresiz fotoğrafta etiketleyen o arkadaşına gönder.\nSpor sütyeni izi sende kaç gün kalıyor, dürüst ol?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Gece iki aramalarında çıkan soğuk duş efsanesi aslında nasıl çalışır:\n\nGece iki aramalarındaki soğuk duş efsanesi nasıl çalışır, adım adım:\n1. Soğuk Şoku — Derine aniden değen buz gibi su, vücutta bir tehdit algısı oluşturur.\n2. Norepinefrin — Şoka giren beyin hızlıca norepinefrin salgılar ve odaklanmayı artırır.\n3. Ani Uyanma — Nabız yükselir, kan pompalanır ve uykun bir anda tamamen kaçar.\n4. Sıfır Yağ Yakımı — Bu anlık hormon sıçraması kalori yakmaz; yağ deposunu eritmez.\n\nArama motorlarının mucize diye sunduğu şey, aslında vücudun kısa süreli savunma refleksidir.\n\nArama geçmişin seni dondursa da yağlar yerinde mutlu.\n\n📌 Kaydet — bir dahaki gece 2 aramasında lazım olacak.\n🔁 Bunu gece yarısı soğuk duş mucizelerini google'da aratan arkadaşına gönder.\nSen soğuk duşçu musun yoksa sıcak su sevdalısı mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#sporsagligi",
-    "#kadınsağlığı",
-    "#spor",
-    "#beden",
-    "#ciltbakimi",
-    "#makyaj"
+    "#saglik",
+    "#beslenme",
+    "#sogukdus",
+    "#yagyakimi",
+    "#metabolizma",
+    "#saglikliyasam",
+    "#hormonlar"
   ],
-  "takeaway": "Sürtünen kumaş değil ter ve dikiş, suçlu yine omuz bantları.",
+  "takeaway": "Soğuk duş yağ eriten mucize değil, titreten pahalı bir alarmdır.",
   "footage_queries": [
-    "gym towel folded on bench close up",
-    "resistance band on floor close up"
+    "ice pack on wooden surface close up",
+    "water bottle on wooden table close up"
   ],
   "narration": [
-    "Spor sütyeni seni filtresiz fotoğrafta yakalar.",
-    "Kuruyan ter tuzları cildinde zımpara gibi mikroskopik kesikler açar.",
-    "Dar alt bant kaburga sinirlerini ezip nefesimizi haram ediyor.",
-    "Nefes alamayınca duruşun çöküyor, eski sevgiliyi görmüş gibi bükülüyorsun.",
-    "Doğru beden seçerek hem cildini hem sinirini koru."
+    "Gece araması seni banyoda titretti.",
+    "Aniden yediğin soğuk su ciltte şok yaratır.",
+    "Beyin norepinefrin salgılayarak nabzını birden zıplatır.",
+    "Bu durum seni anında uyandırır ama yağ yakmaz.",
+    "Soğuk duş hormon mucizesi değil sadece sert alarmdır."
   ],
-  "subject": "spor sütyeni",
-  "sendTo": "spordan sonra seni filtresiz fotoğrafta etiketleyen o arkadaşına",
-  "soru": "Spor sütyeni izi sende kaç gün kalıyor, dürüst ol?",
+  "subject": "soğuk duş",
+  "sendTo": "gece yarısı soğuk duş mucizelerini google'da aratan arkadaşına",
+  "soru": "Sen soğuk duşçu musun yoksa sıcak su sevdalısı mı?",
   "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -92,29 +97,29 @@
   "footage": true,
   "beats": [
     {
-      "text": "Spor sütyeni seni filtresiz fotoğrafta yakalar.",
+      "text": "Gece araması seni banyoda titretti.",
       "start": 0.35,
-      "dur": 3.124
+      "dur": 2.826
     },
     {
-      "text": "Kuruyan ter tuzları cildinde zımpara gibi mikroskopik kesikler açar.",
-      "start": 3.474,
+      "text": "Aniden yediğin soğuk su ciltte şok yaratır.",
+      "start": 3.176,
+      "dur": 3.472
+    },
+    {
+      "text": "Beyin norepinefrin salgılayarak nabzını birden zıplatır.",
+      "start": 6.647,
       "dur": 4.521
     },
     {
-      "text": "Dar alt bant kaburga sinirlerini ezip nefesimizi haram ediyor.",
-      "start": 7.995,
-      "dur": 4.122
+      "text": "Bu durum seni anında uyandırır ama yağ yakmaz.",
+      "start": 11.168,
+      "dur": 3.714
     },
     {
-      "text": "Nefes alamayınca duruşun çöküyor, eski sevgiliyi görmüş gibi bükülüyorsun.",
-      "start": 12.117,
-      "dur": 4.919
-    },
-    {
-      "text": "Doğru beden seçerek hem cildini hem sinirini koru.",
-      "start": 17.036,
-      "dur": 4.424
+      "text": "Soğuk duş hormon mucizesi değil sadece sert alarmdır.",
+      "start": 14.882,
+      "dur": 5.379
     }
   ]
 }
