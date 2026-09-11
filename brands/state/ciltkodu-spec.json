@@ -1,78 +1,72 @@
 {
-  "hook": "Gece iki araman seni banyoda titretti ama yağ yakmıyor.",
-  "title": "Soğuk Duş Yağ Yakmaz, Sadece Uyandırır",
+  "hook": "İlk mekikten sonra aynada baklava arayan o sabırsızlık.",
+  "title": "İnce Belin Sırrı: Derindeki Korse Kası",
   "scenes": [
     {
       "layout": "nodes-flow",
-      "kind": "diagram",
       "nodes": [
         {
-          "id": "soguk_su",
-          "label": "SOĞUK ŞOKU"
+          "id": "CRUNCH",
+          "label": "KLASİK MEKİK"
         },
         {
-          "id": "hormon",
-          "label": "NOREPİNEFRİN"
+          "id": "TRANSVERSUS",
+          "label": "KORSE KASI"
         },
         {
-          "id": "nabiz",
-          "label": "ANİ UYANMA"
-        },
-        {
-          "id": "yag_yaki",
-          "label": "SIFIR YAĞ YAKIMI"
+          "id": "NEFES",
+          "label": "KORSE NEFESİ"
         }
       ],
       "steps": [
         {
-          "from": "soguk_su",
-          "to": "hormon",
-          "packet": "ŞOK",
-          "status": "soğuk su ciltte şok etkisi yaratır",
+          "from": "CRUNCH",
+          "to": "TRANSVERSUS",
+          "packet": "BASKI",
+          "status": "crunch omurgayı büküp karnı dışa iter",
           "color": "warn"
         },
         {
-          "from": "hormon",
-          "to": "nabiz",
-          "packet": "NABIZ",
-          "status": "norepinefrin yükselip nabzı zıplatır",
-          "color": "accent"
+          "from": "TRANSVERSUS",
+          "to": "NEFES",
+          "packet": "KORSE",
+          "status": "transversus kası beli korse gibi sarar",
+          "color": "good"
         },
         {
-          "from": "nabiz",
-          "to": "yag_yaki",
-          "packet": "YAĞ",
-          "status": "sadece uykun kaçar kalori erimez",
-          "color": "good"
+          "from": "NEFES",
+          "to": "TRANSVERSUS",
+          "packet": "NEFES",
+          "status": "derin nefesle karın duvarını içeri çek",
+          "color": "accent"
         }
       ]
     }
   ],
-  "caption": "Gece iki aramalarında çıkan soğuk duş efsanesi aslında nasıl çalışır:\n\nGece iki aramalarındaki soğuk duş efsanesi nasıl çalışır, adım adım:\n1. Soğuk Şoku — Derine aniden değen buz gibi su, vücutta bir tehdit algısı oluşturur.\n2. Norepinefrin — Şoka giren beyin hızlıca norepinefrin salgılar ve odaklanmayı artırır.\n3. Ani Uyanma — Nabız yükselir, kan pompalanır ve uykun bir anda tamamen kaçar.\n4. Sıfır Yağ Yakımı — Bu anlık hormon sıçraması kalori yakmaz; yağ deposunu eritmez.\n\nArama motorlarının mucize diye sunduğu şey, aslında vücudun kısa süreli savunma refleksidir.\n\nArama geçmişin seni dondursa da yağlar yerinde mutlu.\n\n📌 Kaydet — bir dahaki gece 2 aramasında lazım olacak.\n🔁 Bunu gece yarısı soğuk duş mucizelerini google'da aratan arkadaşına gönder.\nSen soğuk duşçu musun yoksa sıcak su sevdalısı mı?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "İlk mekikten sonra aynada baklava arayan o sabırsızlık bittiyse gerçekleri konuşalım.\n\nHer antrenman sonrası göbeğini kontrol eden o tatlı acelecilik neden işe yaramıyor, adım adım açıklıyorum:\n\n1. Klasik Mekik Tuzağı — Yüzeysel kasları zorlayıp durmak karın duvarını dışarı doğru iter. Baklava yapacağım derken karnını öne doğru şişirebilirsin.\n2. Gizli Korse Kası — Belini incecik tutan asıl güç yüzeyde değil, en derindeki korse kasındadır. Nefes verirken diyaframla el ele verip iç basınçla beli sarar.\n3. Nefes Vakumu — Bu kası mekikle değil, nefesini tamamen boşaltıp göbek deliğini sırtına yapıştırarak çalıştırabilirsin.\n\nİnce bir bel için katlanıp durmak değil, derin kasları doğru nefesle içeriden sıkıştırmak gerekir.\n\nMucize ilk sabah gelmeyecek ama doğru kası uyandırırsan o korse etkisi başlayacak.\n\n📌 Kaydet — bir dahaki antrenmanda aynaya bakmadan önce hatırla.\n🔁 Bunu ilk antrenmandan sonra aynada baklava arayan arkadaşına gönder.\nSen hangisisin: Crunch'çı mı, nefes tutup plank'çi mi?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#saglik",
-    "#beslenme",
-    "#sogukdus",
-    "#yagyakimi",
-    "#metabolizma",
-    "#saglikliyasam",
-    "#hormonlar"
+    "#güzellik",
+    "#antrenman",
+    "#corekası",
+    "#karınkası",
+    "#sporyapmak",
+    "#belinceltme"
   ],
-  "takeaway": "Soğuk duş yağ eriten mucize değil, titreten pahalı bir alarmdır.",
+  "takeaway": "Aynayla vedalaş, derin nefes al ve korseni içeriden sık.",
   "footage_queries": [
-    "ice pack on wooden surface close up",
-    "water bottle on wooden table close up"
+    "exercise mat rolled up close up",
+    "fitness watch on table macro"
   ],
   "narration": [
-    "Gece araması seni banyoda titretti.",
-    "Aniden yediğin soğuk su ciltte şok yaratır.",
-    "Beyin norepinefrin salgılayarak nabzını birden zıplatır.",
-    "Bu durum seni anında uyandırır ama yağ yakmaz.",
-    "Soğuk duş hormon mucizesi değil sadece sert alarmdır."
+    "Core kası ilk mekikle çıkmaz.",
+    "Klasik mekik karnı içeri çekmez, yüzeysel kasları şişirip dışarı iter.",
+    "İnce belin sırrı nefesle çalışan en derindeki gizli korse kasında.",
+    "Nefesini tamamen boşaltıp o derin kası içeriden sıkıca çekmelisin.",
+    "Aynayla vedalaş, derin nefes al ve korseni içeriden sık."
   ],
-  "subject": "soğuk duş",
-  "sendTo": "gece yarısı soğuk duş mucizelerini google'da aratan arkadaşına",
-  "soru": "Sen soğuk duşçu musun yoksa sıcak su sevdalısı mı?",
+  "subject": "core kası",
+  "sendTo": "ilk antrenmandan sonra aynada baklava arayan arkadaşına",
+  "soru": "Sen hangisisin: Crunch'çı mı, nefes tutup plank'çi mi?",
   "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -97,30 +91,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Gece araması seni banyoda titretti.",
+      "text": "Core kası ilk mekikle çıkmaz.",
       "start": 0.35,
-      "dur": 2.826
+      "dur": 2.022
     },
     {
-      "text": "Aniden yediğin soğuk su ciltte şok yaratır.",
-      "start": 3.176,
-      "dur": 3.472
+      "text": "Klasik mekik karnı içeri çekmez, yüzeysel kasları şişirip dışarı iter.",
+      "start": 2.372,
+      "dur": 4.88
     },
     {
-      "text": "Beyin norepinefrin salgılayarak nabzını birden zıplatır.",
-      "start": 6.647,
-      "dur": 4.521
+      "text": "İnce belin sırrı nefesle çalışan en derindeki gizli korse kasında.",
+      "start": 7.252,
+      "dur": 4.601
     },
     {
-      "text": "Bu durum seni anında uyandırır ama yağ yakmaz.",
-      "start": 11.168,
-      "dur": 3.714
+      "text": "Nefesini tamamen boşaltıp o derin kası içeriden sıkıca çekmelisin.",
+      "start": 11.854,
+      "dur": 4.601
     },
     {
-      "text": "Soğuk duş hormon mucizesi değil sadece sert alarmdır.",
-      "start": 14.882,
-      "dur": 5.379
+      "text": "Aynayla vedalaş, derin nefes al ve korseni içeriden sık.",
+      "start": 16.455,
+      "dur": 5.004
     }
   ],
-  "thumbOffset": 2013
+  "thumbOffset": 1611
 }

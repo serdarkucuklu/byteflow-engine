@@ -1108,28 +1108,28 @@
     "insightsAt": "2026-09-11T18:12:02.458Z"
   },
   {
-    "title": "Soğuk Duş Yağ Yakmaz, Sadece Uyandırır",
-    "subject": "soğuk duş",
-    "twist": "dr-google",
-    "pillar": "efsane-saglik",
+    "title": "İnce Belin Sırrı: Derindeki Korse Kası",
+    "subject": "core kası",
+    "twist": "beklenti",
+    "pillar": "kadin-antrenman",
     "layout": "nodes-flow",
     "kinds": "diagram",
     "motion": "camera",
     "theme": "#e8a0a8",
     "source": "gemini",
     "footage": [
-      "pexels:ice pack on wooden surface close up",
-      "pexels:water bottle on wooden table close up",
+      "pexels:exercise mat rolled up close up",
+      "pexels:fitness watch on table macro",
       "pexels:running shoes on plain background",
       "pexels:foam roller on floor close up"
     ],
     "voice": 5,
     "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "sir": null,
-    "sirUygulandi": null,
-    "sirAtlandi": "dongu-null",
+    "sir": "Klasik mekik hareketi yüzeysel rectus abdominis kasını sıkıştırarak karın duvarını dışarı doğru iter; oysa bel çevresini",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
     "date": "2026-09-11",
-    "durSec": 20.2
+    "durSec": 21.4
   }
 ]
