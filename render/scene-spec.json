@@ -1,59 +1,66 @@
 {
-  "hook": "Gece iki sepetini sabah hatırlamayan o arkadaşın...",
-  "title": "Ben Değişirim Sözünün Anatomisi",
+  "hook": "Annenin koyduğu yemeği reddetmek neden bu kadar zor?",
+  "title": "Ye Yavrum Kodlaması",
   "scenes": [
     {
       "layout": "vertical-stack",
       "kind": "versus",
-      "left": "KAVGA SONU SÖZÜ",
-      "right": "GECE 02:00 SEPETİ",
+      "left": "SENİN BAKIŞIN",
+      "right": "ANNENİN BAKIŞIN",
       "rows": [
         {
-          "label": "TETİKLEYİCİ PANİK",
-          "left": "Ayrılık korkusu",
-          "right": "Ücretsiz kargo sınırı",
-          "winner": "tie"
+          "label": "TABAKTAKİ",
+          "left": "Ekstra kalori ve porsiyon",
+          "right": "Bakım ve koruma arzusu",
+          "winner": "right"
         },
         {
-          "label": "SABAH KORTİZOLÜ",
-          "left": "Ben ne ara değiştim?",
-          "right": "Ben bunu niye aldım?",
-          "winner": "tie"
+          "label": "REDDETMEK",
+          "left": "İştahsızlık veya diyet",
+          "right": "Emeğe ve sevgiye ret",
+          "winner": "right"
         },
         {
-          "label": "GERÇEK İŞLEVİ",
-          "left": "Anlık dikiş atmak",
-          "right": "Sepeti tamamlamak",
+          "label": "GİZLİ MESAJ",
+          "left": "Gerçekten doydum",
+          "right": "Beni artık takmıyorsun",
+          "winner": "left"
+        },
+        {
+          "label": "HİSSEDİLEN",
+          "left": "Fiziksel şişkinlik",
+          "right": "Bilinçaltı vicdan azabı",
           "winner": "tie"
         }
       ]
     }
   ],
-  "caption": "Kavga sonundaki 'ben değişirim' vaadi, aslında gece 02:00 sepetindeki o üçüncü gereksiz parça gibidir.\n\nKavga anında verilen vaatlerin arkasındaki nörolojik sır:\n\n1. Panik Modu ve İtfaiye Sözleri: Kaybetme korkusu tavan yapınca beyin panikler ve kavgayı hemen bitirmek için tutamayacağı büyük sözler üretir.\n\n2. Durum-Bağımlı Bellek Fiyaskosu: Yüksek stres altında verilen sözler o korku moduna kaydedilir. Sabah sakince uyanınca beyin o stres klasörüne ulaşamaz.\n\n3. Samimiyetsizlik Değil Biyoloji: Bu durum yalancılıktan değil, beyin modunun değişmesinden kaynaklanır. Stres inince verilen söz zihinde buharlaşır.\n\nİlişkide de panik anında verilen sözler tıpkı gece 2'de verilen kargo siparişi gibi morning after pişmanlığı yaratır.\n\nKortizol inince, gece verilen sözler de o kargo gibi elde patlar.\n\n📌 Kaydet — bir dahaki gece krizinde lazım olacak.\n\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına gönder.\n\nKavga sözü mü, gece 02:00 sepeti mi: Hangisinde daha çok pişman oluyorsun?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Annenin tabağı tepeleme doldurması kalori meselesi değil, kendi sinir sistemini yatıştırma mekanizmasıdır.\n\nAnnenin 'ye yavrum' baskısının arkasındaki nörobiyolojik sır:\n\n1. Anne seni beslediğinde, kendi sinir sisteminde oksitosin vasıtasıyla dolaylı bir rahatlama döngüsü başlatır.\n2. Sen yemeği reddettiğinde bu nörokimyasal yatışma aniden yarım kalır.\n3. Annende oluşan bu fizyolojik tamamlanmamışlık gerilimi, sana anında görünmez bir suçluluk sinyali olarak yansır.\n4. Yani doydum dediğinde aslında yemeği değil, annenin kendi kendini sakinleştirme seansını kesmiş olursun.\n\nO ikinci kase çorbayı içeceğiz, kaçış yok.\n\n📌 Kaydet — bir dahaki akşam yemeğinde lazım olacak.\n\n🔁 Bunu annesi her ziyarette tabağını tepeleme dolduran arkadaşına gönder.\n\nSen de 'doydum' deyince annenden fırça yiyor musun?\n\nYazan: Ece.\n\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#kadınlar",
-    "#günlükhayat",
-    "#nedenoluyor",
+    "#annekız",
     "#ilişkiler",
     "#psikoloji",
-    "#bendeğişirim"
+    "#yeyavrum",
+    "#günlükhayat"
   ],
-  "takeaway": "Kortizol inince, gece verilen sözler de o kargo gibi elde patlar.",
+  "takeaway": "Tabağı değil emeği reddediyorsun, vicdan azabının tek sebebi bu.",
   "footage_queries": [
-    "night lamp warm glow bedroom",
-    "crumpled bed sheets close up"
+    "coffee cup steam morning light",
+    "cozy home interior soft light"
   ],
   "narration": [
-    "Gece iki sepetini sabah hatırlamazsın.",
-    "Kavga anında panikleyen beyin sadece krizi bitirmek ister.",
-    "O an verilen sözler yüksek stres moduna kaydedilir.",
-    "Sakinleşince beyin o moda erişemez, sözler silinir.",
-    "Verilen sözler unutulunca da suç ortağın seni hain sanır."
+    "Annenin tabağını reddetmek neden suçluluk yaratır?",
+    "Anne seni besleyince kendi sinir sistemini oksitosinle hızlıca yatıştırır.",
+    "Tabağı geri çevirdiğinde bu biyolojik rahatlama döngüsü yarım kalır.",
+    "Annede biriken o anlık gerilim sana suçluluk olarak yansır.",
+    "Yani olay kalori değil, annenin şalterinin aniden atmasıdır.",
+    "Tabağı değil emeği reddediyorsun, vicdan azabının tek sebebi bu."
   ],
-  "subject": "ben değişirim",
-  "sendTo": "gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına",
-  "soru": "Kavga sözü mü, gece 02:00 sepeti mi: Hangisinde daha çok pişman oluyorsun?",
+  "subject": "ye yavrum",
+  "sendTo": "annesi her ziyarette tabağını tepeleme dolduran arkadaşına",
+  "soru": "Sen de 'doydum' deyince annenden fırça yiyor musun?",
   "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -78,29 +85,34 @@
   "footage": true,
   "beats": [
     {
-      "text": "Gece iki sepetini sabah hatırlamazsın.",
+      "text": "Annenin tabağını reddetmek neden suçluluk yaratır?",
       "start": 0.35,
-      "dur": 2.978
+      "dur": 2.722
     },
     {
-      "text": "Kavga anında panikleyen beyin sadece krizi bitirmek ister.",
-      "start": 3.328,
-      "dur": 4.546
+      "text": "Anne seni besleyince kendi sinir sistemini oksitosinle hızlıca yatıştırır.",
+      "start": 3.072,
+      "dur": 4.029
     },
     {
-      "text": "O an verilen sözler yüksek stres moduna kaydedilir.",
-      "start": 7.875,
-      "dur": 3.997
+      "text": "Tabağı geri çevirdiğinde bu biyolojik rahatlama döngüsü yarım kalır.",
+      "start": 7.101,
+      "dur": 3.702
     },
     {
-      "text": "Sakinleşince beyin o moda erişemez, sözler silinir.",
-      "start": 11.872,
-      "dur": 3.997
+      "text": "Annede biriken o anlık gerilim sana suçluluk olarak yansır.",
+      "start": 10.804,
+      "dur": 3.212
     },
     {
-      "text": "Verilen sözler unutulunca da suç ortağın seni hain sanır.",
-      "start": 15.869,
-      "dur": 5.568
+      "text": "Yani olay kalori değil, annenin şalterinin aniden atmasıdır.",
+      "start": 14.016,
+      "dur": 3.267
+    },
+    {
+      "text": "Tabağı değil emeği reddediyorsun, vicdan azabının tek sebebi bu.",
+      "start": 17.283,
+      "dur": 4.585
     }
   ]
 }

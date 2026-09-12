@@ -444,28 +444,28 @@
     "insightsAt": "2026-09-12T19:02:59.423Z"
   },
   {
-    "title": "Ben Değişirim Sözünün Anatomisi",
-    "subject": "ben değişirim",
-    "twist": "gece-sepeti",
-    "pillar": "sessizlik-kodu",
+    "title": "Ye Yavrum Kodlaması",
+    "subject": "ye yavrum",
+    "twist": "beklenti",
+    "pillar": "aile-dinamigi",
     "layout": "vertical-stack",
     "kinds": "versus",
     "motion": "orbit",
     "theme": "#7de2d1",
     "source": "gemini",
     "footage": [
-      "pexels:night lamp warm glow bedroom",
-      "pexels:crumpled bed sheets close up",
+      "pexels:coffee cup steam morning light",
+      "pexels:blanket folded on sofa close up",
       "pexels:alarm clock on nightstand close up",
       "pexels:bathroom mirror steam close up"
     ],
-    "voice": 5,
-    "voiceName": "Aoede",
+    "voice": 6,
+    "voiceName": "Puck",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Kaybetme tehdidi anında yükselen sempatik uyarılma, amigdala baskısıyla krizi sonlandırmaya odaklı hızlı vaatler ürettir",
+    "sir": "Besleme eylemi, bakım verenin sinir sisteminde oksitosin vasıtasıyla dolaylı bir yatışma döngüsü başlatır. İkram reddedi",
     "sirUygulandi": "kismi",
     "sirAtlandi": null,
     "date": "2026-09-12",
-    "durSec": 21.4
+    "durSec": 21.8
   }
 ]
