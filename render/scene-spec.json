@@ -1,80 +1,121 @@
 {
-  "hook": "Anneannenin 'ağır ol' öğüdü kalabalıkta neden haklı çıktı?",
-  "title": "Grup Sohbetinde Susma Kodları",
+  "hook": "Sporda esnetme yapmak gücünü düşürür.",
+  "title": "Statik Esnetme Yanılgısı",
   "scenes": [
     {
-      "layout": "vertical-stack",
-      "heading": "Grupta Susma Neden Gerçekleşir?",
-      "kind": "versus",
-      "left": "BİREBİR SOHBET",
-      "right": "GRUP SOHBETİ",
-      "rows": [
+      "layout": "nodes-flow",
+      "kind": "diagram",
+      "nodes": [
         {
-          "label": "SOSYAL RİSK",
-          "left": "Düşük elenme riski",
-          "right": "Yüksek dışlanma riski",
-          "winner": "left"
+          "id": "N1",
+          "label": "STATİK ESNEME"
         },
         {
-          "label": "BEYİN ODAĞI",
-          "left": "Fikir paylaşımı",
-          "right": "Grubun hiyerarşisi",
-          "winner": "left"
+          "id": "N2",
+          "label": "GEVŞEYEN TENDON"
         },
         {
-          "label": "ANNEANNE ÖĞÜDÜ",
-          "left": "Ağzına geleni söyle",
-          "right": "Lafını tartıp konuş",
-          "winner": "right"
+          "id": "N3",
+          "label": "GÜÇ VE RİSK"
+        }
+      ],
+      "steps": [
+        {
+          "from": "N1",
+          "to": "N2",
+          "packet": "GERME",
+          "status": "kas ve tendonlar gerilip gevşer",
+          "color": "accent"
+        },
+        {
+          "from": "N2",
+          "to": "N3",
+          "packet": "GÜÇ",
+          "status": "gerilen kas patlayıcı gücü kaybeder",
+          "color": "warn"
+        },
+        {
+          "from": "N3",
+          "to": "N1",
+          "packet": "SAKAT",
+          "status": "eklem desteksiz kalır sakatlık artar",
+          "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Anneanneniz ağır ol molla desinler derken haklıydı!\n\nGrup sohbetinde neden aniden sustuğunun mekanizması:\n\n1. Sosyal risk artışı — Birebir konuşmada rahatken kalabalık grupta yanlış bir cümle kurma korkusu sosyal maliyeti artırır.\n2. Hiyerarşi okuma — Beyin fikir üretmeyi durdurup ortamın dinamiklerini ve dengelerini okumaya geçer.\n3. Sessizlik kalkanı — Konuşma maliyeti yüksek olduğunda susmak grubu dışarıdan izleme stratejisidir.\n\nGrupta susmak fikirsizlik değil, beynin risk yönetimidir.\n\nAnneannemiz ağır ol derken meğer sosyal psikoloji yapıyormuş. Ama biz yine de utangaçlıktan sustuk diyeceğiz.\n\n📌 Kaydet — bir dahaki grup sohbetinde lazım olacak.\n🔁 Bunu kalabalık ortamlarda sessizleşip arkadan izleyen o arkadaşına gönder.\nSen kalabalık grupta çok konuşan mısın yoksa sessizce izleyen mi?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Spordan önce bacak esnetip sakatlanan kulübe hoş geldiniz.\n\nAntrenman öncesi yapılan uzun statik esneme performansı nasıl düşürür, adım adım:\n\n1. Tendon Sürünmesi — Kası uzun süre gerdiğinde tendonun yay gibi enerji depolayan yapısı gevşer ve elastik gücünü kaybeder.\n2. Sinir Sinyali Bastırma — Kastaki Ia afferent sinyalleri baskılanır, sinir sistemi kası adeta koruma moduna alıp derin uykuya sokar.\n3. Motor Birim Blokajı — Beyin, ağırlık kaldırırken en çok ihtiyacın olan yüksek eşikli Tip II motor birimleri ateşlemeyi geçici olarak durdurur.\n\nSpordan önce yapılması gereken kası uyutmak değil, kan dolaşımını artıran dinamik hareketlerle ısıtmaktır.\n\nSalondaki o çok bilen arkadaşın aksi iddia etse de biyoloji yalan söylemez.\n\n📌 Kaydet — bir dahaki antrenmanda lazım olacak.\n🔁 Bunu spora başlamadan önce 15 dakika esneyen o arkadaşına gönder.\nSen spordan önce statik esneme mi yoksa dinamik ısınma mı yapıyorsun?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#merak",
-    "#kadınlar",
-    "#günlükhayat",
-    "#sosyallik",
-    "#arkadaşlık",
-    "#psikoloji",
-    "#gruptasusma"
+    "#sporsağlığı",
+    "#egzersiz",
+    "#esnetme",
+    "#spor",
+    "#kasısınma",
+    "#fitnesstürkiye",
+    "#sağlıklıyaşam"
   ],
-  "takeaway": "Anneannen haklıydı: kalabalıkta susmak cehalet değil sosyal savunma.",
+  "takeaway": "Spora başlamadan kası esnetip uyutma, hareketle uyandır.",
   "footage_queries": [
-    "cozy home interior soft light",
-    "coffee cup steam morning light"
+    "exercise mat rolled up close up",
+    "resistance band on floor close up"
   ],
   "narration": [
-    "Anneannen ağır ol derken haklıydı.",
-    "Birebir sohbet düşük riskliyken kalabalık grupta elenme riski yükselir.",
-    "Beyin kalabalıkta fikir üretmeyi bırakıp grubun hiyerarşisini okumaya başlar.",
-    "Yanlış bir cümle dışlayacağı için susmak en ucuz sosyal kalkan olur.",
-    "Yani grupta susmak fikir yokluğu değil tamamen bir sosyal savunmadır."
+    "Sporda esnetme yapmak gücünü düşürür.",
+    "Uzun esnetme tendonun yay gibi enerji depolayan yapısını gevşetip salar.",
+    "Kastan giden sinyal kesilince sinir sistemi kası adeta uykuya sokar.",
+    "Beyin patlayıcı güç üreten ana motor birimleri çalıştırmayı geçici durdurur.",
+    "Spora başlamadan kası esnetip uyutma dinamik hareketlerle güzelce uyandır."
   ],
-  "subject": "grupta susma",
-  "sendTo": "kalabalık ortamlarda sessizleşip arkadan izleyen o arkadaşına",
-  "soru": "Sen kalabalık grupta çok konuşan mısın yoksa sessizce izleyen mi?",
-  "theme": "#7de2d1",
+  "subject": "esnetme yanılgısı",
+  "sendTo": "spora başlamadan önce 15 dakika esneyen o arkadaşına",
+  "soru": "Sen spordan önce statik esneme mi yoksa dinamik ısınma mı yapıyorsun?",
+  "theme": "#e8a0a8",
   "brand": {
-    "handle": "@kizlar.kodu",
-    "signoff": "her şeyin bir sebebi var",
+    "handle": "@cilt.kodu",
+    "signoff": "güzellik, pazarlama değil",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · bir dahaki siparişte lazım",
+    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
     "tipografi": {
-      "puntoCarpani": 1.06,
-      "harfAralik": -2.1
+      "puntoCarpani": 1,
+      "harfAralik": -1.4
     }
   },
   "palette": {
-    "bg": "#0e0f1a",
-    "card": "#171a2c",
-    "stroke": "#2a2f4a",
-    "text": "#f2f0ff",
-    "muted": "#a9a6c9"
+    "bg": "#17110f",
+    "card": "#241b18",
+    "stroke": "#3c2f2a",
+    "text": "#f6ece7",
+    "muted": "#b9a49c"
   },
   "language": "tr",
-  "motion": "orbit",
+  "motion": "camera",
   "format": "kinetik",
-  "footage": true
+  "footage": true,
+  "beats": [
+    {
+      "text": "Sporda esnetme yapmak gücünü düşürür.",
+      "start": 0.35,
+      "dur": 2.262
+    },
+    {
+      "text": "Uzun esnetme tendonun yay gibi enerji depolayan yapısını gevşetip salar.",
+      "start": 2.612,
+      "dur": 4.402
+    },
+    {
+      "text": "Kastan giden sinyal kesilince sinir sistemi kası adeta uykuya sokar.",
+      "start": 7.015,
+      "dur": 4.158
+    },
+    {
+      "text": "Beyin patlayıcı güç üreten ana motor birimleri çalıştırmayı geçici durdurur.",
+      "start": 11.172,
+      "dur": 4.647
+    },
+    {
+      "text": "Spora başlamadan kası esnetip uyutma dinamik hareketlerle güzelce uyandır.",
+      "start": 15.819,
+      "dur": 5.625
+    }
+  ]
 }

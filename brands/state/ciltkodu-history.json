@@ -1108,10 +1108,10 @@
     "insightsAt": "2026-09-12T17:42:27.690Z"
   },
   {
-    "title": "Fotoğraflarda Neden Kambur Çıkıyorsun?",
-    "subject": "text neck",
-    "twist": "on-kamera",
-    "pillar": "durus-ve-hareket",
+    "title": "Statik Esnetme Yanılgısı",
+    "subject": "esnetme yanılgısı",
+    "twist": "aile-tavsiyesi",
+    "pillar": "efsane-saglik",
     "layout": "nodes-flow",
     "kinds": "diagram",
     "motion": "camera",
@@ -1119,17 +1119,17 @@
     "source": "gemini",
     "footage": [
       "pexels:exercise mat rolled up close up",
-      "pexels:gym towel folded on bench close up",
+      "pexels:resistance band on floor close up",
       "pexels:running shoes on plain background",
       "pexels:foam roller on floor close up"
     ],
     "voice": 5,
-    "voiceName": "Puck",
+    "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Kafa öne her eğildiğinde derin boyun fleksörleri nörolojik olarak pasifleşir ve 5 kiloluk kafayı havada tutma faturası t",
+    "sir": "Statik esnetme tendon yapısında viskoelastik sürünme yaratarak elastik enerjiyi düşürürken, Ia afferent sinyallerini bas",
     "sirUygulandi": "kismi",
     "sirAtlandi": null,
-    "date": "2026-09-11",
+    "date": "2026-09-12",
     "durSec": 21.4
   }
 ]

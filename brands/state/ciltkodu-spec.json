@@ -1,76 +1,74 @@
 {
-  "hook": "Text neck seni fotoğraflarda kaplumbağa yapıyor.",
-  "title": "Fotoğraflarda Neden Kambur Çıkıyorsun?",
+  "hook": "Sporda esnetme yapmak gücünü düşürür.",
+  "title": "Statik Esnetme Yanılgısı",
   "scenes": [
     {
       "layout": "nodes-flow",
+      "kind": "diagram",
       "nodes": [
         {
-          "id": "bakis",
-          "label": "TELEFON BAKIŞI"
+          "id": "N1",
+          "label": "STATİK ESNEME"
         },
         {
-          "id": "egim",
-          "label": "15 DERECE EĞİM"
+          "id": "N2",
+          "label": "GEVŞEYEN TENDON"
         },
         {
-          "id": "kaldirac",
-          "label": "KALDIRAÇ GÜCÜ"
-        },
-        {
-          "id": "trapez",
-          "label": "TRAPEZ ACISI"
+          "id": "N3",
+          "label": "GÜÇ VE RİSK"
         }
       ],
       "steps": [
         {
-          "from": "bakis",
-          "to": "egim",
-          "packet": "BAKIŞ",
-          "status": "kafa öne düşer, filtreler kayar",
-          "color": "warn"
-        },
-        {
-          "from": "egim",
-          "to": "kaldirac",
-          "packet": "FİZİK",
-          "status": "her santim boyna ekstra yük bindirir",
+          "from": "N1",
+          "to": "N2",
+          "packet": "GERME",
+          "status": "kas ve tendonlar gerilip gevşer",
           "color": "accent"
         },
         {
-          "from": "kaldirac",
-          "to": "trapez",
-          "packet": "GERGİN",
-          "status": "boyun değil omuzlar faturayı öder",
+          "from": "N2",
+          "to": "N3",
+          "packet": "GÜÇ",
+          "status": "gerilen kas patlayıcı gücü kaybeder",
+          "color": "warn"
+        },
+        {
+          "from": "N3",
+          "to": "N1",
+          "packet": "SAKAT",
+          "status": "eklem desteksiz kalır sakatlık artar",
           "color": "warn"
         }
       ]
     }
   ],
-  "caption": "Text neck seni fotoğraflarda kaplumbağa gibi çıkarıyor, suç telefonda değil açıda!\n\nArkadaşının habersiz çektiği o karede neden hem omuzların kulağına değiyor hem de durduk yere gıdın çıkıyor? İşte o gizli mekanizma:\n\n1. DERİN KASLAR UYUYOR — Başını öne her eğdiğinde, öndeki derin boyun kasların 'ben kaçar' deyip şalteri kapatıyor.\n2. TRAPEZLER SAVAŞTA — 5 kiloluk kafa havada asılı kalınca, bütün fatura zavallı trapez ve kürek kemiği kaslarına kesiliyor. Omuzlar felaket geriliyor.\n3. GIDI SÜRPRİZİ — İşin sırrı şurada: Bu gerilim boğazındaki hyoid kemiğinin açısını bozuyor. Sıfır beden olsan bile çene hattın aşağı çöküyor, gıdın varmış gibi görünüyor!\n\nÇözüm pahalı gıdı korseleri veya masaj aletleri değil; telefonu sadece göz hizana kaldırmak.\n\nArkadaşın seni yine habersiz çekecek ama bu sefer en azından çene hattın ve duruşun kurtulacak.\n\n📌 Kaydet — duruşunu düzeltmek istediğinde hatırlarsın.\n\n🔁 Bunu seni her fotoğrafta kambur yakalayıp etiketleyen o arkadaşına gönder.\n\nSenin telefon tutuşun hangisi: göz hizası mı, göbek hizası mı?\n\nYazan: Derin.\n\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Spordan önce bacak esnetip sakatlanan kulübe hoş geldiniz.\n\nAntrenman öncesi yapılan uzun statik esneme performansı nasıl düşürür, adım adım:\n\n1. Tendon Sürünmesi — Kası uzun süre gerdiğinde tendonun yay gibi enerji depolayan yapısı gevşer ve elastik gücünü kaybeder.\n2. Sinir Sinyali Bastırma — Kastaki Ia afferent sinyalleri baskılanır, sinir sistemi kası adeta koruma moduna alıp derin uykuya sokar.\n3. Motor Birim Blokajı — Beyin, ağırlık kaldırırken en çok ihtiyacın olan yüksek eşikli Tip II motor birimleri ateşlemeyi geçici olarak durdurur.\n\nSpordan önce yapılması gereken kası uyutmak değil, kan dolaşımını artıran dinamik hareketlerle ısıtmaktır.\n\nSalondaki o çok bilen arkadaşın aksi iddia etse de biyoloji yalan söylemez.\n\n📌 Kaydet — bir dahaki antrenmanda lazım olacak.\n🔁 Bunu spora başlamadan önce 15 dakika esneyen o arkadaşına gönder.\nSen spordan önce statik esneme mi yoksa dinamik ısınma mı yapıyorsun?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
   "hashtags": [
-    "#güzellik",
-    "#sağlık",
-    "#postür",
-    "#boyunağrısı",
-    "#duruşbozukluğu",
-    "#textneck"
+    "#sporsağlığı",
+    "#egzersiz",
+    "#esnetme",
+    "#spor",
+    "#kasısınma",
+    "#fitnesstürkiye",
+    "#sağlıklıyaşam"
   ],
-  "takeaway": "Telefonu kaldır, o etiketlendiğin fotoğrafları kurtar.",
+  "takeaway": "Spora başlamadan kası esnetip uyutma, hareketle uyandır.",
   "footage_queries": [
     "exercise mat rolled up close up",
-    "gym towel folded on bench close up"
+    "resistance band on floor close up"
   ],
   "narration": [
-    "Text neck seni fotoğraflarda kaplumbağa yapıyor.",
-    "Başını öne eğince derin boyun kasların anında uykuya geçiyor.",
-    "Beş kiloluk kafa yükü tamamen omuzlarındaki ezik trapezlere biniyor.",
-    "Ayrıca boğazdaki kemik çekilip zayıf olsan bile gıdı çıkarıyor.",
-    "Telefonu göz hizana kaldır, o etiketlendiğin fotoğrafları kurtar."
+    "Sporda esnetme yapmak gücünü düşürür.",
+    "Uzun esnetme tendonun yay gibi enerji depolayan yapısını gevşetip salar.",
+    "Kastan giden sinyal kesilince sinir sistemi kası adeta uykuya sokar.",
+    "Beyin patlayıcı güç üreten ana motor birimleri çalıştırmayı geçici durdurur.",
+    "Spora başlamadan kası esnetip uyutma dinamik hareketlerle güzelce uyandır."
   ],
-  "subject": "text neck",
-  "sendTo": "seni her fotoğrafta kambur yakalayıp etiketleyen o arkadaşına",
-  "soru": "Senin telefon tutuşun hangisi: göz hizası mı, göbek hizası mı?",
+  "subject": "esnetme yanılgısı",
+  "sendTo": "spora başlamadan önce 15 dakika esneyen o arkadaşına",
+  "soru": "Sen spordan önce statik esneme mi yoksa dinamik ısınma mı yapıyorsun?",
   "theme": "#e8a0a8",
   "brand": {
     "handle": "@cilt.kodu",
@@ -95,30 +93,30 @@
   "footage": true,
   "beats": [
     {
-      "text": "Text neck seni fotoğraflarda kaplumbağa yapıyor.",
+      "text": "Sporda esnetme yapmak gücünü düşürür.",
       "start": 0.35,
-      "dur": 3.148
+      "dur": 2.262
     },
     {
-      "text": "Başını öne eğince derin boyun kasların anında uykuya geçiyor.",
-      "start": 3.498,
-      "dur": 4.001
+      "text": "Uzun esnetme tendonun yay gibi enerji depolayan yapısını gevşetip salar.",
+      "start": 2.612,
+      "dur": 4.402
     },
     {
-      "text": "Beş kiloluk kafa yükü tamamen omuzlarındaki ezik trapezlere biniyor.",
-      "start": 7.499,
-      "dur": 4.46
+      "text": "Kastan giden sinyal kesilince sinir sistemi kası adeta uykuya sokar.",
+      "start": 7.015,
+      "dur": 4.158
     },
     {
-      "text": "Ayrıca boğazdaki kemik çekilip zayıf olsan bile gıdı çıkarıyor.",
-      "start": 11.959,
-      "dur": 4.132
+      "text": "Beyin patlayıcı güç üreten ana motor birimleri çalıştırmayı geçici durdurur.",
+      "start": 11.172,
+      "dur": 4.647
     },
     {
-      "text": "Telefonu göz hizana kaldır, o etiketlendiğin fotoğrafları kurtar.",
-      "start": 16.092,
-      "dur": 5.363
+      "text": "Spora başlamadan kası esnetip uyutma dinamik hareketlerle güzelce uyandır.",
+      "start": 15.819,
+      "dur": 5.625
     }
   ],
-  "thumbOffset": 2174
+  "thumbOffset": 1731
 }
