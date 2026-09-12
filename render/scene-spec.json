@@ -1,121 +1,106 @@
 {
-  "hook": "Sporda esnetme yapmak gücünü düşürür.",
-  "title": "Statik Esnetme Yanılgısı",
+  "hook": "Gece iki sepetini sabah hatırlamayan o arkadaşın...",
+  "title": "Ben Değişirim Sözünün Anatomisi",
   "scenes": [
     {
-      "layout": "nodes-flow",
-      "kind": "diagram",
-      "nodes": [
+      "layout": "vertical-stack",
+      "kind": "versus",
+      "left": "KAVGA SONU SÖZÜ",
+      "right": "GECE 02:00 SEPETİ",
+      "rows": [
         {
-          "id": "N1",
-          "label": "STATİK ESNEME"
+          "label": "TETİKLEYİCİ PANİK",
+          "left": "Ayrılık korkusu",
+          "right": "Ücretsiz kargo sınırı",
+          "winner": "tie"
         },
         {
-          "id": "N2",
-          "label": "GEVŞEYEN TENDON"
+          "label": "SABAH KORTİZOLÜ",
+          "left": "Ben ne ara değiştim?",
+          "right": "Ben bunu niye aldım?",
+          "winner": "tie"
         },
         {
-          "id": "N3",
-          "label": "GÜÇ VE RİSK"
-        }
-      ],
-      "steps": [
-        {
-          "from": "N1",
-          "to": "N2",
-          "packet": "GERME",
-          "status": "kas ve tendonlar gerilip gevşer",
-          "color": "accent"
-        },
-        {
-          "from": "N2",
-          "to": "N3",
-          "packet": "GÜÇ",
-          "status": "gerilen kas patlayıcı gücü kaybeder",
-          "color": "warn"
-        },
-        {
-          "from": "N3",
-          "to": "N1",
-          "packet": "SAKAT",
-          "status": "eklem desteksiz kalır sakatlık artar",
-          "color": "warn"
+          "label": "GERÇEK İŞLEVİ",
+          "left": "Anlık dikiş atmak",
+          "right": "Sepeti tamamlamak",
+          "winner": "tie"
         }
       ]
     }
   ],
-  "caption": "Spordan önce bacak esnetip sakatlanan kulübe hoş geldiniz.\n\nAntrenman öncesi yapılan uzun statik esneme performansı nasıl düşürür, adım adım:\n\n1. Tendon Sürünmesi — Kası uzun süre gerdiğinde tendonun yay gibi enerji depolayan yapısı gevşer ve elastik gücünü kaybeder.\n2. Sinir Sinyali Bastırma — Kastaki Ia afferent sinyalleri baskılanır, sinir sistemi kası adeta koruma moduna alıp derin uykuya sokar.\n3. Motor Birim Blokajı — Beyin, ağırlık kaldırırken en çok ihtiyacın olan yüksek eşikli Tip II motor birimleri ateşlemeyi geçici olarak durdurur.\n\nSpordan önce yapılması gereken kası uyutmak değil, kan dolaşımını artıran dinamik hareketlerle ısıtmaktır.\n\nSalondaki o çok bilen arkadaşın aksi iddia etse de biyoloji yalan söylemez.\n\n📌 Kaydet — bir dahaki antrenmanda lazım olacak.\n🔁 Bunu spora başlamadan önce 15 dakika esneyen o arkadaşına gönder.\nSen spordan önce statik esneme mi yoksa dinamik ısınma mı yapıyorsun?\nYazan: Derin.\nTakip et: @cilt.kodu — güzellik, pazarlama değil.",
+  "caption": "Kavga sonundaki 'ben değişirim' vaadi, aslında gece 02:00 sepetindeki o üçüncü gereksiz parça gibidir.\n\nKavga anında verilen vaatlerin arkasındaki nörolojik sır:\n\n1. Panik Modu ve İtfaiye Sözleri: Kaybetme korkusu tavan yapınca beyin panikler ve kavgayı hemen bitirmek için tutamayacağı büyük sözler üretir.\n\n2. Durum-Bağımlı Bellek Fiyaskosu: Yüksek stres altında verilen sözler o korku moduna kaydedilir. Sabah sakince uyanınca beyin o stres klasörüne ulaşamaz.\n\n3. Samimiyetsizlik Değil Biyoloji: Bu durum yalancılıktan değil, beyin modunun değişmesinden kaynaklanır. Stres inince verilen söz zihinde buharlaşır.\n\nİlişkide de panik anında verilen sözler tıpkı gece 2'de verilen kargo siparişi gibi morning after pişmanlığı yaratır.\n\nKortizol inince, gece verilen sözler de o kargo gibi elde patlar.\n\n📌 Kaydet — bir dahaki gece krizinde lazım olacak.\n\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına gönder.\n\nKavga sözü mü, gece 02:00 sepeti mi: Hangisinde daha çok pişman oluyorsun?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
-    "#sporsağlığı",
-    "#egzersiz",
-    "#esnetme",
-    "#spor",
-    "#kasısınma",
-    "#fitnesstürkiye",
-    "#sağlıklıyaşam"
+    "#merak",
+    "#kadınlar",
+    "#günlükhayat",
+    "#nedenoluyor",
+    "#ilişkiler",
+    "#psikoloji",
+    "#bendeğişirim"
   ],
-  "takeaway": "Spora başlamadan kası esnetip uyutma, hareketle uyandır.",
+  "takeaway": "Kortizol inince, gece verilen sözler de o kargo gibi elde patlar.",
   "footage_queries": [
-    "exercise mat rolled up close up",
-    "resistance band on floor close up"
+    "night lamp warm glow bedroom",
+    "crumpled bed sheets close up"
   ],
   "narration": [
-    "Sporda esnetme yapmak gücünü düşürür.",
-    "Uzun esnetme tendonun yay gibi enerji depolayan yapısını gevşetip salar.",
-    "Kastan giden sinyal kesilince sinir sistemi kası adeta uykuya sokar.",
-    "Beyin patlayıcı güç üreten ana motor birimleri çalıştırmayı geçici durdurur.",
-    "Spora başlamadan kası esnetip uyutma dinamik hareketlerle güzelce uyandır."
+    "Gece iki sepetini sabah hatırlamazsın.",
+    "Kavga anında panikleyen beyin sadece krizi bitirmek ister.",
+    "O an verilen sözler yüksek stres moduna kaydedilir.",
+    "Sakinleşince beyin o moda erişemez, sözler silinir.",
+    "Verilen sözler unutulunca da suç ortağın seni hain sanır."
   ],
-  "subject": "esnetme yanılgısı",
-  "sendTo": "spora başlamadan önce 15 dakika esneyen o arkadaşına",
-  "soru": "Sen spordan önce statik esneme mi yoksa dinamik ısınma mı yapıyorsun?",
-  "theme": "#e8a0a8",
+  "subject": "ben değişirim",
+  "sendTo": "gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına",
+  "soru": "Kavga sözü mü, gece 02:00 sepeti mi: Hangisinde daha çok pişman oluyorsun?",
+  "theme": "#7de2d1",
   "brand": {
-    "handle": "@cilt.kodu",
-    "signoff": "güzellik, pazarlama değil",
+    "handle": "@kizlar.kodu",
+    "signoff": "her şeyin bir sebebi var",
     "shareCta": "↗  Bunu ihtiyacı olan birine gönder",
-    "saveCue": "KAYDET · sonraki ürün krizinde lazım",
+    "saveCue": "KAYDET · bir dahaki siparişte lazım",
     "tipografi": {
-      "puntoCarpani": 1,
-      "harfAralik": -1.4
+      "puntoCarpani": 1.06,
+      "harfAralik": -2.1
     }
   },
   "palette": {
-    "bg": "#17110f",
-    "card": "#241b18",
-    "stroke": "#3c2f2a",
-    "text": "#f6ece7",
-    "muted": "#b9a49c"
+    "bg": "#0e0f1a",
+    "card": "#171a2c",
+    "stroke": "#2a2f4a",
+    "text": "#f2f0ff",
+    "muted": "#a9a6c9"
   },
   "language": "tr",
-  "motion": "camera",
+  "motion": "orbit",
   "format": "kinetik",
   "footage": true,
   "beats": [
     {
-      "text": "Sporda esnetme yapmak gücünü düşürür.",
+      "text": "Gece iki sepetini sabah hatırlamazsın.",
       "start": 0.35,
-      "dur": 2.262
+      "dur": 2.978
     },
     {
-      "text": "Uzun esnetme tendonun yay gibi enerji depolayan yapısını gevşetip salar.",
-      "start": 2.612,
-      "dur": 4.402
+      "text": "Kavga anında panikleyen beyin sadece krizi bitirmek ister.",
+      "start": 3.328,
+      "dur": 4.546
     },
     {
-      "text": "Kastan giden sinyal kesilince sinir sistemi kası adeta uykuya sokar.",
-      "start": 7.015,
-      "dur": 4.158
+      "text": "O an verilen sözler yüksek stres moduna kaydedilir.",
+      "start": 7.875,
+      "dur": 3.997
     },
     {
-      "text": "Beyin patlayıcı güç üreten ana motor birimleri çalıştırmayı geçici durdurur.",
-      "start": 11.172,
-      "dur": 4.647
+      "text": "Sakinleşince beyin o moda erişemez, sözler silinir.",
+      "start": 11.872,
+      "dur": 3.997
     },
     {
-      "text": "Spora başlamadan kası esnetip uyutma dinamik hareketlerle güzelce uyandır.",
-      "start": 15.819,
-      "dur": 5.625
+      "text": "Verilen sözler unutulunca da suç ortağın seni hain sanır.",
+      "start": 15.869,
+      "dur": 5.568
     }
   ]
 }

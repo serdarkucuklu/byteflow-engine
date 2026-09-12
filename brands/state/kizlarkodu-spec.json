@@ -1,60 +1,59 @@
 {
-  "hook": "Anneannenin 'ağır ol' öğüdü kalabalıkta neden haklı çıktı?",
-  "title": "Grup Sohbetinde Susma Kodları",
+  "hook": "Gece iki sepetini sabah hatırlamayan o arkadaşın...",
+  "title": "Ben Değişirim Sözünün Anatomisi",
   "scenes": [
     {
       "layout": "vertical-stack",
-      "heading": "Grupta Susma Neden Gerçekleşir?",
       "kind": "versus",
-      "left": "BİREBİR SOHBET",
-      "right": "GRUP SOHBETİ",
+      "left": "KAVGA SONU SÖZÜ",
+      "right": "GECE 02:00 SEPETİ",
       "rows": [
         {
-          "label": "SOSYAL RİSK",
-          "left": "Düşük elenme riski",
-          "right": "Yüksek dışlanma riski",
-          "winner": "left"
+          "label": "TETİKLEYİCİ PANİK",
+          "left": "Ayrılık korkusu",
+          "right": "Ücretsiz kargo sınırı",
+          "winner": "tie"
         },
         {
-          "label": "BEYİN ODAĞI",
-          "left": "Fikir paylaşımı",
-          "right": "Grubun hiyerarşisi",
-          "winner": "left"
+          "label": "SABAH KORTİZOLÜ",
+          "left": "Ben ne ara değiştim?",
+          "right": "Ben bunu niye aldım?",
+          "winner": "tie"
         },
         {
-          "label": "ANNEANNE ÖĞÜDÜ",
-          "left": "Ağzına geleni söyle",
-          "right": "Lafını tartıp konuş",
-          "winner": "right"
+          "label": "GERÇEK İŞLEVİ",
+          "left": "Anlık dikiş atmak",
+          "right": "Sepeti tamamlamak",
+          "winner": "tie"
         }
       ]
     }
   ],
-  "caption": "Anneanneniz ağır ol molla desinler derken haklıydı!\n\nGrup sohbetinde neden aniden sustuğunun mekanizması:\n\n1. Sosyal risk artışı — Birebir konuşmada rahatken kalabalık grupta yanlış bir cümle kurma korkusu sosyal maliyeti artırır.\n2. Hiyerarşi okuma — Beyin fikir üretmeyi durdurup ortamın dinamiklerini ve dengelerini okumaya geçer.\n3. Sessizlik kalkanı — Konuşma maliyeti yüksek olduğunda susmak grubu dışarıdan izleme stratejisidir.\n\nGrupta susmak fikirsizlik değil, beynin risk yönetimidir.\n\nAnneannemiz ağır ol derken meğer sosyal psikoloji yapıyormuş. Ama biz yine de utangaçlıktan sustuk diyeceğiz.\n\n📌 Kaydet — bir dahaki grup sohbetinde lazım olacak.\n🔁 Bunu kalabalık ortamlarda sessizleşip arkadan izleyen o arkadaşına gönder.\nSen kalabalık grupta çok konuşan mısın yoksa sessizce izleyen mi?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
+  "caption": "Kavga sonundaki 'ben değişirim' vaadi, aslında gece 02:00 sepetindeki o üçüncü gereksiz parça gibidir.\n\nKavga anında verilen vaatlerin arkasındaki nörolojik sır:\n\n1. Panik Modu ve İtfaiye Sözleri: Kaybetme korkusu tavan yapınca beyin panikler ve kavgayı hemen bitirmek için tutamayacağı büyük sözler üretir.\n\n2. Durum-Bağımlı Bellek Fiyaskosu: Yüksek stres altında verilen sözler o korku moduna kaydedilir. Sabah sakince uyanınca beyin o stres klasörüne ulaşamaz.\n\n3. Samimiyetsizlik Değil Biyoloji: Bu durum yalancılıktan değil, beyin modunun değişmesinden kaynaklanır. Stres inince verilen söz zihinde buharlaşır.\n\nİlişkide de panik anında verilen sözler tıpkı gece 2'de verilen kargo siparişi gibi morning after pişmanlığı yaratır.\n\nKortizol inince, gece verilen sözler de o kargo gibi elde patlar.\n\n📌 Kaydet — bir dahaki gece krizinde lazım olacak.\n\n🔁 Bunu gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına gönder.\n\nKavga sözü mü, gece 02:00 sepeti mi: Hangisinde daha çok pişman oluyorsun?\n\nYazan: Ece.\nTakip et: @kizlar.kodu — her şeyin bir sebebi var.",
   "hashtags": [
     "#merak",
     "#kadınlar",
     "#günlükhayat",
-    "#sosyallik",
-    "#arkadaşlık",
+    "#nedenoluyor",
+    "#ilişkiler",
     "#psikoloji",
-    "#gruptasusma"
+    "#bendeğişirim"
   ],
-  "takeaway": "Anneannen haklıydı: kalabalıkta susmak cehalet değil sosyal savunma.",
+  "takeaway": "Kortizol inince, gece verilen sözler de o kargo gibi elde patlar.",
   "footage_queries": [
-    "cozy home interior soft light",
-    "coffee cup steam morning light"
+    "night lamp warm glow bedroom",
+    "crumpled bed sheets close up"
   ],
   "narration": [
-    "Anneannen ağır ol derken haklıydı.",
-    "Birebir sohbet düşük riskliyken kalabalık grupta elenme riski yükselir.",
-    "Beyin kalabalıkta fikir üretmeyi bırakıp grubun hiyerarşisini okumaya başlar.",
-    "Yanlış bir cümle dışlayacağı için susmak en ucuz sosyal kalkan olur.",
-    "Yani grupta susmak fikir yokluğu değil tamamen bir sosyal savunmadır."
+    "Gece iki sepetini sabah hatırlamazsın.",
+    "Kavga anında panikleyen beyin sadece krizi bitirmek ister.",
+    "O an verilen sözler yüksek stres moduna kaydedilir.",
+    "Sakinleşince beyin o moda erişemez, sözler silinir.",
+    "Verilen sözler unutulunca da suç ortağın seni hain sanır."
   ],
-  "subject": "grupta susma",
-  "sendTo": "kalabalık ortamlarda sessizleşip arkadan izleyen o arkadaşına",
-  "soru": "Sen kalabalık grupta çok konuşan mısın yoksa sessizce izleyen mi?",
+  "subject": "ben değişirim",
+  "sendTo": "gece 2'de sepeti onaylayıp sabah ne aldığını hatırlamayan arkadaşına",
+  "soru": "Kavga sözü mü, gece 02:00 sepeti mi: Hangisinde daha çok pişman oluyorsun?",
   "theme": "#7de2d1",
   "brand": {
     "handle": "@kizlar.kodu",
@@ -77,5 +76,32 @@
   "motion": "orbit",
   "format": "kinetik",
   "footage": true,
-  "thumbOffset": 1300
+  "beats": [
+    {
+      "text": "Gece iki sepetini sabah hatırlamazsın.",
+      "start": 0.35,
+      "dur": 2.978
+    },
+    {
+      "text": "Kavga anında panikleyen beyin sadece krizi bitirmek ister.",
+      "start": 3.328,
+      "dur": 4.546
+    },
+    {
+      "text": "O an verilen sözler yüksek stres moduna kaydedilir.",
+      "start": 7.875,
+      "dur": 3.997
+    },
+    {
+      "text": "Sakinleşince beyin o moda erişemez, sözler silinir.",
+      "start": 11.872,
+      "dur": 3.997
+    },
+    {
+      "text": "Verilen sözler unutulunca da suç ortağın seni hain sanır.",
+      "start": 15.869,
+      "dur": 5.568
+    }
+  ],
+  "thumbOffset": 2030
 }

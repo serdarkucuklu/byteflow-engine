@@ -444,10 +444,10 @@
     "insightsAt": "2026-09-12T19:02:59.423Z"
   },
   {
-    "title": "Grup Sohbetinde Susma Kodları",
-    "subject": "grupta susma",
-    "twist": "anneannen-hakliymis",
-    "pillar": "arkadaslik-kodu",
+    "title": "Ben Değişirim Sözünün Anatomisi",
+    "subject": "ben değişirim",
+    "twist": "gece-sepeti",
+    "pillar": "sessizlik-kodu",
     "layout": "vertical-stack",
     "kinds": "versus",
     "motion": "orbit",
@@ -455,17 +455,17 @@
     "source": "gemini",
     "footage": [
       "pexels:night lamp warm glow bedroom",
-      "pexels:coffee cup steam morning light",
+      "pexels:crumpled bed sheets close up",
       "pexels:alarm clock on nightstand close up",
       "pexels:bathroom mirror steam close up"
     ],
-    "voice": null,
-    "voiceName": null,
+    "voice": 5,
+    "voiceName": "Aoede",
     "muzik": "byteflow-ambient.mp3",
-    "sir": "Grup sohbetlerinde bir fikir sorulduğunda hemen yanıt vermemek, zihnin olası mikro-dışlanma riskini hesapladığı asimetri",
-    "sirUygulandi": "geri-alindi",
-    "sirAtlandi": "istek-basarisiz",
-    "date": "2026-09-11",
-    "durSec": 20
+    "sir": "Kaybetme tehdidi anında yükselen sempatik uyarılma, amigdala baskısıyla krizi sonlandırmaya odaklı hızlı vaatler ürettir",
+    "sirUygulandi": "kismi",
+    "sirAtlandi": null,
+    "date": "2026-09-12",
+    "durSec": 21.4
   }
 ]
